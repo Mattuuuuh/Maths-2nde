@@ -1,0 +1,133 @@
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem*{definition}{Définition}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[2]
+
+% dys
+% 
+\newif\ifdys
+		
+% ENABLE or DISABLE font change
+% use XeLaTeX if true
+%\dystrue
+\dysfalse
+
+\ifdys
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{OpenDyslexic}
+\setmathfont{OpenDyslexic}
+
+\fi
+
+% bibliography 
+
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{scholar.bib} %Import the bibliography file
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Activité en groupe 2}}
+\fancyhead[R]{\today}
+
+%\subsection*{Parité}
+
+
+\subsection*{Calendriers julien\footnote{De Jules César (né en 100 av. J.-C., mort en 44 av. J.-C.).} et grégorien\footnote{Du pape Grégoire XIII (1502-1585).}}
+
+La Terre complète son tour autour du Soleil en environ $365{,}2422$ jours. 
+Un calendrier ne peut donc pas contenir le même nombre de jours ($365$) tous les ans si celui-ci doit être synchronisé avec les saisons.
+
+En $46$ av. J.-C., Jules César introduit alors la règle de l'année bissextile.
+
+\begin{ex}[Calendrier julien]
+	\begin{enumerate}
+		\item[]
+		\item
+		Trouver un entier naturel $a \in \N$ non nul tel que
+			\[ 365{,}2422 \approx 365 + \dfrac1a.\]
+
+		\item
+		En déduire la règle d'année bissextile du calendrier julien.
+		
+		\item Au bout de $1600$ ans, de combien de jours le calendrier est-il en avance ?
+	\end{enumerate}
+\end{ex}
+
+En $1582$, plus de $1600$ ans après l'introduction de la règle d'année bissextile, le calendrier julien prend donc une avance notoire.
+Le pape Grégoire XIII promulgue alors une réforme du calendrier, ainsi créant le calendrier grégorien encore utilisé aujourd'hui.
+
+Afin de corriger le problème de dérive du calendrier, une nouvelle restriction est ajoutée à la définition d'année bissextile.
+
+\begin{ex}[Calendrier grégorien]
+	\begin{enumerate}
+		\item[]
+		\item
+		Trouver un entier naturel $b \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{b}{400}.\]
+
+		\item  En déduire la règle d'année bissextile du calendrier grégorien.
+		
+		\item Au bout de combien d'années le calendrier est-il en avance d'un jour ?
+	\end{enumerate}
+\end{ex}
+
+\begin{ex}[Un nouveau calendrier ?]
+
+	\begin{enumerate}
+		\item[]
+		\item
+		Trouver un entier naturel $c \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{3}{400} - \dfrac{c}{4000}.\]
+
+		\item  Créer une nouvelle règle d'année bissextile et calculer le nombre d'années avant que votre calendrier soit en avance d'un jour.
+	\end{enumerate}
+
+\end{ex}
+
+\vfill
+\nocite{*}
+\printbibliography[title={Référence}]
+
+\end{document}

@@ -1,0 +1,327 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				%\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\solutionstrue
+				%\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{ \ifsolutions Solutions 1 \else Exercices 1 \fi}}
+\fancyhead[R]{\today}
+
+%\subsection*{Parité}
+
+
+\subsection*{Multiples et diviseurs}
+
+\exe{
+	\begin{enumerate}
+		\item Écrire  l'\emph{ensemble} des diviseurs de $24$.
+		\item Écrire  l'\emph{ensemble} des diviseurs de  $33$.
+	\end{enumerate}
+}{
+	\begin{align*}
+		\mathcal{D}_{24}& = \{ 1, 2, 3, 4,  6, 8, 12, 24 \}, \\
+		\mathcal{D}_{33} &= \{ 1, 3, 11, 33 \}.
+	\end{align*}
+}
+
+
+\exe{
+	\begin{enumerate}
+		\item Donner  l'\emph{ensemble} des multiples de $17$ inférieurs ou égaux à $100$.
+		\item Donner  l'\emph{ensemble} des multiples de  $34$ inférieurs ou égaux à $100$.
+	\end{enumerate}
+}{
+	\begin{align*}
+		\mathcal{M}_{17}& = \{ 0, 17, 34, 51, 68, 85 \}, \\
+		\mathcal{M}_{34} &= \{  0, 34, 68  \}.
+	\end{align*}
+}
+
+\hrule
+
+\exe{
+	Soient $a, b \in \N$ deux entiers naturels tels que
+		\[ a | b. \]
+	Montrer que $a$ divise également tous les multiples de $b$.
+}{
+	La relation $a | b$ signifie qu'il existe un entier naturel $k\in\N$ tel que 
+		\[ b = a \times k. \]
+	Or les multiples de $b$ sont $\{ 0, b, 2b, 3b, \dots \}$. Il s'écrivent donc 
+		\[  n \times b, \]
+	pour $n \in \N$ un entier naturel.
+	
+	On a donc 
+		\[ n \times b  = n \times (a \times k) = a \times  (k \times n). \]
+	Le multiple de $b$ est donc divisible par $a$ car $k \times n$ est un entier naturel.
+
+	Si on prend $a = 2$, on retrouve un lemme du cours : si $b$ est pair, alors tous les multiples de $b$ sont pairs.
+}
+
+\exe{
+	Soient $a, b, c \in \N$ trois entiers naturels vérifiant
+		\[ a | b \qquad  \text{ et } \qquad b | c. \]
+	Montrer que $a$ divise $c$.
+}{
+	La relation $b | c$ est équivalente à dire que $c$ est un multiple de $b$. 
+	En effet, on a la relation
+		\[ c = b \times n, \]
+	pour un certain $n\in\N$ entier naturel.
+	
+	L'exercice ci-dessus conclut donc, car il montre que $a$ divise tout multiple de $b$, et donc $c$.
+}
+
+\hrule
+
+\subsection*{Nombres premiers}
+
+\exe{
+	Énumérer tous les nombres premiers inférieurs ou égaux à $15$.
+}{
+	En notant $\mathcal{S}$ cet ensemble, on a
+	\[ \mathcal{S} = \{ 2, 3, 5, 7, 11, 13 \}. \]
+}
+
+\exe{[Livre n°32-35 p.50]
+	Décomposer les nombres suivants en produit de facteurs premiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[i)]
+		\item  $64 $
+		\item $25$
+		\item $81$
+		\item  $6 \times 121 \times 64$
+		\item $45 \times 125 \times 9$
+		\item $10^2 \times 15^3$
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\begin{multicols}{3}
+	\begin{enumerate}[i)]
+		\item  $64 = 2^6 $
+		\item $25 = 5^2$
+		\item $81 = 9^2$
+		\item  $6 \times 121 \times 64 = 2^7 \times 3 \times 11^2$
+		\item $45 \times 125 \times 9 = 3^4 \times 5^4$
+		\item $10^2 \times 15^3 = 2^2 \times 3^3 \times 5^5$
+	\end{enumerate}
+	\end{multicols}
+
+
+}
+
+
+\exe{[Livre n°40 p.50]
+	On considère le nombre $n=2^6 \times 3^2 \times 7^7$.
+	Quelles sont les affirmations exactes ? Justifier.
+	\begin{multicols}{2}
+	\begin{enumerate}[a)]
+		\item $2^3 \times 3^3$ divise $n$
+		\item $2^3 \times 7^3$ divise $n$
+		\item $2^3 \times 7$ divise $n$
+		\item $3^2 \times 7^7$ divise $n$
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\textbf{Remarque importante} : si $a$ divise $n$, on peut écrire 
+		\[ n = a \times k, \]
+	pour $k \in \N$ un entier naturel.
+	
+	En décomposant $a$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice 6iv) par exemple).
+	Ainsi, si un nombre premier apparaît dans la décomposition de $a$, il doit apparaître au moins autant de fois dans la décomposition de $b$.
+	
+
+	\begin{enumerate}[a)]
+		\item $2^3 \times 3^3$ ne divise pas $n$ car $3$ n'apparaît que $2$ fois dans la décomposition de $n$.
+		\item $2^3 \times 7^3$ divise $n$ car $n = (2^3 \times 7^3) \times (2^3 \times 3^2 \times 7^4)$.
+		\item $2^3 \times 7$ divise $n$ car $n = (2^3 \times 7) \times ( 2^3 \times 3^2 \times 7^6)$.
+		\item $3^2 \times 7^7$ divise $n$ car $n=(3^2 \times 7^7) \times 2^6 $.
+	\end{enumerate}
+}
+
+\hrule
+
+\exe{
+	Soit $n \in \N$ un entier naturel.
+	\begin{enumerate}
+		\item Écrire la décomposition en produit de facteurs premiers de $10^n$.
+		\item Démontrer par l'absurde que le rationnel $\dfrac{5}{12} \in \Q$ n'est pas un nombre décimal.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item $10^n = 2^n \times 5^n$.
+		\item On reprend la preuve par l'absurde vue en cours jusqu'à trouver deux entiers $a\in\Z$, $n\in\N$ tels que
+			\[ \dfrac{a}{10^n} = \dfrac{5}{12}. \]
+		En manipulant l'égalité on trouve
+			\[ 3 \times 4 a = 5 \times 10^n = 2^n 5^{n+1}. \]
+		Ainsi le premier $3$ apparaît à gauche mais pas à droite, ce qui contredit l'unicité du théorème de décomposition vu en cours (théorème fondamental de l'arithmétique).
+	\end{enumerate}
+}
+
+\hrule
+
+\subsection*{Coprimalité}
+
+
+\exe{
+	\begin{enumerate}
+		\item Donner les diviseurs \emph{communs} à $6$ et à $15$.
+		\item Simplifier la fraction $\dfrac{6}{15}$ en \emph{fraction irréductible}.
+	\end{enumerate}
+}{
+
+	\begin{enumerate}
+		\item $\mathcal{D}_6 \cap \mathcal{D}_{15} = \{ 1, 3 \}$.
+		\item $\dfrac{6}{15} = \dfrac{3 \times 2}{3 \times 5} = \dfrac25$, irréductible car $2$ et $5$ sont premiers entre eux. 
+	\end{enumerate}
+	
+}
+
+
+\exe{
+	\begin{enumerate}
+		\item Donner les multiples \emph{communs}  à $10$ et $35$ inférieurs ou égaux à $100$.
+		\item Écrire la somme $\dfrac{3}{10} + \dfrac{6}{35}$ en \emph{fraction irréductible}.
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item $\mathcal{M}_{10} \cap \mathcal{M}_{35} = \{ 0, 70 \}$.
+		\item  $\dfrac{3}{10} + \dfrac{6}{35} = \dfrac{21}{70} + \dfrac{12}{70} = \dfrac{33}{70}$, irréductible car $33$ et $70$ sont premiers entre eux.
+	\end{enumerate}
+	
+	\textbf{Remarque importante} : un diviseur de $33 = 3 \times 11$ admet uniquement $3$ et $11$ dans sa décomposition en produit de nombres premiers, d'après l'exercice $7$.
+	Idem pour $70 = 2 \times 5 \times 7$, un diviseur admet uniquement $2, 5$, et $7$ dans sa décomposition.
+	
+	Donc le seul diviseur commun à $33$ et $70$ est $1$.
+}
+
+\hrule
+
+\exe{
+	Soit $n \in \N$ un entier naturel \emph{non nul}.
+	
+	Montrer que la fraction $\dfrac{n}{n+1}$ est irréductible.
+}{
+
+	Le but est de montrer que le seul diviseur commun à $n$ et $n+1$ est $1$.
+	Appelons $d \in \N$ un diviseur commun à $n$ et $n+1$.
+	On a alors
+		\begin{align*}
+			n = d \times a = da,    &&  n+1 = d \times b = db,
+		\end{align*}
+	pour deux entiers naturels $a, b \in \N$.
+	
+	Ainsi
+		\[ 1 = (n+1) - n = d b - d a = d(b-a). \]
+	Donc $d$ est un diviseur de $1$ car $b-a$ est un entier : il est forcément égal à $1$.
+	
+	Finalement, le seul diviseur commun à $n$ et $n+1$ doit être $1$.
+}
+
+\hrule
+
+
+%\exe{
+%	Soient $a, b, c \in \N$ trois entiers naturels tels que
+%		\[ a | b \qquad  \text{ et } \qquad a | c. \]
+%	\begin{enumerate}
+%		\item Montrer que $a$ divise la somme $b + c$.
+%		\item Est-ce que $a+b$ divise toujours $c$ ?
+%	\end{enumerate}
+%}
+
+
+
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[2]
+
+\begin{document}
+
+\section{Automatismes}
+
+
+\subsection{Diviseurs, premiers, parité}
+
+\begin{frame}
+
+	\begin{itemize} \itemsep2em 
+		\item Écrire la décomposition en produit de facteurs premiers de $132$.
+		\item Écrire l'ensemble des diviseurs de $48$.
+		\item $49$ est-il premier ? $51$ est-il premier ?
+		\item Vrai ou faux : ajouter un nombre pair à un autre nombre ne change pas sa parité.
+		\item Vrai ou faux : multiplier un nombre par un nombre pair donne toujours un nombre impair.
+	\end{itemize}
+
+\end{frame}
+
+
+\subsection{Fractions}
+
+\begin{frame}
+
+	\begin{itemize} \itemsep2em 
+		\item $1 - \dfrac12 = $
+		\item $\dfrac78 + \dfrac{9}{40} = $
+		\item $\dfrac{-3}{\dfrac54} = $
+		\item $\dfrac{63}{20} \times \dfrac{15}{14} = $
+	\end{itemize}
+
+
+\end{frame}
+
+%\subsection{Calcul littéral}
+%
+%\begin{frame}
+%
+%	\begin{itemize} \itemsep2em 
+%		\item $(3x -1) + (8x + 4)$
+%		\item $(2x + 5) - (2x + 7)$
+%		\item $5(-x - 3) + 7(3x + 2)$
+%		\item $\dfrac16 (x + 12) + \dfrac12 (x - 2)$
+%		\item $(3x)^2 + (2x)^2$
+%	\end{itemize}
+%
+%\end{frame}
+
+
+\end{document}

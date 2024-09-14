@@ -1,0 +1,134 @@
+\documentclass[12pt]{paper}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\solutionstrue
+				%\solutionsfalse
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Ensembles dénombrables}}
+\fancyhead[R]{\AdvanceDate[1]\today}
+
+\section*{Appartenance à des ensembles}
+
+
+
+\ifsolutions
+
+
+\begin{center}
+\begin{tabular}{ | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\in$ & $\N$ & $\Z$ & $\D$ & $\Q$  \\ \hline \xrowht{20pt}
+  1 & \checkmark & \checkmark & \checkmark &  \checkmark \\ \hline\xrowht{20pt}
+  -1 & & \checkmark & \checkmark&\checkmark \\ \hline\xrowht{20pt}
+  6,3 & & &\checkmark &\checkmark \\ \hline\xrowht{20pt}
+  $-1,4 \times 10 ^{80}$ & & \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
+  $6,02 \times 10 ^{-23}$ & & & \checkmark&\checkmark \\ \hline\xrowht{20pt} 
+  1/3 & & & &  \checkmark\\  \hline\xrowht{20pt}
+  12/4 & \checkmark& \checkmark& \checkmark& \checkmark\\ \hline \xrowht{20pt}
+  $\sqrt{9}$ & \checkmark& \checkmark& \checkmark&\checkmark \\ \hline \xrowht{20pt}
+  $\sqrt{2}+1$ & & & & \\ \hline\xrowht{20pt}
+  $2 \pi$ & & & & \\ \hline
+\end{tabular}
+\end{center}
+
+\else
+
+\begin{center}
+\begin{tabular}{ | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\in$ & $\N$ & $\Z$ & $\D$ & $\Q$  \\ \hline \xrowht{20pt}
+  1 & & & & \\ \hline\xrowht{20pt}
+  -1 & & & & \\ \hline\xrowht{20pt}
+  6,3 & & & & \\ \hline\xrowht{20pt}
+  $-1,4 \times 10 ^{80}$ & & & & \\ \hline\xrowht{20pt}
+  $6,02 \times 10 ^{-23}$ & & & & \\ \hline\xrowht{20pt} 
+  1/3 & & & & \\  \hline\xrowht{20pt}
+  12/4 & & & & \\ \hline \xrowht{20pt}
+  $\sqrt{9}$ & & & & \\ \hline \xrowht{20pt}
+  $\sqrt{2}+1$ & & & & \\ \hline\xrowht{20pt}
+  $2 \pi$ & & & & \\ \hline
+\end{tabular}
+\end{center}
+
+\fi
+
+\section*{Inclusions d'ensembles}
+
+\ifsolutions
+
+
+\begin{center}
+\begin{tabular}{ | P{.2\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\subset $ & $\N$ & $\Z$ & $\D$ & $\Q$  \\ \hline \xrowht{20pt}
+  $\{ 1, -4 \}$ & & \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
+  $\{ 1 \}$ & \checkmark& \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
+  $\{ -1/2, 3 \}$ & & & \checkmark&\checkmark \\ \hline\xrowht{20pt}
+  $\{ 1, 2, 6/2, -1/3 \}$ & & & &\checkmark \\ \hline\xrowht{20pt}
+  $ \Z$ & & \checkmark&\checkmark &\checkmark \\ \hline\xrowht{20pt}
+  $\{ 2 \pi+4 \} $ & & & & \\ \hline
+  
+\end{tabular}
+\end{center}
+
+\textbf{Conclusion : } $\N \subset \Z \subset \D \subset \Q$.
+
+
+\else
+
+\begin{center}
+\begin{tabular}{ | P{.2\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\subset $ & $\N$ & $\Z$ & $\D$ & $\Q$  \\ \hline \xrowht{20pt}
+  $\{ 1, -4 \}$ & & & & \\ \hline\xrowht{20pt}
+  $\{ 1 \}$ & & & & \\ \hline\xrowht{20pt}
+  $\{ -1/2, 3 \}$ & & & & \\ \hline\xrowht{20pt}
+  $\{ 1, 2, 6/2, -1/3 \}$ & & & & \\ \hline\xrowht{20pt}
+  $ \Z$ & & & & \\ \hline\xrowht{20pt}
+  $\{ 2 \pi+4 \} $ & & & & \\ \hline
+  
+\end{tabular}
+\end{center}
+
+\fi
+
+
+\end{document}

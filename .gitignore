@@ -1,0 +1,15 @@
+*.aux
+*.log
+*.pdf
+*.gz
+*.bcf
+*.bbl
+*.blg
+*.xml
+*.nav
+*.out
+*.snm
+*.toc
+*.png
+*.ods
+*.odt
