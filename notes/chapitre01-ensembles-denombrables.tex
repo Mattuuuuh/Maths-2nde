@@ -1,0 +1,86 @@
+%!TEX encoding = UTF8
+%!TEX root =notes.tex
+
+\chapter{Ensembles dénombrables}
+
+	\dfn{Ensemble de nombres}{
+		On note un ensemble de nombres par des accolades \{  $\dots$ \}  entourant une liste de nombres.
+	}
+	\ex{}{
+		Les ensembles suivants sont des ensembles de nombres.
+		\begin{multicols}{3}
+			$E_1 = \{ 1 ;  2 ; 3\}$, \\
+			$E_2 = \left\{ -1,2 ; 4 ; \dfrac{7}{12} \right\}$, \\
+			$E_3 = \{ 2\pi \}$.
+		\end{multicols}
+		Les nombres appartenant à un ensembles sont appelé les \emph{éléments} de l'ensemble.
+		Tous les éléments sont distincts.
+	}
+
+	\dfn{Entiers et rationnels}{
+		On définit les ensembles infinis suivants.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\N = \{ 0 ; 1 ; 2 ; 3 ; \dots \}$,
+			\item $\Z = \{ 0 ; 1 ; -1 ; 2 ; -2 ; 3 ; -3 ; \dots \}$, 
+			\item $\D = \left\{ \dfrac{a}{10^n} \text{ tel que : } a \in \Z, n \in \N \right\}$,
+			\item $\Q = \left\{ \dfrac{a}b \text{ tel que : } a, b \in \Z \right\}$.
+		\end{enumerate}
+		\end{multicols}
+		Ils sont respectivement : les entiers \emph{naturels}, les entiers \emph{relatifs}, les nombres décimaux, et les nombres \emph{rationnels}.
+	}
+	
+	\nt{
+		Les décimaux $\D$ ont un nombre de décimales fini. En effet, la fraction $\dfrac{a}{10^n}$ pour $a \in \Z$ admet au plus $n$ décimales après la virgules.
+	}
+	
+	\dfn{Appartenance, inclusion}{
+		On pose les symboles suivants pour signifier l'appartenance et l'inclusion.
+		\begin{itemize}
+			\item $a \in E$ : l'élément $a$ appartient à l'ensemble $E$.
+			\item $E \subset S$ : l'ensemble $E$ est inclus dans l'ensemble $S$.
+		\end{itemize}	
+	}
+	\nt{
+		Pour que $E \subset S$, tous les éléments de $E$ doivent aussi appartenir à $S$.
+	}
+	
+	\ex{Appartenances et inclusions}{
+		\begin{multicols}{3}
+		\begin{itemize}
+			\item  $2 \in \N$,
+			\item $2/3 \in \Q$,
+			\item $0{,}7 \in \D$,
+			\item $ \left\{ 0 ; -3 ; \dfrac{32}{8} ; 1 \right\} \subset \Z$,
+			\item $\N \subset \Z$,
+			\item $\Z \subset \Z$.
+		\end{itemize}
+		\end{multicols}		
+		On a la suite d'inclusions $\N \subset \Z \subset \D \subset \Q$.
+	}
+	
+	\ex{Non appartenances et non inclusions}{
+		\begin{multicols}{3}
+		\begin{itemize}
+			\item  $-2 \notin \N$,
+			\item $\dfrac13 \notin \D$, 
+			\item $2 \pi \notin \Q$,
+			\item $ \{ 0 ; -1,2 ; 4 \}  \not\subset \Z$,
+			\item $ \left\{ \dfrac{4}{13}; -1,5 ; 2,75 \right\} \not\subset \D$.
+		\end{itemize}
+		\end{multicols}	
+	}
+	
+	
+	
+	\qs{}{
+		Le rationnel $\dfrac13$ n'appartient pas à $\D$ car ses décimales se répètent infiniment. Qu'en est-il de $\dfrac17$ ou $\dfrac{5}{12}$ ?
+		
+		
+		Le but du prochain chapitre est de démontrer rigoureusement que les fractions du type $\dfrac{5}{12}$ ne sont pas décimales : leur écriture est infinie.
+	}
+	\qs{}{
+		Soit $\sqrt{2}$ le nombre positif qui vérifie $\left(\sqrt{2}\right)^2 = 2$. Est-ce que $\sqrt{2}$ est rationnel ?
+		
+		Nous démontrerons également que $\sqrt{2}$ n'est pas un nombre rationnel.
+	}
