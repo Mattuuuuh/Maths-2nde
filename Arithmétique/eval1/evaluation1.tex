@@ -24,8 +24,9 @@
 \setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
 
 \else
+% NO DYSLEXIA
 
-\documentclass[a4paper, 12pt]{extarticle}
+\documentclass[a4paper, 14pt]{extarticle}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 
 \fi
@@ -68,9 +69,9 @@ nomarginpar,% We don't want any margin paragraphs
 \newcommand{\D}{\mathbb{D}}
 
 
-% date
+% DATE 
 \usepackage{advdate}
-\AdvanceDate[3]
+\AdvanceDate[1]
 
 
 
@@ -79,23 +80,72 @@ nomarginpar,% We don't want any margin paragraphs
 \fancyhead[L]{Seconde 13 }
 \fancyhead[C]{\textbf{Évaluation 1}}
 \fancyhead[R]{\today }
+		% REMOVE PAGE NUMBERING 
+		%\cfoot{} 
 
 \begin{center}
 \begin{tabular}{ | p{.3\linewidth} | p{.5\linewidth} | p{.1\linewidth} |  } 
   \hline\xrowht{20pt}
-  Nom et prénom  & Appréciation & Note \\ \xrowht{60pt}
+  Nom et prénom  & Appréciation & Note \\ \xrowht{40pt}
   & & \\ \hline
 \end{tabular}
 \end{center}
 
 
-\subsection*{Multiples, diviseurs}
+\subsection*{Multiples et diviseurs}
 
-
+	\noindent
+	\textbf{Question 1.} (2pts) Pour $d, n \in \N$ deux entiers naturels non nuls, donner la définition mathématique de $d | n$.
+	\vspace{4cm}
+	
+	\noindent
+	\textbf{Question 2.} (1pt) Donner l'ensemble des multiples de $12$ inférieurs ou égaux à $100$.
+	\vspace{3cm}
+	
+	\noindent
+	\textbf{Question 3.} (2pts) Donner l'ensemble des diviseurs de $40$.
+	\vspace{3cm}
+	
 \subsection*{Nombres premiers}
 
 
+	\noindent
+	\textbf{Question 4.} (4pts) Décomposer les nombres suivants en produit de facteurs premiers.
+			\begin{enumerate}[i)]
+				\item 72 =
+				\item[]
+				\item 135 =
+				\item[]
+				\item $44 \times 66$ = 
+				\item[] 
+				\item $(14)^3 \times (24)^4$ = 
+			\end{enumerate}
+			
+
+	\noindent
+	\textbf{Question 5.} (2pts) Donner l'ensemble des nombres premiers inférieurs ou égaux à $20$.
+	\vspace{3cm}
+
 \subsection*{Coprimalité}
+
+
+	
+	\noindent
+	\textbf{Question 6.} (2pts) Écrire les fractions suivantes sous forme irréductible.
+			\begin{enumerate}[i)]
+				\item $\dfrac{72}{135}$ =
+				\item[] \vspace{.5cm}
+				\item $\dfrac{44}{32} \times  \dfrac{100}{14}$ = 
+			\end{enumerate}
+	\vspace{1cm}
+
+	\noindent
+	\textbf{Question 7.} (2pts) Pour $a, b \in \N$ non nuls, donner la définition mathématique de \og $a$ et $b$ sont premiers entre eux \fg.
+	\vspace{7cm}
+	
+	\noindent
+	\textbf{Bonus.} (2pts) Soit $n\in \N$. Montrer que si $n$ est pair, alors $n^3$ est pair.
+	\vspace{8cm}
 
 
 \end{document}
