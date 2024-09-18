@@ -10,7 +10,7 @@
 \newcommand{\clm}[3]{\begin{claim}{#1}{#2}#3\end{claim}}
 \newcommand{\wc}[2]{\begin{wconc}{#1}{}\setlength{\parindent}{1cm}#2\end{wconc}}
 \newcommand{\thmcon}[2]{\begin{Theoremcon}[label=#2]{#1}\end{Theoremcon}}
-\newcommand{\ex}[2]{\begin{Example}{#1}{}#2\end{Example}}
+\newcommand{\ex}[3]{\begin{Example}[label=#3]{#1}{}#2\end{Example}}
 \newcommand{\exe}[2]{\begin{Exercise}{#1}{}#2\end{Exercise}}
 \newcommand{\dfn}[2]{\begin{Definition}[colbacktitle=red!75!black]{#1}{}#2\end{Definition}}
 \newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
@@ -110,3 +110,9 @@
 \let\oldgeq\geq
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
+
+% PLUS INFTY AND MINUS INFTY WITH NO SPACE
+
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
