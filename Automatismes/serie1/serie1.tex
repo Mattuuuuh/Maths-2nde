@@ -1,0 +1,284 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				%\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+% END DYSLEXIA SWITCH
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\usepackage{amsmath}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\theoremstyle{definition}
+\newtheorem*{sol}{Solution}
+\newtheorem{ex}{Exercice}
+\newtheorem{definition}{Définition}
+\newtheorem{remark}{Remarque}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+% END SOLUTION SWITCH
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{ Rationnels et équations linéaires \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\subsection*{Manipulation de rationnels}
+
+\exe{
+	Écrire les sommes et différences de rationnels sous forme d'une fraction irréductible.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $1 - \dfrac12$
+		\item $\dfrac78 + \dfrac{9}{40}$
+		\item $\dfrac{3}{4} + \dfrac{2}{5}$
+		\item $\dfrac{7}{6} - \dfrac{5}{8}$
+		\item $\dfrac{9}{10} + \dfrac{2}{3} - \dfrac{1}{4}$
+		\item $\dfrac{-5}{7} + \dfrac{8}{9}$
+		\item $\dfrac{4}{5} - \dfrac{3}{10} + \dfrac{-5}{6}$
+		\item $\dfrac{-1}{2} + \dfrac{7}{8}$
+		\item $\dfrac{11}{12} - \dfrac{5}{9} + \dfrac{7}{10}$
+		\item $\dfrac{2}{3} - \dfrac{5}{4}$
+		\item $\dfrac{-1}{3} + \dfrac{7}{9} - \dfrac{5}{6}$
+		\item $\dfrac{3}{8} - \dfrac{1}{2}$
+	\end{enumerate}
+	\end{multicols}
+}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $1 - \dfrac{1}{2} = \dfrac{1}{2}$
+		\item $\dfrac{7}{8} + \dfrac{9}{40} = \dfrac{11}{10}$
+		\item $\dfrac{3}{4} + \dfrac{2}{5} = \dfrac{23}{20}$
+		\item $\dfrac{7}{6} - \dfrac{5}{8} = \dfrac{13}{24}$
+		\item $\dfrac{9}{10} + \dfrac{2}{3} - \dfrac{1}{4} = \dfrac{79}{60}$
+		\item $\dfrac{-5}{7} + \dfrac{8}{9} = \dfrac{11}{63}$
+		\item $\dfrac{4}{5} - \dfrac{3}{10} + \dfrac{-5}{6} = \dfrac{-1}{3}$
+		\item $\dfrac{-1}{2} + \dfrac{7}{8} = \dfrac{3}{8}$
+		\item $\dfrac{11}{12} - \dfrac{5}{9} + \dfrac{7}{10} = \dfrac{191}{180}$
+		\item $\dfrac{2}{3} - \dfrac{5}{4} = \dfrac{-7}{12}$
+		\item $\dfrac{-1}{3} + \dfrac{7}{9} - \dfrac{5}{6} = \dfrac{-7}{18}$
+		\item $\dfrac{3}{8} - \dfrac{1}{2} = \dfrac{-1}{8}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\begin{definition}
+	L'\emph{inverse} d'un nombre $a \in \R$ non nul désigne la quantité qui, lorsque multipliée par $a$, donne $1$.
+	Elle est notée $\dfrac{1}{a}$ ou $a^{-1}$.
+	
+	Multiplier par $\dfrac1a$ est équivalent à diviser par $a$.
+\end{definition}
+
+\begin{remark}
+	L'inverse de $2$ est donc $\dfrac12$ car $2 \times \dfrac12 = 1$. D'où $\dfrac12 = 0{,}5$.
+	La notation $\dfrac12$ est préférée à $0{,}5$ car généralement plus précise : on a vu que $\dfrac17$ n'est pas décimal et donc qu'on ne peut pas exprimer tous les rationnels de façon exacte en écriture décimale.
+	
+	L'inverse de $\dfrac47$ est $\dfrac74$ car $\dfrac47 \times \dfrac74 = 1$.
+	Autrement dit, $\dfrac{\ \ 1 \ \ }{\dfrac47} = \left( \dfrac47 \right)^{-1} = \dfrac74$.
+\end{remark}
+
+\exe{
+	Écrire les produit et divisions de rationnels sous forme de fraction irréductible.
+	
+	\begin{multicols}{2}
+	\begin{enumerate} 
+		\item $\dfrac{\ \ -3 \ \ }{\dfrac54}$
+		\item $\dfrac{63}{20} \times \dfrac{15}{14}$
+		\item $\dfrac{3}{4} \times \dfrac{2}{5}$
+		\item $\dfrac{\ \ \dfrac{7}{6}\ \ }{\dfrac{5}{8}}$
+		\item $\dfrac{9}{10} \times \dfrac{2}{3} \times \dfrac{4}{1}$
+		\item $\dfrac{-5}{7} \times \dfrac{8}{9}$
+		\item $\left(\dfrac{4}{5}\right)^{-1} \times \dfrac{3}{10}$
+		\item $\dfrac{-1}{2} \times \left(\dfrac{7}{8}\right)^{-1}$
+		\item $\dfrac{11}{12} \times \dfrac{5}{9} \times \left(\dfrac{7}{10}\right)^{-1}$
+		\item $\dfrac{2}{3} \times \dfrac{5}{4}$
+		\item $\dfrac{-1}{3} \times \left(\dfrac{7}{9}\right)^{-1}$
+		\item $\dfrac{3}{8} \times \dfrac{1}{2}$
+	\end{enumerate}
+	\end{multicols}
+}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac{-3}{\dfrac{5}{4}} = \dfrac{-12}{5}$
+		\item $\dfrac{63}{20} \times \dfrac{15}{14} = \dfrac{27}{8}$
+		\item $\dfrac{3}{4} \times \dfrac{2}{5} = \dfrac{3}{10}$
+		\item $\dfrac{\ \ \dfrac{7}{6}\ \ }{\dfrac{5}{8}} = \dfrac{28}{15}$
+		\item $\dfrac{9}{10} \times \dfrac{2}{3} \times \dfrac{4}{1} = \dfrac{12}{5}$
+		\item $\dfrac{-5}{7} \times \dfrac{8}{9} = \dfrac{-40}{63}$
+		\item $\left(\dfrac{4}{5}\right)^{-1} \times \dfrac{3}{10} = \dfrac{3}{8}$
+		\item $\dfrac{-1}{2} \times \left(\dfrac{7}{8}\right)^{-1} = \dfrac{-4}{7}$
+		\item $\dfrac{11}{12} \times \dfrac{5}{9} \times \left(\dfrac{7}{10}\right)^{-1} = \dfrac{275}{378}$
+		\item $\dfrac{2}{3} \times \dfrac{5}{4} = \dfrac{5}{6}$
+		\item $\dfrac{-1}{3} \times \left(\dfrac{7}{9}\right)^{-1} = \dfrac{-3}{7}$
+		\item $\dfrac{3}{8} \times \dfrac{1}{2} = \dfrac{3}{16}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\subsection*{Équations linéaires}
+
+\begin{definition}
+	Une équation linéaire est une identité du type
+		\[ a  x + b = c  x + d, \]
+	où $a,b,c,d \in \R$ sont des constantes réelles, et $x \in \R$ est un nombre réel à trouver à l'aide de l'équation.
+\end{definition}
+
+\begin{remark}
+	Pour résoudre une équation linéaire, on regroupe les multiples de $x$ d'un côté et les constantes de l'autre.
+		\[ (a-c)  x = d - b. \]
+	Si $a-c$ est non nul, on divise des deux côté pour déduire $x = \dfrac{d-b}{a-c}$.
+	
+	Une réponse sous forme de fraction est généralement attendue.
+\end{remark}
+
+\exe{
+	Trouver le $x\in\Q$ rationnel vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
+	
+	\begin{enumerate}\itemsep5mm
+		\item $3x + 5 = 2x + 7$
+		\item $4x - 6 = 3x + 8$
+		\item $5x + 10 = 2x + 4$
+		\item $-2x + 3 = 4x - 1$
+		\item $7x - 5 = 5x + 9$
+		\item $6x + 4 = 3x + 12$
+		\item $-3x + 2 = -5x - 4$
+		\item $8x - 9 = 6x + 3$
+		\item $2x + 11 = -3x + 5$
+		\item $-4x + 7 = -x + 10$
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item $3x + 5 = 2x + 7 \implies x = 2$
+		\item $4x - 6 = 3x + 8 \implies x = 14$
+		\item $5x + 10 = 2x + 4 \implies x = -2$
+		\item $-2x + 3 = 4x - 1 \implies x = \dfrac{2}{3}$
+		\item $7x - 5 = 5x + 9 \implies x = 7$
+		\item $6x + 4 = 3x + 12 \implies x = \dfrac{8}{3}$
+		\item $-3x + 2 = -5x - 4 \implies x = -3$
+		\item $8x - 9 = 6x + 3 \implies x = 6$
+		\item $2x + 11 = -3x + 5 \implies x = \dfrac{-6}{5}$
+		\item $-4x + 7 = -x + 10 \implies x = -1$
+	\end{enumerate}
+}
+
+\exe{
+	Trouver le $x \in \Q$ rationnel vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
+	
+	\begin{enumerate}
+		\item $9 = \dfrac3x$
+		\item $-4 = \dfrac2x$
+		\item $0.2422 = \dfrac1x$
+		\item $3 - \dfrac4x = -9 + \dfrac1x$
+		\item $-2 + \dfrac{-2}x = \dfrac3x - 10$
+	\end{enumerate}
+
+}
+{
+	\begin{enumerate}
+		\item $9 = \dfrac3x \implies x = \dfrac13$
+		\item $-4 = \dfrac2x \implies x=-\dfrac12$
+		\item $0.2422 = \dfrac1x \implies x = \dfrac{10000}{2422} = \dfrac{5000}{1211}$
+		\item $3 - \dfrac4x = -9 + \dfrac1x \implies x = \dfrac5{12}$
+		\item $-2 + \dfrac{-2}x = \dfrac3x - 10 \implies x = \dfrac58$
+	\end{enumerate}
+}
+
+
+\exe{
+	Multipliez l'équation 
+		\[ \dfrac{a}b + \dfrac{c}d = x \]
+	par $b$ puis $d$ à gauche et à droite et en déduire la règle d'addition des fractions :
+		\[ x = \dfrac{ad + cb}{bd}. \]
+}{
+	En multipliant par $bd$, on trouve
+		\[ (bd) x =  bd \left( \dfrac{a}b + \dfrac{c}d \right) = ad + bc, \]
+	d'où
+		\[ x = \dfrac{ad+bc}{bd}. \]
+}
+
+
+\end{document}
