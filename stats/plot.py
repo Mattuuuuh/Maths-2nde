@@ -7,14 +7,29 @@ NUM_MARK = 1
 d = pd.read_csv(FILE_NAME, index_col="Élève n°")
 
 # histogramme d'un contrôle
-def hist_exam(NUM_MARK):
+def hist_exam(MARK_NAME, groups=True):
     """
     Histogramme du contrôle "Note {NUM_MARK}"
     """
-    COLUMN_NAME = f"Note {NUM_MARK}"
-    assert COLUMN_NAME in d.columns, f"Pas de colonne {COLUMN_NAME}"
+    assert MARK_NAME in d.columns, f"Pas de colonne {COLUMN_NAME}"
+    
+    if groups:
+        g1 = d[d["Groupe"]==1][MARK_NAME]
+        g2 = d[d["Groupe"]==2][MARK_NAME]
+        print("GROUPE 1")
+        print(g1.describe())
+        g1.hist(bins=20)
+        plt.show()
 
-    d[COLUMN_NAME].hist(bins=20)
+        print("GROUPE 2")
+        print(g2.describe())
+        g2.hist(bins=20)
+        plt.show()
+    
+    print("CLASSE ENTIÈRE.")
+    whole_class=d[MARK_NAME]
+    print(whole_class.describe())
+    whole_class.hist(bins=20)
     plt.show()
     return 0
 
@@ -28,5 +43,5 @@ def evo_eleve(N):
     #TODO
     return 0
 
-if __name__ = "__main__":
-    hist_exam(1)
+if __name__ == "__main__":
+    hist_exam("Arithmétique")
