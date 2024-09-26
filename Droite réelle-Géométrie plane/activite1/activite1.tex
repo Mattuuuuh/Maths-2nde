@@ -1,0 +1,150 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+
+\usepackage{multicol, enumerate}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem*{definition}{Définition}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+% plots
+\usepackage{pgfplots}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Unions et intersections}}
+\fancyhead[R]{\today}
+
+\begin{center}
+	\begin{tikzpicture}
+		
+		% real line
+		\draw[<->, thick] (-7,0) node[below] {$-\infty$} -- (7,0) node[below] {$+\infty$};
+		
+		\foreach \x in {-3,...,3}
+			\draw[-] (1.3*\x,-.1) node[below] {$\x$} -- (1.3*\x,.1) node{};
+		
+	
+	\end{tikzpicture}
+\end{center}
+
+\begin{definition}[Intersection, union]
+	Pour deux ensembles $E, F$ on définit les ensembles suivants.
+		\begin{enumerate}
+			\item $E \cap F$ : l'intersection des deux ensembles.
+			
+			Un élément appartient à $E \cap F$ dès qu'il appartient à $E$ \textbf{et} à $F$.
+			\item $E \cup F$ : l'union des deux ensembles.
+			
+			Un élément appartient à $E \cup F$ dès qu'il appartient à $E$ \textbf{ou} à $F$.
+		\end{enumerate}
+\end{definition}
+
+\begin{ex}
+	Écrire les ensembles finis suivants.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\mathcal{D}_7 \cap \mathcal{D}_8$
+		\item $\mathcal{D}_4 \cup \mathcal{D}_6$
+		\item $\{1; 3; -4; -3\} \cap \{ -3 ; 4 ; 10\}$
+		\item $\{1 ; 3 ; -4 ; -3 \} \cup \{ -3 ; 4 ; 10\}$
+	\end{enumerate}
+	\end{multicols}
+\end{ex}
+
+\begin{ex}
+	Écrire les intervalles suivants sous forme d'ensembles.
+	\begin{enumerate}[i)]\itemsep10pt
+		\item $]{-}4 ; {+}\infty [ = \{ x \in \R \ \text{tq.} \ x > -4 \}$
+		\item $[5 ; {+}\infty [ = $
+		\item $]{-}\infty ; -\pi ] = $
+		\item $]{-}\infty ; -2[ \cap [-12 ; {+}\infty[ = $
+		\item $]{-} \infty ; 5] \cap ]-8 ; {+}\infty [ = $
+	\end{enumerate}
+\end{ex}
+
+\begin{ex}[Livre n°19 p.23]
+	Pour chaque couples d'intervalles $I,J$, exprimer $I \cap J$ et $I \cup J$ sous forme d'intervalle.
+	%\begin{multicols}{2}
+	\begin{enumerate}\itemsep10pt
+		\item $I = [-4 ; 2]$, et $J = [-1 ; 6[$
+		\item $ I = ] {-}\infty ; 3 [$, et $J =[-2 ; {+}\infty[$ 
+		\item $I = ]{-}\infty ; 7]$, et $J =]{-}\infty ; 4]$
+		\item $I = ]{-}\infty ; -1]$, et $J = [-1 ; {+}\infty [$
+		\item $I = [3 ; {+}\infty [$, et $J = [-5 ; {+}\infty [$
+		\item $I = \{ x \in \R \ \text{tq. } x > 3 \}$, et $J = \{ x \in \R \ \text{tq. } x \leq 9 \}$
+		\item $I = \{ x \in \R \ \text{tq. } 2 \leq x \leq 12 \}$, et $J = \{ x \in \R \ \text{tq. } 10 > x \geq -1 \}$
+	\end{enumerate}
+	%\end{multicols}
+\end{ex}
+
+\end{document}

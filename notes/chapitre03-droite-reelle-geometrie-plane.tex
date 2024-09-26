@@ -127,17 +127,16 @@ Ce théorème est en dehors du champ d'application du cours.
 
 \subsection{Intersection et union}
 
-\dfn{Intersection, union}{
-	Pour deux ensembles $I, J$ on définit les ensembles suivants.
+\dfn{Intersection, union}{	
+	Pour deux ensembles $E, F$ on définit les ensembles suivants.
 		\begin{enumerate}
-			\item $I \cap J$ : l'intersection des deux intervalles.
+			\item $E \cap F$ : l'intersection des deux ensembles.
 			
-			Un élément appartient à $I \cap J$ dès qu'il appartient à $I$ \textbf{et} à $J$.
-			\item $I \cup J$ : l'union des deux intervalles.
+			Un élément appartient à $E \cap F$ dès qu'il appartient à $E$ \textbf{et} à $F$.
+			\item $E \cup F$ : l'union des deux ensembles.
 			
-			Un élément appartient à $I \cup J$ dès qu'il appartient à $I$ \textbf{ou} à $J$.
+			Un élément appartient à $E \cup F$ dès qu'il appartient à $E$ \textbf{ou} à $F$.
 		\end{enumerate}
-	
 }
 
 
@@ -188,7 +187,7 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 	En particulier : être inférieur à la borne supérieure, et être supérieur à la borne inférieure.
 	
 	On a donc l'équivalence suivante.
-		\[ x \in [a ; b] \qquad \iff \qquad x \in \R, x \geq a, \text{ et } x \leq b. \]
+		\[ x \in [a ; b] \qquad \iff \qquad x \in \R, x \geq a, \textbf{ et } x \leq b. \]
 		
 	On peut noter deux inégalités sur la même lignes dès qu'elles vont dans le même sens.
 	Par exemple, les deux inégalités ci-dessus peuvent être condensées en une :
@@ -212,6 +211,79 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 		Ceci est en fait tautologique car $]\minfty; \pinfty[ = \R$, comme vu dans l'exemple \ref{ex:3.5}.
 	\end{enumerate}
 }{}
+
+\thm{}{
+	Soient $x, y, a \in \R$ vérifiant
+		\[ x \leq y. \]
+	Alors l'inégalité ci-dessus est équivalente aux inégalités suivantes.
+		\begin{enumerate}
+			\item $x + a \leq y + a$, sans condition sur $a$.
+			\item $a x \leq a y$ si $a > 0$ est strictement positif.
+			\item $ax \geq a y$ si $a < 0$ est strictement négatif.
+		\end{enumerate}
+}{thm:ineg}
+
+\nt{
+	Le théorème \ref{thm:ineg} reste vrai si on remplace l'inégalité large $\leq$ par une inégalité stricte $<$.
+}
+
+\str{
+	On décrit ci-après la stratégie de résolutions d'inéquations du type
+		\[ a x + b \leq c x + d, \]
+	où $a,b,c,d \in \R$ sont des réels quelconques et $x\in\R$ est l'inconnue à placer dans un intervalle.
+	
+	Comme pour les équations, on procède en deux étapes
+		\begin{enumerate}
+			\item Isoler les multiples de $x$ d'un côté et les constantes de l'autre.
+			\item Diviser pour trouver l'intervalle de $x$.
+		\end{enumerate}
+	Pour cela, on peut par exemple soustraire $cx$ et $b$ des deux côtés à l'aide du Théorème \ref{thm:ineg}.
+		\[ (a-c) x \leq d - b.\]
+	Si $a-c \neq 0$, on divise par $a-c$ en faisant attention au signe de celui-ci :
+		\[ \begin{cases*} 
+						x \leq \dfrac{d-b}{a-c} & si $a-c > 0$, \\
+					 	x \geq \dfrac{d-b}{a-c} & si $a-c < 0$.
+			\end{cases*} \]
+}
+
+\ex{}{
+	Essayons de déterminer quels réels $x\in\R$ vérifient l'inégalité suivante.
+		\[ 3 x + 1 \geq  8 \]
+	Cette inégalité est équivalente à
+		\begin{align*}
+			& 3x \geq 7,  & \text{puis à} && x\geq \dfrac73,
+		\end{align*}			
+	car $3$ est strictement positif.
+	
+	On a donc trouvé que
+		\[ \{ x \in \R \text{ tq. } 3x + 1 \geq 8 \} = [\dfrac73 ; \pinfty[. \]
+}{}
+
+\ex{}{
+	On détermine les réels $x \in \R$ vérifiant la double inégalité suivante.
+		\[ 14 > - 7x + 10 \geq -1.\]
+	On vérifie d'abord qu'on ait bien $14 > -1$ pour s'assurer que de tels réels $x$ existent bien. 
+	On peut par exemple résoudre l'équation $-7x+10 = 2$ pour avoir un exemple d'un tel $x$, car on a bien $14 > 2 \geq -1$.
+	
+	L'inégalité est équivalente à
+		\[ 4 > -7x \geq -11. \]
+	On divise ensuite par $-7$, ce qui échange le sens des inégalités car $\dfrac{1}{-7}$ est strictement négatif.
+	D'où
+		\[ \dfrac{4}{-7} < x \leq  \dfrac{-11}{-7}. \]
+	Finalement, on a obtenu que
+		\[ \{ x \in \R \text{ tq. } 14 > - 7x + 10 \geq -1 \} = ]-\dfrac47 ; \dfrac{11}7]. \]
+}{}
+
+\exe{}{
+	Trouver quels réels $x\in\R$ vérifient les deux inégalités suivantes
+		\begin{align*} & -\dfrac32x - 2 \geq -4 & \textbf{et} && -\dfrac32x -2 \leq 13 & \end{align*}
+	en prenant l'intersection des intervalles obtenus pour chaque inégalité.
+	
+	Faire de même en manipulant directement la double inégalité
+		\[ -4 \leq -\dfrac32x -2 \leq 13, \]
+	et vérifier qu'on trouve le même intervalle final.
+}
+
 
 
 \subsection{Valeur absolue}
