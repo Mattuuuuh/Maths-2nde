@@ -1,0 +1,58 @@
+\documentclass[14pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a5paper,
+landscape,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% 2xa5 on a4
+\usepackage{pgfpages}                                 % <— load the package
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] % <— set options
+
+\usepackage{atbegshi}
+  % duplicate the content at shipout time
+  \AtBeginShipout{
+    \pgfpagesshipoutlogicalpage{1}\copy\AtBeginShipoutBox
+    \pgfpagesshipoutlogicalpage{2}\box\AtBeginShipoutBox
+    \pgfshipoutphysicalpage
+  }
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[3]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{ Automatismes }}
+\fancyhead[R]{\today}
+
+Nom :
+
+\begin{center}
+\begin{tabular}{ | P{.25\linewidth} | P{.35\linewidth} | P{.35\linewidth} |  } 
+	\hline\xrowht{15pt}
+	 & Vrai & Faux
+	 \\ \hline \xrowht{20pt}
+	 Question 1 & & 
+	 \\ \hline \xrowht{20pt}
+	 Question 2 & & 
+	 \\ \hline \xrowht{20pt}
+	 Question 3 & & 
+	 \\ \hline \xrowht{20pt}
+	 Question 4 & & 
+	 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}
