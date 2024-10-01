@@ -150,6 +150,30 @@ Ce théorème est en dehors du champ d'application du cours.
 		\item $]-2 ; 4 [  \cup [4 ; 8[$
 	\end{enumerate}
 	\end{multicols}
+}{ex:inter-union}
+
+\nt{
+	Lorsqu'on prend l'intersection de deux intervalles, seules les bornes les plus restrictives subsistent.
+	En effet, un nombre appartient à un intervalle si et seulement s'il est à la fois supérieur à la borne inférieure, et inférieur à la borne supérieure (inégalités larges ou strictes à préciser).
+	
+	Dès lors, pour qu'un élément appartienne à l'intersection de deux intervalles, il doit
+		\begin{enumerate}
+			\item être supérieur aux deux bornes inférieures, et
+			\item être inférieur aux deux bornes supérieures.
+		\end{enumerate}
+	La plus restrictive des bornes inférieures est donc la plus grande, et la plus restrictive borne supérieure est la plus petite.
+	On en déduit une règle générale
+		\[ [a ; b] \cap [c ; d] = [ \max\{a, c\} ; \min\{b, d\}]. \]
+}
+
+\nt{
+	Pour l'union de deux intervalles, les bornes les moins restrictives restent, et on a
+		\[ [a ; b] \cup [c ; d] = [ \min\{a, c\} ; \max\{b, d\}]. \]
+}
+
+\exe{}{
+	Refaire l'exercice \ref{ex:inter-union} à l'aide des règles des remarques ci-dessus.
+	Comparer les résultats.
 }{}
 
 \subsection{Inégalités}
@@ -262,8 +286,8 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 \ex{}{
 	On détermine les réels $x \in \R$ vérifiant la double inégalité suivante.
 		\[ 14 > - 7x + 10 \geq -1.\]
-	On vérifie d'abord qu'on ait bien $14 > -1$ pour s'assurer que de tels réels $x$ existent bien. 
-	On peut par exemple résoudre l'équation $-7x+10 = 2$ pour avoir un exemple d'un tel $x$, car on a bien $14 > 2 \geq -1$.
+	On vérifie d'abord qu'on ait $14 > -1$ pour s'assurer que de tels réels $x$ existent bien. 
+	On peut par exemple résoudre l'équation $-7x+10 = 2$ pour avoir un exemple d'un tel $x$ (car$14 > 2 \geq -1$).
 	
 	L'inégalité est équivalente à
 		\[ 4 > -7x \geq -11. \]
@@ -271,7 +295,7 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 	D'où
 		\[ \dfrac{4}{-7} < x \leq  \dfrac{-11}{-7}. \]
 	Finalement, on a obtenu que
-		\[ \{ x \in \R \text{ tq. } 14 > - 7x + 10 \geq -1 \} = ]-\dfrac47 ; \dfrac{11}7]. \]
+		\[ \{ x \in \R \text{ tq. } 14 > - 7x + 10 \geq -1 \} = ]{-}\dfrac47 ; \dfrac{11}7]. \]
 }{}
 
 \exe{}{
@@ -325,8 +349,63 @@ Les intervalles de confiance seront étudiés plus tard dans le chapitre dédié
 	On retrouve d'ailleurs $|x| = |x - 0|$, la distance de $x$ à $0$.
 }
 
+\str{
+	Pour résoudre une équation du type
+		\[ |E| = a, \]
+	où $E$ est une certaine expression, et $a\in\R$ est un nombre réel positif ou nul, on remarque que l'égalité est équivalente à
+		\begin{align*}
+			E = a, && \text{ ou } && E = -a.
+		\end{align*}
+}
+
+\ex{}{
+	On cherche un réel $x\in\R$ vérifiant l'égalité
+		\[ |3x-8| = 5. \]
+	En comprenant $3x-8$ comme l'expression $E$ et $5$ comme le réel $a$ de la stratégie ci-dessus, on se retrouve à résoudre les deux équations linéaires suivantes.
+		\begin{align*}
+			3x-8 = 5, && \text{ ou } && 3x-8 = -5.
+		\end{align*}
+	On les résoud calmement pour trouver
+		\begin{align*}
+			x = \dfrac{13}3, && \text{ ou } && x = 1.
+		\end{align*}
+	On pourra alors vérifier les valeurs obtenues en substituant dans l'équation d'origine.
+	On a bien
+	
+		\begin{align*}
+			|3 \times \dfrac{13}3 - 8| = |5| =5, && \text{ et } && |3 \times 1 - 8| = |-5| =5,
+		\end{align*}
+	ce qui nous rassure.
+}{}
+
+\str{
+	Pour résoudre une inéquation du type
+		\[ |E| \leq a, \]
+	où $E$ est une certaine expression, et $a\in\R$ est un nombre réel positif ou nul, on remarque que l'inégalité est équivalente à
+		\begin{align*}
+			- a \leq E \leq a.
+		\end{align*}
+	Le résultat donnera donc un intervalle.
+		
+	On fera attention au caractère stricte ou non des inégalités en question.
+}
+
+\ex{}{
+	On cherche quels réels $x\in\R$ vérifient l'inégalité
+		\[ |2x-3| < 1. \]
+	En comprenant $2x-3$ comme l'expression $E$ et $1$ comme le réel $a$ de la stratégie ci-dessus, on se retrouve à résoudre les inégalités strictes suivantes. 
+		\[
+			-1 < 2x-3 < 1.
+		\]
+	On les résoud pour trouver
+		\[
+			\{ x \in \R \text{ tq. } |2x-3| < 1 \} = \{ x \in \R \text{ tq. } 1 < x < 2 \} = ]1; 2[.
+		\]
+	On pourra alors s'assurer que n'importe quel $x\in\R$ réel de l'intervalle $]1;2[$ vérifie bien que $|2x-3|<1$, par exemple en testant quelques valeurs (dont les bornes).
+}{}
+
 \exe{}{
-		Quels réels $x\in\R$ vérifient les conditions suivantes ? Donner des ensembles ou des intervalles.
+		Quels réels $x\in\R$ vérifient les conditions suivantes ? Donner des ensembles finis ou des intervalles.
 		\begin{multicols}{2}
 		\begin{enumerate}
 			\item $|x| = 1$
@@ -337,7 +416,30 @@ Les intervalles de confiance seront étudiés plus tard dans le chapitre dédié
 		\end{multicols}
 }{}
 
+\str{
+	Pour résoudre une inéquation du type
+		\[ |E| \geq a, \]
+	où $E$ est une certaine expression, et $a\in\R$ est un nombre réel positif ou nul, on remarque que l'inégalité est équivalente à
+		\begin{align*}
+			E \leq -a, && \text{ ou } && E \geq a.
+		\end{align*}
+	Le résultat donnera donc une union de deux intervalles.
+		
+	On fera également attention au caractère stricte ou non des inégalités en question.
+}
 
+\ex{}{
+	On cherche quels réels $x\in\R$ vérifient l'inégalité
+		\[ \left|5 - \dfrac12x \right| \geq 3. \]
+	En comprenant $5 - \dfrac12x$ comme l'expression $E$ et $3$ comme le réel $a$ de la stratégie ci-dessus, on se retrouve à résoudre les inégalités strictes suivantes. 
+		\begin{align*}
+			5 - \dfrac12x \leq -3, && \text{ ou } && 5 - \dfrac12x \geq 3.
+		\end{align*}
+	On les résoud pour trouver
+		\[
+			\{ x \in \R \text{ tq. }  \left|5 - \dfrac12x \right| \geq 3 \} = \{ x \in \R \text{ tq. } x \geq 16 \text{ ou } x \leq -4\} = ]\minfty ; -4] \cup [16; \pinfty[.
+		\]
+}{}
 
 
 
