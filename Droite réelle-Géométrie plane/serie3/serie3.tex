@@ -1,0 +1,193 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{ Géométrie : droite et plan \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\subsection*{Droite réelle}
+
+\exe{
+	Calculer le milieu et la longueur de chaque intervalle suivant.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $[-1 ; 1]$
+		\item $]{-1} ; 1[$
+		\item $[-14{,}7001 ; -14{,699}]$
+		\item $[-3{,}3 ; -\dfrac23 [$
+		\item $\{ x \in \R \text{ tq. } -\dfrac27 > x \geq -\dfrac5{21} \}$
+		\item $\{ x \in \R \text{ tq. } 2 \leq 2x + 1 \leq 10 \}$
+	\end{enumerate}
+	\end{multicols}
+}{
+
+}
+
+\subsection*{Plan cartésien\footnote{De René Descartes, mathématicien, physicien, et philosophe français (1596--1650).} }
+
+\exe{
+	Représenter dans un repère les sommets $U(2; 3)$, $V(-1;-2)$, $W(-2;2)$ d'un triangle.
+	
+	\begin{enumerate}
+		\item Calculer le milieu de chaque côté du triangle et les représenter dans le repère.
+		\item Calculer la longueur de chaque segment. Que dire du triangle ?
+	\end{enumerate}
+}{
+
+}
+
+\exe{\label{ex:2}
+	Représenter dans un repère l'origine $O$ ainsi que les sommets $E(4; 2)$, $W( 1 ; 3)$, et $N = E + W$.
+	\begin{enumerate}
+		\item Calculer le milieu des segments $[ON]$ et $[EW]$. Que dire du quadrilatère ${OWNE}$ ?
+		\item Calculer la longueur des segments $[OE], [EN], [NW],$ et $[NO]$.
+		\item Représenter dans un repère les quadrilatères de sommets $O$, $\kappa E$, $\kappa W$, et $\kappa N$ pour $\kappa = -\dfrac12$ et $\kappa = \dfrac32$.
+	\end{enumerate}
+}{}
+
+\exe{
+	Considérons les points $a(0;-2), b(-1;2)$ ainsi que les points $c(3; -x)$ et $d(3; 3x - 2)$ dépendant d'un réel $x\in\R$.
+	
+	\begin{enumerate}
+		\item Pour quel réel $x\in\R$ les points $c$ et $d$ sont-ils confondus ?
+		\item Donner l'intervalle des réels $x\in\R$ tels que le point $d$ est au-dessus du point $c$ graphiquement.
+		\item Lorsque $d$ est au-dessus de $c$, pour quel réel $x\in\R$ le quadrilatère $abcd$ est-il un parallélogramme ?
+	\end{enumerate}
+}{}
+
+\exe{
+	Soient $A(-1; 3)$, $B(3; 0)$, et $x\in\R$ un réel. Posons $\tilde{A} = xA$ et $\tilde{B} = xB$.
+	
+	\begin{enumerate}
+		\item Donner l'ensemble des $x\in\R$ tels que la longueur du segment $[\tilde{A} \tilde{B}]$ est égale à $15$.
+		\item Représenter les points $\tilde{A}$ et $\tilde{B}$ dans un repère pour chacun des $x$ trouvés.
+	\end{enumerate}
+}
+
+\newpage
+\subsection*{Exercices supplémentaires}
+
+\exe{
+	Calculer le milieu et la longueur de chaque intervalle suivant.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $[-4 ; 12]$
+		\item $]{-7}{,}7 ; -7{,}6[$
+		\item $[-\dfrac49 ; \dfrac23 [$
+		\item $\{ x \in \R \text{ tq. } -\dfrac{8}{17} > x \geq -\dfrac9{17} \}$
+		\item $\{ x \in \R \text{ tq. } \dfrac{9}{10} \leq 2x + 1 \leq \dfrac{5}{2} \}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{
+	Soient $A, B$ deux points distincts et non nuls du plan.
+	
+	Montrer que, pour tout réel $k \in \R$ non nul, le quadrilatère dont les sommets sont $O, kA, kB$, et $kA + kB$ est un parallélogramme.
+}{
+
+}
+
+\exe{
+	Soient $A$ et $B$ deux points du plan, et $\alpha \in \R$ un réel.
+	Posons $A' = \alpha A$ et $B' = \alpha B$.
+	
+	Exprimer la longueur du segment $[A'B']$ en fonction de la longueur du segment $[AB]$.
+}
+
+
+\end{document}

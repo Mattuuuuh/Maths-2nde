@@ -1,0 +1,89 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{report}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage[french]{babel}
+
+\fi
+
+\usepackage{fancyhdr}
+
+% date
+\usepackage{advdate}
+\AdvanceDate[2]
+
+%préambule des notes de cours
+\input{../../notes/preamble.tex}
+\input{../../notes/macros.tex}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{ Seconde 13}
+\fancyhead[C]{\textbf{Équations et inéquations avec valeur absolue}}
+\fancyhead[R]{ \today}
+
+\noindent Considérons $E$ et $a$ deux nombres réels, avec $a\geq0$ positif ou nul.
+
+\section*{Résolution d'équations du type $|E| = a$}
+
+\mth{
+	Les nombres $E$ et $a$ vérifient l'équation
+		\[ |E| = a \]
+	si et seulement si $E$ vérifie
+	\begin{align*}
+		E = \hspace{1cm} && \text{ ou } && E = \hspace{1cm}
+	\end{align*}
+}
+
+\section*{Résolution d'inéquations du type $|E| \leq a$}
+
+\mth{	
+	Les nombres $E$ et $a$ vérifient l'équation
+		\[ |E| \leq a \]
+	si et seulement si $E$ vérifie
+		\[ E \in \hspace{4cm}\]
+	c'est-à-dire que
+	\begin{align*}
+		\leq E \leq
+	\end{align*}
+}
+
+\section*{Résolution d'inéquations du type $|E| \geq a$}
+
+\mth{
+	Les nombres $E$ et $a$ vérifient l'équation
+		\[ |E| \geq a \]
+	si et seulement si $E$ vérifie
+		\[ E \in \hspace{6cm}\]
+	c'est-à-dire que
+	\begin{align*}
+		E \leq && \text{ ou } && E \geq
+	\end{align*}
+}
+
+\end{document}

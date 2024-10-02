@@ -40,7 +40,7 @@ nomarginpar,% We don't want any margin paragraphs
 \usepackage{fancyhdr}
 \usepackage{array}
 
-\usepackage{multicol, enumerate}
+\usepackage{multicol, enumitem}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
 
@@ -69,11 +69,12 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-\AdvanceDate[1]
+\AdvanceDate[2]
 
 
 % plots
-\usepackage{pgfplots}
+%\usepackage{pgfplots}
+\usepackage{tikz}
 
 
 % SOLUTION SWITCH
@@ -87,7 +88,7 @@ nomarginpar,% We don't want any margin paragraphs
 		\begin{sol} #2 \end{sol}
 	}
 \else
-	\newcommand{\exe}[2]{
+	\newcommand{\exe}[1]{
 		\begin{ex} #1  \end{ex}
 	}
 	
@@ -96,98 +97,154 @@ nomarginpar,% We don't want any margin paragraphs
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{ Géométrie : droite et plan \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{ Exercices : inégalités et valeurs absolues \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\subsection*{Droite réelle}
-
-\exe{
-	Calculer le milieu et la longueur de chaque intervalle suivant.
+\exe{\, \\
 	\begin{multicols}{2}
+	
+	
+	ABCD est un rectangle tel que $AB = 8$ et $AD= 10$.
+	M est un point du segment $[AD]$ et $N$ est le point de $[BC]$ tel que $ABNM$ est un rectangle.
+	
+	On pose $x=AM$.	
 	\begin{enumerate}
-		\item $[-1 ; 1]$
-		\item $]{-1} ; 1[$
-		\item $[-14{,}7001 ; -14{,699}]$
-		\item $[-3{,}3 ; -\dfrac23 [$
-		\item $\{ x \in \R \text{ tq. } -\dfrac27 > x \geq -\dfrac5{21} \}$
-		\item $\{ x \in \R \text{ tq. } 2 \leq 2x + 1 \leq 10 \}$
+		\item À quel intervalle appartient $x$ ?
+		\item Pour quelle(s) valeur(s) de $x$ l'aire de $ABNM$ est-elle supérieure ou égale à celle du triangle $NDC$ ?
 	\end{enumerate}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\draw[black,thick] (0,0) node [below, left] {$A$} -- (2,0) node [below, right] {$B$};
+		\draw[black,thick] (0,0) -- (0,3) node [above, left] {$D$};
+		\draw[black,thick] (2,0) -- (2,3) node [above, right] {$C$};
+		\draw[black,thick] (0,3) -- (2,3);
+		
+		\draw[black, thick] (0,1) node[left] {$M$} -- (2,1) node[right] {$N$};
+	\end{tikzpicture}
+	\end{center}
 	\end{multicols}
-}{
-
 }
+{}
 
-\subsection*{Plan cartésien\footnote{De René Descartes, mathématicien, physicien, et philosophe français (1596--1650).} }
 
-\exe{
-	Représenter dans un repère les sommets $U(2; 3)$, $V(-1;-2)$, $W(-2;2)$ d'un triangle.
+\exe{ \hspace{1cm} \\
+	\begin{multicols}{2}
+		\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+		% real line
+		\draw[black, thick] (0,0) -- (7,0);
+		\draw[black,thick] (7,0) -- (7,7);
+		\draw[black,thick] (7,7) -- (2,7);
+		\draw[black,thick] (2,7)--(2,2);
+		\draw[black, thick](2,2)--(0,2);
+		\draw[black,thick](0,2)--(0,0);
+		
+		\draw[black,thick, dotted](2,0)--(2,2);
+		
+		\draw[<->, thick] (2,-.2) -- (7,-.2) node [midway, below] {$5$} ;
+		\draw[<->, thick] (0,-.2) -- (2,-.2) node [midway, below] {$x$} ;
+		\draw[<->, thick] (-.2,0) -- (-.2,2) node [midway, left] {$x$} ;
+		\draw[<->, thick] (7.2,0) -- (7.2,7) node [midway, right] {$12$} ;
+	\end{tikzpicture}
+	\end{center}
 	
+	Considérons la figure ci-contre. La longueur du côté du carré de gauche doit rester inférieure à la longueur du rectangle de droite.
 	\begin{enumerate}
-		\item Calculer le milieu de chaque côté du triangle et les représenter dans le repère.
-		\item Calculer la longueur de chaque segment. Que dire du triangle ?
+		\item À quel intervalle appartient $x$ ?
+		\item Donner l'ensemble des valeurs de $x$ pour que le périmètre soit supérieur ou égal à $50$.
 	\end{enumerate}
-}{
-
+	
+	\end{multicols}
 }
-
-\exe{\label{ex:2}
-	Représenter dans un repère l'origine $O$ ainsi que les sommets $E(4; 2)$, $W( 1 ; 3)$, et $N = E + W$.
-	\begin{enumerate}
-		\item Calculer le milieu des segments $[ON]$ et $[EW]$. Que dire du quadrilatère ${OWNE}$ ?
-		\item Calculer la longueur des segments $[OE], [EN], [NW],$ et $[NO]$.
-		\item Représenter dans un repère les quadrilatères de sommets $O$, $\kappa E$, $\kappa W$, et $\kappa N$ pour $\kappa = -\dfrac12$ et $\kappa = \dfrac32$.
-	\end{enumerate}
-}{}
-
-\exe{
-	Considérons les points $a(0;-2), b(-1;2)$ ainsi que les points $c(3; -x)$ et $d(3; 3x - 2)$ dépendant d'un réel $x\in\R$.
-	
-	\begin{enumerate}
-		\item Pour quel réel $x\in\R$ les points $c$ et $d$ sont-ils confondus ?
-		\item Donner l'intervalle des réels $x\in\R$ tels que le point $d$ est au-dessus du point $c$ graphiquement.
-		\item Lorsque $d$ est au-dessus de $c$, pour quel réel $x\in\R$ le quadrilatère $abcd$ est-il un parallélogramme ?
-	\end{enumerate}
-}{}
-
-\exe{
-	Soient $A(-1; 3)$, $B(3; 0)$, et $x\in\R$ un réel. Posons $\tilde{A} = xA$ et $\tilde{B} = xB$.
-	
-	\begin{enumerate}
-		\item Donner l'ensemble des $x\in\R$ tels que la longueur du segment $[\tilde{A} \tilde{B}]$ est égale à $15$.
-		\item Représenter les points $\tilde{A}$ et $\tilde{B}$ dans un repère pour chacun des $x$ trouvés.
-	\end{enumerate}
-}
+{}
 
 \newpage
-\subsection*{Exercices supplémentaires}
 
 \exe{
-	Calculer le milieu et la longueur de chaque intervalle suivant.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $[-4 ; 12]$
-		\item $]{-7}{,}7 ; -7{,}6[$
-		\item $[-\dfrac49 ; \dfrac23 [$
-		\item $\{ x \in \R \text{ tq. } -\dfrac{8}{17} > x \geq -\dfrac9{17} \}$
-		\item $\{ x \in \R \text{ tq. } \dfrac{9}{10} \leq 2x + 1 \leq \dfrac{5}{2} \}$
+	Le gardien d'un zoo souhaite créer un enclos rectangulaire pour ses renards polaires. 
+	La largeur de son enclos est de $30$m et un puits se situe à $70$m du bord gauche de l'enclos.
+	
+	Celui-ci souhaite déterminer la longueur $x$ de l'enclos avec les restrictions suivantes.
+	
+	\begin{enumerate}[leftmargin=2cm, label=\roman*)]
+		\item Le puits, noté par une étoile ($\star$), doit être situé à moins de $10$ mètres du bord droit de l'enclos.
+		\item Le périmètre de l'enclos ne doit pas dépasser $210$m.
 	\end{enumerate}
-	\end{multicols}
+	
+	\begin{enumerate}
+		\item Écrire les deux contraintes sous forme d'inégalités que la longueur $x$ vérifie.
+		\item À quel intervalle appartient $x$ ?
+		\item À quel intervalle appartient alors l'aire totale ? Quel $x$ choisir pour maximiser la superficie de l'enclos et donc le bien-être animal ?
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[black, thick] (0,0) -- (6,0);
+		\draw[black,thick,dotted](6,0) -- (10,0);
+		\draw[black, thick] (0,0) -- (0,5);
+		\draw[<->, black, thick] (-.2, 0) -- (-.2, 5) node[midway, left] {$30$};
+		\draw[black,thick, dotted] (10,0) -- (10,5);
+		%\draw[black,thick] (6,0) -- (6,5);
+		\draw[black, thick] (0,5) -- (6,5);
+		\draw[black,thick, dotted] (6,5)--(10,5);
+		
+		\draw (8,2.5) node {$\star$};
+		\draw[<->, black,thick] (.2,2.5) -- (7.8,2.5) node [midway, above] {$70$};
+		
+		\draw[<->, black, thick] (0,-.2) -- (10,-.2) node [midway, below] {$x$};
+	
+	\end{tikzpicture}
+	\end{center}
+	
 }
+{}
+
+
 
 \exe{
-	Soient $A, B$ deux points distincts et non nuls du plan.
+	Un soigneur animalier souhaite créer un enclos rectangulaire pour ses addax.
+	La largeur de son enclos est de $20$m. Un rocher situe à $40$m du bord gauche de l'enclos, et une prise électrique se situe à $35$m du bord gauche.
 	
-	Montrer que, pour tout réel $k \in \R$ non nul, le quadrilatère dont les sommets sont $O, kA, kB$, et $kA + kB$ est un parallélogramme.
-}{
+	Celui-ci souhaite déterminer longueur $x$ de l'enclos avec les restrictions suivantes.
+	\begin{enumerate}[leftmargin=2cm, label=\roman*)]
+		\item Le côté droit de l'enclos doit être situé à plus de $3$ mètres du rocher, noté par un carré ($\square$).
+		\item Le côté droit de l'enclos doit être situé à moins de $10$ mètres de la prise électrique, notée par une étoile ($\star$).
+	\end{enumerate}
+	
+	\begin{enumerate}
+		\item Écrire les deux contraintes sous forme d'intervalles auxquels la longueur $x$ appartient.
+		\item À quel ensemble appartient $x$ ? Une union d'intervalles est attendue.
+		\item Quel $x$ choisir pour minimiser le périmètre et donc le coût de l'enclos ?
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[black, thick] (0,0) -- (6,0);
+		\draw[black,thick,dotted](6,0) -- (10,0);
+		\draw[black, thick] (0,0) -- (0,5);
+		\draw[<->, black, thick] (-.2, 0) -- (-.2, 5) node[midway, left] {$20$};
+		\draw[black,thick, dotted] (10,0) -- (10,5);
+		\draw[black, thick] (0,5) -- (6,5);
+		\draw[black,thick, dotted] (6,5)--(10,5);
+		
+		\draw (8,3.75) node {$\square$};
+		\draw[<->, black,thick] (.2,3.75) -- (7.8,3.75) node [midway, above] {$40$};
+		
+		\draw (6,1.25) node {$\star$};
+		\draw[<->, black,thick] (.2,1.25) -- (5.8,1.25) node [midway, above] {$35$};
+		
+		\draw[<->, black, thick] (0,-.2) -- (10,-.2) node [midway, below] {$x$};
+	
+	\end{tikzpicture}
+	\end{center}
 
 }
+{}
 
-\exe{
-	Soient $A$ et $B$ deux points du plan, et $\alpha \in \R$ un réel.
-	Posons $A' = \alpha A$ et $B' = \alpha B$.
-	
-	Exprimer la longueur du segment $[A'B']$ en fonction de la longueur du segment $[AB]$.
-}
+
+
 
 
 \end{document}
