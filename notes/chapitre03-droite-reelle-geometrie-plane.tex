@@ -37,32 +37,33 @@ L'ensemble des points de la droite est donc strictement plus grand que celui des
 
 \begin{center}
 	
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=1.3]
 		
 		% real line
-		\draw[<->, thick] (-7,0) node[below] {$-\infty$} -- (7,0) node[below] {$+\infty$};
+		\draw[<->, thick] (-5,0) node[below] {$-\infty$} -- (5,0) node[below] {$+\infty$};
 		\foreach \x in {-1, 0, 1}
 			\draw[-] (1.3*\x,-.1) node[below] {$\x$} -- (1.3*\x,.1);
 		
 		% right angled triangle
-		\draw[-, thick] (1.3,0) -- (1.3,1);
-		\draw[-, thick] (0,0)-- (1.3,1);
+		\draw[-, thick] (-1.3,0) -- (-1.3,1);
+		\draw[-, thick] (0,0)-- (-1.3,1);
 		
-		\draw[-, thick] (1.1,0)-- (1.1,.2);
-		\draw[-, thick] (1.1,.2)-- (1.3,.2);
+		\draw[-, thick] (-1.1,0)-- (-1.1,.2);
+		\draw[-, thick] (-1.1,.2)-- (-1.3,.2);
 		
-		% lengths
-		\draw[decoration={brace,raise=5pt},decorate]
-  			(0,0) -- node[above=12pt, left=4pt] {$\sqrt{2}$} (1.3,1);
-		\draw[decoration={brace,mirror,raise=5pt},decorate]
-  			(1.3,0) -- node[right=6pt] {$1$} (1.3,1);
-  			
   			
 		% circle arc
-		 \draw [red,thick,domain=-5:50] plot ({sqrt(2.69)*cos(\x)}, {sqrt(2.69)*sin(\x)});
+		 \draw [red,thick,domain=-5:143] plot ({sqrt(2.69)*cos(\x)}, {sqrt(2.69)*sin(\x)});
 		 
 		 % sqrt{2} mark
 		\draw[-, red] (1.640,-.1) node[below, red] {$\sqrt{2}$} -- (1.640,.1);
+		
+		% lengths
+		\draw[decoration={brace,raise=5pt, mirror},decorate]
+  			(0,0) -- node[above=12pt, right] {$\sqrt{2}$} (-1.3,1);
+		\draw[decoration={brace,raise=5pt},decorate]
+  			(-1.3,0) -- node[left=6pt] {$1$} (-1.3,1);
+  			
 				
 	\end{tikzpicture}
 \end{center}
@@ -75,7 +76,7 @@ Ce théorème est en dehors du champ d'application du cours.
 \dfn{Nombres réels $\R$}{
 	À chaque point de la droite on associe un nombre, appelé \emph{réel}.
 	L'ensemble des nombres réels est noté $\R$.
-}
+}{}
 
 \nt{
 	On a la suite d'inclusions suivantes :
@@ -94,7 +95,7 @@ Ce théorème est en dehors du champ d'application du cours.
 		\item Si $a$ n'est pas contenue dans l'intervalle mais $b$ l'est, on le note $] a ; b]$.
 		\item Si ni $a$ ni $b$ ne sont contenues dans l'intervalle, on le note $] a ; b [$.
 	\end{enumerate}
-}
+}{}
 \ex{}{
 	Les intervalles suivants sont bornés.
 	\begin{multicols}{2}
@@ -111,7 +112,7 @@ Ce théorème est en dehors du champ d'application du cours.
 \dfn{Intervalle non borné}{
 	Un intervalle n'est pas forcément borné : une ou les deux bornes peuvent être infinies ($\pinfty$ ou $\minfty$). 
 	Dans ce cas, l'intervalle n'inclut jamais l'infini car ce n'est pas un nombre.
-}
+}{}
 
 \ex{}{
 	Les intervalles suivants ne sont pas bornés.
@@ -137,7 +138,7 @@ Ce théorème est en dehors du champ d'application du cours.
 			
 			Un élément appartient à $E \cup F$ dès qu'il appartient à $E$ \textbf{ou} à $F$.
 		\end{enumerate}
-}
+}{}
 
 
 \exe{}{
@@ -191,7 +192,7 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 			\item $>$ : strictement supérieur à
 			\item $\geq$ : supérieur ou égal à
 		\end{enumerate}
-}
+}{}
 
 \ex{}{
 	\begin{multicols}{3}
@@ -343,7 +344,7 @@ Les intervalles de confiance seront étudiés plus tard dans le chapitre dédié
 	
 	En remarquant que $b-a = -(a-b)$, on voit que la distance entre $a$ et $b$ est exactement donnée par la valeur absolue de $a-b$.
 		\[ \text{Distance entre $a$ et $b$} = | a- b|. \]
-}
+}{}
 
 \nt{
 	On retrouve d'ailleurs $|x| = |x - 0|$, la distance de $x$ à $0$.
@@ -444,3 +445,236 @@ Les intervalles de confiance seront étudiés plus tard dans le chapitre dédié
 
 
 \section{Géométrie plane}
+
+Sur la droite réelle, on associe chaque point avec un nombre, appelé nombre réel : chaque point correspond à un nombre, et chaque nombre correspond à un point.
+
+Dans cette section, on augmente la notion de droite réelle en ajoutant une dimension ; la droite devient le plan.
+On associera alors à chaque point du plan \emph{deux}\footnote{Il s'avère qu'il est possible en théorie d'associer chaque point du plan à un unique nombre, mais la construction dépasse le champ d'application de ce cours.} nombres réel : le premier représentant sa position \og gauche/droite \fg et le deuxième sa position \og haut/bas \fg.
+
+Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels appelés respectivement l'abscisse et l'ordonnée du point.
+
+\subsection{Repère orthonormé}
+
+\dfn{Repère}{
+	
+	\begin{multicols}{2}
+
+	Un repère est determiné par trois points $(O; I,J)$ comme ci-contre.
+	\begin{itemize}
+		\item Le point $O$ est appelé l'\textbf{origine}.
+		\item La droite $(OI)$ est appelée l'axe des \textbf{abscisses}.
+		\item La droite $(OJ)$ est appelée l'axe des \textbf{ordonées}.
+		\item[]
+		\item[]
+	\end{itemize}
+	
+	
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[violet, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\addplot[violet, mark=*, mark size = 1] (1,0) node[above] {$I$};
+			\addplot[violet, mark=*, mark size = 1] (0,1) node[right] {$J$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{multicols}
+
+}{}
+
+\dfn{Repère orthonormé}{
+	Un repère $(O; I, J)$ est
+	\begin{enumerate}
+		\item \textbf{orthogonal} si ses axes $(OI)$ et $(OJ)$ sont perpendiculaires ;
+		\item \textbf{normé} si les segments $[OI]$ et $[OJ]$ sont de même longueur (fixée à $1$) ;
+		\item \textbf{orthonormé} s'il est orthogonal et normé.
+	\end{enumerate}´
+}{def:repere-orthonorme}
+
+\nt{
+	L'ordre des points $I$ et $J$ est important car il donne l'ordre de lecture des coordonnées.
+	Traditionnellement, l'axe des abscisse est horizontale, et celle des ordonnée verticale.
+	
+	Ainsi, le point $I$ admet pour coordonnée $(1;0)$, et le point $J$ $(0;1)$.
+	On notera alors :
+		\begin{align*}
+			I(1;0), && \text{ et } && J(0;1).
+		\end{align*}
+}
+
+\ex{}{
+	\begin{multicols}{2}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[darkgray, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\addplot[darkgray, mark=*, mark size = 1] (1,0) node[above] {$I$};
+			\addplot[darkgray, mark=*, mark size = 1] (0,1) node[right] {$J$};
+			
+			\addplot[black, mark=*, mark size = 1] (2,3) node[above, right] {$A$};
+			\addplot[black, mark=*, mark size = 1] (-1,2) node[above, left] {$B$};
+			\addplot[black, mark=*, mark size = 1] (3,-1) node[below, right] {$C$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	Les points $A$, $B$, et $C$ admettent pour coordonnées, dans le repère $(O; I, J)$,
+		\begin{align*}
+			A(2;3), && B(-1;2), && C(3;-1).
+		\end{align*} 
+	\end{multicols}
+}{}
+
+\nt{
+	On omettera parfois de préciser que le repère est orthonormé.
+	
+	On voit donc le plan comme l'ensemble des couples de réels :
+		\[ \{ (x, y) \text{ tq. } x \in \R, \text{ et } y\in\R \}. \]
+}
+
+
+\subsection{Segments du plan : longueur et milieu}
+
+\dfn{Segment}{
+	Soient $E, F$ deux points du plan. Le segment $[EF]$ est l'ensemble des points de la droite $(AB)$ situés entre $A$ et $B$ (tous les deux inclus).
+}{deg:segment}
+
+\nt{
+	Un segment du plan est une généralisation d'un intervalle sur la droite.
+	Tous les segments du plans qui seront considérés contiennent leur bornes (contrairement aux intervalles !).
+}
+
+\mprop{}{
+	Soient $a,b \in \R$ deux nombres réels tels que $a < b$.
+	
+	Alors le milieu de l'intervalle $[a,b]$ est égal à $\dfrac{a+b}2$.
+}{prop:milieu-inter}
+
+\pf{Démonstration de la proposition \ref{prop:milieu-inter}}{
+	Notons $x\in\R$ le milieu de l'intervalle.
+	Celui-ci est à équidistance de $a$ et de $b$ et vérifie donc
+		\[ |x-a| = |x-b|. \]
+	Comme $x$ se situe entre $a$ et $b$, et par définition de la valeur absolue, on a donc
+		\begin{align*}
+			x-a = b-x && \iff && 2x = a+b && \iff && x = \dfrac{a+b}2
+		\end{align*}
+}
+
+\nt{
+	En voyant $\dfrac{a+b}2$ comme $\dfrac12 a + \dfrac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
+	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient. Leur poids est alors $\dfrac12$.
+	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
+	
+	En changeant les poids, on peut créer d'autres points de l'intervalle. 
+	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\dfrac23$ et $\dfrac13$.
+	 La formule de la moyenne pondérée sera alors
+		\[ \dfrac23a + \dfrac13b, \]
+	qui est plus proche de $a$ que de $b$.
+	
+}
+
+\exe{}{
+	Considérons l'intervalle $[15;20]$ qui correspond à deux notes : $15$ et $20$.
+	\begin{enumerate}
+		\item Si les deux notes ont le même coefficient $\dfrac12$, quelle est la moyenne et donc le milieu de l'intervalle ?
+		\item Posons $\lambda \in [0;1]$ le coefficient de la première note, et $1-\lambda$ celui de la deuxième.
+			Calculer la moyenne pondérée $15\lambda + 20(1-\lambda)$ pour certaines valeurs de $\lambda$ dans son intervalle $[0;1]$. 
+			Vérifier que toutes les valeurs obtenues appartiennent bien à l'intervalle $[15;20]$.
+		\item Quel $\lambda \in [0;1]$ choisir pour avoir une moyenne de $18{,}5$ ?
+	\end{enumerate}
+}{}
+
+\mprop{}{
+	Soient $A(x_A, y_B)$ et $B(x_A,y_B)$ deux points du plan.
+	
+	Alors le milieu du segment $[AB]$ est le point $M$ de coordonnées
+		\begin{align}\label{expr:milieu}
+			M\left(\dfrac{x_A+x_B}2, \dfrac{y_A + y_B}2\right).
+		\end{align}
+}{prop:milieu-segment}
+
+\pf{Démonstration de la proposition \ref{prop:milieu-segment}}{
+	Le point $M$ est au centre du rectangle dont les coins sont $A$ et $B$.
+	Ainsi ses coordonnées sont les moyennes des coordonnées et $A$ et de $B$.
+	
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3, xmax=8, xticklabel=\empty, ymin=-2.9, ymax=4, yticklabel=\empty, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}]
+		
+			
+			\addplot[black, mark=*, mark size = 1] (1,3) node[above, right] {$A$};
+			\addplot[black, mark=*, mark size = 1] (7,-1) node[above, left] {$B$};
+			\addplot[red, mark=*, mark size = 1] (4,1) node[above, left] {$M$};
+			
+			
+			\addplot[black, mark=+, mark size = 1] (1,0) node[above] {$x_A$};
+			\addplot[black, mark=+, mark size = 1] (7,0) node[below] {$x_B$};
+			\addplot[black, mark=+, mark size = 1] (0,3) node[left] {$y_A$};
+			\addplot[black, mark=+, mark size = 1] (0,-1) node[left] {$y_B$};
+			
+			
+			\addplot[red, mark=+, mark size = 2] (4,0) node[below=10pt] {$\dfrac{x_A+x_B}2$};
+			\addplot[red, mark=+, mark size = 2] (0,1) node[left] {$\dfrac{y_A+y_B}2$};
+			
+		\end{axis}
+	\end{tikzpicture}
+	
+	
+	
+}
+
+\nt{
+	La formule \eqref{expr:milieu} du milieu du segment $[AB]$ ressemble de près à celle du milieu d'un intervalle.
+	Pour simplifier les expressions, il sera alors pratique d'écrire
+		\[ M = \dfrac{A+B}2 = \dfrac12 A + \dfrac12 B.\]
+	Pour cela, il faut pouvoir additionner les points du plans, et les multiplier par des nombres réels.
+}
+
+\dfn{Manipulations des points}{
+	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan et $\kappa \in \R$ un nombre réel quelconque.
+	
+	Les opérations suivantes sont légales.
+		\begin{enumerate}
+			\item L'addition de deux points $A+B$, de coordonées $(x_A+x_B, y_A+y_B)$.
+			\item La multiplication d'un point par un réel $\kappa A$, de coordonnées $(\kappa x_A; \kappa y_A)$.
+		\end{enumerate}
+	\textbf{Attention} : on ne multiplie jamais les points ensemble ! Le produit $A$ par $B$ n'a pas de sens.
+}{}
+
+
+\ex{}{
+	Considérons $A(1;3)$ et $B(-3;2)$ deux points du plan.
+	Alors 
+		\begin{multicols}{3}
+		\begin{enumerate}
+			\item $A+B = (-2 ; 5)$
+			\item $·2B = (-6 ; 4)$
+			\item $-A = (-1 ; -3)$
+			\item $B - A = (-4 ; -1)$
+			\item $-2A - B = (1 ; -8)$
+			\item $\dfrac{A-2B}{2} = \left(\dfrac72 ; \dfrac{-1}2\right)$
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+\mprop{Reformulation de la proposition \ref{prop:milieu-segment}}{
+	Le milieu $M$ du segment $[AB]$ est égal à
+		\[ M = \dfrac{A+B}{2}. \]
+}{}
+
+\nt{
+	On peut retrouver la formule du milieu d'un intervalle en plongeant celui-ci dans le plan.
+	Par exemple, l'intervalle $[-3;1]$ correspond au segment $[AB]$, où $A(-3;0)$ et $B(1;0)$.
+	Faites un dessin pour vous en assurer.
+	
+	Le milieu $M$ du segment est alors $\dfrac{A+B}2 = (-1;0)$, ce qui correspond au fait que le milieu de l'intervalle soit $-1$.
+}
+
+\thm{Longueur d'un segment}{
+	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan.
+	La longueur $\ell$ du segment $[AB]$ est donnée par
+		\[ \ell = \sqrt{|x_A - x_B|^2 + |y_A - y_B|^2}. \]
+}{thm:long-segment}
+
+\pf{Démonstration du théorème \ref{thm:long-segment}}{
+
+	todo
+
+}
