@@ -53,8 +53,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Th\'eor\`eme}
-\newtheorem{Sol}{Solution}
-\newtheorem*{Sol*}{Solution}
+\newtheorem*{sol}{Solution}
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
 \newtheorem*{definition}{Définition}
@@ -76,12 +75,29 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-\AdvanceDate[1]
+\AdvanceDate[0]
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Unions et intersections}}
+\fancyhead[C]{\textbf{Unions et intersections \ifsolutions -- Solutions \fi}}
 \fancyhead[R]{\today}
 
 \begin{center}
@@ -109,7 +125,7 @@ nomarginpar,% We don't want any margin paragraphs
 		\end{enumerate}
 \end{definition}
 
-\begin{ex}
+\exe{
 	Écrire les ensembles finis suivants.
 	\begin{multicols}{2}
 	\begin{enumerate}
@@ -119,9 +135,20 @@ nomarginpar,% We don't want any margin paragraphs
 		\item $\{1 ; 3 ; -4 ; -3 \} \cup \{ -3 ; 4 ; 10\}$
 	\end{enumerate}
 	\end{multicols}
-\end{ex}
+}{
 
-\begin{ex}
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{1\}$.
+		\item $\{1; 2\}$
+		\item $\{-3 ; 4\}$
+		\item $\{-4 ; -3; 1; 3 ; 4 ; 10 \}$
+	\end{enumerate}
+	\end{multicols}
+
+}
+
+\exe{
 	Écrire les intervalles suivants sous forme d'ensembles.
 	\begin{enumerate}[i)]\itemsep10pt
 		\item $]{-}4 ; {+}\infty [ = \{ x \in \R \ \text{tq.} \ x > -4 \}$
@@ -130,9 +157,20 @@ nomarginpar,% We don't want any margin paragraphs
 		\item $]{-}\infty ; -2[ \cap [-12 ; {+}\infty[ = $
 		\item $]{-} \infty ; 5] \cap ]-8 ; {+}\infty [ = $
 	\end{enumerate}
-\end{ex}
+}{
 
-\begin{ex}[Livre n°19 p.23]
+
+	\begin{enumerate}[i)]
+		\item $]{-}4 ; {+}\infty [ = \{ x \in \R \ \text{tq.} \ x > -4 \}$
+		\item $[5 ; {+}\infty [ = \{ x \in \R \ \text{tq.} \ x \geq 5 \}$
+		\item $]{-}\infty ; -\pi ] =  \{ x \in \R \ \text{tq.} \ \leq -\pi \}$
+		\item $]{-}\infty ; -2[ \cap [-12 ; {+}\infty[ = \{ x \in \R \ \text{tq.} \ -12 \leq x < -2 \}$
+		\item $]{-} \infty ; 5] \cap ]-8 ; {+}\infty [ = \{ x \in \R \ \text{tq.} \ -8 < x \leq 5 \}$
+	\end{enumerate}
+
+}
+
+\exe{
 	Pour chaque couples d'intervalles $I,J$, exprimer $I \cap J$ et $I \cup J$ sous forme d'intervalle.
 	%\begin{multicols}{2}
 	\begin{enumerate}\itemsep10pt
@@ -145,6 +183,19 @@ nomarginpar,% We don't want any margin paragraphs
 		\item $I = \{ x \in \R \ \text{tq. } 2 \leq x \leq 12 \}$, et $J = \{ x \in \R \ \text{tq. } 10 > x \geq -1 \}$
 	\end{enumerate}
 	%\end{multicols}
-\end{ex}
+}{
+
+	\begin{enumerate}\itemsep10pt
+		\item $I\cap J = [{-}1; 2]$ et $I \cup J = [{-}4; 6[$
+		\item $I\cap J = [{-}2; 3[$ et $I \cup J = \R$
+		\item $I\cap J = ]{-}\infty; 4]$ et $I \cup J =  ]{-}\infty; 7]$
+		\item $I\cap J = \{-1\} $ et $I \cup J = \R$
+		\item $I\cap J [3; {+}\infty[= $ et $I \cup J = [{-}5; {+}\infty[$
+		\item $I\cap J = ]3;9]$ et $I \cup J = \R$
+		\item $I\cap J = [2 ; 10[$ et $I \cup J = [{-}1; 12]$
+	\end{enumerate}
+
+
+}
 
 \end{document}

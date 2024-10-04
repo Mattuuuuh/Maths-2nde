@@ -49,6 +49,11 @@
 \input{../../notes/preamble.tex}
 \input{../../notes/macros.tex}
 
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{ Seconde 13}
@@ -63,7 +68,13 @@
 	Les nombres $E$ et $a$ vérifient l'équation
 		\[ |E| = a \]
 	si et seulement si 
+	\ifsolutions
+		\begin{align*}
+			E = -a && \text{ ou } && E = a
+		\end{align*}
+	\else
 	\vspace{2cm}
+	\fi
 }
 
 \section*{Résolution d'inéquations du type $|E| \leq a$}
@@ -72,7 +83,17 @@
 	Les nombres $E$ et $a$ vérifient l'équation
 		\[ |E| \leq a \]
 	si et seulement si  
+	\ifsolutions
+		\begin{align*}
+			E \in [-a ; a]
+		\end{align*}
+		c'est-à-dire
+		\begin{align*}
+			-a \leq E \leq a.
+		\end{align*}
+	\else
 	\vspace{4cm}
+	\fi
 }
 
 \section*{Résolution d'inéquations du type $|E| \geq a$}
@@ -81,7 +102,17 @@
 	Les nombres $E$ et $a$ vérifient l'équation
 		\[ |E| \geq a \]
 	si et seulement si  
+	\ifsolutions
+		\begin{align*}
+			E \in ]{-}\infty ; -a] \cup [a ; {+}\infty[
+		\end{align*}
+		c'est-à-dire
+		\begin{align*}
+			E \leq -a && \text{ ou } && E \geq a.
+		\end{align*}
+	\else
 	\vspace{4cm}
+	\fi
 }
 \pagenumbering{gobble}
 
