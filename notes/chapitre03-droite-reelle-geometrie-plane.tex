@@ -250,6 +250,21 @@ Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \o
 			\item $ax \geq a y$ si $a < 0$ est strictement négatif.
 		\end{enumerate}
 }{thm:ineg}
+\pf{Justifications du théorème \ref{thm:ineg}}{
+	Le point $1.$ se justifie sans peine avec un dessin : ajouter $a$ revient à décaler les points $x$ et $y$ de la droite réelle vers la droite (si $a >0$) ou la gauche (si $a<0$) d'une même distance. 
+	Leur relation d'ordre reste donc inchangée.
+	
+	Étant donné $1.$, on a que $x \leq y$ est équivalent à $y-x \geq 0$.
+	Ainsi $y-x$ est un nombre réel positif.
+	Or, multiplier deux positifs entre eux donne un nombre positif, et multiplier un nombre négatif avec un positif donne un nombre négatif.
+	
+	Par conséquent, si $a > 0$, on a bien
+		\[ a \cdot (y-x) \geq 0 \iff ay \geq ax \iff ax \leq ay, \]
+	et si $a < 0$, on a
+		\[ a \cdot (y-x) \leq 0 \iff ay \leq ax \iff ax \geq ay, \]
+	ce qui conclut.
+
+}
 
 \nt{
 	Le théorème \ref{thm:ineg} reste vrai si on remplace l'inégalité large $\leq$ par une inégalité stricte $<$.
