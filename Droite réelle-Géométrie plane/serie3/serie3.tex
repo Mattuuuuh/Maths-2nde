@@ -69,7 +69,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-\AdvanceDate[1]
+\AdvanceDate[2]
 
 
 % plots
@@ -95,27 +95,50 @@ nomarginpar,% We don't want any margin paragraphs
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{ Géométrie : droite et plan \ifsolutions -- Solutions  \fi}}
-\fancyhead[R]{\today}
+\fancyhead[L]{\ifdys \small \fi Seconde 13}
+\fancyhead[C]{ \textbf{ Géométrie : droite et plan \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\ifdys \small \fi \today}
+
 
 \subsection*{Droite réelle}
 
 \exe{
 	Calculer le milieu et la longueur de chaque intervalle suivant.
+	\ifdys
+	\else
 	\begin{multicols}{2}
+	\fi
 	\begin{enumerate}
 		\item $[-1 ; 1]$
 		\item $]{-1} ; 1[$
-		\item $[-14{,}7001 ; -14{,699}]$
-		\item $[-3{,}3 ; -\dfrac23 [$
-		\item $\{ x \in \R \text{ tq. } -\dfrac27 > x \geq -\dfrac5{21} \}$
+		\item $[-14{,}701 ; -14{,}699]$
+		\item $\left[-\dfrac{29}{9}; -\dfrac23 \right[$
+		\item $\left\{ x \in \R \text{ tq. } -\dfrac{5}{21} > x \geq -\dfrac27 \right\}$
 		\item $\{ x \in \R \text{ tq. } 2 \leq 2x + 1 \leq 10 \}$
 	\end{enumerate}
+	\ifdys
+	\else
 	\end{multicols}
+	\fi
 }{
-
+	\ifdys
+	\else
+	\begin{multicols}{2}
+	\fi
+	\begin{enumerate}
+		\item Milieu : $0$ ; longueur : $2$.
+		\item Milieu : $0$ ; longueur : $2$.
+		\item Milieu :  $-14{,}7$ ; longueur : $0{,}002$.
+		\item Milieu :  $-\dfrac{35}{18}$ ; longueur : $\dfrac{23}9$.
+		\item Milieu :  $-\dfrac{11}{42}$ ; longueur : $\dfrac{1}{21}$.
+		\item Milieu :  $\dfrac52$ ; longueur : $4$.
+	\end{enumerate}
+	\ifdys
+	\else
+	\end{multicols}
+	\fi
 }
+
 
 \subsection*{Plan cartésien\footnote{De René Descartes, mathématicien, physicien, et philosophe français (1596--1650).} }
 
@@ -128,26 +151,147 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 }{
 
+
+	\begin{enumerate}
+		\item Le milieu $M_1$ du segment $[UV]$ est donnée par $\dfrac12 (U+V) = \left(\dfrac12 ; \dfrac12\right)$.
+		
+		Le milieu $M_2$ du segment $[UW]$ est donnée par $\dfrac12 (U+W) = \left(0 ; \dfrac52\right)$.
+		
+		Le milieu $M_3$ du segment $[VW]$ est donnée par $\dfrac12 (V+W) = \left(-\dfrac32 ; 0\right)$.
+		
+		\item  La longueur du segment $[UV]$ est donnée par $\sqrt{3^2 + 5^2} = \sqrt{34}$.
+		
+		La longueur du segment $[UW]$ est donnée par $\sqrt{4^2 + 1^2} = \sqrt{17}$.
+		
+		La longueur du segment $[VW]$ est donnée par $\sqrt{1^2 + 4^2} = \sqrt{17}$.
+		
+		On remarque donc que le triangle est isocèle en $W$.
+	\end{enumerate}
+
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+			
+			\addplot[black, mark=*, mark size = 1] (2,3) node[right] {$U$};
+			\addplot[black, mark=*, mark size = 1] (-1,-2) node[left] {$V$};
+			\addplot[black, mark=*, mark size = 1] (-2,2) node[left] {$W$};
+			
+			
+			\addplot[black, dotted, thick, domain = -2:2, samples=2] {2.5 + x/4};
+			\addplot[black, dotted, thick, domain = -1:2, samples=2] {5/3 * (x+1 -2*3/5)};
+			\addplot[black, dotted, thick, domain = -2:-1, samples=2] {-4*x - 6};
+			
+			\addplot[red, mark=*, mark size = 1] (.5, .5) node[below, right] {$M_1$};
+			\addplot[red, mark=*, mark size = 1] (0,2.5) node[above] {$M_2$};
+			\addplot[red, mark=*, mark size = 1] (-1.5,0) node[left] {$M_3$};
+		\end{axis}
+	\end{tikzpicture}
+
 }
+
+
+
 
 \exe{\label{ex:2}
 	Représenter dans un repère l'origine $O$ ainsi que les sommets $E(4; 2)$, $W( 1 ; 3)$, et $N = E + W$.
 	\begin{enumerate}
 		\item Calculer le milieu des segments $[ON]$ et $[EW]$. Que dire du quadrilatère ${OWNE}$ ?
-		\item Calculer la longueur des segments $[OE], [EN], [NW],$ et $[NO]$.
+		\item Calculer la longueur des segments $[OE], [EN],$ et $[NO]$.
 		\item Représenter dans un repère les quadrilatères de sommets $O$, $\kappa E$, $\kappa W$, et $\kappa N$ pour $\kappa = -\dfrac12$ et $\kappa = \dfrac32$.
 	\end{enumerate}
-}{}
+}{
+	
+	\begin{enumerate}
+		\item Le milieu du segment $[ON]$ est donné par $\dfrac12 (O+N) = \dfrac12 N = \dfrac12 (W+E) = \left(\dfrac52 ; \dfrac52\right)$.
+		
+		Le milieu du segment $[WE]$ est donné par $\dfrac12 (W+E) = \left(\dfrac52 ; \dfrac52\right)$.
+		
+		Les milieux sont confondus : le quadrilatère est donc un parallélogramme.
+		\item Les longueurs des segments sont, respectivement, $\sqrt{20}, \sqrt{10},$ et $\sqrt{50}$.
+		\item Représenter dans un repère les quadrilatères de sommets $O$, $\kappa E$, $\kappa W$, et $\kappa N$ pour $\kappa = -\dfrac12$ et $\kappa = \dfrac32$.
+		\item En violet dans le repère ci-dessous : $\kappa = -\dfrac12$. En rouge : $\kappa = \dfrac32$.
+	\end{enumerate}
+	
+	
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.9, xmax=8.9, ymin=-4.9, ymax=8.9,  axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+			
+			\addplot[black, mark=*, mark size = 1] (0,0) node[left=6pt, above=2pt] {$O$};
+			\addplot[black, mark=*, mark size = 1] (4,2) node[right] {$E$};
+			\addplot[black, mark=*, mark size = 1] (1,3) node[left] {$W$};
+			\addplot[black, mark=*, mark size = 1] (5,5) node[right] {$N$};
+			
+			
+			\addplot[black, dotted, thick, domain = 0:4, samples=2] {x/2};
+			\addplot[black, dotted, thick, domain = 1:5, samples=2] {x/2 + 2.5};
+			\addplot[black, dotted, thick, domain = 0:1, samples=2] {3*x};
+			\addplot[black, dotted, thick, domain = 4:5, samples=2] {3*(x-4+2/3) };
+			
+			
+			\addplot[violet, mark=*, mark size = 1] (-2,-1) node[left] {$E$};
+			\addplot[violet, mark=*, mark size = 1] (-.5,-1.5) node[right] {$W$};
+			\addplot[violet, mark=*, mark size = 1] (-2.5,-2.5) node[below] {$N$};
+			
+			
+			\addplot[violet, dotted, thick, domain = -2:0, samples=2] {x/2};
+			\addplot[violet, dotted, thick, domain = -2.5:-.5, samples=2] {x/2 +1/4-1.5};
+			\addplot[violet, dotted, thick, domain = -.5:0, samples=2] {3*x};
+			\addplot[violet, dotted, thick, domain = -2.5:-2, samples=2] {3*(x+2.5 -2.5/3) };
+			
+			
+			\addplot[red, mark=*, mark size = 1] (6,3) node[right] {$E$};
+			\addplot[red, mark=*, mark size = 1] (1.5,4.5) node[left] {$W$};
+			\addplot[red, mark=*, mark size = 1] (7.5,7.5) node[right] {$N$};
+			
+			
+			\addplot[red, dotted, thick, domain = 4:6, samples=2] {x/2};
+			\addplot[red, dotted, thick, domain = 1.5:7.5, samples=2] {.5*(x-1.5+4.5*2)};
+			\addplot[red, dotted, thick, domain = 1:1.5, samples=2] {3*x};
+			\addplot[red, dotted, thick, domain = 6:7.5, samples=2] {3*(x-6+3/3) };
+			
+		\end{axis}
+	\end{tikzpicture}
+
+}
 
 \exe{
-	Considérons les points $a(0;-2), b(-1;2)$ ainsi que les points $c(3; -x)$ et $d(3; 3x - 2)$ dépendant d'un réel $x\in\R$.
+	Considérons les points $a(0;-2), b(0;2)$ ainsi que les points $c(3; -x)$ et $d(3; 3x - 2)$ dépendant d'un réel $x\in\R$.
 	
 	\begin{enumerate}
 		\item Pour quel réel $x\in\R$ les points $c$ et $d$ sont-ils confondus ?
 		\item Donner l'intervalle des réels $x\in\R$ tels que le point $d$ est au-dessus du point $c$ graphiquement.
-		\item Lorsque $d$ est au-dessus de $c$, pour quel réel $x\in\R$ le quadrilatère $abcd$ est-il un parallélogramme ?
+		\item Lorsque $d$ est au-dessus de $c$, pour quel réel $x\in\R$ le quadrilatère $abdc$ est-il un parallélogramme ?
 	\end{enumerate}
-}{}
+}{
+	
+	\begin{enumerate}
+		\item On pose l'égalité $c=d$ qui donne $3=3$ en première coordonnée et $-x = 3x-2$ en seconde, qu'on résoud pour trouver $x=\dfrac12$.
+		\item On souhaite que la deuxièmes coordonnée de $d$ soit supérieure à celle de $c$, c'est-à-dire que $3x -2 \geq -x$, qu'on résoud pour trouver $x \geq \dfrac12$ vérifié pour tout nombre réel dans l'intervalle $[\dfrac12 ; {+}\infty[$.
+		\item Pour $x$ dans l'intervalle trouvé, on souhaite que les milieux des segments $[ad]$ et $[bc]$ soient confondus.
+		C'est-à-dire 
+			\[ \dfrac{a+d}2 = \dfrac{b+c}2 \qquad \iff \qquad (3 ; 3x -4) = (3 ; 2 -x). \]
+		L'égalité des premières coordonnées donne $3=3$, et celle des deuxièmes donne $3x-4 = 2-x$ qu'on résoud pour trouver $x = \dfrac32$.
+		
+		On vérifie que $x=\dfrac32$ appartient bien à l'intervalle $[\dfrac12 ; {+}\infty[$, et on place les points $a,b,c,d$ dans le repère. On a désormais $c\left(3;-\dfrac32\right)$ et $d\left(3;\dfrac52\right)$.
+	\end{enumerate}
+
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.9, xmax=4.9, ymin=-4.9, ymax=4.9,  axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+			
+			\addplot[red, mark=*, mark size = 1] (0,-2) node[left=6pt, below=2pt] {$a$};
+			\addplot[red, mark=*, mark size = 1] (0,2) node[left=5pt, above] {$b$};
+			\addplot[red, mark=*, mark size = 1] (3,-1.5) node[below] {$c$};
+			\addplot[red, mark=*, mark size = 1] (3,2.5) node[right] {$d$};
+			
+			
+			\addplot[red, dotted, thick, domain = 0:3, samples=2] {.5/3*x - 2};
+			\addplot[red, dotted, thick, domain = 0:3, samples=2] {.5/3*(x-3)+2.5};
+			\draw[red, dotted, thick] (axis cs:0.04,-2) -- (axis cs:0.04,2);
+			\draw[red, dotted, thick] (axis cs:3,-1.5) -- (axis cs:3,2.5);
+			
+		\end{axis}
+	\end{tikzpicture}
+
+}
 
 \exe{
 	Soient $A(-1; 3)$, $B(3; 0)$, et $x\in\R$ un réel. Posons $\tilde{A} = xA$ et $\tilde{B} = xB$.
@@ -156,38 +300,186 @@ nomarginpar,% We don't want any margin paragraphs
 		\item Donner l'ensemble des $x\in\R$ tels que la longueur du segment $[\tilde{A} \tilde{B}]$ est égale à $15$.
 		\item Représenter les points $\tilde{A}$ et $\tilde{B}$ dans un repère pour chacun des $x$ trouvés.
 	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item On pose
+			\[ \sqrt{|3x + x|^2 + |0 + 3x|^2} = 15. \]
+		Remarquons qu'on a $|4x| = 4|x|$ et $|3x| = 3|x|$, et donc qu'en mettant l'équation au carré, on trouve
+			\[ 4^2|x|^2 + 3^2|x|^2 = 15^2 \qquad \iff \qquad 25|x|^2 = 225 \qquad \iff \qquad |x|^2 = 9.\]
+		Par conséquent, $|x| = 3$, et donc $x=3$ ou $x=-3$.
+		\item Représenter les points $\tilde{A}$ et $\tilde{B}$ dans un repère pour chacun des $x$ trouvés.
+	\end{enumerate}
+	
+			\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -9.9, xmax=9.9, ymin=-9.9, ymax=9.9,  axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+			
+			\addplot[black, mark=*, mark size = 1] (-1,3) node[left=6pt, below=2pt] {$A$};
+			\addplot[black, mark=*, mark size = 1] (3,0) node[left=5pt, above] {$B$};
+			\addplot[red, mark=*, mark size = 1] (-3,9) node[left=6pt, below=2pt] {$3A$};
+			\addplot[red, mark=*, mark size = 1] (9,0) node[below] {$3B$};
+			\addplot[violet, mark=*, mark size = 1] (3,-9) node[right] {$-3A$};
+			\addplot[violet, mark=*, mark size = 1] (-9,0) node[above] {$-3B$};
+			
+			
+			\addplot[red, dotted, thick, domain = -3:9, samples=2] {-3/4*(x+3)+9};
+			\addplot[violet, dotted, thick, domain = -9:3, samples=2] {-3/4*(x+9)};
+			
+		\end{axis}
+	\end{tikzpicture}
+
 }
 
+\ifdys
+\else
 \newpage
+\fi
+
 \subsection*{Exercices supplémentaires}
 
 \exe{
 	Calculer le milieu et la longueur de chaque intervalle suivant.
+	\ifdys
+	\else
 	\begin{multicols}{2}
+	\fi
 	\begin{enumerate}
 		\item $[-4 ; 12]$
 		\item $]{-7}{,}7 ; -7{,}6[$
-		\item $[-\dfrac49 ; \dfrac23 [$
-		\item $\{ x \in \R \text{ tq. } -\dfrac{8}{17} > x \geq -\dfrac9{17} \}$
-		\item $\{ x \in \R \text{ tq. } \dfrac{9}{10} \leq 2x + 1 \leq \dfrac{5}{2} \}$
+		\item $\left[-\dfrac49 ; \dfrac23 \right[$
+		\item $\left\{ x \in \R \text{ tq. } -\dfrac{8}{17} > x \geq -\dfrac9{17} \right\}$
+		\item $\left\{ x \in \R \text{ tq. } \dfrac{9}{10} \leq 2x + 1 \leq \dfrac{5}{2} \right\}$
 	\end{enumerate}
+	\ifdys
+	\else
 	\end{multicols}
+	\fi
+}{
+	\ifdys
+	\else
+	\begin{multicols}{2}
+	\fi
+	\begin{enumerate}
+		\item  Milieu : $4$ ; longueur : $16$.
+		\item  Milieu : ${-}7{,}65$ ; longueur : $0{,}1$.
+		\item  Milieu : $\dfrac2{18}$ ; longueur : $\dfrac{10}9$.
+		\item  Milieu : $-\dfrac12$ ; longueur : $\dfrac{1}{17}$.
+		 \item Milieu : $\dfrac{7}{20}$ ; longueur : $\dfrac45$.¨
+	\end{enumerate}
+	\ifdys
+	\else
+	\end{multicols}
+	\fi
 }
 
 \exe{
-	Soient $A, B$ deux points distincts et non nuls du plan.
+	Soient $a < b$ deux nombres réels, et $c\in\R$ un autre nombre réel quelconque.
+	Montrer que la longueur des intervalles $[a ; b]$ et $[a+c ; b+c]$ sont les mêmes.
+	Est-ce que les milieux des intervalles sont les mêmes ?
+}{
+	Par définition, la longueur de l'intervalle $[a+c;b+c]$ est donné par
+		\[ (b+c) - (a+c)= b - a, \]
+	et est donc égal à la longueur de l'intervalle $[a;b]$.
+	
+	Les milieux, quant à eux, changent en fonction de $c$. En effet, le milieu de $[0;1]$ et celui de $[1;2]$ ne sont pas les mêmes.
+	En général, le milieu du segment $[a+c ; b+c]$ est égal à
+		\[ \dfrac12 \left( (a+c) + (b+c) \right) = \dfrac12 (a+b) + c, \]
+	le milieu de l'intervalle $[a;b]$ auquel on ajoute $c$.
+
+}
+
+\exe{
+	Montrer que le milieu de l'intervalle $\left[\dfrac{n-1}{2n} ; \dfrac{n+1}{2n}\right]$ est toujours $\frac12$ pour n'importe quel entier naturel $n\in\N$ non nul. Quelle est la longueur de l'intervalle en fonction de $n$ ?
+	
+	Calculer les bornes de l'intervalle et sa longueur pour des valeurs de $n$ de plus en plus grandes. De quelles valeurs la longueur et les bornes se rapprochent-elles ?
+}{
+	Par définition, le milieu de l'intervalle est donné par
+		\[ \dfrac12 \left( \dfrac{n-1}{2n} + \dfrac{n+1}{2n} \right)  =\dfrac12 \times \dfrac{2n}{2n} = \dfrac12. \]
+	La longueur est égale à
+		\[\dfrac{n+1}{2n} -  \dfrac{n-1}{2n} = \dfrac{1}{n}. \]
+	
+	Pour $n=1; 10; 100; 1000$, on obtient les intervalles $[0;1]$, $\left[\dfrac9{20}; \dfrac{11}{20}\right]$, $\left[\dfrac{99}{200};\dfrac{101}{200}\right]$, et $\left[\dfrac{999}{2000} ; \dfrac{1001}{2000}\right]$ de longueur $1, \dfrac1{10}, \dfrac1{100}, \dfrac1{100},$ et $\dfrac1{1000}$.
+	
+	Les intervalles sont donc toujours centrés autour de $\frac12$ et leur longueur est de plus en plus petite : la longueur s'approche de $0$, et les bornes s'approchent de $\frac12$ par le bas ou par le haut.
+
+}
+
+\exe{
+	Pour quels $c \in\R$ et $r \in \R$ réels les égalités d'ensembles sont-elles correctes ?
+	\ifdys
+	\else
+	\begin{multicols}{2}
+	\fi
+	\begin{enumerate}
+		\item $[2 ; 4] = \{ x \in \R \text{ tq. } |x - c| \leq r \}$
+		\item $]{-}1 ; 7[ = \{ x \in \R \text{ tq. } |x - c| < r \}$
+	\end{enumerate}
+	\ifdys
+	\else
+	\end{multicols}
+	\fi
+}{
+
+On se rappelle que \og $|x-c| \leq r$ \fg \ signifie \og la distance entre $x$ et $c$ est inférieure à $r$ \fg. 
+En particulier, l'ensemble des réels $x\in\R$ vérifiant ceci forme un intervalle centré en $c$.
+On prend alors pour $c$ le centre de l'intervalle et $r$ la moitié de la longueur (à comparer au rayon d'un cercle).
+	\ifdys
+	\else
+	\begin{multicols}{2}
+	\fi
+	\begin{enumerate}
+		\item $c=3$, et $r=1$.
+		\item $c = 3$ et $r=4$.
+	\end{enumerate}
+	\ifdys
+	\else
+	\end{multicols}
+	\fi
+
+}
+
+%\exe{
+%	Soient $a,b \in \R$ deux nombres réels tels que $a < b$.
+%	En fonction de $a$ et $b$, pour quels réels $c \in\R$ et $r \in \R$ a-t-on l'égalité suivante ?
+%		\[ [a ; b] = \{ x \in \R \text{ tq. } |x - c| \leq r \}. \]
+%}{
+%	On généralise l'exercice précédent en posant $c$ le centre de l'intervalle et $r$ la moitié de sa longueur.
+%		\[ c = \dfrac{a+b}2, \qquad r = \dfrac{b-a}2. \]
+%	On vérifie alors qu'on a raison à l'aide du cours : l'équivalence
+%		\[ | x - c | \leq r \iff -r \leq x-c \leq r \]
+%	donne ici
+%		\[ \{ x \in \R \text{ tq. } |x - c| \leq r \} = \{ x \in \R \text{ tq. } -  \dfrac{b-a}2 \leq x -  \dfrac{a+b}2 \leq  \dfrac{b-a}2 \}
+%			= \{ x \in \R \text{ tq. } a \leq x \leq b \} = [a;b].
+%		\]
+%
+%}
+
+\exe{
+	Soient $A, B$ deux points du plan distincts et non égaux à l'origine.
 	
 	Montrer que, pour tout réel $k \in \R$ non nul, le quadrilatère dont les sommets sont $O, kA, kB$, et $kA + kB$ est un parallélogramme.
 }{
 
-}
-
-\exe{
-	Soient $A$ et $B$ deux points du plan, et $\alpha \in \R$ un réel.
-	Posons $A' = \alpha A$ et $B' = \alpha B$.
+	On calcule les milieux des segments $[kAkB]$ et $[O(kA+kB)]$ et on compare.
 	
-	Exprimer la longueur du segment $[A'B']$ en fonction de la longueur du segment $[AB]$.
+	Le milieu du segment $[kAkB]$ est donné par $\dfrac12(kA + kB)$. 
+	Celui du segment $[O(kA+kB)]$ est donné par $\dfrac12(kA+kB)$.
+
 }
 
+%\exe{
+%	Soient $A$ et $B$ deux points du plan, et $\alpha \in \R$ un réel.
+%	Posons $A' = \alpha A$ et $B' = \alpha B$.
+%	
+%	Exprimer la longueur du segment $[A'B']$ en fonction de la longueur du segment $[AB]$.
+%}{
+%
+%	On pose $A(x_A;y_A)$ et $B(x_B;y_B)$. La longueur du segment $[A'B']$ est donnée par
+%		\begin{align*}
+%			\sqrt{ |\alpha x_A - \alpha x_B|^2 + |\alpha y_A - \alpha y_B|^2} &= \sqrt{\alpha^2 \left( |x_A - x_B|^2 + |y_A-y_B|^2 \right)} \\
+%				&= \sqrt{\alpha^2} \sqrt{ |x_A - x_B|^2 + |y_A-y_B|^2}
+%		\end{align*}
+%	Remarquons que $\sqrt{\alpha^2} = |\alpha|$. Alors la longueur $A'B'$ est égale à $AB$ multipliée par $|\alpha|$.
+%
+%}
 
 \end{document}

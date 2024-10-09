@@ -1,0 +1,233 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{enumitem, multicol}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{Sol}{Solution}
+\newtheorem*{Sol*}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{definition}{Définition}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\left\{ x \in \R \text{ tq. } #1 \right\}$
+}
+
+
+% ensembles tq. 
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+
+
+%pinfty minfty
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation -- Droite réelle \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\subsection*{Intervalles et inégalités (8pts)}
+
+\exe{
+	Écrire les ensembles suivants sous forme d'intervalle.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \xRtq{x\leq3}
+		\item \xRtq{{-}12< x}
+		\item \xRtq{{-}\dfrac13 \leq x < \dfrac{22}7}
+		\item \xRtq{9 \geq x > -13}
+	\end{enumerate}
+	\end{multicols}
+}
+{}
+
+
+\exe{
+	Écrire les ensembles suivants sous forme d'intervalle.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \xRtq{x + 3 \leq 8}
+		\item \xRtq{7x  - 13 \leq 8}
+		\item \xRtq{4 \geq -2x + 6}
+		\item \xRtq{-3 < 13x + 7 < 14}
+	\end{enumerate}
+	\end{multicols}
+}
+{}
+
+\subsection*{Union et intersection (6pts)}
+
+\exe{
+	Donner les ensembles ou intervalles correspondants aux unions suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{ 1 ; 2 ; -2 ; -4 \} \cup \{  -1; 2 ; -4 ; 1\}$
+		\item $[{-}2 ; \pinfty[ \cup ]2 ; \pinfty[$
+		\item $]{-3};4[ \bigcup \left]\dfrac72; 7\right[ \bigcup ]8; 13[$
+	\end{enumerate}
+	\end{multicols}
+}
+{}
+
+
+\exe{
+	Donner les ensembles ou intervalles correspondants aux intersections suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{ 1 ; 2 ; -2 ; -4 \} \cap \{  -1; 2 ; -4 ; 1\}$
+		\item $ ]\minfty ; 12[ \cap ]\minfty ; 11{,}99]$
+		\item $]{-3};13[ \bigcap \left]\dfrac72; 10^6\right[ \bigcap ]{-}8; 10[$
+	\end{enumerate}
+	\end{multicols}
+}
+{
+
+
+}
+
+
+\subsection*{Valeurs absolues (6pts)}
+
+
+\exe{
+	À  quoi ces valeurs absolues sont-elles égales ?
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vabs{3}$
+		\item $\vabs{8-13}$
+		\item $\vabs{-\dfrac27 - \dfrac12}$
+	\end{enumerate}
+	\end{multicols}
+}
+{
+
+
+}
+
+\exe{
+	Écrire les ensembles suivants sous forme d'ensemble fini, d'intervalle, ou d'union d'intervalles.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \xRtq{\vabs{1-3x} = 5}
+		\item \xRtq{\vabs{2x + 3} \leq 4}
+		\item \xRtq{\vabs{3x-4} \geq 10}
+	\end{enumerate}
+	\end{multicols}
+}
+{
+}
+
+\subsection*{Bonus (2pts)}
+
+\exe{
+	Donner l'ensemble des $x\in\R$ réels vérifiant
+		\[ |10 - x| = |2x + 4|. \]
+}
+{
+}
+
+
+
+\end{document}

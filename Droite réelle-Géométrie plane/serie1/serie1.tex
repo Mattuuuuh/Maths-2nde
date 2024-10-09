@@ -279,8 +279,11 @@ nomarginpar,% We don't want any margin paragraphs
 }
 
 
-
+\ifsolutions
+\else
 \newpage
+\fi
+
 \subsection*{Exercices supplémentaires}
 
 \exe{\label{ex:2}
@@ -402,7 +405,12 @@ nomarginpar,% We don't want any margin paragraphs
 	En déduire que pour tout $x,y,z \in \R$, on a
 		\[ |x - z| \leq |x-y| + |y - z|. \]
 }
-{}
+{
+	La distance entre $x$ et $y$ $(|x-y|)$ est toujours inférieure à la somme des distances de $x$ à $0$ $(|x|)$ et de $y$ à $0$ $(|y|)$ : pour aller de $x$ vers $y$, on fait un détour par $0$.
+	
+	Par suite,
+		\[ |x - z| = |x-y - (z-y)| \leq |x-y| + |y-z|. \]
+}
 
 
 \end{document}
