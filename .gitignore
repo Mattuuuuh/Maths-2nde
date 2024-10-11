@@ -14,3 +14,4 @@
 *.ods
 *.odt
 stats/__pycache__/
+stats/2nde13.csv
