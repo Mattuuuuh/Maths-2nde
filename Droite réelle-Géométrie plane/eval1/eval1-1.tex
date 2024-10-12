@@ -51,8 +51,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Th\'eor\`eme}
-\newtheorem{Sol}{Solution}
-\newtheorem*{Sol*}{Solution}
+\newtheorem*{sol}{Solution}
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
 \newtheorem{definition}{Définition}
@@ -99,7 +98,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%´\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -142,7 +141,20 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 	\end{multicols}
 }
-{}
+{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\left]-\infty; 3\right]$
+		\item $\left]-\infty ; -7\right[$
+		\item $\left] -\infty ; 31\right]$
+		\item $\left]-12; +\infty\right[$
+		\item $\left[-\dfrac13 ; \dfrac{22}7 \right[$
+		\item $\left]-13 ; 9 \right]$
+	\end{enumerate}
+	\end{multicols}
+
+}
 
 
 \exe{
@@ -159,7 +171,20 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 	\end{multicols}
 }
-{}
+{
+
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\left]-\infty ; 5\right]$
+		\item $\left]6 ; +\infty\right[$
+		\item $\left]-\infty; 3 \right]$
+		\item $\left[1 ; +\infty \right[$
+		\item $\left] -\dfrac{10}{13} ; \dfrac{7}{13} \right[$
+		\item $\left[ -5 ; 3 \right]$\
+	\end{enumerate}
+	\end{multicols}
+}
 
 \subsection*{Union et intersection (6pts)}
 
@@ -174,7 +199,18 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{enumerate}
 	\end{multicols}
 }
-{}
+{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{1;2;-2;-4;-1;1\}$
+		\item $[{-}2 ; \pinfty[$
+		\item $ ]\minfty ; 12[$
+		\item $]{-3};7[ \cup ]8; 13[$
+	\end{enumerate}
+	\end{multicols}
+
+}
 
 
 \exe{
@@ -190,6 +226,14 @@ nomarginpar,% We don't want any margin paragraphs
 }
 {
 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{ 1 ; 2 ; -4\}$
+		\item $]-2; 2[$
+		\item $]\minfty ; 11{,}99]$
+		\item $\left]\dfrac72 ; 10\right[$
+	\end{enumerate}
+	\end{multicols}
 
 }
 
@@ -212,6 +256,16 @@ nomarginpar,% We don't want any margin paragraphs
 }
 {
 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $3$
+		\item $11$
+		\item $5$
+		\item $5$
+		\item $\dfrac16$
+		\item $\dfrac{11}{14}$
+	\end{enumerate}
+	\end{multicols}
 
 }
 
@@ -227,6 +281,16 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{multicols}
 }
 {
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\{ -4 ; 4\}$
+		\item $ \{ -\dfrac43 ; 2 \}$
+		\item $\left[ -\dfrac72 ; \dfrac12\right]$
+		\item $\left]-\infty ; -2\right] \cup \left[ \dfrac{14}3 ; +\infty \right[$
+	\end{enumerate}
+	\end{multicols}
+
 }
 
 \subsection*{Bonus (2pts)}
@@ -236,6 +300,9 @@ nomarginpar,% We don't want any margin paragraphs
 		\[ |10 - x| = |2x + 4|. \]
 }
 {
+	Comme la valeur absolue d'une expression vaut soit l'expression, soit son opposé, on a les possibilités suivantes : $10-x = 2x+4$ ou $10-x = -2x-4$ (il y a en fait deux autres possibilités, mais redondantes !).
+	La résolution des équations et leur vérification donne les valeurs suivantes :
+	$\{ 2 ; -14 \}$.
 }
 
 
