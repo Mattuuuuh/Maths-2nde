@@ -1,0 +1,83 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+\begin{document}
+
+\section{Automatismes}
+
+\subsection{Inégalités}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+
+\begin{frame}{1}
+	Écrire l'ensemble suivant sous forme d'intervalle.
+		\[ \{ x \in \R \text{ tq. } 8 \geq x > -3 \} \]
+	
+\end{frame}
+
+\begin{frame}{2}
+
+	Écrire l'ensemble suivant sous forme d'intervalle.
+		\[ \left\{ x \in \R \text{ tq. } {-}5 \leq  {-}2x + 3 \leq 15 \right\} \]
+
+\end{frame}
+
+\subsection{Milieux et longueurs}
+
+\begin{frame}{3}
+
+	Donner le milieu de l'intervalle $\left[-\dfrac72 ; \dfrac32\right]$.
+
+\end{frame}
+
+
+\begin{frame}{4}
+
+	Donner la longueur du segment $[AB]$ où
+		\begin{align*}
+			A = ({-}1 ; 4) &&  \text{ et } && B = (3 ; 7).
+		\end{align*}
+
+\end{frame}
+
+
+
+
+
+\end{document}
