@@ -79,7 +79,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -153,11 +153,11 @@ nomarginpar,% We don't want any margin paragraphs
 
 
 	\begin{enumerate}
-		\item Le milieu $M_1$ du segment $[UV]$ est donnée par $\dfrac12 (U+V) = \left(\dfrac12 ; \dfrac12\right)$.
+		\item Le milieu $M_1$ du segment $[UV]$ est donné par $\dfrac12 (U+V) = \left(\dfrac12 ; \dfrac12\right)$.
 		
-		Le milieu $M_2$ du segment $[UW]$ est donnée par $\dfrac12 (U+W) = \left(0 ; \dfrac52\right)$.
+		Le milieu $M_2$ du segment $[UW]$ est donné par $\dfrac12 (U+W) = \left(0 ; \dfrac52\right)$.
 		
-		Le milieu $M_3$ du segment $[VW]$ est donnée par $\dfrac12 (V+W) = \left(-\dfrac32 ; 0\right)$.
+		Le milieu $M_3$ du segment $[VW]$ est donné par $\dfrac12 (V+W) = \left(-\dfrac32 ; 0\right)$.
 		
 		\item  La longueur du segment $[UV]$ est donnée par $\sqrt{3^2 + 5^2} = \sqrt{34}$.
 		
@@ -265,13 +265,13 @@ nomarginpar,% We don't want any margin paragraphs
 	
 	\begin{enumerate}
 		\item On pose l'égalité $c=d$ qui donne $3=3$ en première coordonnée et $-x = 3x-2$ en seconde, qu'on résoud pour trouver $x=\dfrac12$.
-		\item On souhaite que la deuxièmes coordonnée de $d$ soit supérieure à celle de $c$, c'est-à-dire que $3x -2 \geq -x$, qu'on résoud pour trouver $x \geq \dfrac12$ vérifié pour tout nombre réel dans l'intervalle $[\dfrac12 ; {+}\infty[$.
+		\item On souhaite que la deuxièmes coordonnée de $d$ soit supérieure à celle de $c$, c'est-à-dire que $3x -2 \geq -x$, qu'on résoud pour trouver $x \geq \dfrac12$ vérifié pour tout nombre réel dans l'intervalle $\left[\dfrac12 ; {+}\infty\right[$.
 		\item Pour $x$ dans l'intervalle trouvé, on souhaite que les milieux des segments $[ad]$ et $[bc]$ soient confondus.
 		C'est-à-dire 
 			\[ \dfrac{a+d}2 = \dfrac{b+c}2 \qquad \iff \qquad (3 ; 3x -4) = (3 ; 2 -x). \]
 		L'égalité des premières coordonnées donne $3=3$, et celle des deuxièmes donne $3x-4 = 2-x$ qu'on résoud pour trouver $x = \dfrac32$.
 		
-		On vérifie que $x=\dfrac32$ appartient bien à l'intervalle $[\dfrac12 ; {+}\infty[$, et on place les points $a,b,c,d$ dans le repère. On a désormais $c\left(3;-\dfrac32\right)$ et $d\left(3;\dfrac52\right)$.
+		On vérifie que $x=\dfrac32$ appartienne bien à l'intervalle $\left[\dfrac12 ; {+}\infty\right[$, et on place les points $a,b,c,d$ dans le repère. On a désormais $c\left(3;-\dfrac32\right)$ et $d\left(3;\dfrac52\right)$.
 	\end{enumerate}
 
 		\begin{tikzpicture}[>=stealth, scale=1]
