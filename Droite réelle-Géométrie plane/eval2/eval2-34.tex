@@ -1,0 +1,300 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools,}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{enumitem, multicol}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{definition}{Définition}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% euro
+\usepackage{lmodern,textcomp}
+
+% x dans R tq. 
+\newcommand{\xRtq}[1]{
+	$\left\{ x \in \R \text{ tq. } #1 \right\}$
+}
+
+
+% vabs
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+
+% intervalles fermés
+\newcommand{\inter}[2]{
+	$\left[ #1 ; #2 \right]$
+}
+
+% point plan
+\newcommand{\point}[3]{
+	#1\left(#2 ; #3 \right)
+}
+
+
+%pinfty minfty
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[3]{
+		\begin{ex}[#3] #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[3]{
+		\begin{ex}[#3] #1  \end{ex}
+	}
+	
+\fi
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation — Droite et plan \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+\section*{Droite réelle (8pts)}
+
+\exe{
+	Donner le milieu de chaque intervalle suivant.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \inter{-1}{1}
+		\item \inter{\dfrac{99}{200}}{\dfrac{101}{200}}
+		\item \inter{-10^8 - 2}{10^8}
+		%\item \inter{-\dfrac43}{\dfrac83}
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $0$
+		\item $\dfrac12$
+		\item $-1$
+		\item $\dfrac23$
+	\end{enumerate}
+	\end{multicols}
+
+}{}
+
+\exe{
+	Donner la longueur de chaque intervalle suivant.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \inter{-1}{1}
+		\item \inter{\dfrac{99}{200}}{\dfrac{101}{200}}
+		\item \inter{10^{40}-1}{10^{40}+1}
+		%\item \inter{-\dfrac43}{\dfrac83}
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $2$
+		\item $\frac1{100}$
+		\item $2$
+		\item $4$
+	\end{enumerate}
+	\end{multicols}
+
+
+}{}
+
+\section*{Plan cartésien (12pts)}
+
+\exe{
+	Tracer un repère et y placer les points suivants. Il est recommandé de calculer les coordonnées des points à placer avant de tracer le repère.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\point{A}{2}{3}$
+		\item $\point{B}{-1}{3}$
+		\item $C = A+B$
+		\item $D=A-B$
+		\item $E=\frac12A$
+		\item $F=-3B$
+	\end{enumerate}
+	\end{multicols}
+}{ \, \\
+		\begin{tikzpicture}[>=stealth, scale=1.5]
+		\begin{axis}[xmin = -1.9, xmax=4.9, ymin=-9.9, ymax=7.9, ytick = {-9, ..., 7}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+						
+			\addplot[red, mark=*, mark size = 1] (2,3) node[right] {$A$};
+			\addplot[red, mark=*, mark size = 1] (-1,3) node[left] {$B$};
+			\addplot[red, mark=*, mark size = 1] (1,6) node[below] {$C$};
+			\addplot[red, mark=*, mark size = 1] (3,0) node[above] {$D$};
+			\addplot[red, mark=*, mark size = 1] (1,1.5) node[left] {$E$};
+			\addplot[red, mark=*, mark size = 1] (3,-9) node[right] {$F$};
+			
+		\end{axis}
+		\end{tikzpicture}
+}{}
+
+\exe{
+	Considérons les points
+		\begin{align*}
+			\point{A}{1}{1}, && \point{B}{3}{1}, && \point{C}{2}{\sqrt{3}+1}.
+		\end{align*}
+	Démontrer que le triangle $ABC$ est équilatéral en calculant la longueur de chaque côté.
+	
+	\noindent
+	\emph{Rappel : un triangle équilatéral est un triangle dont les trois côtés ont la même longueur}.
+}{
+	On calcule 
+		\begin{align*}
+			AB = \sqrt{2^2 + 0^2} = 2, && AC = \sqrt{1^2 + \sqrt{3}^2} = \sqrt{1+3} = 2, && BC = \sqrt{4} = 2.
+		\end{align*}
+
+}{}
+
+\exe{
+	Considérons les points
+		\begin{align*}
+			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
+		\end{align*}
+	Démontrer que le quadrilatère $BACD$ est un parallélogramme en comparant le milieu de ses deux diagonales.
+	
+	\noindent
+	\emph{Rappel : un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu}.
+}{
+
+		Le milieu du segment $[BC]$ est donné par
+			\[ \dfrac12 (B+C) = (-1;-1),\]
+		et le milieu du segment $[AD]$ est donné par
+			\[ \dfrac12 (A+D) = (-1;-1).\]
+		Le quadrilatère est donc bien un parallélogramme.
+
+		\begin{tikzpicture}[>=stealth, scale=1.5]
+		\begin{axis}[xmin = -3.9, xmax=1.9, ymin=-3.9, ymax=1.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+						
+			\addplot[red, mark=*, mark size = 1] (0,1) node[right] {$A$};
+			\addplot[red, mark=*, mark size = 1] (-3,0) node[left] {$B$};
+			\addplot[red, mark=*, mark size = 1] (1,-2) node[below] {$C$};
+			\addplot[red, mark=*, mark size = 1] (-2,-3) node[below] {$D$};
+			
+		\end{axis}
+		\end{tikzpicture}
+		
+}{}
+
+%\exe{
+%	Soient $\point{A}{-\dfrac32}{\dfrac53}$ et $\point{M}{-\dfrac53}{-1}$ deux points du plan.
+%	
+%	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+%}{
+%	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+%		\begin{align*}
+%			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+%		\end{align*}
+%	Par suite,
+%		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+%	
+%}{3pts}
+
+%\exe{
+%	Soient $\point{G}{-4}{-1}$ et $\point{D}{-1}{3}$ et $x\in\R$ un paramètre réel.
+%	
+%	Pour quel(s) $x\in\R$ est-ce que la longueur du segment entre les points $xG$ et $xD$ est-elle égale à $5$ ?
+%}{
+%
+%	La longueur du segment est donnée par
+%		\[ 5 = \sqrt{|-4x + x|^2 + |-x - 3x|^2} = \sqrt{9|x|^2 + 16|x|^2} = \sqrt{25|x|^2}. \]
+%	En mettant l'équation au carré, on trouve
+%		\begin{align*}
+%			25 = 25|x|^2 && \iff &&  |x|^2 = 1 && \iff && |x| = 1
+%		\end{align*}
+%	D'où on trouve les solutions $x=1$ ou $x=-1$.
+%}
+
+\section*{Bonus (2pts)}
+
+\exe{
+	Soient $A(1;1), B(3;1)$ deux points du plan, et $C(2;x)$ un point dépendant d'un paramètre réel $x\in\R$.
+	
+	Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ?
+}{}{}
+
+\end{document}
