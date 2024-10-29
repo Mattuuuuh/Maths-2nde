@@ -2,16 +2,207 @@
 %!TEX root =notes.tex
 \chapter{Statistiques descriptives}
 
-\section{Proportion et évolution}
+\section{Proportion de sous-population}
 
-\dfn{Proportion}{
+\dfn{Proportion, pourcentage}{
   Une proportion est un quotient de deux mesures ayant la même unité.
-  Lorsque exprimée sous la forme d'une fraction de $100$, on parle alors de \emph{pourcentage}. 
+  Lorsqu'elle est exprimée sous la forme d'une fraction de $100$, on parle alors de \emph{pourcentage}.
+}{}
+
+\nt{
+  Si la mesure de départ est plus grande que celle d'arrivée, la proportion sera plus petite que $1$.
+  Autrement dit, si $0\leq a \leq b$, alors $p=\dfrac{a}b$ vérifie $p\in[0;1]$.
+}
+
+\nt{
+  Pour $A,B$ deux nombres réels positifs ou nuls, on dira alors \og $A\%$ de $B$ \fg pour signifier
+  \[ \dfrac{A}{100} \cdot B. \]
+}
+
+\ex{}{
+  Un manteau est mis en vente à un prix initial de $150$€ auquel une remise de $55\%$ appliquée.
+  Celui coûte donc
+  \[ 0{,}55 \cdot 150 = 82{,}5€.\]
+}{}
+
+\mprop{}{
+  Soient $A$ et $B$ deux nombres réels positifs.
+  Les quantités $A\%$ de $B$ et $B\%$ de $A$ sont égales.
+}{}
+
+\exe{}{
+  Calculer sans calculatrice les pourcentages suivants.
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $50\%$ de $60$
+    \item $60\%$ de $50$
+    \item $68\%$ de $25$
+    \item $77\%$ de $20$
+    \end{enumerate}
+  \end{multicols}
+}{}
+
+\nt{
+  On convertit une proportion $p \in [0;1]$ en un pourcentage en la multipliant par $100$.
+  Ainsi, un pourcentage peut s'approximer simplement à l'aide des deux premières décimales de $p$.
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $1 = 100\%$
+  \item $\dfrac12 =0{,}5 = 50\%$
+  \item $\dfrac14 = 0{,}25 = 25\%$
+  \item $\dfrac15 = 0{,}2 = 20\%$
+  \item $\dfrac1{10}=0{,}1 = 10\%$
+  \item $\dfrac1{100} = 0{,}01 = 1\%$
+  \item $\dfrac1{50} = 0{,}02 = 2\%$
+  \item $0 = 0\%$
+  \end{enumerate}
+  \end{multicols}
+
+  Les valeurs suivantes sont approximatives mais très utiles lorsqu'on souhaite estimer des pourcentages.
+
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $\dfrac13 \approx 33\%$
+  \item $\dfrac23 \approx 66\%$
+  \item $\dfrac17 \approx 14\%$
+  \item $\dfrac19 \approx 11\%$
+  \end{enumerate}
+  \end{multicols}
+  \vspace{3pt} % fraction goes out of bounds
+}
+
+\ex{Proportion d'une sous-population}{
+  Au total sur Terre on dénombre actuellement $16 600$ espèces de fourmis parmis les $1{,}3$ millions d'espèces d'insectes déjà décrites.
+
+  Ainsi, la proportion de fourmis parmis les insectes est la suivante.
+  \[ \dfrac{16 000}{1{,}3\times10^{6}} \approx 0{,}013 = \dfrac{1{,}3}{100} = 1{,}3 \%. \]
+}{ex:fourmis}
+
+\ex{}{
+  En extrayant $1{,}3\%$ d'une population de $1{,}3$ millions d'individus, on obtient $16900$ individus.
+  \[ \dfrac{1{,}3}{100} \cdot 1{,}3\times10^{6} = 0{,}013 \cdot 1{,}3\times10^{6} = 16900. \]
+  L'approximation de l'exemple \ref{ex:fourmis} explique la différence entre les valeurs trouvées.
+}{ex:fourmis-2}
+
+\nt{
+  La proportion $p$ entre deux quantités $a, b$ est donnée par
+  \[ p = \dfrac{a}b. \]
+  De manière équivalente, on a
+  \[ a = p \cdot b. \]
+  C'est cette propriété multiplicative de la proportion qu'on a utilisé dans l'exemple \ref{ex:fourmis-2}.
+}
+
+\exe{}{
+  On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+  Ceci représenterait $20\%$ de la biomasse humaine.
+
+  Estimer la biomasse totale des humains sur Terre en tonnes ($1$T $= 1000$kg).
+}{}
+
+\ex{Proportions de populations imbriquées}{
+  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+  Parmis celles-ci, $23\%$ sont en danger critique. \footnote{\href{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}{Naturefrance}}
+
+  On cherche à calculer le pourcentage d'espèce en danger critique par rapport au nombre total d'espèces.
+  Notons $N$ le nombre total d'espèces. Le nombre d'espèces menacées et donc donné par
+  \[ 0{,}13 \cdot N. \]
+  Parmis ces espèces, le nombre en danger critique est donné par
+  \[ 0{,}23 \cdot \left(0{,}13 \cdot N \right) = ( 0{,}23 \cdot 0{,}13 ) \cdot N \approx 0{,}03 \cdot N. \]
+  Ainsi, $3\%$ des espèces sont en danger critique.
+}{}
+
+\nt{
+  Les proportions sont multiplicatives.
+  Au même titre que prendre la moitié de la moitié revient à prendre un quart,
+  prendre $50\%$ de $50\%$ revient à multiplier par $0{,}5 \cdot 0{,}5 = \left(\dfrac12\right)^2 = \dfrac14$.
+
+  Lorsqu'on prend la moitié du tiers d'une quantité, on en prend en fait $\dfrac12 \cdot \dfrac13 = \dfrac16$.
+  On peut estimer la fraction $\dfrac16$ en prenant la moitié de celle de $\dfrac13 \approx 0{,}33$.
+  D'où $\dfrac16 \approx 16,6\%$.
+}
+
+\section{Évolution}
+
+Le pourcentage peut être également marqueur d'une évolution d'une même quantité au fil du temps.
+On calculera alors généralement une proportion $p$ donnant l'évolution entre deux valeurs.
+\begin{align}\label{eq:evolution}
+  p = \dfrac{\text{valeur initiale}}{\text{nouvelle valeur}}.
+\end{align}
+
+\mprop{}{
+  Soient $a,b$ deux réels strictement positifs et $p = \dfrac{a}b$ leur rapport.
+  On distingue trois cas.
+  \begin{enumerate}
+    \item si $a=b$, alors $p=1$ ;
+    \item si $a >b$, alors $p>1$ ; et
+    \item si $a < b$, alors $p<1$.
+  \end{enumerate}
+}{}
+
+\nt{
+  La proportion $p$ calculée en \eqref{eq:evolution} peut donc être supérieure à $1$ si la valeur initiale est plus petite que la nouvelle valeur.
+  Ceci correspond à un pourcentage supérieur à $100\%$.
+}
+
+\exe{}{
+  Un homme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $1{,}5\%$.
+  Ainsi, après la première année, celui-ci aura $1{,}015 \cdot 10 = 10{,}15$€ sur son compte.
+  La deuxième année, il aura $1{,}015 \cdot 10{,}15 = 10{,}30225$€, etc...
+
+  \begin{enumerate}
+  \item Combien d'argent aura-t-il après $5$ ans ?
+  \item Combien d'argent aura-t-il après $50$ ans ?
+  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+  \end{enumerate}
+}
+{}
+
+\dfn{Augmentation, diminution}{
+  Une \emph{augmentation} d'une valeur $N$ d'une proportion $p\geq0$ correspond à la somme
+  \[ N + p\cdot N = (1+p)\cdot N.\]
+  Une \emph{diminution} d'une valeur $N$ d'une proportion $0\leq p \leq 1$ correspond à la différence
+  \[ N - p\cdot N = (1-p)\cdot N.\]
 }{}
 
 \ex{}{
-  
+  En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).\footnote{\href{https://www.statistiques.developpement-durable.gouv.fr/media/7469}{Ministère de la transition écologique}}
+  En $2022$, le prix était de $96$€.
+
+  On calcule $\dfrac{115}{96} \approx 1{,}2$.
+  Le prix de $2023$ est donc $120\%$ celui de $2022$, ce qui correspond à une augmentation de $20\%$.
 }{}
+
+\exe{}{
+  En $2022$, la consommation de gaz naturel s'établit à $463$ TWh.
+  En $2021$, celle-ci s'élvait plutôt à $475{,}85$ TWh. \footnote{\href{https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/chiffres-cles-energie-2023/14-gaz-naturel}{Ministère de la transition écologique}}
+
+  Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
+}{}
+
+\ex{}{
+  Une augmentation de $50\%$ revient à multiplier une valeur initiale $a$ par $1{,}5$ pour obtenir une valeur finale $b$.
+  \[b = 1{,}5\cdot a.\]
+  En changeant de référentiel, on peut se demander quel pourcentage de diminution doit-on appliquer à la valeur finale $b$ pour obtenir la valeur initiale $a$ ?
+  \[ a = \dfrac{1}{1{,}5} \cdot b = \dfrac23 b \approx 0{,}66 \cdot b. \]
+  Pour obtenir $a$, il faut donc réduire $b$ d'environ $34\%$.
+}{}
+
+\exe{}{
+  Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{}
+
+\exe{}{
+  Si on augmente le prix d'un objet de $A\%$ ($A\geq0$ réel), quel rabais faut-il appliquer (en fonction de $A$) pour retrouver le prix initial de l'objet ?
+}{}
+
+\exe{}{
+  Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
+  \begin{enumerate}
+  \item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+  \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+  \end{enumerate}
+}{}
+
 
 \section{Moyennes et écart type}
 
