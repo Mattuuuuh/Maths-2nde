@@ -1,0 +1,246 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Statistiques 1\ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\subsection*{Sous-populations}
+
+\exe{
+        Une classe de Seconde comprend $25$ filles pour $9$ garçons.
+        Calculer le pourcentage de filles et de garçons dans la classe.
+}{}
+
+\exe{
+   En sachant que les $16 600$ espèces de fourmis constituent environ $1{,}3\%$ du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
+}{}
+
+
+\exe{
+  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+  Parmis celles-ci, $23\%$ sont en danger critique.
+  
+  Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
+}{}
+
+\subsection*{Évolution}
+
+\exe{
+  Calculer sans calculatrice les pourcentages suivants.
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $75\%$ de $60$
+    \item $60\%$ de $75$
+    \item $72\%$ de $25$
+    \item $68\%$ de $20$
+    \item $125\%$ de $40$
+    \item $40\%$ de $125$
+    \end{enumerate}
+  \end{multicols}
+}{
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\dfrac34 \cdot 60 = 3 \dot \dfrac{60}4 = 3 \cdot 15 = 45$
+    \item $45$
+    \item $\dfrac14 \cdot 72 = 18$
+    \item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
+    \item $40 + \dfrac14 \cdot 40 = 50$
+    \item $50$
+    \end{enumerate}
+  \end{multicols}
+}
+
+\exe{
+  Approximer sans calculatrice les pourcentages suivants.
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $33\%$ de $150$
+    \item $166\%$ de $180$
+    \item $11\%$ de $90$
+    \item $89\%$ de $81$
+    \item $16,6\%$ de $18$
+    \item $83,4\%$ de $36$
+    \end{enumerate}
+  \end{multicols}
+}{
+  \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\approx \dfrac13 \cdot 150 = 50$
+    \item $\approx 180 + \dfrac23 \cdot 180 = 180 + 120 = 300$
+    \item $\approx \dfrac19 \cdot 90 = 10$
+    \item $\approx 81 - \dfrac19 \cdot 81 = 81 - 9 = 72$
+    \item $\approx \dfrac16 \cdot 18 = 3$
+    \item $\approx 36 - \dfrac16 \cdot 36 = 36 - 6 = 30$
+    \end{enumerate}
+  \end{multicols}
+}
+
+\exe{
+  On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+  Ceci représenterait $20\%$ de la biomasse humaine.
+
+  Estimer la biomasse totale des humains sur Terre en tonnes.
+}{}
+
+\exe{
+  Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
+  Ainsi, après la première année, il y aura $1{,}03 \cdot 10 = 10{,}3$€ sur son compte.
+  La deuxième année, il y aura $1{,}03 \cdot 10{,}35 = 10{,}609$€, etc...
+
+  À l'aide de la calculatrice, répondre aux questions suivantes.
+  \begin{enumerate}
+  \item Combien d'argent aura-t-elle après $5$ ans ?
+  \item Combien d'argent aura-t-elle après $50$ ans ?
+  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+  \end{enumerate}
+}
+{}
+
+\exe{
+  Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
+  \begin{enumerate}
+  \item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+  \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+  \end{enumerate}
+}{}
+
+\exe{
+  Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{}
+
+\newpage
+\subsection*{Exercices supplémentaires}
+
+\exe{
+        On considère l'ensemble $E= \{1; 2; \dots ; n-1 ; n\}$ dépendant d'un entier naturel $n\geq1$.
+        On pose $F = \{k \in E \text{ tq. } 2 | k\}$, l'ensemble des éléments pairs de $E$.
+
+        A-t-on toujours $\dfrac{|F|}{|E|} = \dfrac12$ ? Donner l'ensemble des entiers $n\geq1$ pour lesquels l'égalité est vraie.
+}
+
+\exe{
+  Si on augmente le prix d'un objet de $100p\%$ ($p\geq0$ réel), quel rabais faut-il appliquer (en fonction de $p$) pour retrouver le prix initial de l'objet ?
+}{}
+
+\ex{
+  En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
+  En $2022$, le prix était de $96$€.
+
+  Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
+}{}
+
+\exe{
+  En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
+  En $2021$, celle-ci s'élvait plutôt à $475{,}85$ TWh.
+
+  Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
+}{}
+
+
+\exe{
+    Soit l'ensemble d'entiers $E=\{n; n+1; \dots; m-1 ; m\}$ dépendant de deux entiers relatifs $n<m$.
+    Calculer $|E|$ en fonction de $n$ et $m$.
+    Vérifier la formule avec $n=-1$ et $m=1$ en sachant que $|\{-1 ; 0 ; 1 \}| = 3$.
+}{}
+
+\end{document}
