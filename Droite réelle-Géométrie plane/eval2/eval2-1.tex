@@ -108,7 +108,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[3]{
@@ -295,6 +295,18 @@ nomarginpar,% We don't want any margin paragraphs
 	Soient $A(1;1), B(3;1)$ deux points du plan, et $C(2;x)$ un point dépendant d'un paramètre réel $x\in\R$.
 	
 	Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ?
-}{}{}
+}{
+	On souhaite que $AB = AC = BC$ soit vérifié, c'est-à-dire que
+		\[ 2 = \sqrt{1 + |1-x|^2} = \sqrt{1 + |1-x|^2}. \]
+	La deuxième égalité est redondante et, en mettant au carré, on trouve
+		\[ 4 = 1 + |1-x|^2. \]
+	Par suite,
+		\[ |1-x| = \sqrt{3}, \]
+	et donc en appliquant les règles de résolution d'égalités avec valeurs absolues, on trouve
+		\begin{align*}
+			1-x &= \sqrt{3} \qquad\qquad\qquad \text{ ou } & 1-x &= -\sqrt{3} \\
+			x &= 1-\sqrt{3} \qquad \qquad\qquad\text{ ou } & x &= 1 +\sqrt{3}.
+		\end{align*}
+}{}
 
 \end{document}
