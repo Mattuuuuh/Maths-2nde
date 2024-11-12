@@ -1,0 +1,85 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Proportions}
+
+\begin{frame}{1}
+	\centering
+	Calculer $140\%$ de $125$.
+\end{frame}
+
+\begin{frame}{2}
+	$7$ élèves sur les $14$ ayant répondu au sondage jugent le contenu du cours trop difficile.
+	
+	\vfill
+	Écrire la proportion d'élèves
+	\begin{enumerate}
+		\item ayant participé au sondage ; et
+		\item jugeant le contenu du cours trop difficile.
+	\end{enumerate}
+	
+\end{frame}
+
+\subsection{Sous-population}
+
+\begin{frame}{3}
+	\centering
+	Calculer $50\%$ de $80\%$ de $300$.
+\end{frame}
+
+\begin{frame}{4}
+	$77\%$ des élèves ayant répondu au sondage jugent le rythme trop soutenu.
+	$38\%$ des élèves ont répondu au sondage.
+	
+	\vfill
+	Écrire approximativement la proportion d'élèves de la classe jugeant le rythme trop soutenu.
+	
+\end{frame}
+
+
+
+
+
+
+\end{document}
