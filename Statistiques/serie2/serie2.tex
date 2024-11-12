@@ -1,0 +1,153 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{hyperref}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Statistiques 2\ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{\footnote{\href{https://www.insee.fr/fr/statistiques/4277635}{https://www.insee.fr/fr/statistiques/4277635}} \par
+	En 2019, 753 000 bébés sont nés en France, soit 6 000  naissances de moins qu’en 2018 ($– 0,7\%$). Le nombre de naissances baisse chaque année depuis cinq ans, mais à un rythme qui ralentit au fil des années. Alors que la baisse était de 2,4 \% en 2015, elle est passée à 1,9 \% en 2016 puis 1,8 \% en 2017, 1,4 \% en 2018 et enfin 0,7 \% en 2019. En France métropolitaine, le nombre de naissances s’établit à 714 000. Il reste plus élevé que le point bas de 1994 (711 000).
+	
+	\begin{center}
+	\includegraphics[scale=0.55]{fig.png}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Calculer, à l'aide du texte, le nombre de bébés nés en France en $2018, 2017, 2016, 2015$, et $2014$.
+		Comparer avec la figure 3.
+		
+		\item Calculer l'évolution relative du nombre de bébés nés en France métropolitaine entre $1994$ et $2019$.
+		
+		\item Calculer l'évolution relative du nombre de bébés nés en France métropolitaine entre $1971$ et $1976$.
+		
+		\item Donner approximativement le nombre de bébés nés en France métropolitaine en $1916$ et en $1941$. Expliquer les pics de natalité.
+		
+		\item Calculer et comparer les évolutions relatives de natalité d'après-guerre : entre $1916$ et $1920$ contre $1941$ et $1947$.
+	\end{enumerate}
+}{}
+
+\newpage
+
+\exe{\footnote{\href{https://www.insee.fr/fr/statistiques/7750004}{https://www.insee.fr/fr/statistiques/7750004}}\par
+	%Au 1er janvier 2024, la France compte 68,4 millions d’habitants (figure 1) : 66,1 millions résident en France métropolitaine et 2,2 millions dans les cinq départements d’outre-mer. La population augmente de 0,3 \% sur un an, comme en 2022. Le rythme de croissance annuel était plus élevé auparavant : +0,4 \% pour les années 2019 à 2021 et +0,5 \% en 2017 et en 2018.
+	
+	En 2023, le \emph{solde naturel}, différence entre les nombres de naissances et de décès enregistrés sur l’année, est de +47 000, son plus bas niveau depuis la fin de la Seconde Guerre mondiale. En baisse régulière depuis 2007, le solde naturel a chuté en 2020 sous l’effet d’une baisse des naissances, mais surtout d’une forte hausse des décès due à la pandémie de Covid-19. Depuis, il est resté à un niveau bas. Il s’était légèrement redressé en 2021 sous l’effet d’un rebond des naissances, mais il a diminué en 2022, les décès restant à un niveau élevé. Il baisse de nouveau en 2023, les naissances diminuant plus fortement que les décès (figure 2a).
+	
+	\begin{center}
+	\includegraphics[scale=0.75]{fig2.png}
+	\end{center}
+	
+	
+	\begin{enumerate}
+		%\item Calculer approximativement la population française en début d'années $2023, 2022, \dots, 2017$.
+		
+		\item Approximer les évolutions relatives des naissances et des décès entre $2022$ et $2023$. Comparer.
+		
+		\item Calculer approximativement l'évolution relative du solde naturel entre les années $1971$ et $1976$.
+		
+		\item Estimer l'évolution relative du solde naturel entre $2020$ et $2021$, puis entre $2021$ et $2022$.
+		En déduire, par le calcul, l'évolution relative entre $2020$ et $2022$.
+
+	\end{enumerate}
+}{}
+\end{document}
