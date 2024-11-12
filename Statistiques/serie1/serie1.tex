@@ -74,7 +74,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-\AdvanceDate[1]
+\AdvanceDate[0]
 
 
 % plots
@@ -109,11 +109,27 @@ nomarginpar,% We don't want any margin paragraphs
 \exe{
         Une classe de Seconde comprend $25$ filles pour $9$ garçons.
         Calculer le pourcentage de filles et de garçons dans la classe.
-}{}
+}{
+	Le nombre total d'élèves est de $25+9 = 34$.
+	
+	On calcule donc, pour les filles, la proportion $\dfrac{25}{34} \approx 0,73 = 73\%$.
+	
+	Idem pour les garçons, $\dfrac{9}{34} \approx 0,27 = 27\%$. 
+	Remarquons que la somme des pourcentages est de $100\%$ car $\dfrac{25}{34} + \dfrac{9}{34} = \dfrac{34}{34} = 1 = 100\%$.
+	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 73 = 27$.
+}
 
 \exe{
    En sachant que les $16 600$ espèces de fourmis constituent environ $1{,}3\%$ du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
-}{}
+}{
+	On a $\dfrac{16 600}{\text{nombre d'espèces d'insectes}} = 1,3\% = 0,013$.
+	
+	Par conséquent, 
+		\[ \text{nombre d'espèces d'insectes} = \dfrac{16600}{0,013} \approx 1,3 \times 10^{6}, \]
+	soit environ $1,3$ millions.
+	
+	Remarquons que la fraction $\dfrac{16600}{0,013}$ ne donne pas un nombre entier, car le pourcentage a été approximé (\og \emph{environ} $1,3$\% \fg).
+}
 
 
 \exe{
@@ -121,12 +137,25 @@ nomarginpar,% We don't want any margin paragraphs
   Parmis celles-ci, $23\%$ sont en danger critique.
   
   Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
-}{}
+}{
+	Notons $E$ l'ensemble des espèces indigènes à la France, $M$ la sous-population des espèces menacées, et $D$ la sous-population des espèces en danger critique.
+	On a donc la suite d'inclusions
+		\[ D \subset M \subset E. \]
+	
+	Le texte donne les informations
+		\begin{align*}
+			|M| = 0,13 \cdot |E| && \text{et} && |D| = 0,23 \cdot |M|
+		\end{align*}
+	Par conséquent, $|D| = 0,23 \times 0,13 \cdot |E| \approx 0,03 \cdot |E|$.
+	Donc les espèces en danger critique constituent $3\%$ des espèces.
+
+	Les proportions sont ainsi multiplicatives. Attention à ne pas naïvement multiplier les pourcentages, car $13\times 23 \approx 300$.
+}
 
 \subsection*{Évolution}
 
 \exe{
-  Calculer sans calculatrice les pourcentages suivants.
+  Calculer sans calculatrice les valeurs suivantes.
   \begin{multicols}{2}
     \begin{enumerate}
     \item $75\%$ de $60$
@@ -140,7 +169,7 @@ nomarginpar,% We don't want any margin paragraphs
 }{
   \begin{multicols}{2}
     \begin{enumerate}
-    \item $\dfrac34 \cdot 60 = 3 \dot \dfrac{60}4 = 3 \cdot 15 = 45$
+    \item $\dfrac34 \cdot 60 = 3 \cdot \dfrac{60}4 = 3 \cdot 15 = 45$
     \item $45$
     \item $\dfrac14 \cdot 72 = 18$
     \item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
@@ -151,7 +180,7 @@ nomarginpar,% We don't want any margin paragraphs
 }
 
 \exe{
-  Approximer sans calculatrice les pourcentages suivants.
+  Approximer sans calculatrice les valeurs suivantes.
   \begin{multicols}{2}
     \begin{enumerate}
     \item $33\%$ de $150$
@@ -180,7 +209,13 @@ nomarginpar,% We don't want any margin paragraphs
   Ceci représenterait $20\%$ de la biomasse humaine.
 
   Estimer la biomasse totale des humains sur Terre en tonnes.
-}{}
+}{
+	On a la relation
+		\[ \dfrac{\text{biomasse des fourmis}}{\text{biomasse humaine}} = 0,2. \]
+	D'où
+		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
+
+}
 
 \exe{
   Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
@@ -194,7 +229,13 @@ nomarginpar,% We don't want any margin paragraphs
   \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
   \end{enumerate}
 }
-{}
+{
+  \begin{enumerate}
+  \item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10  \approx 11,59$€.
+  \item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10  \approx 43,84$€.
+  \item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10  \approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
+  \end{enumerate}
+}
 
 \exe{
   Considérons deux tailleurs, l'un à $250$€ et l'autre à $360$€.
@@ -202,17 +243,33 @@ nomarginpar,% We don't want any margin paragraphs
   \item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
   \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
   \end{enumerate}
-}{}
+}{
+  \begin{enumerate}
+  \item On calcule l'évolution $\dfrac{360}{250}  = 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut $144\%$ du prix du premier : une augmentation de $44\%$ est nécessaire.
+  \item On calcule l'évolution $\dfrac{250}{360}  \approx 0,7 = 70\%$. Le premier tailleur vaut environ $70\%$ du prix du second : une diminution de $30\%$ est nécessaire.
+  \end{enumerate}
+}
 
 \exe{
         À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
-}{}
+}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
 
 \exe{
   Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
-}{}
+}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $1,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
+	Ceci correspond à une diminution de $33,4\%$.
+}
 
-\newpage
 \subsection*{Exercices supplémentaires}
 
 \exe{
@@ -220,6 +277,13 @@ nomarginpar,% We don't want any margin paragraphs
         On pose $F = \{k \in E \text{ tq. } 2 | k\}$, l'ensemble des éléments pairs de $E$.
 
         A-t-on toujours $\dfrac{|F|}{|E|} = \dfrac12$ ? Donner l'ensemble des entiers $n\geq1$ pour lesquels l'égalité est vraie.
+}{
+	En prenant $n=1; 2; 3; 4$, on conjecture que l'égalité est vraie si et seulement si $n$ est lui-même pair.
+	
+	D'une part, pour avoir $\dfrac{|F|}{|E|} = \dfrac12$, on doit nécessairement avoir $n = |E| = 2 \cdot |F|$, et donc $n$ pair.
+	
+	Réciproquement, si $n$ est pair, alors $n=2k$ et $F = \{ 2\times1; 2\times2; 2\times3; \cdot ; 2\times(k-1) ; 2 \times k\}$.
+	Ainsi $|F| = k = \dfrac{n}2$ et l'égalité est vérifiée. 
 }
 
 \exe{
@@ -227,18 +291,31 @@ nomarginpar,% We don't want any margin paragraphs
   En $2022$, le prix était de $96$€.
 
   Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
-}{}
+}{
+	On calcule la proportion $\dfrac{115}{96} \approx 1,20 = 120\%$.
+	Celle-ci correspond à une augmentation de $20\%$.
+}
 
 \exe{
   En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
   En $2021$, celle-ci s'élvait plutôt à $475{,}85$ TWh.
 
   Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
-}{}
+}{
+	On calcule la proportion $\dfrac{463}{475{,}85} \approx 0,973 = 97,3\%$.
+	Celle-ci correspond à une diminution de $2,7\%$.
+}
 
 \exe{
   Si on augmente le prix d'un objet de $100p\%$ ($p\geq0$ réel), quel rabais faut-il appliquer (en fonction de $p$) pour retrouver le prix initial de l'objet ?
-}{}
+}{
+	Soit $N\geq0$ un prix quelconque, et $(1+p)\cdot N$ le prix augmenté de $100p\%$.
+	
+	Pour retrouver le prix original, il faut multiplier par $(1+p)^{-1} = \dfrac{1}{1+p}$.
+	La diminution correspondante est donnée par
+		\[ 1 - \dfrac{1}{1+p} = \dfrac{p}{1+p}. \]
+	On comparera avec l'exercice 10, où $p=0,5$, et $\dfrac{p}{1+p} = \dfrac{0,5}{1,5} = \dfrac13 \approx 33,3 \%$.
+}
 
 \exe{
     Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
@@ -246,12 +323,35 @@ nomarginpar,% We don't want any margin paragraphs
     \item À quelle évolution, en fonction de $p$, correspond une augmentation de $100p\%$ suivie d'une diminution de $100p\%$ ?
     \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
     \end{enumerate}
+}{
+
+    \begin{enumerate}
+    \item Soit $N\geq0$ une quantité. Après une augmentation de $100p\%$ puis une diminution de $100p\%$,
+    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
+    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
+    		
+    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
+    \item On pose l'égalité suivante
+    		\[ 100p^2 = 16. \]
+    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
+    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
+	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
+	
+	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
+    \end{enumerate}
+
 }
 
 \exe{
     Soit l'ensemble d'entiers $E=\{n; n+1; \dots; m-1 ; m\}$ dépendant de deux entiers relatifs $n<m$.
     Calculer $|E|$ en fonction de $n$ et $m$.
     Vérifier la formule avec $n=-1$ et $m=1$ en sachant que $|\{-1 ; 0 ; 1 \}| = 3$.
-}{}
+}{
+	On soustrait $n$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
+		\[ |E| = |\{ 0; 1 ; \dots ; m-n \}. \]
+	Il y a $m-n$ entiers de $1$ à $m-n$, et donc $|E| = m-n+1$ éléments au total en n'oubliant pas $0$.
+
+	Pour $n=-1, m=1$, on a bien $m-n+1 = (1) - (-1) + 1  = 3$.
+}
 
 \end{document}
