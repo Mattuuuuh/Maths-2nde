@@ -1,0 +1,332 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{hyperref}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+% table line break
+\usepackage{makecell}
+
+%subfigures
+\usepackage{subcaption}
+
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Statistiques 3 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Calculer la moyenne de chaque série statistique suivante.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $(0; 20)$
+			\item $(0; 0; 20)$
+			\item $(0; 20; 20)$
+			\item $(-10; 23 ; -10 ; -23 ; 10 ; 10)$
+			\item $(-50 ; -100 ; -23 ; -31; -50 ; -50)$
+			\item $(0; 1;2;3; \dots; 18; 19; 20)$
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+\exe{\label{ex:33}
+	Pour chaque série statistique suivante, calculer la moyenne.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 9 & 13 & 11 & 7 \\ \hline
+				Effectif & 5 & 12 & 5 & 12 \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 2 & 13 & 18 & 7 \\ \hline
+				Effectif & 5 & 12 & 5 & 12 \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 0 & 20 & 2 & 5 \\ \hline
+				Effectif & 5 & 14 & 10 & 2  \\ \hline
+				\end{tabular}
+
+			\item 
+				\begin{tabular}{|c|c|c|c|}\hline
+				Valeur   & 0 & 20 & 10 \\ \hline
+				Effectif & 17 & 17 & 1 \\ \hline
+				\end{tabular}
+
+
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+
+
+
+\exe{
+	Pour chaque série statistique suivante, remplir la ligne \og Fréquence \fg \, et calculer la moyenne.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 1 & 2  \\ \hline
+				Fréquence & &  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 2 & 1  \\ \hline
+				Fréquence & &  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 11 & 13 & 9 & 7 \\ \hline
+				Effectif & 2 & 1 & 5 & 10 \\ \hline
+				Fréquence & &&&  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & -23 & -1 & 1 & 23 \\ \hline
+				Effectif & 67 & 12 & 4 & 17 \\ \hline
+				Fréquence & &&&  \\ \hline
+				\end{tabular}
+
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+
+
+\exe{
+	Un élève reçoit $5$ notes listées ainsi : $(4,25 ; 10; 18,5 ; 15,5 ; 11,25)$.
+	À ces notes sont associés $5$ coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
+	
+	Calculer la moyenne pondérée des notes.
+}{}
+
+
+\exe{
+	Calculer et comparer les écart types des séries de l'exercice \ref{ex:33}.
+}{}
+
+\exe{
+	\begin{multicols}{2}
+	On considère la série ci-contre tirée de l'exercice \ref{ex:33}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	\end{multicols}
+		
+	Modifier l'effectif de la valeur $10$ en $10, 20, 50, 100$, et calculer la moyenne et l'écart type de la série obtenue.
+	Comment évolue $\sigma$ ? La série devient-elle plus ou moins concentrée autour de sa moyenne ?
+}{}
+
+\begin{figure}[t!]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myg, fill=myg!50] plot coordinates {
+        (2,1) (3,0) (4,0) (5,1) (6,1) (7,3) (8,1) (9,5) (10,1) (11,0) (12,3) (13,4) (14,3) (15,3) (16,5) (17,1) (18,2) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Évaluation ``Droite réelle''.}
+  \label{fig:a}
+  \end{subfigure}
+  \hfill
+  % NOT LINE BREAK!!
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        %xtick = {4, 5, ..., 18, 19},
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myb, fill=myb!50] plot coordinates {
+        (4,1) (5,0) (6,1) (7,0) (8,2) (9,1) (10,4) (11,2) (12,7) (13,7) (14,3) (15,0) (16,2) (17,2) (18,1) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Évaluation ``Droite et plan''.}
+  \end{subfigure}
+    \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myr, fill=myr!50] plot coordinates {
+      		(2,1) (3,0) (8,2) (9,0) (10, 1) (11,4) (12,1) (13,4) (14,4) (15,7) (16,7) (17,1) (18,2) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Automatismes 1 à 5.}
+  \end{subfigure}
+  
+  
+  \caption{Histogrammes de notes (min $0$, max $20$). Les classes sont de la forme $[k;k+1[, k\in\N$. 
+  La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.
+  \\
+  Lecture : $5$ notes de l'évaluation ``Droite réelle'' appartiennent à l'intervalle $[9;10[$.}
+  \label{fig:hist}
+\end{figure}
+
+\exe{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist} (au dos).
+	On assignera la valeur moyenne $k+\frac12$ à chaque élément d'une classe $[k; k+1[, k\in\N$.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $4$ notes de valeur $16,5$.
+	
+	Ensuite, pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}[i)]
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+\exe{
+	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 2 & 5 \\ \hline
+		Effectif & 5 & 14 & N & 2  \\ \hline
+		\end{tabular}
+		\end{center}
+}{}
+
+\end{document}
