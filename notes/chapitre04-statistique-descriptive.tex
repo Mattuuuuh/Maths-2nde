@@ -238,12 +238,85 @@ On calculera alors généralement une proportion $p$ donnant l'évolution entre 
   Le prix de $2023$ est donc $120\%$ celui de $2022$, ce qui correspond à une augmentation de $20\%$.
 }{}
 
+
 \exe{}{
   En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
   En $2021$, celle-ci s'élvait plutôt à $475{,}85$ TWh. \footnote{\href{https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/chiffres-cles-energie-2023/14-gaz-naturel}{https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/chiffres-cles-energie-2023/14-gaz-nature}}
 
   Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
 }{}
+
+\thm{Évolutions successives}{
+	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
+	
+	\begin{enumerate}
+		\item Si $m>1$, $m=1+p$, et l'évolution est une augmentation de $100p \%$.
+		\item Si $m<1$, $m=1-p$, et l'évolution est une diminution de $100p \%$.
+		\item Si $m=1$, la valeur ne change pas.
+	\end{enumerate}
+	
+	Lorsque deux évolutions successives ont lieu, les coefficients sont multipliés entre eux pour obtenir un coefficient multiplicateur global.
+
+	\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur finale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times (m_1\cdot m_2)$};
+	\end{tikzpicture}
+	\end{center}
+
+}{thm:ev-succ}
+
+\ex{}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution de $20\%$, elle, multiplie par $0,8$.
+	
+	Le coefficient final est donc donné par 
+		\[0,8 \cdot 1,2 \cdot N = 0,96, \]
+	qui correspond à une diminution de $4\%$.
+}{}
+
+\exe{}{
+    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
+    \begin{enumerate}
+    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $100p\%$ suivie d'une diminution de $100p\%$ ?
+    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
+    \end{enumerate}
+}{}
+
+
+\thm{Évolution réciproque}{
+	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
+	D'après le théorème \ref{thm:ev-succ}, le coefficient multiplicateur de l'évolution réciproque est donc l'inverse de celui de l'évolution considérée.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dfrac{1}{m_1}$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times \left(m_1\cdot \dfrac{1}{m_1}\right) = \times 1$};
+	\end{tikzpicture}
+	\end{center}
+}{thm:ev-rec}
+
+
 
 \ex{}{
   Une augmentation de $50\%$ revient à multiplier une valeur initiale $a$ par $1{,}5$ pour obtenir une valeur finale $b$.
@@ -268,6 +341,7 @@ On calculera alors généralement une proportion $p$ donnant l'évolution entre 
   \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
   \end{enumerate}
 }{}
+
 
 
 \section{Moyennes, écart type, et quartiles}
@@ -450,6 +524,18 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 	La combinaison des deux opérations dites \emph{linéaires} donne
 		\[ \overline{aX + b} = a\overline{X} + b \]
 	pour n'importe quel $a,b \in \R$.
+}{}
+
+
+\exe{Inflation et euro fixe}{
+	La moyenne des salaires mensuels d'une entreprise est de $1860$€.
+	L'inflation désigne une augmentation générale des prix. Ainsi, $6\%$ d'inflation signifie que, en moyenne, les prix augmentent de $6\%$.
+	Réciproquement et afin de pouvoir comparer les pouvoirs d'achats, on peut fixer les prix et voir l'inflation comme une diminution du salaire (en l'occurrence de $1-\frac{1}{1,06} \approx 5,6 \%$, d'après le théorème \ref{thm:ev-rec}).
+	
+	L'entreprise, après une année où l'inflation se mesurait à $6\%$ décide d'ajouter des primes aux salaires : tous les employés recevront $50$€ mensuellement en plus. Ces $50$€ sont, eux aussi, soumis à l'inflation.
+	
+	Quelle est la nouvelle moyenne des salaires mensuels de l'entreprise ?
+
 }{}
 
 
