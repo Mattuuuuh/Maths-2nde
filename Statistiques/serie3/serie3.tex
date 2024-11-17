@@ -69,6 +69,9 @@ nomarginpar,% We don't want any margin paragraphs
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 
+% variance
+\newcommand{\Var}[1]{\text{Var}(#1)}
+
 % domain
 \newcommand{\D}{\mathbb{D}}
 
@@ -95,7 +98,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -127,7 +130,27 @@ nomarginpar,% We don't want any margin paragraphs
 			\item $(0; 1;2;3; \dots; 18; 19; 20)$
 		\end{enumerate}
 		\end{multicols}
-}{}
+}{
+
+		\begin{enumerate}
+			\item $\overline{X} = \dfrac{0+20}{2} = 10$
+			\item $\overline{X} = \dfrac{0+0+20}{3} = \dfrac{20}3 \approx 6,67$
+			\item $\overline{X} = \dfrac{0+20+20}{3} = \dfrac{40}3 \approx 13,33$
+			\item $\overline{X} = \dfrac{-10+23-10-23+10+10}{6} = 0$. La série est symétrique par rapport à $0$ (chaque valeur a son opposé du même effectif).
+			\item $\overline{X} = \dfrac{-50-100-23-31-50-50}{6} = -\dfrac{304}6 = -\dfrac{152}3 \approx -50,67$
+			\item $\overline{X} = \dfrac{0+ 1+2+3+ \dots+ 18+ 19+ 20}{21} = 10 $. La série est symétrique par rapport à $10$.
+		\end{enumerate}
+		
+		Le dernier exercice se généralise pour donner une formule très utile.
+		La série statistique $X=(0; 1 ; 2; 3 ; \dots; 2n-1 ; 2n)$ est symétrique par rapport à $n$ pour n'importe quel entier naturel $n\in\N$.
+		Sa moyenne est donc de $n$, ce qui est équivalent à dire
+			\begin{align*}
+				\dfrac{0 + 1 + \dots + 2n-1 + 2n}{2n+1} &= n \\
+				0 + 1 + \dots + 2n-1 + 2n &= n\cdot (2n+1)
+			\end{align*}
+		Vérification : pour $n=10$, on retrouve $10\cdot 21 = 210$ pour la somme des entiers naturels de $0$ à $20$.
+		Vérifiez la formule obtenue pour $n=2; 3; 5$ pour se rassurer encore davantage !
+}
 
 \exe{\label{ex:33}
 	Pour chaque série statistique suivante, calculer la moyenne.
@@ -160,7 +183,23 @@ nomarginpar,% We don't want any margin paragraphs
 
 		\end{enumerate}
 		\end{multicols}
-}{}
+}{
+		\begin{enumerate}
+			\item 
+				$\overline{X} = \dfrac{9\cdot5 + 13\cdot12 + 11\cdot5 + 7\cdot12}{5+12+5+12} = 10$
+				
+			\item 
+				$\overline{X} = \dfrac{2\cdot5 + 13\cdot12 + 18\cdot5 + 7\cdot12}{5+12+5+12} = 10$
+				
+			\item 
+				$\overline{X} = \dfrac{0\cdot5 + 20\cdot14 + 2\cdot10 + 5\cdot2}{5+14+10+2} = 10$
+
+			\item 
+				$\overline{X} = \dfrac{0\cdot17 + 20\cdot17 + 10\cdot1}{17+17+1} = 10$
+
+		\end{enumerate}
+
+}
 
 
 
@@ -199,7 +238,61 @@ nomarginpar,% We don't want any margin paragraphs
 
 		\end{enumerate}
 		\end{multicols}
-}{}
+}{
+		\begin{enumerate}
+			\item 
+				La somme des effectifs $N$ est donnée par $N = 1+2 = 3$.
+				Pour trouver la fréquence d'une valeur, on divise son effectif par $N$.
+				
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 1 & 2  \\ \hline
+				Fréquence & $\frac13$ & $\frac23$  \\ \hline
+				\end{tabular}
+				
+				La moyenne est la somme des produits Valeur $\times$ Fréquence.
+				D'où $\overline{X} = 0 \cdot \frac13 + 20 \cdot \frac23 =\dfrac{40}3 \approx 13,33$, qu'on comparera à l'exercice $1$.
+				
+			\item 
+				La somme des effectifs $N$ est donnée par $N = 1+2 = 3$.
+				Pour trouver la fréquence d'une valeur, on divise son effectif par $N$.
+				
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 2 & 1  \\ \hline
+				Fréquence & $\frac23$ & $\frac13$ \\ \hline
+				\end{tabular}
+				
+				D'où $\overline{X} = 0 \cdot \frac23 + 20 \cdot \frac13 =\dfrac{20}3 \approx 6,67$, qu'on comparera à l'exercice $1$.
+				
+			\item 
+				La somme des effectifs $N$ est donnée par $N = 2+1+5+10 = 18$.
+				Pour trouver la fréquence d'une valeur, on divise son effectif par $N$.
+				
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 11 & 13 & 9 & 7 \\ \hline
+				Effectif & 2 & 1 & 5 & 10 \\ \hline
+				Fréquence & $\frac2{18}$ & $\frac1{18}$ & $\frac5{18}$ & $\frac{10}{18}$  \\ \hline
+				\end{tabular}
+				
+				D'où $\overline{X} = 11\cdot\frac2{18} + 13\cdot \frac1{18} + 9\cdot \frac5{18} 7\cdot\frac{10}{18} = \dfrac{150}{18} \approx 8,33 $.
+				
+			\item 
+				La somme des effectifs $N$ est donnée par $N = 67+12+4+17 = 100$.
+				Pour trouver la fréquence d'une valeur, on divise son effectif par $N$.
+				
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & -23 & -1 & 1 & 23 \\ \hline
+				Effectif & 67 & 12 & 4 & 17 \\ \hline
+				Fréquence & $\frac{67}{100}$ & $\frac{12}{100}$ & $\frac{4}{100}$ & $\frac{17}{100}$ \\ \hline
+				\end{tabular}
+				
+				D'où $\overline{X} = (-23) \cdot \frac{67}{100} + (-1)\cdot \frac{12}{100} + 1\cdot \frac{4}{100} + 23\cdot \frac{17}{100} = -11,58$.
+
+		\end{enumerate}
+
+
+}
 
 
 
@@ -208,7 +301,17 @@ nomarginpar,% We don't want any margin paragraphs
 	À ces notes sont associés $5$ coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
 	
 	Calculer la moyenne pondérée des notes.
-}{}
+}{
+	Il y a deux manières de faire.
+	D'une part, on peux calculer la somme des produits Note $\times$ Coefficient puis diviser par la somme des coefficients.
+		\[ \dfrac{4,25\cdot0,5 + 10\cdot1,4 + 18,5\cdot0,1 + 15,5\cdot 0,5 + 11,25\cdot1,1}{0,5+1,4+0,1+0,5+1,1} = \dfrac{38,1}{3,6}  \approx 10,58. \]
+	D'autre part, on peut calculer le poids de chaque note en normalisant les coefficients, c'est-à-dire en divisant chaque coefficient par leur somme.
+	
+	$p_1 = \dfrac{0,5}{3,6}$, $p_2 = \dfrac{1,4}{3,6}$, $p_3 = \dfrac{0,1}{3,6}$, $p_4 = \dfrac{0,5}{3,6}$, et $p_5 = \dfrac{1,1}{3,6}$, puis
+		\[ 4,25 \cdot p_1 + 10\cdot p_2 + 18,5 \cdot p_3 + 15,5 \cdot p_4 + 11,25\cdot p_5 = 10,58. \]
+
+	La première méthode est plus facile à employer mais elle découle en fait de la seconde : une moyenne est toujours une combinaison convexe de valeurs car les poids somment toujours à $1$.
+}
 
 
 \exe{
@@ -216,16 +319,53 @@ nomarginpar,% We don't want any margin paragraphs
 	L'inflation désigne une augmentation générale des prix. Ainsi, $6\%$ d'inflation signifie que, en moyenne, les prix augmentent de $6\%$.
 	Réciproquement et afin de pouvoir comparer les pouvoirs d'achats, on peut fixer les prix et voir l'inflation comme une diminution du salaire (en l'occurrence de $1-\frac{1}{1,06} \approx 5,6 \%$).
 	
-	L'entreprise, après une année où l'inflation se mesurait à $6\%$ décide d'ajouter des primes aux salaires : tous les employés recevront $50€$ mensuellement en plus. Ces $50$€ sont, eux aussi, soumis à l'inflation.
+	L'entreprise, après une année où l'inflation se mesurait à $6\%$ décide d'ajouter des primes aux salaires : tous les employés recevront $50$€ mensuellement en plus. Ces $50$€ sont, eux aussi, soumis à l'inflation.
 	
 	Quelle est la nouvelle moyenne des salaires mensuels de l'entreprise ?
 
-}{}
+}{
+	Notons $X$ la série statistique des salaires avant inflation.
+	On utilise ici la linéarité de la moyenne.
+	
+	La prime s'ajoute après l'inflation, donc la moyenne après inflation et prime s'élève à $\overline{X+50} = \overline{X} + 50$.
+	
+	Enfin, afin de corriger l'inflation et d'après le texte, on multiplie tous les nouveaux salaires par $(1,06)^{-1}$.
+	La nouvelle moyenne est donc donnée par 
+		\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801.89. \]
+	À \og euro fixe \fg \, et en moyenne, la prime de permet pas de compenser l'inflation.
+}
 
 
 \exe{
 	Calculer et comparer les écart types des séries de l'exercice \ref{ex:33}.
-}{}
+}{
+	On calcule d'abord la variance puis l'écart type.
+	D'après le cours, $\Var{X} = \overline{(X - \overline{X})^2}$ et $\sigma(X) = \sqrt{\Var{X}}$.
+	
+	\begin{enumerate}
+		\item 
+			\[ \Var{X} = \dfrac{5\cdot(9-10)^2 + 12 \cdot(13-10)^2 + 5\cdot(11-10)^2 + 12 \cdot(7-10)^2}{5+12+5+12} = \dfrac{226}{34}. \]
+		
+		D'où $\sigma(X) = \sqrt{\dfrac{226}{34}} \approx 2,578$.
+		
+		\item  
+			\[\Var{X} = \dfrac{5\cdot(2-10)^2 + 12 \cdot(13-10)^2 + 5\cdot(18-10)^2 + 12 \cdot(7-10)^2}{5+12+5+12} = \dfrac{856}{34}. \].
+		
+		D'où $\sigma(X) \approx 5,02$.
+		
+		\item  
+			\[\Var{X} = \dfrac{5\cdot(0-10)^2 + 14 \cdot(20-10)^2 + 10\cdot(2-10)^2 + 2 \cdot(5-10)^2}{5+14+10+2} = \dfrac{2590}{31} . \]
+		
+		D'où $\sigma(X) \approx 9,14.$
+		
+		\item  
+			\[\Var{X} = \dfrac{17\cdot(0-10)^2 + 17 \cdot(20-10)^2 + 1\cdot(10-10)^2 }{17+17+1} = \dfrac{3400}{35}. \]
+		
+		D'où $\sigma(X) \approx 9,86$.
+	\end{enumerate}
+
+	Les écarts types augmentent car les séries statistiques sont de moins en moins concentrées autour de leur moyenne $10$.
+}
 
 \exe{
 	\begin{multicols}{2}
@@ -241,7 +381,137 @@ nomarginpar,% We don't want any margin paragraphs
 		
 	Modifier l'effectif de la valeur $10$ en $10, 20, 50, 100$, et calculer la moyenne et l'écart type de la série obtenue.
 	Comment évolue $\sigma$ ? La série devient-elle plus ou moins concentrée autour de sa moyenne ?
-}{}
+}{
+	Remplaçons l'effectif de $10$ par $k$ pour obtenir directement une formule générale qu'on pourra évaluer en $k=10, 20, 50, 100$.
+
+	D'abord, la moyenne ne change pas :
+		\[ \overline{X} = \dfrac{0\cdot17 + 20\cdot17 + 10\cdot k}{17+17+k} = \dfrac{10\cdot(37 + k)}{34+k} = 10, \]
+	ce qui n'est pas surprenant car ajouter une valeur moyenne ne change pas la moyenne générale.
+
+	On a ainsi 
+		\[ \Var{X} = \dfrac{17\times(0-10)^2+17\times(20-10)^2 + k\times(10-10)^2}{17+17+k} = \dfrac{3400}{34+k}. \]
+		
+	Pour $k=1$, on retrouve l'écart type $\sigma(X) = \sqrt{\dfrac{3400}{35}} \approx 9,86$ de l'exercice précédent.
+	Les autres valeurs sont listées dans le tableau ci-dessous.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		$k$ & 1 & 10 & 20 & 50 & 100 \\ \hline
+		$\sigma(X) \approx$ & 9,86 & 8,79 & 7,93 & 6,36 & 5,04 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	On remarque que $\sigma$ diminue quand $k$ augmente.
+	En effet, plus le dénominateur de la fraction $\Var{X} = \frac{3400}{34+k}$ augmente, plus la variance diminue, et donc plus l'écart type diminue aussi.
+	
+	La série statistique devient de plus en plus concentrée autour de sa moyenne car il y a de plus en plus de valeurs égale à celle-ci.
+}
+
+\exe{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist} (au dos).
+	On assignera la valeur moyenne $k+\frac12$ à chaque élément d'une classe $[k; k+1[, k\in\N$.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $4$ notes de valeur $16,5$.
+	
+	Ensuite, pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}[i)]
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+}{
+	On traite la série statistique $X$ décrite par le premier histogramme \ref{fig:a}.
+	On vérifie les résultats à l'aide d'un tableur : 
+	voir le fichier joint \texttt{hist(a).csv}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+		Note & 2,5 & 5,5 & 6,5 &7,5 & 8,5 & 9,5 & 10,5 & 12,5 & 13,5 & 14,5 & 15,5 & 16,5 & 17,5 & 18,5 \\ \hline
+		Effectif & 1 & 1 & 1 & 3 & 1 & 5 & 1 & 3 & 4 & 3 & 3 & 5 & 1 & 2 \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	L'effectif total est donné par $N= 1+1+1+3+1+5+1+3+4+3+3+5+1+2 = 34$
+	
+		\begin{enumerate}[i)]
+			\item
+				\[ \overline{X} = \dfrac{2,5+5,5+6,5+7,5\cdot3 + \dots  + 16,5\cdot5 + 17,5+18,5\cdot2}{34} = \dfrac{422}{34} \approx 12,411 \]
+			\item 
+				\[ \sigma(X) \approx 4,06. \]
+			\item 
+				$N=34$ est pair donc prend la moyenne des valeur de rang $17$ et $18$ en vérifiant que la série soit bien rangée par ordre croissant.
+				Comme $1+1+1+3+1+5+1+3 = 16$, ces deux valeurs sont $13,5$ et la médiane est donc $13,5$.
+			\item 
+				On prend le rang immédiatement supérieur ou égal à $N/4 = 8,5$, c'est-à-dire $9$.
+				Le premier quartile est donc donné par $Q_1 = 9,5$.
+			\item
+				On prend le rang immédiatement supérieur ou égal à $3N/4 = 25,5$, c'est-à-dire $26$.
+				Le troisième quartile est donc donné par $Q_3 = 15,5$. 
+			\item
+				L'écart interquartile est calculé, par définition, en posant
+					\[ |Q_1 - Q_3| = |9,5 - 15,5| = 6. \]
+				
+		\end{enumerate}
+}
+
+%\subsection*{Exercices supplémentaires}
+
+\exe{$(\star)$
+	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 2 & 5 \\ \hline
+		Effectif & 5 & 14 & N & 2  \\ \hline
+		\end{tabular}
+		\end{center}
+}{
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\dfrac{5\cdot0 + 14\cdot20 + N\cdot2 + 2\cdot5}{5+14+N+2} &= 10 \\
+			0  + 280 + 2\cdot N + 10 &= 10 \cdot(21 + N) \\
+			290 + 2 \cdot N &= 210 + 10 \cdot N \\
+			80 &= 8 \cdot N \\
+			N &= 10		
+		\end{align*}
+
+	$10$ est bien un entier naturel, donc $N=10$ est l'unique solution.
+}
+
+\exe{$(\star)$
+	Est-il possible que la série suivante ait une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 23 & 12 & 2 & 7 \\ \hline
+		Effectif & 5 & 14 & N & 2  \\ \hline
+		\end{tabular}
+		\end{center}
+}{
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\dfrac{5\cdot23 + 14\cdot12 + N\cdot2 + 2\cdot7}{5+14+N+2} &= 10 \\
+			115  + 168 + 2\cdot N + 14 &= 10 \cdot(21 + N) \\
+			297 + 2 \cdot N &= 210 + 10 \cdot N \\
+			87 &= 8 \cdot N \\
+			N &= \dfrac{87}8		
+		\end{align*}
+
+	L'unique solution candidate est donc $\dfrac{87}{8}$ qui n'est pas un entier naturel.
+	Donc il n'est pas possible que cette situation ait une moyenne de $10$, peu importe l'effectif $N\in\N$.
+	
+	En prenant une valeur approchée, par exemple $N=11$, la moyenne est de $9,96$, par exactement $10$ !
+}
+
+
 
 \begin{figure}[t!]
   \centering
@@ -312,47 +582,6 @@ nomarginpar,% We don't want any margin paragraphs
   \label{fig:hist}
 \end{figure}
 
-\exe{
-	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist} (au dos).
-	On assignera la valeur moyenne $k+\frac12$ à chaque élément d'une classe $[k; k+1[, k\in\N$.
-	Par exemple, de l'histogramme \ref{fig:a} on lit $4$ notes de valeur $16,5$.
-	
-	Ensuite, pour chaque série obtenue, calculer
-		\begin{multicols}{2}
-		\begin{enumerate}[i)]
-			\item La moyenne ;
-			\item L'écart type ;
-			\item La médiane ;
-			\item Le premier quartile ;
-			\item Le troisième quartile ; et
-			\item L'écart interquartile.
-		\end{enumerate}
-		\end{multicols}
-}{}
-
-%\subsection*{Exercices supplémentaires}
-
-\exe{$(\star)$
-	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
-	
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 0 & 20 & 2 & 5 \\ \hline
-		Effectif & 5 & 14 & N & 2  \\ \hline
-		\end{tabular}
-		\end{center}
-}{}
-
-\exe{$(\star)$
-	Est-il possible que la série suivante est une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
-	
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 23 & 12 & 2 & 7 \\ \hline
-		Effectif & 5 & 14 & N & 2  \\ \hline
-		\end{tabular}
-		\end{center}
-}{}
 
 
 \end{document}
