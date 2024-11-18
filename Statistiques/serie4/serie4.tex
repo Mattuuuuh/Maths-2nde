@@ -1,0 +1,209 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{hyperref}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% variance
+\newcommand{\Var}[1]{\text{Var}(#1)}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[1]
+
+
+% plots
+\usepackage{pgfplots}
+
+% table line break
+\usepackage{makecell}
+
+%subfigures
+\usepackage{subcaption}
+
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Statistiques 4 $\star$ (équations diophantiennes) \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{[$\star$]
+
+	Soient $a, b \in \N$ deux entiers naturels non tous deux nuls.
+	On considère la série statistique suivante, dépendant des entiers $a$ et $b$.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			Valeur   & 9 & 10 \\ \hline
+			Effectif & $a$ & $b$ \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\begin{enumerate}
+		\item
+		Montrer que, pour les couples $(a;b) = (2;1)$ et $(a;b) = (4;2)$, la moyenne de la série est de $10$.
+		\item
+		Montrer que, pour tous les couples de la forme $(a;b) = \kappa\cdot(2;1)$ où $\kappa\in\N$ est un entier naturel non nul, la moyenne de la série est de $10$.
+		\item
+		Représenter graphiquement ces couples dans un repère en prenant $\kappa=1; 2; 3; \dots$.
+		Que dire des points ?
+	\end{enumerate}
+}{}
+
+
+\exe{[$\star$]
+	Soient $a, b \in \N$ deux entiers naturels tels que $(a;b) \neq (0;0)$.
+	On considère la série statistique suivante, dépendant des entiers $a$ et $b$.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			Valeur   & 7 & 12 \\ \hline
+			Effectif & $a$ & $b$ \\ \hline
+		\end{tabular}
+		\end{center}
+
+	\begin{enumerate}
+		\item
+		Montrer que, pour les couples $(a;b) = (2;3)$ et $(a;b) = (4;6)$, la moyenne de la série est de $10$.
+		\item
+		Montrer que, si la moyenne de la série associée à un couple $(a;b)$ est de $10$, alors le couple vérifie
+			\[ 2b = 3a. \]
+		\item
+		En déduire que l'entier naturel $a$ est nécessairement pair.
+		(On peut raisonner par contraposition : si $a$ est impair, montrer que $3a$ est aussi impair).
+		\item
+		En écrivant $a=2\cdot k$ où $k\in\N$ est un entier naturel non nul, démontrer que $b=3\cdot k$. 
+		\item
+		Déduire que tous les couples $(a;b)$ dont la série associée est de moyenne $10$ sont de la forme
+			\[ (a;b) = (2;3)\cdot k, \]
+		où $k\in\N$ est un entier naturel non nul.
+	\end{enumerate}
+}{}
+
+
+\exe{[$\star$]
+
+	Soient $a, b \in \N$ deux entiers naturels tels que $(a;b) \neq (0;0)$.
+	On considère la série statistique suivante, dépendant des entiers $a$ et $b$.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+			Valeur   & 11 & 8 & 13 \\ \hline
+			Effectif & 1 & $a$ & $b$ \\ \hline
+		\end{tabular}
+		\end{center}
+
+	\begin{enumerate}
+		\item
+		Montrer que, pour les couples $(a;b) = (2;1)$ et $(a;b) = (5;3)$, la moyenne de la série est de $10$.
+		\item
+		Montrer que, si la moyenne de la série associée à un couple $(a;b)$ est de $10$, alors le couple vérifie
+			\[ 2a - 3b = 1. \]
+		\item
+		En déduire que l'entier naturel $b$ est nécessairement impair.
+		(On peut raisonner par contradiction : si $b$ est pair, montrer que l'égalité est impossible).
+		\item
+		En écrivant $b=2\cdot k + 1$ où $k\in\N$ est un entier naturel, démontrer que $a = 3k + 2$. 
+		\item
+		Déduire que tous les couples $(a;b)$ dont la série associée est de moyenne $10$ sont de la forme
+			\[ (a;b) = (3;2)\cdot k + (2;1), \]
+		où $k\in\N$ est un entier naturel.
+		\item
+		Représenter graphiquement ces couples dans un repère en prenant $k=1; 2; 3; \dots$.
+		Que dire des points ?
+	\end{enumerate}
+		
+}{}
+
+\end{document}
