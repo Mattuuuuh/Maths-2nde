@@ -15,3 +15,5 @@
 *.odt
 stats/__pycache__/
 stats/2nde13.csv
+notes/notes.listing
+notes/_minted_notes/*
