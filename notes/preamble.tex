@@ -16,6 +16,9 @@
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage{libertinus,libertinust1math}
 
+% for calligraphic C, D
+\usepackage{calrsfs}
+
 \usepackage{xfrac}
 \usepackage[makeroom]{cancel}
 \usepackage{mathtools}
@@ -61,6 +64,16 @@
 
 % roman numerals for \section
 \renewcommand{\thesection}{\Roman{section}} 
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
 
 %\renewcommand\qedsymbol{$\Laughey$}
 
