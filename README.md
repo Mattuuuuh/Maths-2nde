@@ -10,17 +10,19 @@ pdflatex -shell-escape notes.tex
 
 Sur TeXworks, il faut aller dans Preferences, Typesetting, Tool Configuration (double click pdfLaTeX) et ajouter l'argument `-shell-escape`.
 
-Contenu :
+Contenu par chapitre :
 - [x] Ensembles dénombrables
 - [x] Arithmétique
 - [x] Droite réelle et géométrie plane
-- [ ] Statistiques descriptives
-- [ ] Fonctions
-- [ ] Vecteurs dans le plan
+- [x] Statistiques descriptives
+- [ ] Fonctions : généralités
+- [ ] Fonctions : variations et extrema
 - [ ] Probabilités
-- [ ] Variations et extrema
+- [ ] Vecteurs dans le plan
+- [ ] Problèmes de géométrie
+- [ ] Fonctions : droites du plan
+- [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
-- [ ] Géométrie : trigonométrie, projeté orthogonaux, ...
 
 # Séries d'exercices, évaluations, automatismes, …
 
