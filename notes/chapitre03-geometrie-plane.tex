@@ -167,15 +167,15 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 			\addplot[black, mark=*, mark size = 1] (20,-2) node[below, right] {$B$};
 			
 			
-			\addplot[black, mark=+, mark size = 1] (1,0) node[below] {$x_A$};
-			\addplot[black, mark=+, mark size = 1] (20,0) node[above] {$x_B$};
-			\addplot[black, mark=+, mark size = 1] (0,3) node[left] {$y_A$};
-			\addplot[black, mark=+, mark size = 1] (0,-2) node[left] {$y_B$};
+			\addplot[black, thick, mark=|, mark size = 4] (1,0) node[below] {$x_A$};
+			\addplot[black, thick, mark=|, mark size = 4] (20,0) node[above] {$x_B$};
+			\addplot[black, thick, mark=-, mark size = 4] (0,3) node[left] {$y_A$};
+			\addplot[black, thick, mark=-, mark size = 4] (0,-2) node[left] {$y_B$};
 			
 			% midpoint
 			\addplot[red, mark=*, mark size = 1] (10.5,.5) node[above=10pt, right] {$M$};	
-			\addplot[red, mark=+, mark size = 2] (10.5,0) node[below=3pt] {$\dfrac{x_A+x_B}2$};
-			\addplot[red, mark=+, mark size = 2] (0,.5) node[above=3pt, left] {$\dfrac{y_A+y_B}2$};
+			\addplot[red, thick, mark=|, mark size = 4] (10.5,0) node[below=3pt] {$\dfrac{x_A+x_B}2$};
+			\addplot[red, thick, mark=-, mark size = 4] (0,.5) node[above=3pt, left] {$\dfrac{y_A+y_B}2$};
 			
 			
 			\draw[red, dotted, thick] (axis cs:10.5, 0) -- (axis cs:10.5,.5);
