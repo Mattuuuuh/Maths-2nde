@@ -73,7 +73,7 @@ Les capacités visées à la fin du chapitres sont les suivantes.
 		
 		\begin{enumerate}
 			\item La hauteur est-elle une fonction du temps ? Justifier.
-			\item Le temps est-il une fonction du temps ? Justifier.
+			\item Le temps est-il une fonction de la hauteur ? Justifier.
 		\end{enumerate}
 	}{}
 	
@@ -142,23 +142,22 @@ Les capacités visées à la fin du chapitres sont les suivantes.
 			\end{align*}	
 			
 			\item
-			Considérons la série statistiques $X_k$ suivante dépendant d'un entier naturel $k\in\N$.
+			Considérons la série statistiques $X$ suivante dépendant d'un entier naturel $k\in\N$.
 				\begin{center}
 				\begin{tabular}{|c|c|c|c|}\hline
 					Valeur   & 0 & 20 & 10 \\ \hline
 					Effectif & 17 & 17 & k \\ \hline
 				\end{tabular}
 				\end{center}
-			La variance $\Var(X_k)$ est une fonction qui à tout entier naturel $k\in\N$ associe la variance de la série $X$.
-			Au lieu de voir $\Var$ comme fonction de $X$, on la voir plutôt comme fonction de $k$.
+			La quantité $\Var(X)$ peut être vue comme une fonction qui à tout entier naturel $k\in\N$ associe la variance de la série $X$.
 			Nomons $f$ cette fonction pour ne pas utiliser surcharger la notation $\Var$.
 			\begin{align}
 			\begin{split}
 				f: \N & \longrightarrow \R \\
-				k& \longmapsto \Var(X_k)
+				k& \longmapsto \Var(X)
 			\end{split}\label{func:vark}
 			\end{align}
-			Remarquons que le domaine de $f$ est l'ensemble des entiers naturels $\N$.
+			Remarquons que le domaine de $f$ est l'ensemble des entiers naturels $\N$ car un effectif est forcément un nombre entier et positif.
 			
 			\item
 			Pour définir l'écart type, il a fallu utiliser la fonction racine carrée.
@@ -254,7 +253,7 @@ Les capacités visées à la fin du chapitres sont les suivantes.
 			\item
 			Donner un antécédent de $1$.
 			\item
-			Déterminer tous les antécédents de $4$.	
+			Déterminer tous les antécédents de $6$.	
 		\end{enumerate}
 	}{}
 	
@@ -313,9 +312,15 @@ print(f1, f2)
 	
 	\exe{}{
 		On reconsidère la fonction $f$ de l'exemple \ref{ex:fonctions-deja-vues} donnée en $\eqref{func:vark}$.
-		Utiliser la formule \eqref{eq:var} de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
 		
-		Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+		\begin{enumerate}
+			\item
+			Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
+			\item
+			Utiliser la formule \eqref{eq:var} de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
+			\item
+			Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+		\end{enumerate}
 	}{exe:vark}
 	
 	\nt{
@@ -519,7 +524,8 @@ print(f1, f2)
 	
 	\section{Résolutions graphiques d'équations et d'inéquations}
 	
-	Le but de cette partie est d'étudier graphiquement les solutions, c'est-à-dire l'ensemble des nombres réels $x$ appartenant au domaine $\D$ commun à deux fonctions $f, g$ et vérifiant des (in)équations du type
+	Soient $f, g$ deux fonctions admettant un domaine $\D$ commun.
+	Le but de cette partie est d'étudier graphiquement les solutions $x\in\D$ des (in)équations du type
 		\begin{multicols}{2}
 		\begin{enumerate}[label=$\bullet$]
 			\item $f(x) = k$
@@ -529,3 +535,4 @@ print(f1, f2)
 		\end{enumerate}
 		\end{multicols}
 	\noindent où $k\in\R$ est un réel quelconque.
+	C'est-à-dire qu'on cherche l'ensemble des nombres réels $x$ tels que les (in)équations ci-dessus soient vraies.
