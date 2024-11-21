@@ -15,5 +15,7 @@
 *.odt
 stats/__pycache__/
 stats/2nde13.csv
+*/*/*.listing
 notes/notes.listing
 notes/_minted-notes/*
+Fonctions/serie1/_minted-serie1/*

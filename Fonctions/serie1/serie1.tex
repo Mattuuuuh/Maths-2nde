@@ -1,0 +1,285 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+% plots
+\usepackage{pgfplots}
+
+%subfigures
+\usepackage{subcaption}
+
+% python
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions 1\ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+	\exe{
+		\begin{enumerate}
+			\item
+			Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
+			\item
+			Montrer que l'aire d'un cercle est fonction de son rayon et écrire la fonction associée.
+			\item
+			En déduire que l'aire d'un cercle est fonction de son périmètre et écrire la fonction associée.
+		\end{enumerate}
+	}{}
+
+	\exe{
+		Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
+		Il note ses résultats dans le tableau ci-dessous.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+				Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+				Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+			\end{tabular}
+		\end{center}
+		
+		\begin{enumerate}
+			\item La hauteur est-elle une fonction du temps ? Justifier.
+			\item Le temps est-il une fonction de la hauteur ? Justifier.
+		\end{enumerate}
+	}{}
+	
+	
+	\exe{
+		Considérons la fonction $f$ donnée par
+		\begin{align*}
+			f: \R & \longrightarrow \R \\
+			x& \longmapsto 3\cdot x+1.
+		\end{align*}
+		Autrement dit, $f(x) = 3\cdot x + 1$ pour tout $x\in\R$.
+		
+		\begin{enumerate}
+			\item
+			Calculer l'image de $0$, de $3,1$, de $\frac13$, de $-1$, de $-\frac23$.
+			\item
+			Donner un antécédent de $1$.
+			\item
+			Déterminer tous les antécédents de $6$.	
+		\end{enumerate}
+	}{}
+	
+	
+	\exe{
+		On considère la fonction $f:\N\rightarrow\R$ qui à chaque $k\in\N$ associe la variance de la série statistique suivante.
+		
+		
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & k \\ \hline
+		\end{tabular}
+		\end{center}
+		
+		\begin{enumerate}
+			\item
+			Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
+			\item
+			Utiliser la formule de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
+			\item
+			Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+		\end{enumerate}
+		
+		Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+	}{exe:vark}
+	
+
+	\exe{
+		Un fonction $f$ admet le tableau de valeurs suivant.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}\hline
+				$x$ & 0 & -2 & 1 & -1 \\ \hline
+				$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+			\end{tabular}
+			\end{center}
+		Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+			\begin{multicols}{2}
+			\begin{enumerate}[i)]
+				\item $1-x$
+				\item $1+\dfrac{x}2$
+				\item $\dfrac{1-x}2$
+				\item $\dfrac{-x^2 - x + 2}2$
+			\end{enumerate}
+			\end{multicols}
+	}{}
+	
+	
+	
+	
+	
+		
+	\begin{figure}[!htb]
+		\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+	y = 2*x-3
+	return y
+
+f1 = f(1)
+f2 = f(-1/2)
+
+
+print(f1, f2)
+\end{mintedbox}
+		\caption{Programme 1.}
+		\label{python:1}
+		\end{subfigure}
+		\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+	y = x*x + 1
+	z = -2*x
+	return y+z
+
+f1 = f(4)
+f2 = f(-2)
+
+print(f1, f2)
+\end{mintedbox}
+		\caption{Programme 2.}
+		\label{python:2}
+		\end{subfigure}
+		\caption{Deux fonctions implémentées en Python.}
+		\label{python:1-2}
+	\end{figure}
+	
+	\exe{
+		Lire les deux programmes Python de la figure \ref{python:1-2}.
+		Quelles valeurs impriment-t-ils ?
+		
+		Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
+	}{}
+
+\end{document}
