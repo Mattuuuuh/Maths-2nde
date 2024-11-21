@@ -146,17 +146,6 @@ nomarginpar,% We don't want any margin paragraphs
 \fancyhead[R]{\today}
 
 	\exe{
-		\begin{enumerate}
-			\item
-			Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
-			\item
-			Montrer que l'aire d'un cercle est fonction de son rayon et écrire la fonction associée.
-			\item
-			En déduire que l'aire d'un cercle est fonction de son périmètre et écrire la fonction associée.
-		\end{enumerate}
-	}{}
-
-	\exe{
 		Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
 		Il note ses résultats dans le tableau ci-dessous.
 		\begin{center}
@@ -174,6 +163,18 @@ nomarginpar,% We don't want any margin paragraphs
 	
 	
 	\exe{
+		\begin{enumerate}
+			\item
+			Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
+			\item
+			Montrer que l'aire d'un cercle est fonction de son rayon et écrire la fonction associée.
+			\item
+			En déduire que l'aire d'un cercle est fonction de son périmètre et écrire la fonction associée.
+		\end{enumerate}
+	}{}
+	
+	
+	\exe{
 		Considérons la fonction $f$ donnée par
 		\begin{align*}
 			f: \R & \longrightarrow \R \\
@@ -183,11 +184,11 @@ nomarginpar,% We don't want any margin paragraphs
 		
 		\begin{enumerate}
 			\item
-			Calculer l'image de $0$, de $3,1$, de $\frac13$, de $-1$, de $-\frac23$.
+			Calculer l'image par $f$ de $0$, de $3,1$, de $\frac13$, de $-1$, de $-\frac23$.
 			\item
-			Donner un antécédent de $1$.
+			Donner un antécédent de $1$ par $f$.
 			\item
-			Déterminer tous les antécédents de $6$.	
+			Déterminer tous les antécédents de $6$ par $f$.	
 		\end{enumerate}
 	}{}
 	
@@ -280,6 +281,49 @@ print(f1, f2)
 		Quelles valeurs impriment-t-ils ?
 		
 		Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
+	}{}
+
+\newpage
+\subsection*{Exercices supplémentaires}
+
+	\exe{
+		Considérons la fonction $f$ donnée par
+		\begin{align*}
+			f: \R & \longrightarrow \R \\
+			x& \longmapsto \dfrac15-x.
+		\end{align*}
+		Autrement dit, $f(x) = \dfrac15-x$ pour tout $x\in\R$.
+		
+		\begin{enumerate}
+			\item
+			Calculer l'image par $f$ de $0$, de $-3,1$, de $-\frac47$, de $0,2$, de $-\frac23$.
+			\item
+			Donner un antécédent de $0$ par $f$.
+			\item
+			Déterminer tous les antécédents de $5$ par $f$.	
+		\end{enumerate}
+	}{}
+	
+	\exe{
+		Considérons les fonctions $f,g$ données par
+		\begin{align*}
+			f: \R & \longrightarrow \R &g: \R & \longrightarrow \R \\
+			x& \longmapsto x^2 -6\cdot x + 9,  &x& \longmapsto (x-3)^2. 
+		\end{align*}
+		Autrement dit, $f(x) =x^2 -6\cdot x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+		
+		\begin{enumerate}
+			\item
+			Calculer les images par $f$ et $g$ de $0$, de $-1$, de $3$, de $-\frac12$, de $-\frac23$.
+			\item
+			Donner un antécédent de $9$ par $f$.
+			\item
+			Déterminer tous les antécédents de $9$ par $g$.	
+			\item
+			Montrer que $g(x) - 3^2 = x^2 - 6\cdot x$ et en déduire que $f(x) = g(x)$ pour tout $x\in\R$ réel.
+			\item 
+			Déterminer tous les antécédents de $16$ par $f$.
+		\end{enumerate}
 	}{}
 
 \end{document}
