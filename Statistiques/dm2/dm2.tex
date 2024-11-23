@@ -1,0 +1,146 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}\input{vars_TEST.adr}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 1 -- \seed \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	On considère la série statistique $X$ suivante, dépendente de deux entiers naturels $a,b\in\N$.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & \kmp & \kpq & \nval \\ \hline
+		Effectif & $a$ & $b$ & \n \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\begin{enumerate}
+		\item
+		Montrer que la condition $\overline{X} = \k$ est équivalente à la relation
+			\[ - \psd \cdot a + \qsd \cdot b = 1. \]
+		\item
+		En déduire que $\psd$ divise $\qsd \cdot b - 1$ et trouver le plus petit entier naturel $b_0\in\N$ vérifiant
+			\[ \psd | \left( \qsd\cdot b_0 - 1 \right). \]
+		\item
+		Posons 
+			\[ a_0 = \dfrac{\qsd \cdot b_0 - 1}\psd. \]
+		Montrer que pour le couple d'entiers $(a;b) = (a_0 ; b_0)$, la série $X$ est de moyenne $\k$.
+		\item
+		Montrer que pour tout $n\in\N$, la série $X$ associée au couple
+			\[ (a;b) = (a_0 ; b_0) + n \cdot (\qsd ; \psd) \]
+		est de moyenne $\k$.
+		\item
+		Représenter les points $(a;b)$ dans un repère pour $n=0 ; 1 ; 2; 3$. 
+		Que dire sur les points ?
+	\end{enumerate}
+}
+{}
+
+\exe{
+	On considère la série statistique $X$ suivante, dépendente de deux entiers naturels $a,b\in\N$.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & \kmpB & \kpqB & \nvalB \\ \hline
+		Effectif & $a$ & $b$ & \nB \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\begin{enumerate}
+		\item
+		Montrer que la condition $\overline{X} = \k$ est équivalente à la relation
+			\[ - \pB \cdot a + \qB \cdot b = \dmnB. \]
+		\item
+		Trouver le plus grand diviseur commun à $\p$ et $\q$ et montrer qu'il divise nécessairement 
+			\[ - \pB \cdot a + \qB \cdot b.\]
+		\item
+		Conclure par contradiction qu'il n'existe pas d'entiers naturels $a,b\in\N$ tels que la série $X$ ait une moyenne égale à $\k$.
+		\item 
+		Trouver un moyenne possible et deux couples $(a,b)$ distincts qui la réalisent.
+		Y a-t-il une infinité de tels couples ?
+	\end{enumerate}
+}
+{}
+
+\newpage 
+
+\exe{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist}.
+	On assignera la valeur moyenne à chaque élément d'une classe.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $\EFFCONCa$ notes de valeur $\CONCa,5$.
+	
+	Ensuite, pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}[i)]
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+		
+	Comparer les séries statistiques en s'appuyant sur les valeurs calculées.
+}
+
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myg, fill=myg!50] plot coordinates {
+        (\CONCa, \EFFCONCa) (\CONCb, \EFFCONCb) (\CONCc, \EFFCONCc) (\CONCd, \EFFCONCd) (\CONCd+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Première série.}
+  \label{fig:a}
+  \end{subfigure}
+  \hfill
+  % NOT LINE BREAK!!
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myb, fill=myb!50] plot coordinates {
+        (\DISPa, \EFFDISPa) (\DISPb, \EFFDISPb) (\DISPc, \EFFDISPc) (\DISPc+1, 0) (\DISPd, \EFFDISPd) (\DISPe, \EFFDISPe) (\DISPe+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Deuxième série.}
+  \label{fig:b}
+  \end{subfigure}
+  
+  
+  \caption{Histogrammes de notes (min $0$, max $20$). Les classes sont de la forme $[k;k+1[, k\in\N$. 
+  La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.}
+  \label{fig:hist}
+\end{figure}
+
+
+\end{document}

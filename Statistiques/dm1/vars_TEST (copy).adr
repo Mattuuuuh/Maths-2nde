@@ -1,0 +1,45 @@
+% EXERCICE 1
+\newcommand{\A}{150}
+\newcommand{\B}{250}
+
+% EXERCICE 2
+\renewcommand{\P}{90}
+\newcommand{\PP}{220}
+\newcommand{\PPP}{550}
+\newcommand{\PPPP}{1200}
+\renewcommand{\Q}{300}
+\newcommand{\QQ}{350}
+\newcommand{\QQQ}{100}
+\newcommand{\QQQQ}{50}
+
+\newcommand{\TVA}{5}
+\newcommand{\PFIXE}{50}
+
+% EXERCICE 3
+\newcommand{\REMISE}{20}
+\newcommand{\FINALaug}{10}
+\newcommand{\FINALdim}{10}
+
+% EXERCICE 4
+% valeurs CONC1-4 obligatoirement mitoyennes
+\newcommand{\CONCa}{11}
+\newcommand{\CONCb}{12}
+\newcommand{\CONCc}{13}
+\newcommand{\CONCd}{14}
+\newcommand{\EFFCONCa}{7}
+\newcommand{\EFFCONCb}{8}
+\newcommand{\EFFCONCc}{5}
+\newcommand{\EFFCONCd}{2}
+
+
+% valeurs DISP-P et DISPPP-P obligatoirement mitoyennes en 2 groupes
+\newcommand{\DISPa}{7}
+\newcommand{\DISPb}{8}
+\newcommand{\DISPc}{9}
+\newcommand{\DISPd}{16}
+\newcommand{\DISPe}{17}
+\newcommand{\EFFDISPa}{3}
+\newcommand{\EFFDISPb}{12}
+\newcommand{\EFFDISPc}{10}
+\newcommand{\EFFDISPd}{15}
+\newcommand{\EFFDISPe}{8}

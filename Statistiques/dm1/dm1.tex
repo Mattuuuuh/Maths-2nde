@@ -1,0 +1,149 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}\input{vars_TEST.adr}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 1 -- \seed \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{	
+	La taxe sur la valeur ajoutée (TVA) est un impôt indirect sur la consommation.
+	On considère dans cet exercice une TVA fictive fixée à $\TVA\%$.
+	Tout objet est alors vendu $\TVA\%$ plus cher que son prix initial : c'est la différence entre un prix hors taxes (HT) et toutes taxes comprises (TTC).
+	
+	Un prix TTC comprend donc deux parts : l'une qui revient au vendeur, et l'autre versée à l'État.
+	
+	\begin{enumerate}
+		\item
+		Quel est le prix toutes taxes comprises d'un objet coûtant $\A$€ hors taxes ?
+		\item
+		Quel est le prix HT d'un objet coûtant $\B$€ TTC ?		
+		\item 
+		Pour les deux exemples ci-dessus, calculer la proportion \emph{exacte} du prix TTC qui revient à l'État. 
+		\item
+		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix.
+	\end{enumerate}
+}{}
+
+\exe{
+	Une cordonnière vend des chaussures de différentes qualité. Chaque catégorie a son prix et sa quantité en vente indiqués dans le tableau suivant.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Prix TTC (€)  & \P & \PP & \PPP & \PPPP \\ \hline
+		Quantité & \Q & \QQ & \QQQ & \QQQQ \\ \hline
+		\end{tabular}
+		\end{center}
+
+	\begin{enumerate}
+		\item
+		Quel est le prix moyen ? Arrondir au centime d'euro.
+	\end{enumerate}
+	
+	On admet que chaque prix comprend une TVA de $\TVA\%$.
+	Pour sa comptabilité, la cordonnière souhaite connaître les prix hors taxe (HT).
+	En outre, ces prix HT comprennent un coût fixe de $\PFIXE$€, coût des semelles qu'elle souhaite retirer pour qu'il ne reste que le vrai prix des chaussures.
+	\begin{enumerate}
+		\item[2.]
+		Donner le vrai prix moyen HT des chaussures en ventes de deux façons différentes :
+			\begin{enumerate}[a)]
+				\item en ajoutant une ligne \og Vrai prix HT (€)\fg \, au tableau et en calculant la moyenne ; et 
+				\item en utilisant la linéarité de la moyenne.
+			\end{enumerate}
+	\end{enumerate}
+}{}
+
+\exe{
+		Un magasin augmente ses prix avant d'appliquer une remise de $\REMISE\%$.
+		On compare les prix initiaux avant augmentation aux prix finaux après les deux évolutions successives.
+		
+		\begin{enumerate}
+			\item 
+			Quelle augmentation doit-il effectuer pour que les prix ne changent pas, après et avant évolutions ?
+			\item
+			Quelle augmentation doit-il effectuer pour qu'au final, le prix ait augmenté de $\FINALaug\%$ ?
+			\item
+			Quelle augmentation doit-il effectuer pour qu'au final, le prix ait diminué de $\FINALdim\%$ ?
+		\end{enumerate}
+}{}
+
+\newpage
+
+\exe{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist}.
+	On assignera la valeur moyenne à chaque élément d'une classe.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $\EFFCONCa$ notes de valeur $\CONCa,5$.
+	
+	Ensuite, pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}[i)]
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+		
+	Comparer les séries statistiques en s'appuyant sur les valeurs calculées.
+}
+
+\begin{figure}[t!]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myg, fill=myg!50] plot coordinates {
+        (\CONCa, \EFFCONCa) (\CONCb, \EFFCONCb) (\CONCc, \EFFCONCc) (\CONCd, \EFFCONCd) (\CONCd+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Première série.}
+  \label{fig:a}
+  \end{subfigure}
+  \hfill
+  % NOT LINE BREAK!!
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myb, fill=myb!50] plot coordinates {
+        (\DISPa, \EFFDISPa) (\DISPb, \EFFDISPb) (\DISPc, \EFFDISPc) (\DISPc+1, 0) (\DISPd, \EFFDISPd) (\DISPe, \EFFDISPe) (\DISPe+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Deuxième série.}
+  \label{fig:b}
+  \end{subfigure}
+  
+  
+  \caption{Histogrammes de notes (min $0$, max $20$). Les classes sont de la forme $[k;k+1[, k\in\N$. 
+  La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.}
+  \label{fig:hist}
+\end{figure}
+
+
+\end{document}
