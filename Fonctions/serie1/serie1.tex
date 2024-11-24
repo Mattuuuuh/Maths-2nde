@@ -4,7 +4,7 @@
 				% ENABLE or DISABLE font change
 				% use XeLaTeX if true
 				\dystrue
-				%\dysfalse
+				\dysfalse
 
 
 \ifdys
@@ -193,27 +193,6 @@ nomarginpar,% We don't want any margin paragraphs
 	}{}
 	
 	
-	\exe{
-		On considère la fonction $f:\N\rightarrow\R$ qui à chaque $k\in\N$ associe la variance de la série statistique suivante.
-		
-		
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|}\hline
-		Valeur   & 0 & 20 & 10 \\ \hline
-		Effectif & 17 & 17 & k \\ \hline
-		\end{tabular}
-		\end{center}
-		
-		\begin{enumerate}
-			\item
-			Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
-			\item
-			Utiliser la formule de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
-			\item
-			Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
-		\end{enumerate}
-	}{exe:vark}
-	
 
 	\exe{
 		Un fonction $f$ admet le tableau de valeurs suivant.
@@ -283,6 +262,28 @@ print(f1, f2)
 
 \newpage
 \subsection*{Exercices supplémentaires}
+
+	
+	\exe{
+		On considère la fonction $f:\N\rightarrow\R$ qui à chaque $k\in\N$ associe la variance de la série statistique suivante.
+		
+		
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & k \\ \hline
+		\end{tabular}
+		\end{center}
+		
+		\begin{enumerate}
+			\item
+			Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
+			\item
+			Utiliser la formule de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
+			\item
+			Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+		\end{enumerate}
+	}{exe:vark}
 
 	\exe{
 		Considérons la fonction $f$ donnée par
