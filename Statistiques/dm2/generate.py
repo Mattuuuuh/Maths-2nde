@@ -136,7 +136,10 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    for _ in range(10):
+    np.random.seed(42)
+    # always the same 15 :)
+
+    for _ in range(15):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))

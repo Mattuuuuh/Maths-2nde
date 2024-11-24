@@ -43,7 +43,7 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\QQQ", Q2)
     CONTENT = newcommand(CONTENT, "\QQQQ", Q)
 
-    TVA = int(np.random.rand()*20 +5)
+    TVA = int(np.random.rand()*40 +5)
     Pfixe = int(np.random.rand()*P/2 + 20)
 
     CONTENT = newcommand(CONTENT, "\TVA", TVA)
@@ -110,10 +110,14 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    for _ in range(2):
+    # always the same 34 just in case...
+    np.random.seed(42)
+
+    for _ in range(34):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
+        print(seed)
         # uncomment to fix seed
         #seed=59583
         np.random.seed(seed)
