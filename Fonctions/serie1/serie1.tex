@@ -125,7 +125,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -145,21 +145,27 @@ nomarginpar,% We don't want any margin paragraphs
 \fancyhead[C]{\textbf{Fonctions 1\ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-	\exe{
-		Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
-		Il note ses résultats dans le tableau ci-dessous.
-		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
-				Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
-				Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
-			\end{tabular}
-		\end{center}
-		
-		\begin{enumerate}
-			\item La hauteur est-elle une fonction du temps ? Justifier.
-			\item Le temps est-il une fonction de la hauteur ? Justifier.
-		\end{enumerate}
-	}{}
+\exe{
+	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
+	Il note ses résultats dans le tableau ci-dessous.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+			Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+			Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item La hauteur est-elle une fonction du temps ? Justifier.
+		\item Le temps est-il une fonction de la hauteur ? Justifier.
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item On peut associer \textbf{une seule} hauteur à chaque temps. La hauteur peut donc être vue comme fonction du temps.
+		\item On ne peut pas associer un unique temps à chaque hauteur. Par exemple, il y a deux temps distincts pour lesquels la hauteur est de $85$cm (0s et 1s).
+		Le temps ne peut donc pas être vu comme fonction de la hauteur.
+	\end{enumerate}
+}
 	
 	
 	\exe{
@@ -171,7 +177,36 @@ nomarginpar,% We don't want any margin paragraphs
 			\item
 			En déduire que l'aire $A$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $A(P)$ associée.
 		\end{enumerate}
-	}{}
+	}{
+		\begin{enumerate}
+			\item
+			De la relation 
+				\[ P = 2\pi \cdot R, \]
+			on déduit que 
+				\[ R = \dfrac{1}{2\pi} \cdot P. \]
+			Remarquons qu'on a inversé le membre de gauche et le membre de droite pour extraire la forme d'une fonction : une valeur de $P$ donne une unique valeur de $R$.
+			
+			Ainsi on peut voir $R$ comme une fonction de $P$. On note alors $R=R(P)$, qui vérifie
+			\[ R(P) = \dfrac{1}{2\pi} \cdot P. \]
+			
+			\item 
+			La formule de l'aire
+				\[ A = \pi \cdot R^2 \]
+			exprime directement l'aire comme fonction du rayon : à chaque rayon possible, on peut calculer une unique aire.
+			On note alors
+				\[ A(R) =  \pi \cdot R^2. \]
+			\item
+			On souhaite exprimer l'aire $A$ comme fonction du périmètre $P$.
+			Or d'après les questions précédentes, l'aire $A$ est fonction du rayon $R$, et le rayon $R$ est lui-même fonction du périmètre $P$.
+			
+			Ainsi, une valeur de $P$ donne une unique valeur de $R$ qui donne une unique valeur de $A$.
+			En suivant le raisonnement, on peut composer les fonctions trouvées ci-dessus en considérant $A(R(P))$.
+			Pour ne pas surcharger les notations, appelons plutôt $\text{Aire}$ la fonction prenant un périmètre.
+				\begin{align*}
+				 \text{Aire}(P) &= A(R(P)) \\ &=A(\dfrac{1}{2\pi} \cdot P) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
+				 \end{align*}
+		·\end{enumerate}
+	}
 	
 	
 	\exe{
@@ -190,7 +225,41 @@ nomarginpar,% We don't want any margin paragraphs
 			\item
 			Déterminer tous les antécédents de $6$ par $f$.	
 		\end{enumerate}
-	}{}
+	}{
+	
+		\begin{enumerate}
+		\item
+		L'image de $x$ est donnée par $f(x)$. On calcule donc
+			\begin{align*}
+				f(0) &= 3\cdot0 + 1 = 1 \\
+				f(3,1) &= 3\cdot3,1 + 1 = 10,3 \\
+				f(\frac13) &= 3\cdot\frac13 + 1 = 1 + 1 = 2 \\
+				f(-1) &= 3\cdot(-1) + 1 = -2 \\
+				f(-\frac23) &= 3 \cdot (- \frac23) + 1 = -1.
+			\end{align*}
+		\item
+		La relation
+			\[ f(0) = 1 \]
+		implique que l'image de $0$ est $1$, et qu'un antécédent de $1$ est $0$.
+		On a donc trouvé $0$, antécédent de $1$ par $f$.
+		\item
+		Appelons $x$ un antécédent de $6$ par $f$.
+		Autrement dit, l'image de $x$ est $6$, et donc 
+			\[ f(x) = 6. \]
+		En utilisant l'expression algébrique de $f$, on trouve
+			\begin{align*}
+				f(x) &= 6, \\
+				3\cdot x + 1 &= 6, \\
+				3\cdot x &= 5, \\
+				x &= \dfrac53.
+			\end{align*}
+		Ainsi $x=\frac53$ est le seul antécédent de $6$ par $f$.
+		En général, certaines fonctions admettes plusieurs antécédents.
+		Voir par exemple l'exercice suivant.
+		\end{enumerate}
+	
+	
+	}
 	
 	
 
@@ -211,7 +280,19 @@ nomarginpar,% We don't want any margin paragraphs
 				\item $\dfrac{-x^2 - x + 2}2$
 			\end{enumerate}
 			\end{multicols}
-	}{}
+	}{
+		Il s'agit de discriminer les fonctions possibles en utilisant les images du tableau.
+			\begin{enumerate}[i)]
+				\item $1-x$ vaut bien $1$ en $x=0$, mais l'expression vaut $3$ en $x=-2$, donc ce n'est pas l'expression de $f$.
+				\item  $1+\dfrac{x}2$ vaut bien $1$ en $x=0$ et $0$ en $x=-2$, mais elle vaut $1$ en $x=1$, ce n'est donc pas l'expression de $f$.
+				\item $\dfrac{1-x}2$ vaut $\frac12$ en $x=0$, ce n'est donc pas l'expression de $f$.
+				\item On déduit $f(x) = \dfrac{-x^2 - x + 2}2$, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+			\end{enumerate}
+	
+		Cette exercice deviendra vite évident après avoir terminé l'étude des fonctions affines. 
+		Comme les courbes représentatives des trois premières expressions sont des droites non constantes, toutes leurs images ont un unique antécédent.
+		Or ici $0$ et $1$ ont deux antécédents.
+	}
 	
 	
 	
@@ -258,9 +339,62 @@ print(f1, f2)
 		Quelles valeurs impriment-t-ils ?
 		
 		Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
-	}{}
-
+	}{}{
+	
+	\subsubsection*{Algorithme $1$}
+	
+		En donnant $1$ à la fonction $f$ du programme $1$, celle-ci calcule
+			\[ y = 2\cdot 1 - 3 = -1, \]
+		et retourne donc $-1$.
+		Ainsi \texttt{f1 = -1}.
+		Similairement, $f(-.5) = -4$, car la fonction calcule
+			\[ y = 2 \cdot (-.5) - 3 = -4, \]
+		valeur qu'elle retourne.
+		
+		En général, $f$ retourne $2\cdot x-3$ pour une donnée $x$.
+		C'est une façon algorithmique de voir
+			\[ f(x) = 2\cdot x - 3. \]
+		
+		On aurait pu d'ailleurs raccourcir la définition de la fonction, chose que le compilateur ferait en secret dans un autre langage.
+		On ne gagne cependant pas en mémoire en n'utilisant pas de valeur intermédiaire $y$ car elle est créée implicitement.
+\begin{mintedbox}{python}
+def f(x):
+    return 2*x-3
+\end{mintedbox}
+		Pour gagner en mémoire, on peut modifier directement la variable si elle est passée par référence. 
+		Ce n'est en général pas le cas en Python, qui choisit de passer ses paramètres par affectation.
+		Voir le C++ pour un langage plus rigoureux avec ces considérations !
+	
+	\subsubsection*{Algorithme $2$}
+		
+		Similairement pour le programme $2$, lorsque $f$ prend la valeur $4$, elle calcule
+			\begin{align*}
+				y &= 4\cdot4 + 1 = 17, \\
+				z &= -2\cdot 4 = -8,
+			\end{align*}
+		et renvoie la somme $9$.
+		Ainsi \texttt{f1 = 9}.
+		Idem pour $x=-2$, le programme calcule
+			\begin{align*}
+				y &= (-2)\cdot(-2) + 1 = 5, \\
+				z &= -2\cdot (-2) = 4,
+			\end{align*}
+		et renvoie la somme $9$. Ainsi \texttt{f2 = 9} aussi.
+		
+		En général, on a 
+			\[ f(x) = y + z = (x^2 + 1) + (-2\cdot x) = x^2 - 2\cdot x + 1. \]
+		On vérifiera qu'on trouve bien $f(4) = f(-2) = 9$.
+		
+		En fait, on a aussi l'écriture 
+			\[ f(x) = (x-1)^2, \]
+		qui permet de calculer $f(x)$ beaucoup plus rapidement : au lieu de faire $5$ opérations (mise au carré, ajout de $1$, multiplication par $-2$, ajout des résultats), on en fait que $2$ (soustraction de $1$, mise au carré).
+		La fonction décrite ci-après est donc beaucoup plus efficace, et ça un compilateur ne peut pas le deviner seul.
+		Les mathématiques servent donc aussi à largement optimiser les algorithmes de calcul.
+	}
+\ifsolutions
+\else
 \newpage
+\fi
 \subsection*{Exercices supplémentaires}
 
 	
@@ -271,7 +405,7 @@ print(f1, f2)
 		\begin{center}
 		\begin{tabular}{|c|c|c|c|}\hline
 		Valeur   & 0 & 20 & 10 \\ \hline
-		Effectif & 17 & 17 & k \\ \hline
+		Effectif & 17 & 17 & $k$ \\ \hline
 		\end{tabular}
 		\end{center}
 		
@@ -283,7 +417,31 @@ print(f1, f2)
 			\item
 			Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
 		\end{enumerate}
-	}{exe:vark}
+	}{
+		\begin{enumerate}
+			\item
+			La moyenne est donnée par la somme des produits valeur $\times$ effectif divisée par l'effectif total :
+				\[ \overline{X} = \dfrac{0\cdot17 + 20\cdot17 + 10\cdot k}{17+17+k} =\dfrac{10\cdot(34+k)}{34+k} = 10.
+				\]
+			\item
+			D'après la formule de la variance,
+				\begin{align*}
+					f(k) &= \dfrac{17 \cdot (0-10)^2 + 17 \cdot (20-10)^2 + k \cdot(10-10^2}{17+17+k} \\
+						&= \dfrac{3400}{34+k}.
+				\end{align*}
+			\item
+			On calcule alors facilement les variances de plusieurs séries statistiques, ce qui avant était un processus long et douloureux.
+				\begin{align*}
+					f(10) &= \dfrac{3400}{44} \approx 77,27, \\
+					f(20) &= \dfrac{3400}{55} \approx 61,82, \\
+					f(50) &= \dfrac{3400}{84} \approx 40,48, \\
+					f(100) &= \dfrac{3400}{134}\approx 25,37
+				\end{align*}
+			Sans surprise, les variances diminuent (et donc les écarts types aussi !) : les séries deviennent de plus en plus concentrées autour de leur moyenne de $10$ car on ajoute de plus en plus de valeurs moyennes.
+		\end{enumerate}
+	
+	
+	}
 
 	\exe{
 		Considérons la fonction $f$ donnée par
@@ -301,7 +459,27 @@ print(f1, f2)
 			\item
 			Déterminer tous les antécédents de $5$ par $f$.	
 		\end{enumerate}
-	}{}
+	}{
+		\begin{enumerate}
+			\item
+			On calcule
+				\begin{align*}
+					f(0) &= \dfrac15 - 0 = \dfrac15 \\
+					f(-3,1) &= \dfrac15 - (-3,1) = -2,9 \\
+					f\left(-\frac47\right) &= \dfrac15 - (-\dfrac47) = \dfrac{7 + 20}{35} = \dfrac{27}{35} \\
+					f(0,2) &= \dfrac15 - 0,2 = -\dfrac15 \\
+					f\left( -\frac23 \right) &= \dfrac15 - (-\dfrac23) = \dfrac{3 + 10}{15} = \dfrac{13}{15}
+				\end{align*}
+			\item
+			On souhaite obtenir un $x$ tel que $f(x)$ soit nul. Un tel $x$ naturel est $\frac15$, car il annulera le $\frac15$ déjà présent.
+			\item
+			Pour connaître tous les antécédents de $5$ par $f$, on note $x$ un tel antécédent et on écrit l'égalité qu'il vérifie : l'image de $x$ doit être $5$.
+				\[ f(x) = 5. \]
+			On résoud pour trouver $x = \dfrac15 - 5 =  -\dfrac{24}{5}$ comme unique solution.
+		\end{enumerate}
+	
+	
+	}
 	
 	\exe{
 		Considérons les fonctions $f,g$ données par
@@ -323,6 +501,61 @@ print(f1, f2)
 			\item 
 			Déterminer tous les antécédents de $16$ par $f$.
 		\end{enumerate}
-	}{}
+	}{
+	
+		\begin{enumerate}
+			\item
+			On trouve les images suivantes, en se rappelant que $(-1)^2 = (-1) \cdot (-1) = 1$.
+				\begin{align*}
+					f(0) &= 9 &= g(0), \\
+					f(-1) &= 4 &= g(-1), \\
+					f(3) &= 0 &= g(3), \\
+					f\left(-\frac12\right) &= \dfrac{25}4 &= g\left(-\frac12\right), \\
+					f\left(-\frac23\right) &= \dfrac{49}9 &= g\left(-\frac23\right).
+				\end{align*}
+			
+			\item
+			D'après la première question, $f(0) = 9$, et donc $0$ est un antécédent de $9$.
+			
+			\item
+			On cherche les $x\in\R$ vérifiant
+				\begin{align*}
+					g(x) &= 9, \\
+					(x-3)^2 &= 9.
+				\end{align*}
+			On rappelle la propriété $\sqrt{x^2} = |x|$ vue en cours : la racine carré d'un nombre au carré vaut sa valeur absolue.
+			On en déduit que
+				\begin{align*}
+					|x-3| &= 3 \\
+					x-3=3 \qquad&\text{ou}\qquad x-3 = -3 \\
+					x = 6  \qquad&\text{ou}\qquad  x=0
+				\end{align*}
+ 			Il y a donc deux solutions, $0$ et $6$ qu'on vérifiera bien sûr : $g(0) = (-3)^2 = 9$, et $g(6) = (6-3)^2 = 9$.
+	
+			\item
+			La différence des carrés donne, d'après l'identité remarquable $(a+b)(a-b) = a^2 - b^2$, 
+				\begin{align*}
+					g(x) - 3^2 &= (x-3)^2 - 3^2 \\
+								&= (x-3+3) \cdot (x-3-3) \\
+								&= x \cdot (x-6) = x^2 - 6\cdot x.
+				\end{align*}
+			Il suit naturellement que
+				\[ g(x) = x^2 - 6\cdot x + 3^2 = f(x), \]
+			et ceci pour tout $x\in\R$ nombre réel.
+			
+			\item
+			On souhaite résoudre
+				\[ f(x) = 16, \]
+			mais la forme factorisée de $g$ rend la tâche plus facile.
+			Comme on a montré que $f(x) = g(x)$, on se permet de calculer
+				\begin{align*}
+					g(x) &= 16 \\
+					(x-3)^2 &= 16 \\
+					|x-3| &= 4
+				\end{align*}
+			Il suit donc que $x=-1$ et $x=7$ sont les deux seuls antécédents de $16$ par $g$ et donc $f$.
+		\end{enumerate}
+	
+	}
 
 \end{document}

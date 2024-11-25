@@ -86,7 +86,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -123,7 +123,39 @@ nomarginpar,% We don't want any margin paragraphs
 		\end{enumerate}
 		\end{multicols}
 	
-	}{}
+	}{
+	On rappelle la propriété fondamentale
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x)
+		\end{align*}
+	Pour savoir si un point $(x;y)$ appartient à $\C_f$, il s'agit de vérifier si l'égalité $y=f(x)$ tient.
+	
+		\begin{enumerate}[i)]
+			\item On applique la propriété pour $x = 0, y= \dfrac17$.
+			D'une part, $f(x) = f(0) = \dfrac17 - 0 = \dfrac17$, et d'autre part $y=\dfrac17$.
+			On a donc bien $y=f(x)$ pour ce couple, et il appartient à $\C_f$.
+				\[ \left(0; \dfrac17\right) \in \C_f. \]
+			
+			\item On choisit $(x;y) = \left(\dfrac17 ; 0\right)$, et on compare $f(x) = f\left(\dfrac17\right) = 0$ à $y=0$. 
+			On a donc bien
+				\[ \left(\dfrac17 ; 0\right) \in \C_f. \]
+				
+			\item On choisit $(x;y) = \left(\dfrac27 ; \dfrac37\right)$, et on compare $f(x) = f\left(\dfrac27\right) = -\dfrac17$ à $y=\dfrac37$. 
+			On a donc en l'occurrence
+				\[ \left(\dfrac27 ; \dfrac37\right) \not\in \C_f. \]
+				
+			\item On choisit $(x;y) = \left(-\dfrac{13}7 ; 2\right)$, et on compare $f(x) = f\left(-\dfrac{13}7\right) = 2$ à $y=2$. 
+			On a donc bien
+				\[ \left(-\dfrac{13}7 ; 2\right) \in \C_f. \]
+			\item On choisit $(x;y) = \left(\dfrac67 ; 1\right)$, et on compare $f(x) = f\left(\dfrac67\right) = -\dfrac57$ à $y=1$. 
+			On a donc en l'occurrence
+				\[ \left(\dfrac67 ; 1\right) \not\in \C_f. \]
+			\item On choisit $(x;y) = \left(\dfrac27 ; -\dfrac17\right)$, et on compare $f(x) = f\left(\dfrac27\right) = \dfrac{-1}7$ à $y=-\dfrac17$. 
+			On a donc en l'occurrence
+				\[ \left(\dfrac27 ; -\dfrac17\right) \not\in \C_f. \]
+		\end{enumerate}
+	
+	}
 
 	
 	\exe{
@@ -137,7 +169,42 @@ nomarginpar,% We don't want any margin paragraphs
 			\item Démontrer que $g(x) - 1^2 = f(x)$ pour tout $x$ du domaine.
 			\item En déduire que $(x-1)^2 = x^2 - 2\cdot x + 1$ pour tout $x$ du domaine.
 		\end{enumerate}
-	}{}
+	}{
+	
+		\begin{enumerate}
+			\item On choisit plusieurs valeurs de $x\in]{-}3 ; 3[$ et on représente les points
+				\[ \left(x ; f(x) \right), \]
+			qu'on relie pour esquisser $\C_f$.
+			On fait idem pour $g$, ce qui donne le graphique ci-dessous.
+			
+			\begin{center}
+			\begin{tikzpicture}[>=stealth]
+				\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-1.1, ymax=15.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+					\addplot[no marks, violet, -] expression[domain=-3:3, samples=100]{x^2 -2*x}
+					node[pos=.45, below=10pt]{$\mathcal{C}_f$};
+					\addplot[no marks, blue, -] expression[domain=-3:3, samples=100]{(x-1)^2}
+					node[pos=.4, right]{$\mathcal{C}_g$};
+				\end{axis}
+			
+			\end{tikzpicture}
+			\end{center}
+			
+			
+			\item 
+			L'identité remarquable $a^2 - b^2 = (a+b)(a-b)$ donne en l'occurrence
+				\begin{align*}
+					(x-1)^2 - 1^2 &= (x-1+1) \cdot (x-1-1) \\
+									&= x \cdot (x-2) \\
+									&= x^2 - 2\cdot x = f(x).
+				\end{align*}
+			
+			\item 
+			On déduit alors que 
+				\[ (x-1)^2 = g(x) = f(x) + 1 = x^2 - 2\cdot x + 1 \]
+			pour tout $x\in]{-}3;3[$.
+		\end{enumerate}
+	
+	}
 	
 	\exe{
 		Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
