@@ -125,7 +125,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				%\solutionsfalse
+				\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -295,10 +295,6 @@ nomarginpar,% We don't want any margin paragraphs
 	}
 	
 	
-	
-	
-	
-		
 	\begin{figure}[!htb]
 		\begin{subfigure}[b]{.45\textwidth}
 \begin{mintedbox}{python}
@@ -340,6 +336,9 @@ print(f1, f2)
 		
 		Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
 	}{}{
+	
+	
+	\ifsolutions
 	
 	\subsubsection*{Algorithme $1$}
 	
@@ -391,7 +390,7 @@ def f(x):
 		La fonction décrite ci-après est donc beaucoup plus efficace, et ça un compilateur ne peut pas le deviner seul.
 		Les mathématiques servent donc aussi à largement optimiser les algorithmes de calcul.
 	}
-\ifsolutions
+	
 \else
 \newpage
 \fi
