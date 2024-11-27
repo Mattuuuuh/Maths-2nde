@@ -150,7 +150,7 @@ Les capacités visées à la fin du chapitres sont les suivantes.
 				\end{tabular}
 				\end{center}
 			La quantité $\Var(X)$ peut être vue comme une fonction qui à tout entier naturel $k\in\N$ associe la variance de la série $X$.
-			Nomons $f$ cette fonction pour ne pas utiliser surcharger la notation $\Var$.
+			Nommons $f$ cette fonction pour ne pas utiliser surcharger la notation $\Var$.
 			\begin{align}
 			\begin{split}
 				f: \N & \longrightarrow \R \\
@@ -533,8 +533,7 @@ print(f1, f2)
 			\begin{center}
 			\begin{tikzpicture}[>=stealth]
 				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3}
-					node[pos=.3, right]{$\mathcal{C}_f$};
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}node[pos=.5, right]{$\C_f$};
 				\end{axis}
 			\end{tikzpicture}
 			\end{center}
@@ -775,9 +774,9 @@ print(f1, f2)
 		\begin{multicols}{2}
 		\begin{enumerate}[label=$\bullet$]
 			\item $f(x) = k$
-			\item $f(x) < k$
+			\item $f(x) \leq k$
 			\item $f(x) = g(x)$
-			\item $f(x) < g(x)$
+			\item $f(x) \leq g(x)$
 		\end{enumerate}
 		\end{multicols}
 	\noindent où $k\in\R$ est un réel quelconque.
@@ -797,8 +796,8 @@ print(f1, f2)
 			\begin{center}
 			\begin{tikzpicture}[>=stealth]
 				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3}
-					node[pos=.3, right]{$\mathcal{C}_f$};
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+					node[pos=.55, above=5pt]{$\mathcal{C}_f$};
 					
 					\addplot[no marks, red, thick, -] expression[domain=-5:3, samples=50]{2}
 					node[pos=.45, above]{$y=2$};
@@ -823,7 +822,7 @@ print(f1, f2)
 				A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
 			\end{align*}
 		L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
-			\[ \{ (-2,67 \ ; 0,52 \ ; 2,14 \}. \]
+			\[ \{ -2,67 \ ; 0,52 \ ; 2,14 \}. \]
 	}{}
 	
 	\thm{}{
@@ -844,9 +843,9 @@ print(f1, f2)
 		Pour trouver tous les points d'ordonnée inférieure à $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
 			\begin{center}
 			\begin{tikzpicture}[>=stealth]
-				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3}
-					node[pos=.3, right]{$\mathcal{C}_f$};
+				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+					node[pos=.55, above=5pt]{$\mathcal{C}_f$};
 					
 					\addplot[no marks, red, thick, -] expression[domain=-5:3, samples=2]{2}
 					node[pos=.45, above]{$y=2$};
@@ -871,7 +870,7 @@ print(f1, f2)
 			\end{tikzpicture}
 			\end{center}
 		Les points de $\C_f$ d'ordonnée inférieure à $2$ ont leur abscisse appartenant à l'union d'intervalles
-			\[ ] -3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
+			\[ ] {-}3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
 		C'est notre ensemble de solutions de l'équation $f(x) \leq 2$.
 	}{}
 	
@@ -881,9 +880,97 @@ print(f1, f2)
 	}{}
 	
 	
-	
 	\subsection{Résoudre graphiquement $f(x) = g(x)$}
 	
-	
 	On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+
+	\str{
+		Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
 	
+			\begin{center}
+			\begin{tikzpicture}[>=stealth]
+				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+					node[pos=.4, above=8pt]{$\mathcal{C}_f$};
+					\addplot[no marks, red, -] expression[domain=-4:3, samples=50]{-4*x^2 + 7}
+					node[pos=.68, above=10pt]{$\mathcal{C}_g$};
+				
+					\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
+					\addplot[black, mark=*, mark size = 1] (1.2, 1.176) node[above] {$B$};
+					
+					\draw[violet, dotted, thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
+					\draw[violet, dotted, thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
+					
+					\addplot[violet] (-.8,0) node[below=10pt] {$-0,8$};					
+					\addplot[violet] (1.2,0) node[below=10pt] {$1,2$};
+					
+					
+					\addplot[violet, mark=|, mark size = 1] (-1.4, 0);
+					\addplot[violet] (-1.55, 0) node[above] {$x$};
+					\draw[violet, dotted, thick] (axis cs:-1.4, -.84) -- (axis cs:-1.4, 4.8853);
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+			
+		Imaginons un nombre réel $x\in\R$ parcourant $]{-}3,4 ; 2,3[$ en partant de la gauche et allant vers la droite.
+		Pour chaque $x$, le point de $\C_f$ d'abscisse $x$ est d'ordonnée $f(x)$, par définition.
+		Idem pour le point de $\C_g$ d'abscisse $x$ : il est d'ordonnée $g(x)$.
+		
+		Ainsi quand $x$ traverse le domaine, ces deux points sont confondus si et seulement si ces deux points sont de même ordonnée, c'est-à-dire si et seulement si $f(x) = g(x)$.		
+			
+		Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc données approximativement par l'ensemble
+			\[ \{ -0,8 ; 1,2 \}. \]
+	
+	}{}
+	
+	\thm{}{
+		Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+		Les solutions dans $\D$ de l'équation $f(x) = g(x)$ sont les abscisses des points d'intersection de $\C_f$ et $\C_g$.
+	}{}
+	
+	
+	\subsection{Résoudre graphiquement $f(x) \leq g(x)$}
+	
+	On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
+	
+	\ex{}{
+		Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, blue, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+				node[pos=.4, above=8pt]{$\mathcal{C}_f$};
+				\addplot[no marks, red, -] expression[domain=-4:3, samples=50]{-4*x^2 + 7}
+				node[pos=.68, above=10pt]{$\mathcal{C}_g$};
+			
+				\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
+				\addplot[black, mark=*, mark size = 1] (1.2, 1.176) node[above] {$B$};
+				
+				\draw[violet, dotted, thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
+				\draw[violet, dotted, thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
+				
+				\addplot[violet] (-.8,0) node[below=10pt] {$-0,8$};					
+				\addplot[violet] (1.2,0) node[below=10pt] {$1,2$};
+				
+				
+				\addplot[violet, mark=|, mark size = 1] (.4, 0) node[below] {$x$};
+				\draw[violet, dotted, thick] (axis cs:.4, 0) -- (axis cs:.4, 6.36);
+				
+				
+				\addplot[no marks, violet, thick, -] expression[domain=-.8:1.2, samples=2]{0};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+		Pour chaque $x$ parcourant $]{-}3,4 ; 2,3[$, la hauteur (l'ordonnée) du point de $\C_f$ d'abscisse $x$ est donnée par $f(x)$, et celle du point de $\C_g$ d'abscisse $x$ est donnée par $g(x)$.
+		Ainsi, le premier point est en dessous du second dès que $f(x) \leq g(x)$.
+		
+		L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné approximativement par
+			\[ [{-}0,8 ; 1,2 ]. \]
+	}{}
+	
+	\thm{}{
+		Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+		Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ dont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
+	}{}
