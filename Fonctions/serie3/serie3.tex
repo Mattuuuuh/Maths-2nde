@@ -106,7 +106,47 @@ nomarginpar,% We don't want any margin paragraphs
 \fancyhead[L]{Seconde 13}
 \fancyhead[C]{\textbf{Fonctions 3 \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
-
+	
+	\exe{
+		\begin{multicols}{2}
+		Considérons trois fonctions $f,g,h:]{-}3,4 ; 2,3[ \rightarrow \R$ données graphiquement ci-contre.
+		
+		Donner approximativement l'ensemble des nombres $x$ du domaine vérifiant les (in)équations suivantes.
+		\begin{enumerate}
+			\itemsep1em 
+			\item $f(x) = 4$
+			\item $f(x) = 1,5$
+			\item $f(x) \leq 2$
+			\item $f(x) \leq 0$
+			\item $g(x) = h(x)$
+			\item $g(x) \leq h(x)$
+			\item $h(x) \leq g(x)$
+		\end{enumerate}
+		\vfill
+		
+			\begin{center}
+			\begin{tikzpicture}[>=stealth, scale=1]
+				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3, ..., 3, 4}]
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+					node[pos=.55, above=5pt]{$\mathcal{C}_f$};
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		
+			\begin{center}
+			\begin{tikzpicture}[>=stealth, scale=1]
+				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+					\addplot[no marks, blue, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+					node[pos=.4, above=15pt]{$\mathcal{C}_g$};
+					\addplot[no marks, red, -] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
+					node[pos=.68, above=15pt]{$\mathcal{C}_h$};
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		\end{multicols}·
+	}{}
+	
+	
 	\begin{theorem*}[Identités remarquables]
 		Pour tous les $a,b\in\R$ réels, on a les identités suivantes.
 			\begin{align*}
@@ -132,26 +172,27 @@ nomarginpar,% We don't want any margin paragraphs
 	}{}
 	
 	\exe{
-		Factoriser les membres de gauche et donner l'ensemble des solutions $x\in\R$ de chaque équation suivante.
+		Pour chaque équation suivante, factoriser le membre de gauche à l'aide des identités remarquables et donner l'ensemble des solutions $x\in\R$.
 			\begin{multicols}{2}
 			\begin{enumerate}[a)]
 				\item $x^2 + 2x + 1 = 16$
 				\item $4x^2 - 4x + 1 = 9$
 				\item $9 - 18x + 9x^2 = 0$
-				\item $3x^2 - 6x + 3 = 0$
+				\item $x^2 - 2x + 1 = 5$
 				\item $x^2 +6x + 9 = -1$
-				\item $-4x^2 + 8x - 1 = 3$
+				\item $16x^2 - 64 = 0$
 			\end{enumerate}
 			\end{multicols}
 	}{}
 	
-	\newpage·
+	
+	\newpage
 	\subsection*{Exercices supplémentaires}
 	
 	\exe{
-		On appelle \emph{triplet pythagoricien} un triplet $(a ; b ; c)$, liste de $3$ nombres entiers naturels $a,b,c\in\N$ vérifiants
+		On appelle \emph{triplet pythagoricien} un triplet $(a ; b ; c)$, liste de $3$ nombres entiers naturels $a,b,c\in\N$ vérifiant
 			\[ a^2 + b^2 = c^2. \]
-		Nomons deux paramètres entiers $k,\ell\in\N$ avec $k\geq \ell$.
+		Nommons deux paramètres entiers $k,\ell\in\N$ avec $k\geq \ell$.
 		Vérifier que le triplet
 			\[ (k^2 - \ell^2 ; 2k\ell ; k^2 + \ell^2) \]
 		est pythagoricien.
@@ -164,7 +205,7 @@ nomarginpar,% We don't want any margin paragraphs
 	\exe{
 		Démontrer que, pour tout $n\in\N$ entier naturel, on a l'égalité
 			\[ (n+1)^2 -n^2 = 2n+1. \]
-		En déduire, en prendant $n\in\{0;1;2; \dots\}$ qu'on a
+		En déduire, en prenant $n\in\{0;1;2; \dots\}$ qu'on a
 			\begin{align*}
 				1 &= 1 \\
 				2^2 - 1 &= 3 \\
@@ -177,6 +218,13 @@ nomarginpar,% We don't want any margin paragraphs
 			\[ 5^2 = 1 + 3 + 5 + 7 + 9, \]
 		puis généraliser pour montrer que, pour tout $n\in\N$ entier naturel,
 			\[ (n+1)^2 = 1 + 3 + 5 + \dots + (2n+1). \]
+	}{}
+	
+	\exe{
+		On rappelle qu'un nombre est impair si et seulement s'il s'écrit de la forme $2k+1$ où $k\in\N$ est un entier naturel.
+		Montrer et élargir le résultat vu en cours : si $n$ est impair, alors $n^2$ est impair et $n^3$ est aussi impair.
+		
+		Adapter la démonstration par contradiction de l’irrationalité de $\sqrt{2}$ pour montrer que $\sqrt[3]{2}$ est irrationnel. ($\sqrt[3]{2}$ est l'unique $x\in\R$ vérifiant $x^3 = 2$.)
 	}{}
 
 
