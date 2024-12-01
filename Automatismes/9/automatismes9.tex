@@ -1,0 +1,140 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+
+\usepackage{libertinus}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+%plots
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+%boxes
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+
+%icomma
+\usepackage{icomma}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  halign title=flush center, 
+  title    = {#3},
+  #1,
+}
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Appartenances}
+
+\begin{frame}{1}
+	Pour $f:\R\rightarrow\R$ donnée algébriquement, déterminer si $P \in \C_f$ ou non.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\begin{align*} f(x) = 2x+1, && P=(-1;1). \end{align*}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\begin{align*} f(x) = -3x-1, && P=(0;-1). \end{align*}
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+
+\begin{frame}{2}
+	Pour $g:\R\rightarrow\R$ donnée algébriquement, déterminer si $P \in \C_g$ ou non.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\begin{align*} g(x) = x^2 - 1, && P=(-1;-2). \end{align*}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\begin{align*} g(x) = \dfrac3x, && P=(-3; -1). \end{align*}
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+\subsection{Lecture graphique}
+
+
+\begin{frame}{3}
+	Est-ce que $(0;-3)$ appartient à la courbe ?
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3, ..., 3, 4}]
+				\addplot[no marks, myr, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+				node[pos=.5, above=5pt]{$A$};
+				\addplot[no marks, myg, -, thick] expression[domain=-2:2.1, samples=100]{2*x^2 - x -1}
+				node[pos=.4, left=5pt]{$B$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{4}
+	Est-ce que $(1;0)$ appartient à la courbe ?
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3, ..., 3, 4}]
+				\addplot[no marks, myr, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+				node[pos=.5, above=5pt]{$A$};
+				\addplot[no marks, myg, -, thick] expression[domain=-2:2.1, samples=100]{2*x^2 - x -1}
+				node[pos=.4, left=5pt]{$B$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+
+\end{frame}
+
+\end{document}
