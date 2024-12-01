@@ -86,7 +86,7 @@ nomarginpar,% We don't want any margin paragraphs
 % SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \ifsolutions
 	\newcommand{\exe}[2]{
@@ -141,17 +141,17 @@ nomarginpar,% We don't want any margin paragraphs
 				\[ \left(\dfrac17 ; 0\right) \in \C_f. \]
 				
 			\item On choisit $(x;y) = \left(\dfrac27 ; \dfrac37\right)$, et on compare $f(x) = f\left(\dfrac27\right) = -\dfrac17$ à $y=\dfrac37$. 
-			On a donc en l'occurrence
+			D'où
 				\[ \left(\dfrac27 ; \dfrac37\right) \not\in \C_f. \]
 				
 			\item On choisit $(x;y) = \left(-\dfrac{13}7 ; 2\right)$, et on compare $f(x) = f\left(-\dfrac{13}7\right) = 2$ à $y=2$. 
 			On a donc bien
 				\[ \left(-\dfrac{13}7 ; 2\right) \in \C_f. \]
 			\item On choisit $(x;y) = \left(\dfrac67 ; 1\right)$, et on compare $f(x) = f\left(\dfrac67\right) = -\dfrac57$ à $y=1$. 
-			On a donc en l'occurrence
+			Par suite,
 				\[ \left(\dfrac67 ; 1\right) \not\in \C_f. \]
 			\item On choisit $(x;y) = \left(\dfrac27 ; -\dfrac17\right)$, et on compare $f(x) = f\left(\dfrac27\right) = \dfrac{-1}7$ à $y=-\dfrac17$. 
-			On a donc en l'occurrence
+			D'où
 				\[ \left(\dfrac27 ; -\dfrac17\right) \not\in \C_f. \]
 		\end{enumerate}
 	
@@ -228,24 +228,136 @@ nomarginpar,% We don't want any margin paragraphs
 			\item[5.] Vérifier à la calculatrice les réponses aux deux premières questions.
 			\item[6.] Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
 		\end{enumerate}
-	}{}
+	}{
+	
+			\begin{enumerate}
+			\item On détermine approximativement
+				\begin{align*}
+				f(-1,5) \approx 4,5 && f\left(-\dfrac{20}7\right) \approx f(-2,86) \approx 2
+				 \end{align*}
+			\item On cherche d'abord les antécédents de $-2$, c'est-à-dire les nombres $x$ du domaine vérifiants
+				\[ f(x) = -2. \]
+			Pour ça, on se pose \og à hauteur -2 \fg : on tracer une droite horizontale d'ordonnée $-2$ et on regarde les points d'intersection.
+				\begin{center}
+				\begin{tikzpicture}[>=stealth]
+					\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+						\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+						
+						\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{-2};
+					\end{axis}
+				\end{tikzpicture}
+				\end{center}
+			
+			
+			En l'occurrence, seul $x\approx -3,2$ fonctionne :
+				\[ f(-3,2) \approx -2. \]
+			Pour les antécédents de $2$, on fait idem en regardant les points de la courbe d'ordonnée $2$.
+			On trouve trois valeurs approximatives : $-2,8 ; 0,5 ; $ et $2,1$.
+			
+				\begin{center}
+				\begin{tikzpicture}[>=stealth]
+					\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+						\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+						
+						\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{2};
+					\end{axis}
+				\end{tikzpicture}
+				\end{center}
+			
+			\item 
+			On a plusieurs choix ici. 
+			Il faut placer une droite horizontale telle qu'elle s'intersecte exactement deux fois avec la courbe de $f$.
+			Un choix clair est $4$ (en violet ci-dessous).
+			Un choix moins clair est $1,1$, en faisant en sorte que la courbe frôle la droite horizontale qu'on place en ordonnée $1,1$ (en rouge ci-dessous).
+			On dit alors que la droite est \emph{tangente} à la courbe.
+			
+				\begin{center}
+				\begin{tikzpicture}[>=stealth]
+					\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+						\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+						
+						\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{1.1};
+						\addplot[no marks, violet, -] expression[domain=-5:3, samples=2]{4};
+					\end{axis}
+				\end{tikzpicture}
+				\end{center}
+			
+			\item L'image est unique et ne dépend pas du domaine (tant que celui-ci contient $-2$ !).
+			On peut donc toujours connaître $f(-2)$, même sachant qu'on connaisse pas $f$ sur $\R$ tout entier mais que sur un domaine restreint.
+			
+			Les antécédents, eux, dépendent du domaine choisi.
+			Comme on ne sait pas du tout à quoi ressemble $\C_f$ en dehors du domaine choisi, il est impossible de déterminer tous les réels $x\in\R$ antécédents de $-2$ par $f$.
+			
+			\item On calcule grâce à la calculatrice (ou sans...)
+				\begin{align*}
+					f(-1,5) = 4,875 && f\left(-\dfrac{20}7 \right) \approx 0,94.
+				\end{align*}
+			\item On calcule à la main que
+				\begin{align*}
+					f(-3) &= 3 - 2 \cdot (-3) + \dfrac13 \cdot (-3)^3, \\
+						&= 3 + 6 - 9, \\
+						&= 0.
+				\end{align*}
+			Pour l'image de $0$, remarquons que seul le terme ne dépendant pas de $x$ subsiste. 
+			On l'appelle le terme \emph{constant}, et on trouve $f(0) = 3$, comme requis.
+		\end{enumerate}
+	
+	
+	}
 	
 	\exe{
 		Esquisser la courbe de la fonction $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
 			\[ f(x) = 3. \]
 		Que dire de $f$ et de $\C_f$ ?
-	}{}
+	}{
+	Pour tracer $\C_f$, on choisit des valeurs de $x$ du domaine $[{-2};4]$, on calcule $f(x)$, et on place les points $(x ; f(x))$ obtenus.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -2.1, xmax=4.1, ymin=2, ymax=4, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, blue, -] expression[domain=-2:4, samples=2]{3} 
+				node[above, pos=.5] {$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	
+	On dit ici que $f$ est \emph{constante} car elle ne dépend pas de $x$.
+	$\C_f$ est donc une droite horizontale.
+	}
 	
 	\exe{
 		Esquisser la courbe de la fonction $f:[-5;3]\rightarrow\R$ donnée algébriquement par
 			\[ f(x) = 1-x. \]
 		Que dire $\C_f$ ?
-	}{}
+	}{
+	$\C_f$ est une droite et on dit que $f$ est \emph{affine}.
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -2.1, xmax=4.1, ymin=-3.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, blue, -] expression[domain=-2:4, samples=2]{1-x} 
+				node[above, pos=.4] {$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	}
 	
 	\exe{
 		Esquisser la courbe de la fonction $f:[3;10]\rightarrow\R$ donnée algébriquement par
 			\[ f(x) = \dfrac3x + 1. \]
-	}{}
+	}{
+	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
+	Attention, celle-ci n'est pas une droite !
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, blue, -] expression[domain=3:10, samples=50]{3/x + 1} 
+				node[above, pos=.4] {$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	
+	}
 	
 	
 	
@@ -269,7 +381,14 @@ nomarginpar,% We don't want any margin paragraphs
 				\item $-2\cdot x - \dfrac23$
 			\end{enumerate}
 			\end{multicols}
-	}{}
+	}{
+	Clairement $f(0) < 0$ est strictement négatif.
+	L'expression de $f$ ne peut donc pas être la première ni la troisième.
+	
+	Ensuite, si l'expression de $f$ était la deuxième, on aurait $f(-1) = 0$, ce qui n'est clairement pas le cas.
+	Ainsi
+		\[ f(x) = -2\cdot x - \frac23. \]	
+	}
 	
 	
 	
@@ -283,11 +402,25 @@ nomarginpar,% We don't want any margin paragraphs
 				\item exactement trois antécédents
 				\item une infinité d'antécédents
 			\end{enumerate}	
-	}{}
+	}{
+		\begin{enumerate}
+			\item La fonction affine $f(x) = x$ donne une droite dont chaque image admet un unique antécédent.
+			\item La fonction affine $f(x) = x^2$ donne une parabole. En résolvant $f(x) =1$, on peut démontrer que seuls $1$ et $-1$ sont les antécédents de $1$.
+			\item Considérons $f(x) = (x-1)\cdot(x-2)\cdot(x-3)$. Résoudre $f(x)=0$ pour montrer que seuls $1,2,$ et $3$ sont antécédents de $0$.
+			\item Une fonction constante fonctionne bien. Par exemple $f(x) = 0$.
+		\end{enumerate}	
+	}
 	
 	\exe{
 		Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images par $f$ admettent un nombre infini d'antécédents.
-	}{}
+	}{
+	On peut définir par exemple
+		\[ f(x) = \begin{cases} +1 \text{ si $x\geq 0$}, \\
+								-1 \text{ sinon. }
+				\end{cases}. \]
+	Pour une fonction plus intéressante, on pourrait prendre une fonction en vague.
+	La fonction sinus fonctionne bien : entrer par exemple \texttt{y=sin(x)} sur Geogebra.
+	}
 	
 	
 	\exe{
@@ -295,6 +428,33 @@ nomarginpar,% We don't want any margin paragraphs
 			\begin{align*}
 				f(x) = x^2 && g(x) = x^2 - 3 && h(x) = (x+4)^2.
 			\end{align*}
-	}{}
+	}{
+	On graphe les fonctions ci-dessous. 
+	On remarque que $\C_g$ est juste en dessous de $\C_f$. C'est logique car
+		\[ g(x) = f(x) - 3, \]
+	donc quand on place les points pour $\C_f$ et $\C_g$, ceux de $\C_g$ sont $3$ en dessous de ceux de $\C_f$.
+	
+	On remarque aussi que $\C_h$ est la courbe de $\C_f$ décalée vers la gauche.
+	C'est également cohérent car
+		\[ h(x) = f(x+4). \]
+	Pour connaître l'image de $x$ par $h$, on prend l'image de $x+4$ par $f$.
+	On a donc par exemple $h(-4) = f(0), h(3,9) = f(0,1),$ etc... 
+	On comprend bien pourquoi $\C_h$ est la $\C_f$ décalée de $4$ vers la gauche.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, blue, -] expression[domain=-8:5, samples=50]{x^2}
+				node[pos=.6, right]{$\mathcal{C}_f$};
+				\addplot[no marks, red, -] expression[domain=-8:5, samples=50]{x^2-3}
+				node[pos=.8, right]{$\mathcal{C}_g$};
+				\addplot[no marks, violet, -] expression[domain=-8:5, samples=50]{(x+4)^2}
+				node[pos=.1, right]{$\mathcal{C}_h$};
+			\end{axis}
+			
+		
+		\end{tikzpicture}
+		\end{center}
+	}
 
 \end{document}
