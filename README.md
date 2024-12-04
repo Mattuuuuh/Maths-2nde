@@ -15,11 +15,11 @@ Contenu par chapitre :
 - [x] Arithmétique
 - [x] Droite réelle et géométrie plane
 - [x] Statistiques descriptives
-- [ ] Fonctions : généralités
-- [ ] Fonctions : variations et extrema
-- [ ] Probabilités
-- [ ] Vecteurs dans le plan
+- [x] Fonctions : généralités
 - [ ] Problèmes de géométrie
+- [ ] Probabilités
+- [ ] Fonctions : variations et extrema
+- [ ] Vecteurs dans le plan
 - [ ] Fonctions : droites du plan
 - [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
@@ -28,5 +28,4 @@ Contenu par chapitre :
 
 Les autres fichiers `.tex`se compilent sans précaution particulière. Les versions OpenDyslexic requièrent XeLaTeX et les polices OpenDyslexic et Fira Math.
 
-
-
+Les automatismes avec réponses A/B utilisent ```tcolorbox``` et XeLaTeX est nécessaire pour avoir les polices correctes.
