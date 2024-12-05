@@ -1,0 +1,198 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{theorem*}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathcal{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Projeté orthogonal  \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
+	À l'aide uniquement d'un compas, tracer le projeté orthogonal du point sur la droite.
+}
+{}
+
+\exe{ \,
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
+		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
+	
+		\node[black] at (1, 3/8) {$\bullet$};
+		\node[black, above] at (1, 3/8) {$A$};
+		
+		\node[black] at (1.5, 24/9) {$\bullet$};
+		\node[black, above] at  (1.5, 24/9) {$B$};
+	\end{tikzpicture}
+	\end{center}
+	
+	Dans la figure ci-dessous, tracer un point $C$ tel que $A$ soit le projeté orthogonal de $C$ sur $(d)$ et que $B$ soit le projeté orthogonal de $C$ sur $(d')$.
+	\end{multicols}
+}
+{}
+
+
+\exe{
+	Dans la figure ci-dessous, tracer
+		\begin{enumerate}
+			\item le point $B$, projeté orthogonal de $A$ sur $(d')$ ;
+			\item le point $C$, projeté orthogonal de $B$ sur $(d)$ ; et
+			\item le point $D$, projeté orthogonal de $C$ sur $(d')$.
+		\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 1) node[below]{$(d)$};
+		\draw[-, thick, black] (0,1) -- (8, -2) node[below]{$(d')$};
+	
+		\node[black] at (7, 7/8) {$\bullet$};
+		\node[black, above] at  (7, 7/8)  {$A$};
+	\end{tikzpicture}
+	\end{center}
+		
+	Que dire des droites $(AB)$ et $(CD)$ ? Justifier.
+}
+{}
+
+\exe{
+	Un homme est dans une salle pentagonale comme schématisé ci-dessous.
+	Celui-ci souhaite toucher les murs $[AB], [CD], [AE], [BC],$ et $[ED]$ dans cet ordre en effectuant le trajet le plus court à chaque déplacement.
+	Tracer ses déplacements sur la figure si son point de départ est le point $M$.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\draw[-, thick, black] (0,0) node{$\bullet$} -- (2.8, -1.2) node{$\bullet$};
+		\draw[-, thick, black] (2.8,-1.2) node{$\bullet$} -- (4, 1.5) node{$\bullet$};
+		\draw[-, thick, black] (4, 1.5) node{$\bullet$} -- (1.95,3) node{$\bullet$};
+		\draw[-, thick, black] (1.95,3) node{$\bullet$} -- (.3,2.3)  node{$\bullet$};
+		\draw[-, thick, black] (.3,2.3) node{$\bullet$} -- (0,0) node{$\bullet$};
+		
+		\node[black, below] at  (0,0)  {$A$};
+		\node[black, right] at  (2.8,-1.2)  {$B$};
+		\node[black, right] at  (4, 1.5)  {$C$};
+		\node[black, above] at  (1.95,3)  {$D$};
+		\node[black, left] at (.3,2.3)  {$E$};
+		
+		
+		\node[black, above] at (1.2, 1) {$M$};
+		\node[black] at (1.2, 1) {$\times$};
+	
+	\end{tikzpicture}
+	\end{center}
+		
+}{}
+
+
+\exe{
+	On considère une droite $(d)$ et les points $A$ et $B$ distincts n'appartenant pas à la droite $(d)$.
+	On note $A'$ et $B'$ les projetés orthogonaux respectifs des points $A$ et $B$ sur la droite $(d)$.
+	
+	Calculer la longueur $AB$ sachant que $AA' =1, BB' = 5$, et $A'B' = 4$. 
+	Distinguer deux cas selon que les points sont ou non du même côté de $(d)$.
+
+}{}
+
+
+\end{document}

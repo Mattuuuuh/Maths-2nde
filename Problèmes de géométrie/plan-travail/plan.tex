@@ -1,0 +1,65 @@
+\documentclass[12pt]{beamer}
+\usepackage[french]{babel}
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+
+%boxes
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+
+
+\usepackage{libertinus}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+%plots
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+%icomma
+\usepackage{icomma}
+\begin{document}
+
+\begin{frame}{Répartition des exercices}
+
+\begin{center}
+\begin{tabular}{|P{.2\textwidth}|P{.17\textwidth}|P{.2\textwidth}|P{.28\textwidth}|}\hline
+		& Application & Entraînement & Approfondissement \\ \hline
+	Projeté orthogonal & 1, 2, 3 & 4, 5 & \\ \hline
+	Calcul de hauteur, d'aire, de volume & 1, 3 & 2 & 4 \\ \hline
+	Trigonométrie & 1, 2 & 3, 4, 5 & 6 \\ \hline
+	Fonctions et optimisation & 1 & 2 & \\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\end{document}
