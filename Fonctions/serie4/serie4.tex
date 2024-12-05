@@ -1,0 +1,169 @@
+% DYSLEXIA SWITCH
+\newif\ifdys
+		
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+				\dystrue
+				\dysfalse
+
+
+\ifdys
+
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\tracinglostchars=3 % Report an error if a font does not have a symbol.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{ Ligatures=TeX,
+                      Scale=MatchUppercase }
+
+\setmainfont{OpenDyslexic}[Scale=1.0]
+\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
+\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
+\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
+
+\else
+
+\documentclass[a4paper, 12pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\fi
+
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{icomma}
+
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\usepackage{multicol, enumerate}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem*{theorem*}{Th\'eor\`eme}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+% corps
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathcal{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+
+% plots
+\usepackage{pgfplots}
+
+% for calligraphic C
+\usepackage{calrsfs}
+
+% SOLUTION SWITCH
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
+\fi
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Exercices 33 et 61 pages 227-232 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{[33 page 227]
+	Dans le plan rapporté à un repère orthonormé, représenter les fonctions définies sur $\R$ par :
+		\begin{align*}
+			f(x) = x^2 + 1 && \text{ et } && g(x)=3x+1.
+		\end{align*}
+	\begin{enumerate}[a)]
+		\item Déterminer graphiquement l'ensemble des solutions de l'équation $f(x) = g(x)$.
+		\item Déterminer graphiquement l'ensemble des solutions de l'inéquation $f(x) \leq g(x)$.
+	\end{enumerate}
+}{}
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=2]
+	\begin{axis}[xmin = -2.4, xmax=4.9, ymin=-1, ymax=15.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		\addplot[no marks, blue, -, thick] expression[domain=-2:5, samples=100]{x^2 + 1}
+		node[pos=.1, above=5pt]{$\mathcal{C}_f$};
+		\addplot[no marks, red, -, thick] expression[domain=-2:5, samples=100]{3*x+1}
+		node[pos=.8, right=5pt]{$\mathcal{C}_g$};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\newpage 
+\exe{[61 page 232]
+	\begin{enumerate}
+		\item 
+		Soit $f$ la fonction définie sur $\R$ par $f(x) = |x|$.
+		\begin{enumerate}[a)]
+			\item
+			Dans un repère orthonormé du plan, tracer la représentation graphique de $\C_f$ de $f$.
+			\item
+			Graphiquement, donner les solutions de l'équation $f(x) = 2$.
+			\item
+			Pour un réel $k$ donné, quelles sont les solutions, si elles existent, de l'équation $f(x) = k$ ?
+		\end{enumerate}
+		\item 
+		Soit $g$ la fonction définie sur $\R$ par $g(x) = -\dfrac12 x + 5$.
+		\begin{enumerate}[a)]
+			\item
+			Tracer dans le repère précédent du plan la courbe représentative $\C_g$ de la fonction $g$.
+			\item
+			Déterminer l'ensemble des nombres réels pour lesquels $f(x) \leq g(x)$
+		\end{enumerate}
+	\end{enumerate}
+}{}
+
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=2]
+	\begin{axis}[xmin = -11, xmax=6, ymin=-1, ymax=12.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		\addplot[no marks, blue, -, thick] expression[domain=-11:6, samples=100]{sqrt(x^2)}
+		node[pos=.9, above=5pt]{$\mathcal{C}_f$};
+		\addplot[no marks, red, -, thick] expression[domain=-11:6, samples=2]{-x/2 + 5}
+		node[pos=.3, above]{$\mathcal{C}_g$};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
