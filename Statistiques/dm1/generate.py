@@ -211,15 +211,6 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\Dispthirdquartile", comma(Dispthirdquartile))
     CONTENT = newcommand(CONTENT, "\Dispecart", comma(Dispecart))
 
-# WRITE TO FILE
-
-    FILE_NAME = f"adr/vars_{seed}.adr"
-
-    with open(FILE_NAME, 'w') as file:
-        file.write(CONTENT)
-
-    # COMPILE LATEX TWICE
-
     # WRITE TO FILE
 
     FILE_NAME = f"adr/vars_{seed}.adr"
