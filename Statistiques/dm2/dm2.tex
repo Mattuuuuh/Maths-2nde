@@ -1,11 +1,11 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-%\input{preamble.tex}\input{vars_TEST.adr}
+%\input{preamble.tex}\input{adr/vars_24545.adr}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Devoir Maison 1 -- \seed \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Devoir Maison 1 -- \seed \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
 
@@ -41,7 +41,71 @@
 		Que dire sur les points ?
 	\end{enumerate}
 }
-{}
+{
+	\begin{enumerate}
+		\item
+		On remplace $a$ et $b$ par $\sola$ et $\solb$ respectivement et on trouve bien une moyenne égale à
+			\[ \dfrac{\kmp\cdot\sola + \kpq\cdot\solb+\nval\cdot\n}{\sola+\solb+\n} = \k. \]
+		
+		\item 
+		On écrit la suite d'équations équivalentes à $\overline{X} = \k$ suivante.
+			\begin{align*}
+				\dfrac{\kmp\cdot a + \kpq\cdot b+\nval\cdot\n}{a + b+\n} &= \k \\
+				\kmp\cdot a + \kpq\cdot b+\nval\cdot\n &= \k \cdot (a+b+\n) \\
+				 - \psd \cdot a + \qsd \cdot b &= 1.
+			\end{align*}
+		
+		\item
+		On réarrange les termes pour trouver que 
+			\[ \qsd \cdot b - 1 = \psd \cdot a, \]
+		c'est-à-dire que $\qsd\cdot b - 1$ est un multiple de $\psd$, car $a$ est un entier naturel.
+		
+		Comme $b$ est lui-même un entier naturel (c'est un effectif !), on peut essayer des valeurs $b=0, 1, 2, \dots$ jusqu'a ce que $\qsd b -1$ soit divisble par $\psd$.
+		La valeur
+			\[ b_0 = \bzero \]
+		est la première qui fonctionne.
+		
+		\item
+		On a alors
+			\[ a_0 = \dfrac{9 \cdot \bzero - 1}{\psd} = \azero. \]
+		Presque par construction on trouve bien que 
+			\[ -\psd \cdot \azero  + \qsd \cdot \bzero = 1, \]
+		condition équivalente à ce que $\overline{X} = \k$ d'après la deuxième question (on peut aussi revérifier en remplaçant dans le tableau comme à la question 1).
+		
+		\item
+		Chaque couple de la forme
+			\begin{align*}
+				(a;b) &= (\azero; \bzero) + n \cdot (\qsd ; \psd) \\
+					&= (\azero+ \qsd n ; \bzero + \psd n )
+			\end{align*}
+		vérifie bien
+			\begin{align*}
+				 - \psd \cdot a + \qsd \cdot b &= - \psd (\azero + \qsd n ) + \qsd (\bzero + \psd n ) \\
+				 							&= -\psd \cdot \azero +  \qsd \cdot \bzero + n (- \psd \cdot \qsd + \qsd \cdot \psd) \\
+				 							&= 1 + n \cdot 0 \\
+				 							&= 1.
+			\end{align*}
+		En fait, le couple $(\qsd; \psd)$ est une solution du problème dit \emph{homogène} car
+			\[ -\psd \cdot \qsd + \qsd \cdot \psd = 0, \]
+		et la somme d'une solution du problème initial avec une solution du problème homogène donne une autre solution du problème initial.
+		
+		\item
+		On voit les couples comme les coordonnées de points et on place les quatre premiers ainsi.
+			\begin{center}
+			\begin{tikzpicture}[>=stealth, scale=1]
+			\begin{axis}[xmin = 0, xmax=\athree+5, ymin=0, ymax=\bthree+5, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[black, mark=*, mark size = 1, thick] (\azero,\bzero) node[below] {$(\azero;\bzero)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\sola,\solb) node[below] {$(\sola;\solb)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\atwo,\btwo) node[below] {$(\atwo;\btwo)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\athree,\bthree) node[below] {$(\athree;\bthree)$};
+			\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		On remarque que tous les points sont alignés. 
+		Les points trouvés sont en fait tous les points à coordonnées entières d'une certaine droite.
+		On étudiera les équations de droites dans un chapitre dédié plus tard. En attendant, on pourra écrire \texttt{$ -\psd x + \qsd y = 1$} dans Geogebra pour voir la droite.
+	\end{enumerate}
+}
 
 \exe{
 	On considère la série statistique $X$ suivante, dépendente de deux entiers naturels $a,b\in\N$.
@@ -67,9 +131,39 @@
 		Y a-t-il une infinité de tels couples ?
 	\end{enumerate}
 }
-{}
+{
+	\begin{enumerate}
+		\item
+			Ceci se montre de façon équivalente à la première question de l'exercice 1.
+		\item
+			Le plus grand diviseur commun à $\pB$ et $\qB$ est donné par $\divisor$ :
+				\begin{align*}
+					\pB &= \divisor \cdot \psdB, \\
+					\qB &= \divisor \cdot \qsdB.
+				\end{align*}
+			Ainsi, $\divisor$ divise la combinaison entière $ - \pB \cdot a + \qB \cdot b$ pour n'importe quels entiers $a$ et $b$ car on a bien
+				\[ - \pB \cdot a + \qB \cdot b = \divisor \cdot ( - \psdB \cdot a + \qsdB \cdot b ), \]
+			multiple de $\divisor$.
+		\item
+		Supposons qu'il existe un tel couple $(a;b)$ d'entiers naturels tels que la moyenne de la série soit $\kB$.
+		Dans ce cas, la relation 
+			\[ - \pB \cdot a + \qB \cdot b = \dmnB. \]
+		doit être vérifiée.
+		Or on a montré que le membre de gauche est une multiple de $\divisor$.
+		Cependant, comme le membre de droite, $\dmnB$, n'est évidemment pas un multiple de $\divisor$, on arrive à une contradiction.
+		\item 
+		On peut choisir un couple arbitrairement et calculer la moyenne correspondante.
+		Choisir $(a;b) = (0;0)$ par exemple donne une moyenne de $\overline{X} = \nvalB$.
+		
+		Au regard de l'exercice 1, il existe nécessairement une infinité de couples vérifiant $\overline{X} = \nvalB$, car on peut en créer en ajoutant autant de fois qu'on le souhaite la solution $(\qB ; \pB)$ du probème homogène à $(0;0)$.
+	\end{enumerate}
 
+}
+
+\ifsolutions
+\else
 \newpage 
+\fi
 
 \exe{
 	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist}.
@@ -89,7 +183,57 @@
 		\end{multicols}
 		
 	Comparer les séries statistiques en s'appuyant sur les valeurs calculées.
+}{
+	Pour l'histogramme \ref{fig:a}, on lit le tableau Valeur/Effectif suivant.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}\hline
+			Note  & \vala & \valb & \valc & \vald \\ \hline
+			Effectif & \EFFCONCa & \EFFCONCb & \EFFCONCc & \EFFCONCd \\ \hline
+			\end{tabular}
+			\end{center}
+	
+	On en déduit les valeurs suivantes, arrondies au centième.
+	\begin{enumerate}[i)]
+		\item La moyenne est de $\overline{X} = \Concaverage$ ;
+		\item L'écart type est $\sigma(X) = \Concstd$ ;
+		\item La médiane est $\Concmedian$ ;
+		\item Le premier quartile est $Q_1 = \Concfirstquartile$ ;
+		\item Le troisième quartile est $Q_3 = \Concthirdquartile$ ; et
+		\item L'écart interquartile est $Q_3 - Q_1 = \Concecart$.
+	\end{enumerate}
+
+	Pour l'histogramme \ref{fig:b}, on lit le tableau Valeur/Effectif suivant.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}\hline
+			Note  & \valA & \valB & \valC & \valD & \valE \\ \hline
+			Effectif & \EFFDISPa & \EFFDISPb & \EFFDISPc & \EFFDISPd  & \EFFDISPe \\ \hline
+			\end{tabular}
+			\end{center}
+	
+	On en déduit les valeurs suivantes, arrondies au centième.
+	\begin{enumerate}[i)]
+		\item La moyenne est de $\overline{X} = \Dispaverage$ ;
+		\item L'écart type est $\sigma(X) = \Dispstd$ ;
+		\item La médiane est $\Dispmedian$ ;
+		\item Le premier quartile est $Q_1 = \Dispfirstquartile$ ;
+		\item Le troisième quartile est $Q_3 = \Dispthirdquartile$ ; et
+		\item L'écart interquartile est $Q_3 - Q_1 = \Dispecart$.
+	\end{enumerate}
+
+
+	En conclusion, la première série statistique est bien plus concentrée autour de sa moyenne que la deuxième.
+	On le voit qualitativement en comparant les écarts types ou en comparant les écarts interquartiles.
+	L'écart $|Q_1 - Q_3|$ donne l'étendue que prend la moitié des valeurs centrales. 
+	Plus cet écart est grand, plus il existe des valeurs centrales espacées les unes des autres.
+	
+	Ce résultat n'est pas surprenant car on distingue un groupe uni de valeurs sur l'histogramme \ref{fig:a}, et deux groupes disjoints sur l'histogramme \ref{fig:b}.
+	Dans le contexte des notes, un écart type élevé indique une haute hétérogénéité de résultats dans une classe. 
+	L'histrogramme \ref{fig:b} permet dans ce cas de créer des groupes de niveau.
 }
+
+\ifsolutions
+\newpage
+\fi
 
 \begin{figure}[t]
   \centering

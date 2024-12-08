@@ -8,6 +8,10 @@ def newcommand(current_str, command, value):
         prefix = "\\newcommand"
     return current_str+prefix+"{"+command+"}{"+str(value)+"}\n"
 
+# write decimal separator with commas instead of dots
+def comma(num):
+    return f'{num}'.replace('.', ',')
+
 def randomize():
     [n, d_over_n, p_over_d, q_over_d] =np.rint(np.random.rand(4)*[10, 15, 10, 10])+[15,10,3,4]
 
@@ -29,8 +33,6 @@ def randomize():
 
     # average k >p, d/n
     k=int(100*(np.random.rand()-.5))
-
-    print(p,q,d_over_n, k)
 
     return [p,q,d,k,n,d_over_n,p_over_d,q_over_d]
 
@@ -68,6 +70,14 @@ def generate(seed):
     CONTENT = newcommand(CONTENT,"\solbZ", b0)
     CONTENT = newcommand(CONTENT,"\solaZ", a0)
 
+    CONTENT = newcommand(CONTENT,"\\bzero", b0)
+    CONTENT = newcommand(CONTENT,"\\azero", a0)
+
+    CONTENT = newcommand(CONTENT,"\\btwo", b0+2*p_over_d)
+    CONTENT = newcommand(CONTENT,"\\atwo", a0+2*q_over_d)
+    CONTENT = newcommand(CONTENT,"\\bthree", b0+3*p_over_d)
+    CONTENT = newcommand(CONTENT,"\\athree", a0+3*q_over_d)
+
     ######### EXERCISE 2
 
     [p,q,d,k,n,d_over_n,p_over_d,q_over_d] = randomize()
@@ -85,6 +95,10 @@ def generate(seed):
     CONTENT = newcommand(CONTENT,"\\nvalB", k-d_over_n + 1)
     CONTENT = newcommand(CONTENT,"\dmnB", d-n)
 
+    # sols
+
+    CONTENT = newcommand(CONTENT,"\divisor", d)
+    
     ### HISTOGRAM
 
     Conca = int(np.random.rand()*12)+2
@@ -120,7 +134,7 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\EFFDISPe", EffDispe)
 
     
-    # EX 1 SOLUTION
+
 
     # EX 2 SOLUTION
 
@@ -222,6 +236,6 @@ if __name__=="__main__":
         # uncomment to fix seed
         #seed=59583
         np.random.seed(seed)
+        print(seed)
 
         generate(seed)
-
