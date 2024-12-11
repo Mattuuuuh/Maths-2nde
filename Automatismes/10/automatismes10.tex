@@ -1,0 +1,149 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+
+\usepackage{libertinus}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+%plots
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+%boxes
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+
+%icomma
+\usepackage{icomma}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  halign title=flush center, 
+  title    = {#3},
+  #1,
+}
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Appartenances}
+
+
+\begin{frame}{1}
+	Pour $f:\R\rightarrow\R$ donnée algébriquement, déterminer si $P \in \C_f$ ou non.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\begin{align*} f(x) = 8-3x, && P=\left(\dfrac16; \dfrac{15}2 \right). \end{align*}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\begin{align*} f(x) = 4x+1, && P=\left(-\dfrac12; 0\right). \end{align*}
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+
+\begin{frame}{2}
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			Existe-t-il un réel $x\in\R$ tel que $|x| = -1$ ? Si oui, le donner.
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			Est-ce que $x^2 \geq 0$ pour tout $x\in\R$ réel ? Si non, donner un contre-exemple.
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+\begin{frame}{3}
+	Pour $g:]{-\infty}; 0] \rightarrow\R$ donnée algébriquement, déterminer si $P \in \C_g$ ou non.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\begin{align*} g(x) = \sqrt{-x}, && P=\left(-4;4 \right). \end{align*}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\begin{align*} g(x) = x^2 - x, && P=\left(-1;0\right). \end{align*}
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+\subsection*{Lecture graphique (4)}
+
+\begin{frame}
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=.65]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3, ..., 3, 4}]
+				\addplot[no marks, blue, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+				node[pos=.5, above=5pt]{$\C_f$};
+				\addplot[no marks, red, -, thick] expression[domain=-2:2.1, samples=100]{2*x^2 - x -1}
+				node[pos=.6, below]{$\C_g$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+		\vspace{-10pt}
+		\begin{mybox}{red}{A}
+		\begin{center}
+			Est-ce que $f\left(-\dfrac23\right) < g\left(-\dfrac23\right)$ ?
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			Est-ce que $f\left(\dfrac{11}7\right) < g\left(\dfrac{11}7\right)$ ?
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+\end{document}
