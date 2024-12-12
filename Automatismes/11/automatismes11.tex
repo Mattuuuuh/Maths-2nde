@@ -111,26 +111,6 @@ Automatismes
 		\begin{mybox}{red}{A}
 		\begin{center}
 		\begin{tikzpicture}[scale=1]
-			\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$3$};
-			\draw[-, thick, black] (3,0) -- (3,2);
-			\draw[-, thick, black] (3,2) -- (0,0);
-			
-			\node[black, left] at  (0,0) {$A$};
-			\node[black, below] at  (3,0) {$B$};
-			\node[black, above] at  (3,2) {$C$};
-			% angle droit
-			\draw[-, thick, black] (3,.3)-- (2.7,.3);
-			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
-			
-			% angle
-			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
-			node[below=5pt, left=-1pt] {$30°$};
-		\end{tikzpicture}
-		\end{center}
-		\end{mybox}
-		\begin{mybox}{green}{B}
-		\begin{center}
-		\begin{tikzpicture}[scale=1]
 			\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$8$};
 			\draw[-, thick, black] (3,0) -- (3,2);
 			\draw[-, thick, black] (3,2) -- (0,0);
@@ -148,6 +128,26 @@ Automatismes
 		\end{tikzpicture}
 		\end{center}
 		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$3$};
+			\draw[-, thick, black] (3,0) -- (3,2);
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+			node[below=5pt, left=-1pt] {$30°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
 		\end{tcbraster}
 		
 			$\sin(30°) = \dfrac12,$
@@ -159,6 +159,26 @@ Automatismes
 	
 		\begin{tcbraster}[raster columns=2,raster equal height,nobeforeafter,raster column skip=1cm]
 		\begin{mybox}{red}{A}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0);
+			\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {$7$} ;
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+			node[below=5pt, left=-1pt] {$60°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
 		\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw[-, thick, black] (0,0) -- (3,0);
@@ -175,26 +195,6 @@ Automatismes
 			% angle
 			\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
 			node[left=5pt, right=10pt] {$60°$};
-		\end{tikzpicture}
-		\end{center}
-		\end{mybox}
-		\begin{mybox}{green}{B}
-		\begin{center}
-		\begin{tikzpicture}[scale=1]
-			\draw[-, thick, black] (0,0) -- (3,0);
-			\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {$7$} ;
-			\draw[-, thick, black] (3,2) -- (0,0);
-			
-			\node[black, left] at  (0,0) {$A$};
-			\node[black, below] at  (3,0) {$C$};
-			\node[black, above] at  (3,2) {$B$};
-			% angle droit
-			\draw[-, thick, black] (3,.3)-- (2.7,.3);
-			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
-			
-			% angle
-			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
-			node[below=5pt, left=-1pt] {$60°$};
 		\end{tikzpicture}
 		\end{center}
 		\end{mybox}
