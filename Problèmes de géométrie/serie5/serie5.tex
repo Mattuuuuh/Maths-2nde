@@ -121,7 +121,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 \begin{definition*}{Racine carrée}
 	Soit $a \in \R, a\geq0$ un réel positif ou nul.
-	La quantité $\sqrt{a}$ est l'unique nombre réel positifs ou nul vérifiant
+	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
 		\[ \sqrt{a}^2 = a. \]
 \end{definition*}
 
@@ -213,7 +213,11 @@ nomarginpar,% We don't want any margin paragraphs
 	\end{multicols}
 }{}
 
-\newpage 
+\ifdys
+\else
+\newpage
+\fi
+
 \exe{
 	Calculer les fractions suivantes.
 	\begin{multicols}{2}
