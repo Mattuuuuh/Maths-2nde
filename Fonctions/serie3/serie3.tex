@@ -172,10 +172,29 @@ nomarginpar,% We don't want any margin paragraphs
 			\item On cherche ici l'ensemble
 				\[ \{ x \in \D \text{ tels que } h(x) \leq g(x) \}. \]
 			On lit (approximativement) les abscisses lorsque les la courbe $\C_h$ est sous $\C_g$.
-			Remarquons que pour les $x\leq-1,7$, la $\C_h$
-				\[ \{ x \in \D \text{ tels que } g(x) \leq h(x) \} \approx [ {-0,8} ; {1,2} ]. \]
+			Remarquons que pour les $x\leq-1,7$, la courbe $\C_h$ est implicitement en dessous de $\C_g$.
+			On fait en fait une hypothèse de continuité des courbes : $\C_h$ ne peut pas dépasser $\C_g$ sans qu'on le voie sur le graphique.
+				\[ \{ x \in \D \text{ tels que } g(x) \leq h(x) \} \approx [{-3,4} ; {-0,8} ] \cup [ {1,2} ; {2,3} ]. \]
 		\end{enumerate}
-	
+		
+		Remarquons en outre les relations suivantes :
+			\[ \{ x \in \D \text{ tels que } h(x) \leq g(x) \} \cup \{ x \in \D \text{ tels que } h(x) \geq g(x) \} = \D, \]
+		ce qui n'est pas  surprenant car pour tout $x\in\D$, on a forcément $g(x) \leq h(x)$ \textbf{ou} $g(x) \geq h(x)$. 
+		Ainsi, 
+			\[ \{ x \in \D \text{ tels que } h(x) \leq g(x) \text{ ou }  h(x) \geq g(x) \}  = \{ x \in \D \} = \D. \]
+		C'est donc pour cela que les ensembles sont ``complémentaires'' par rapport à $\D$ : leur union est $\D$ tout entier.
+		
+		En outre, l'intersection des ensembles donne
+			\begin{align*}
+			 & \{ x \in \D \text{ tels que } h(x) \leq g(x) \} \cap \{ x \in \D \text{ tels que } h(x) \geq g(x) \} \\
+			 =& \{ x \in \D \text{ tels que } h(x) \leq g(x) \text{ et } h(x) \geq g(x) \},
+			 \end{align*}
+		qui donne l'ensemble
+			\[ \{ x \in \D \text{ tels que } h(x) = g(x) \}, \]
+		car $h(x) \leq g(x)$ \textbf{et} $h(x) \geq g(x)$ est équivalent à $g(x) = h(x)$ pour tout $x\in\D$.
+		
+		C'est donc pour ça que les bornes des ensembles sont les abscisses des points d'intersection.
+		Ces points sont exactement les moments où une courbe passe au-dessus d'une autre.
 	}
 	
 	
