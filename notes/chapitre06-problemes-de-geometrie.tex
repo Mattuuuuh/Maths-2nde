@@ -11,11 +11,51 @@
 	Le \emph{projeté orthogonal} d'un point $M$ sur une droite $(d)$ est l'\emph{unique} point $M'$ tel que les droites $(MM')$ et $(d)$ soient perpendiculaires.
 }{}
 
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (10, 4) node[below]{$(d)$};
+	
+		\node[black] at (7,0){$\bullet$};
+		\node[black, right] at (7,0) {$M$};
+		
+		\node[black] at (70*10/116,70*4/116) {$\bullet$};
+		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
+		
+		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
+		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2);
+		\draw[-, thick, black] (5.87,2) -- (6.15,2.1);
+	\end{tikzpicture}
+	\end{center}
+
 \thm{Distance minimale}{
 	Le point $M'$, projeté orthogonal de $M$ sur $(d)$, est l'\emph{unique} point de $(d)$ le plus proche de $M$.
 	
 	Autrement dit, $M'$ est l'\emph{unique} minimiseur de la distance à $M$ en restant sur $(d)$.
 }{thm:proj-min}
+
+
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (10, 4) node[below]{$(d)$};
+	
+		\node[black] at (7,0){$\bullet$};
+		\node[black, right] at (7,0) {$M$};
+		
+		\node[black] at (70*10/116,70*4/116) {$\bullet$};
+		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
+		
+		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
+		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2);
+		\draw[-, thick, black] (5.87,2) -- (6.15,2.1);
+		
+		
+		
+		\node[black] at (70*10/116*.6,70*4/116*.6) {$\bullet$};
+		\node[black, above] at  (70*10/116*.6,70*4/116*.6) {$P$};
+		\draw[-, thick, black, dotted] (70*10/116*.6,70*4/116*.6) -- (7,0);
+	\end{tikzpicture}
+	\end{center}
 
 \pf{Démonstration du théorème \ref{thm:proj-min}}{
 	Considérons un autre point $P \in (d)$ sur la droite $(d)$.
