@@ -141,6 +141,44 @@ nomarginpar,% We don't want any margin paragraphs
 	}{}
 	
 	
+	\exe{[3pts]
+		Considérons $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+			\[ f(x) = \dfrac23. \]
+		\begin{enumerate}
+			\item Donner trois points différents appartenant à $\C_f$.
+			\item Esquisser la courbe de $f$.
+			\item Que dire de $f$ ?
+		\end{enumerate}
+	}{}
+	
+	
+	\exe{[4pts]
+		Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = \left]{-}11 ; -\dfrac52\right[$.
+		
+			\begin{center}
+			\begin{tikzpicture}[>=stealth]
+				\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+    every y tick label/.style={
+        anchor=near yticklabel opposite,
+        xshift=0.2em,
+    }]
+					\addplot[no marks, blue, -] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80};
+					\addplot[no marks, blue, -] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
+					\addplot[no marks, blue, -] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
+					\addplot[no marks, blue, -] expression[domain=-5:-2.5, samples=2]{5*0.2}
+					node[pos=.3, above]{$\mathcal{C}_f$};
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		\begin{enumerate}
+			\item Donner approximativement les images de $-4$ et de $-7,5$ par $f$.
+			\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+			\item Donner approximativement un réel qui admet exactement un seul antécédent par $f$.
+			\item Donner approximativement un réel qui admet une infinité d'antécédents par $f$.
+		\end{enumerate}
+	}{}
+	
+	
 	\exe{[4pts]
 		Considérons la fonction $f: \R \rightarrow\R$ donnée algébriquement par
 			\[ f(x) = x^2. \]
@@ -156,17 +194,9 @@ nomarginpar,% We don't want any margin paragraphs
 		\end{multicols}
 	
 	}
-	
-	\exe{[3pts]
-		Considérons $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
-			\[ f(x) = \dfrac23. \]
-		\begin{enumerate}
-			\item Donner trois points différents appartenant à $\C_f$.
-			\item Esquisser la courbe de $f$.
-			\item Que dire de $f$ ?
-		\end{enumerate}
-	}{}
-	
+
+	\newpage
+
 
 	\exe{[4pts]
 		\begin{multicols}{2}
@@ -192,34 +222,6 @@ nomarginpar,% We don't want any margin paragraphs
 			\end{tikzpicture}
 			\end{center}
 		\end{multicols}
-	}{}
-
-	\newpage
-
-	\exe{[4pts]
-		Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = \left]{-}11 ; -\dfrac52\right[$.
-		
-			\begin{center}
-			\begin{tikzpicture}[>=stealth]
-				\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-    every y tick label/.style={
-        anchor=near yticklabel opposite,
-        xshift=0.2em,
-    }]
-					\addplot[no marks, blue, -] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80};
-					\addplot[no marks, blue, -] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
-					\addplot[no marks, blue, -] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
-					\addplot[no marks, blue, -] expression[domain=-5:-2.5, samples=2]{5*0.2}
-					node[pos=.3, above]{$\mathcal{C}_f$};
-				\end{axis}
-			\end{tikzpicture}
-			\end{center}
-		\begin{enumerate}
-			\item Donner approximativement les images de $-4$ et de $-7,5$ par $f$.
-			\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
-			\item Donner approximativement un réel qui admet exactement un seul antécédent par $f$.
-			\item Donner approximativement un réel qui admet une infinité d'antécédents par $f$.
-		\end{enumerate}
 	}{}
 	
 
