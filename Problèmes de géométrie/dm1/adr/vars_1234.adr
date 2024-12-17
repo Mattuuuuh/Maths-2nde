@@ -1,0 +1,15 @@
+\newcommand{\seed}{1234}
+\newcommand{\xA}{-3}
+\newcommand{\yA}{1}
+\newcommand{\xB}{0}
+\newcommand{\yB}{3}
+\newcommand{\Pnormsq}{10}
+\newcommand{\Bnormsq}{9}
+\newcommand{\BPnormsq}{-1}
+\newcommand{\LAMBDA}{\dfrac{3}{10}}
+\newcommand{\xmax}{10}
+\newcommand{\ALPHA}{5}
+\newcommand{\xfirst}{3}
+\newcommand{\xsecond}{6}
+\newcommand{\prodovertwo}{\dfrac{1}2\sqrt{81.00000000000001}}
+\newcommand{\BETA}{\dfrac{100}8\sqrt{81.00000000000001}}

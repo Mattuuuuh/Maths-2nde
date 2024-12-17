@@ -1,7 +1,7 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-\input{preamble.tex}\input{adr/vars_BASELINE.adr}
+\input{preamble.tex}\input{adr/vars_1234.adr}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
@@ -10,7 +10,7 @@
 
 Dans un repère d'origine $O$, on considère les trois points suivants, dépendant d'un nombre réel $x \in [0;\xmax]$.
 	\begin{align*}
-		A  = x \cdot (\xA;\yA) && B = (\xmax-x)\cdot(\xB ; \yB) && P = (\xmax-x)\cdot (\xP;\yP).
+		A  = x \cdot (\xA;\yA) && B = (\xmax-x)\cdot(\xB ; \yB) && P = \LAMBDA \cdot (\xmax-x)\cdot (\xA;\yA).
 	\end{align*}
 
 On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un même point).
@@ -54,7 +54,7 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 }{}
 \exe{
 	 Démontrer que l'aire $\mathcal{A}(x)$ du triangle $OAB$ est donnée par, pour $x\in[0;\xmax]$,
-		\[ \mathcal{A}(x) = \prodovertwo \cdot |10-x| \cdot |x| =  \prodovertwo(\xmax-x)x. \]
+		\[ \mathcal{A}(x) = \prodovertwo \cdot |\xmax-x| \cdot |x| =  \prodovertwo(\xmax-x)x. \]
 }{}
 \exe{
 	 Esquisser la courbe $\C_\mathcal{A}$ de l'aire $\mathcal{A}$, fonction réelle sur $[0;\xmax]$.
@@ -64,7 +64,7 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 }{}
 \exe{
 	 Montrer que, pour tout $x\in[0;\xmax]$, on a l'identité
-		\[ \mathcal{A}(x) =  \BETA - \minusA\left(x-\ALPHA\right)^2. \]
+		\[ \mathcal{A}(x) =  \BETA - \prodovertwo\left(x-\ALPHA\right)^2. \]
 }{}
 \exe{
 	 En déduire que, pour tout $x\in[0;\xmax]$,
