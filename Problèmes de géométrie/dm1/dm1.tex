@@ -1,16 +1,16 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-\input{preamble.tex}\input{adr/vars_45294.adr}
+\input{preamble.tex}\input{adr/vars_BASELINE.adr}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
 \fancyhead[C]{\textbf{Devoir Maison 2 -- \seed \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-Dans un repère d'origine $O$, on considère les trois points suivants, dépendant d'un nombre réel $x \in [0;10]$.
+Dans un repère d'origine $O$, on considère les trois points suivants, dépendant d'un nombre réel $x \in [0;\xmax]$.
 	\begin{align*}
-		A  = (2;3)\cdot x && B = (-1 ; 5)\cdot(10-x) && P = (2;3) \cdot(10-x).
+		A  = x \cdot (\xA;\yA) && B = (\xmax-x)\cdot(\xB ; \yB) && P = (\xmax-x)\cdot (\xP;\yP).
 	\end{align*}
 
 On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un même point).
@@ -34,17 +34,17 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 %\end{figure}
 	
 \exe{
-	 Tracer dans deux repères les trois points $O, A, B,$ et $P$ : en posant $x=3$ dans le premier, et $x=8$ dans l'autre. 
+	 Tracer dans deux repères les trois points $O, A, B,$ et $P$ : en posant $x=\xfirst$ dans le premier, et $x=\xsecond$ dans l'autre. 
 }{}
 \exe{
 	 À l'aide de la formule de la longueur de segment vue en cours, montrer que
 	 	\begin{align*}
-	 		OB^2 = 26\cdot |10-x|^2, && \text{ et } && OP^2 = 13\cdot |10-x|^2.
+	 		OB^2 = \Bnormsq\cdot |\xmax-x|^2, && \text{ et } && OP^2 = \Pnormsq\cdot |\xmax-x|^2.
 		\end{align*}
 }{}
 \exe{
 	Similairement, montrer que
-	 	\[ BP^2 = 13 \cdot |10-x|^2.\] 
+	 	\[ BP^2 = \BPnormsq \cdot |\xmax-x|^2.\] 
 }{}
 \exe{
 	 Démontrer que le triangle $OBP$ est rectangle en $P$ à l'aide de la réciproque du théorème de Pythagore.
@@ -53,23 +53,23 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 	 En déduire que $P$ est le projeté orthogonal de $B$ sur $(OA)$ et donc que $BP$ est la hauteur du triangle $OAB$ de base $OA$.
 }{}
 \exe{
-	 Démontrer que l'aire $\mathcal{A}(x)$ du triangle $OAB$ est donnée par, pour $x\in[0;10]$,
-		\[ \mathcal{A}(x) = \dfrac{13 \cdot |10-x| \cdot |x|}2 =  \dfrac{13(10-x)x}2. \]
+	 Démontrer que l'aire $\mathcal{A}(x)$ du triangle $OAB$ est donnée par, pour $x\in[0;\xmax]$,
+		\[ \mathcal{A}(x) = \prodovertwo \cdot |10-x| \cdot |x| =  \prodovertwo(\xmax-x)x. \]
 }{}
 \exe{
-	 Esquisser la courbe $\C_\mathcal{A}$ de l'aire $\mathcal{A}$, fonction réelle sur $[0;10]$.
+	 Esquisser la courbe $\C_\mathcal{A}$ de l'aire $\mathcal{A}$, fonction réelle sur $[0;\xmax]$.
 }{}
 \exe{
-	 À l'aide de $\C_\mathcal{A}$, estimer la valeur du $x^\star \in [0;10]$ telle que $A(x^\star)$ soit maximale.
+	 À l'aide de $\C_\mathcal{A}$, estimer la valeur du $x^\star \in [0;\xmax]$ telle que $A(x^\star)$ soit maximale.
 }{}
 \exe{
-	 Montrer que, pour tout $x\in[0;10]$, on a l'identité
-		\[ \mathcal{A}(x) =  \dfrac{25\times13}2 - \dfrac{13}2(x-5)^2. \]
+	 Montrer que, pour tout $x\in[0;\xmax]$, on a l'identité
+		\[ \mathcal{A}(x) =  \BETA - \minusA\left(x-\ALPHA\right)^2. \]
 }{}
 \exe{
-	 En déduire que, pour tout $x\in[0;10]$,
-		\[ \mathcal{A}(x) \leq \dfrac{25\times13}2, \]
-	et donc que $\mathcal{A}$ atteint son maximum en $x^\star=5$.
+	 En déduire que, pour tout $x\in[0;\xmax]$,
+		\[ \mathcal{A}(x) \leq  \BETA , \]
+	et donc que $\mathcal{A}$ atteint son maximum en $x^\star=\ALPHA$.
 }{}
 
 
