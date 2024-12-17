@@ -1,0 +1,76 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+\input{preamble.tex}\input{adr/vars_45294.adr}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 2 -- \seed \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+Dans un repère d'origine $O$, on considère les trois points suivants, dépendant d'un nombre réel $x \in [0;10]$.
+	\begin{align*}
+		A  = (2;3)\cdot x && B = (-1 ; 5)\cdot(10-x) && P = (2;3) \cdot(10-x).
+	\end{align*}
+
+On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un même point).
+	
+	
+	
+%\begin{figure}[h!]
+%
+%	\begin{center}
+%	\begin{tikzpicture}[>=stealth, scale=.8]
+%		\begin{axis}[xmin = -9, xmax=18, ymin=0, ymax=45, axis x line=middle, axis y line=middle, axis line style=-]
+%			\addplot[black, mark=*, mark size = 1, thick] (8,12) node[above] {$A$};
+%			\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above] {$O$};
+%			\addplot[black, mark=*, mark size = 1, thick] (-6,30) node[above] {$B$};
+%			\addplot[black, mark=*, mark size = 1, thick] (12,18) node[above] {$P$};
+%		\end{axis}
+%	\end{tikzpicture}
+%	\end{center}
+%	\caption{aaa}
+%	
+%\end{figure}
+	
+\exe{
+	 Tracer dans deux repères les trois points $O, A, B,$ et $P$ : en posant $x=3$ dans le premier, et $x=8$ dans l'autre. 
+}{}
+\exe{
+	 À l'aide de la formule de la longueur de segment vue en cours, montrer que
+	 	\begin{align*}
+	 		OB^2 = 26\cdot |10-x|^2, && \text{ et } && OP^2 = 13\cdot |10-x|^2.
+		\end{align*}
+}{}
+\exe{
+	Similairement, montrer que
+	 	\[ BP^2 = 13 \cdot |10-x|^2.\] 
+}{}
+\exe{
+	 Démontrer que le triangle $OBP$ est rectangle en $P$ à l'aide de la réciproque du théorème de Pythagore.
+}{}
+\exe{
+	 En déduire que $P$ est le projeté orthogonal de $B$ sur $(OA)$ et donc que $BP$ est la hauteur du triangle $OAB$ de base $OA$.
+}{}
+\exe{
+	 Démontrer que l'aire $\mathcal{A}(x)$ du triangle $OAB$ est donnée par, pour $x\in[0;10]$,
+		\[ \mathcal{A}(x) = \dfrac{13 \cdot |10-x| \cdot |x|}2 =  \dfrac{13(10-x)x}2. \]
+}{}
+\exe{
+	 Esquisser la courbe $\C_\mathcal{A}$ de l'aire $\mathcal{A}$, fonction réelle sur $[0;10]$.
+}{}
+\exe{
+	 À l'aide de $\C_\mathcal{A}$, estimer la valeur du $x^\star \in [0;10]$ telle que $A(x^\star)$ soit maximale.
+}{}
+\exe{
+	 Montrer que, pour tout $x\in[0;10]$, on a l'identité
+		\[ \mathcal{A}(x) =  \dfrac{25\times13}2 - \dfrac{13}2(x-5)^2. \]
+}{}
+\exe{
+	 En déduire que, pour tout $x\in[0;10]$,
+		\[ \mathcal{A}(x) \leq \dfrac{25\times13}2, \]
+	et donc que $\mathcal{A}$ atteint son maximum en $x^\star=5$.
+}{}
+
+
+\end{document}
