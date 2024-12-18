@@ -100,6 +100,11 @@ def generate(seed):
         prodovertwo = "\dfrac{"+str(C[0])+"}{"+str(denumC)+"}"
 
     squarerootsuffix = "" if C[1] == 1 else "\sqrt{"+str(C[1])+"}"
+    ###### alors la racine disparaît toujours et il y a une raison :
+    ###### on calcule en fait la racine de ||v - \lambda u||² · || u ||² = ||u||² · ||v||² - <u,v>², par Pythagore ( \lambda = <u,v>/<u,u>)
+    ###### et cette différence est elle-même un carré car (x²+y²)(a²+b²) - (ax+by)² = (ay-bx)², le déterminant au carré.
+    ###### je me demande s'il y a quelque chose de profond derrière ça ?
+
 
     d = np.gcd(C[0]*root**2, 8)
     numBeta = int(C[0]*root**2/d)
@@ -125,7 +130,7 @@ def generate(seed):
     PARAMETER1 = f"-output-directory=out"
     PARAMETER2 = f"-jobname=dm_{seed}"
 
-    #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
     #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
     # compile twice for references 
     
@@ -136,12 +141,12 @@ if __name__=="__main__":
     # always the same 34 to recompile if needed
     np.random.seed(1729) # taxicab number
 
-    for _ in range(1):
+    for _ in range(10):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
         # uncomment to fix seed
-        seed=12345
+        #seed=12345
 
         np.random.seed(seed)
         
