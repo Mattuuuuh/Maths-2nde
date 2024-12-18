@@ -82,8 +82,8 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\ALPHA", halfroot if root%2 == 0 else "\dfrac{"+str(root)+"}{2}")
     
     # values of x to draw
-    CONTENT = newcommand(CONTENT, "\\xfirst", int(root/3))
-    CONTENT = newcommand(CONTENT, "\\xsecond", int(2*root/3))
+    CONTENT = newcommand(CONTENT, "\\xfirst", np.rint(root/3).astype(int))
+    CONTENT = newcommand(CONTENT, "\\xsecond", np.rint(2*root/3).astype(int))
 
     # constant area (base x height /2)
     # beta is constant * alpha²/2
@@ -153,10 +153,10 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    # always the same 34 to recompile if needed
+    # always the same 40 to recompile if needed
     np.random.seed(1729) # taxicab number
 
-    for _ in range(10):
+    for _ in range(40):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))

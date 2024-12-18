@@ -1,0 +1,15 @@
+\newcommand{\seed}{55701}
+\newcommand{\xA}{4}
+\newcommand{\yA}{4}
+\newcommand{\xB}{-3}
+\newcommand{\yB}{1}
+\newcommand{\LAMBDA}{\dfrac{-1}{4}}
+\newcommand{\Bnormsq}{10}
+\newcommand{\Pnormsq}{2}
+\newcommand{\BPnormsq}{8}
+\newcommand{\xmax}{9}
+\newcommand{\ALPHA}{\dfrac{9}{2}}
+\newcommand{\xfirst}{3}
+\newcommand{\xsecond}{6}
+\newcommand{\prodovertwo}{8}
+\newcommand{\BETA}{162}
