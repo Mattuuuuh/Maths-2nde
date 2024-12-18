@@ -20,6 +20,8 @@ def newcommand_dfrac(current_str, command, numerator, denominator):
 def comma(num):
     return f'{num}'.replace('.', ',')
 
+
+##### UNUSED (merci les mathématiques :)) #####
 # reduce square root
 def reduced_sqrt(n):
     a, b = 1, n
@@ -31,6 +33,7 @@ def reduced_sqrt(n):
         else:
             k+=1
     return [a,b]
+###############################################
 
 def generate(seed):
     CONTENT = newcommand("", "\seed", seed)
@@ -83,8 +86,20 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\\xsecond", int(2*root/3))
 
     # constant area (base x height /2)
-    # beta is constant * alpha²
+    # beta is constant * alpha²/2
     
+    constant = np.abs(xA*yB - yA*xB)
+    d = np.gcd(constant, 2)
+
+    CONTENT = newcommand_dfrac(CONTENT, "\prodovertwo", int(constant/d), int(2/d))
+
+    BETA = constant*root**2
+    d=np.gcd(BETA,8)
+
+    CONTENT = newcommand_dfrac(CONTENT, "\BETA", int(BETA/d), int(8/d))
+
+    # all commented below replaced by the 6 lines above thanks to math (:
+    """
     numCsquared = (xA**2 + yA**2)*normBPnum*normBPdenom
     numC = reduced_sqrt(numCsquared)
 
@@ -116,7 +131,7 @@ def generate(seed):
 
     CONTENT = newcommand(CONTENT, "\prodovertwo", prodovertwo+squarerootsuffix)
     CONTENT = newcommand(CONTENT, "\BETA", BETA+squarerootsuffix)
-
+    """
     # WRITE TO FILE
 
     FILE_NAME = f"adr/vars_{seed}.adr"
