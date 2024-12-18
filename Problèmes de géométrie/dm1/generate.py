@@ -8,6 +8,14 @@ def newcommand(current_str, command, value):
         prefix = "\\newcommand"
     return current_str+prefix+"{"+command+"}{"+str(value)+"}\n"
 
+def newcommand_dfrac(current_str, command, numerator, denominator):
+    if (denominator == 1) and (numerator == 1):
+        current_str = newcommand(current_str, command, "")
+    elif denominator == 1:
+        current_str = newcommand(current_str, command, numerator)
+    else:
+        current_str = newcommand(current_str, command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    return current_str
 # write decimal separator with commas instead of dots
 def comma(num):
     return f'{num}'.replace('.', ',')
@@ -28,16 +36,15 @@ def generate(seed):
     CONTENT = newcommand("", "\seed", seed)
 
     # points A and B with integer coords in [-5,5]
-
-    [xA, yA, xB, yB] = (np.random.rand(4)*12 - 6).astype(int)
+    xA=yA=xB=yB=0 
+    while xA*yA*xB*yB == 0 or xA*xB + yA*yB == 0 or xA*yB - xB*yA == 0:
+        [xA, yA, xB, yB] = (np.random.rand(4)*12 - 6).astype(int)
+        print(xA,yA,xB,yB)
     CONTENT = newcommand(CONTENT, "\\xA", xA)
     CONTENT = newcommand(CONTENT, "\yA", yA)
     CONTENT = newcommand(CONTENT, "\\xB", xB)
     CONTENT = newcommand(CONTENT, "\yB", yB)
 
-    CONTENT = newcommand(CONTENT, "\Pnormsq", xA**2 + yA**2)
-    CONTENT = newcommand(CONTENT, "\Bnormsq", xB**2 + yB**2)
-    CONTENT = newcommand(CONTENT, "\BPnormsq", xB**2 + yB**2 - xA**2 - yA**2)
 
     # projection of B onto A
 
@@ -47,12 +54,23 @@ def generate(seed):
     numerator = int(numerator/d)
     denominator = int(denominator/d)
 
-    if (denominator == 1) and (numerator == 1):
-        CONTENT = newcommand(CONTENT, "\LAMBDA", "")
-    elif denominator == 1:
-        CONTENT = newcommand(CONTENT, "\LAMBDA", numerator)
-    else:
-        CONTENT = newcommand(CONTENT, "\LAMBDA", "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    CONTENT = newcommand_dfrac(CONTENT, "\LAMBDA", numerator, denominator)
+
+    # norms
+
+    normBsq = xB**2 + yB**2
+    CONTENT = newcommand(CONTENT, "\Bnormsq", normBsq)
+    normPnum = (xA**2 + yA**2) * numerator**2
+    normPdenom = denominator**2
+    d = np.gcd(normPnum, normPdenom)
+    normPnum, normPdenom = int(normPnum/d), int(normPdenom/d)
+    CONTENT = newcommand_dfrac(CONTENT, "\Pnormsq", normPnum, normPdenom)
+    
+    normBPnum = normBsq*normPdenom - normPnum
+    normBPdenom = normPdenom
+    d = np.gcd(normBPnum, normBPdenom)
+    normBPnum, normBPdenom = int(normBPnum/d), int(normBPdenom/d)
+    CONTENT = newcommand_dfrac(CONTENT, "\BPnormsq", normBPnum, normBPdenom)
 
     # random root in [7,10]
     root = int(np.random.rand()*4+7)
@@ -67,26 +85,30 @@ def generate(seed):
     # constant area (base x height /2)
     # beta is constant * alpha²
     
-    Csquared = (xA**2 + yA**2)*( ( xB - numerator/denominator*xA)**2 + (yB - numerator/denominator*yA)**2 )
-    C = reduced_sqrt(Csquared)
+    numCsquared = (xA**2 + yA**2)*normBPnum*normBPdenom
+    numC = reduced_sqrt(numCsquared)
 
-    if C[0]%2 == 0:
-        a = int(C[0]/2)
-        prodovertwo = ("" if a==1 else str(a))  
-        if root%2 == 0:
-            BETA = str(halfroot**2*a) 
-        else:
-            BETA = "\dfrac{"+str(root**2*a)+"}4" 
+    d = np.gcd(numC[0], 2*normBPdenom)
+
+    C = [int(numC[0]/d), numC[1]]
+    
+    denumC = int(2*normBPdenom/d)
+
+    if denumC==1:
+        prodovertwo = "" if C[0] == 1 else str(C[0])
     else:
-        prodovertwo = "\dfrac{"+str(C[0])+"}2" 
-        if root%2 == 0 and halfroot%2 == 0:
-            BETA = str(int(halfroot**2*C[0]/2))
-        elif root%2:
-            BETA = "\dfrac{"+str(halfroot**2*C[0])+"}2"
-        else:
-            BETA = "\dfrac{"+str(root**2*C[0])+"}8"
+        prodovertwo = "\dfrac{"+str(C[0])+"}{"+str(denumC)+"}"
 
     squarerootsuffix = "" if C[1] == 1 else "\sqrt{"+str(C[1])+"}"
+
+    d = np.gcd(C[0]*root**2, 8)
+    numBeta = int(C[0]*root**2/d)
+    denumBeta = int(8/d)
+    if denumBeta==1:
+        BETA = "" if numBeta==1 else str(numBeta)
+    else:
+        BETA = "\dfrac{"+str(numBeta)+"}{"+str(denumBeta)+"}"
+
     CONTENT = newcommand(CONTENT, "\prodovertwo", prodovertwo+squarerootsuffix)
     CONTENT = newcommand(CONTENT, "\BETA", BETA+squarerootsuffix)
 
@@ -119,7 +141,7 @@ if __name__=="__main__":
 
         seed = int(np.random.rand() * (2**16 - 1))
         # uncomment to fix seed
-        seed=1234
+        seed=12345
 
         np.random.seed(seed)
         
