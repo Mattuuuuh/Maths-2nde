@@ -1,0 +1,207 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+
+\usepackage{libertinus}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[0]
+
+%plots
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+%boxes
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+
+%icomma
+\usepackage{icomma}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  halign title=flush center, 
+  title    = {#3},
+  #1,
+}
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Équations linéaires}
+
+\begin{frame}{1}
+	Donner le $x\in\R, x\neq0,$ vérifiant l'équation suivante.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\[ \dfrac8x  =\dfrac{\sqrt{3}}2. \]
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\[ \dfrac3x = \dfrac12. \]
+		\end{center}
+		\end{mybox}
+
+\end{frame}
+
+
+\begin{frame}{2}
+	Donner le $x\in\R, x\neq0,$ vérifiant l'équation suivante.
+	
+		\begin{mybox}{red}{A}
+		\begin{center}
+			\[ \dfrac7x  =\dfrac12. \]
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			\[ \dfrac2x =\sqrt{3}. \]
+		\end{center}
+		\end{mybox}
+\end{frame}
+
+\subsection{Trigonométrie}
+
+
+\begin{frame}{3}
+	Calculer la longueur \textbf{exacte} de $AC$.
+	
+		\begin{tcbraster}[raster columns=2,raster equal height,nobeforeafter,raster column skip=1cm]
+		\begin{mybox}{red}{A}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$3$};
+			\draw[-, thick, black] (3,0) -- (3,2);
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+			node[below=5pt, left=-1pt] {$30°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$8$};
+			\draw[-, thick, black] (3,0) -- (3,2);
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+			node[left=5pt, right=10pt] {$30°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
+		\end{tcbraster}
+		
+			$\sin(30°) = \dfrac12,$
+			$\cos(30°) = \dfrac{\sqrt{3}}2,$ et $\tan(30°) = \dfrac1{\sqrt{3}}.$
+\end{frame}
+
+\begin{frame}{4}
+	Calculer la longueur \textbf{exacte} de $AB$.
+	
+		\begin{tcbraster}[raster columns=2,raster equal height,nobeforeafter,raster column skip=1cm]
+		\begin{mybox}{red}{A}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0);
+			\draw[-, thick, black] (3,0) -- (3,2)  node[midway, right] {$2$} ;
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+			node[left=5pt, right=10pt] {$60°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[-, thick, black] (0,0) -- (3,0);
+			\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {$7$} ;
+			\draw[-, thick, black] (3,2) -- (0,0);
+			
+			\node[black, left] at  (0,0) {$A$};
+			\node[black, below] at  (3,0) {$B$};
+			\node[black, above] at  (3,2) {$C$};
+			% angle droit
+			\draw[-, thick, black] (3,.3)-- (2.7,.3);
+			\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+			
+			% angle
+			\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+			node[below=5pt, left=-1pt] {$60°$};
+		\end{tikzpicture}
+		\end{center}
+		\end{mybox}
+		\end{tcbraster}
+		
+			$\cos(60°) = \dfrac12,$
+			$\sin(60°) = \dfrac{\sqrt{3}}2,$ et $\tan(60°) =\sqrt{3}.$
+\end{frame}
+
+\end{document}
