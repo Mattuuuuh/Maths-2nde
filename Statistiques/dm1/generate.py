@@ -83,7 +83,7 @@ def generate(seed):
 
     [Dispa, Dispd] = np.random.rand(2)*8
     Dispa = int(Dispa)
-    Dispd = int(Dispd)+Dispa+6
+    Dispd = int(Dispd)+Dispa+4
 
     [EffDispa, EffDispb, EffDispc, EffDispd, EffDispe] = np.random.rand(5)*20+3
     EffDispa, EffDispb, EffDispc, EffDispd, EffDispe = int(EffDispa), int(EffDispb), int(EffDispc), int(EffDispd), int(EffDispe)
