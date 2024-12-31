@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				%\solutionsfalse
+				\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -23,6 +23,7 @@
 }
 {AAA}
 
+\newpage
 
 \subsection*{Exercices supplémentaires}
 
@@ -43,7 +44,41 @@
 		\item
 		En déduire $|A \cup B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$ \textbf{ou} de $5$.
 	\end{enumerate}
+}{}
+
+\exe{
+	Soient $A, B$ deux événements.
+	Montrer que les événements $ \overline{A} \cap B$ et $A \cap B$ sont disjoints.
+	En déduire la relation suivante.
+		\[ P\left( \overline{A} \cap B \right) = P(B) - P(A \cap B) \]
+}{}
+
+\exe{
+	Soit $\Omega = \{ 1 ; 2 ; 3 ; \dots ; n \}$ l'ensemble des $n$ premiers entiers naturels non nuls.
+	On construit un sous-ensemble $E \subseteq \Omega$ de la façon suivante :
+	pour chaque entier de $\Omega$, on jette une pièce équilibrée pour savoir si on l'inclut ou non dans $E$.
+	
+	\begin{enumerate}
+		\item
+		Combien de sous-ensembles $E$ est-il possible d'obtenir ?
+		\item
+		Quelle est la probabilité que l'ensemble $E$ contienne $4$ (si $n\geq4$) ?
+		\item
+		Quelle est la probabilité d'obtenir $E = \{ 1; 3 ; 5\}$ (si $n\geq 5$) ?
+		\item
+		Quelle est la probabilité que l'ensemble contienne au moins $2$ éléments (si $n\geq2$) ?
+	\end{enumerate}
+
 
 }{}
+
+\exe{[$\star$]
+	On mélange un jeu classique de $52$ cartes puis on retourne les cartes une à une en les prenant successivement du haut du paquet.
+	Quelle est la probabilité que l'as de trèfle soit le premier as retourné ?
+
+	On ajoute une carte joker au paquet avant de le remélanger et de retourner encore une fois les cartes une à une.
+	Quelle est la probabilité que le joker apparaisse après exactement un as, et avant les 4 autres ?
+}{}
+
 
 \end{document}
