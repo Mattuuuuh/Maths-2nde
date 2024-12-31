@@ -18,10 +18,126 @@
 \fancyhead[C]{\textbf{Probabilités 1 \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\exe{
-	SS
+\exe{\label{ex:1}
+	On considère le lancer d'un D20, dé à 20 faces numérotées de $1$ à $20$.
+	On note le nombre de la face du dessus.
+	\begin{enumerate}
+		\item Donner $\Omega$, l'univers des issues possibles, ainsi que $|\Omega|$ son cardinal.
+	\end{enumerate}
+	Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
+	\begin{enumerate}
+	\item[]
+	\item A : \og le nombre est pair \fg
+	\item B : \og le nombre est multiple de $3$ \fg
+	\item C : \og le nombre est multiple de $5$ \fg
+	\item D : \og le nombre est pair ou multiple de $3$ \fg
+	\item E : \og le nombre est multiple de $6$ \fg
+	\item F : \og le nombre est multiple de 3 et pair \fg
+	\end{enumerate}
 }
-{AAA}
+{}
+
+\exe{
+	On suppose le D20 de l'exercice \ref{ex:1} bien équilibré.
+	\begin{enumerate}
+		\item Calculer la probabilité que chacun des événements de l'exercice \ref{ex:1} arrive.
+		\item Vérifier que $D = A \cup B$.
+		\item Vérifier que $E = A \cap B$.
+		\item Vérifier l'identité
+			\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+	\end{enumerate}
+}{}
+
+\exe{
+	On lance un D6 pipé avant de noter le numéro de la face du dessus.
+	Les probabilités de chacunes des issues vérifient
+		\[ P(1) = 2 P(2) = P(3) = 2 P(4) = P(5) = 2P(6). \]
+	Calculer $P($\og le résultat est divisible par $3$ \fg$)$.
+}{}
+
+\exe{
+	Compléter le tableau de probabilités suivant, concernant le numéro de la face du dessus obtenue après un lancer d'un D6 pipé.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $0,1$ & $0,2$ & $0,1$ & $0,15$ & $0,25$ & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Calculer les probabilités suivantes.
+		\begin{enumerate}[label=\roman*)]
+			\item P(\og obtenir un nombre pair \fg) 
+			\item P(\og obtenir un nombre impair \fg) 
+			\item P(\og obtenir un nombre pair \fg)   + P(\og obtenir un nombre impair \fg) 
+			\item P(\og obtenir $2$ ou $5$ \fg) 
+			\item P(\og obtenir ni$2$ ni $5$ \fg) 
+			\item P(\og obtenir $2$ ou $5$ \fg)  + P(\og obtenir ni $2$ ni $5$ \fg) 
+		\end{enumerate}
+}{}
+
+\exe{
+	Un univers associé à une expérience aléatoire est donné par $\{ a, b, c\}$.
+	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \dfrac14$, pour un réel $t \in \R$.
+	Déterminer $t$.
+}{}
+
+\exe{
+	Une joueuse de tennis a une probabilité $0,58$ de réussir son premier service et une probabilité de $0,06$ de faire une double faute.
+	Quelle est la probabilité qu'il réussisse seulement son deuxième service ?
+}{}
+
+\exe{
+	Dessiner des diagrammes de Venn pour motiver les relations suivantes.
+		\begin{align*}
+			\overline{A\cup B} = \overline{A} \cap \overline{B}, && \text{et} && \overline{A \cap B} = \overline{A} \cup \overline{B}.
+		\end{align*}
+
+}{}
+
+\exe{
+	On considère un lancer de D$300$ bien équilibré, dé à $300$ faces numérotées de $1$ à $300$.
+	Après le lancer, on note le numéro de la face supérieure.
+	Posons $A$ : \og le résultat est n'est pas multiple de $10$ \fg, et $B$ : \og le résultat n'est pas divisible par $7$ \fg.
+	
+	\begin{enumerate}
+		\item Exprimer avec des mots les événements suivants.
+			\begin{multicols}{2}
+			\begin{enumerate}[label=\roman*)]
+				\item $\overline{A}$
+				\item $\overline{B}$
+				\item $\overline{A} \cap \overline{B}$
+				\item $\overline{A} \cup \overline{B}$
+				\item $\overline{A \cup B}$
+				\item $\overline{A \cap B}$
+			\end{enumerate}
+			\end{multicols}
+		\item Calculer les probabilités $P(\overline{A} \cap \overline{B})$ puis $P(\overline{A} \cup \overline{B})$.
+		\item Calculer la probabilité que le résultat obtenu est supérieur ou égal à $10$.
+	\end{enumerate}
+}{}
+
+\exe{
+	On lance $3$ fois de suite une pièce de monnaie bien équilibrée.
+	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
+	Donner $\Omega$, l'univers de l'expérience, et $|\Omega|$ son cardinal.
+	
+	Calculer la probabilité des événements suivants.
+		\begin{enumerate}
+			\item Obtenir $3$ fois face.
+			\item Le deuxième lancer donne pile.
+			\item Le troisième lancer est différent du premier.
+			\item On obtient au moins une fois pile.
+		\end{enumerate}
+}{}
+
+Introduction aux arbres avec l'exo ci-dessus.
+
+\exe{
+	SITUATION À DEUX OU TROIS ÉPREUVES
+
+	Créer un arbre pondéré pour cette situation et répondre aux questions suivantes.
+
+}{}
 
 \newpage
 
@@ -78,6 +194,15 @@
 
 	On ajoute une carte joker au paquet avant de le remélanger et de retourner encore une fois les cartes une à une.
 	Quelle est la probabilité que le joker apparaisse après exactement un as, et avant les 4 autres ?
+}{}
+
+\exe{
+	On choisit deux nombres $x$ et $y$ aléatoirement et uniformément entre $-1$ et $1$, et on considère la distance $d$ du point $(x;y)$ à l'origine.
+	On souhaite calculer la probabilité $p$ de l'événement \og la distance $d$ est inférieure à $1$ \fg.
+	
+	Faire un dessin de la situation et montrer que $p = \dfrac{\pi}4$.
+	
+	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
 }{}
 
 
