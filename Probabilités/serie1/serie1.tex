@@ -1,105 +1,16 @@
-% DYSLEXIA SWITCH
-\newif\ifdys
-		
 				% ENABLE or DISABLE font change
 				% use XeLaTeX if true
+\newif\ifdys
 				\dystrue
 				\dysfalse
 
-
-\ifdys
-
-\documentclass[a4paper, 14pt]{extarticle}
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
-
-\tracinglostchars=3 % Report an error if a font does not have a symbol.
-\usepackage{fontspec}
-\usepackage{unicode-math}
-\defaultfontfeatures{ Ligatures=TeX,
-                      Scale=MatchUppercase }
-
-\setmainfont{OpenDyslexic}[Scale=1.0]
-\setmathfont{Fira Math} % Or maybe try KPMath-Sans?
-\setmathfont{OpenDyslexic Italic}[range=it/{Latin,latin}]
-\setmathfont{OpenDyslexic}[range=up/{Latin,latin,num}]
-
-\else
-
-\documentclass[a4paper, 12pt]{extarticle}
-
-\usepackage[utf8x]{inputenc}
-\usepackage{lmodern,textcomp}
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
-
-\fi
-
-
-\usepackage[french]{babel}
-\usepackage[
-a4paper,
-margin=2cm,
-nomarginpar,% We don't want any margin paragraphs
-]{geometry}
-\usepackage{icomma}
-
-\usepackage{fancyhdr}
-\usepackage{array}
-
-\usepackage{multicol, enumerate}
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
-
-\usepackage{stackengine}
-\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
-
-% theorems
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Th\'eor\`eme}
-\newtheorem*{theorem*}{Th\'eor\`eme}
-\newtheorem*{sol}{Solution}
-\theoremstyle{definition}
-\newtheorem{ex}{Exercice}
-
-% corps
-\newcommand{\C}{\mathcal{C}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rnn}{\mathbb{R}^{2n}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Q}{\mathbb{Q}}
-
-% domain
-\newcommand{\D}{\mathcal{D}}
-
-
-% date
-\usepackage{advdate}
-\AdvanceDate[0]
-
-
-% plots
-\usepackage{pgfplots}
-
-% for calligraphic C
-\usepackage{calrsfs}
-
-% SOLUTION SWITCH
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
-\ifsolutions
-	\newcommand{\exe}[2]{
-		\begin{ex} #1  \end{ex}
-		\begin{sol} #2 \end{sol}
-	}
-\else
-	\newcommand{\exe}[2]{
-		\begin{ex} #1 \end{ex} 
-	}
-	
-\fi
+\input{../preamble.tex}
+
+\AdvanceDate[0]
 
 \begin{document}
 \pagestyle{fancy}

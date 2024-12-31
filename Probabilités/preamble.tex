@@ -65,7 +65,6 @@ nomarginpar,% We don't want any margin paragraphs
 \newtheorem*{sol}{Solution}
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
-\newtheorem*{definition*}{Définition}
 
 % corps
 \newcommand{\R}{\mathbb{R}}
@@ -84,15 +83,13 @@ nomarginpar,% We don't want any margin paragraphs
 \usepackage{calrsfs}
 \newcommand{\C}{\mathcal{C}}
 
-% euro, degrés
+% euro
 \usepackage{lmodern,textcomp}
-\usepackage{gensymb}
 
 % ensembles tq. 
 \newcommand{\xRtq}[1]{
 	$\left\{ x \in \R \text{ tq. } #1 \right\}$
 }
-
 
 % vabs
 \newcommand{\vabs}[1]{
@@ -108,42 +105,3 @@ nomarginpar,% We don't want any margin paragraphs
 
 %subfigures
 \usepackage{subcaption}
-
-% python
-\usepackage{tcolorbox}
-\tcbuselibrary{minted,breakable,xparse,skins}
-\definecolor{bg}{gray}{0.95}
-\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
-  breakable=true,
-  listing engine=minted,
-  listing only,
-  minted language=#2,
-  minted style=default,
-  minted options={%
-    linenos,
-    gobble=0,
-    breaklines=true,
-    breakafter=,,
-    fontsize=\small,
-    numbersep=8pt,
-    #1},
-  boxsep=0pt,
-  left skip=0pt,
-  right skip=0pt,
-  left=25pt,
-  right=0pt,
-  top=3pt,
-  bottom=3pt,
-  arc=5pt,
-  leftrule=0pt,
-  rightrule=0pt,
-  bottomrule=2pt,
-  toprule=2pt,
-  colback=bg,
-  colframe=orange!70,
-  enhanced,
-  overlay={%
-    \begin{tcbclipinterior}
-    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
-    \end{tcbclipinterior}},
-  #3}
