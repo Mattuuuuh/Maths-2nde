@@ -2,4 +2,174 @@
 %!TEX root =notes.tex
 \chapter{Probabilités}
 
+Le but de ce chapitre est de formaliser la notion de loi de probabilité en s'appuyant sur les ensembles.
+Une loi de probabilité est une hypothèse de départ choisie pour modéliser la réalité.
+Celle-ci ne se démontre pas et peut résulter soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
+Cette dernière méthode s'appuie sur le fait la fréquence d'un certain résultat d'une expérience s'approche de sa probabilité.
+On appelle ce résultat la \og loi des grands nombres \fg, dont il existe deux variantes : la faible et la forte.
+
+Les objectifs de ce chapitre sont les suivants.
+	\begin{enumerate}
+		\item Ensemble (univers) des issues. Événements. Réunion, intersectin, complémentaire.
+		\item Loi (distribution) de probabilité. Probabilité d'un événement : somme des probabilités des issues.
+		\item Relation $P(A \cup B) + P(A \cap B) = P(A) + P(B)$.
+		\item Dénombrement à l'aide de tableaux et d'arbres.
+	\end{enumerate}
+Les capacités visées sont les suivantes.
+	\begin{enumerate}
+		\item Utiliser des modèles théoriques de référence en comprenant que les probabilités sont définies a priori.
+		\item Construire un modèle à partir de fréquences observées, en distinguant nettement modèle et réalité.
+		\item Calculer des probabilités dans des cas simples : expérience aléatoire à deux ou trois épreuves.
+	\end{enumerate}
+
 \section{Introduction}
+
+On introduit ici le concept d'univers et d'événement à l'aide d'ensembles finis.
+
+\dfn{Expérience aléatoire}{
+	Une expérience aléatoire est une expérience renouvelable dont on connait les résulats possibles sans qu'on puisse savoir avec certitude lequel sera réalisé.
+}{}
+
+\dfn{Univers $\Omega$}{
+	L'universe $\Omega$ d'une expérience aléatoire est l'\textbf{ensemble} des issues possibles.
+}{}
+
+\ex{}{
+	On tire deux cartes d'un jeu complet et on considère les couleurs des cartes tirées, sans les ordonner.
+	Les $10$ issues possibles constituent l'univers :
+		\[
+		\Omega = \left\{
+		\begin{aligned}
+			&( \clubsuit, \clubsuit ), ( \clubsuit, \heartsuit ), ( \clubsuit, \spadesuit ), \\ 
+			&( \clubsuit, \diamondsuit ), ( \heartsuit, \heartsuit ), ( \heartsuit, \spadesuit ), \\
+			&( \heartsuit, \diamondsuit ), ( \spadesuit, \spadesuit ), ( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
+		\end{aligned}
+		\right\}
+		\]
+	Remarquons que si on avait choisi d'ordonner les cartes (en choisir une première puis une deuxième), on aurait plutôt $16$ issues possibles, car dans ce cas $(\clubsuit, \heartsuit) \neq (\heartsuit, \clubsuit)$
+}{ex:2-cartes}
+
+\exe{}{
+	Donner les univers $\Omega$ des expériences aléatoires suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=---]
+		\item Un lancer de dé équilibré à six faces.
+		\item Un lancer de pièce de monnaie.
+		\item Chiffres du loto.
+		\item Un lancer de dé pipé (truqué) à six faces.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\dfn{Événement}{
+	Un \emph{événement} est un sous-ensemble de l'univers.
+	On peut le décrire avec un ensemble ou des mots, par abus de notation.
+}{}
+
+\ex{}{
+	Dans l'expérience aléatoire de l'exemple \ref{ex:2-cartes}, on considère l'événement $E$ suivant.
+		\begin{center}
+			E : \og au moins une carte de carreau est tirée \fg.
+		\end{center}
+	Cet événement est associé à l'ensemble $S$ des issues de l'univers $\Omega$ vérifiant $E$.
+	C'est-à-dire l'ensemble des paires couleurs dont au moins une est de carreau.
+		\begin{align*}
+			S &= \{ c \in \Omega \text{ tels qu'au moins une des cartes du couple $c$ est de carreau} \} \\
+			&= \left\{
+			\begin{aligned}
+			&( \clubsuit, \diamondsuit ), ( \heartsuit, \diamondsuit ), \\
+			&( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
+			\end{aligned}
+			\right\}
+		\end{align*}
+	Il y a $4$ issues possibles correspondant à cet événement.
+}{}
+
+\section{Lois de probabilité}
+
+Lorsqu'on considère une expérience aléatoire, on associe une probabilité à chaque issue possible (c'est-à-dire chaque élément de l'univers).
+C'est association est une loi de probabilité qu'on ne démontre jamais : c'est la base de la modélisation du hasard.
+
+\dfn{Loi de probabilité}{
+	Soit $\Omega = \{ \omega_1, \omega_2, \omega_3, \dots \}$ un univers fini.
+	Une loi de probabilité $P$ est une fonction associant à chaque issue $\omega$ une valeur de $[0;1]$ (sa probabilité d'être réalisée).
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue		& $\omega_1$ & $\omega_2$ & \hspace{15pt} \dots \hspace{15pt} \\ \hline
+		Probabilité	& $P(\omega_1)$ & $P(\omega_2)$ &\hspace{15pt} \dots \hspace{15pt} \\ \hline
+	\end{tabular}
+	\end{center}
+	La loi $P$ s'étend à tout sous-ensemble $E = \{e_1, e_2, \dots \}$ de l'univers $\Omega$ par additivité : la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
+			\[ P(E) = P(e_1) + P(e_2) + \dots \]
+	En outre, la probabilité de l'univers tout entier est toujours $1$ :
+		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
+}{}
+
+\nt{
+	En écrivant $P(\omega)$, on abuse légèrement d'une notation. Il faudrait plutôt écrire
+		\[ P(\{\omega\}), \]
+	car la fonction $P$ prend uniquement des sous-ensembles de $\Omega$.
+}{}
+
+\thm{Inclusion-exclusion}{
+	Soient $A, B \subseteq \Omega$ deux événements.
+	Alors
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}{thm:incl-excl}
+
+\pf{Preuve du théorème \ref{thm:incl-excl}}{
+	On considère le diagramme de Venn suivant.
+	
+	TODO
+	
+	Lorsqu'on calcule $P(A) + P(B)$, remarquons qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
+	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}{}
+
+\dfn{Équiprobabilité}{
+	On parle de situation \emph{équiprobable} si chaque issue $\omega$ de l'univers $\Omega$ admet la même probabilité.
+		\[ P(\omega_1) = P(\omega_2) =  P(\omega_3) = \dots, \]
+	La loi qui en découle s'appelle la \emph{loi uniforme}.
+}{}
+
+\cor{}{
+	En situation d'équiprobabilité, chaque issue $\omega$ a pour probabilité
+		\[ P(\omega) = \dfrac{1}{\text{Nombre d'issues possibles}} = \dfrac{1}{|\Omega|}. \]
+	De plus, chaque événement $E \subseteq \Omega$ a pour probabilité
+		\[ P(E) = \dfrac{|E|}{|\Omega|}. \]
+}{cor:equiprob}
+\pf{Démonstration du corollaire \ref{cor:equiprob}}{
+	Comme la probabilité de l'univers $P(\Omega)$ vaut $1$, on en déduit que
+		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
+	Chaque probabilité est la même ; notons la $p$. La somme a exactement $|\Omega|$ termes, donc
+		\[ |\Omega| \cdot p = 1, \]
+	et donc
+		\[ p = \dfrac{1}{|\Omega|}. \]
+	Pour un événement $E = \{e_1, e_2, \dots \} \subseteq \Omega$, on a par définition que la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
+		\begin{align*}
+			P(E) &= P(e_1) + P(e_2) + \dots \\
+				&= \dfrac{1}{|\Omega|} + \dfrac{1}{|\Omega|} + \dots + \dfrac{1}{|\Omega|} \\
+				&= \dfrac{|E|}{|\Omega|}.
+		\end{align*}
+}{}
+
+\dfn{Événement complémentaire}{
+	Soit $E \subseteq \Omega$ un événement.
+	On pose $\overline{E}$ l'événement complémentaire à $E$ dans $\Omega$ : c'est l'ensemble des issues de $\Omega$ qui n'appartiennent pas à $E$.
+	Autrement dit,
+		\begin{align*}
+			E \cap \overline{E} = \emptyset && \text{et} && E \cup \overline{E} = \Omega.
+		\end{align*}
+}{}
+
+\nt{
+	On note aussi le complémentaire d'un événement $E$ des façons suivantes.
+		\[ \overline{E} = E^c = \Omega \setminus E = \Omega - E. \]
+}{}
+
+\cor{}{
+	Soient $E \subseteq \Omega$ un événement et $\overline{E}$ son complémentaire.
+	Alors
+		\[ P\left( \overline{E} \right) = 1 - P(E). \]
+}{}
