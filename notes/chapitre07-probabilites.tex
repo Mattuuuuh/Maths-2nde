@@ -2,15 +2,15 @@
 %!TEX root =notes.tex
 \chapter{Probabilités}
 
-Le but de ce chapitre est de formaliser la notion de loi de probabilité en s'appuyant sur les ensembles.
+Le but de ce chapitre est d'étudier la notion de loi de probabilité sur un ensemble d'issues.
 Une loi de probabilité est une hypothèse de départ choisie pour modéliser la réalité.
 Celle-ci ne se démontre pas et peut résulter soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
-Cette dernière méthode s'appuie sur le fait la fréquence d'un certain résultat d'une expérience s'approche de sa probabilité.
+Cette dernière méthode s'appuie sur le fait que la fréquence d'un événement s'approche de sa probabilité lorsque le nombre d'expériences augmente.
 On appelle ce résultat la \og loi des grands nombres \fg, dont il existe deux variantes : la faible et la forte.
 
 Les objectifs de ce chapitre sont les suivants.
 	\begin{enumerate}
-		\item Ensemble (univers) des issues. Événements. Réunion, intersectin, complémentaire.
+		\item Ensemble (univers) des issues. Événements. Réunion, intersection, complémentaire.
 		\item Loi (distribution) de probabilité. Probabilité d'un événement : somme des probabilités des issues.
 		\item Relation $P(A \cup B) + P(A \cap B) = P(A) + P(B)$.
 		\item Dénombrement à l'aide de tableaux et d'arbres.
@@ -101,8 +101,10 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	\end{center}
 	La loi $P$ s'étend à tout sous-ensemble $E = \{e_1, e_2, \dots \}$ de l'univers $\Omega$ par additivité : la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
 			\[ P(E) = P(e_1) + P(e_2) + \dots \]
-	En outre, la probabilité de l'univers tout entier est toujours $1$ :
-		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
+	En outre, la probabilité de l'univers tout entier est $1$ :
+		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1, \]
+	et la probabilité de l'ensemble vide $\emptyset$ est nulle :
+		\[ P(\emptyset) = 0. \]
 }{}
 
 \nt{
@@ -125,6 +127,14 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	Lorsqu'on calcule $P(A) + P(B)$, remarquons qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
 	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
 		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}{}
+
+\dfn{Événements disjoints}{
+	Deux événements $A, B \subseteq \Omega$ sont dits disjoints dès que
+		\[ A \cap B = \emptyset, \]
+	l'ensemble vide.
+	On a dans ce cas et d'après le théorème \ref{thm:incl-excl},
+		\[ P(A \cup B) = P(A) + P(B). \]
 }{}
 
 \dfn{Équiprobabilité}{
@@ -172,4 +182,37 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	Soient $E \subseteq \Omega$ un événement et $\overline{E}$ son complémentaire.
 	Alors
 		\[ P\left( \overline{E} \right) = 1 - P(E). \]
+}{cor:compl}
+
+\pf{Démonstration du corollaire \ref{cor:compl}}{
+	En utilisant les propriétés de $P$, du complémentaire, et le principe d'inclusion-exclusion, on trouve
+		\begin{align*}
+		 1 = P(\Omega) &= P\left( E \cup \overline{E} \right) \\
+		 				&= P(E) + P\left(\overline{E}\right) - P\left( E \cap \overline{E}\right) \\
+		 				&= P(E) + P\left(\overline{E}\right) - P\left( \emptyset \right) \\
+		 				&= P(E) + P\left(\overline{E}\right),
+		\end{align*}
+	ce qui conclut.
 }{}
+
+\section{Dénombrements}
+
+La question du dénombrement, c'est-à-dire de connaître le nombre d'éléments d'un certain ensemble, apparaît naturellement pendant l'étude des probabilités.
+En effet, dans une situation d'équiprobabilité et d'après le corollaire \ref{cor:equiprob}, le calcul de probabilité correspond à une question de proportion d'éléments dans un sous-ensemble.
+Cette formule correspond d'ailleurs à la formule de la définition \ref{def:proportion} du chapitre \ref{chap:stats} de statisitques.
+
+Pour calculer la probabilité qu'un événement $E\subseteq\Omega$ arrive, il s'agira alors de comprendre combien d'issues sont possibles (connaître $|\Omega|$), et combien d'issues sont favorables (connaître $|E|$).
+
+\section{Construction d'un modèle empirique}
+
+Lorsqu'on étudie une expérience aléatoire, il n'est pas toujours simple de connaître \emph{a priori} la probabilité de chacune des issues possibles.
+Par exemple, même si un dé à $6$ faces est su pipé, il n'est pas possible de connaître la probabilité d'obtenir un $6$ : elle pourrait être $1$ (si la face $6$ est lestée), comme $0$ (si une autre face l'est), comme toute autre valeur entre $0$ et $1$.
+
+Une façon naturelle de connaître la probabilité d'obtenir un $6$ est donc de lancer le dé un grand nombre de fois.
+La fréquence d'apparition de $6$ parmis toutes les autres issues donnera donc une \emph{approximation} de la probabilité recherchée, qu'on \emph{admettra} ensuite comme probabilité dans notre modèle afin de prédire le résultat des lancers suivants.
+
+Cette construction de modèle probabiliste est empirique : elle ne s'appuie que sur l'expérience et sur l'hypothèse que le lancer de dé est une expérience aléatoire bien définie (les probabilités ne changent pas d'un lancer à l'autre).
+L'erreur commise entre une probabilité réelle et une fréquence dépend du nombre d'expériences réalisées.
+L'inégalité de Chebyshev permet de montrer formellement qu'une telle fréquence est proche de sa moyenne lorsque sa variance diminue.
+Cela rejoint l'interprétation de l'écart type donnée dans le chapitre \ref{chap:stats}.
+
