@@ -264,7 +264,7 @@ On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du qua
 			\addplot[no marks, black, -, thick] expression[domain=0:0.625, samples=2]{0.7805/0.625*x}
 			node[midway, above=]{$1$};
 			
-			\addplot[no marks, red, -, thick] expression[domain=0.125:.2, samples=100]{sqrt(.04-x^2)}
+			\addplot[no marks, red, -, thick] expression[domain=0.11:0.1732, samples=100]{sqrt(.03-x^2)}
 			node[right, pos=.2] {$\theta$};
 			
 			\draw[black, thick] (axis cs:0.625, 0) -- (axis cs:0.625,0.7805);
@@ -309,5 +309,225 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 
 \section{Manipulations des racines carrées}
 
+
+\dfn{Racine carrée}{
+	Soit $a \in \R, a\geq0$ un réel positif ou nul.
+	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
+		\[ \sqrt{a}^2 = a. \]
+}{}
+
+%\exe{}{
+%	Compléter les pointillés.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $\sqrt{25} = \dots$
+%		\item $\sqrt{81} = \dots$
+%		\item $\sqrt{121} = \dots$
+%		\item $\sqrt{\quad\dots\quad} = 25$
+%		\item $\sqrt{\quad\dots\quad} = 12$
+%		\item $\sqrt{\quad\dots\quad} = 10^3$
+%	\end{enumerate}
+%	\end{multicols}
+%}
+%{}
+%
+%\exe{}{
+%	Calculer les racines carrées suivantes.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $\sqrt{7^2}$
+%		\item $\sqrt{17}^2$
+%		\item $\sqrt{(-9)^2}$
+%		\item $\sqrt{10^4}$
+%		\item $\left(-\sqrt{4}\right)^2$
+%		\item $-\sqrt{15^2}$
+%	\end{enumerate}
+%	\end{multicols}
+%}
+%{}
+
+% pas hyper intéressant sans notion de croissance de sqrt je trouve
+%\exe{}{
+%	Donner un encadrement des nombres à l'unité.
+%		\begin{multicols}{2}
+%		\begin{enumerate}
+%			\item $\sqrt{43}$
+%			\item $\sqrt{70,8}$
+%			\item $\sqrt{\dfrac{61}7}$
+%			\item $\sqrt{101,204}$
+%		\end{enumerate}
+%		\end{multicols}
+%}{}
+
+\thm{Propriétés de la racine carrée}{
+	Soient $a,b \in\R$ deux réels positifs, $b\neq0$.
+	Alors
+		\begin{align*}
+			\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, && \text{ et } && \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}.
+		\end{align*}
+}{}
+
+%\exe{}{
+%	Calculer les produits suivants.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $\sqrt{169} \cdot \sqrt{81}$
+%		\item $\sqrt{169 \cdot 81}$
+%		\item $\sqrt{0,16} \cdot \sqrt{900}$
+%		\item $\sqrt{0,16 \cdot 900}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{}
+%
+%\exe{}{
+%	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
+%
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $\sqrt{12}$
+%		\item $\sqrt{150}$
+%		\item $5\sqrt{96}$
+%		\item $2\sqrt{300}$
+%		\item $\dfrac{12}{\sqrt{3}}$
+%		\item $\dfrac{18}{\sqrt{6}}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{}
+%
+%
+%\exe{}{
+%	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $3\sqrt{2}$
+%		\item $50\sqrt{0,5}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{}
+%
+%\exe{}{
+%	Calculer les fractions suivantes.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
+%		\item $\sqrt{\dfrac{64}4}$
+%		\item $\dfrac{\sqrt{0,81}}{\sqrt{0,09}}$
+%		\item $\sqrt{\dfrac{0,81}{0,09}}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{}
+
+\exe{}{
+	Résoudre les équations suivantes pour $x\in\R$, $x\neq0$. Exprimer $x$ sous la forme $q \sqrt{b}$ avec $q\in\Q$ rationnel et $b\in\N$ le plus petit possible.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac3x = \dfrac12.$
+		\item $ \dfrac7x  =\dfrac12$
+		\item $\dfrac8x  =\dfrac{\sqrt{3}}2$
+		\item $\dfrac2x =\sqrt{3}$
+		\item $\dfrac9x  =\dfrac{\sqrt{6}}5$
+		\item $-\dfrac3x =\sqrt{7}$
+		\item $-\dfrac7{2x}  =\dfrac{\sqrt{11}}3$
+		\item $\dfrac3{5x} =-\sqrt{5}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\ex{}{
+	Pour résoudre pour $x\in\R$, $x\neq0$, l'équation 
+		\[ \dfrac8x  =\dfrac{\sqrt{3}}2, \]
+	on souhaite ramener $x$ au numérateur afin d'obtenir quelque chose de la forme $x = \dots$.
+	Pour ça, on multiplie par $x$ les deux membres de l'égalité pour trouver
+		\[ 8 = \dfrac{\sqrt{3}}2 x. \]
+	On multiplie ensuite par $2$ et par $\dfrac1{\sqrt{3}}$ pour obtenir ce qu'on voulait :
+		\[ 8 \cdot 2 \cdot \dfrac1{\sqrt{3}} = x. \]
+	Reste à simplifier le résultat obtenu. On peut multiplier le numérateur et le dénominateur par $\sqrt{3}$ pour avoir une expression du type $q \sqrt{b}$, avec $q \in\Q$ rationnel et $b\in\N$ entier.
+		\[ x =  8 \cdot 2 \cdot \dfrac1{\sqrt{3}} = \dfrac{16}{\sqrt{3}} = \dfrac{16 \sqrt{3}}{\sqrt{3}^2} = \dfrac{16}3 \sqrt{3}. \]
+	Les deux nombres $\dfrac{16}{\sqrt{3}}$ et $\dfrac{16}3 \sqrt{3}$ sont égaux, au même titre que $\dfrac36 = \dfrac12$.
+	La deuxième expression est cependant plus agréable pour une raison inconnue.
+}{}
+
+\exe{}{
+	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles suivants.
+
+
+	\begin{multicols}{2}
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$14$};
+		\draw[-, thick, black] (3,0) -- (3,2);
+		\draw[-, thick, black] (3,2) -- (0,0);
+		
+		\node[black, left] at  (0,0) {$A$};
+		\node[black, below] at  (3,0) {$B$};
+		\node[black, above] at  (3,2) {$C$};
+		% angle droit
+		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		
+		% angle
+		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+		node[left=5pt, right=5pt] {$30$°};
+	\end{tikzpicture}
+	
+	
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$13$};
+		\draw[-, thick, black] (3,0) -- (3,2);
+		\draw[-, thick, black] (3,2) -- (0,0);
+		
+		\node[black, left] at  (0,0) {$A$};
+		\node[black, below] at  (3,0) {$B$};
+		\node[black, above] at  (3,2) {$C$};
+		% angle droit
+		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		
+		% angle
+		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+		node[below=5pt] {$30$°};
+	\end{tikzpicture}
+	
+
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) -- (3,0);
+		\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {$2\sqrt{6}$} ;
+		\draw[-, thick, black] (3,2) -- (0,0);
+		
+		\node[black, left] at  (0,0) {$A$};
+		\node[black, below] at  (3,0) {$B$};
+		\node[black, above] at  (3,2) {$C$};
+		% angle droit
+		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		
+		% angle
+		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
+		node[below=5pt] {$60$°};
+	\end{tikzpicture}
+
+
+
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) -- (3,0);
+		\draw[-, thick, black] (3,0) -- (3,2)  node[midway, right] {$6\sqrt{15}$} ;
+		\draw[-, thick, black] (3,2) -- (0,0);
+		
+		\node[black, left] at  (0,0) {$A$};
+		\node[black, below] at  (3,0) {$B$};
+		\node[black, above] at  (3,2) {$C$};
+		% angle droit
+		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		
+		% angle
+		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+		node[left=5pt, right=5pt] {$60$°};
+	\end{tikzpicture}
+	\end{multicols}
+	\emph{Données : }	
+		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]
+	
+		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
+}{}
 
 
