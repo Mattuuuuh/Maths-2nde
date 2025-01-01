@@ -18,21 +18,36 @@
 \fancyhead[C]{\textbf{Probabilités 1 \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+\exe{
+	Donner l'univers $\Omega$ de chacune des expériences aléatoires suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=---]
+		\item Un lancer de dé équilibré à six faces.
+		\item Un lancer de dé pipé (truqué) à six faces.
+		\item Un lancer de pièce de monnaie.
+		\item Deux lancers de dés  à $6$ faces simultanés.
+		\item Deux lancers de dés à $6$ faces, l'un après l'autre.
+		\item Couleur d'une carte tirée au hasard parmis un jeu de $52$ cartes.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
 \exe{\label{ex:1}
 	On considère le lancer d'un D20, dé à 20 faces numérotées de $1$ à $20$.
 	On note le nombre de la face du dessus.
 	\begin{enumerate}
-		\item Donner $\Omega$, l'univers des issues possibles, ainsi que $|\Omega|$ son cardinal.
-	\end{enumerate}
-	Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
-	\begin{enumerate}
-	\item[]
-	\item A : \og le nombre est pair \fg
-	\item B : \og le nombre est multiple de $3$ \fg
-	\item C : \og le nombre est multiple de $5$ \fg
-	\item D : \og le nombre est pair ou multiple de $3$ \fg
-	\item E : \og le nombre est multiple de $6$ \fg
-	\item F : \og le nombre est multiple de 3 et pair \fg
+		\item Donner l'univers des issues possibles $\Omega$ ainsi que son cardinal $|\Omega|$.
+		\item Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
+		%\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+		\item A : \og le nombre est pair \fg
+		\item B : \og le nombre est multiple de $3$ \fg
+		\item C : \og le nombre est multiple de $5$ \fg
+		\item D : \og le nombre est pair ou multiple de $3$ \fg
+		\item E : \og le nombre est multiple de $6$ \fg
+		\item F : \og le nombre est multiple de 3 et pair \fg
+		\end{enumerate}
+		%\end{multicols}
 	\end{enumerate}
 }
 {}
@@ -40,7 +55,7 @@
 \exe{
 	On suppose le D20 de l'exercice \ref{ex:1} bien équilibré.
 	\begin{enumerate}
-		\item Calculer la probabilité que chacun des événements de l'exercice \ref{ex:1} arrive.
+		\item Calculer la probabilité de chacun des événements de l'exercice \ref{ex:1}.
 		\item Vérifier que $D = A \cup B$.
 		\item Vérifier que $E = A \cap B$.
 		\item Vérifier l'identité
@@ -70,20 +85,21 @@
 			\item P(\og obtenir un nombre impair \fg) 
 			\item P(\og obtenir un nombre pair \fg)   + P(\og obtenir un nombre impair \fg) 
 			\item P(\og obtenir $2$ ou $5$ \fg) 
-			\item P(\og obtenir ni$2$ ni $5$ \fg) 
+			\item P(\og obtenir ni $2$ ni $5$ \fg) 
 			\item P(\og obtenir $2$ ou $5$ \fg)  + P(\og obtenir ni $2$ ni $5$ \fg) 
 		\end{enumerate}
 }{}
 
 \exe{
-	Un univers associé à une expérience aléatoire est donné par $\{ a, b, c\}$.
-	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \dfrac14$, pour un réel $t \in \R$.
-	Déterminer $t$.
+	L'univers associé à une expérience aléatoire est $\{ a, b, c\}$.
+	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \frac14$, pour un réel $t \in \R$.
+	
+	Développer le carré $\left(t-\frac12\right)^2$ et déterminer $t$.
 }{}
 
 \exe{
 	Une joueuse de tennis a une probabilité $0,58$ de réussir son premier service et une probabilité de $0,06$ de faire une double faute.
-	Quelle est la probabilité qu'il réussisse seulement son deuxième service ?
+	Quelle est la probabilité qu'elle réussisse seulement son deuxième service ?
 }{}
 
 \exe{
@@ -95,7 +111,7 @@
 }{}
 
 \exe{
-	On considère un lancer de D$300$ bien équilibré, dé à $300$ faces numérotées de $1$ à $300$.
+	On considère un lancer d'un D$300$ bien équilibré, dé à $300$ faces numérotées de $1$ à $300$.
 	Après le lancer, on note le numéro de la face supérieure.
 	Posons $A$ : \og le résultat est n'est pas multiple de $10$ \fg, et $B$ : \og le résultat n'est pas divisible par $7$ \fg.
 	
@@ -107,12 +123,32 @@
 				\item $\overline{B}$
 				\item $\overline{A} \cap \overline{B}$
 				\item $\overline{A} \cup \overline{B}$
-				\item $\overline{A \cup B}$
-				\item $\overline{A \cap B}$
+				%\item $\overline{A \cup B}$
+				%\item $\overline{A \cap B}$
 			\end{enumerate}
 			\end{multicols}
-		\item Calculer les probabilités $P(\overline{A} \cap \overline{B})$ puis $P(\overline{A} \cup \overline{B})$.
+		\item Calculer les probabilités $P\left( \overline{A} \right)$ et $P\left( \overline{B} \right)$.
+		\item Calculer les probabilités $P\left(\overline{A} \cap \overline{B}\right)$ puis $P\left(\overline{A} \cup \overline{B}\right)$.
 		\item Calculer la probabilité que le résultat obtenu est supérieur ou égal à $10$.
+	\end{enumerate}
+}{}
+
+
+\exe{
+	On lance deux D$6$ équilibrés, dés à $6$ faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+	\end{enumerate}
+}{}
+
+\exe{
+	On lance deux D$6$ équilibrés, dés à $6$ faces, au même moment. Les deux dés sont absolument identiques.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité d'obtenir deux résultats différents ?
 	\end{enumerate}
 }{}
 
@@ -132,12 +168,18 @@
 
 Introduction aux arbres avec l'exo ci-dessus.
 
+
+
 \exe{
 	SITUATION À DEUX OU TROIS ÉPREUVES
 
 	Créer un arbre pondéré pour cette situation et répondre aux questions suivantes.
 
 }{}
+
+STATS EMPIRIQUES
+
+
 
 \newpage
 
@@ -188,6 +230,25 @@ Introduction aux arbres avec l'exo ci-dessus.
 
 }{}
 
+\exe{
+	On mélange un jeu classique de $52$ cartes puis on retourne les cartes une à une en les prenant successivement du haut du paquet.
+	Donner $|\Omega|$, le nombre d'ordres différents des $52$ cartes.
+}{}
+
+\exe{
+	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes en gardant leur ordre en mémoire.
+	Donner $|\Omega|$, le nombre quintuples ordonnés de cartes. 
+	On utilisera la notation $(1 ; 2; 3; 4; 5)$ pour une issue possible car les tuples sont ordonnés.
+}{}
+
+\exe{[$\star$]
+	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes sans prendre en compte leur ordre.
+	Donner le nombre de quintuples ordonnés donnant lieu à la même issue de l'expérience. Par exemple, échanger l'ordre des deux premières cartes ne change pas l'ensemble qu'ils forment.
+	On utilisera la notation $\{1 ; 2; 3; 4; 5\}$ pour une issue possible car les ensembles ne sont pas ordonnés.
+	
+	En déduire $|\Omega|$, le nombre d'ensembles de $5$ cartes.
+}{}
+
 \exe{[$\star$]
 	On mélange un jeu classique de $52$ cartes puis on retourne les cartes une à une en les prenant successivement du haut du paquet.
 	Quelle est la probabilité que l'as de trèfle soit le premier as retourné ?
@@ -196,7 +257,7 @@ Introduction aux arbres avec l'exo ci-dessus.
 	Quelle est la probabilité que le joker apparaisse après exactement un as, et avant les 4 autres ?
 }{}
 
-\exe{
+\exe{[$\star$]
 	On choisit deux nombres $x$ et $y$ aléatoirement et uniformément entre $-1$ et $1$, et on considère la distance $d$ du point $(x;y)$ à l'origine.
 	On souhaite calculer la probabilité $p$ de l'événement \og la distance $d$ est inférieure à $1$ \fg.
 	
@@ -205,5 +266,16 @@ Introduction aux arbres avec l'exo ci-dessus.
 	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
 }{}
 
+\exe{[$\star$ Problème de Monty Hall]
+	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?\footnote{Traduction de $\href{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}$.}
+}{}
+
+\exe{[$\star$ Paradoxe des anniversaires]
+	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\frac1{365}$.
+	
+	Montrer, en passant par l'événement complémentaire, que la probabilité que deux personnes partagent la même date d'anniversaire est d'environ $2,71\%$.
+	
+	Montrer qu'en choisissant $20$ personnes, cette probabilité atteint environ $41,14\%$.
+}{}
 
 \end{document}
