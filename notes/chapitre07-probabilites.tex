@@ -72,7 +72,7 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 			E : \og au moins une carte de carreau est tirée \fg.
 		\end{center}
 	Cet événement est associé à l'ensemble $S$ des issues de l'univers $\Omega$ vérifiant $E$.
-	C'est-à-dire l'ensemble des paires couleurs dont au moins une est de carreau.
+	C'est-à-dire l'ensemble des paires de couleurs dont au moins une est de carreau.
 		\begin{align*}
 			S &= \{ c \in \Omega \text{ tels qu'au moins une des cartes du couple $c$ est de carreau} \} \\
 			&= \left\{
@@ -202,9 +202,10 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	Comme la probabilité de l'univers $P(\Omega)$ vaut $1$, on en déduit que
 		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
 	Chaque probabilité est la même ; notons la $p$. La somme a exactement $|\Omega|$ termes, donc
-		\[ |\Omega| \cdot p = 1, \]
-	et donc
-		\[ p = \dfrac{1}{|\Omega|}. \]
+		\begin{gather*}
+			|\Omega| \cdot p = 1, \\
+			p = \dfrac{1}{|\Omega|}. 
+		\end{gather*}
 	Pour un événement $E = \{e_1, e_2, \dots \} \subseteq \Omega$, on a par définition que la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
 		\begin{align*}
 			P(E) &= P(e_1) + P(e_2) + \dots \\
@@ -248,7 +249,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 
 La question du dénombrement, c'est-à-dire de connaître le nombre d'éléments d'un certain ensemble, apparaît naturellement pendant l'étude des probabilités.
 En effet, dans une situation d'équiprobabilité et d'après le corollaire \ref{cor:equiprob}, le calcul de probabilité correspond à une question de proportion d'éléments dans un sous-ensemble.
-Cette formule correspond d'ailleurs à la formule de la définition \ref{def:proportion} du chapitre \ref{chap:stats} de statisitques.
+Cette expression devrait rappeller la définition \ref{def:proportion} du chapitre \ref{chap:stats} de statistiques.
 
 Pour calculer la probabilité qu'un événement $E\subseteq\Omega$ arrive, il s'agira alors de comprendre combien d'issues sont possibles (connaître $|\Omega|$), et combien d'issues sont favorables (connaître $|E|$).
 
