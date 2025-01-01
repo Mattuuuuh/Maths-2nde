@@ -120,10 +120,59 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 }{thm:incl-excl}
 
 \pf{Preuve du théorème \ref{thm:incl-excl}}{
-	On considère le diagramme de Venn suivant.
-	
-	TODO
-	
+	On considère les diagrammes de Venn suivants.
+	\begin{center}
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% left hand
+		\scope
+		\draw[pattern=north west lines, pattern color=myr] (0,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\draw[pattern=north east lines, pattern color=myg] (1,0) circle (1);
+		\endscope
+		% outline
+		\draw (0,0) circle (1) (0,1)  node [text=black,above, myr] {$A$}
+		      (1,0) circle (1) (1,1)  node [text=black,above, myg] {$B$}
+		      (3,-2) rectangle (-2,2) node [text=black,below right] {$\Omega$};
+		%\draw (.5,0) node [text=black] {$A \cap B$};
+	\end{tikzpicture}
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% left hand
+		\scope
+		\clip (-2,-2) rectangle (2,2)
+		      (1,0) circle (1);
+		\fill[myr] (0,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\clip (-2,-2) rectangle (2,2)
+		      (0,0) circle (1);
+		\fill[myg] (1,0) circle (1);
+		\endscope
+		% outline
+		\draw (0,0) circle (1) (0,1)  node [text=black,above left, myr] {$A\setminus B$}
+		      (1,0) circle (1) (1,1)  node [text=black,above right, myg] {$B\setminus A$}
+		      (3,-2) rectangle (-2,2) node [text=black,below right] {$\Omega$};
+		\draw (.5,0) node [text=black] {$A \cap B$};
+	\end{tikzpicture}
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% left hand
+		\scope
+		\fill[violet] (0,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\fill[violet] (1,0) circle (1);
+		\endscope
+		% outline
+		\draw (0,0) circle (1) (0,1) 
+		      (1,0) circle (1) (1,1) 
+		      (3,-2) rectangle (-2,2) node [text=black,below right] {$\Omega$};
+		\draw (.5,1) node [text=black, above, violet] {$A \cup B$};
+	\end{tikzpicture}
+	\end{center}
+			
 	Lorsqu'on calcule $P(A) + P(B)$, remarquons qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
 	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
 		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
