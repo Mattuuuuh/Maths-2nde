@@ -272,9 +272,9 @@ STATS EMPIRIQUES
 
 \newpage
 
-\subsection*{Exercices supplémentaires}
+%\subsection*{Exercices supplémentaires}
 
-\exe{
+\exe{[$\star$]
 	Soit $\Omega = \{ 0 ; 1; \dots ; 499; 500\} \subseteq \N$ et $A, B \subseteq \Omega$ définis par
 		\begin{align*}
 			A = \{ n \in \Omega \text{ tq. } 2|n \}, && B = \{ n \in \Omega \text{ tq. } 5|n\}.
@@ -293,14 +293,14 @@ STATS EMPIRIQUES
 	\end{enumerate}
 }{}
 
-\exe{
+\exe{[$\star$]
 	Soient $A, B$ deux événements.
 	Montrer que les événements $ \overline{A} \cap B$ et $A \cap B$ sont disjoints.
 	En déduire la relation suivante.
 		\[ P\left( \overline{A} \cap B \right) = P(B) - P(A \cap B) \]
 }{}
 
-\exe{
+\exe{[$\star$]
 	Soit $\Omega = \{ 1 ; 2 ; 3 ; \dots ; n \}$ l'ensemble des $n$ premiers entiers naturels non nuls.
 	On construit un sous-ensemble $E \subseteq \Omega$ de la façon suivante :
 	pour chaque entier de $\Omega$, on jette une pièce équilibrée pour savoir si on l'inclut ou non dans $E$.
@@ -319,18 +319,29 @@ STATS EMPIRIQUES
 
 }{}
 
-\exe{
+\exe{[$\star$]
 	On mélange un jeu classique de $52$ cartes puis on retourne les cartes une à une en les prenant successivement du haut du paquet.
 	Donner $|\Omega|$, le nombre d'ordres différents des $52$ cartes.
 }{}
 
-\exe{
+\exe{[$\star$]
 	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes en gardant leur ordre en mémoire.
 	Donner $|\Omega|$, le nombre quintuples ordonnés de cartes. 
 	On utilisera la notation $(1 ; 2; 3; 4; 5)$ pour une issue possible car les tuples sont ordonnés.
 }{}
 
 \exe{[$\star$]
+	Deux personnes veulent faire un pari équilibré mais aucune n'a confiance en l'autre : elles ne peuvent donc pas utiliser un lancer simple de pièce de monnaie, de peur que son propriétaire l'ait truqué.
+	Posons $p$ et $1-p$ la probabilité d'obtenir pile et face respectivement après un lancer d'une pièce de monnaie.
+	\begin{enumerate}
+		\item Montrer que la pièce est équilibrée si et seulement si $p=\frac12$. On ne supposera \emph{pas} que la pièce est équilibrée dans la suite.
+		\item Dessiner un arbre de probabilité correspondant à deux lancers successifs.
+		\item Déduire que les probabilités d'obtenir pile puis face et d'obtenir face puis pile sont égales.
+		\item Donner un protocole garantissant un pari équiprobable en utilisant une pièce de monnaie possiblement truquée.
+	\end{enumerate}
+}{}
+
+\exe{[$\star\star$]
 	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes sans prendre en compte leur ordre.
 	Donner le nombre de quintuples ordonnés donnant lieu à la même issue de l'expérience. Par exemple, échanger l'ordre des deux premières cartes ne change pas l'ensemble qu'ils forment.
 	On utilisera la notation $\{1 ; 2; 3; 4; 5\}$ pour une issue possible car les ensembles ne sont pas ordonnés.
@@ -338,7 +349,7 @@ STATS EMPIRIQUES
 	En déduire $|\Omega|$, le nombre d'ensembles de $5$ cartes.
 }{}
 
-\exe{[$\star$]
+\exe{[$\star\star$]
 	On mélange un jeu classique de $52$ cartes puis on retourne les cartes une à une en les prenant successivement du haut du paquet.
 	Quelle est la probabilité que l'as de trèfle soit le premier as retourné ?
 
@@ -355,16 +366,17 @@ STATS EMPIRIQUES
 	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
 }{}
 
-\exe{[$\star$ Problème de Monty Hall]
+\exe{[$\star\star$ Problème de Monty Hall]
 	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?\footnote{Traduction de $\href{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}$.}
 }{}
 
-\exe{[$\star$ Paradoxe des anniversaires]
+\exe{[$\star\star$ Paradoxe des anniversaires]
 	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\frac1{365}$.
 	
 	Montrer, en passant par l'événement complémentaire, que la probabilité que deux personnes partagent la même date d'anniversaire est d'environ $2,71\%$.
 	
 	Montrer qu'en choisissant $20$ personnes, cette probabilité atteint environ $41,14\%$.
 }{}
+
 
 \end{document}
