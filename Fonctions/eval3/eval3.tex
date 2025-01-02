@@ -1,0 +1,141 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation Cassandra -- Fonctions \ifsolutions -- Solutions \fi}}
+\fancyhead[R]{\today}
+
+	\begin{theorem}[Propriété fondamentale]\label{thm:1}
+		Soit $f : \D \rightarrow \R$ une fonction réelle sur un domaine $\D$ et $(x;y)$ un point du plan avec $x\in\D$.
+		Alors
+			\begin{align*}
+				(x ; y) \in \C_f && \iff && \underline{\qquad} = \underline{\qquad\qquad}.
+			\end{align*}
+	\end{theorem}
+	
+	\exe{[2pts]
+		Compléter le théorème \ref{thm:1} vu cours.
+	}{}
+	
+	
+	\exe{[4pts]
+		Considérons la fonction $f: \R \rightarrow\R$ donnée algébriquement par
+			\[ f(x) = x^2. \]
+		Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+		
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item $\left(0 ; 0\right)$
+			\item $\left(4; 8\right)$
+			\item $\left(-\dfrac45 ; \dfrac{16}{25}\right)$
+			\item $\left(-3 ;-9\right)$
+		\end{enumerate}
+		\end{multicols}
+	
+	}
+	
+	\exe{[3pts]
+		Considérons $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+			\[ f(x) = \dfrac74. \]
+		\begin{enumerate}
+			\item Donner trois points différents appartenant à $\C_f$.
+			\item Esquisser la courbe de $f$.
+			\item Que dire de $f$ ?
+		\end{enumerate}
+	}{}
+	
+
+	\exe{[4pts]
+		\begin{multicols}{2}
+		Considérons deux fonctions $f,g: \left]{-\dfrac85} ; {\dfrac85}\right[ \rightarrow \R$ dont les courbes représentatives sont données ci-contre.
+		
+		Donner approximativement l'\textbf{ensemble} des nombres $x$ du domaine vérifiant les (in)équations suivantes.
+		\begin{enumerate}
+			\itemsep1em 
+			\item $g(x) = h(x)$
+			\item $g(x) \leq h(x)$
+			\item $h(x) \leq g(x)$
+		\end{enumerate}
+		\vfill
+		
+			\begin{center}
+			\begin{tikzpicture}[>=stealth, scale=1]
+				\begin{axis}[xmin = -1.6, xmax=1.6, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+					\addplot[no marks, blue, -, thick] expression[domain=-2:2, samples=100]{-((x+1)^3 /3 - 2*(x+1) +3)+5}
+					node[pos=.3, above]{$\mathcal{C}_g$};
+					\addplot[no marks, red, -, thick] expression[domain=-2:1.2, samples=100]{-(-4*(x+.5)^2 + 7)+5}
+					node[pos=.4, below left]{$\mathcal{C}_h$};
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		\end{multicols}
+	}{}
+
+	\newpage
+
+	\exe{[4pts]
+		Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = \left]{-9,8} ; -\dfrac52\right[$.
+		
+			\begin{center}
+			\begin{tikzpicture}[>=stealth]
+				\begin{axis}[xmin = -9.8, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-9,-8,...,-4,-3},
+    every y tick label/.style={
+        anchor=near yticklabel opposite,
+        xshift=0.2em,
+    }]
+					\addplot[no marks, blue, -, thick] expression[domain=-10:-8/1.2, samples=50]{5*((x*1.2)+10)*((x*1.2)^3 - 300*(x*1.2) - 1920)/80};
+					\addplot[no marks, blue, -, thick] expression[domain=-8/1.2:-6/1.2, samples=2]{5*((x*1.2)/2 + 3.2)};
+					\addplot[no marks, blue, -, thick] expression[domain=-6/1.2:-5/1.2, samples=50]{-5*(((x*1.2)+5.5)^2 + 0.5^2)+3.5};
+					\addplot[no marks, blue, -, thick] expression[domain=-5/1.2:-2.5/1.2, samples=2]{5*0.2}
+					node[pos=.3, above]{$\mathcal{C}_f$};
+				\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		\begin{enumerate}
+			\item Donner approximativement les images de $-4$ et de $-7,5$ par $f$.
+			\item Énumérer approximativement les antécédents de $-2$ et de $3$ par $f$.
+			\item Donner approximativement un réel qui admet exactement un seul antécédent par $f$.
+			\item Donner approximativement un réel qui admet une infinité d'antécédents par $f$.
+		\end{enumerate}
+	}{}
+	
+
+	\exe{[3pts]
+		Esquisser les courbes des fonctions $F,G:[3;6]\rightarrow\R$ données algébriquement par
+			\begin{align*}
+				F(x) = \dfrac{12}x + 2, && G(x) = 14-2x.
+			\end{align*}
+		En déduire approximativement l'ensemble des $x$ de $[3;6]$ vérifiant
+			\[ F(x) \leq G(x). \]
+	}{}
+
+\section*{Bonus}
+
+	\exe{[2pts]
+		Soit $f(x) = ax + b$, où $a,b\in\R$ sont deux paramètres réels.
+		
+		Déterminer $a$ et $b$ sachant que $\C_f$ contient les points $(0;3)$ et $(3;-1)$.
+	}{}
+
+%\exe{
+%	Considérons $A(x_A ; y_A)$ et $B(x_B;y_B)$ deux points différents de $O(0;0)$, l'origine du plan.
+%	Le théorème de Pythagore énonce que le triangle $OAB$ est rectangle en $O$ si et seulement si
+%		\[ OA^2 + OB^2 = AB^2. \]
+%	Démontrer que cette condition est équivalente à
+%		\[ x_A \cdot x_B + y_A \cdot y_B = 0. \]
+%}{}
+
+\end{document}
