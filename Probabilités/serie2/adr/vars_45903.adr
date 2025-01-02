@@ -2,3 +2,9 @@
 \newcommand{\rouge}{3194}
 \newcommand{\bleu}{4674}
 \renewcommand{\vert}{1640}
+\newcommand{\un}{19318}
+\newcommand{\deux}{29019}
+\newcommand{\trois}{9682}
+\newcommand{\quatre}{14328}
+\newcommand{\cinq}{19197}
+\newcommand{\six}{4704}

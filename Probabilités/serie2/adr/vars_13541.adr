@@ -1,0 +1,10 @@
+\newcommand{\seed}{13541}
+\newcommand{\rouge}{3330}
+\newcommand{\bleu}{5128}
+\renewcommand{\vert}{1652}
+\newcommand{\un}{20519}
+\newcommand{\deux}{30567}
+\newcommand{\trois}{10314}
+\newcommand{\quatre}{15624}
+\newcommand{\cinq}{20633}
+\newcommand{\six}{5098}
