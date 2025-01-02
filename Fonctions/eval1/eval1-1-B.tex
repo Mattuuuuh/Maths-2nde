@@ -52,10 +52,10 @@
         anchor=near yticklabel opposite,
         xshift=0.2em,
     }]
-					\addplot[no marks, blue, -] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80};
-					\addplot[no marks, blue, -] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
-					\addplot[no marks, blue, -] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
-					\addplot[no marks, blue, -] expression[domain=-5:-2.5, samples=2]{5*0.2}
+					\addplot[no marks, blue, -, thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80};
+					\addplot[no marks, blue, -, thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
+					\addplot[no marks, blue, -, thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
+					\addplot[no marks, blue, -, thick] expression[domain=-5:-2.5, samples=2]{5*0.2}
 					node[pos=.3, above]{$\mathcal{C}_f$};
 				\end{axis}
 			\end{tikzpicture}
@@ -104,9 +104,9 @@
 			\begin{center}
 			\begin{tikzpicture}[>=stealth, scale=1]
 				\begin{axis}[xmin = -1.6, xmax=1.6, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-					\addplot[no marks, blue, -] expression[domain=-2:2, samples=100]{x^3 /3 - 2*x +3}
+					\addplot[no marks, blue, -, thick] expression[domain=-2:2, samples=100]{x^3 /3 - 2*x +3}
 					node[pos=.15, above=-2pt]{$\mathcal{C}_g$};
-					\addplot[no marks, red, -] expression[domain=-2:2, samples=100]{-4*x^2 + 7}
+					\addplot[no marks, red, -, thick] expression[domain=-2:2, samples=100]{-4*x^2 + 7}
 					node[pos=.6, above=6pt]{$\mathcal{C}_h$};
 				\end{axis}
 			\end{tikzpicture}
