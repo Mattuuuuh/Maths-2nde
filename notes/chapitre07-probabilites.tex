@@ -250,72 +250,89 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 Les arbres de probabilité sont des schémas permettant de décrire les chemins possibles d'une expérience aléatoire à plusieurs épreuves (ou étapes).
 Le point de départ est la \emph{racine} de l'arbre, et les issues possibles sont ses \emph{feuilles}.
 
-On choisit dans ce cours de représenter un arbre de haut en bas, plutôt que de gauche à droite comme il est commun de le faire.
+On choisit ici de représenter un arbre de haut en bas, plutôt que de gauche à droite comme il est commun de le faire.
 Il va de soi que ces deux représentations sont identiques.
 
 La \emph{profondeur} de l'arbre désigne le nombre total d'épreuves de l'expérience.
-On lit l'arbre en le parcourant de haut en bas, chaque embranchement correspondant à l'issue d'une épreuve.
+On lit l'arbre en le parcourant de haut en bas, chaque embranchement correspondant à un résultat possible de l'épreuve d'après.
 La somme des probabilités de chaque branche est donc nécessairement $1$.
 Pour connaître la probabilité d'une issue, il faut multiplier les probabilités correspondant à chaque choix du parcours vers celle-ci.
 
 L'ensemble des feuilles $\omega$ de l'arbre correspond à l'univers $\Omega$ de l'expérience.
 On pourra donc connaître $|\Omega|$ en comptant les feuilles, et $P(\omega)$ en multipliant les probabilités qui mènent de la racine à la feuille.
 
-\exe{}{
-	SITUATION
-	Compléter l'arbre et répondre aux questions suivantes.
+\ex{}{
+	On lance un D$6$ équilibré, dé à $6$ faces.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si le numéro obtenu est un multiple de 3, on extrait au hasard une boule dans l'urne 1 qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
+		\item Si le numéro obtenu n'est pas un multiple de 3, on extrait une boule dans l'urne 2 qui contient 3 boules noires et 2 boules blanches.
+	\end{enumerate}
+	On distingue deux étapes à l'expérience : on crée donc l'arbre de profondeur $2$ suivant, où on dénote par B, N, et R les évéments \og tirer une boule blanche, noire, rouge \fg respectivement.
+	
 	\begin{center}
 	\begin{tikzpicture}
 		% depth 1
-		\foreach \i in {-4, 0, 4}
+		\foreach \i in {-3, 3}
 		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
 		% depth 2
-		\foreach \i in {-4, 0, 4} \foreach \j in {-1, 1}
+		\foreach \i in {3} \foreach \j in {-2, 0, 2}
 			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\foreach \i in {-3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (0,0) node[above] {Départ};
+		\draw (3,-2) node[right] {Multiple de $3$};
+		\draw (-3,-2) node[left] {Pas multiple de $3$};
+		\draw (-4,-4) node[below] {B};
+		\draw (-2,-4) node[below] {N};
+		\draw (1,-4) node[below] {B};
+		\draw (3,-4) node[below] {N};
+		\draw (5,-4) node[below] {R};
 	\end{tikzpicture}
 	\end{center}
-}{}
-
-\exe{}{
-	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D ; E ; F\}$ et répondre aux questions suivantes.
+	On ajoute les probabilités de chacun des événements sur les branches associées.
+	Par exemple, de la racine, pour atteindre l'embranchement \og multiple de $3$ \fg, il y a $1$ chance sur $3$ (car seuls $3$ et $6$ sont les issues favorables).
+	On ajoute donc un $\frac13$ sur la brache qui mène à cet événement, est un $\frac23$ sur l'autre.
+	
+	En sachant qu'on ait obtenu un nombre qui n'est pas un multiple de $3$, on tire une boule dans la deuxième urne  contient 3 boules noires et 2 boules blanches.
+	La probabilité d'obtenir une boule blanche est donc $\frac25$, et celle d'obtenir une boule noire est $\frac35$.
+	En notant toutes les probabilités ainsi calculées, on obtient l'arbre de probabilité suivant.
+	
 	\begin{center}
 	\begin{tikzpicture}
 		% depth 1
-		\draw[-, thick, black] (0,0) node {$\bullet$} -- (3,-2) node[midway, above right] {};
-		\draw[-, thick, black] (0,0) node {$\bullet$} -- (-3,-2) node[midway, above left] {$0,7$};
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
 		% depth 2
-		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-1,-4) node[midway, above right] {$\frac49$};
-		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-3,-4);
-		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-5,-4) node[midway, above left] {$\frac13$};
+		\foreach \i in {3} \foreach \j in {-2, 0, 2}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\foreach \i in {-3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (0,0) node[above] {Départ};
+		\draw (3,-2) node[right] {Multiple de $3$};
+		\draw (-3,-2) node[left] {Pas multiple de $3$};
+		\draw (-4,-4) node[below] {B};
+		\draw (-2,-4) node[below] {N};
+		\draw (1,-4) node[below] {B};
+		\draw (3,-4) node[below] {N};
+		\draw (5,-4) node[below] {R};
 		
-		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (1,-4) node[midway, above left] {$\frac16$};
-		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (3,-4) node[pos=.6, left] {$\frac12$};
-		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (5,-4);
+		\draw (-1.5, -1) node[above left] {$\frac23$};
+		\draw (1.5, -1) node[above right] {$\frac13$};
 		
-		\draw (1,-4) node {$\bullet$};
-		\draw (3,-4) node {$\bullet$};
-		\draw (5,-4) node {$\bullet$};
-		\draw (1,-4) node[below] {$D$};
-		\draw (3,-4) node[below] {$E$};
-		\draw (5,-4) node[below] {$F$};
+		\draw (-3.5, -3) node[above left] {$\frac25$};
+		\draw (-2.5, -3) node[above right] {$\frac35$};
 		
-		\draw (-1,-4) node {$\bullet$};
-		\draw (-3,-4) node {$\bullet$};
-		\draw (-5,-4) node {$\bullet$};
-		\draw (-1,-4) node[below] {$C$};
-		\draw (-3,-4) node[below] {$B$};
-		\draw (-5,-4) node[below] {$A$};
+		\draw (2, -3) node[above left] {$\frac25$};
+		\draw (3, -3) node[right] {$\frac3{10}$};
+		\draw (4, -3) node[above right] {$\frac3{10}$};
 	\end{tikzpicture}
 	\end{center}
-	
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item Calculer $P(B)$.
-		\item Calculer $P(D)$.
-		\item Calculer $P(E)$.
-		\item Calculer $P(A\cup F)$.
-	\end{enumerate}
-	\end{multicols}
+	On calcule par exemple
+		\[ P(N) = \dfrac23 \cdot \dfrac35 + \dfrac13 \cdot \dfrac3{10} = \dfrac12. \]
 }{}
 
 
