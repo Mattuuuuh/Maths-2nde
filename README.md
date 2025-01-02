@@ -16,8 +16,8 @@ Contenu par chapitre :
 - [x] Droite réelle et géométrie plane
 - [x] Statistiques descriptives
 - [x] Fonctions : généralités
-- [ ] Problèmes de géométrie
-- [ ] Probabilités
+- [x] Problèmes de géométrie
+- [x] Probabilités
 - [ ] Fonctions : variations et extrema
 - [ ] Vecteurs dans le plan
 - [ ] Fonctions : droites du plan
