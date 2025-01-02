@@ -168,23 +168,44 @@
 
 Introduction aux arbres avec l'exo ci-dessus.
 
-\exe{
-	SITUATION
-	Compléter l'arbre et répondre aux questions suivantes.
+\exe{	
+	On tire un boule dans une urne contenant $2$ boules rouges et $4$ boules vertes.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si la boule tirée est verte, on la met de côté et on retire une nouvelle boule
+		\item Si la boule tirée est rouge, on la remet dans l'urne et on retire une nouvelle boule
+	\end{enumerate}
+	On distingue les quatre événements suivants :
+		\begin{multicols}{2}
+		\begin{enumerate}[label=]
+			\item v : \og la première boule tirée est verte \fg
+			\item r : \og la première boule tirée est rouge \fg
+			\item V : \og la deuxième boule tirée est verte \fg
+			\item R : \og la deuxième boule tirée est rouge \fg
+		\end{enumerate}
+		\end{multicols}
 	\begin{center}
 	\begin{tikzpicture}
 		% depth 1
-		\foreach \i in {-4, 0, 4}
+		\foreach \i in {-3, 3}
 		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
 		% depth 2
-		\foreach \i in {-4, 0, 4} \foreach \j in {-1, 1}
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
 			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-3,-2) node[above left] {$v$};
+		\draw (3,-2) node[above right] {$r$};
+			
+		\draw (-4,-4) node[below] {$V$};
+		\draw (2,-4) node[below] {$V$};
+		\draw (-2,-4) node[below] {$R$};
+		\draw (4,-4) node[below] {$R$};
 	\end{tikzpicture}
 	\end{center}
+	Compléter l'arbre, calculer $P(V)$ et $P(R)$.
 }{}
 
 \exe{
-	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D ; E ; F\}$ et répondre aux questions suivantes.
+	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
 	\begin{center}
 	\begin{tikzpicture}
 		% depth 1
@@ -203,8 +224,8 @@ Introduction aux arbres avec l'exo ci-dessus.
 		\draw (3,-4) node {$\bullet$};
 		\draw (5,-4) node {$\bullet$};
 		\draw (1,-4) node[below] {$D$};
-		\draw (3,-4) node[below] {$E$};
-		\draw (5,-4) node[below] {$F$};
+		\draw (3,-4) node[below] {$B$};
+		\draw (5,-4) node[below] {$C$};
 		
 		\draw (-1,-4) node {$\bullet$};
 		\draw (-3,-4) node {$\bullet$};
@@ -217,19 +238,29 @@ Introduction aux arbres avec l'exo ci-dessus.
 	
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item Calculer $P(B)$.
 		\item Calculer $P(D)$.
-		\item Calculer $P(E)$.
-		\item Calculer $P(A\cup F)$.
+		\item Calculer $P(B)$.
+		\item Calculer $P(D \cup B)$.
+		\item Calculer $P(A\cup C)$.
 	\end{enumerate}
 	\end{multicols}
 
 }{}
 
 \exe{
-	SITUATION À DEUX OU TROIS ÉPREUVES
+	On tire un boule dans une urne contenant $3$ boules bleues et $4$ boules vertes.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si la boule tirée est verte, on jette un dé équilibré à $3$ faces
+		\item Si la boule tirée est rouge, on jette un dé équilibré à $6$ faces
+	\end{enumerate}
 
-	Créer un arbre pondéré pour cette situation et répondre aux questions suivantes.
+	Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir un nombre pair ?
+		\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item Quelle est la probabilité d'obtenir un nombre pair \textbf{ou} un multiple de $3$ ?
+		\item Calculer la probabilité d'obtenir $6$ et vérifier la formule d'inclusion-exclusion.
+	\end{enumerate}
 
 }{}
 
