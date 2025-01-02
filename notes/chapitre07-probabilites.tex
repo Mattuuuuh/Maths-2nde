@@ -341,7 +341,7 @@ On pourra donc connaître $|\Omega|$ en comptant les feuilles, et $P(\omega)$ en
 \section{Construction d'un modèle empirique}
 
 Lorsqu'on étudie une expérience aléatoire, il n'est pas toujours simple de connaître \emph{a priori} la probabilité de chacune des issues possibles.
-Par exemple, même si un dé à $6$ faces est su pipé, il n'est pas possible de connaître la probabilité d'obtenir un $6$ : elle pourrait être $1$ (si la face $6$ est lestée), comme $0$ (si une autre face l'est), comme toute autre valeur entre $0$ et $1$.
+Par exemple, même si un dé à $6$ faces est su pipé, il n'est pas possible de connaître la probabilité d'obtenir un $6$ : elle pourrait être $1$ (si la face $6$ est lestée), comme $0$ ou toute autre valeur entre $0$ et $1$.
 
 Une façon naturelle de connaître la probabilité d'obtenir un $6$ est donc de lancer le dé un grand nombre de fois.
 La fréquence d'apparition de $6$ parmis toutes les autres issues donnera donc une \emph{approximation} de la probabilité recherchée, qu'on \emph{admettra} ensuite comme probabilité dans notre modèle afin de prédire le résultat des lancers suivants.
@@ -349,5 +349,44 @@ La fréquence d'apparition de $6$ parmis toutes les autres issues donnera donc u
 Cette construction de modèle probabiliste est empirique : elle ne s'appuie que sur l'expérience et sur l'hypothèse que le lancer de dé est une expérience aléatoire bien définie (les probabilités ne changent pas d'un lancer à l'autre).
 L'erreur commise entre une probabilité réelle et une fréquence dépend du nombre d'expériences réalisées.
 L'inégalité de Chebyshev permet de montrer formellement qu'une telle fréquence est proche de sa moyenne lorsque sa variance diminue.
-Cela rejoint l'interprétation de l'écart type donnée dans le chapitre \ref{chap:stats}.
+C'est de là que vient l'interprétation de la variance donnée dans le chapitre \ref{chap:stats}.
+
+\ex{}{
+	Dans une urne opaque se trouvent un nombre inconnu de boules rouges, bleues, et jaunes.
+	On tire aléatoirement une boule de l'urne, on note sa couleur, et on la remet dans l'urne.
+	Les résultats sont décrits dans le tableau suivant.
+	
+	\begin{center}
+	\def\arraystretch{2}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{|c|c|c|c|} \hline
+		\# expériences réalisées & 2000 & 5000 & 10~000 \\ \hline
+		\# rouges & 653 & 1658 & 3332 \\ \hline
+		\# bleues & 1007 & 2546 & 5005 \\ \hline
+		\# jaunes & 340 & 796 & 1663 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	On considère uniquement la dernière colonne pour laquelle on calcule les fréquences suivantes :
+		\begin{align*}
+			f_{rouge} = \dfrac{3332}{10~000} = 0,3332 && f_{bleu} = 0,5005 && f_{jaune} = 0,1663
+		\end{align*}
+	On peut donc choisir $P$ ou $\widetilde{P}$, une des lois de probabilité suivantes pour modéliser la réalité.
+	
+		\begin{center}
+		\def\arraystretch{2}
+		\setlength\tabcolsep{15pt}
+		\begin{tabular}{|c|c|c|c|} \hline
+			& Tirer rouge & Tirer bleu & Tirer jaune \\ \hline
+			$P$ & $1/3$ & $1/2$ & $1/6$ \\ \hline
+		\end{tabular}
+		\begin{tabular}{|c|c|c|c|} \hline
+			& Tirer rouge & Tirer bleu & Tirer jaune \\ \hline
+			$\widetilde{P}$ & $0,3332$ & $0,5005$ & $0,1663$ \\ \hline
+		\end{tabular}
+		\end{center}
+	Remarquons qu'un des modèles ci-dessus n'est pas plus ou moins motivé que l'autre.
+}{}
+
+
 
