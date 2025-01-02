@@ -1,0 +1,4 @@
+\newcommand{\seed}{45903}
+\newcommand{\rouge}{3194}
+\newcommand{\bleu}{4674}
+\renewcommand{\vert}{1640}
