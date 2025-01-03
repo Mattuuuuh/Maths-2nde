@@ -71,7 +71,7 @@ if __name__=="__main__":
     # always the same 40 to recompile if needed
     np.random.seed(666) # devil D:
 
-    for _ in range(34):
+    for _ in range(38):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
