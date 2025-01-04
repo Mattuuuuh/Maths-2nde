@@ -1,0 +1,68 @@
+\documentclass[12pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a5paper,
+landscape,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage{fancyhdr}
+
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newcommand{\exe}[2]{
+	\begin{ex} #1  \end{ex}
+}
+
+% 2xa5 on a4
+\usepackage{pgfpages}                                 % <— load the package
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] % <— set options
+
+\usepackage{atbegshi}
+  % duplicate the content at shipout time
+  \AtBeginShipout{
+    \pgfpagesshipoutlogicalpage{1}\copy\AtBeginShipoutBox
+    \pgfpagesshipoutlogicalpage{2}\box\AtBeginShipoutBox
+    \pgfshipoutphysicalpage
+  }
+
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Probabilités 0}}
+\fancyhead[R]{\today}
+
+\exe{
+	On lance une pièce de monnaie bien équilibrée.
+	\begin{enumerate}
+		\item Décrire les issues possibles de l'expérience.
+		\item Donner la probabilité de chacune des issues.
+		\item Après $10~000$ lancers, combien de fois \og pile \fg ~peut-on s'attendre à avoir eu ?
+	\end{enumerate}
+}{}
+
+\exe{
+	On lance un D$6$ équilibré, dé à $6$ faces, puis on lit le numéro de la face du dessus.
+	\begin{enumerate}
+		\item Décrire les issues possibles de l'expérience.
+		\item Donner la probabilité de chacune des issues.
+		\item Après $60~000$ lancers, combien de $6$ peut-on s'attendre à avoir eu ?
+		\item Donner la probabilité d'obtenir un nombre pair.
+		\item Donner la probabilité d'obtenir un multiple de $3$.
+	\end{enumerate}
+}{}
+
+\exe{
+	Une urne contient $3$ boules rouges et $2$ boules noires. On tire une boule au hasard et on note sa couleur.
+	\begin{enumerate}
+		\item Décrire les issues possibles de l'expérience.
+		\item Donner la probabilité de chacune des issues.
+		\item Après $50~000$ tirages avec remise, combien de boules noires peut-on s'attendre à avoir eu ?
+	\end{enumerate}
+}{}
+
+\end{document}
