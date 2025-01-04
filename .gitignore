@@ -10,7 +10,6 @@
 *.out
 *.snm
 *.toc
-*.png
 *.ods
 *.odt
 stats/__pycache__/
