@@ -64,6 +64,13 @@ nomarginpar,% We don't want any margin paragraphs
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
 
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{theorem}{Théorème}%
+{fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{definition}{Définition}%
+{fonttitle=\bfseries}{th}
+
 % corps
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rnn}{\mathbb{R}^{2n}}
