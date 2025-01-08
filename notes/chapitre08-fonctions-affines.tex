@@ -1,0 +1,510 @@
+%!TEX encoding = UTF8
+%!TEX root =notes.tex
+
+\chapter{Droites et fonctions affines}
+
+Le but de ce chapitre est de traiter la partie fonctionnelle de la section \og Représenter et caractériser les droites du plan \fg du bulletin officiel.
+Il s'agira d'étudier les équations de droite (cartésienne et réduite) ainsi que ses paramètres : son coefficient directeur (la pente) et son ordonnée à l'origine.
+
+Les capacités attendues sont les suivantes.
+	\begin{itemize}
+		\item Déterminer une équation de droite à partir de deux point ou un point et la pente.
+		\item Déterminer la pente d'une droite donnée par une équation ou une représentation graphique.
+		\item Tracer une droite en connaissant son équation cartésienne ou réduite.
+		\item Déterminer si deux droites sont parallèles ou sécantes.
+		\item Résoudre un système de deux équations linéaires à deux inconnues, déterminer le point d'intersection de deux droites sécantes.
+	\end{itemize}
+
+\section{Lecture graphique et définitions}
+
+Soit $(d)$ une droite \emph{non verticale} qu'on plonge dans un repère orthonormé.
+On suppose $(d)$ non verticale pour qu'elle soit la courbe représentative d'une certaine fonction $f$ qu'on souhaite déterminer : \[(d) = \C_f. \]
+Posons en outre $\D = \R$ le domaine de $f$, soit la droite réelle toute entière.
+
+On a supposé $(d)$ non verticale car dans le cas contraire, un certain antécédent $x$ aurait plusieurs images, ce qui n'est pas possible d'après la définition d'une fonction.
+
+
+	\begin{center}
+%	\begin{tikzpicture}[>=stealth, scale=1]
+%	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both]
+%		\addplot[myb, thick, domain =-3:3, samples=2] {-3*x-3}  node[above=3pt] {$(d)$};
+%		\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {-3*x-3} ;
+%		\addplot[myb, thick, dotted, domain =3:4, samples=2] {-3*x-3};
+%	\end{axis}
+%	\end{tikzpicture}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both]
+		\addplot[myb, thick, domain =-3.5:3, samples=2] {-3*x-3}  node[above=3pt] {$(d)$};
+		\addplot[myb, thick, dotted, domain =-4:-3.5, samples=2] {-3*x-3} ;
+		\addplot[myb, thick, dotted, domain =3:4, samples=2] {-3*x-3};
+		\addplot[black, mark=*, mark size = 1] (0,-3) node[left=10pt] {$(0;b)$};
+		\addplot[black, thick] (0,0) node[above right] {$O$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+Comme on a supposé $(d)$ non verticale, elle coupe nécessairement l'axe des ordonnées.
+Posons $(0; b)$ le point d'intersection, où $b\in\R$ est un réel désormais fixé.
+
+%On souhaite trouver la fonction $f$ telle que $(d) = \C_f$, sa courbe représentative.
+On rappelle la propriété fondamentale (voir corollaire \ref{cor:prop-fond} du chapitre \ref{chap:fonc-gen}) : 
+	\begin{align*}
+		(x;y) \in \C_f && \iff && y = f(x).
+	\end{align*}
+Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du point de $(d)$ d'abscisse $x$ afin d'obtenir $f(x)$.
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both]
+		\addplot[myb, thick, domain =-3.5:3, samples=2] {-3*x-3}  node[above=3pt, pos=.1] {$(d)$};
+		\addplot[myb, thick, dotted, domain =-4:-3.5, samples=2] {-3*x-3} ;
+		\addplot[myb, thick, dotted, domain =3:4, samples=2] {-3*x-3};
+		\addplot[black, mark=*, mark size = 1] (0,-3) node[left=10pt] {$(0;b)$};
+		\addplot[black, thick] (0,0) node[above right] {$O$};
+		
+		% (x,y)
+		\addplot[violet, thick, mark=|, mark size = 1] (2.5,0) node[above] {$\color{violet} x$};
+		\addplot[myr, thick, mark=-, mark size = 1] (0,-10.5) node[left] {$\color{myr} y=f(x)$};
+		\draw[violet, dotted, thick] (axis cs:2.5, 0) -- (axis cs:2.5, -10.5);
+		\addplot[myr, dotted, thick, domain = 0:2.5, samples=2] {-10.5};
+		
+		\addplot[black, mark=*, mark size = 1] (2.5,-10.5) node[right] {$({\color{violet} x},{\color{myr} y})$};
+		
+		\addplot[black, dotted, thick, domain = 0:2.5, samples=2] {-3};
+		
+		% alpha
+		\addplot[myg,thick,domain=.455:2/3, samples = 30] {(-3-sqrt(4-(x*3)^2))} ;
+		\addplot[myg, thick] (.7,-3) node[below right] {$\alpha$};
+	\end{axis}
+	\end{tikzpicture}
+	\hspace{3cm}
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) -- (3,0) node[midway, above] {$\color{violet} |x|$};
+		\draw[-, thick, black] (3,0) -- (3,-3) node [midway, right] {$\color{myr} |y-b|$};
+		\draw[-, thick, myb] (3,-3) -- (0,0);
+		
+		% angle droit
+		\draw[-, black] (2.7,0)-- (2.7, -.3);
+		\draw[-, black] (2.7, -.3)-- (3, -.3);
+		
+		% angle
+		\draw [myg,thick,domain=-45:0] plot ({.5*cos(\x)}, {.5*sin(\x)})
+		node[below right] {$\color{myg}\alpha$};
+	\end{tikzpicture}
+	\end{center}
+	
+	L'angle $\alpha$ comme défini ci-dessus est constant et mesure la pente de la droite.
+	On se restreint au triangle rectangle dont les sommets sont $(0;b), (x ; b)$, et $(x;y)$ pour appliquer les résultats de trigonométrie du chapitre \ref{chap:pb-geom} de géométrie.
+
+	\begin{align*}
+		\tan(\alpha) = \dfrac{|y-b|}{|x|} && \iff && |y-b| = \tan(\alpha) \cdot |x|.
+	\end{align*}
+	Comme la valeur absolue ne fait que supprimer le signe, on en déduit que
+	\begin{align*}
+		y - b = \pm \tan(\alpha) \cdot x && \iff && y = \pm \tan(\alpha) \cdot x + b,
+	\end{align*}
+	où $\pm$ signifie ``plus ou moins'', c'est-à-dire qu'on ne connait pas \emph{a priori} le signe et que cela n'importe pas pour l'instant.
+	En posant $a = \pm \tan(\alpha)$, on a trouvé la forme de la fonction $f$ telle que $(d) = \C_f$ :
+		\[ f(x) = a\cdot x + b, \]
+	où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $(d)$.
+
+\dfn{Fonction affine}{
+	Un \emph{fonction affine} est une fonction $f$ associant à tout réel $x\in\R$ son image
+		\begin{align}
+			f(x) = ax + b, \label{eq:affine}
+		\end{align}
+	où $a$ et $b$ sont deux paramètres : le coefficient directeur et l'ordonnée à l'origine.
+}{def:affine}
+
+\nt{
+	De la discussion ci-dessus, on en déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
+		\begin{itemize}
+			\item Le réel $b$ est l'ordonnée du point d'intersection de la droite avec l'axe des ordonnées.
+			\item Le réel $a$ est associé à la tangente de l'angle $\alpha$ que forme la droite avec l'axe des abscisses : il mesure donc la pente de la droite. En effet, le pourcentage qu'on voit écrit sur les panneaux de signalisation de descente routière est égal la tangente de l'angle de l'inclinaison vis-à-vis de l'horizontale. Par exemple, un angle de $9$° correspond à une pente de $\tan(9) \approx 15,8\%$.
+		\end{itemize}
+	On verra dans la suite que le signe de $a$ correspond au caractère croissant ou décroissant de la fonction affine ; et que plus $|a|$ est grand, plus la pente est raide.
+}
+
+
+\ex{}{
+	Considérons une droite $(d)$ qui contient les points
+		\begin{align*}
+			(0;3) \in (d) && \text{ et } && (1;8) \in (d).
+		\end{align*}
+	On souhaite trouver la fonction affine $f$ telle que $(d)$ soit la courbe représentative de $f$.
+	La propriété fondamentale \ref{cor:prop-fond} donne donc les deux équations suivantes.
+		\begin{align*}
+			f(0) = 3, && \text{ et } && f(1) = 8.
+		\end{align*}
+	Comme $f$ est affine, on sait qu'elle s'écrit $f(x) = ax+b$ pour tout $x\in\R$ et pour certains paramètres $a,b\in\R$.
+	On réécrit les équations 
+		\begin{align*}
+			a \times 0 + b = 3 && \text{ et } && a\times1 + b = 8, \\
+			b = 3 && \text{ et } && a + b = 8.
+		\end{align*}
+	Par suite, $b=3$, et $a= 8-b = 8-3 = 5$. Par conséquent,
+		\[ f(x) = 5x + 3 \qquad \text{ pour tout } x\in\R. \]
+}{}
+
+\nt{
+	Les fonctions affines vérifient
+		\[ f(x+1) - f(x) = a(x+1) + b - (ax + b) = a, \]
+	pour n'importe quel $x\in\R$.
+}
+
+\exe{}{
+	Décrire les ensembles suivants :
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\{ x \in \R \text{ tq. } x \geq 2\}$
+			\item $\{ x \in \R \text{ tq. } x \neq 0\}$
+			\item $\{ n \text{ tq. } n\in\N \text{ ou } -n \in \N \}$
+			\item $\left\{ \dfrac{a}{b} \text{ tq. } a,b\in\Z \text{ et } b\neq 0\right\}$
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+\ex{}{
+	Considérons la fonction $id$, dite \emph{identité}, donnée par
+		\[ id(x) = x \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=0$.
+	La droite $(d) = \C_{id}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = x.
+		\end{align*}
+	Un point appartient donc à $(d)$ si et seulement si sont abscisse est égale à son ordonnée.
+	
+	Ainsi, $(3;3) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}) \in (d)$, mais $(3;4) \notin (d)$.
+	La droite restreinte à $\D = [-4 ; 4]$ est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {x}  node[above=3pt, left] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{}
+
+
+\ex{}{
+	Considérons la fonction $f$ donnée par
+		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
+	La droite $(d) = \C_{f}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = x+6.
+		\end{align*}
+	Ainsi, $(3;9) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}+6) \in (d)$, mais $(6;0) \notin (d)$.
+	De la même manière, la droite est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -4, xmax=4, ymin=2, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {x+6}  node[above=3pt, left] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x+6} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x+6};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{ex:droite}
+
+\exe{}{
+	Donner deux points distincts appartenant à la droite suivante.
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-1 \}. \]
+	Représenter la droite dans un repère.
+}{}
+
+\section{Conséquences importantes}
+
+\ex{}{
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite appelée $(d)$.
+	Notons $a,b \in\R$ les paramètres de la fonction affine $f$ qui lui est associée.
+		\[ f(x) = ax + b \qquad \text{pour tout $x\in\R$.} \]
+	On a les équivalences suivantes
+		\[ (1;2) \in (d) \qquad\iff\qquad 2 = a\times1 + b, \]
+	et
+		\[ (4;-4) \in (d) \qquad\iff\qquad -4 = a\times4 + b. \]
+	Ces deux égalités étant valides simultanément, on les met dans un système :
+		\[ \begin{cases*} a + b = 2, \\ 4a + b = -4. \end{cases*} \]
+	En l'état, il paraît difficile de trouver les valeurs de $a$ et $b$ vérifiant le système.
+	Il n'est d'ailleurs pas clair qu'il existe une solution, ou qu'il n'en existe pas une infinité.
+	
+	Cependant, remarquons qu'en soustrayant la deuxième équation à la première, on obtient
+		\begin{align*}
+			(4a + b) - (a+b) &= (-4) - (2) \\
+			4a+b-a-b & = -6 \\
+			3a &= -6 \\
+			a &= -2
+		\end{align*}
+	Soustraire une équation a une autre a permis de créer une nouvelle équation dans laquelle $b$ n'apparaît pas.
+	On la résoud alors tranquillement pour trouver $a=-2$.
+	
+	On remplace ensuite la valeur de $a$ dans une des deux équations du système pour trouver $b$ : 
+		\[ b=2-a = 4.\]
+	On peut désormais s'assurer que $(a;b) = (-2;4)$ vérifie bien les deux équations du système simultanément.
+	On conclut donc que la fonction $f$ est donnée par
+		\[ f(x) = -2x + 4 \qquad \text{pour tout $x\in\R$.} \]
+}{ex:systeme-affine}
+
+\exe{}{
+	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite 
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x+4 \}.\]
+}{}
+
+\mprop{}{
+	Une droite est déterminée entièrement par l'appartenance de deux points distincts.
+}{}
+
+\nt{
+	Il n'est pas surprenant qu'en géométrie, une droite soit donnée par deux points.
+	Cependant, nous étudions ici la définition algébrique d'une droite : c'est un ensemble de points vérifiants une certaine équation affine.
+	Il n'est pas clair \emph{a priori} que deux éléments d'un ensemble infini suffisent à déterminer tout cet ensemble.
+	
+	Remarquons cependant qu'une droite est déterminée entièrement par la valeur des deux paramètres $a$ et $b$ de la définition \ref{def:affine}.
+	Or, deux équations distinctes suffisent à déterminer la solution d'un système linéaire à deux inconnues.
+	
+	Ceci se généralise sans peine. Par exemple, pour trouver une parabole dont la fonction associée est de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations distinctes.
+}
+
+\exe{}{
+	Décrire entièrement la droite $(d)$ contenant les points $(3;-4)$ et $(-2;14)$.
+}{}
+
+\exe{}{
+	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
+
+}{}
+
+\exe{Approfondissement}{
+	Décrire l'ensemble
+		\[ (P) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y=ax^2 + bx + c \} \]
+	contenant les points $(0;1), (1;0),$ et $(2;1)$.
+	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur \href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}.
+}{}
+
+\str{
+	La stratégie de l'exemple \ref{ex:systeme-affine} peut se généraliser.
+	Considérons $(x_A, y_A)$ et $(x_B, y_B)$ deux points distincts appartenant à une droite non verticale
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \},\]
+	où $a, b\in\R$ sont deux paramètres à déterminer.
+	
+	Les deux appartenances donnent les égalités suivantes, grâce à la propriété fondamentale \ref{cor:prop-fond}.
+		\[ \begin{cases} y_A = ax_A + b, \\ y_B = ax_B + b. \end{cases} \]
+	On rappelle ici que $(x_A,y_A)$ et $(x_B,y_B)$ sont des valeurs sues, et qu'il faut déterminer $a$ et $b$ en fonction de ces valeurs.
+	
+	On soustrait la deuxième équation à la première pour éliminer la variable $b$ et obtenir
+	\begin{align*}
+		y_A - y_B &= (ax_A + b) - (ax_B + b) \\
+		y_A - y_B & = a(x_A - x_B) \\
+		a & = \dfrac{y_A - y_B}{x_A - x_B},
+	\end{align*}
+	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
+	
+	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
+		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B} x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
+}
+
+
+\thm{}{
+	Soit $(d)$ une droite donnée par	
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \]
+	pour certains paramètres $a,b\in\R$.
+	
+	Si $(x_A, y_A)$ et $(x_B, y_B)$ sont distincts et appartiennent à $(d)$, alors
+		\begin{align*}
+			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
+		\end{align*}
+}{thm:param-affine}
+
+
+\exe{}{
+	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
+}{}
+\exe{}{
+	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
+}{}
+
+\section{Parallélisme et intersection}
+
+\ex{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -4x+8 \}.
+		\end{align*}
+	On souhaite trouver les points d'intersection des deux droites, c'est-à-dire décrire l'ensemble
+		\[ (d) \cap (d'). \]
+	Soit $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$.
+	On extrait deux informations distinctes afin de connaître $x_P$ et $y_P$ :
+		\begin{align*}
+			P \in (d) && \text{et} && P \in (d')
+		\end{align*}
+	La propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations.
+		\[ \begin{cases*} y_P = 2x_P + 3, \\ y_P = -4x_P + 8. \end{cases*} \]
+	Comme on a bien sûr $y_P = y_P$, on peut écrire
+		\begin{align*}
+			y_P &= y_P \\
+			2x_P + 3 &= -4x_P + 8 \\
+			6x_P &= 5 \\
+			x_P &=  \dfrac56
+		\end{align*}
+	Et par suite $y_P = 2\cdot\dfrac56 + 3 = \dfrac{14}3$.
+	
+	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $(d)$ et $(d')$, et donc l'unique point d'intersection des droites.
+	Autrement dit, 
+		\[ (d) \cap (d') = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
+}{}
+
+\nt{
+	On se rassurera sur le résultat trouvé en vérifiant que le point d'intersection appartient bien aux deux droites ci-dessus.
+		\begin{align*}
+			2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
+			-4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
+		\end{align*}
+}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 3-x \}, \\·
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x +12 \}.
+		\end{align*}
+	Déterminer $(d) \cap (d')$, l'ensemble des points appartenant à la fois à $(d)$ et à $(d')$.
+}{}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+1 \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-2 \}.
+		\end{align*}
+	Montrer que $(d) \cap (d') = \emptyset$, l'ensemble vide.
+}{}
+
+\qs{}{
+	Considérons deux droites $(d)$ et $(d')$ données plus généralement par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$, ce qui se traduit par
+		\[ \begin{cases*} y_P = ax_P + b, \\ y_P = a'x_P + b'. \end{cases*} \]
+	et donc, en suivant le même raisonnement que précédemment,
+		\begin{align*}
+			ax_P + b &= a'x_P + b' \\
+			(a-a')x_P &= b'-b \\
+		\end{align*}
+	Ici il faut faire attention car il n'est pas toujours possible de diviser par $a-a'$ pour trouver $x_P$.
+	
+	Quelles conditions sur $a$ et $a'$ faut-il poser pour s'assurer qu'il existe un unique point d'intersection ?
+}
+
+\exe{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	Si $a=a'$ et $b\neq b'$, montrer que $(d)\cap(d')$ est l'ensemble vide.
+}{}
+
+\nt{
+	Dans les notations ci-dessus, remarquons que si $a=a'$ et $b=b'$, alors les droites ont les mêmes paramètres et ce sont en fait les mêmes droites : $(d) = (d')$.
+	Dans ce cas, l'intersection des droites est la droite $(d)$ toute entière. Elle contient un nombre infini de points.
+}
+
+\thm{}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	On distingue alors les cas suivants sur les points d'intersection entre les droites.
+		\begin{enumerate}
+			\item Si $a \neq a'$, il existe un unique point d'intersection.
+			\item Si $a = a'$ et $b\neq b'$, il n'existe aucun point d'intersection.
+			\item Si $a=a'$ et $b=b'$, les droites sont confondues.
+		\end{enumerate}
+}{}
+
+\dfn{Droites parallèles}{
+	Considérons deux droites $(d)$ et $(d')$ données par
+		\begin{align*}
+			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
+			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+		\end{align*}
+	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	
+	Les droites $(d)$ et $(d')$ sont parallèles si et seulement si $a=a'$, c'est-à-dire si et seulement si les coefficients directeurs des fonctions associées sont égaux.
+}{}
+
+\ex{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 \}. \]
+	On souhaite déterminer une droite parallèle à $(d)$ et passant par le point $(2;1)$.
+	
+	On s'assure au préalable qu'on ait bien deux informations distinctes, car il faut déterminer les deux paramètres de la fonction $f(x) = ax+b$ associée à la droite à trouver.
+	
+	Le parallélisme à $(d)$ se traduit par l'égalité des coefficients directeurs des fonctions associées :
+		\[ a = 2. \]
+	L'appartenance du point $(2;1)$ donne
+		\[ 1 = f(1) = 2a + b, \]
+	d'où $b= 1 -2a = 1-4 = -3$.
+	
+	En conclusion, $f(x) = 2x - 3$, et la droite recherchée est donnée par (en violet ci-dessous)
+		\[ \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-3 \}. \]
+		
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -3.9, xmax=3.9, ymin=-3.9, ymax=3.9, xtick={-3,...,3}, ytick={-3,...,3}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[red, thick, domain =-4:.7, samples=2] {2*x+3}  node[right=5pt, below=10pt] {$(d)$};
+			\addplot[violet, thick, domain =-3:4, samples=2] {2*x-3}  node[above=3pt, left] {};
+		
+			\addplot[black, mark=*, mark size = 1] (2,1) node[right] {$(2;1)$};
+		
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;2)$.
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite donnée par
+		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;7)$.
+}{}
+
+\exe{}{
+	Soit $(d)$ une droite, et $P\in (d)$ un point lui appartenant.
+	
+	Montrer qu'une droite $(d')$ vérifiant
+		\begin{enumerate}
+			\item $(d')$ est parallèle à $(d)$, et
+			\item $P \in (d')$
+		\end{enumerate}
+	est forcément égale à la droite $(d)$.
+}{}
