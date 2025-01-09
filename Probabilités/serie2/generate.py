@@ -58,7 +58,7 @@ def generate(seed):
 
     INPUTS = "\\newif\ifdys \\newif\ifsolutions \input{../preamble.tex} \\begin{document} \input{"+FILE_NAME+"} \input{serie2.tex}"
     PARAMETER1 = f"-output-directory=out"
-    PARAMETER2 = f"-jobname=dm_{seed}"
+    PARAMETER2 = f"-jobname=serie2_{seed}"
 
     subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
     #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
