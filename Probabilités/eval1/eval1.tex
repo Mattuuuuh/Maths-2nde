@@ -10,7 +10,7 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[2]
 
 \begin{document}
 \pagestyle{fancy}
@@ -19,10 +19,164 @@
 \fancyhead[R]{\today}
 
 \exe{
+	Compléter le tableau de probabilités suivant, concernant le numéro de la face du dessus obtenue après un lancer d'un D6 pipé.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $0,1$ & $0,2$ & $0,1$ & $0,15$ & $0,25$ & \ifsolutions $\color{red} 0,2$ \fi \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Calculer les probabilités suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item P(\og obtenir un nombre pair \fg) 
+			\item P(\og obtenir un nombre impair \fg) 
+			\item P(\og ne pas obtenir $5$ \fg)
+		\end{enumerate}
+		\end{multicols}
+}{
+	On complète d'abord le tableau en sachant que l'univers de l'expérience est $\Omega = \{ 1 ; 2 ;3 ; 4 ; 5 ; 6 \}$ et que la somme des probabilités du tableau est donc nécessairement $1$.
+	En effet, $P(\Omega) = 1$, car $\Omega$ correspond à l'événement \og obtenir une des issues possibles \fg, qui est un événement sûr.
 
-	placeholder
+	\begin{enumerate}[label=\roman*)]
+		\item P(\og obtenir un nombre pair \fg) $ = P(2) + P(4) + P(6) = 0,2 + 0,15 + 0,2 = 0,55$
+		\item P(\og obtenir un nombre impair \fg) $ = P(1) + P(3) + P(5) = 0,1 + 0,1 + 0,25 = 0,45$.
+		\item P(\og obtenir un nombre pair \fg)   + P(\og obtenir un nombre impair \fg) $ = 0,55 + 0,45 = 1$
+		\item P(\og obtenir $2$ ou $5$ \fg) $ = P(2) + P(5) = 0,2 + 0,25 = 0,45$
+		\item P(\og obtenir ni $2$ ni $5$ \fg) $ = P(1) + P(3) + P(4) + P(6) = 0,1 + 0,1 + 0,15 + 0,2 = 0,55$
+		\item P(\og obtenir $2$ ou $5$ \fg)  + P(\og obtenir ni $2$ ni $5$ \fg) $ = 0,45 + 0,55 = 1$
+	\end{enumerate}
+	
+	Le fait que la somme soit $1$ n'est pas suprenant : les événements comptent séparément toutes les issues possibles.
+	On appelle ces événements \emph{complémentaires} : ils sont disjoints (les deux événements ne peuvent pas arriver en même temps), et ensembles ils forment l'univers tout entier (chaque issue appartient à un événement ou à l'autre).
+	
+	Les derniers événements motivent la relation 
+		\[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
+	qui, avec des mots, dit
+		\begin{center}
+			\og non (A ou B) \fg $=$ \og ni A, ni B \fg $=$ \og (non A) et (non B) \fg.
+		\end{center}
+}
 
+\exe{
+	Dans une entreprise du bâtiment de $360$ employés, on a observé que $35\%$ des employés sont des cadres, et que $45\%$ des employés sont des femmes.
+	Parmis les femmes, seules $48$ sont des cadres.
+	
+	On choisit un employé de l'entreprise uniformément au hasard : chaque personne a la même probabilité d'être choisie.
+	On dénote les événements
+		\begin{center}
+			F : \og la personne est une femme \fg \qquad et \qquad C : \og la personne est un cadre \fg.
+		\end{center}
+	\begin{enumerate}
+		%\item Réaliser un diagramme de Venn permettant de décrire les données de l'énoncé.
+		\item Déterminer $P\left(\overline{F}\right)$ et $P(C)$.
+		\item Calculer la probabilité que la personne choisie soit une femme cadre.
+		\item Calculer $P(F \cup C)$ à l'aide de la formule d'inclusion-exclusion.
+		\item 
+		Justifier, en traduisant les événements $\overline{F} \cap \overline{C}$ et $\overline{F \cup C}$ par des phrases, l'égalité
+			\[ \overline{F} \cap \overline{C} = \overline{F \cup C}, \]
+		puis calculer $P(\overline{F} \cap \overline{C})$.
+		\item À l'aide des événements $F$ et $C$, traduire l'événement \og la personne est un homme cadre \fg ~puis calculer sa probabilité.
+	\end{enumerate}
 }{}
 
+
+\exe{
+	On lance un D6 pipé avant de noter le numéro de la face du dessus.
+	Les probabilités de chacunes des issues vérifient
+		\[ P(1) = 2 P(2) = 4P(3) = 4 P(4) = 2P(5) = P(6). \]
+		
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & & & & & & \ifsolutions $\color{red} 0,2$ \fi \\ \hline
+	\end{tabular}
+	\end{center}
+	\vspace{5pt}
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Compléter le tableau de probabilités.
+		\item Calculer $P($\og le résultat est pair \fg$)$.
+	\end{enumerate}
+	\end{multicols}
+}{
+	Posons $p=P(2) \in [0;1]$ et exprimons chaque probabilité en fonction de $p$.
+		\begin{align*}
+			P(1) = 2p && P(2) = p && P(3) = 2p && P(4) = p && P(5) = 2p && P(6) = p.
+		\end{align*}
+	La relation $P(\Omega) = 1$ nous donne l'équation suivante à résoudre pour $p$.
+		\begin{align*}
+			P(1) + P(2) + P(3) + P(4) + P(5) + P (6) &= 1 \\
+			2p + p + 2p + p + 2p + p &= 1 \\
+			9p &= 1 \\
+			p &= \dfrac19
+		\end{align*}
+	On en déduit le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $\dfrac29$ & $\dfrac19$ & $\dfrac29$ & $\dfrac19$ & $\dfrac29$ & $\dfrac19$ \\ \hline
+	\end{tabular}
+	\end{center}
+	Et on conclut que $P($\og le résultat est divisible par $3$ \fg$) = P(3) + P(6) = \dfrac29 + \dfrac19 = \dfrac13.$
+}
+
+\exe{
+	L'univers associé à une expérience aléatoire est $\{ A, B, C\}$.
+	La loi de probabilité $P$ est donnée par le tableau ci-dessous et dépend d'un réel $t\in\R$ encore inconnu.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Développer le carré $\left(t-\dfrac35\right)^2$.
+		\item Déterminer $t$.
+		\item Compléter la dernière ligne du tableau.
+	\end{enumerate}
+	\end{multicols}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Résultat & $A$ & $B$ & $C$ \\ \hline
+		Probabilité & $\dfrac9{25}$ & $t^2$ & $-\dfrac65 t$ \\ \hline
+		Probabilité ($t = \dots\dots$) & $\dfrac9{25}$ & & \\ \hline
+	\end{tabular}
+	\end{center}
+}{
+	On développe le carré à l'aide de l'identité remarquable
+		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
+	où, ici, on a $a=t$ et $b=\frac12.$
+		\begin{align*}
+			\left(t-\dfrac12\right)^2 &= t^2 + \left(\dfrac12\right)^2 - 2 \cdot t \cdot \dfrac12 \\
+									&= t^2 + \dfrac14 - t
+		\end{align*}
+	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
+	Un loi vérifie les deux propriétés suivantes :
+		\begin{itemize}
+			\item $P(\omega) \in [0;1]$ pour chaque issue $\omega \in \Omega$ ; et
+			\item $P(\Omega) = 1$.
+		\end{itemize}
+	La deuxième identité donne donc
+		\begin{align*}
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - t + \dfrac14 = 1.
+		\end{align*}
+	Le carré développé nous permet d'écrire
+		\[ \left(t-\dfrac12\right)^2 = 1, \]
+	et donc
+		\[ \left|t-\dfrac12\right| = \sqrt{1} = 1, \]
+	en utilisant le fait que $\sqrt{x^2} = |x|.$
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
+		\begin{align*}
+			t-\dfrac12 = 1 && \text{ ou } && t - \dfrac12 = -1 \\
+			t = \dfrac32 && \text{ ou } && t = -\dfrac12.
+		\end{align*}
+	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
+	
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
+	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue & $a$ & $b$ & $c$ \\ \hline
+		Probabilité & $\dfrac14$ & $\dfrac12$ & $\dfrac14$ \\ \hline
+	\end{tabular}
+	\end{center}
+}
 
 \end{document}
