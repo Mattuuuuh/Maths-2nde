@@ -1,8 +1,6 @@
-				\solutionstrue
-				\solutionsfalse
-
 \AdvanceDate[0]
 
+\begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
 \fancyhead[C]{\textbf{Probabilités 2 \ifsolutions -- Solutions  \fi}}
@@ -42,9 +40,7 @@
 	\end{tikzpicture}
 	\end{center}
 	Compléter l'arbre, et calculer $P(V)$ et $P(R)$.
-}{}
-\ifsolutions
-\begin{sol}
+}{
 	\, \\
 	\begin{center}
 	\begin{tikzpicture}
@@ -90,8 +86,7 @@
 		\end{align*}
 		
 		On aurait aussi pû utiliser le fait que $P(R) = 1 - P(V)$ pour ne pas augmenter la probabilité de faire une erreur de calcul.
-\end{sol}
-\fi
+}
 
 
 \exe{
@@ -135,9 +130,7 @@
 	\end{enumerate}
 	\end{multicols}
 
-}{}
-\ifsolutions
-\begin{sol}
+}{
 	La somme des probabilités de chaque sous-branche est toujours $1$. 
 	On complète donc l'arbre comme ci-dessous.
 	
@@ -190,10 +183,7 @@
 		et donc
 			\[ P(A\cup C) \approx 0,64. \]
 	\end{enumerate}
-
-
-\end{sol}
-\fi
+}
 
 \newpage
 
@@ -212,9 +202,7 @@
 		\item Calculer la probabilité d'obtenir $6$ et vérifier la formule d'inclusion-exclusion.
 	\end{enumerate}
 
-}{}
-\ifsolutions
-\begin{sol}
+}{
 	On a l'arbre suivant.
 	
 	\begin{center}
@@ -298,8 +286,7 @@
 				&= \dfrac{28}{42} = \dfrac23.
 			\end{align*}
 	\end{enumerate}
-\end{sol}
-\fi
+}
 
 \exe{	
 	Dans une urne opaque se trouvent un nombre inconnu de boules rouges, bleues, et vertes.
@@ -309,7 +296,7 @@
 	\begin{tabular}{|c|c|c|c|} \hline
 		Couleur & Rouge & Bleu & Vert \\ \hline
 		Nombre de tirages & \rouge & \bleu & \vert \\ \hline
-		Fréquence & \ifsolutions $\color{red} 0,33$  & \ifsolutions $\color{red} 0,50$  & \ifsolutions $\color{red} 0,16$  \\ \hline
+		Fréquence & \ifsolutions $\color{red} 0,33$ \fi  & \ifsolutions $\color{red} 0,50$ \fi & \ifsolutions $\color{red} 0,16$ \fi \\ \hline
 	\end{tabular}
 	\end{center}
 	
@@ -319,9 +306,7 @@
 		\item Quelle est la probabilité d'obtenir deux boules vertes en trois tirages ?
 		\item Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
 	\end{enumerate}
-}{}
-\ifsolutions
-\begin{sol}
+}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau de l'énoncé.
 	On modélise la réalité en assignant les probabilités suivantes.
 		\begin{align*}
@@ -355,8 +340,7 @@
 			Par conséquent, 
 			\[ P(\text{au moins une boule bleue en quatre tirages}) =1- \dfrac{1}{16} = \dfrac{15}{16} = 0,9375. \]
 	\end{enumerate}
-\end{sol}
-\fi
+}
 
 \exe{	
 	On lance un grand nombre de fois un D$6$, dé à $6$ faces.
@@ -365,7 +349,7 @@
 	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
 		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
 		Nombre de tirages & \un & \deux & \trois & \quatre & \cinq & \six \\ \hline
-		Fréquence & \ifsolutions $\color{red} 0,2$ & \ifsolutions $\color{red} 0,3$ & \ifsolutions $\color{red} 0,1$ & \ifsolutions $\color{red} 0,15$ & \ifsolutions $\color{red} 0,2$ & \ifsolutions $\color{red} 0,05$ \\ \hline
+		Fréquence & \ifsolutions $\color{red} 0,2$ \fi & \ifsolutions $\color{red} 0,3$ \fi & \ifsolutions $\color{red} 0,1$ \fi & \ifsolutions $\color{red} 0,15$ \fi & \ifsolutions $\color{red} 0,2$ \fi & \ifsolutions $\color{red} 0,05$ \fi \\ \hline
 	\end{tabular}
 	\end{center}
 	
@@ -375,9 +359,7 @@
 		\item Quelle est la probabilité d'obtenir deux $6$ en deux lancers consécutifs ?
 		\item Quelle est la probabilité d'obtenir au moins un $6$ après $4$ lancers ?
 	\end{enumerate}
-}{}
-\ifsolutions
-\begin{sol}
+}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau de l'énoncé.
 	On modélise la réalité en assignant les probabilités suivantes.
 		\begin{align*}
@@ -408,8 +390,6 @@
 				\[ P(\text{au moins un $6$ en $4$ lancers}) = 1-0.95^4 \approx 0,19. \]
 				
 	\end{enumerate}
-
-\end{sol}
-\fi
+}
 
 \end{document}
