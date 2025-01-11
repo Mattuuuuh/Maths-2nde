@@ -1,0 +1,41 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions 1\ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+
+\subsection*{Bonus (3pts)}
+
+\exe{
+	Considérons une fonction quadratique 
+		\[ f(x) = ax^2 + bx + c, \]
+	où $a,b,c\in\R$ sont trois paramètres réels.
+	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha,\beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g$ donnée par
+			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
+		est affine.
+		\item Montrer que $g$ admet deux zéros distincts : $g(\alpha) = g(\beta) = 0$.
+		\item En déduire, par interpolation linéaire, que $g$ est constamment nulle et donc que
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+	\end{enumerate}
+}
+
+\end{document}

@@ -1,0 +1,288 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions affines 2 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{[Lecture graphique]
+
+	Déterminer les paramètres (coefficient directeur $a$ et ordonnée à l'origine $b$) des fonction affines $f,g,h$ dont les courbes sont représentées ci-dessous.
+	
+		\begin{center}
+		\newcommand{\scale}{1.095}
+		\begin{tikzpicture}[>=stealth, scale=\scale]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myr, thick, domain =-9:9, samples=2] {-x}  node[above=6pt] {$(\mathcal{C}_f)$};
+			\addplot[myr, thick, dotted, domain =-10:-9, samples=2] {-x} ;
+			\addplot[myr, thick, dotted, domain =9:10, samples=2] {-x};
+		
+		
+			\addplot[myg, thick, domain =-9:9, samples=2] {x/2+1}  node[below=6pt] {$(\mathcal{C}_g)$};
+			\addplot[myg, thick, dotted, domain =-10:-9, samples=2] {x/2+1} ;
+			\addplot[myg, thick, dotted, domain =9:10, samples=2] {x/2+1};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {7}  node[pos=.7, above] {$(\mathcal{C}_h)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {7} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {7};
+		
+			
+		\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}[>=stealth, scale=\scale]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myr, thick, domain =-9:9, samples=2] {-x/3 + 1}  node[pos=.9, below=5pt] {$(\mathcal{C}_F)$};
+			\addplot[myr, thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
+			\addplot[myr, thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
+		
+		
+			\addplot[myg, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left] {$(\mathcal{C}_G)$};
+			\addplot[myg, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+			\addplot[myg, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[pos=.2, above] {$(\mathcal{C}_H)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{
+	Pour la fonction $f(x) = ax+b (x\in\R)$, on peut par exemple choisir deux points lui appartenant et interpoler linéairement à partir de ces deux points.
+	Par unicité de la droite passant par deux points, l'interpolation trouvée doit nécessairement être $f$.
+	Prenons $A(-4;4)$ et $B(2;-2)$ et calculons les paramètres de la droite $(AB) = \C_f$.
+	
+	\begin{align*}
+		a = \dfrac{4 - (-2)}{-4 - 2} = -1, && b = \dfrac{(-4)\cdot(-2) - 4\cdot2}{-4-2} = 0.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $g(x) = ax+b (x\in\R)$, on peut faire idem en choisissant de bons points pour faciliter les calculs.
+	Par exemple, $A(0;1)$ et $B(-2;0)$ sont pratiques car il y a beaucoup de zéros qui annulent les expressions.
+	En fait, le point $A$ donne directement l'ordonnée à l'origine $b=1$, mais on peut calculer à l'aide du théorème du cours nonobstant.
+	\begin{align*}
+		a = \dfrac{1-0}{0-(-2)} = \dfrac12, && b = \dfrac{0 \cdot0 - 1 \cdot (-2)}{0-(-2)} = 1.
+	\end{align*}
+	
+	\hrule\vspace{10pt}
+	
+	Pour la fonction $h(x) = ax+b (x\in\R)$, on procède par parallélisme et appartenance.
+	La fonction est constante, donc $a=0$.
+	N'importe quel point lui appartenant a pour ordonnée $b=7$, ce qui conclut.
+
+	\hrule\vspace{10pt}
+
+	Les fonctions sont données, pour tout $x\in\R$, par
+	\begin{align*}
+			F(x) = -\dfrac13 x + 1, &&
+			G(x) = \dfrac32 x - 2, &&
+			G(x) = -\dfrac16 x + 5.
+	\end{align*}
+}
+
+
+\exe{[Intersection]
+	Pour chacune des paires de fonctions affines $f,g$, calculer l'intersection des droites $\C_f \cap \C_g$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$ $(x\in\R)$.
+		\item $f(x) = -x + 1, g(x) = 2x + 1$ $(x\in\R)$.
+		\item $f(x) = 3+7x, g(x) = 2$ $(x\in\R)$.
+		\item $f(x) = 9-2x, g(x) = 17-x$ $(x\in\R)$.
+		\item $f(x) = 2x+1, g(x) = 2x+1$ $(x\in\R)$.
+		\item $f(x) = 2x+1, g(x) = 2x+2$ $(x\in\R)$.
+	\end{enumerate}
+	\end{multicols}
+}{
+
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$ $(x\in\R)$.
+			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+				\begin{align*}
+					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
+				\end{align*}
+			Comme bien sûr $y_P = y_P$, on peut résoudre l'équation
+				\[ f(x_P) = g(x_P) \]
+			pour trouver $x_P$.
+			Ici, on pose calmement
+				\begin{align*}
+					f(x_P) &= g(x_P) \\
+					2x_P + 1 &= -x_P + 1 \\
+					3x_P &= 0 \\
+					x_P &= 0,
+				\end{align*}
+			ce qui nous fournit $x_P = 0$.
+			Reste plus qu'à utiliser que $y_P = f(x_P) = g(x_P)$ pour calculer $y_P$.
+			
+			D'une part, 
+				\[ f(x_P) = f(0) = 2\cdot0 + 1 = 1. \]
+			D'autre part, on aurait pû calculer
+				\[ g(x_P) = g(0) = -0 + 1 = 1. \]
+			Rien de surprenant à ce qu'on trouve la même valeur $y_P = 1$, car $x_P$ a été trouvé vérifiant $f(x_P) = g(x_P)$.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (0;1) \}$.
+			
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				-x_P + 1 & = 2x_P + 1 \\
+				x_P &= 0,
+			\end{align*}
+			et $y_P = f(0) = 1$.
+			Sans surprise, $(0;1)$ est à nouveau le point d'intersection de $\C_f$ et de $\C_g$ car se sont les mêmes fonctions que ci-dessus mais échangées.
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				3 + 7x_P & = 2 \\
+				7x_P &= -1 \\
+				x_P &= \dfrac{-1}7,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 3+7\cdot \dfrac{-1}7  = 2.
+			\]
+			Il aurait été encore plus facile de calculer $g(x_P) = 2$ à la place !
+			
+			En conclusion, $\C_f \cap \C_g = \{ \left(-\dfrac72 ; 2\right) \}$.
+		
+		\item
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				9-2x_P & = 17-x_P \\
+				-8 &= x_P,
+			\end{align*}
+			\[
+				y_P = f(x_P) = 9-2 \cdot(-8) = 25.
+			\]
+		
+			En conclusion, $\C_f \cap \C_g = \{ (-8;25) \}$.
+		
+		\item 			
+		Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 1 \\
+				0 &= 0,
+			\end{align*}
+			cette équation étant évidemment vraie, tous les $x_P \in \R$ vérifient l'équation.
+			\[
+				y_P = f(x_P) = 2x_P + 1.
+			\]
+			N'importe quel $(x_P ; 2x_P+1) \in \R$ appartient donc à l'intersection des droites.
+			
+			En conclusion, $\C_f \cap \C_g = \{ (x_P ; 2x_P+1) \text{ tq. } x_P \in \R \} = \{ (x_P ; y_P) \in \R^2 \text{ tq. } y_P = 2x_P + 1 \} = \C_f = \C_g$.
+			Il n'est pas surprenant qu'on trouve que toute la droite appartienne à l'intersection, car $f$ et $g$ sont identiques : tous les points de la droite $\C_f$ sont des points d'intersection.
+		
+		
+		\item 
+			Similairement,
+			\begin{align*}
+				f(x_P) &= g(x_P) \\
+				2x_P + 1 & = 2x_P + 2 \\
+				1 &= 2,
+			\end{align*}
+			cette équation étant évidemment fausse, aucun $x_P \in \R$ ne vérifie l'équation.
+			
+			En conclusion, $\C_f \cap \C_g = \emptyset$, l'ensemble vide.
+			En fait, les droites $\C_f$ et $\C_g$ sont parallèles car elles ont le même coefficient directeur $2$.
+			Or les droites ne sont pas égales car leurs ordonnées à l'origine sont différentes, donc il n'y a aucun point d'intersection.
+	\end{enumerate}
+
+}
+
+\exe{[Parallélisme]
+	Pour chacun des couples de point $P$ et fonction affine $f$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.
+	
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $P=(1;2)$ et $f(x) = 2x+1$ $(x\in\R)$.
+		\item $P=(1;2)$ et $f(x) = 7-x$ $(x\in\R)$.
+		\item $P=(1;2)$ et $f(x) = 1600$ $(x\in\R)$.
+		\item $P=(1;2)$ et $f(x) = -3x + 5$ $(x\in\R)$.
+	\end{enumerate}
+	\end{multicols}
+}{
+	On pose $a,b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	\begin{enumerate}
+		\item 
+			L'information de parallélisme donne immédiatement $a=2$.
+			D'où $g(x) = 2x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= 2\cdot1 + b \\
+					b &= 0
+				\end{align*}
+			D'où $g(x) = 2x$ ($x\in\R$) est la fonction affine recherchée.
+		
+		
+		\item 
+			L'information de parallélisme donne immédiatement $a=-1$.
+			D'où $g(x) = -x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -1 + b \\
+					b &= 3
+				\end{align*}
+			D'où $g(x) = -x+3$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=0$.
+			D'où $g(x) =b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &=  b
+				\end{align*}
+			D'où $g(x) = 2$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=-3$.
+			D'où $g(x) = -3x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -3\cdot1 + b \\
+					b &= 5
+				\end{align*}
+			D'où $g(x) = -3x+5$ ($x\in\R$) est la fonction affine recherchée.
+	\end{enumerate}
+
+}
+
+
+\end{document}

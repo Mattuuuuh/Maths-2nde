@@ -1,0 +1,143 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions affines 1\ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1$
+		\item $f(x) = 1 + 2x$
+		\item $f(x) = - x$
+		\item $f(x) = -42$
+		\item $f(x) = 10x + 2$
+		\item $f(x) = 2 + 10x$
+		\item $f(x) = 1 - x$
+		\item $f(x) = 0$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	Donner $2$ points appartenant à la courbe représentative de chaque fonction affine et l'esquisser dans un repère de domaine $\D = [-3 ; 3]$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 1 + 2x$
+		\item $g(x) = 2 + 2x$
+		\item $h(x) = - x$
+		\item $F(x) = 1 - x$
+		\item $G(x) = -\frac12$
+		\item $H(x) = 2 - \frac13x$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{\label{ex:3} \, \\
+		\begin{center}
+		\newcommand{\scale}{1.095}
+		\begin{tikzpicture}[>=stealth, scale=\scale]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myr, thick, domain =-9:9, samples=2] {-x}  node[above=6pt] {$(\mathcal{C}_f)$};
+			\addplot[myr, thick, dotted, domain =-10:-9, samples=2] {-x} ;
+			\addplot[myr, thick, dotted, domain =9:10, samples=2] {-x};
+		
+		
+			\addplot[myg, thick, domain =-9:9, samples=2] {x/2+1}  node[below=6pt] {$(\mathcal{C}_g)$};
+			\addplot[myg, thick, dotted, domain =-10:-9, samples=2] {x/2+1} ;
+			\addplot[myg, thick, dotted, domain =9:10, samples=2] {x/2+1};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {7}  node[pos=.7, above] {$(\mathcal{C}_h)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {7} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {7};
+		
+			
+		\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}[>=stealth, scale=\scale]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myr, thick, domain =-9:9, samples=2] {-x/3 + 1}  node[pos=.9, below=5pt] {$(\mathcal{C}_F)$};
+			\addplot[myr, thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
+			\addplot[myr, thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
+		
+		
+			\addplot[myg, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left] {$(\mathcal{C}_G)$};
+			\addplot[myg, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+			\addplot[myg, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+		
+		
+			\addplot[black, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[pos=.2, above] {$(\mathcal{C}_H)$};
+			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Donner $2$ points appartenant à chaque courbe représentative, dont un d'abscisse nulle.
+		\item En déduire l'ordonnée à l'origine $b$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$.
+		\item Donner le signe (strictement positif, strictement négatif, ou nul) du coefficient directeur $a$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$.
+	\end{enumerate}
+}{}
+
+\exe{
+	Soit $f(x) = ax+b$ une fonction affine sur $\R$ où $a,b\in\R$ sont des paramètres réels.
+	\begin{enumerate}
+		\item Montrer que, pour tout $x\in\R$,
+			\[ f(x+2) - f(x) = 2a. \]
+		\item En déduire le coefficient directeur $a$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$ de l'exercice \ref{ex:3}.
+	\end{enumerate}
+}{}
+
+\newpage
+
+\exe{[Interpolation]
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$, où $f$ est affine.
+	Posons $f(x) = ax+b$ où $x$ parcourt $\R$ et où $a, b\in\R$ sont des paramètres à déterminer.
+	
+	\begin{enumerate}
+		\item Tracer la droite $\C_f$ dans un repère à l'aide des deux points donnés. En déduire les valeurs de $a$ et $b$ graphiquement.
+		\item Montrer, à l'aide de la propriété fondamentale, que les paramètres $a, b$ vérifient
+			\[ \begin{cases} 2 = a + b, \\ -4 = 4a + b. \end{cases} \]
+		\item Trouver $a$ et $b$ algébriquement et comparer aux valeurs obtenues graphiquement.
+	\end{enumerate}
+}{}
+
+\exe{[Interpolation]
+	Pour chacune des paires de points $A, B$ suivantes, calculer les paramètres ($a$ et $b$) de la fonction affine $f$ telle que $A, B \in \C_f$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $A(1;2), B(4;-4)$.
+		\item $A(2;8), B(4;7)$.
+		\item $A(4;7), B(2;8)$.
+		\item $A(-3; -3), B(-2; -1)$.
+		\item $A(2;5), B(-10; 5)$.
+		\item $A(-3;4), B(12;-11)$.
+	\end{enumerate}
+	\end{multicols}
+
+}{}
+
+
+\end{document}
