@@ -100,6 +100,64 @@
 	\end{enumerate}
 }{}
 
+%\newpage
+
+\exe{
+	\begin{multicols}{2}
+	Soit $f(x) = ax+b$ la fonction affine donnée graphiquement pour $x\in[-0,6 ; 1]$ ci-contre.
+	
+	Déterminer les paramètres $a$ et $b$.
+	\vfill
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1.2, xmax=1, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+		
+		% (d)
+		\addplot[myb, thick, domain =-0.55:.9, samples=2] {-1+5*x}  node[pos = .8, above=2pt] {$\C_f$};
+		\addplot[myb, thick, dotted, domain =-.6:-.55, samples=2] {-1+5*x} ;
+		\addplot[myb, thick, dotted, domain =.9:1, samples=2] {-1+5*x};
+		
+		% 2 points
+		\addplot[black, mark=*, mark size = 1] (.5,1.5) node[right] {$(0,5 ; 1,5)$};
+		\addplot[black, mark=*, mark size = 1] (-.5,-3.5);
+		\addplot[black] (-.8,-2.7) node{$(-0,5 ; -3,5)$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\end{multicols}
+}{}
+
+\exe{
+	\begin{multicols}{2}
+	Soit $g(x) = ax+b$ la fonction affine donnée graphiquement pour $x\in[-1 ; 3]$ ci-contre.
+	
+	Déterminer les paramètres $a$ et $b$.
+	\vfill
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+			
+			% (d)
+			\addplot[myb, thick, domain =-0.8:2.6, samples=2] {2-2*x}  node[above=3pt] {$\C_g$};
+			\addplot[myb, thick, dotted, domain =-1:-.8, samples=2] {2-2*x} ;
+			\addplot[myb, thick, dotted, domain =2.6:3, samples=2] {2-2*x};
+			
+			% (0,b)
+			\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
+			
+			% (1, b+a)
+			\addplot[black, mark=*, mark size = 1] (1,0) node[above right] {$(1;0)$};
+			
+			% (2, b+2a)
+			\addplot[black, mark=*, mark size = 1] (2,-2) node[above right] {$(2;-2)$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	\end{multicols}
+}{}
+
 \exe{
 	Soit $f(x) = ax+b$ une fonction affine sur $\R$ où $a,b\in\R$ sont des paramètres réels.
 	\begin{enumerate}
@@ -108,8 +166,6 @@
 		\item En déduire le coefficient directeur $a$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$ de l'exercice \ref{ex:3}.
 	\end{enumerate}
 }{}
-
-\newpage
 
 \exe{[Interpolation]
 	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$, où $f$ est affine.
