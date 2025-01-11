@@ -32,7 +32,7 @@ On a supposé $(d)$ non verticale car dans le cas contraire, un certain antécé
 %		\addplot[myb, thick, dotted, domain =3:4, samples=2] {-3*x-3};
 %	\end{axis}
 %	\end{tikzpicture}
-	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{tikzpicture}[>=stealth, scale=1.2]
 	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both]
 		\addplot[myb, thick, domain =-3.5:3, samples=2] {-3*x-3}  node[above=3pt] {$(d)$};
 		\addplot[myb, thick, dotted, domain =-4:-3.5, samples=2] {-3*x-3} ;
@@ -114,7 +114,11 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 			f(x) = ax + b, \label{eq:affine}
 		\end{align}
 	où $a$ et $b$ sont deux paramètres : le coefficient directeur et l'ordonnée à l'origine.
+	
+	La courbe représentative de $f$, $\C_f$, est une droite non verticale.
 }{def:affine}
+
+\newpage
 
 \nt{
 	De la discussion ci-dessus, on en déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
@@ -125,6 +129,225 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	On verra dans la suite que le signe de $a$ correspond au caractère croissant ou décroissant de la fonction affine ; et que plus $|a|$ est grand, plus la pente est raide.
 }
 
+\ex{}{
+	Considérons la fonction $id$, dite \emph{identité}, donnée par
+		\[ id(x) = x \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=0$.
+	La droite $(d) = \C_{id}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = x.
+		\end{align*}
+	Un point appartient donc à $(d)$ si et seulement si sont abscisse est égale à son ordonnée.
+	
+	Ainsi, $(3;3) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}) \in (d)$, mais $(3;4) \notin (d)$.
+	La droite restreinte à $\D = [-4 ; 4]$ est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {x}  node[above=3pt, left] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x};
+		
+			
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+}{}
+
+\ex{}{
+	Considérons la fonction $f$ donnée par
+		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
+	La droite $(d) = \C_{f}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = x+6.
+		\end{align*}
+	Ainsi, $(3;9) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}+6) \in (d)$, mais $(6;0) \notin (d)$.
+	La droite est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=2, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {x+6}  node[above=3pt, left] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x+6} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x+6};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{ex:droite}
+
+\ex{}{
+	Considérons la fonction $f$ donnée par
+		\[ f(x) = 2 \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=0$ et $b=2$.
+	La droite $(d) = \C_{f}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = 2,2.
+		\end{align*}
+	Ainsi, $(3;2,2) \in (d)$ et $(-\sqrt{2}; 2,2) \in (d)$, mais $(0;0) \notin (d)$.
+	La droite est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=1, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {2.2}  node[above=3pt] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {2.2} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {2.2};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\ex{}{
+	Considérons la fonction $f$ donnée par
+		\[ f(x) = -2x + 1 \qquad \text{pour tout $x \in \R$.} \]
+	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=-2$ et $b=1$.
+	La droite $(d) = \C_{f}$ vérifie donc
+		\begin{align*}
+			(x;y) \in (d) && \iff && y = -2x+1.
+		\end{align*}
+	Ainsi, $(-1;3) \in (d)$ et $(-\sqrt{2}; 2\sqrt{2}+1) \in (d)$, mais $(1;1) \notin (d)$.
+	La droite est donc l'ensemble des points en bleu ci-dessous.
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-6, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[myb, thick, domain =-3:3, samples=2] {1-2*x}  node[above=5pt] {$(d)$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {1-2*x} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {1-2*x};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+On distingue trois cas différents de droites parmis les exemples précédents : les deux premières ont l'air de ``monter'', la suivante est constante, et la dernière a l'air de ``descendre''.
+
+\dfn{Variations}{
+	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
+	Alors
+		\begin{itemize}
+			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \implies && f(x) \leq f(y).
+				\end{align*}
+				
+			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \implies && f(x) \geq f(y).
+				\end{align*}
+				
+			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
+				\begin{align*}
+					f(x) = K.
+				\end{align*}
+		\end{itemize}
+	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
+}{}
+
+\thm{Variations}{
+	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
+		\begin{align*}
+			f(x) = a x + b && (x\in\R)
+		\end{align*}
+	On distingue trois cas de figure.
+		\begin{itemize}
+			\item Si $a < 0$, alors $f$ est strictement décroissante.
+			\item Si $a=0$, alors $f$ est constante.
+			\item Si $a>0$, alors $f$ est strictement croissante.
+		\end{itemize}
+}{thm:affine-var}
+
+\pf{Démonstration du théorème \ref{thm:affine-var}}{
+	Si $a=0$, $f$ est clairement constante car
+		\begin{align*}
+			f(x) = b \qquad \text{ pour tout $x\in\R$}.
+		\end{align*}
+	
+	Sinon, on utilise les règles de manipulation des inégalités du théorème \ref{thm:ineg} vu au chapitre \ref{chap:3}.
+	
+	Si $a>0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
+		\begin{align*}
+			x &< y \\
+			a \cdot x &< a \cdot y \\
+			a \cdot x + b &< a \cdot y + b \\
+			f(x) &< f(y),
+		\end{align*}
+	et $f$ est donc strictement croissante.
+	
+	Si $a<0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
+		\begin{align*}
+			x &< y \\
+			a \cdot x &> a \cdot y \\
+			a \cdot x + b &> a \cdot y + b \\
+			f(x) &> f(y),
+		\end{align*}
+	et $f$ est donc strictement décroissante.
+}{}
+
+\section{Identifications des paramètres}
+
+\ex{}{
+	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1$
+		\item $f(x) = 1 + 2x$
+		\item $f(x) = - x$
+		\item $f(x) = -42$
+		\item $f(x) = 10x + 2$
+		\item $f(x) = 2 + 10x$
+		\item $f(x) = 1 - x$
+		\item $f(x) = 0$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\lem{Ordonnée à l'origine}{
+	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
+		\begin{align*}
+			f(x) = a x + b && (x\in\R)
+		\end{align*}
+	Alors
+		\[ f(0) = b, \]
+	et donc
+		\[ (0 ; b) \in \C_f. \]
+}{}
+
+\ex{}{
+	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
+
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+			
+			% (d)
+			\addplot[myb, thick, domain =-3:3, samples=2] {2-.5*x}  node[above=3pt] {$\C_f$};
+			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {2-.5*x} ;
+			\addplot[myb, thick, dotted, domain =3:4, samples=2] {2-.5*x};
+			
+			% (0,b)
+			\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	
+	On regarde le point de $\C_f$ d'abscisse nulle et on considère son ordonnée.
+		\begin{align*}
+			(0 ; 2) \in \C_f && \iff && 2 = f(0).
+		\end{align*}
+	Comme $f$ est affine, elle s'écrit $f(x) = ax + b$, pour certains paramètres $a,b\in\R$ réels, et donc
+		\[ 2 = f(0) = a \cdot 0 + b = b. \]
+	On en déduit que le paramètre $b$ vaut $2$.
+}{}
 
 \ex{}{
 	Considérons une droite $(d)$ qui contient les points
@@ -146,90 +369,36 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ f(x) = 5x + 3 \qquad \text{ pour tout } x\in\R. \]
 }{}
 
-\nt{
-	Les fonctions affines vérifient
-		\[ f(x+1) - f(x) = a(x+1) + b - (ax + b) = a, \]
-	pour n'importe quel $x\in\R$.
-}
-
-\exe{}{
-	Décrire les ensembles suivants :
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item $\{ x \in \R \text{ tq. } x \geq 2\}$
-			\item $\{ x \in \R \text{ tq. } x \neq 0\}$
-			\item $\{ n \text{ tq. } n\in\N \text{ ou } -n \in \N \}$
-			\item $\left\{ \dfrac{a}{b} \text{ tq. } a,b\in\Z \text{ et } b\neq 0\right\}$
-		\end{enumerate}
-		\end{multicols}
-}{}
-
-\ex{}{
-	Considérons la fonction $id$, dite \emph{identité}, donnée par
-		\[ id(x) = x \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=0$.
-	La droite $(d) = \C_{id}$ vérifie donc
+\lem{Coefficient directeur}{
+	Soit $f$ une fonction affine où $a,b \in\R$ sont ses deux paramètres réels.
 		\begin{align*}
-			(x;y) \in (d) && \iff && y = x.
+			f(x) = a x + b && (x\in\R)
 		\end{align*}
-	Un point appartient donc à $(d)$ si et seulement si sont abscisse est égale à son ordonnée.
-	
-	Ainsi, $(3;3) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}) \in (d)$, mais $(3;4) \notin (d)$.
-	La droite restreinte à $\D = [-4 ; 4]$ est donc l'ensemble des points en bleu ci-dessous.
-	
-		\begin{center}
-		\begin{tikzpicture}[>=stealth, scale=1.2]
-		\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
-		
-			\addplot[myb, thick, domain =-3:3, samples=2] {x}  node[above=3pt, left] {$(d)$};
-			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x} ;
-			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x};
-		
-			
-		\end{axis}
-	\end{tikzpicture}
-	\end{center}
+	Alors
+		\[ f(x+1) - f(x) = a \]
+	pour tout $x\in\R$ réel.
+}{lem:coeff-dir}
 
-}{}
-
-
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
-	La droite $(d) = \C_{f}$ vérifie donc
+\pf{Preuve du lemme \ref{lem:coeff-dir}}{
+	Pour calculer $f(x+1)$, posons la variable intermédiaire $t = x+1$.
+	On a alors
+		\[ f(x+1) = f(t) = a\cdot t + b = a\cdot (x+1) + b = a \cdot x + a + b. \]
+	En soustrayant $f(x) = ax+b$, on trouve bien le résultat recherché.
 		\begin{align*}
-			(x;y) \in (d) && \iff && y = x+6.
+			f(x+1) - f(x) &= ax + a + b - (ax + b) \\ &= ax + a + b -ax -b \\ &= a
 		\end{align*}
-	Ainsi, $(3;9) \in (d)$ et $(-\sqrt{2}; -\sqrt{2}+6) \in (d)$, mais $(6;0) \notin (d)$.
-	De la même manière, la droite est donc l'ensemble des points en bleu ci-dessous.
-	
-		\begin{center}
-		\begin{tikzpicture}[>=stealth, scale=1.2]
-		\begin{axis}[xmin = -4, xmax=4, ymin=2, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
-		
-			\addplot[myb, thick, domain =-3:3, samples=2] {x+6}  node[above=3pt, left] {$(d)$};
-			\addplot[myb, thick, dotted, domain =-4:-3, samples=2] {x+6} ;
-			\addplot[myb, thick, dotted, domain =3:4, samples=2] {x+6};
-		
-			
-		\end{axis}
-	\end{tikzpicture}
-	\end{center}
-
-}{ex:droite}
-
-\exe{}{
-	Donner deux points distincts appartenant à la droite suivante.
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-1 \}. \]
-	Représenter la droite dans un repère.
 }{}
 
-\section{Conséquences importantes}
+
+%\exe{}{
+%	Donner deux points distincts appartenant à la droite suivante.
+%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-1 \}. \]
+%	Représenter la droite dans un repère.
+%}{}
 
 \ex{}{
-	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite appelée $(d)$.
-	Notons $a,b \in\R$ les paramètres de la fonction affine $f$ qui lui est associée.
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $(\C_f)$.
+	Notons $a, b \in\R$ les paramètres de la fonction affine $f$.
 		\[ f(x) = ax + b \qquad \text{pour tout $x\in\R$.} \]
 	On a les équivalences suivantes
 		\[ (1;2) \in (d) \qquad\iff\qquad 2 = a\times1 + b, \]
@@ -257,40 +426,26 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ f(x) = -2x + 4 \qquad \text{pour tout $x\in\R$.} \]
 }{ex:systeme-affine}
 
-\exe{}{
-	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite 
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x+4 \}.\]
-}{}
-
-\mprop{}{
-	Une droite est déterminée entièrement par l'appartenance de deux points distincts.
-}{}
-
-\nt{
-	Il n'est pas surprenant qu'en géométrie, une droite soit donnée par deux points.
-	Cependant, nous étudions ici la définition algébrique d'une droite : c'est un ensemble de points vérifiants une certaine équation affine.
-	Il n'est pas clair \emph{a priori} que deux éléments d'un ensemble infini suffisent à déterminer tout cet ensemble.
-	
-	Remarquons cependant qu'une droite est déterminée entièrement par la valeur des deux paramètres $a$ et $b$ de la définition \ref{def:affine}.
-	Or, deux équations distinctes suffisent à déterminer la solution d'un système linéaire à deux inconnues.
-	
-	Ceci se généralise sans peine. Par exemple, pour trouver une parabole dont la fonction associée est de la forme $f(x)=ax^2 + bx + c$, il suffit de trois informations distinctes.
-}
-
-\exe{}{
-	Décrire entièrement la droite $(d)$ contenant les points $(3;-4)$ et $(-2;14)$.
-}{}
-
-\exe{}{
-	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
-
-}{}
+%\exe{}{
+%	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite 
+%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x+4 \}.\]
+%}{}
+%
+%\exe{}{
+%	Décrire entièrement la droite $(d)$ contenant les points $(3;-4)$ et $(-2;14)$.
+%}{}
+%
+%\exe{}{
+%	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
+%
+%}{}
 
 \exe{Approfondissement}{
-	Décrire l'ensemble
-		\[ (P) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y=ax^2 + bx + c \} \]
-	contenant les points $(0;1), (1;0),$ et $(2;1)$.
-	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur \href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}.
+	Décrire l'ensemble $\C_f$ contenant les points $(0;1), (1;0),$ et $(2;1)$ où $f(x) = ax^2 + bx + c$.
+	
+	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur GeoGebra. \\ \href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}
+	
+	Montrer qu'une droite ne peut pas contenir ces trois points simultanément.
 }{}
 
 \str{
@@ -312,45 +467,45 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
 	
 	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
-		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B} x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
+		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B}\cdot x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
 }
 
 
-\thm{}{
-	Soit $(d)$ une droite donnée par	
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \]
-	pour certains paramètres $a,b\in\R$.
+\thm{Interpolation linéaire}{
+	Soit $f$ une fonction affine donnée par, pour tout $x\in\R$, et pour certains paramètres $a, b\in\R$,
+		\[ f(x) = ax+b. \]
 	
-	Si $(x_A, y_A)$ et $(x_B, y_B)$ sont distincts et appartiennent à $(d)$, alors
+	Si les deux points $(x_A, y_A)$ et $(x_B, y_B)$ vérifient $x_A\neq x_B$ et appartiennent à $\C_f$, alors
 		\begin{align*}
 			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
 		\end{align*}
 }{thm:param-affine}
 
 
-\exe{}{
-	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
-}{}
-\exe{}{
-	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
-}{}
+%\exe{}{
+%	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
+%}{}
+%
+%\exe{}{
+%	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
+%}{}
 
 \section{Parallélisme et intersection}
 
 \ex{}{
-	Considérons deux droites $(d)$ et $(d')$ données par
+	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
 		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 \}, \\
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -4x+8 \}.
+			f(x) = 2x+3, &&
+			g(x) = -4x+8.
 		\end{align*}
 	On souhaite trouver les points d'intersection des deux droites, c'est-à-dire décrire l'ensemble
-		\[ (d) \cap (d'). \]
-	Soit $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$.
+		\[ \C_f \cap \C_g. \]
+	Soit $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$.
 	On extrait deux informations distinctes afin de connaître $x_P$ et $y_P$ :
 		\begin{align*}
-			P \in (d) && \text{et} && P \in (d')
+			P \in \C_f && \text{et} && P \in \C_g
 		\end{align*}
-	La propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations.
+	La propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations qu'on met dans un système car elles sont valables simultanément.
 		\[ \begin{cases*} y_P = 2x_P + 3, \\ y_P = -4x_P + 8. \end{cases*} \]
 	Comme on a bien sûr $y_P = y_P$, on peut écrire
 		\begin{align*}
@@ -361,26 +516,26 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\end{align*}
 	Et par suite $y_P = 2\cdot\dfrac56 + 3 = \dfrac{14}3$.
 	
-	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $(d)$ et $(d')$, et donc l'unique point d'intersection des droites.
+	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $\C_f$ et $\C_g$, et donc l'unique point d'intersection des droites.
 	Autrement dit, 
-		\[ (d) \cap (d') = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
+		\[ \C_f \cap \C_g = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
 }{}
 
 \nt{
 	On se rassurera sur le résultat trouvé en vérifiant que le point d'intersection appartient bien aux deux droites ci-dessus.
 		\begin{align*}
-			2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
-			-4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
+			f(x_P) = 2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
+			g(x_P) = -4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
 		\end{align*}
 }
 
 \exe{}{
-	Considérons deux droites $(d)$ et $(d')$ données par
+	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
 		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 3-x \}, \\·
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x +12 \}.
+			f(x) = 3-x , &&
+			g(x) = -2x +12.
 		\end{align*}
-	Déterminer $(d) \cap (d')$, l'ensemble des points appartenant à la fois à $(d)$ et à $(d')$.
+	Déterminer $\C_f \cap \C_g$, l'ensemble des points appartenant à la fois à $\C_f$ et à $\C_g$.
 }{}
 
 \exe{}{
@@ -393,14 +548,14 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 }{}
 
 \qs{}{
-	Considérons deux droites $(d)$ et $(d')$ données plus généralement par
+	Considérons deux droites $\C_f$ et $\C_g$ données plus généralement par	
 		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+			f(x) = ax+b, &&
+			g(x) = a'x+b',
 		\end{align*}
-	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	où $a, a', b, b' \in \R$ sont les paramètres des droites.
 	
-	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (d')$, ce qui se traduit par
+	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$, ce qui se traduit par
 		\[ \begin{cases*} y_P = ax_P + b, \\ y_P = a'x_P + b'. \end{cases*} \]
 	et donc, en suivant le même raisonnement que précédemment,
 		\begin{align*}
@@ -418,23 +573,19 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
 			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
 		\end{align*}
-	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	où $a, a', b, b' \in \R$ sont les paramètres des droites.
 	
 	Si $a=a'$ et $b\neq b'$, montrer que $(d)\cap(d')$ est l'ensemble vide.
+	
+	Si $a=a'$ et $b = b'$, montrer que $(d)\cap(d') = (d) = (d')$.
 }{}
 
-\nt{
-	Dans les notations ci-dessus, remarquons que si $a=a'$ et $b=b'$, alors les droites ont les mêmes paramètres et ce sont en fait les mêmes droites : $(d) = (d')$.
-	Dans ce cas, l'intersection des droites est la droite $(d)$ toute entière. Elle contient un nombre infini de points.
-}
-
 \thm{}{
-	Considérons deux droites $(d)$ et $(d')$ données par
+	Considérons deux droites $\C_f$ et $ \C_g$ avec
 		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+			f(x)= ax+b, && \text{ et } && g(x) = a'x+b',
 		\end{align*}
-	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	où $a, a', b, b' \in \R$ sont les paramètres des droites.
 	
 	On distingue alors les cas suivants sur les points d'intersection entre les droites.
 		\begin{enumerate}
@@ -450,7 +601,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
 			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
 		\end{align*}
-	où $a,a',b,b' \in \R$ sont les paramètres des droites.
+	où $a, a', b, b' \in \R$ sont les paramètres des droites.
 	
 	Les droites $(d)$ et $(d')$ sont parallèles si et seulement si $a=a'$, c'est-à-dire si et seulement si les coefficients directeurs des fonctions associées sont égaux.
 }{}
@@ -486,25 +637,25 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 
 }{}
 
-\exe{}{
-	Soit $(d)$ une droite donnée par
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
-	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;2)$.
-}{}
-
-\exe{}{
-	Soit $(d)$ une droite donnée par
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
-	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;7)$.
-}{}
-
-\exe{}{
-	Soit $(d)$ une droite, et $P\in (d)$ un point lui appartenant.
-	
-	Montrer qu'une droite $(d')$ vérifiant
-		\begin{enumerate}
-			\item $(d')$ est parallèle à $(d)$, et
-			\item $P \in (d')$
-		\end{enumerate}
-	est forcément égale à la droite $(d)$.
-}{}
+%\exe{}{
+%	Soit $(d)$ une droite donnée par
+%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+%	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;2)$.
+%}{}
+%
+%\exe{}{
+%	Soit $(d)$ une droite donnée par
+%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
+%	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;7)$.
+%}{}
+%
+%\exe{}{
+%	Soit $(d)$ une droite, et $P\in (d)$ un point lui appartenant.
+%	
+%	Montrer qu'une droite $(d')$ vérifiant
+%		\begin{enumerate}
+%			\item $(d')$ est parallèle à $(d)$, et
+%			\item $P \in (d')$
+%		\end{enumerate}
+%	est forcément égale à la droite $(d)$.
+%}{}
