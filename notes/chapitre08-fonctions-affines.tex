@@ -374,9 +374,12 @@ On distingue trois cas différents de droites parmis les exemples précédents :
 		\begin{align*}
 			f(x) = a x + b && (x\in\R)
 		\end{align*}
-	Alors
-		\[ f(x+1) - f(x) = a \]
-	pour tout $x\in\R$ réel.
+	Alors, pour tout $x\in\R$ réel,
+		\[ f(x+1) - f(x) = a. \]
+	On interprète l'équation ainsi :
+		\begin{center}
+			\og lorsqu'on augmente l'abscisse $x$ de $1$, l'ordonnée $y$ augmente de $a$ \fg.
+		\end{center}
 }{lem:coeff-dir}
 
 \pf{Preuve du lemme \ref{lem:coeff-dir}}{
@@ -387,6 +390,45 @@ On distingue trois cas différents de droites parmis les exemples précédents :
 		\begin{align*}
 			f(x+1) - f(x) &= ax + a + b - (ax + b) \\ &= ax + a + b -ax -b \\ &= a
 		\end{align*}
+}
+
+
+\ex{}{
+	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
+
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -1, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+			
+			% (d)
+			\addplot[myb, thick, domain =-0.8:2.6, samples=2] {2-2*x}  node[above=3pt] {$\C_f$};
+			\addplot[myb, thick, dotted, domain =-1:-.8, samples=2] {2-2*x} ;
+			\addplot[myb, thick, dotted, domain =2.6:3, samples=2] {2-2*x};
+			
+			% (0,b)
+			\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
+			
+			% (1, b+a)
+			\addplot[black, mark=*, mark size = 1] (1,0) node[above right] {$(1;0)$};
+			
+			% (2, b+2a)
+			\addplot[black, mark=*, mark size = 1] (2,-2) node[above right] {$(2;-2)$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+	
+	On regarde deux points de $\C_f$ dont les abscisses sont espacées de $1$ et on regarde comme leur ordonnée évolue.
+	Par exemple, $(1;0)$ et $(2,-2)$. 
+	Le lemme \ref{lem:coeff-dir} implique que, en prenant $x=1$,
+		\begin{align*}
+			f(2) - f(1) = a.
+		\end{align*}
+	On en déduit que 
+		\[ a = (-2) - (0) = -2. \]
+	En effet, on a augmenté $x$ de $1$, et l'image a augmenté de $-2$ (ou diminué de $2$).
+	
+	Remarquons qu'on aurait pû prendre d'autres points, par exemple $(0;2)$ et $(1;0)$, ou $(2;-2)$ et $(3;-4)$.
+	La différence des ordonnées vaut bien $-2$, le coefficient directeur.	
 }{}
 
 
@@ -397,13 +439,13 @@ On distingue trois cas différents de droites parmis les exemples précédents :
 %}{}
 
 \ex{}{
-	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $(\C_f)$.
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$.
 	Notons $a, b \in\R$ les paramètres de la fonction affine $f$.
 		\[ f(x) = ax + b \qquad \text{pour tout $x\in\R$.} \]
 	On a les équivalences suivantes
-		\[ (1;2) \in (d) \qquad\iff\qquad 2 = a\times1 + b, \]
+		\[ (1;2) \in \C_f \qquad\iff\qquad 2 = a\times1 + b, \]
 	et
-		\[ (4;-4) \in (d) \qquad\iff\qquad -4 = a\times4 + b. \]
+		\[ (4;-4) \in \C_f \qquad\iff\qquad -4 = a\times4 + b. \]
 	Ces deux égalités étant valides simultanément, on les met dans un système :
 		\[ \begin{cases*} a + b = 2, \\ 4a + b = -4. \end{cases*} \]
 	En l'état, il paraît difficile de trouver les valeurs de $a$ et $b$ vérifiant le système.
@@ -443,33 +485,49 @@ On distingue trois cas différents de droites parmis les exemples précédents :
 \exe{Approfondissement}{
 	Décrire l'ensemble $\C_f$ contenant les points $(0;1), (1;0),$ et $(2;1)$ où $f(x) = ax^2 + bx + c$.
 	
-	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur GeoGebra. \\ \href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}
+	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur GeoGebra.\footnote{\href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}}
 	
 	Montrer qu'une droite ne peut pas contenir ces trois points simultanément.
 }{}
 
-\str{
-	La stratégie de l'exemple \ref{ex:systeme-affine} peut se généraliser.
-	Considérons $(x_A, y_A)$ et $(x_B, y_B)$ deux points distincts appartenant à une droite non verticale
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \},\]
-	où $a, b\in\R$ sont deux paramètres à déterminer.
-	
-	Les deux appartenances donnent les égalités suivantes, grâce à la propriété fondamentale \ref{cor:prop-fond}.
-		\[ \begin{cases} y_A = ax_A + b, \\ y_B = ax_B + b. \end{cases} \]
-	On rappelle ici que $(x_A,y_A)$ et $(x_B,y_B)$ sont des valeurs sues, et qu'il faut déterminer $a$ et $b$ en fonction de ces valeurs.
-	
-	On soustrait la deuxième équation à la première pour éliminer la variable $b$ et obtenir
-	\begin{align*}
-		y_A - y_B &= (ax_A + b) - (ax_B + b) \\
-		y_A - y_B & = a(x_A - x_B) \\
-		a & = \dfrac{y_A - y_B}{x_A - x_B},
-	\end{align*}
-	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
-	
-	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
-		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B}\cdot x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
-}
+%\str{
+%	La stratégie de l'exemple \ref{ex:systeme-affine} peut se généraliser.
+%	Considérons $(x_A, y_A)$ et $(x_B, y_B)$ deux points distincts appartenant à une droite non verticale
+%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \},\]
+%	où $a, b\in\R$ sont deux paramètres à déterminer.
+%	
+%	Les deux appartenances donnent les égalités suivantes, grâce à la propriété fondamentale \ref{cor:prop-fond}.
+%		\[ \begin{cases} y_A = ax_A + b, \\ y_B = ax_B + b. \end{cases} \]
+%	On rappelle ici que $(x_A,y_A)$ et $(x_B,y_B)$ sont des valeurs sues, et qu'il faut déterminer $a$ et $b$ en fonction de ces valeurs.
+%	
+%	On soustrait la deuxième équation à la première pour éliminer la variable $b$ et obtenir
+%	\begin{align*}
+%		y_A - y_B &= (ax_A + b) - (ax_B + b) \\
+%		y_A - y_B & = a(x_A - x_B) \\
+%		a & = \dfrac{y_A - y_B}{x_A - x_B},
+%	\end{align*}
+%	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
+%	
+%	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
+%		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B}\cdot x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
+%}
 
+\nt{
+	Remarquons qu'on a aussi les relations suivantes, démontrables comme pour le lemme \ref{lem:coeff-dir}.
+		\begin{align*}
+			f(x+2) - f(x) &= 2a  &\iff &&  a &= \dfrac{f(x+2)-f(x)}2 \\
+			f(x+3) - f(x) &= 3a  &\iff && a &= \dfrac{f(x+3)-f(x)}3 \\
+			f\left(x+\frac12 \right) - f(x) &= \frac12 a  &\iff && a &= 2 \cdot \left(f\left(x+\frac12\right)-f(x)\right) \\
+			f\left(x+\frac13 \right) - f(x) &= \frac13 a  &\iff && a &= 3 \cdot \left(f\left(x+\frac13\right)-f(x)\right)
+		\end{align*}
+	Plus généralement, pour n'importe quel réel $\kappa \in\R$ non nul,
+		\begin{align*}
+			f\left(x+\kappa \right) - f(x) = \kappa \cdot a && \iff && a = \dfrac{f(x+\kappa) - f(x)}{\kappa}.
+		\end{align*}
+	Si on note $x' = x+\kappa$ on a donc
+		\[ a = \dfrac{f(x') - f(x)}{x' - x}. \]
+	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
+}
 
 \thm{Interpolation linéaire}{
 	Soit $f$ une fonction affine donnée par, pour tout $x\in\R$, et pour certains paramètres $a, b\in\R$,
@@ -480,6 +538,44 @@ On distingue trois cas différents de droites parmis les exemples précédents :
 			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
 		\end{align*}
 }{thm:param-affine}
+
+\nt{
+	%Le théorème \ref{thm:param-affine} étend le résultat du lemme \ref{lem:coeff-dir} à une différence d'abscisses qui n'est pas forcément $1$.
+
+	Un moyen mnémotechnique pour retenir la formule de $a$ est
+		\[ a = \dfrac{\text{différence des $y$}}{\text{différence des $x$}} = \dfrac{y-y'}{x-x'} = \dfrac{dy}{dx}. \]
+	L'ordre des différences ($A$ moins $B$ ou $B$ moins $A$) doit être le même au numérateur et au dénominateur mais, même s'il ne l'est pas, on aura seulement commis une erreur de signe.
+	Il est donc possible d'ignorer l'ordre des points et de décider du signe après grâce au caractère croissant ou décroissant de la fonction.
+	
+	La formule pour $b$ n'a pas a être retenue car, une fois $a$ connu, une appartenance d'un point suffit à donner une équation pour trouver $b$.
+}
+
+\ex{}{
+	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
+
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -1.2, xmax=1, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+			
+			% (d)
+			\addplot[myb, thick, domain =-0.55:.9, samples=2] {-1+5*x}  node[pos = .8, above=2pt] {$\C_f$};
+			\addplot[myb, thick, dotted, domain =-.6:-.55, samples=2] {-1+5*x} ;
+			\addplot[myb, thick, dotted, domain =.9:1, samples=2] {-1+5*x};
+			
+			% 2 points
+			\addplot[black, mark=*, mark size = 1] (.5,1.5) node[right] {$(0,5 ; 1,5)$};
+			\addplot[black, mark=*, mark size = 1] (-.5,-3.5);
+			\addplot[black] (-.8,-2.7) node{$(-0,5 ; -3,5)$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		
+	Le théorème \ref{thm:param-affine} affirme que
+		\begin{align*}
+			a = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)}  = \dfrac{5}{1} = 5. 
+		\end{align*}
+	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} avec $x=-0,5$ : lorsque $x$ augmente de $1$ en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
+}{}
 
 
 %\exe{}{
