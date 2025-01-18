@@ -1,0 +1,142 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions affines : coefficient directeur \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{ % pas = 1
+	On considère la fonction affine $f$ sur $\R$ suivante.
+		\[ f(x) = 3x -2 \]
+	\begin{center}
+	\setlength\tabcolsep{21pt}
+	\renewcommand\a{1.8}
+	\hspace{2.4cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-2, ..., 2} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-100:-.5) and +(-80:-.5)] node[above] {$+\dots$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+    
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+		$x$ & -3 & -2 & -1 & 0 & 1 & 2 \\ \hline
+		$f(x)$ &  & & & & & \\ \hline
+	\end{tabular}
+	
+	\hspace{2.4cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-2, ..., 2} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-80:.5) and +(-100:.5)] node[below=5pt] {$+\dots$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Compléter le tableau de valeurs.
+		\item Est-ce un tableau de proportionnalité ?
+		\item Compléter la phrase suivante.
+			\begin{center}
+				\og Quand $x$ augmente de $\dots$, $f(x)$ augmente de $\dots$. \fg
+			\end{center}
+	\end{enumerate}
+}{}
+
+\exe{ % pas = 2
+	On considère la fonction affine $g$ sur $\R$ suivante.
+		\[ g(x) = 2x +60 \]
+	\begin{center}
+	\renewcommand\a{2}
+	\hspace{1.6cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-2, ..., 2} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-100:-.5) and +(-80:-.5)] node[above] {$+\dots$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+    
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+		$x$ & -33,5 & -31,5 & -29,5 & -27,5 & -25,5 & -23,5 \\ \hline
+		$g(x)$ & & & & & & \\ \hline
+	\end{tabular}
+	
+	\hspace{1.6cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-2, ..., 2} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-80:.5) and +(-100:.5)] node[below=5pt] {$+\dots$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Compléter le tableau de valeurs.
+		\item Compléter la phrase suivante.
+			\begin{center}
+				\og Quand $x$ augmente de $\dots$, $g(x)$ augmente de $\dots$. \fg
+			\end{center}
+	\end{enumerate}
+}{}
+
+\exe{ % pas = 0,1
+	On considère la fonction affine $h$ sur $\R$ suivante.
+		\[ h(x) = -4x + 2 \]
+	\begin{center}
+	\renewcommand\a{1.5}
+	\hspace{1.5cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-3, ..., 3} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-100:-.5) and +(-80:-.5)] node[above] {$+~......$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+  
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+		$x$ & -6 & -3 & -1 & ~0~ & 0,5 & 0,7 & 0,6 & 0,1 \\ \hline
+		$h(x)$ & & & & & & & & \\ \hline
+	\end{tabular}
+	
+	\hspace{1.5cm}
+	    \begin{tikzpicture}
+	    	\foreach \x in {-3, ..., 3} {
+			\draw[->, black, thick] (\a*\x,0) to[controls=+(-80:.5) and +(-100:.5)] node[below=5pt] {$+~......$} (\a*\x+1,0);
+		}
+	    \end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Compléter le tableau de valeurs ci-dessus et le tableau d'accroissements ci-dessous.
+		\item Le tableau d'accroissement est-il un tableau de proportionnalité ?
+	\end{enumerate}
+	
+	%\begin{center}
+	\begin{tabular}{cc}
+		\setlength\tabcolsep{15pt}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+			Augmentation de $x$ & 3 & & & & & & \\ \hline
+			Augmentation de $h(x)$ & & -8 & ~~ & ~~ & ~~ & ~~ & ~~  \\ \hline
+		\end{tabular}
+		&
+		\thead{
+		\begin{tikzpicture}
+			\draw[] (0,0) {};
+			\draw[->, black, thick] (0,0) to[controls=+(0:.5) and +(0:.5)] node[right] {$\times ~ ......$} (0,-1);
+		\end{tikzpicture}
+		}
+	\end{tabular}
+	%\end{center}
+}{}
+
+\end{document}
