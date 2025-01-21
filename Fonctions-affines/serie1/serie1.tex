@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -31,7 +31,37 @@
 		\item $H(x) = 2 - \frac13x$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{
+	Un point de de la courbe représentative de $f$ prend la forme $(x ; f(x))$, où $x$ fait partie du domaine d'étude.
+	
+	Pour chaque fonction, les points de sa courbe représentative sont alignés.
+	La courbe d'une fonction affine est en fait une droite.
+	
+	Les courbes représentatives sont données ci-dessous.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3, xmax=3, ymin=-6, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-3, ..., 3}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myg, thick, domain =-3:3, samples=2] {1+2*x}  node[pos=.2, below] {$(\mathcal{C}_f)$};
+			\addplot[myr, thick, domain =-3:3, samples=2] {2+2*x}  node[pos=.7, above] {$(\mathcal{C}_g)$};
+			\addplot[myb, thick, domain =-3:3, samples=2] {-x}  node[pos=.2, above] {$(\mathcal{C}_h)$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3, xmax=3, ymin=-6, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-3, ..., 3}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myg, thick, domain =-3:3, samples=2] {1-x}  node[pos=.2, above] {$(\mathcal{C}_F)$};
+			\addplot[myr, thick, domain =-3:3, samples=2] {-.5}  node[pos=.2, below] {$(\mathcal{C}_G)$};
+			\addplot[myb, thick, domain =-3:3, samples=2] {2-x/3}  node[pos=.7, above] {$(\mathcal{C}_H)$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}
 
 \exe{
 	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
@@ -47,7 +77,59 @@
 		\item $f(x) = 0$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{
+	On a en général
+		\[ f(x) = a \cdot x + b. \]
+	On lit donc le coefficient directeur $a$ comme le nombre réel qui multiplie $x$.
+		\begin{itemize}
+			\item Si $x$ n'apparaît pas, $f$ est constante, et $a$ est nul.
+			\item Si aucun nombre n'apparait devant $x$, on peut le créer en écrivant $x = (1) \cdot x$.
+			\item Idem pour $-x = (-1) \cdot x$ : on change d'écriture pour mettre en exergue le coefficient qui multiplie $x$.
+		\end{itemize}
+	
+	On lit l'ordonnée à l'origine $b$ comme la partie constante de la fonction.
+	Si rien n'apparait, on peut la créer en ajoutant $0$. Par exemple, $2x = 2x+0$.
+	La relation 
+		\[ f(0) = a \cdot 0 + b = b \]
+	permet aussi de calculer $b$ en évaluant $f$ en $0$.
+
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				a = 2	&& b = 1
+			\end{align*}
+		\item
+			\begin{align*}
+				a = 2	&& b = 1
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = -1	&& b = 0
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = 0	&& b = -42
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = \sqrt{3}	&& b = 2
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = -\sqrt{5}	&& b = 2
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = -1	&& b = 1
+			\end{align*}
+		\item
+			\begin{align*}
+				a = 0	&& b = 0
+			\end{align*}
+	\end{enumerate}
+
+
+}
 
 
 \exe{\label{ex:3} \, \\
@@ -104,9 +186,45 @@
 		\item En déduire l'ordonnée à l'origine $b$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$.
 		%\item Donner le signe (strictement positif, strictement négatif, ou nul) du coefficient directeur $a$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item[$f$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;0)$ et $(2;-2)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax + 0 = ax$ pour un certain paramètre $a$ encore indéterminé.
+		\end{enumerate}
+		\item[$g$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;1)$ et $(-2; 0)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax + 1$ pour un certain paramètre $a$ encore indéterminé.
+		\end{enumerate}
+		\item[$h$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;7)$ et $(6;7)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax + 7$ pour un certain paramètre $a$ encore indéterminé. Comme $h$ est constante, on peut deviner que $a=0$...
+		\end{enumerate}
+		\item[$F$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;1)$ et $(3;0)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax + 1$ pour un certain paramètre $a$ encore indéterminé.
+		\end{enumerate}
+		\item[$G$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;-2)$ et $(-4;-8)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax -2$ pour un certain paramètre $a$ encore indéterminé.
+		\end{enumerate}
+		\item[$H$:] 
+		\begin{enumerate}[label=\arabic*.]
+			\item $(0;5)$ et $(6;4)$ appartiennent à $\C_f$.
+			\item On en déduit que $f(x) = ax +5$ pour un certain paramètre $a$ encore indéterminé.
+		\end{enumerate}
+	\end{enumerate}
+}
 
+\ifsolutions
+\else
 \newpage
+\fi
 
 \exe{
 	\begin{multicols}{2}
@@ -132,7 +250,18 @@
 	\end{tikzpicture}
 	\end{center}
 	\end{multicols}
-}{}
+}{
+	Notons $f(x) = ax + b$ la fonction affine.
+	On utilise le lemme du cours qui dit que $(0 ; b) \in \C_f$ pour déduire que $b=-1$ car $(0; -1) \in \C_f$.
+	
+	On utilise enfin le théorème du cours qui implique que, en choisissant $A(-0,5 ; -3,5)$ et $B(0,5;1,5)$,
+		\[ a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)} = \dfrac41 = 4. \]
+	Remarquons que, quand $x$ augmente de $1$, $f(x)$ augmente de $4$, le coefficient directeur.
+	De plus, l'ordre des points n'a en fait pas d'importance : on aurait pû choisir $B(-0,5 ; -3,5)$ et $A(0,5;1,5)$ pour trouver le même coefficient directeur.
+	
+	On conclut que 
+		\[ f(x) = 4x - 1. \]
+}
 
 \exe{
 	\begin{multicols}{2}
@@ -162,32 +291,62 @@
 		\end{tikzpicture}
 		\end{center}
 	\end{multicols}
-}{}
+}{
+	Notons $g(x) = ax + b$ la fonction affine.
+	On utilise le lemme du cours qui dit que $(0 ; b) \in \C_f$ pour déduire que $b=2$ car $(0; 2) \in \C_f$.
+	
+	On utilise enfin le théorème du cours qui implique que
+		\[ a = \dfrac{y_B - y_A}{x_B - x_A}. \]
+	Plusieurs choix s'offrent à nous pour les points $A$ et $B$.
+	Si on prend $A(1;0)$ et $B(2;-2)$, on trouve
+		\[ a = \dfrac{-2 - 0}{2 - 1} = -2. \]
+	Si on prend $A(2 ; -2)$ et $B(0;2)$, on trouve
+		\[ a = \dfrac{2 - (-2)}{0 - 2} = \dfrac{-4}{2} = -2. \]
+	Il y a en fait $6$ choix possibles ($3$ pour $A$ puis $2$ pour $B$). Chacun d'eux donne (heureusement) $a=-2$.
+	
+	Donc
+		\[ f(x) = -2x + 2. \]
+}
 
 \exe{
 		Calculer le coefficient directeur $a$ de chacune des fonctions affines $f, g, h, F, G,$ et $H$ de l'exercice \ref{ex:3}.
-}{}
+}{
+	On calcule le coefficient directeur à l'aide des paires de points qu'on a donné à l'exercice \ref{ex:3}.
 
-%\exe{
-%	Soit $f(x) = ax+b$ une fonction affine sur $\R$ où $a,b\in\R$ sont des paramètres réels.
-%	\begin{enumerate}
-%		\item Montrer que, pour tout $x\in\R$,
-%			\[ f(x+2) - f(x) = 2a. \]
-%		\item En déduire le coefficient directeur $a$ de chacune des fonctions affines $f, g,$ et $h$ de l'exercice \ref{ex:3}.
-%	\end{enumerate}
-%}{}
+	\begin{enumerate}
+		\item[$f$:] 
+			Les points $(0;0)$ et $(2;-2)$ appartiennent à $\C_f$.
+			Donc 
+				\[ a = \dfrac{-2 - 0}{2-0} = -1, \]
+			et $f(x) = -x$.
+		\item[$g$:] 
+			Les points $(0;1)$ et $(-2;0)$ appartiennent à $\C_g$.
+			Donc 
+				\[ a = \dfrac{0 - 1}{-2-0} = \dfrac12, \]
+			et $g(x) = \dfrac12 x + 1$.
+		\item[$h$:] 
+			Les points $(0;7)$ et $(6;7)$ appartiennent à $\C_h$.
+			Donc 
+				\[ a = \dfrac{7-7}{6-0} = 0, \]
+			et $h(x) = 7$, une fonction constante.
+		\item[$F$:] 
+			Les points $(0;1)$ et $(3;0)$ appartiennent à $\C_F$.
+			Donc 
+				\[ a = \dfrac{0-1}{3-0} = -\dfrac13, \]
+			et $F(x) = -\dfrac13 x + 1$, une fonction constante.
+		\item[$G$:] 
+			Les points $(0;-2)$ et $(-4;-8)$ appartiennent à $\C_G$.
+			Donc 
+				\[ a = \dfrac{-8-(-2)}{-4-0} = \dfrac{-6}{-4} = \dfrac32, \]
+			et $G(x) = \dfrac32 x - 2$, une fonction constante.
+		\item[$H$:] 
+			Les points $(0;5)$ et $(6;4)$ appartiennent à $\C_H$.
+			Donc 
+				\[ a = \dfrac{4-5}{6-0} = \dfrac{-1}{6}, \]
+			et $H(x) = -\dfrac16 x + 5$, une fonction constante.
+	\end{enumerate}
+}
 
-%\exe{[Interpolation]
-%	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$, où $f$ est affine.
-%	Posons $f(x) = ax+b$ où $x$ parcourt $\R$ et où $a, b\in\R$ sont des paramètres à déterminer.
-%	
-%	\begin{enumerate}
-%		\item Tracer la droite $\C_f$ dans un repère à l'aide des deux points donnés. En déduire les valeurs de $a$ et $b$ graphiquement.
-%		\item Montrer, à l'aide de la propriété fondamentale, que les paramètres $a, b$ vérifient
-%			\[ \begin{cases} 2 = a + b, \\ -4 = 4a + b. \end{cases} \]
-%		\item Trouver $a$ et $b$ algébriquement et les comparer aux valeurs obtenues graphiquement.
-%	\end{enumerate}
-%}{}
 
 \exe{[Interpolation]
 	Pour chacune des paires de points $A, B$ suivantes, calculer les paramètres ($a$ et $b$) de l'unique fonction affine $f$ telle que $A, B \in \C_f$.
@@ -203,7 +362,60 @@
 	\end{enumerate}
 	\end{multicols}
 
-}{}
+}{
+	On utilise la convention $a, b \in \R$ pour désigner respectivement le coefficient directeur et l'ordonnée à l'origine de la fonction affine $f$.
+	$f(x) = ax+b$ pour tout $x\in\R$.
+
+	\begin{enumerate}
+		\item 
+			D'après le cours,
+			\begin{align*}
+				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
+			\end{align*}
+			Par suite,
+			\begin{align*}
+				a = \dfrac{2 - (-4)}{1 - 4} = -2, && b = \dfrac{1 \cdot (-4) - 4 \cdot 2}{1 - 4} = 4.
+			\end{align*}
+				
+		\item 
+			\begin{align*}
+				a = \dfrac{8-7}{2-4} = -\dfrac12, && b = \dfrac{2\cdot7 - 4\cdot8}{2-4} = 9.
+			\end{align*}
+			
+			Visualisation : le point $A$ est à gauche du point $B$ car son abscisse est plus petite, mais est plus haut que le point $B$, car son ordonnée est plus grande. 
+			La droite $(AB)$ doit donc être décroissante, ce qu'on a bien trouvé car $a<0$.
+		\item
+			\begin{align*}
+				a = \dfrac{7-8}{4-2} = -\dfrac12, && b = \dfrac{4\cdot8 - 2\cdot7}{4-2} = 9.
+			\end{align*}
+			
+		Les formules ne dépendent bien sûr pas de l'ordre de $A$ et $B$ car la droite $(AB)$ est égale à la droite $(BA)$.
+					
+		\item
+			\begin{align*}
+				a = \dfrac{-3-(-1)}{-3-(-2)} = 2, && b = \dfrac{(-3)\cdot(-1) - (-3)\cdot(-2)}{-3 - (-2)} = 3.
+			\end{align*}
+			
+		\item
+			\begin{align*}
+				a = \dfrac{5-5}{2-(-10)} = 0, && b = \dfrac{2\cdot5 - 5 \cdot(-10)}{2-(-10)} = 5.
+			\end{align*}
+			
+			Visualisation : les deux points sont à la même hauteur car leurs abscisses sont égales.
+			La droite $(AB)$ est donc constante (ou horizontale), d'où $a=0$, et sa hauteur est celle des points, d'où $b=5$.
+			
+		\item $A(-3;4), B(12;-11)$.
+			\begin{align*}
+				a = \dfrac{4-(-11)}{-3-12} = -1, && b = \dfrac{(-3)\cdot(-11) - 4\cdot12}{-3-12} = 1.
+			\end{align*}
+			
+			Vérification : on vérifie que $A$ et $B$ vérifient bien l'équation $y=f(x) = -x +1$ en remplaçant les valeurs par les coordonnées.
+			Ainsi pour $A$ on a bien $y=4$ à gauche, et $f(-3) = -(-3) + 1 = 4$ à droite.
+			Pour $B$, on a $y=-11$ à gauche, et $f(12) = -12 + 1 = -11$ à droite.
+	\end{enumerate}
+
+
+}
 
 
 \end{document}
