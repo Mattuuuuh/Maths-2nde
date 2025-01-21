@@ -491,25 +491,15 @@
 
 \exe{[Lecture graphique]
 
-	Déterminer les paramètres des fonction affines $f, g, h$ dont les courbes sont représentées ci-dessous.
+	Déterminer les paramètres des fonction affines $f, g, h$ dont les courbes sont représentées ci-dessous sur l'intervalle $[-9;9]$.
 
 	\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1.5]
-		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		\begin{axis}[xmin = -9, xmax=9, ymin=-10, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
 		
-			\addplot[myr, thick, domain =-9:9, samples=2] {-x/3 + 1}  node[below=3pt] {$(\mathcal{C}_f)$};
-			\addplot[myr, thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
-			\addplot[myr, thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
-		
-		
-			\addplot[myg, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.1, above=5pt] {$(\mathcal{C}_g)$};
-			\addplot[myg, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
-			\addplot[myg, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
-		
-		
-			\addplot[black, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[above=1pt] {$(\mathcal{C}_h)$};
-			\addplot[black, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
-			\addplot[black, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+			\addplot[myr, thick, domain =-9:9, samples=2] {-3*x/8 + 3}  node[pos=.2, above=3pt] {$(\mathcal{C}_f)$};
+			\addplot[myg, thick, domain =-9:9, samples=2] {3*x/4-4}  node[pos=.2, above=5pt] {$(\mathcal{C}_g)$};
+			\addplot[black, thick, domain =-9:9, samples=2] {2*x/7 + 2}  node[pos=.9, above=1pt] {$(\mathcal{C}_h)$};
 		
 			
 		\end{axis}
