@@ -1,0 +1,144 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[2]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation blanche : Probabilités \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+%\exe{
+%	Démontrer, à l'aide d'un ou plusieurs diagrammes de Venn, la formule d'inclusion-exclusion
+%		\[ P(A\cup B) = P(A) + P(B) - P(A\cap B). \]
+%}{}
+
+\exe{
+	On considère un univers
+		\[ \Omega = \{ -3 ; -2 ; 1 ; 4; 5; 7 ; 13 \}, \]
+	ainsi que deux sous-ensembles 
+		\begin{align*}
+			A = \{ -3 ; 1 ; 5 \} && \text{ et } && B = \{ 1 ; 4 ; 5 ; 7 \}.
+		\end{align*}
+	\begin{enumerate}
+		\item Donner $\overline{A}$, le complémentaire de $A$ dans l'univers $\Omega$.
+		\item Vérifier l'égalité
+			\[ |A\cup B| = |A| + |B| - |A\cap B| \]
+		en calculant le membre de gauche puis le membre de droite et en comparant les valeurs obtenues.
+	\end{enumerate}
+
+}{}
+
+
+\exe{
+	Démontrer, à l'aide d'un ou plusieurs diagrammes de Venn, la relation d'ensembles
+		\[ A = \left(A \cap B \right) \cup \left(A \cap \overline{B} \right). \]
+}{}
+
+
+\exe{
+	On jette simultanément deux D$6$, dés à $6$ faces numérotées de $1$ à $6$, et on calcule la somme des faces du dessus.
+	Les dés sont supposés bien équilibrés.
+	
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ de l'expérience.
+		\item Calculer la probabilité d'obtenir exactement $4$.
+		\item Est-ce une situation d'équiprobabilité ?
+		\item[4($\star$).] Montrer que $P(k) = P(14-k)$ pour tout $k \in \Omega$.
+	\end{enumerate}
+}{}
+
+\exe{
+	On lance une pièce de monnaie bien équilibrée.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si elle tombe sur pile, on extrait au hasard une boule dans l'urne 1 qui contient 1 boule noire, 3 boules blanches et 4 boules rouges
+		\item Sinon, on extrait une boule dans l'urne 2 qui contient 4 boules noires et 3 boules blanches.
+	\end{enumerate}
+
+	Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir une boule rouge ?
+		\item Quelle est la probabilité d'obtenir une boule noire ou une boule blanche ?
+	\end{enumerate}
+
+}
+{}
+
+
+\exe{	
+	Dans une urne opaque se trouvent un nombre inconnu de boules rouges, bleues, et vertes.
+	On tire aléatoirement une boule de l'urne, on note sa couleur, et on la remet dans l'urne.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Couleur & Rouge & Bleu & Vert \\ \hline
+		Nombre de tirages & 64~444 & 42~962 & 35~802 \\ \hline
+		Fréquence & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Compléter le tableau en arrondissant à $10^{-2}$ près.
+	Modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir exactement deux boules bleues en deux tirages ?
+		\item Quelle est la probabilité d'obtenir exactement deux boules rouges en trois tirages ?
+		\item Quelle est la probabilité d'obtenir au moins une boule bleue en $10$ tirages ?
+	\end{enumerate}
+}{}
+
+
+\newpage
+
+\subsection*{Bonus}
+
+
+\exe{
+	Une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ admet un arbre de probabilité binaire comme ci-dessous, où $t\in\R$ est un paramètre réel encore inconnu.
+
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+		
+		% probas
+		\draw (-1.5,-1) node[above left] {$-t$};
+		\draw (1.5,-1) node[above right] {$1+t$};
+		
+		\draw (-3.5,-3) node[above left] {$-t$};
+		\draw (-2.5,-3) node[above right] {$1+t$};
+		
+		\draw (2.5,-3) node[above left] {$-t$};
+		\draw (3.5,-3) node[above right] {$1+t$};
+		
+		% issues
+		\draw (-4,-4) node[below] {A};
+		\draw (2,-4) node[below] {B};
+		\draw (-2,-4) node[below] {C};
+		\draw (4,-4) node[below] {D};
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Montrer qu'on a forcément 
+			\[ -1 \leq t \leq 0. \]
+		\item Déterminer le paramètre $t$ tel que
+			\[ P(D) = \frac19. \]
+	\end{enumerate}
+}{}
+
+\end{document}
