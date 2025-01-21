@@ -1,4 +1,5 @@
 \input{../preamble.tex}
+\AdvanceDate[1]
 
 \begin{document}
 
@@ -11,34 +12,51 @@ Automatismes
 
 \end{frame}
 
-\subsection{Coordonnées}
+\subsection{Question 1 : coordonnées}
 
-\begin{frame}{1}
-	
+\begin{frame}%{1}
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.83]
+		\begin{axis}[xmin = -2.1, xmax=3.1, ymin=-2.1, ymax=3.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3, ..., 3, 4}, xtick={-4,-3, ..., 3, 4}]
+			\addplot[black, mark=*, mark size = 1.5, myr] (2.5, -1.5) node[above, text=myr] {\Large $A$};
+			\addplot[black, mark=*, mark size = 1.5, myg] (-1.5,1.5) node[above, text=myg] {\Large $B$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-12pt}
 	\boxAB{
-		Donner les coordonnées de $A$.
+		Donner approximativement les coordonnées de $A$.
 	}{
-		Donner les coordonnées de $B$.
+		Donner approximativement les coordonnées de $B$.
 	}
 \end{frame}
 
 \subsection{Images}
 
 \begin{frame}{2}
+	Soient $f,g$ deux fonctions affines sur $\R$ données algébriquement par
+		\begin{align*}
+			f(x) = \dfrac23 x - 3, && \text{ et } && g(x) = -8 x + 1.
+		\end{align*}
 	
 	\boxAB{
-		Calculer $f(4)$.
+		Calculer $f(-3)$.
 	}{
-		Calculer $g(-3)$.
+		Calculer $g(3)$.
 	}
 \end{frame}
 
 \begin{frame}{3}
+	Soient $F, G$ deux fonctions affines sur $\R$ données algébriquement par
+		\begin{align*}
+			F(x) = -x, && \text{ et } && G(x) =  \dfrac75 x +1.
+		\end{align*}
 	
 	\boxAB{
 		Calculer $F(4)$.
 	}{
-		Calculer $G(-3)$.
+		Calculer $G(-5)$.
 	}
 \end{frame}
 
@@ -46,10 +64,16 @@ Automatismes
 
 
 \begin{frame}{4}	
+
+	Soient $f, g$ deux fonctions affines sur $\R$ données algébriquement par
+		\begin{align*}
+			f(x) = \dfrac12 x - 3, && \text{ et } && g(x) = -8 x + 1.
+		\end{align*}
+		
 	\boxAB{
-		Le point $(2;-1)$ appartient-il à $\C_f$ ?
+		Le point $(0;3)$ appartient-il à $\C_f$ ?
 	}{
-		Le point $(-3;-1)$ appartient-il à $\C_g$ ?
+		Le point $(0;1)$ appartient-il à $\C_g$ ?
 	}
 \end{frame}
 
