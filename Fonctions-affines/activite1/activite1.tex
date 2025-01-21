@@ -10,14 +10,14 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[1]
 \usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
 
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Fonctions affines : coefficient directeur \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\ifdys \textbf{Coefficient directeur} \else \textbf{Fonctions affines : coefficient directeur \ifsolutions -- Solutions  \fi} \fi}
 \fancyhead[R]{\today}
 
 
@@ -61,8 +61,13 @@
 	On considère la fonction affine $g$ sur $\R$ suivante.
 		\[ g(x) = 2x +60 \]
 	\begin{center}
+	\ifdys
+	\renewcommand\a{2.5}
+	\hspace{2cm}
+	\else
 	\renewcommand\a{2}
 	\hspace{1.6cm}
+	\fi
 	    \begin{tikzpicture}
 	    	\foreach \x in {-2, ..., 2} {
 			\draw[->, black, thick] (\a*\x,0) to[controls=+(-100:-.5) and +(-80:-.5)] node[above] {$+\dots$} (\a*\x+1,0);
@@ -74,7 +79,11 @@
 		$g(x)$ & & & & & & \\ \hline
 	\end{tabular}
 	
+	\ifdys
+	\hspace{2cm}
+	\else
 	\hspace{1.6cm}
+	\fi
 	    \begin{tikzpicture}
 	    	\foreach \x in {-2, ..., 2} {
 			\draw[->, black, thick] (\a*\x,0) to[controls=+(-80:.5) and +(-100:.5)] node[below=5pt] {$+\dots$} (\a*\x+1,0);
@@ -91,12 +100,19 @@
 	\end{enumerate}
 }{}
 
+\ifdys\newpage\fi
+
 \exe{ % pas = 0,1
 	On considère la fonction affine $h$ sur $\R$ suivante.
 		\[ h(x) = -4x + 2 \]
 	\begin{center}
-	\renewcommand\a{1.5}
-	\hspace{1.5cm}
+		\ifdys
+		\renewcommand\a{2}
+		\hspace{1.7cm}
+		\else
+		\renewcommand\a{1.5}
+		\hspace{1.5cm}
+		\fi
 	    \begin{tikzpicture}
 	    	\foreach \x in {-3, ..., 3} {
 			\draw[->, black, thick] (\a*\x,0) to[controls=+(-100:-.5) and +(-80:-.5)] node[above] {$+~......$} (\a*\x+1,0);
@@ -108,7 +124,11 @@
 		$h(x)$ & & & & & & & & \\ \hline
 	\end{tabular}
 	
-	\hspace{1.5cm}
+		\ifdys
+		\hspace{1.7cm}
+		\else
+		\hspace{1.5cm}
+		\fi
 	    \begin{tikzpicture}
 	    	\foreach \x in {-3, ..., 3} {
 			\draw[->, black, thick] (\a*\x,0) to[controls=+(-80:.5) and +(-100:.5)] node[below=5pt] {$+~......$} (\a*\x+1,0);
@@ -121,9 +141,16 @@
 		\item Le tableau d'accroissement est-il un tableau de proportionnalité ?
 	\end{enumerate}
 	
-	%\begin{center}
-	\begin{tabular}{cc}
+	%\begin{center}	
+	\ifdys
+	\hspace{-2cm}
+	\fi
+	\begin{tabular}{cc}		
+		\ifdys
+		\setlength\tabcolsep{5pt}
+		\else
 		\setlength\tabcolsep{15pt}
+		\fi
 		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
 			Augmentation de $x$ & 3 & & & & & & \\ \hline
 			Augmentation de $h(x)$ & & -8 & ~~ & ~~ & ~~ & ~~ & ~~  \\ \hline
