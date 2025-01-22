@@ -16,63 +16,236 @@ Dans un repère d'origine $O$, on considère les trois points suivants, dépenda
 On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un même point).
 	
 	
-	
-%\begin{figure}[h!]
-%
-%	\begin{center}
-%	\begin{tikzpicture}[>=stealth, scale=.8]
-%		\begin{axis}[xmin = -9, xmax=18, ymin=0, ymax=45, axis x line=middle, axis y line=middle, axis line style=-]
-%			\addplot[black, mark=*, mark size = 1, thick] (8,12) node[above] {$A$};
-%			\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above] {$O$};
-%			\addplot[black, mark=*, mark size = 1, thick] (-6,30) node[above] {$B$};
-%			\addplot[black, mark=*, mark size = 1, thick] (12,18) node[above] {$P$};
-%		\end{axis}
-%	\end{tikzpicture}
-%	\end{center}
-%	\caption{aaa}
-%	
-%\end{figure}
-	
 \exe{
 	Donner les coordonnées des points $A, B,$ et $P$ lorsque $x=\xfirst$ et lorsque $x=\xsecond$.
 	
 	Tracer ces points dans deux repères qui contiennent l'origine $O$.
-}{}
+}{
+	On trace le triangle $OBA$ et le projeté orthogonal $P$ du sommet $B$ sur $(OA)$ lorsque $x=\xfirst$ puis $x=\xsecond$.
+
+	\begin{figure}[h!]
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+			\begin{axis}[xmin = \xlow, xmax=\xhigh, ymin=\ylow, ymax=\yhigh, axis x line=middle, axis y line=middle, axis line style=-]
+				\addplot[black, mark=*, mark size = 1, thick] (\xAfirst, \yAfirst) node[above] {$A$};
+				\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above right] {$O$};
+				\addplot[black, mark=*, mark size = 1, thick] (\xBfirst, \yBfirst) node[above] {$B$};
+				\addplot[black, mark=*, mark size = 1, thick] (\xPfirst, \yPfirst) node[above] {$P$};
+				
+				% triangle OBA
+				\draw (axis cs:0,0) -- (axis cs:\xBfirst,\yBfirst);
+				\draw (axis cs:\xAfirst, \yAfirst) -- (axis cs:\xBfirst,\yBfirst);
+				\draw (axis cs:0,0) -- (axis cs:\xAfirst, \yAfirst);
+				
+				% height P projected onto (OA)
+				\draw[dotted] (axis cs:0,0) -- (axis cs:\xPfirst, \yPfirst);
+				\draw[dotted] (axis cs:\xBfirst, \yBfirst) -- (axis cs:\xPfirst, \yPfirst);
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\caption{Lorsque $x=\xfirst$.}
+	\end{figure}
+	\begin{figure}[h!]
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = \xlow, xmax=\xhigh, ymin=\ylow, ymax=\yhigh, axis x line=middle, axis y line=middle, axis line style=-]
+			\addplot[black, mark=*, mark size = 1, thick] (\xAsecond, \yAsecond) node[above] {$A$};
+			\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above right] {$O$};
+			\addplot[black, mark=*, mark size = 1, thick] (\xBsecond, \yBsecond) node[above] {$B$};
+			\addplot[black, mark=*, mark size = 1, thick] (\xPsecond, \yPsecond) node[above] {$P$};
+			
+			% triangle OBA
+			\draw (axis cs:0,0) -- (axis cs:\xBsecond,\yBsecond);
+			\draw (axis cs:\xAsecond, \yAsecond) -- (axis cs:\xBsecond,\yBsecond);
+			\draw (axis cs:0,0) -- (axis cs:\xAsecond, \yAsecond);
+			
+			% height P projected onto (OA)
+			\draw[dotted] (axis cs:0,0) -- (axis cs:\xPsecond, \yPsecond);
+			\draw[dotted] (axis cs:\xBsecond, \yBsecond) -- (axis cs:\xPsecond, \yPsecond);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Lorsque $x=\xsecond$.}
+	\end{figure}
+	
+}
+
 \exe{
 	 À l'aide de la formule de la longueur de segment vue en cours, montrer que
 	 	\begin{align*}
 	 		OB^2 = \Bnormsq\cdot |\xmax-x|^2, && \text{ et } && OP^2 = \Pnormsq\cdot |\xmax-x|^2.
 		\end{align*}
-}{}
+}{
+	En général, pour connaître la longueur $AB^2$, le cours nous donne la formule
+		\[ AB^2 = |x_A - x_B|^2 + |y_A - y_B|^2. \]
+	Remarquons que les valeurs absolues peuvent disparaître lorsque mises au carré : $|x|^2 = x^2$ pour tout $x\in\R$ réel.
+	De plus en général, on a $(ab)^2 = a^2 b^2$, ce qui permet de distribuer le carré.
+	
+	En particulier lorsqu'un des point est nul, on somme simplement le carré des coordonées du deuxième point.
+	Ainsi,
+		\begin{align*}
+			OB^2 &= x_B^2 + y_B^2 \\
+					&= \left[ (\xmax-x)\cdot(\xB) \right]^2 + \left[ (\xmax-x)\cdot(\yB) \right]^2 \\
+					&= (\xmax-x)^2 \cdot \left[ (\xB)^2 + (\yB)^2 \right] \\
+					&= \Bnormsq\cdot |\xmax-x|^2,
+		\end{align*}
+	comme souhaité.
+	
+	Idem pour le calcul de $OP$.
+		\begin{align*}
+			OP^2 &= x_P^2 + y_P^2 \\
+					&= \left[ \LAMBDA \cdot (\xmax-x)\cdot(\xA) \right]^2 + \left[ \LAMBDA \cdot (\xmax-x)\cdot(\yA) \right]^2 \\
+					&= \left( \LAMBDA \right)^2 \cdot (\xmax-x)^2 \cdot \left[(\xA)^2 + (\yA)^2\right] \\
+					&= \Pnormsq\cdot |\xmax-x|^2
+		\end{align*}
+
+}
 \exe{
 	Similairement, montrer que
 	 	\[ BP^2 = \BPnormsq \cdot |\xmax-x|^2.\] 
-}{}
+}{
+	On réutilise la formule de la distance en remarquant que $|\xmax-x|^2$ se factorise à nouveau.
+	
+	\begin{align*}
+	%B = (\xmax-x)\cdot(\xB ; \yB) && P = \LAMBDA \cdot (\xmax-x)\cdot (\xA;\yA).
+		BP^2 &= (x_B - x_P)^2 + (y_B - y_P)^2 \\
+				&= \left[  (\xmax-x)\cdot(\xB) - \LAMBDA \cdot (\xmax-x)\cdot (\xA) \right]^2 + 
+				\left[  (\xmax-x)\cdot(\yB) - \LAMBDA \cdot (\xmax-x)\cdot (\yA) \right]^2 \\
+				&= (\xmax-x)^2 \cdot \left(\xB - \LAMBDA \cdot (\xA)\right)^2 
+				+ (\xmax-x)^2 \cdot \left(\yB - \LAMBDA \cdot (\yA)\right)^2 \\
+				&= (\xmax-x)^2 \cdot \BPnormsq
+	\end{align*}
+}
 \exe{
 	 Démontrer que le triangle $OBP$ est rectangle en $P$ à l'aide de la réciproque du théorème de Pythagore.
-}{}
+}{
+	Il s'agit ici de vérifier que l'égalité
+		\[ OB^2 = OP^2 + BP^2 \]
+	tient bien.
+	Le membre de gauche a été calculé comme étant
+		\[ OB^2 = \Bnormsq\cdot |\xmax-x|^2, \]
+	et le membre de droite comme étant
+		\begin{align*}
+			OP^2 + BP^2 &=  \Pnormsq\cdot |\xmax-x|^2 + \BPnormsq \cdot |\xmax-x|^2 \\
+							&= \left( \Pnormsq + \BPnormsq \right) \cdot |\xmax-x|^2 \\
+							&= \Bnormsq\cdot |\xmax-x|^2
+		\end{align*}
+	L'égalité est donc bien vérifiée quelque soit $x \in [0; \xmax]$ et le triangle $OBP$ est rectangle en $P$.
+}
+
 \exe{
 	 En déduire que $P$ est le projeté orthogonal de $B$ sur $(OA)$ et donc que $BP$ est la hauteur du triangle $OAB$ de base $OA$.
-}{}
+}{
+	D'après l'énoncé, les points $O, A,$ et $P$ sont alignés.
+	Il suit donc que les droites $(OA)$ et $(OP)$ sont confondues et donc que $P$ appartient à la droite $(OA)$.
+	
+	De plus, le triangle $OBP$ est rectangle en $P$, donc les droites $(BP)$ et $(OP) =(OA)$ sont perpendiculaires.
+	Par définition, $P$ est donc le projeté orthogonal de $B$ sur $(OA)$ car c'est le point de $(OA)$ tel que $(OA)$ et $(BP)$ sont perpendiculaires.
+	
+	On conclut que le triangle $OAB$ admet une base $OA$ et une hauteur $BP$ car $P$ est le projeté orthogonal de $B$ sur $(OA)$.
+}
+
 \exe{
 	 Démontrer que l'aire $\mathcal{A}(x)$ du triangle $OAB$ est donnée par, pour $x\in[0;\xmax]$,
 		\[ \mathcal{A}(x) = \prodovertwo \cdot |\xmax-x| \cdot |x| =  \prodovertwo(\xmax-x)x. \]
-}{}
+}{
+	L'aire du triangle est donné par la formule
+		\begin{align*}
+			\text{Aire} &= \dfrac{\text{Base $\cdot$ Hauteur}}2 \\
+						&= \dfrac{OA \cdot BP}2.
+		\end{align*}
+	Nous avons déjà calculés $BP^2$ et donc $BP$ se déduit en prenant sa racine carrée (en n'oubliant pas la propriété de la racine $\sqrt{a\cdot b} = \sqrt{a} \cdot \sqrt{b}$).
+	On pourrait d'ailleurs aussi calculer le carré de l'aire puis prendre une unique racine carrée à la fin.
+	
+	Comme la longueur $BP$ est positive, on trouve
+	\begin{align*}
+		BP = |BP| = \sqrt{BP^2} = \sqrt{\BPnormsq \cdot |\xmax-x|^2} = \sqrt{\BPnormsq} \cdot |\xmax-x|.
+	\end{align*}
+	
+	D'autre part,
+		\[ OA^2 = x_A^2 + y_A^2 = x^2 \left[ (\xA)^2 + (\yA)^2 \right] =  \Anormsq x^2. \]
+	D'où 
+		\[ OA = \sqrt{\Anormsq} \cdot |x|, \]
+	et donc on conclut que	
+	\begin{align*}
+		\mathcal{A}(x) &=  \dfrac{OA \cdot BP}2 \\
+						&= \dfrac12 \cdot OA \cdot BP \\
+						&= \dfrac12 \sqrt{\Anormsq} \cdot |x|  \cdot \sqrt{\BPnormsq} \cdot |\xmax-x| \\
+						&= \dfrac12 \sqrt{\Anormsq \cdot \BPnormsq} \cdot |x| \cdot |\xmax-x| \\
+						&= \prodovertwo \cdot |\xmax-x| \cdot |x|
+	\end{align*}
+	Finalement, comme la variable $x$ appartient à l'intervalle $[0; \xmax]$, les expressions à l'intérieur des valeurs absolues sont toujours positives et les barres de valeur absolue peuvent disparaître.
+}
+
+
 \exe{
 	 Esquisser la courbe $\C_\mathcal{A}$ de l'aire $\mathcal{A}$, fonction réelle sur $[0;\xmax]$.
-}{}
+}{
+	\begin{figure}[h!]
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = 0, xmax=\xmax, ymin=0, ymax=\BETAval+10, axis x line=middle, axis y line=middle, axis line style=-]
+			\addplot[myb, thick, domain =0:\xmax, samples=50] {\prodovertwoval * (\xmax-x)*x}  node[pos=.5, right=15pt] {$\mathcal{C}_\mathcal{A}$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Courbe représentative de $\mathcal{A}$ sur le domaine $[0; \xmax]$.}
+	\end{figure}
+
+
+}
+
 \exe{
-	 À l'aide de $\C_\mathcal{A}$, estimer la valeur du $x^\star \in [0;\xmax]$ telle que $A(x^\star)$ soit maximale.
-}{}
+	 À l'aide de $\C_\mathcal{A}$, estimer la valeur du $x^\star \in [0;\xmax]$ telle que $\mathcal{A}(x^\star)$ soit maximale.
+}{
+	On estime la valeur maximale de $\mathcal{A}$ au pic de la courbe représentative de $\mathcal{A}$, c'est-à-dire lorsque $x^\star \approx \ALPHA$.
+}
+
+
 \exe{
 	 Montrer que, pour tout $x\in[0;\xmax]$, on a l'identité
 		\[ \mathcal{A}(x) =  \BETA - \prodovertwo\left(x-\ALPHA\right)^2. \]
-}{}
+}{
+	On part de l'expression de droite qu'on développe pour arriver à l'expression de $\mathcal{A}(x)$ trouvée à la question 6.
+	À l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 - 2ab$, on obtient le développement suivant.
+	
+	\begin{align*}
+		&~\quad \BETA - \prodovertwo\left(x-\ALPHA\right)^2 \\
+		&= \BETA - \prodovertwo \left[ x^2 - 2 \cdot x \cdot \ALPHA + \left( \ALPHA \right)^2 \right]  \\
+		&= \BETA - \prodovertwo \cdot x^2 + \prodovertwo \cdot 2 \cdot \ALPHA \cdot x - \prodovertwo \cdot \left( \ALPHA \right)^2 \\
+		&= - \prodovertwo \cdot x^2 + \prodovertwo \cdot \xmax \cdot x,
+	\end{align*}
+	où on utilise que les constantes s'annulent car $\BETA = \prodovertwo \cdot \left( \ALPHA \right)^2$.
+
+	On factorise le résultat par $\prodovertwo$ puis $x$ pour bien obtenir
+	\begin{align*}
+		\BETA - \prodovertwo\left(x-\ALPHA\right)^2 &= - \prodovertwo \cdot x^2 + \prodovertwo \cdot \xmax \cdot x \\
+														&= \prodovertwo \cdot x \cdot (\xmax - x) \\
+														&= \mathcal{A}(x),
+	\end{align*}
+	comme souhaité.
+}
+
+
 \exe{
 	 En déduire que, pour tout $x\in[0;\xmax]$,
 		\[ \mathcal{A}(x) \leq  \BETA , \]
 	et donc que $\mathcal{A}$ atteint son maximum en $x^\star=\ALPHA$.
-}{}
+}{
+	Un carré est toujours positif, donc son opposé toujours négatif.
+	L'expression de $\mathcal{A}(x)$ de la question $9$ permet donc de conclure car on a, pour tout $x$ du domaine,
+		\begin{align*}
+			- \prodovertwo\left(x-\ALPHA\right)^2 &\leq 0 \\
+			\BETA - \prodovertwo\left(x-\ALPHA\right)^2 &\leq \BETA \\
+			\mathcal{A}(x) \leq \BETA.
+		\end{align*}
+		
+	En outre, l'égalité n'est vérifiée que lorsque le carré est nul, c'est-à-dire quand l'expression à l'intérieur du carré est nulle.
+	On a donc
+		\begin{align*}
+			\mathcal{A}(x^\star) = \BETA && \iff && \left(x^\star-\ALPHA\right)^2 = 0 && \iff && x^\star - \ALPHA = 0 && \iff x^\star = \ALPHA.
+		\end{align*}
+}
 
 
 \end{document}
