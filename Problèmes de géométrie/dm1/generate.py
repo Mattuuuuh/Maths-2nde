@@ -97,6 +97,9 @@ def generate(seed):
     CONTENT = newcommand_dfrac(CONTENT, "\BETA", int(BETA/d), int(8/d))
 
     ###### SOLUTIONS ######
+
+    # QUESTION 1
+
     A = np.array([xA, yA])
     B = np.array([xB, yB])
     xAfirst, yAfirst = xfirst * A
@@ -105,8 +108,41 @@ def generate(seed):
     xBsecond, yBsecond = (root-xsecond)*B
     xPfirst, yPfirst = (root - xfirst) * A
     xPsecond, yPsecond = (root - xsecond) * A
+    
+    xcoords = [2, -2]
+    ycoords = [2, -2]
+    for point in ["A", "B", "P"]:
+        for suffix in ["first", "second"]:
+            xcoords+=[eval(f"x{point}{suffix}")]
+    for point in ["A", "B", "P"]:
+        for suffix in ["first", "second"]:
+            ycoords+=[eval(f"y{point}{suffix}")]
 
-     
+    # marche pas pour une raison inconnue. scope ?
+    #xcoords = [eval(f"x{point}{suffix}") for point in ["A", "B", "P"] for suffix in ["first", "second"]]
+    #ycoords = [eval(f"y{point}{suffix}") for point in ["A", "B", "P"] for suffix in ["first", "second"]]
+
+    for coord in ["x", "y"]:
+        CONTENT = newcommand(CONTENT, f"\\{coord}low", min(eval(f"{coord}coords"))-1)
+        print(f"{coord}low", min(eval(f"{coord}coords"))-1)
+        print(max(eval(f"{coord}coords"))+1)
+        CONTENT = newcommand(CONTENT, f"\\{coord}high", max(eval(f"{coord}coords"))+1)
+
+    for suffix in ["first", "second"]:
+        for coord in ["x", "y"]:
+            CONTENT = newcommand(CONTENT, f"\\{coord}A{suffix}", eval(f"{coord}A{suffix}"))
+            CONTENT = newcommand(CONTENT, f"\\{coord}B{suffix}", eval(f"{coord}B{suffix}"))
+            CONTENT = newcommand(CONTENT, f"\\{coord}P{suffix}", eval(f"{coord}P{suffix}")*numerator/denominator)
+
+    # QUESTION 6
+
+    CONTENT = newcommand(CONTENT, "\\Anormsq", int(xA**2 + yA**2))
+
+    # QUESTION 7
+
+    CONTENT = newcommand(CONTENT, "\\BETAval", BETA/8)
+    CONTENT = newcommand(CONTENT, "\\prodovertwoval", constant/2)
+
 
     # WRITE TO FILE
 
@@ -132,7 +168,7 @@ if __name__=="__main__":
     # always the same 40 to recompile if needed
     np.random.seed(1729) # taxicab number
 
-    for _ in range(1):
+    for _ in range(40):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
