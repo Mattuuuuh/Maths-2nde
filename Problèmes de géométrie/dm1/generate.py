@@ -9,6 +9,9 @@ def newcommand(current_str, command, value):
     return current_str+prefix+"{"+command+"}{"+str(value)+"}\n"
 
 def newcommand_dfrac(current_str, command, numerator, denominator):
+    d = np.gcd(numerator, denominator)
+    numerator = int(numerator/d)
+    denominator = int(denominator/d)
     if (denominator == 1) and (numerator == 1):
         current_str = newcommand(current_str, command, "")
     elif denominator == 1:
@@ -53,9 +56,6 @@ def generate(seed):
 
     numerator = xA*xB + yA*yB
     denominator = xA**2 + yA**2
-    d = np.gcd(numerator, denominator)
-    numerator = int(numerator/d)
-    denominator = int(denominator/d)
 
     CONTENT = newcommand_dfrac(CONTENT, "\LAMBDA", numerator, denominator)
 
@@ -65,14 +65,10 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\Bnormsq", normBsq)
     normPnum = (xA**2 + yA**2) * numerator**2
     normPdenom = denominator**2
-    d = np.gcd(normPnum, normPdenom)
-    normPnum, normPdenom = int(normPnum/d), int(normPdenom/d)
     CONTENT = newcommand_dfrac(CONTENT, "\Pnormsq", normPnum, normPdenom)
     
     normBPnum = normBsq*normPdenom - normPnum
     normBPdenom = normPdenom
-    d = np.gcd(normBPnum, normBPdenom)
-    normBPnum, normBPdenom = int(normBPnum/d), int(normBPdenom/d)
     CONTENT = newcommand_dfrac(CONTENT, "\BPnormsq", normBPnum, normBPdenom)
 
     # random root in [7,10]
@@ -82,8 +78,10 @@ def generate(seed):
     CONTENT = newcommand(CONTENT, "\ALPHA", halfroot if root%2 == 0 else "\dfrac{"+str(root)+"}{2}")
     
     # values of x to draw
-    CONTENT = newcommand(CONTENT, "\\xfirst", np.rint(root/3).astype(int))
-    CONTENT = newcommand(CONTENT, "\\xsecond", np.rint(2*root/3).astype(int))
+    xfirst = np.rint(root/3).astype(int)
+    xsecond = np.rint(2*root/3).astype(int)
+    CONTENT = newcommand(CONTENT, "\\xfirst", xfirst)
+    CONTENT = newcommand(CONTENT, "\\xsecond", xsecond)
 
     # constant area (base x height /2)
     # beta is constant * alpha²/2
@@ -98,40 +96,18 @@ def generate(seed):
 
     CONTENT = newcommand_dfrac(CONTENT, "\BETA", int(BETA/d), int(8/d))
 
-    # all commented below replaced by the 6 lines above thanks to math (:
-    """
-    numCsquared = (xA**2 + yA**2)*normBPnum*normBPdenom
-    numC = reduced_sqrt(numCsquared)
+    ###### SOLUTIONS ######
+    A = np.array([xA, yA])
+    B = np.array([xB, yB])
+    xAfirst, yAfirst = xfirst * A
+    xAsecond, yAsecond = xsecond * A
+    xBfirst, yBfirst = (root-xfirst)*B
+    xBsecond, yBsecond = (root-xsecond)*B
+    xPfirst, yPfirst = (root - xfirst) * A
+    xPsecond, yPsecond = (root - xsecond) * A
 
-    d = np.gcd(numC[0], 2*normBPdenom)
+     
 
-    C = [int(numC[0]/d), numC[1]]
-    
-    denumC = int(2*normBPdenom/d)
-
-    if denumC==1:
-        prodovertwo = "" if C[0] == 1 else str(C[0])
-    else:
-        prodovertwo = "\dfrac{"+str(C[0])+"}{"+str(denumC)+"}"
-
-    squarerootsuffix = "" if C[1] == 1 else "\sqrt{"+str(C[1])+"}"
-    ###### alors la racine disparaît toujours et il y a une raison :
-    ###### on calcule en fait la racine de ||v - \lambda u||² · || u ||² = ||u||² · ||v||² - <u,v>², par Pythagore ( \lambda = <u,v>/<u,u>)
-    ###### et cette différence est elle-même un carré car (x²+y²)(a²+b²) - (ax+by)² = (ay-bx)², le déterminant au carré.
-    ###### je me demande s'il y a quelque chose de profond derrière ça ?
-
-
-    d = np.gcd(C[0]*root**2, 8)
-    numBeta = int(C[0]*root**2/d)
-    denumBeta = int(8/d)
-    if denumBeta==1:
-        BETA = "" if numBeta==1 else str(numBeta)
-    else:
-        BETA = "\dfrac{"+str(numBeta)+"}{"+str(denumBeta)+"}"
-
-    CONTENT = newcommand(CONTENT, "\prodovertwo", prodovertwo+squarerootsuffix)
-    CONTENT = newcommand(CONTENT, "\BETA", BETA+squarerootsuffix)
-    """
     # WRITE TO FILE
 
     FILE_NAME = f"adr/vars_{seed}.adr"
@@ -156,7 +132,7 @@ if __name__=="__main__":
     # always the same 40 to recompile if needed
     np.random.seed(1729) # taxicab number
 
-    for _ in range(40):
+    for _ in range(1):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
