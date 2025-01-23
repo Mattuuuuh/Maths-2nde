@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -38,13 +38,27 @@
 		en calculant le membre de gauche puis le membre de droite et en comparant les valeurs obtenues.
 	\end{enumerate}
 
-}{}
+}{
+	\begin{enumerate}
+		\item Le complémentaire de $A$ dans $\Omega$ correspond à l'ensemble $\overline{A}$ qui contient tous les éléments de $\Omega$ sauf ceux appartenant à $A$. On note aussi $\Omega \setminus A$ ou $\Omega - A$.
+			\[ \overline{A} = \{ -2 ; 4; 7; 13 \}. \]
+		\item Le cardinal d'un ensemble est égal au nombre d'éléments distincts lui appartenant.
+			À gauche on calcule donc
+				\[ |A \cup B| = | \{ -3 ; 1; 5 ;4 ; 7 \} | = 5. \]
+			À droite on trouve
+				\[ |A| + |B| - |A\cap B| = 3 + 4 - | \{ 1 ; 5 \} | = 3 + 4 - 2 =  5. \]
+	\end{enumerate}
+
+}
 
 
 \exe{
 	Démontrer, à l'aide d'un ou plusieurs diagrammes de Venn, la relation d'ensembles
 		\[ A = \left(A \cap B \right) \cup \left(A \cap \overline{B} \right). \]
-}{}
+}{
+	À l'aide d'un diagramme de Venn on reconnait que $A \cap \overline{B}$ correspond à tous les éléments qui appartiennent à $A$ mais pas à $B$.
+	En prenant l'union avec les éléments qui appartiennent à $A$ et à $B$ (l'intersection $A \cap B$), on obtient exactement $A$.
+}
 
 
 \exe{
@@ -57,7 +71,22 @@
 		\item Est-ce une situation d'équiprobabilité ?
 		\item[4($\star$).] Montrer que $P(k) = P(14-k)$ pour tout $k \in \Omega$.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item $\Omega = \{2 ; 3 ; 4 ; \dots ; 12 \} = \{ s \in \N \text{ tq. } 2 \leq s \leq 12 \}$.
+		\item On différencie les dés pour compter les façons d'obtenir $4$ avant de regrouper les probabilités.
+			Il y a $3$ façons différentes : $1+3 = 3+1 = 2+2$.
+			Chaque issue, lorsque les dés sont distingués, a pour probabilité $\dfrac16 \times \dfrac16 = \dfrac1{36}$ (faire un arbre de probabilité si besoin).
+			D'où $P(4) = 3 \times \dfrac1{36}  = \dfrac1{12}$.
+		\item Toutes les issues n'ont pas la même probabilité car, si c'était le cas, toutes les probabilités seraient $\dfrac1{|\Omega|} = \dfrac1{11}$.
+		\item[4($\star$).] 
+		Pour $k=4$, les paires de dés de somme $10$ sont exactement $6+4 = 4+6 = 5+5$, à comparer avec les paires dont la somme fait $4$.
+		
+		L'ensemble des paires de résultats dont la somme fait $k$ est en correspondance avec celui des paires de résultats dont la somme fait $14-k$.
+		Une paire $(a;b)$ du premier ensemble correspond à une paire $(7-a ; 7-b)$ du deuxième.
+		Ces deux ensembles ont donc le même nombre d'éléments et $P(k) = P(14-k)$.
+	\end{enumerate}
+}
 
 \exe{
 	On lance une pièce de monnaie bien équilibrée.
@@ -73,7 +102,18 @@
 	\end{enumerate}
 
 }
-{}
+{
+	\begin{enumerate}
+		\item 
+			Il y a une seule façon d'obtenir rouge : d'abord obtenir pile, puis tirer rouge.
+			La probabilité est $P(R) = \dfrac12 \cdot \dfrac48 = \dfrac14.$
+		\item 
+			L'événement est complémentaire à celui de la question $1$.
+			D'où
+				\[ P( N \cup B) = 1 - P(R) = \dfrac34. \]
+	\end{enumerate}
+
+}
 
 
 \exe{	
@@ -95,7 +135,27 @@
 		\item Quelle est la probabilité d'obtenir exactement deux boules rouges en trois tirages ?
 		\item Quelle est la probabilité d'obtenir au moins une boule bleue en $10$ tirages ?
 	\end{enumerate}
-}{}
+}{
+	On définit une loi de probabilité $P$ sur l'univers $\Omega = \{ R ; B ; V \}$ vérifiant
+		\begin{align*}
+			P(R) = 0,45 && P(B) = 0,3 && P(V) = 0,25.
+		\end{align*}
+	On vérifie bien sûr que la somme fasse $1$ avant d'avancer notre modèle.
+	
+	\begin{enumerate}
+		\item Un arbre binaire de profondeur $2$ avec événements $R$ et $\overline{R}$ peut aider.
+			\[ P ( \text{\og deux rouges en deux tirages \fg} ) = 0,45 \cdot 0,45 =0,2025. \]
+		\item On prolonge l'arbre précédent pour qu'il ait profondeur $3$. On distingue trois chemins pour obtenir $2$ rouges en $3$ tirages, chacun de probabilité $0,45 \times 0,45 \times 0,55 = 0,111375$.
+			Par suite,
+			\[ P ( \text{\og deux rouges en trois tirages \fg} ) = 3 \times 0,111375 =0,334125. \]
+		\item On considère l'événement complémentaire, qui est de n'obtenir aucune boule bleue en $10$ tirages.
+			Un arbre binaire de profondeur $10$ (se l'imaginer devrait suffir) avec événements $B$ et $\overline{B}$ donne
+			\[ P ( \text{\og aucun bleu en $10$ tirages \fg} ) = 0,7^{10} \approx 0,0282. \]
+			Le passage au complémentaire donne
+			\[ P ( \text{\og au moins un bleu en $10$ tirages \fg} ) = 1-0,7^{10} \approx 0,9717. \]
+	\end{enumerate}
+
+}
 
 
 \newpage
@@ -139,6 +199,34 @@
 		\item Déterminer le paramètre $t$ tel que
 			\[ P(D) = \frac19. \]
 	\end{enumerate}
-}{}
+}{
+	
+
+	\begin{enumerate}
+		\item Un probabilité est nécessairement entre $0$ et $1$, donc
+			\[ 0 \leq -t \leq 1, \]
+		et multiplier par un nombre négatif inverse l'ordre des inégalités :
+			\[ -1 \leq t \leq 0. \]
+		\item On a la suite d'égalités suivante.
+			\begin{align*}
+				P(D) &= \dfrac19 \\
+				(1+t)^2 &= \dfrac19 \\
+				| 1 + t | &= \sqrt{\dfrac19} = \dfrac{\sqrt{1}}{\sqrt{9}} = \dfrac13,
+			\end{align*}
+		où à la dernière ligne on a utilisé que $\sqrt{x^2} = |x|$ et que $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$ pour $b$ non nul.
+		Les propriétés des racines sont décrites sur un feuille dédiée (semaine 9 décembre sur Éléa).
+		
+		On continue avec
+			\begin{align*}
+				1+t = \dfrac13 && \text{ou} && 1+t = -\dfrac13 \\
+				t = -\dfrac23 && \text{ou} && t = -\dfrac43
+			\end{align*}
+		Pour revoir la résolution des équations du type $E^2 = a$, revoir la feuille Fonctions 3 (semaine du 25 novembre sur Éléa).
+		
+		La première question implique qu'on a nécessairement $t=-\dfrac23$.
+		On s'assurera que les probabilités de l'arbre ont bien un sens (ce sont des nombres entre $0$ et $1$).
+	\end{enumerate}
+
+}
 
 \end{document}
