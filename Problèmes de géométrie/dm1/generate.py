@@ -56,7 +56,6 @@ def generate(seed):
 
     numerator = xA*xB + yA*yB
     denominator = xA**2 + yA**2
-    print(numerator, denominator)
 
     CONTENT = newcommand_dfrac(CONTENT, "\LAMBDA", numerator, denominator)
 
