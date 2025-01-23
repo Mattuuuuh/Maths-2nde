@@ -16,10 +16,10 @@
 \newcommand{\xlow}{-16}
 \newcommand{\xhigh}{16}
 \newcommand{\ylow}{-11}
-\newcommand{\yhigh}{6}
+\newcommand{\yhigh}{9.461538461538462}
 \newcommand{\xAfirst}{-6}
 \newcommand{\xBfirst}{15}
-\newcommand{\xPfirst}{12.692307692307692}
+\newcommand{\xPfirst}{12.692307692307693}
 \newcommand{\yAfirst}{-4}
 \newcommand{\yBfirst}{5}
 \newcommand{\yPfirst}{8.461538461538462}

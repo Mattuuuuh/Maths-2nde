@@ -25,10 +25,10 @@
 \newcommand{\yPfirst}{9.482758620689655}
 \newcommand{\xAsecond}{10}
 \newcommand{\xBsecond}{-6}
-\newcommand{\xPsecond}{2.2758620689655173}
+\newcommand{\xPsecond}{2.275862068965517}
 \newcommand{\yAsecond}{25}
 \newcommand{\yBsecond}{9}
-\newcommand{\yPsecond}{5.689655172413793}
+\newcommand{\yPsecond}{5.689655172413792}
 \newcommand{\Anormsq}{29}
 \newcommand{\BETAval}{128.0}
 \newcommand{\prodovertwoval}{8.0}

@@ -15,11 +15,11 @@
 \newcommand{\BETA}{245}
 \newcommand{\xlow}{-26}
 \newcommand{\xhigh}{26}
-\newcommand{\ylow}{-3}
+\newcommand{\ylow}{-5.411764705882353}
 \newcommand{\yhigh}{26}
 \newcommand{\xAfirst}{-10}
 \newcommand{\xBfirst}{25}
-\newcommand{\xPfirst}{7.352941176470588}
+\newcommand{\xPfirst}{7.352941176470589}
 \newcommand{\yAfirst}{6}
 \newcommand{\yBfirst}{25}
 \newcommand{\yPfirst}{-4.411764705882353}

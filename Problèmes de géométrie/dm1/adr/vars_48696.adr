@@ -22,13 +22,13 @@
 \newcommand{\xPfirst}{-8.4}
 \newcommand{\yAfirst}{-12}
 \newcommand{\yBfirst}{-28}
-\newcommand{\yPfirst}{-11.2}
+\newcommand{\yPfirst}{-11.200000000000001}
 \newcommand{\xAsecond}{-21}
 \newcommand{\xBsecond}{6}
-\newcommand{\xPsecond}{-3.6}
+\newcommand{\xPsecond}{-3.6000000000000005}
 \newcommand{\yAsecond}{-28}
 \newcommand{\yBsecond}{-12}
-\newcommand{\yPsecond}{-4.8}
+\newcommand{\yPsecond}{-4.800000000000001}
 \newcommand{\Anormsq}{25}
 \newcommand{\BETAval}{250.0}
 \newcommand{\prodovertwoval}{10.0}

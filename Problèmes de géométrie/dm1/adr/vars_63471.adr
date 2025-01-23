@@ -19,10 +19,10 @@
 \newcommand{\yhigh}{11}
 \newcommand{\xAfirst}{-15}
 \newcommand{\xBfirst}{-5}
-\newcommand{\xPfirst}{-2.8846153846153846}
+\newcommand{\xPfirst}{-2.884615384615385}
 \newcommand{\yAfirst}{-3}
 \newcommand{\yBfirst}{10}
-\newcommand{\yPfirst}{-0.5769230769230769}
+\newcommand{\yPfirst}{-0.576923076923077}
 \newcommand{\xAsecond}{-25}
 \newcommand{\xBsecond}{-3}
 \newcommand{\xPsecond}{-1.7307692307692308}

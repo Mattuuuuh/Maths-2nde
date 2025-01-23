@@ -15,7 +15,7 @@
 \newcommand{\BETA}{\dfrac{343}{8}}
 \newcommand{\xlow}{-11}
 \newcommand{\xhigh}{26}
-\newcommand{\ylow}{-3}
+\newcommand{\ylow}{-10.0}
 \newcommand{\yhigh}{6}
 \newcommand{\xAfirst}{-4}
 \newcommand{\xBfirst}{25}

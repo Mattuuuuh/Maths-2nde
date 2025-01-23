@@ -16,7 +16,7 @@
 \newcommand{\xlow}{-31}
 \newcommand{\xhigh}{31}
 \newcommand{\ylow}{-31}
-\newcommand{\yhigh}{7}
+\newcommand{\yhigh}{19.0}
 \newcommand{\xAfirst}{-15}
 \newcommand{\xBfirst}{30}
 \newcommand{\xPfirst}{18.0}

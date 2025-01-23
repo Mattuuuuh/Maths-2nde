@@ -14,7 +14,7 @@
 \newcommand{\prodovertwo}{2}
 \newcommand{\BETA}{50}
 \newcommand{\xlow}{-3}
-\newcommand{\xhigh}{22}
+\newcommand{\xhigh}{29.0}
 \newcommand{\ylow}{-36}
 \newcommand{\yhigh}{3}
 \newcommand{\xAfirst}{6}

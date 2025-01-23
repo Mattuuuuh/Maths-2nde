@@ -22,7 +22,7 @@
 \newcommand{\xPfirst}{-19.2}
 \newcommand{\yAfirst}{-6}
 \newcommand{\yBfirst}{-20}
-\newcommand{\yPfirst}{-14.4}
+\newcommand{\yPfirst}{-14.399999999999999}
 \newcommand{\xAsecond}{-20}
 \newcommand{\xBsecond}{-6}
 \newcommand{\xPsecond}{-7.68}

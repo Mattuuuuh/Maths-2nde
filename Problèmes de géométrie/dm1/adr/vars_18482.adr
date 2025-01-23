@@ -13,7 +13,7 @@
 \newcommand{\xsecond}{5}
 \newcommand{\prodovertwo}{\dfrac{11}{2}}
 \newcommand{\BETA}{\dfrac{539}{8}}
-\newcommand{\xlow}{-6}
+\newcommand{\xlow}{-14.8}
 \newcommand{\xhigh}{16}
 \newcommand{\ylow}{-21}
 \newcommand{\yhigh}{26}
@@ -22,10 +22,10 @@
 \newcommand{\xPfirst}{-13.8}
 \newcommand{\yAfirst}{-8}
 \newcommand{\yBfirst}{25}
-\newcommand{\yPfirst}{18.4}
+\newcommand{\yPfirst}{18.400000000000002}
 \newcommand{\xAsecond}{15}
 \newcommand{\xBsecond}{-2}
-\newcommand{\xPsecond}{-5.52}
+\newcommand{\xPsecond}{-5.5200000000000005}
 \newcommand{\yAsecond}{-20}
 \newcommand{\yBsecond}{10}
 \newcommand{\yPsecond}{7.36}

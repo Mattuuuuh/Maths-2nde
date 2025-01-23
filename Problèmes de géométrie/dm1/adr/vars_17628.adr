@@ -19,7 +19,7 @@
 \newcommand{\yhigh}{36}
 \newcommand{\xAfirst}{-9}
 \newcommand{\xBfirst}{28}
-\newcommand{\xPfirst}{-6.72}
+\newcommand{\xPfirst}{-6.720000000000001}
 \newcommand{\yAfirst}{12}
 \newcommand{\yBfirst}{35}
 \newcommand{\yPfirst}{8.96}

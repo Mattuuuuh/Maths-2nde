@@ -13,7 +13,7 @@
 \newcommand{\xsecond}{7}
 \newcommand{\prodovertwo}{\dfrac{5}{2}}
 \newcommand{\BETA}{\dfrac{125}{2}}
-\newcommand{\xlow}{-36}
+\newcommand{\xlow}{-41.38461538461539}
 \newcommand{\xhigh}{22}
 \newcommand{\ylow}{-15}
 \newcommand{\yhigh}{36}
