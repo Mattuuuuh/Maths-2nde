@@ -6,6 +6,5 @@ python3 generate.py
 
 Pour fusionner :
 ```
-cd out/
-pdftk $(ls *.pdf) cat output merged.pdf
+pdftk $(ls out/*.pdf) cat output merged.pdf
 ```
