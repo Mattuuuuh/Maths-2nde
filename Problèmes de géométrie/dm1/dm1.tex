@@ -26,7 +26,7 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 	\begin{figure}[h!]
 		\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1]
-			\begin{axis}[xmin = \xlow, xmax=\xhigh, ymin=\ylow, ymax=\yhigh, axis x line=middle, axis y line=middle, axis line style=-]
+			\begin{axis}[xmin = \xlow-5, xmax=\xhigh+5, ymin=\ylow-5, ymax=\yhigh+5, axis x line=middle, axis y line=middle, axis line style=-]
 				\addplot[black, mark=*, mark size = 1, thick] (\xAfirst, \yAfirst) node[above] {$A$};
 				\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above right] {$O$};
 				\addplot[black, mark=*, mark size = 1, thick] (\xBfirst, \yBfirst) node[above] {$B$};
@@ -48,7 +48,7 @@ On admettra que les points $O, P$, et $A$ sont alignés (ils sont multiples d'un
 	\begin{figure}[h!]
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = \xlow, xmax=\xhigh, ymin=\ylow, ymax=\yhigh, axis x line=middle, axis y line=middle, axis line style=-]
+		\begin{axis}[xmin = \xlow-5, xmax=\xhigh+5, ymin=\ylow-5, ymax=\yhigh+5, axis x line=middle, axis y line=middle, axis line style=-]
 			\addplot[black, mark=*, mark size = 1, thick] (\xAsecond, \yAsecond) node[above] {$A$};
 			\addplot[black, mark=*, mark size = 1, thick] (0,0) node[above right] {$O$};
 			\addplot[black, mark=*, mark size = 1, thick] (\xBsecond, \yBsecond) node[above] {$B$};
