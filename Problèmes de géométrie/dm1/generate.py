@@ -45,7 +45,7 @@ def generate(seed):
     xA=yA=xB=yB=0 
     while xA*yA*xB*yB == 0 or xA*xB + yA*yB == 0 or xA*yB - xB*yA == 0:
         [xA, yA, xB, yB] = (np.random.rand(4)*12 - 6).astype(int)
-        print(xA,yA,xB,yB)
+        print("A", xA,yA, "B", xB,yB)
     CONTENT = newcommand(CONTENT, "\\xA", xA)
     CONTENT = newcommand(CONTENT, "\yA", yA)
     CONTENT = newcommand(CONTENT, "\\xB", xB)
@@ -56,6 +56,7 @@ def generate(seed):
 
     numerator = xA*xB + yA*yB
     denominator = xA**2 + yA**2
+    print(numerator, denominator)
 
     CONTENT = newcommand_dfrac(CONTENT, "\LAMBDA", numerator, denominator)
 
@@ -108,7 +109,7 @@ def generate(seed):
     xBsecond, yBsecond = (root-xsecond)*B
     xPfirst, yPfirst = numerator/denominator*(root - xfirst) * A
     xPsecond, yPsecond = numerator/denominator*(root - xsecond) * A
-    
+
     xcoords = [2, -2]
     ycoords = [2, -2]
     for point in ["A", "B", "P"]:
@@ -124,15 +125,13 @@ def generate(seed):
 
     for coord in ["x", "y"]:
         CONTENT = newcommand(CONTENT, f"\\{coord}low", min(eval(f"{coord}coords"))-1)
-        print(f"{coord}low", min(eval(f"{coord}coords"))-1)
-        print(max(eval(f"{coord}coords"))+1)
         CONTENT = newcommand(CONTENT, f"\\{coord}high", max(eval(f"{coord}coords"))+1)
 
     for suffix in ["first", "second"]:
         for coord in ["x", "y"]:
             CONTENT = newcommand(CONTENT, f"\\{coord}A{suffix}", eval(f"{coord}A{suffix}"))
             CONTENT = newcommand(CONTENT, f"\\{coord}B{suffix}", eval(f"{coord}B{suffix}"))
-            CONTENT = newcommand(CONTENT, f"\\{coord}P{suffix}", eval(f"{coord}P{suffix}")*numerator/denominator)
+            CONTENT = newcommand(CONTENT, f"\\{coord}P{suffix}", eval(f"{coord}P{suffix}"))
 
     # QUESTION 6
 
@@ -173,7 +172,7 @@ if __name__=="__main__":
 
         seed = int(np.random.rand() * (2**16 - 1))
         # uncomment to fix seed
-        #seed=12345
+        #seed=10354
 
         np.random.seed(seed)
         
