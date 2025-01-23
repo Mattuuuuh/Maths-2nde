@@ -60,12 +60,23 @@ nomarginpar,% We don't want any margin paragraphs
 
 % theorems
 
+\theoremstyle{theorem}
+\newtheorem{thm}{Théorème}
 \theoremstyle{plain}
-\newtheorem{theorem}{Th\'eor\`eme}
-\newtheorem*{theorem*}{Th\'eor\`eme}
 \newtheorem*{sol}{Solution}
 \theoremstyle{definition}
 \newtheorem{ex}{Exercice}
+\newtheorem{dfn}{Définition}
+\newtheorem*{dfn*}{Définition}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newcounter{commonbox}
+\newtcbtheorem[use counter=commonbox]{theorem}{Théorème}%
+{fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{definition}{Définition}%
+{fonttitle=\bfseries}{th}
+
 
 % corps
 \newcommand{\R}{\mathbb{R}}
