@@ -27,8 +27,8 @@
 		\begin{center}
 		\begin{tabular}{|c|c|c|}\hline
 			 & Mesure 1 & Mesure 2 \\ \hline
-			Température C & 100 & 10 \\ \hline
-			Température F & 212 & 50 \\ \hline
+			Température °C & 100 & 10 \\ \hline
+			Température °F & 212 & 50 \\ \hline
 		\end{tabular}
 		\end{center}
 	
@@ -36,10 +36,7 @@
 		\item 
 		En notant $a, b\in\R$ les paramètres réels tels que 
 			\[ F(C) = aC + b, \]
-		écrire les deux mesures de températures sous forme de système de deux équations à deux inconnues.
-		
-		\item 
-		Déduire que $a = \dfrac95$ et  $b=32$.
+		montrer que $a = \dfrac95$ et  $b=32$.
 		
 		\item 
 		Pour quelle(s) température(s) les mesures $F$ et $C$ sont-elles égales ?
@@ -67,7 +64,7 @@
             \end{align*}
         \item Combien de temps Achille met-il pour rattraper la tortue ?
         \item Quelle est la distance parcourue par les deux participants au moment où ils se croisent ?
-        \item Supposons qu'on ne connaisse pas la vitesse exacte d'Achille mais qu'on sache tout de même qu'elle est strictement positive et que la tortue avance 10 fois moins vite que celui-ci.
+        \item [5($\star$).] Supposons qu'on ne connaisse pas la vitesse exacte d'Achille mais qu'on sache tout de même qu'elle est strictement positive et que la tortue avance 10 fois moins vite que celui-ci.
         Montrer qu'Achille rattrape la tortue en $\dfrac{10}{9}$ minutes, indépendamment de la vitesse d'Achille.
 	\end{enumerate}
 	
@@ -262,11 +259,10 @@
 \subsection*{Entraînement}
 
 \exe{[Interpolation]
-	Pour chacune des paires de points $A,B \in \R^2$ suivantes, calculer les paramètres de la fonction affine $f$ dont la courbe passe par ces deux points.
+	Pour chacune des paires de points $A,B$ suivantes, calculer les paramètres de la fonction affine $f$ telle que sa courbe représentative passe par $A$ et $B$.
 	
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $A(x_A;y_A), B(x_B; y_B)$
 		
 		    \item $A(1; 3), B(4; 5)$
 		
@@ -277,6 +273,7 @@
 		    \item $A(2; 7), B(5; 7)$
 		
 		    \item $A(-4; 6), B(2; -3)$
+		\item $A(x_A;y_A), B(x_B; y_B)$
 
 	\end{enumerate}
 	\end{multicols}
@@ -286,11 +283,6 @@
 	$f(x) = ax+b$ pour tout $x\in\R$.
 
 	\begin{enumerate}
-		\item 
-			D'après le cours,
-			\begin{align*}
-				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
-			\end{align*}
 		 \item 
 		    \begin{align*}
 		        a &= \frac{3-5}{1-4} = \frac{2}{3}, & b &= \frac{1 \cdot 5 - 4 \cdot 3}{1 - 4} = -\dfrac73.
@@ -315,6 +307,11 @@
 		    \begin{align*}
 		        a &= \frac{6-(-3)}{-4 - 2} = -\frac{3}{2}, & b &= \frac{-4 \cdot (-3) - 2 \cdot 6}{-4 - 2} = 0.
 		    \end{align*}
+		\item 
+			D'après le cours,
+			\begin{align*}
+				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
+			\end{align*}
 
 	\end{enumerate}
 
