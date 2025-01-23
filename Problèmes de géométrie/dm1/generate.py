@@ -106,8 +106,8 @@ def generate(seed):
     xAsecond, yAsecond = xsecond * A
     xBfirst, yBfirst = (root-xfirst)*B
     xBsecond, yBsecond = (root-xsecond)*B
-    xPfirst, yPfirst = (root - xfirst) * A
-    xPsecond, yPsecond = (root - xsecond) * A
+    xPfirst, yPfirst = numerator/denominator*(root - xfirst) * A
+    xPsecond, yPsecond = numerator/denominator*(root - xsecond) * A
     
     xcoords = [2, -2]
     ycoords = [2, -2]
