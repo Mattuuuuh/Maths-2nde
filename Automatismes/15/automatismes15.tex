@@ -1,0 +1,82 @@
+\input{../preamble.tex}
+\AdvanceDate[1]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\end{frame}
+
+\subsection{Question 1 : Appartenance}
+
+\begin{frame}%{1}
+
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=.8]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[myr, thick, domain =-4:8, samples=2] {3*x/2-3}  node[pos=.15, left] {$(\mathcal{C}_f)$};
+			\addplot[myr, thick, dotted, domain =-6:-4, samples=2] {3*x/2-3} ;
+			\addplot[myr, thick, dotted, domain =8:9, samples=2] {3*x/2-3};
+		
+		
+			\addplot[myg, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[pos=.2, above] {$(\mathcal{C}_g)$};
+			\addplot[myg, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
+			\addplot[myg, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+		
+			
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}	\vspace{-12pt}
+	\boxAB{
+		Donner le point de $\C_f$ d'abscisse nulle.
+	}{
+		Donner le point de $\C_g$ d'abscisse nulle.
+	}
+\end{frame}
+
+\subsection{Paramètres algébriques}
+
+\begin{frame}{2}	
+	Donner le coefficient directeur $a$ et l'ordonnée à l'origine $b$ de la fonction affine suivante.
+	\boxAB{
+		\[ f(x) = 2+x \]
+	}{
+		\[ g(x) = 4 - x \]
+	}
+\end{frame}
+
+\begin{frame}{3}	
+	Donner le coefficient directeur $a$ et l'ordonnée à l'origine $b$ de la fonction affine suivante.
+	\boxAB{
+		\[ F(x) = 3 \]
+	}{
+		\[ G(x) = 2x \]
+	}
+\end{frame}
+
+\subsection{Coefficient directeur}
+
+\begin{frame}{4}
+
+	Calculer le coefficient directeur $a$ de la fonction affine dont la courbe passe par les points $A, B$, où
+	
+	\boxAB{
+		\begin{align*}
+			A = (3 ; 3), && B = (5 ; 4).
+		\end{align*}
+	}{
+		\begin{align*}
+			A = (12 ; 3), && B = (15 ; 4).
+		\end{align*}
+	}
+\end{frame}
+
+
+\end{document}
