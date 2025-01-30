@@ -18,7 +18,7 @@ Contenu par chapitre :
 - [x] Fonctions : généralités
 - [x] Problèmes de géométrie
 - [x] Probabilités
-- [ ] Fonctions : droites du plan
+- [x] Fonctions : droites du plan
 - [ ] Vecteurs dans le plan
 - [ ] Fonctions : variations et extrema
 - [ ] Fonctions : fonctions de référence
