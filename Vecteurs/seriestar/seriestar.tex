@@ -1,0 +1,68 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Vecteurs $\star$ \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{[$\star$] \label{ex:1}
+	Considérons $A(x_A ; y_A)$ et $B(x_B;y_B)$ deux points différents de $O(0;0)$, l'origine du plan.
+	Le théorème de Pythagore énonce que le triangle $OAB$ est rectangle en $O$ si et seulement si
+		\[ OA^2 + OB^2 = AB^2. \]
+	Démontrer que cette condition est équivalente à
+		\[ x_A \cdot x_B + y_A \cdot y_B = 0. \]
+}{}
+
+\exe{[$\star$]
+	Soient $f(x) = ax$ et $g(x)=a'x$ deux fonctions affines sur $\R$ passant par l'origine.
+	%On supposera $a \cdot a' \neq0$, c'est-à-dire que ni $\C_f$ ni $\C_g$ n'est horizontale.
+	
+	\begin{enumerate}		
+		\item 
+		Montrer que $(1 ; a) \in \C_f$ et que $(1 ;a') \in \C_g$.
+		
+		\item
+		Montrer que $\C_f$ et $\C_g$ sont perpendiculaires si et seulement si $1 + a a' =0$ à l'aide de l'exercice \ref{ex:1}
+		
+		\item
+		Conclure que, pour deux fonctions affines $f$ et $g$ quelconques (ne passant pas forcément par l'origine), les droites $\C_f$ et $\C_g$ sont perpendiculaires si et seulement si le produit de leur coefficient directeur vaut $-1$.
+		
+		\item
+		Esquisser les courbes des fonctions $f(x) = 2x -3$ et $g(x) = 1 -\dfrac12 x$ sur $[0 ; 4]$.
+	\end{enumerate}
+}{}
+
+\exe{[$\star$]
+	On considère deux points $A = (3 ; -2)$ et $B = (-2 ; 5)$.
+	Le but de l'exercice est de construire le projeté orthogonal $P$ de $B$ sur la droite $(OA)$, ce qui nous permettra de recréer le devoir maison 2.
+	
+	\begin{enumerate}
+		\item
+		Dessiner les vecteurs $\vec{OA}$ et $\vec{OB}$.
+		\item
+		Tracer la droite donnée par l'ensemble des points $B + \lambda \cdot \vec{OA}$, où $\lambda$ parcourt $\R$.
+		\item
+		Dessiner le point $\tilde{P}$ de la droite de la question précédente vérifiant que le triangle $OB\tilde{P}$ est rectangle en $\tilde{P}$.
+		\item
+		En utilisant l'exercice $\ref{ex:1}$, montrer que $\tilde{P} = B - \lambda \cdot A$, pour le $\lambda$ vérifiant
+			\[ \text{$\vec{O\tilde{P}}$ est perpendiculaire à $\vec{OA}$} \qquad \iff \qquad -16 -13 \lambda = 0. \]
+		\item
+		Vérifier que $P = \lambda \cdot A$ en démontrant que le triangle $BPA$ est rectangle en $P$ à l'aide de la réciproque de Pythagore.
+	\end{enumerate}
+
+}{}
+
+\end{document}
