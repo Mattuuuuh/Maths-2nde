@@ -49,7 +49,71 @@
 		Exprimer algébriquement la température $K$ en fonction de la température $F$.
 	\end{enumerate}
 	
-}{}
+}{
+
+	\begin{enumerate}
+		\item 
+		La variable ici est la température en °C.
+		D'après les mesures, les points $(100 ;212), (-10;14), (10,50), (-50;-58)$ appartiennent à la courbe représentative de $F$.
+		
+		Nommons $A=(-10;14)$ et $B=(-50;-58)$ et utilisons la stratégie d'interpolation.
+		D'abord
+			\[ a = \dfrac{-58 - (14)}{-50-(-10)} = \dfrac{-72}{-40} = \dfrac{72}{40} = \dfrac95. \]
+		
+		On en déduit que $F(C) = \dfrac95 C + b$.
+		Comme $A(-10;14)$ appartient à la courbe, on a forcément $F(-10) = 14$.
+		On réécrit l'équation et on résoud pour $b$.
+			\begin{align*}
+				F(-10) &= 14 \\
+				\dfrac95 \cdot (-10) + b &= 14 \\
+				-18 + b &= 14 \\
+				b& = 32
+			\end{align*}
+			
+		Méthode alternative : il existe une unique droite passant par deux points distincts. 
+		En montrant que $A$ et $B$ appartiennent à la courbe représentative de la fonction affine $g(x) = \dfrac95 x + 32$, on a alors forcément $F = g$.
+		
+		\item
+			On essaye de trouver $C$ tel que $F(C) = 90$.
+			Or $F(C) = \dfrac95 C + 32$, et on résoud donc l'équation pour $C$.
+				\begin{align*}
+					F(C) &= 90 \\
+					\dfrac95 C + 32 &= 90 \\
+					\dfrac95 C &= 90-32 = 58 \\
+					C &= \dfrac59 \cdot 58 = \dfrac{290}{9}
+				\end{align*}
+		
+		\item 
+			On souhaite trouver $C$ vérifiant $C = F(C)$, de sorte que la température $C$ en Celsius soit égale à la température $F(C)$ en Fahrenheit.
+			On pose et on résoud calmement.
+				\begin{align*}
+					C &= F(C) \\
+					C &= \dfrac95 C + 32 \\
+					C-\dfrac95 C &= 32 \\
+					C\cdot\left(1-\dfrac95\right) &= 32 \\
+					-\dfrac45 C &= 32 \\
+					C &= - \dfrac54 \cdot 32 = -40.
+				\end{align*}
+		
+		\item
+			On connaît $K$ en fonction de $C$.
+			Il s'agit donc d'exprimer $C$ en fonction de $F$ pour substituer et conclure.
+			
+			Comme $F = \dfrac95 C + 32$, on peut résoudre pour $C$ pour obtenir exactement $C$ en fonction de $F$ :
+				\begin{align*}
+					F &= \dfrac95 C + 32 \\
+					F -32 &= \dfrac95 C \\
+					\dfrac59 \left(F - 32\right) &= C
+				\end{align*}
+			On obtient donc $C= \dfrac59 F - \dfrac{160}9$, ce qui exprime $C$ comme fonction de $F$.
+			
+			En substituant dans l'expression de $K$, on obtient
+				\[ K = C + 273,15 = \dfrac59 F - \dfrac{160}9 + 273,15. \]
+			
+			On peut vérifier, par exemple lorsque $F=212$ alors $C=100$, et on obtient $K = 373,15$, qui correspond bien à $100 + 273,15$.
+	\end{enumerate}
+
+}
 
 \exe{
     Achille dispute une course avec une tortue. On suppose que les deux participants avancent à vitesse constante. Posons $v = 60$ mètres par minute la vitesse d'Achille.
@@ -59,7 +123,7 @@
     
 	\begin{enumerate}
         \item Calculer la distance parcourue par la tortue après les 10 minutes laissées gracieusement par Achille.
-        \item \`A la minute $10+t$, où $t\geq0$, on appelle $A(t)$ et $T(t)$ les distances parcourues respectivement par Achille et la tortue.
+        \item À la minute $10+t$, où $t\geq0$, on appelle $A(t)$ et $T(t)$ les distances parcourues respectivement par Achille et la tortue.
         Montrer que
             \begin{align*}
                 A(t) = 60 t, && \text{ et } && T(t) = 60 + 6t.
@@ -70,7 +134,50 @@
         Montrer qu'Achille rattrape la tortue en $\dfrac{10}{9}$ minutes, indépendamment de la vitesse d'Achille.
 	\end{enumerate}
 	
-}{}
+}{
+    
+	\begin{enumerate}
+        \item
+        	La tortue avant dix fois moins vite, donc à $6$ mètres par minute.
+        	En $10$ minutes, elle parcourt donc $6\cdot10 = 60$ mètres.
+	\item
+		On multiplie une vitesse par un temps pour obtenir une distance : $v \times t = d \iff v  = \dfrac{d}{t}$.
+		
+		Au temps $10+t$, Achille aura couru pendant $t$ minutes, et sa distance sera donc de $A(t) = 60 t$.
+		Idem pour la tortue, sauf qu'elle court pendant l'intégralité des $10+t$ minutes, et donc $T(t)= 6(10+t) = 60 +6t$.
+	\item
+		Soit $t^\star$ le temps qu'Achille met pour rattraper la tortue.
+		Ce temps correspond au moment où Achille et la tortue ont parcouru la même distance, c'est-à-dire
+			\[ A(t^\star) = T(t^\star). \]
+		On résoud cette équation pour $t^\star$, qui donne
+			\begin{align*}
+				60 t^\star &= 60 + 6 t^\star, \\
+				(60-6) t^\star &= 60, \\
+				54 t^\star &= 60, \\
+				t^\star &= \dfrac{60}{54} = \dfrac{10}9.
+			\end{align*}
+		Achille met donc $\dfrac{10}9$ minutes à rattraper la tortue.
+		
+	\item
+		Au moment $t^\star$, la distance parcourue est de $A(t^\star) = T(t^\star)$.
+		On calcule donc $A\left(\dfrac{10}9\right) = 60 \left(\dfrac{10}9\right) = \dfrac{200}{3}$ mètres.
+		
+		On aurait aussi pû faire $T\left(\dfrac{10}9\right) = 60 + 6 \left(\dfrac{10}9\right) = 60 + \dfrac{20}3 = \dfrac{200}3$ qui donne heureusement le même résultat (c'est comme ça qu'on a trouvé $t^\star$ !).
+		
+	\item 
+		Notons $v$ la distance d'Achille.
+		Le même raisonnement que ci-dessous nous mène aux expression $A(t) = v\cdot t$ et $T(t) = v + \dfrac{v}{10} t$.
+		L'égalité $A(t^\star) = T(t^\star)$ se réduit à l'égalité de la question précédente en divisant par $v$, supposé non nul :
+			\begin{align*}
+				A(t^\star) &= T(t^\star) \\
+				v\cdot t^\star &= v + \dfrac{v}{10} t^\star \\
+				t^\star &= 1 + \dfrac1{10} t^\star \\
+				\dfrac9{10} t^\star &= 1 \\
+				t^\star = \dfrac{10}9.
+			\end{align*}
+	\end{enumerate}
+
+}
 
 
 \exe{[Intersection]
@@ -90,7 +197,7 @@
 
 	\begin{enumerate}
 		\item $f(x) = 2x + 1, g(x) = -x+1$ .
-			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+			On cherche un point $P(x_P, y_P)$ vérifiant les deux équations
 				\begin{align*}
 					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
 				\end{align*}
@@ -138,7 +245,7 @@
 			\]
 			Il aurait été encore plus facile de calculer $g(x_P) = 2$ à la place !
 			
-			En conclusion, $\C_f \cap \C_g = \{ \left(-\dfrac72 ; 2\right) \}$.
+			En conclusion, $\C_f \cap \C_g = \left\{ \left(-\dfrac72 ; 2\right) \right\}$.
 		
 		\item
 			Similairement,
@@ -151,7 +258,7 @@
 				y_P = f(x_P) = 9-2 \cdot(-8) = 25.
 			\]
 		
-			En conclusion, $\C_f \cap \C_g = \{ (-8;25) \}$.
+			En conclusion, $\C_f \cap \C_g = \left\{ (-8;25) \right\}$.
 		
 		\item 			
 		Similairement,
@@ -166,7 +273,7 @@
 			\]
 			N'importe quel $(x_P ; 2x_P+1) \in \R$ appartient donc à l'intersection des droites.
 			
-			En conclusion, $\C_f \cap \C_g = \{ (x_P ; 2x_P+1) \text{ tq. } x_P \in \R \} = \{ (x_P ; y_P) \in \R^2 \text{ tq. } y_P = 2x_P + 1 \} = \C_f = \C_g$.
+			En conclusion, $\C_f \cap \C_g = \{ (x_P ; 2x_P+1) \text{ tq. } x_P \in \R \} = \{ (x_P ; y_P) \text{ tq. } y_P = 2x_P + 1 \} = \C_f = \C_g$.
 			Il n'est pas surprenant qu'on trouve que toute la droite appartienne à l'intersection, car $f$ et $g$ sont identiques : tous les points de la droite $\C_f$ sont des points d'intersection.
 		
 		
@@ -201,7 +308,7 @@
 	\end{enumerate}
 	\end{multicols}
 }{
-	On pose $a,b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	On pose $a, b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
 	\begin{enumerate}
 		\item 
 			L'information de parallélisme donne immédiatement $a=2$.
@@ -310,7 +417,6 @@
 		        a &= \frac{6-(-3)}{-4 - 2} = -\frac{3}{2}, & b &= \frac{-4 \cdot (-3) - 2 \cdot 6}{-4 - 2} = 0.
 		    \end{align*}
 		\item 
-			D'après le cours,
 			\begin{align*}
 				a = \dfrac{y_A - y_B}{x_A - x_B}, && b = \dfrac{x_A y_B - x_B y_A}{x_A - x_B}.
 			\end{align*}
@@ -337,7 +443,7 @@
 
 	\begin{enumerate}
 		\item 
-			On cherche un point $P(x_P, y_P) \in \R^2$ vérifiant les deux équations
+			On cherche un point $P(x_P, y_P)$ vérifiant les deux équations
 				\begin{align*}
 					y_P = f(x_P) && \text{ et } && y_P = g(x_P)
 				\end{align*}
@@ -507,9 +613,9 @@
 }{
 	Les fonctions sont données, pour tout $x\in\R$, par
 	\begin{align*}
-			f(x) = -\dfrac13 x + 1, &&
-			g(x) = \dfrac32 x - 2, &&
-			h(x) = -\dfrac16 x + 5.
+			f(x) = -\dfrac38 x + 4, &&
+			g(x) = \dfrac34 x - 4, &&
+			h(x) = -\dfrac27 x + 2.
 	\end{align*}
 }
 
