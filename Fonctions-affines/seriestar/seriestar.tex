@@ -21,6 +21,34 @@
 
 
 \exe{[$\star$]
+	Considérons une fonction quadratique 
+		\[ f(x) = ax^2 + bx + c, \]
+	où $a, b, c\in\R$ sont trois paramètres réels.
+	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g$ donnée par
+			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
+		est affine.
+		\item Montrer que $g$ admet deux zéros distincts.
+		\item En déduire, par interpolation linéaire, que $g$ est constamment nulle et donc que
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+	\end{enumerate}
+}
+
+\exe{[$\star$]
+	Montrer que deux fonctions affines sont égales si et seulement si les coefficients directeurs sont égaux et les ordonnées à l'origines sont égales.
+}{}
+
+\exe{[$\star$]
+	Décrire l'ensemble $\C_f$ contenant les points $(0;1), (1;0),$ et $(2;1)$ où $f(x) = ax^2 + bx + c$.
+	
+	Grapher la parabole, par exemple en écrivant \texttt{y=x² -2x + 1} sur GeoGebra.\footnote{\href{https://www.geogebra.org/calculator}{https://www.geogebra.org/calculator}}
+	
+	Montrer qu'une droite ne peut pas contenir ces trois points simultanément.
+}{}
+
+\exe{[$\star$]
     Soient $f(x) = 3x^2 + 17x - 11$ et $g(x) = 2x^2 + 17x - 10$ pour tout $x \in \R$ deux fonctions quadratiques.
 
     Déterminer entièrement $\C_f \cap \C_g$.
@@ -72,22 +100,6 @@
     \end{enumerate}
 
 }{}
-
-\exe{[$\star$]
-	Considérons une fonction quadratique 
-		\[ f(x) = ax^2 + bx + c, \]
-	où $a, b, c\in\R$ sont trois paramètres réels.
-	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
-		\[ f(\alpha) = f(\beta) = 0. \]
-	\begin{enumerate}
-		\item Montrer que la fonction $g$ donnée par
-			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
-		est affine.
-		\item Montrer que $g$ admet deux zéros distincts.
-		\item En déduire, par interpolation linéaire, que $g$ est constamment nulle et donc que
-			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
-	\end{enumerate}
-}
 
 
 \end{document}
