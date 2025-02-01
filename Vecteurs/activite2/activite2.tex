@@ -1,0 +1,58 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Vecteurs 1 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+
+	Dessiner les points 
+		\begin{align*}
+			A = (-6 ;6), && B = (-5 ; 4), && C = (0 ; -6), && D = (2; -10),
+		\end{align*}
+	dans un repère et répondre au questions.
+	
+	\begin{enumerate}
+		\item Que dire des points visuellement ? 
+		\item Trouver la fonction affine $f$ telle que $\C_f$ passe par $A$ et $B$, puis démontrer que $C$ et $D$ appartiennent également par $\C_f$.
+		\item Calculer les vecteurs $\vec{AB}, \vec{AC}, \vec{BA}, \vec{CB}, \vec{DB}$.
+		\item 
+	\end{enumerate}
+
+}{}
+
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+\exe{
+	Déterminant.
+
+}{}
+
+\end{document}
