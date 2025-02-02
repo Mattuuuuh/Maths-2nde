@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Évaluation -- Fonctions affines \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Évaluation blanche -- Fonctions affines \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
 \begin{theorem}[label=thm:1]{}{}
@@ -28,40 +28,160 @@
 	\,
 \end{theorem}
 
-\exe{
+\exe{[2pts]
 	Compléter le théorème \ref{thm:1} vu en classe.
 }{}
 
+\exe{[4pts]
+	Pour chaque fonction affine  sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1$
+		\item $f(x) = 1 + 2x$
+		\item $f(x) = - x$
+		\item $f(x) = -42$
+	\end{enumerate}
+	\end{multicols}
+}{
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				a = 2 && b=1
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = 2 && b=1
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = -1 && b=0
+			\end{align*}
+		\item 
+			\begin{align*}
+				a = 0 && b=-42
+			\end{align*}
+	\end{enumerate}
+
+}
+
+%\exe{
+%	Grapher fonction affine à partir de deux points pour estimer $b$.
+%}{}
+
+%\exe{
+%	Interpolation affine.
+%}{}
+
+\exe{[5pts]
+	Déterminer les paramètres (coefficient directeur $a$ et ordonnée à l'origine $b$) des fonction affines $f,g,h$ dont les courbes sont représentées ci-dessous.
+	Les droites $\C_f$ et $\C_h$ sont parallèles.
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1.5]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+		
+			\addplot[red, thick, domain =-9:9, samples=2] {-x/2 + 2}  node[below=6pt] {$\mathcal{C}_f$};
+			\addplot[red, thick, dotted, domain =-10:-9, samples=2] {-x/2 + 2} ;
+			\addplot[red, thick, dotted, domain =9:10, samples=2] {-x/2 + 2};
+		
+		
+			\addplot[olive, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left=5pt] {$\mathcal{C}_g$};
+			\addplot[olive, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+			\addplot[olive, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+		
+		
+			\addplot[black, thick, domain =-3:9, samples=2] {-x/2 + 8}  node[above=1pt, pos=.35] {$\mathcal{C}_h$};
+			\addplot[black, thick, dotted, domain =-4:-3, samples=2] {-x/2 + 8} ;
+			\addplot[black, thick, dotted, domain =9:10, samples=2] {-x/2 + 8};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	
+}{
+
+	\begin{align*}
+		f(x) &= -\dfrac12 x + 2 \\
+		g(x) &= \dfrac32 x - 2 \\
+		h(x) &= -\dfrac12 x + 8
+	\end{align*}
+
+}
+
+\exe{[6pts]
+	Pour chacune des paires de fonctions affines $f, g$ sur $\R$, calculer $\C_f \cap \C_g$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1, g(x) = -x+1$.
+		\item $f(x) = -x + 1, g(x) = 2x + 1$.
+		\item $f(x) = 3+7x, g(x) = 2$.
+		\item $f(x) = 9-2x, g(x) = 17-x$.
+		\item $f(x) = 2x+1, g(x) = 2x+1$.
+		\item $f(x) = 2x+1, g(x) = 2x+2$.
+	\end{enumerate}
+	\end{multicols}
+}{
+	
+	\begin{enumerate}
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( 0 ; 1 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( 0 ; 1 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( -\dfrac17 ; 2 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( -8 ; 25 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \C_f = \C_g. \]
+		\item 
+			\[ \C_f \cap \C_g = \emptyset. \]
+	\end{enumerate}
+
+
+}
+
+\newpage
+
+\exe{[3pts]
+	Soit $f$ la fonction affine sur $[{-3};3]$ donnée par
+		\[ f(x) = -\frac23 x + 3 \qquad \text{ pour tout } x\in[-3 ; 3]. \]
+	\begin{enumerate}
+		\item
+		Déterminer l'expression algébrique de la fonction affine $g$ telle que $\C_g$ soit parallèle à $\C_f$ et passe par $(0;-1)$.
+		\item
+		Déterminer l'expression algébrique de la fonction affine $h$ telle que $\C_h$ soit parallèle à $\C_g$ et passe par $(-3;1)$.
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item
+			\[ g(x) = -\dfrac23 x - 1. \]
+		\item
+			\[ h(x) = -\dfrac23 x - 1. \]
+	\end{enumerate}
+
+
+}
+
+\subsection*{Bonus (1pt)}
+
 \exe{
-	Identification des paramètres.
+	Trouver l'ensemble des solutions $x\in\R$ de l'équation
+		\[ |2x+1| = |1 - x|. \]
+}{
+	Comme la valeur absolue supprime le signe, on a $4$ possibilités de signes qui impliquent deux équations distinctes à résoudre.
+		\begin{align*}
+			2x+1 = 1 - x && \text{ ou } && -(2x+1) = 1 -x \\
+			2x+1 = -(1-x) && \text{ ou } && -(2x+1) = -(1-x)
+		\end{align*}
+	On en déduit que $\{0 ; -2\}$ est l'ensemble des solutions.
+}
 
-}{}
-
-\exe{
-	Grapher fonction affine à partir de deux points pour estimer $b$.
-}{}
-
-\exe{
-	Interpolation affine.
-}{}
-
-\exe{
-	Lecture graphique
-}{}
-
-\exe{
-	Intersection
-}{}
-
-\exe{
-	Parallélisme
-}{}
-
-\subsection*{Bonus (3pts)}
-
-\exe{
-	Démontrer le théorème \ref{thm:1} après avoir justifié que $x_A \neq x_B$.
-}{}
+%\exe{
+%	Démontrer le théorème \ref{thm:1} après avoir justifié que $x_A \neq x_B$.
+%}{}
 
 %\exe{
 %	Deux inconnues $a, b \in \R$ vérifient les deux équations suivantes. Déterminer $a$ et $b$.
