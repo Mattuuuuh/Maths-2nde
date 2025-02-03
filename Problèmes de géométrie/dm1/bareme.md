@@ -36,7 +36,7 @@ Question 9
 Démonstration de l'identité : 1pt
 
 Question 10
-Inégalité à l'aide du carré toujours positifs : 1pt
+Inégalité à l'aide du carré toujours positif : 1pt
 Évaluation de A pour montrer que le maximum est atteint : 1pt
 
 Soin
