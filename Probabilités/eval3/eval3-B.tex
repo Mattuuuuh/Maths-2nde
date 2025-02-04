@@ -1,0 +1,114 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[4]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation : Probabilités \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+%\exe{
+%	Démontrer, à l'aide d'un ou plusieurs diagrammes de Venn, la formule d'inclusion-exclusion
+%		\[ P(A\cup B) = P(A) + P(B) - P(A\cap B). \]
+%}{}
+
+
+%\exe{
+%	Démontrer, à l'aide d'un ou plusieurs diagrammes de Venn, la relation d'ensembles
+%		\[ \overline{A} = \left(\overline{A} \cup \overline{B} \right) \cap \left(\overline{A} \cup B \right). \]
+%}{
+%}
+
+
+\exe{	
+	On lance un grand nombre de fois un D$6$, dé à $6$ faces.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Nombre de tirages & 19699 & 27549 & 9097 & 22999 & 27989 & 6970  \\ \hline
+		Fréquence & & & & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Compléter le tableau, modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item Quelle est la probabilité d'obtenir exactement trois $1$ en quatre lancers consécutifs ?
+		\item Quelle est la probabilité d'obtenir au moins un $3$ après dix lancers consécutifs ?
+	\end{enumerate}
+}{}
+
+
+\exe{
+	On tire une boule dans une urne contenant $3$ boules rouges et $4$ boules vertes.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si on tire une boule rouge, on jette un D$3$ bien équilibré, dé à $3$ faces numérotées de $1$ à $3$.
+		\item Si on tire une boule verte, on jette un D$5$ bien équilibré, dé à $5$ faces numérotées de $1$ à $5$.
+	\end{enumerate}
+
+	Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité \emph{exacte} d'obtenir $4$ ? 
+		\item Quelle est la probabilité \emph{exacte} d'obtenir un nombre pair ?
+	\end{enumerate}
+
+}
+{}
+
+\exe{
+	Un D$3$, dé à $3$ faces numérotées de $1$ à $3$, a été pipé de telle sorte que
+		\begin{itemize}[label=$\bullet$]
+			\item la probabilité d'obtenir $3$ est le triple de la probabilité d'obtenir $1$ ; et
+			\item la probabilité d'obtenir $2$ est le double de la probabilité d'obtenir $1$.
+		\end{itemize}
+	On jette le dé et on note la face du dessus. Donner la probabilité \emph{exacte} de chacune des issues.
+}
+
+\exe{
+	On considère le lancer d'un D10, dé à 10 faces numérotées de $1$ à $10$.
+	On note le nombre de la face du dessus.
+	
+	Soient $A, B$ les deux événements suivants.
+		\begin{align*}
+			A : \text{\og le nombre est pair \fg}, && B : \text{\og le nombre est multiple de $5$ \fg}.
+		\end{align*}
+		
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ des issues possibles ainsi que son cardinal $|\Omega|$.
+		\item Donner l'ensemble des issues associé à l'événement $B$.
+		\item Décrire avec des mots l'événement $A \cap B$ puis donner l'ensemble des issues qui lui est associé.
+		\item Décrire avec des mots l'événement $\overline{A}$ puis donner l'ensemble des issues qui lui est associé.
+	\end{enumerate}
+}{}
+
+
+
+%\newpage
+
+\subsection*{Bonus}
+
+\exe{
+	\begin{enumerate}
+		\item
+		Soit $\Omega = \{1 ; 2 ; 3 \}$.
+		Combien de sous-ensembles $A \subseteq \Omega$ existe-t-il ?
+		\item
+		Soit $\Omega = \{1 ; 2 ; 3 ; \dots ; n-1 ; n \}$ dépendant d'un entier naturel $n\in\N$ non nul.
+		Combien de sous-ensembles $A \subseteq \Omega$ existe-t-il ?
+	\end{enumerate}´
+}{}
+
+\end{document}
