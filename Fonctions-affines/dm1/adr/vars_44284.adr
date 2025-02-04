@@ -1,0 +1,6 @@
+\newcommand{\seed}{44284}
+\renewcommand{\a}{4}
+\renewcommand{\b}{-5}
+\renewcommand{\c}{}
+\renewcommand{\d}{0}
+\renewcommand{\sol}{\dfrac{5}{3}}
