@@ -18,14 +18,23 @@
 \fancyhead[C]{\textbf{Évaluation blanche -- Fonctions affines \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\begin{theorem}[label=thm:1]{}{}
-	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
-	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
-	
-	Alors le coefficient directeur $a$ est égal à
-	\vspace{5pt}
-		\[ a = .......................................... \]
-	\,
+%\begin{theorem}[label=thm:1]{}{}
+%	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
+%	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
+%	
+%	Alors le coefficient directeur $a$ est égal à
+%	\vspace{5pt}
+%		\[ a = .......................................... \]
+%	\,
+%\end{theorem}
+
+\begin{theorem}[label=thm:1]{Propriété fondamentale}{}
+
+		Soit $f : \D \rightarrow \R$ une fonction réelle sur un domaine $\D$ et $(x;y)$ un point du plan avec $x\in\D$.
+		Alors
+			\begin{align*}
+				(x ; y) \in \C_f && \iff && \ifsolutions \color{red} y=f(x) \else \underline{\qquad\qquad\qquad} \fi.
+			\end{align*}
 \end{theorem}
 
 \exe{[2pts]
@@ -36,29 +45,31 @@
 	Pour chaque fonction affine  sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $f(x) = 2x + 1$
-		\item $f(x) = 1 + 2x$
-		\item $f(x) = - x$
-		\item $f(x) = -42$
+		\item $f(x) = 7$
+		\item $f(x) = 2- \dfrac23 x $
+		\item $f(x) = x$
+		\item $f(x) = 0$
 	\end{enumerate}
 	\end{multicols}
 }{
+	On utilise par exemple que $f(0) = b$ et que $f(1)-f(0) = a$.
+
 	\begin{enumerate}
 		\item 
 			\begin{align*}
-				a = 2 && b=1
+				a = 0 && b=7
 			\end{align*}
 		\item 
 			\begin{align*}
-				a = 2 && b=1
+				a = -\dfrac23 && b=2
 			\end{align*}
 		\item 
 			\begin{align*}
-				a = -1 && b=0
+				a = 1 && b=0
 			\end{align*}
 		\item 
 			\begin{align*}
-				a = 0 && b=-42
+				a = 0 && b=0
 			\end{align*}
 	\end{enumerate}
 
@@ -115,35 +126,38 @@
 	
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $f(x) = 2x + 1, g(x) = -x+1$.
-		\item $f(x) = -x + 1, g(x) = 2x + 1$.
-		\item $f(x) = 3+7x, g(x) = 2$.
-		\item $f(x) = 9-2x, g(x) = 17-x$.
-		\item $f(x) = 2x+1, g(x) = 2x+1$.
-		\item $f(x) = 2x+1, g(x) = 2x+2$.
+		\item $f(x) = 7x -2, g(x) = -x+3$.
+		\item $f(x) = -x + 3, g(x) = 7x -2$.
+		\item $f(x) = 3, g(x) = -x$.
+		\item $f(x) = -2x+1, g(x) = 1-x$.
+		\item $f(x) = 2, g(x) = 4$.
+		\item $f(x) = -x+1, g(x) = 1-x$.
 	\end{enumerate}
 	\end{multicols}
 }{
 	
 	\begin{enumerate}
 		\item 
-			\[ \C_f \cap \C_g = \left\{ \left( 0 ; 1 \right) \right\}. \]
+			\[ \C_f \cap \C_g = \left\{ \left( \dfrac58 ;  \dfrac{19}8 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( \dfrac58 ;  \dfrac{19}8 \right) \right\}. \]
+		\item 
+			\[ \C_f \cap \C_g = \left\{ \left( -3 ; 3 \right) \right\}. \]
 		\item 
 			\[ \C_f \cap \C_g = \left\{ \left( 0 ; 1 \right) \right\}. \]
-		\item 
-			\[ \C_f \cap \C_g = \left\{ \left( -\dfrac17 ; 2 \right) \right\}. \]
-		\item 
-			\[ \C_f \cap \C_g = \left\{ \left( -8 ; 25 \right) \right\}. \]
-		\item 
-			\[ \C_f \cap \C_g = \C_f = \C_g. \]
 		\item 
 			\[ \C_f \cap \C_g = \emptyset. \]
+		\item 
+			\[ \C_f \cap \C_g = \C_f = \C_g. \]
 	\end{enumerate}
 
 
 }
 
+\ifsolutions
+\else
 \newpage
+\fi
 
 \exe{[3pts]
 	Soit $f$ la fonction affine sur $[{-3};3]$ donnée par
@@ -171,9 +185,9 @@
 	Trouver l'ensemble des solutions $x\in\R$ de l'équation
 		\[ |2x+1| = |1 - x|. \]
 }{
-	Comme la valeur absolue supprime le signe, on a $4$ possibilités de signes qui impliquent deux équations distinctes à résoudre.
+	Comme la valeur absolue supprime le signe, on a $4$ possibilités de signes qui donnent deux équations distinctes à résoudre.
 		\begin{align*}
-			2x+1 = 1 - x && \text{ ou } && -(2x+1) = 1 -x \\
+			2x+1 = 1 - x && \text{ ou } && -(2x+1) = 1 -x && \text{ ou } && 
 			2x+1 = -(1-x) && \text{ ou } && -(2x+1) = -(1-x)
 		\end{align*}
 	On en déduit que $\{0 ; -2\}$ est l'ensemble des solutions.
