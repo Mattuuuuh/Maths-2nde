@@ -60,7 +60,7 @@
 
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+%\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
@@ -118,8 +118,11 @@
 \newcommand{\pinfty}{{+}\infty}
 \newcommand{\minfty}{{-}\infty}
 
-% vecteur
-
+% vecteur flèche
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
 
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
