@@ -118,8 +118,8 @@ nomarginpar,% We don't want any margin paragraphs
 \usepackage{hyperref}
 
 %wider tabulars
-\def\arraystretch{2}
-\setlength\tabcolsep{15pt}
+%\def\arraystretch{2}
+%\setlength\tabcolsep{15pt}
 
 %couleurs
 \definecolor{myg}{RGB}{56, 140, 70}
@@ -128,3 +128,9 @@ nomarginpar,% We don't want any margin paragraphs
 
 % vecteur
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
