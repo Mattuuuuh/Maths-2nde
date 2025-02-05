@@ -43,3 +43,209 @@ Les capacités attendues sont les suivantes.
 		\item
 			Résoudre des problèmes en utilisation la représentation la plus adaptée des vecteurs.
 	\end{itemize}
+	
+\section{Introduction}
+
+\dfn{Translation du plan}{
+	Une \emph{translation} $T$ du plan est le déplacement de tous les points du plan selon la même direction, la même distance, et dans le même sens.
+	
+	Pour un point $A$ quelconque, on définit l'addition
+		\[ A + T \]
+	comme le \emph{translaté} de $A$ par $T$.
+}{}
+
+\nt{
+	Une translation $T$ déplace tous les points du plan selon la même direction, la même distance, et dans le même sens.
+	On peut donc décomposer $T$ en une translation \og gauche/droite \fg~ selon l'axe des abscisses, et une translation \og haut/bas \fg selon les ordonnées.
+	
+	Chaque point $A(x_A ; y_A)$ voit ses coordonées modifiées de la même manière :
+	celui-ci se déplace systématiquement d'une certaine quantité $x_T$ en abscisse, et $y_T$ en ordonnée.
+	Ainsi, une fois déplacé, le point $A$ admet pour nouvelles coordonnées
+		\[ A + T = (x_A + x_T ; y_A + y_T). \]
+	Remarquons que c'est exactement comme cela qu'on a défini l'addition de deux points au chapitre \ref{chap:3}, section \ref{sec:geom-plane}, définition \ref{def:manip-points}.
+	On pose donc $T = (x_T ; y_T)$ en réutilisant les notations $(x ; y)$ des points du plan.
+	
+	Il n'y a en fait pas de différence mathématique entre une translation et un point : à chaque translation on peut associer un point, et vice versa.
+}{}
+
+
+\dfn{Vecteur $\vec{AB}$}{
+	Soient $A, B$ deux points du plan.
+	On nomme 
+		\[ T = \vec{AB} \]
+	la translation $T$ du plan qui envoie le point $A$ sur le point $B$.
+	On a alors la relation
+		\[ A + \vec{AB} = B. \]
+	
+	En décomposant $T$ selon les abscisses et les ordonnées, on écrit ses coordonnées sous la forme $T = \begin{pmatrix} x_T \\ y_T \end{pmatrix}$.
+}{}
+
+\ex{}{
+	Soient $A(2,5; 3), B(1,5; -4)$ deux points.
+	On trace les points dans un repère, ainsi qu'une flèche envoyant $A$ sur $B$, qui correspond au vecteur $\vec{AB}$.
+	
+	On décompose la translation selon les deux axes : translater de $-1$ en abscisse, puis translater de $-7$ en ordonnée.
+	On en déduit que $\vec{AB} = \pvec{-1}{-7}$.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -0.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-4.9, ymax=3.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ytick = {-4, -3, ..., 2, 3}, grid=both]
+		
+		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right] {$A$};
+		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right] {$B$};
+	
+		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5] {$\vec{AB}$};
+		\draw[very thick, myr, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5] {$-1$};
+		\draw[very thick, myb, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5] {$-7$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{ex:vec-1}
+
+\mprop{Calcul de $\vec{AB}$}{
+	Par définition, on a 
+		\[ A + \vec{AB} = B, \]
+	qui permet de calculer la translation $\vec{AB}$ à l'aide de la relation
+		\[ \vec{AB} = B - A = \pvec{x_B - x_A}{y_B-y_A}. \]
+}{prop:calcul-AB}
+
+\cor{}{
+	Pour connaître les coordonnées d'une translation, il suffit de l'appliquer à l'origine $O$ et de lire les coordonnées du translaté.
+	
+	En d'autres termes,
+		\[ \vec{OA} = A. \]
+}{cor:OAisA}
+
+\dfn{Opérations sur les vecteurs}{
+	Les vecteurs héritent des opérations légales sur les points (chapitre \ref{chap:3}, définition \ref{def:manip-points}).
+	Soient $u = \pvec{x}{y}, v = \pvec{x'}{y'}$ deux vecteurs et $\kappa\in\R$ un réel. 
+	Alors
+	\begin{enumerate}
+		\item $u+v = \pvec{x+x'}{y+y'}$ ; et
+		\item $\kappa \cdot u = \pvec{\kappa \cdot x}{\kappa\cdot y}$.
+	\end{enumerate}
+}{}
+
+\section{Composition de translations : somme de vecteurs}
+
+\thm{Relation de Chasles}{
+	Soient $A, B, C$ trois points du plans. 
+	Alors
+		\[ \vec{AB} + \vec{BC} = \vec{AC}. \]
+		\begin{center}
+		\og L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ est égale à la translation qui envoie $A$ sur $C$ \fg.
+		\end{center}
+}{thm:chasles}
+
+\pf{Démonstration du théorème \ref{thm:chasles}}{
+	Par calcul direct à l'aide de la proposition \ref{prop:calcul-AB},
+	\begin{align*}
+		\vec{AB} + \vec{BC} &= \left(B-A\right) + \left(C - B\right), \\
+								&= B - A + C - B, \\
+								&= C - A, \\
+								&= \vec{AC}.
+	\end{align*}
+}{}
+
+\ex{Somme de vecteurs géométriquement}{
+	Soient ${\color{myr} u} = \pvec{2}{-1}$ et ${\color{myb} v}= \pvec{-3}{-2}$ deux vecteurs.
+	
+	Pour construire géométrique la somme ${\color{myr} u}+{\color{myb} v} =\pvec{2-3}{-1-2} = \pvec{-1}{-3}$, on colle bout à bout les vecteurs ${\color{myr} u}$ et ${\color{myb} v}$ comme ci-dessous.
+	
+	On démarre à l'origine $O$ pour pouvoir lire les coordonnées du vecteur, d'après le corollaire \ref{cor:OAisA}.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-3.9, ymax=0.9, ytick={-2}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+		\addplot[black, mark=*, mark size = 1] (0,0) node[above right] {$O$};
+	
+		\draw[very thick, myr, ->] (axis cs:0, 0) -- (axis cs:2, -1) node[above right, pos=.5] {$u$};
+		
+		\draw[very thick, myb, ->] (axis cs:2, -1) -- (axis cs:-1, -3) node[below right, pos=.5] {$v$};
+		
+		\draw[very thick, black, ->] (axis cs:0, 0) -- (axis cs:-1, -3) node[left, pos=.5] {$u+v$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\section{Norme vectorielle}
+
+Considérons $\vec{AB}$ le vecteur translatant le point $A$ sur le point $B$.
+On considère la longueur $AB$ du segment $[AB]$, ce qui servira à définir la norme d'un vecteur, l'équivalent de la longueur pour les segments, et de la distance pour les nombres réels.
+
+La formule de la longueur d'un segment (voir théorème \ref{thm:long-segment}, chapitre \ref{chap:3}) permet calculer\footnote{Remarquons que l'ordre de $A$ et de $B$ n'importe pas dans la formule, et que $|x|^2 = (x)^2$, car le carré ignore le signe.}
+	\[ AB = \sqrt{ |x_B - x_A|^2 + |y_B - y_A|^2}. \]
+Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$, qui sont exactement les coordonnées du vecteur
+	\[ \vec{AB} = B-A. \]
+
+\dfn{Norme d'un vecteur}{
+	Soit $u = \pvec{x}{y}$ un vecteur quelconque.
+	On définit sa \emph{norme} $\norm{u}$ par
+		\[ \norm{u} = \sqrt{x^2 + y^2}. \]
+		
+	Il suit, par construction, que $\norm{\vec{AB}} = AB$.
+}{}
+
+\nt{
+	Remarquons qu'on a la relation, pour $\ell = AB$, la longueur du segment $[AB]$,
+		\[ \ell = \norm{\vec{AB}} = \norm{B-A} = \norm{A-B}. \]
+	Ceci devrait rappeler la distance entre les nombres réels $x, y\in\R$, notée $|x-y|$ à l'aide de la valeur absolue.
+}{}
+
+\ex{}{
+	Soient $A(2,5; 3), B(1,5; -4)$ les deux points de l'exemple \ref{ex:vec-1}.
+	On a $\vec{AB} = B - A = \pvec{-1}{-7}$, et donc
+		\[ \norm{\vec{AB}} = \norm{\pvec{-1}{-7}} = \sqrt{\left(-1\right)^2 + \left(-7\right)^2} = \sqrt{50} = \sqrt{25 \times 2} = 5 \sqrt{2}. \]
+		
+	En comparant avec la longueur $AB = BA = \sqrt{(2,5 - 1,5)^2 + (3 - (-4))^2} = 5 \sqrt{2}$, on obtient bien le même résultat.
+	Notons qu'il y a moins de chance de faire une erreur avec la norme vectorielle car on calcule la longueur en deux étapes, avec d'abord les différences de coordonnées.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -0.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-4.9, ymax=3.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ytick = {-4, -3, ..., 2, 3}, grid=both]
+		
+		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right] {$A$};
+		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right] {$B$};
+	
+		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5] {$\vec{AB}$};
+		\draw[very thick, myr, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5] {$-1$};
+		\draw[very thick, myb, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5] {$-7$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\thm{Homogénéité de la norme}{
+	Soit $u$ un vecteur et $\kappa\in\R$ un nombre réel.
+	Alors
+		\[ \norm{\kappa\cdot u} = |\kappa| \cdot \norm{u}. \]
+}{}
+
+\section{Colinéarité et déterminant}
+
+\dfn{Vecteurs colinéaires}{
+	Soient $u$ et $v$ deux vecteurs.
+	On dit de $u$ et $v$ qu'ils sont \emph{colinéaires} dès qu'il existe un réel $\kappa\in\R$ tel que
+		\[ u = \kappa \cdot v. \]
+}{}
+
+\nt{
+	Tous les vecteurs sont colinéaires au vecteur nul (en prenant $\kappa = 0$ ci-dessus).
+}{}
+
+\dfn{Déterminant de deux vecteurs}{
+	Soient $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$ deux vecteurs.
+	On définit le \emph{déterminant} $\det(u, v)$ par le nombre réel
+		\begin{align*}
+			\det(u,v) = \begin{vmatrix} a & c \\ b & d \end{vmatrix} = ad - bc.
+		\end{align*}
+}{}
+
+\thm{}{
+	Soient $u, v$ deux vecteurs.
+	Alors $\det(u, v) = 0$ si et seulement si les vecteur $u$ et $v$ sont colinéaires.
+	
+	Le déterminant détermine donc si deux vecteurs sont colinéaires ou non.
+}{}
