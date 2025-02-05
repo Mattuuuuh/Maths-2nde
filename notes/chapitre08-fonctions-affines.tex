@@ -637,9 +637,12 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 	
 	On distingue alors les cas suivants sur les points d'intersection entre les droites.
 		\begin{enumerate}
-			\item Si $a \neq a'$, il existe un unique point d'intersection.
-			\item Si $a = a'$ et $b\neq b'$, il n'existe aucun point d'intersection.
-			\item Si $a=a'$ et $b=b'$, les droites sont confondues.
+			\item Si $a \neq a'$, les droites $\C_f$ et $\C_g$ sont sécantes en un unique point d'intersection.
+			\item Sinon $a = a'$, les droites $\C_f$ et $\C_g$ sont parallèles et on distingue deux sous-cas.
+				\begin{enumerate}[label=\roman*)]
+					\item Si $b\neq b'$, il n'existe aucun point d'intersection ($\C_f \cap \C_g = \emptyset$).
+					\item Si $b=b'$, alors $f=g$ et les droites sont confondues ($\C_f \cap \C_g = \C_f = \C_g$).
+				\end{enumerate}
 		\end{enumerate}
 }{}
 
@@ -659,16 +662,6 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 	et nomme alors abusivement l'équation \og $y = ax+b$ \fg, l'\emph{équation de la droite $\C_f$}.
 }{}
 
-\dfn{Droites parallèles}{
-	Considérons deux droites $(d)$ et $(d')$ d'équations
-		\begin{align*}
-			(d) : y = ax+b, && \text{ et } &&
-			(d') : y = a'x+b'.
-		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
-	
-	Les droites $(d)$ et $(d')$ sont parallèles si et seulement si $a=a'$, c'est-à-dire si et seulement si les coefficients directeurs des fonctions associées sont égaux.
-}{}
 
 \ex{}{
 	Soit $(d)$ une droite donnée par
@@ -701,103 +694,80 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 
 }{}
 
-%\exe{}{
-%	Soit $(d)$ une droite donnée par
-%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
-%	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;2)$.
+
+% postponed
+%\section{Variations et signe du coefficient directeur}
+%
+%
+%On distingue trois cas différents de droites parmis les exemples de la section \ref{sec:aff-1} : les deux premières sont croissantes, la suivante est constante, et la dernière est décroissante.
+%
+%\dfn{Variations}{
+%	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
+%	Alors
+%		\begin{itemize}
+%			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
+%				\begin{align*}
+%					x < y && \implies && f(x) \leq f(y).
+%				\end{align*}	
+%			On interprète l'implication ainsi :
+%			\begin{center}
+%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
+%			\end{center}
+%				
+%			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
+%				\begin{align*}
+%					x < y && \implies && f(x) \geq f(y).
+%				\end{align*}
+%			On interprète l'implication ainsi :
+%			\begin{center}
+%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
+%			\end{center}
+%				
+%			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
+%				\begin{align*}
+%					f(x) = K.
+%				\end{align*}
+%		\end{itemize}
+%	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
 %}{}
 %
-%\exe{}{
-%	Soit $(d)$ une droite donnée par
-%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 4-3x \}. \]
-%	Déterminer la droite parallèle à $(d)$ et passant par le point $(-1;7)$.
-%}{}
+%\thm{Variations}{
+%	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
+%		\begin{align*}
+%			f(x) = a x + b && (x\in\R)
+%		\end{align*}
+%	On distingue trois cas de figure.
+%		\begin{itemize}
+%			\item Si $a < 0$, alors $f$ est strictement décroissante.
+%			\item Si $a=0$, alors $f$ est constante.
+%			\item Si $a>0$, alors $f$ est strictement croissante.
+%		\end{itemize}
+%}{thm:affine-var}
 %
-%\exe{}{
-%	Soit $(d)$ une droite, et $P\in (d)$ un point lui appartenant.
+%\pf{Démonstration du théorème \ref{thm:affine-var}}{
+%	Si $a=0$, $f$ est clairement constante car
+%		\begin{align*}
+%			f(x) = b \qquad \text{ pour tout $x\in\R$}.
+%		\end{align*}
 %	
-%	Montrer qu'une droite $(d')$ vérifiant
-%		\begin{enumerate}
-%			\item $(d')$ est parallèle à $(d)$, et
-%			\item $P \in (d')$
-%		\end{enumerate}
-%	est forcément égale à la droite $(d)$.
+%	Sinon, on utilise les règles de manipulation des inégalités du théorème \ref{thm:ineg} vues au chapitre \ref{chap:3}.
+%	
+%	Si $a>0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
+%		\begin{align*}
+%			x &< y \\
+%			a \cdot x &< a \cdot y \\
+%			a \cdot x + b &< a \cdot y + b \\
+%			f(x) &< f(y),
+%		\end{align*}
+%	et $f$ est donc strictement croissante.
+%	
+%	Si $a<0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
+%		\begin{align*}
+%			x &< y \\
+%			a \cdot x &> a \cdot y \\
+%			a \cdot x + b &> a \cdot y + b \\
+%			f(x) &> f(y),
+%		\end{align*}
+%	et $f$ est donc strictement décroissante.
 %}{}
-
-
-
-\section{Variations et signe du coefficient directeur}
-
-
-On distingue trois cas différents de droites parmis les exemples de la section \ref{sec:aff-1} : les deux premières sont croissantes, la suivante est constante, et la dernière est décroissante.
-
-\dfn{Variations}{
-	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
-	Alors
-		\begin{itemize}
-			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
-				\begin{align*}
-					x < y && \implies && f(x) \leq f(y).
-				\end{align*}	
-			On interprète l'implication ainsi :
-			\begin{center}
-				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
-			\end{center}
-				
-			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
-				\begin{align*}
-					x < y && \implies && f(x) \geq f(y).
-				\end{align*}
-			On interprète l'implication ainsi :
-			\begin{center}
-				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
-			\end{center}
-				
-			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
-				\begin{align*}
-					f(x) = K.
-				\end{align*}
-		\end{itemize}
-	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
-}{}
-
-\thm{Variations}{
-	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
-		\begin{align*}
-			f(x) = a x + b && (x\in\R)
-		\end{align*}
-	On distingue trois cas de figure.
-		\begin{itemize}
-			\item Si $a < 0$, alors $f$ est strictement décroissante.
-			\item Si $a=0$, alors $f$ est constante.
-			\item Si $a>0$, alors $f$ est strictement croissante.
-		\end{itemize}
-}{thm:affine-var}
-
-\pf{Démonstration du théorème \ref{thm:affine-var}}{
-	Si $a=0$, $f$ est clairement constante car
-		\begin{align*}
-			f(x) = b \qquad \text{ pour tout $x\in\R$}.
-		\end{align*}
-	
-	Sinon, on utilise les règles de manipulation des inégalités du théorème \ref{thm:ineg} vues au chapitre \ref{chap:3}.
-	
-	Si $a>0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
-		\begin{align*}
-			x &< y \\
-			a \cdot x &< a \cdot y \\
-			a \cdot x + b &< a \cdot y + b \\
-			f(x) &< f(y),
-		\end{align*}
-	et $f$ est donc strictement croissante.
-	
-	Si $a<0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
-		\begin{align*}
-			x &< y \\
-			a \cdot x &> a \cdot y \\
-			a \cdot x + b &> a \cdot y + b \\
-			f(x) &> f(y),
-		\end{align*}
-	et $f$ est donc strictement décroissante.
-}{}
 
