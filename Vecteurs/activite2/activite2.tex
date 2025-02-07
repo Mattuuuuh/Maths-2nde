@@ -19,7 +19,39 @@
 \fancyhead[R]{\today}
 
 
+
 \exe{
+	Dessiner les points 
+		\begin{align*}
+			A = (-1 ; -8), && B = (-7 ; 9), && C = (4 ; 7), && D = (7 ; -1,5),
+		\end{align*}
+	tracer les droites $(AB)$ et $(CD)$ dans un repère, et répondre au questions.
+	
+	\begin{enumerate}
+		\item Que dire des droites $(AB)$ et $(CD)$ ?
+		\item Montrer que les droites sont parallèles en calculant le coefficient directeur des fonctions affines associées.
+		\item Calculer les vecteurs $\vec{AB}$ et $\vec{CD}$. Que dire de ceux-ci ?
+		
+		\item Montrer que, pour des points $A, B, C, D$ quelconques, si $(AB)$ et $(CD)$ sont parallèles, alors $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+	\end{enumerate}
+
+}{}
+
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+\exe{\label{ex:1}
 
 	Dessiner les points 
 		\begin{align*}
@@ -42,28 +74,11 @@
 				\og Si je multiplie $\vec{DB}$ par $\dots$,j'obtiens $\vec{CB}$ \fg
 			\end{multicols}
 			\end{center}
+		\item Calculer $\det\left(\vec{AB}, \vec{CD}\right)$.
 				
 	\end{enumerate}
 
 }{}
 
-
-	\begin{center}
-		\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
-			
-		\end{axis}
-		\end{tikzpicture}
-		\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
-			
-		\end{axis}
-		\end{tikzpicture}
-	\end{center}
-
-\exe{
-	Déterminant.
-
-}{}
 
 \end{document}
