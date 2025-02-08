@@ -18,10 +18,59 @@
 \fancyhead[C]{\textbf{Vecteurs 3 \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\exe{
-
-	placeholder
+\exe{[Calcul]
+	Soient $A(3;-1), B(-1; -5),$ et $C(3 ; 4)$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $\vec{AB}, \vec{BA}$, et $\vec{CA}$.
+		\item Calculer $\norm{\vec{AB}}, \norm{\vec{BA}}$, $\norm{\vec{AC}}$.
+		\item Calculer $3 \vec{AB} + 3 \vec{CA}$ et $3 \vec{CB}$.
+		\item Calculer $\norm{-4 \vec{AB}}$ et $\norm{-\dfrac1{13} \vec{CA}}$.
+	\end{enumerate}
+	\end{multicols}
 
 }{}
+
+\exe{[Représentation graphique]
+	Construire géométriquement les sommes 
+		\[u+v+w \qquad \text{ et } \qquad \dfrac12u - \dfrac35v + w\]
+	où $u = \pvec{3}{-4}, v=\pvec{-5}{6},$ et $w=\pvec{7}{-6}$.
+	
+	Lire géométriquement les coordonnées des sommes et comparer avec la méthode algébrique.
+}{}
+
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+\exe{[Parallélisme]
+	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(3;1)$.
+	
+	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
+	
+	Donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+}{}
+
+\exe{[Vecteur directeur]
+	On considère un point $A(5 ; -12)$ et un vecteur $v = \pvec{2}{-1}$.
+	Soit $(d)$ la droite passant par $A$ et dirigée par $v$.
+	
+	\begin{enumerate}
+		\item
+		Donner $4$ points distincts appartenant à $(d)$.
+		\item
+		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
+	\end{enumerate}
+}{}
+
 
 \end{document}
