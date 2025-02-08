@@ -30,9 +30,22 @@
 	\begin{enumerate}
 		\item Que dire des droites $(AB)$ et $(CD)$ ?
 		\item Montrer que les droites sont parallèles en calculant le coefficient directeur des fonctions affines associées.
-		\item Calculer les vecteurs $\vec{AB}$ et $\vec{CD}$. Que dire de ceux-ci ?
+		\item Calculer les vecteurs $\vec{AB}, \vec{BA}, \vec{CD}$ et $\vec{DC}$ et compléter les phrases suivantes.
+			\begin{center}
+			\begin{multicols}{2}
+				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{BA}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{DC}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{DC}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{CD}$ \fg
+			\end{multicols}
+			\end{center}
 		
-		\item Montrer que, pour des points $A, B, C, D$ quelconques, si $(AB)$ et $(CD)$ sont parallèles, alors $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+		\item Trouver les nombres $a, a'\in\R$ tels que $\vec{AB}$ soit colinéaire à $\pvec{1}{a}$ et $\vec{CD}$ soit colinéaire à $\pvec{1}{a'}$.
+		Que dire des coefficients $a$ et $a'$ ? 
+		
+		\item Montrer que, pour des points $A, B, C, D$ quelconques, si $(AB)$ et $(CD)$ sont parallèles non verticales, alors $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+		%On traitera à part le cas où les vecteurs sont verticaux (première composante nulle).
+		% cas droite verticale à part ?
 	\end{enumerate}
 
 }{}
@@ -61,20 +74,20 @@
 	
 	\begin{enumerate}
 		\item Que dire des points visuellement ? 
-		\item Trouver la fonction affine $f$ telle que $\C_f$ passe par $A$ et $B$, puis démontrer que $C$ et $D$ appartiennent également par $\C_f$.
-		\item Calculer les vecteurs $\vec{AB}, \vec{AC}, \vec{BA}, \vec{CB}, \vec{DB}$.
-		\item Compléter les phrases suivantes.
-			\begin{center}
-			\begin{multicols}{2}
-				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{AC}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{AC}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{CB}$ par $\dots$,j'obtiens $\vec{DB}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{CB}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{DB}$ par $\dots$,j'obtiens $\vec{CB}$ \fg
-			\end{multicols}
-			\end{center}
-		\item Calculer $\det\left(\vec{AB}, \vec{CD}\right)$.
+		\item Trouver la fonction affine $f$ telle que $\C_f$ passe par $A$ et $B$, puis démontrer que $C$ et $D$ appartiennent également à $\C_f$.
+%		\item Calculer les vecteurs $\vec{AB}, \vec{AC}, \vec{BA}, \vec{CB}, \vec{DB}$ et compléter les phrases suivantes.
+%			\begin{center}
+%			\begin{multicols}{2}
+%				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{AC}$ \fg \\ \vspace{10pt}
+%				\og Si je multiplie $\vec{AC}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
+%				\og Si je multiplie $\vec{CB}$ par $\dots$,j'obtiens $\vec{DB}$ \fg \\ \vspace{10pt}
+%				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
+%				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{CB}$ \fg \\ \vspace{10pt}
+%				\og Si je multiplie $\vec{DB}$ par $\dots$,j'obtiens $\vec{CB}$ \fg
+%			\end{multicols}
+%			\end{center}
+		\item Calculer $\det\left(\vec{AB}, \vec{AD}\right)$ et en déduire que $D \in(AB)$.
+		\item Calculer $\det\left(\vec{CB}, \vec{DB}\right)$ et en déduire que $C \in (DB)$.
 				
 	\end{enumerate}
 
