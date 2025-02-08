@@ -229,11 +229,83 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 	Soient $u$ et $v$ deux vecteurs.
 	On dit de $u$ et $v$ qu'ils sont \emph{colinéaires} dès qu'il existe un réel $\kappa\in\R$ tel que
 		\[ u = \kappa \cdot v. \]
+	Deux vecteurs colinéaires admettent la même direction, mais pas forcément le même sens ni la même norme.
 }{}
 
 \nt{
 	Tous les vecteurs sont colinéaires au vecteur nul (en prenant $\kappa = 0$ ci-dessus).
 }{}
+
+
+\mprop{}{
+	Soit $A, B, C, D$ quatre points quelconques.
+	
+	Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires si et seulement si les droites $(AB)$ et $(CD)$ sont parallèles.
+}{prop:alignement-parallélisme}
+
+\cor{}{
+	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+}{prop:alignement-colinéarité}
+
+\lem{}{
+	Soit $(d)$ une droite non verticale et $A, B \in (d)$ deux points distincts de celle-ci.
+	
+	Alors $\vec{AB}$ est colinéaire à un vecteur de la forme $\pvec{1}{a}$ où $a$ est le coefficient directeur de la fonction affine $f$ telle que $\C_f = (d)$.
+}{lem:vecteur-dir-coeff-dir}
+
+\pf{Preuve du lemme \ref{lem:vecteur-dir-coeff-dir}}{
+	En écrivant $A(x_A;y_B)$ et $B(x_B;y_B)$ les coordonnées des points $A$ et $B$, on a $x_A \neq x_B$ car les points sont distincts et la droite est non verticale.
+	
+	Ainsi, $\vec{AB} = B-A$ est égal à
+		\[\vec{AB}= \pvec{x_B - x_A}{y_B-y_A} = \left(x_B - x_A\right) \pvec{1}{\frac{y_B-y_A}{x_B-x_A}}. \]
+	On reconnaît bien ici le coefficient directeur de la fonction affine associée à $(d)$.
+}{}
+
+\dfn{Vecteur directeur}{
+	Soit $(d)$ une droite quelconque.
+	On appelle $v$ \emph{vecteur directeur} de $(d)$ si $v$ et $(d)$ admettent la même direction.
+	
+	Si $(d)$ est non verticale, $v$ est colinéaire à $\pvec{1}{a}$, ce qui donne immediatement le coefficient directeur de la fonction affine associée.
+}{}
+
+\nt{
+	Soit $A$ un point, $v$ un vecteur, et $(d)$ la droite passant par $A$ et dirigée par $v$.
+	
+	Alors pour $B$ un point quelconque de $(d)$, le vecteur $\vec{AB}$ est nécessairement colinéaire à $v$.
+	Par conséquent, il existe un nombre réel $k\in\R$ tel que $\vec{AB} = k \cdot v$.
+	
+	Or comme $\vec{AB} = B-A$, on a nécessairement
+		\[ B = A + k \cdot v. \]
+	Un choix arbitraire de $k$ donnera donc naissance à un nouveau point de la droite.
+	Par exemple, les points $A+v, A-v, A+2v, A-\frac5{13}v, A - \sqrt{5} \cdot v$, etc... sont tous des points de la droite $(d)$.
+	
+	On a en fait
+		\[ (d) = \left\{ A + k \cdot v \text{ où $k$ parcourt $\R$} \right\}. \]
+}{}
+
+%\mprop{}{
+%	Soit $A, B, C$ trois points tels que $x_A \neq x_B \neq x_C \neq x_A$.
+%	
+%	Les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires si et seulement si les points $A, B$, et $C$ sont alignés (c'est-à-dire qu'ils appartiennent à une même droite).
+%}{prop:alignement-colinéarité}
+%
+% not useful
+%\pf{Démonstration de la proposition \ref{prop:alignement-colinéarité}}{
+%	\underline{Direction gauche-droite :}
+%	
+%	Si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires, il existe une constante $\kappa\in\R$ telle que
+%		\[ \vec{AB} = \kappa \vec{AC}. \]
+%	Par hypothèse sur les points, aucun des vecteurs n'est nul, et donc $\kappa\neq0$.
+%	
+%	Le coefficient directeur $a$ de la fonction affine dont la courbe représentative est $(AB)$ vérifie 
+%		\[ a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{\kappa \cdot (y_C - y_A)}{\kappa \cdot (x_C - x_A)} = \dfrac{y_C - y_A}{x_C - x_A}. \]
+%	C'est donc le même coefficient directeur que celui de la fonction affine dont la courbe représentative est $(AC)$.
+%	Par suite, les droites $(AB)$ et $(AC)$ sont parallèles et partagent le point $A$ : leur intersection n'est donc pas vide et elles sont nécessairement confondues.
+%	
+%	\underline{Direction droite-gauche :}
+%	
+%	Si les coefficients directeurs des fonctions affines dont les courbes représentatives sont $(AB)$ et $(AC)$ sont les mêmes, le déterminant des vecteurs $\vec{AB}$ et $\vec{AC}$ est nul, ce qui conclut d'après la suite.
+%}{}
 
 \dfn{Déterminant de deux vecteurs}{
 	Soient $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$ deux vecteurs.
@@ -249,3 +321,13 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 	
 	Le déterminant détermine donc si deux vecteurs sont colinéaires ou non.
 }{}
+
+%\ex{}{
+%	Considérons les droites $(AB)$ et $(A'B')$ où
+%		\begin{align*}
+%			A(2; -4), && B(-3,4 ; 3,1), && \text{ et } && A'(2; -4), && B'(-3,4 ; 3,1).
+%		\end{align*}
+%	D'après la proposition \ref{prop:alignement-colinéarité}, les vecteurs $\vec{AB}$ et $\vec{A'B'}$ sont appelé \emph{vecteurs directeurs} des droites $(AB)$ et $(A'B')$ car ils donnent la direction (à multiple près) de celles-ci.
+%
+%	Si les vecteurs $\vec{AB}$ et $\vec{A'B'}$ sont colinéaires, les deux droites admettent la même direction et sont donc parallèles.
+%}{}
