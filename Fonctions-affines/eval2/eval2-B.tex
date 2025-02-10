@@ -1,0 +1,97 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[2]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation -- Fonctions affines \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\begin{theorem}[label=thm:1]{}{}
+	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
+	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
+	
+	Alors le coefficient directeur $a$ est égal à
+	\vspace{5pt}
+		\[ a = .......................................... \]
+	\,
+\end{theorem}
+
+\exe{[2pts]
+	Compléter le théorème \ref{thm:1} vu en classe.
+}{}
+
+\exe{[4pts]
+	Soit $f$ la fonction affine sur $\R$ donnée par
+		\[ f(x) =3-x. \]
+	\begin{enumerate}
+		\item
+		Déterminer l'expression algébrique de la fonction affine $g$ telle que $\C_g$ soit parallèle à $\C_f$ et passe par $(0;41)$.
+		\item
+		Déterminer l'expression algébrique de la fonction affine $h$ telle que $\C_h$ soit parallèle à $\C_g$ et passe par $(-3;12)$.
+	\end{enumerate}
+}{}
+
+
+
+\exe{[4pts]
+	Pour chacune des paires de fonctions affines $f, g$ sur $\R$, calculer $\C_f \cap \C_g$.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 5x -8, g(x) = -x+3$.
+		\item $f(x) = \dfrac23 x + 1, g(x) = 5$.
+		\item $f(x) = x+2, g(x) = x-5$.
+		\item $f(x) = -4x+12, g(x) = 12-4x$.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{[4pts]
+	Pour chaque fonction affine  sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x+1$
+		\item $f(x) = 1 + 2x$
+		\item $f(x) = 2- \dfrac23 x $
+		\item $f(x) = x$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{[3pts]
+	Considérons une fonction affine $f$ telle que les points $(2;1)$ et $(-1 ; -3)$ appartiennent à $\C_f$.
+	\begin{enumerate}
+		\item Esquisser $\C_f$ sur $[-3; 3]$.
+		\item Estimer \emph{graphiquement} à l'aide de $\C_f$ la valeur de l'ordonnée à l'origine de $f$.
+	\end{enumerate}
+}{}
+
+\exe{[3pts]
+	Considérons une fonction affine $f$ telle que les points $A(2;1)$ et $B(-1 ; -3)$ appartiennent à $\C_f$.
+	
+	Trouver $f$ exactement par interpolation affine.
+}{}
+
+
+
+\subsection*{Bonus (2pts)}
+
+\exe{
+	Démontrer le théorème \ref{thm:1} après avoir justifié que $x_A \neq x_B$.
+}{}
+
+\end{document}
