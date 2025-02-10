@@ -1,39 +1,112 @@
 import subprocess
 import numpy as  np
 
-# heh
-def newcommand(current_str, command, value):
-    if command in ["\\sol", "\\c", "\\b", "\\a", "\d", "\k", "\Q", "\P"]:
-        prefix = "\\renewcommand"
-    else:
-        prefix = "\\newcommand"
-    
-    if value == 1:
-        value=""
-    elif value == -1:
-        value="-"
-    return current_str+prefix+"{"+command+"}{"+str(value)+"}\n"
 
-# huge mess
-def newcommand_dfrac(current_str, command, numerator, denominator):
-    d = np.gcd(numerator, denominator)
-    numerator = int(numerator/d)
-    denominator = int(denominator/d)
-    if ((denominator == 1) and (numerator == 1)) or (numerator == 1):
-        current_str = newcommand(current_str, command, "")
-    elif denominator == 1:
-        current_str = newcommand(current_str, command, numerator)
-    else:
-        if numerator < 0 and denominator < 0:
-            numerator *= -1
-            denominator *= -1
-        current_str = newcommand(current_str, command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
-    return current_str
+###############################################
+############# UTILITY FUNCTIONS ###############
+###############################################
+
+# generic \newcommand
+# inputs : command (string), value (string or castable to string)
+def newcommand(command, value):
+    # idk append this list when encountering commands
+    if command in ["\\a"]:
+        return renewcommand(CONTENT, command, value)
+    return "\\newcommand{"+command+"}{"+str(value)+"}\n"
+
+# generic \renewcommand
+def renewcommand(command, value):
+    return "\\renewcommand{"+command+"}{"+str(value)+"}\n"
+
+# generic \newcommand with dfrac
+def newcommand_dfrac(command, numerator, denominator):
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
+
+    # integer case
+    if denominator == 1:
+        return newcommand(command, numerator)
+    
+    # else
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+
+def newcommand_mult(command, numerator, denominator):
+    """
+    Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
+    La constante numerator/denominator est supposée multiplicative :
+        - si elle est 1, elle n'affiche rien
+        - le signe positif n'est pas affiché
+        - le signe négatif est uniquement au numérateur le cas échéant
+    
+    INPUTS : numerator, denominator (signed ints)
+    """
+
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
+
+    # case val = 1
+    if (denominator == 1) and (numerator == 1):
+        return newcommand(command, "")
+    
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, numerator)
+
+    # else
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+
+def newcommand_add(command, numerator, denominator):
+    """
+    Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
+    La constante numerator/denominator est supposée additive :
+        - si elle est 0, elle n'affiche rien
+        - le signe positif est affiché
+        - le signe négatif est devant la fraction le cas échéant
+    
+    INPUTS : numerator, denominator (signed ints)
+    """
+
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
+
+    # case val = 0
+    if numerator == 0:
+        return newcommand(command, "")
+    
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, numerator)
+
+    # else
+    # sign is separated
+    sign = "+" if numerator>=0 else "-"
+    numerator = np.abs(numerator)
+    return newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
 # write decimal separator with commas instead of dots
 def comma(num):
     return f'{num}'.replace('.', ',')
-
 
 ###############################################
 
@@ -61,23 +134,32 @@ def pdflatex(seed):
     
     return 0
 
+###############################################
+############# GENERATE FUNCTION ###############
+###############################################
+
 
 def generate(seed):
-    CONTENT = newcommand("", "\seed", seed)
+    CONTENT = newcommand("\seed", seed)
 
     # generate random integer ax + b = cx + d to solve, with a != c.
     [a,b,c,d] = (np.random.rand(4)*12 - 6).astype(int)
     while a == c:
         [a,b,c,d] = (np.random.rand(4)*12 - 6).astype(int)
    
-    for s in ["a", "b", "c", "d"]:
-        CONTENT = newcommand(CONTENT, f"\\{s}", eval(s))
+    for s in ["a", "c"]:
+        CONTENT += newcommand_mult(f"\\{s}I", eval(s), 1)
+    for s in ["b", "d"]:
+        CONTENT += newcommand_add(f"\\{s}I", eval(s), 1)
 
-    CONTENT = newcommand_dfrac(CONTENT, f"\\sol", d-b, a-c)
+    CONTENT += newcommand_dfrac(f"\\solI", d-b, a-c)
 
     return CONTENT    
 
     return 0
+
+
+### main ###
 
 if __name__=="__main__":
 
