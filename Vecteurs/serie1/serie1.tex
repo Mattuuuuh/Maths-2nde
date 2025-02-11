@@ -33,31 +33,27 @@
 
 \exe{[Représentation graphique]
 	Construire géométriquement les sommes 
-		\[u+v+w \qquad \text{ et } \qquad \dfrac12u - \dfrac35v + w\]
-	où $u = \pvec{3}{-4}, v=\pvec{-5}{6},$ et $w=\pvec{7}{-6}$.
+		\[u+v+w \qquad \text{ et } \qquad \dfrac12u - 2v - w,\]
+	où les vecteurs $u, v, w$ sont donnés dans le plan ci-dessous.
 	
-	Lire géométriquement les coordonnées des sommes et comparer avec la méthode algébrique.
-}{}
-
 	\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
-			
-		\end{axis}
-		\end{tikzpicture}
-		\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
-			
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, myg] (axis cs:0,0) -- (axis cs: 3,4) node[above] {$u$};
+			\draw[very thick, ->, myr] (axis cs:0,0) -- (axis cs: -5,6) node[above] {$v$};
+			\draw[very thick, ->, myb] (axis cs:0,0) -- (axis cs: 8,-5) node[above] {$w$};
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
+}{}
+
 
 \exe{[Parallélisme]
 	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(3;1)$.
 	
 	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
 	
-	Donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
 }{}
 
 \exe{[Vecteur directeur]
@@ -71,6 +67,20 @@
 		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
 	\end{enumerate}
 }{}
+
+
+%	\begin{center}
+%		\begin{tikzpicture}[>=stealth, scale=1]
+%		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
+%			
+%		\end{axis}
+%		\end{tikzpicture}
+%		\begin{tikzpicture}[>=stealth, scale=1]
+%		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-6.5, ymax=6.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-6, -5, ..., 5, 6}, ytick = {-6, -5, ..., 5, 6}, grid=both]
+%			
+%		\end{axis}
+%		\end{tikzpicture}
+%	\end{center}
 
 
 \end{document}
