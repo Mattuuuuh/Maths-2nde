@@ -279,11 +279,14 @@ def generate(seed):
     """
     
     slope1 = .2 + int(np.random.rand()*11)*.01
+    slope1 = round(slope1,2)
     slope1_percent = int(100*slope1)
     Ax = int(np.random.rand()*301)+300
     Ay = slope1*Ax
-    
+    Ay = round(Ay, 2)
+
     slope2 = 0.05+int(np.random.rand()*(slope1-.05)*100)/100
+    slope2 = round(slope2,2)
     slope2_percent = int(100*slope2)
 
     slope_percent = 60 + int(np.random.rand()*41)
