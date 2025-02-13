@@ -1,7 +1,7 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-\input{preamble.tex}\input{adr/vars_44284.adr}
+%\input{preamble.tex}\input{adr/vars_44284.adr}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
@@ -27,27 +27,31 @@
 
 
 \exe{\label{ex:2}
-	Considérons une fonction linéaire $f(x) = 0,16x$.
-	On dit que $f$ est linéaire car son ordonnée à l'origine $b$ est nulle — c'est donc un cas particulier de fonction affine.
+	Considérons une fonction linéaire $f(x) = \slopeI x$.
+	On dit que $f$ est \emph{linéaire} car son ordonnée à l'origine $b$ est nulle — c'est donc un cas particulier de fonction affine.
 	
-	On dit que la pente de $f$ est de $16\%$ : c'est le pourcentage qu'on voit écrit sur les panneaux de signalisation de descente routière.
+	On définit la \emph{pente} de $f$ comme étant son coefficient directeur sous forme de pourcentage, soit $\slopeIpercent\%$.
+	C'est le pourcentage qu'on voit écrit sur les panneaux A16 de signalisation annonçant une descente dangeureuse.
+	
+	Pour chacune des questions suivantes, arrondir les valeurs à $10^{-2}$ près, et les pourcentages à l'entier le plus proche.
 	\begin{enumerate}
 		\item Montrer que $\C_f$ passe par l'origine $O(0;0)$ du repère.
-		\item Trouver le point $A$ d'abscisse $13$ appartenant à $\C_f$ .
-		\item Dans un repère, tracer le triangle de sommets $O, A, B(13;0)$ et calculer l'angle $\alpha = \widehat{AOB}$ à $10^{-2}$ près.
-		\item Un ingénieur détermine qu'une route ne doit pas dépasser une pente de $10\%$ pour qu'elle soit accessible pour les poids lourds.
-		Quelle est l'ordonnée maximale d'un point $C$ d'abscisse $13$ si la pente de la fonction linéaire passant par $C$ ne peut pas dépasser $10\%$ ?
+		\item Trouver le point $A$ d'abscisse $\Ax$ appartenant à $\C_f$ .
+		\item Dans un repère, tracer le triangle de sommets $O, A, B(\Ax;0)$ et calculer l'angle $\alpha = \widehat{AOB}$.
+		\item Un ingénieur détermine qu'une route ne doit pas dépasser une pente de $\slopeIIpercent\%$ pour qu'elle soit accessible pour les poids lourds.
+		Quelle est l'ordonnée maximale d'un point $C$ d'abscisse $\Ax$ si la pente de la fonction linéaire passant par $C$ ne peut pas dépasser $\slopeIIpercent\%$ ?
 		\item
 		Calculer l'angle $\beta = \widehat{COB}$ dans ce cas.
 		\item 
-		À quel angle $\gamma$ correspond une pente de $100\%$ ?
+		À quel angle $\gamma$ correspond une pente de $\slopepercent\%$ ?
 		\item 
-		À quel pourcentage de pente correspond un angle de $20$° ?
+		À quel pourcentage de pente correspond un angle de $\angle$° ?
 	\end{enumerate}
 	
 }{}
 
 \begin{figure}[h!]
+	\begin{subfigure}{0.65\textwidth}
 	\centering
 	\begin{tikzpicture}[>=stealth, scale=1.3]
 	\begin{axis}[xmin = -.8, xmax=10, ymin=-.8, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
@@ -67,7 +71,15 @@
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Schéma simplifié, non à l'échelle, de l'exercice \ref{ex:2}.}
+	\end{subfigure}
+	%\hspace{2cm}
+	\begin{subfigure}{0.3\textwidth}
+	\centering
+	\includesvg[scale=.2]{France_road_sign_A16.svg}
+	\caption{Exemple de panneau A16.}
+	\end{subfigure}
 \end{figure}
+
 
 
 \end{document}
