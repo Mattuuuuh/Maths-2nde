@@ -131,7 +131,7 @@ def pdflatex(seed):
     PARAMETER2 = f"-jobname=dm_{seed}"
 
     subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
-    #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
     # compile twice if references are required
     
     return 0
@@ -143,7 +143,7 @@ def pdflatex(seed):
 # random pythagorean triple with generating formula (m²-n²)² + (2mn)² = (m²+n²)²
 # where 2<=n+1<=m<=15 (to keep things small)
 def pythagorean_triple():
-    m = int(np.random.rand()*14)+2
+    m = int(np.random.rand()*13)+3
     n = int(np.random.rand()*(m-2))+2
     assert 2 <= n+1 <= m <= 15, "Bounds 2 <= n+1 <= m <= 15 not verified."
     
@@ -187,6 +187,8 @@ def generate(seed):
         [u1, v1, w1] = pythagorean_triple()
         [u2, v2, w2] = pythagorean_triple()
         assert u1*u2 != 0, "v1 or v2 is zero?"
+        a1 = v1/u1
+        a2 = v2/u2
 
     assert w1 != 0 and w2 != 0, "w is zero in Pythagorean triple?"
 
@@ -303,7 +305,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 1
+    N = 40
     # always the same N to recompile if needed
     np.random.seed(51) # not a prime 
 
