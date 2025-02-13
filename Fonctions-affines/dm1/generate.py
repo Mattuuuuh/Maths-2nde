@@ -10,8 +10,8 @@ import numpy as  np
 # inputs : command (string), value (string or castable to string)
 def newcommand(command, value):
     # idk append this list when encountering commands
-    if command in ["\\a"]:
-        return renewcommand(CONTENT, command, value)
+    if command in ["\\a", "\\angle"]:
+        return renewcommand(command, value)
     return "\\newcommand{"+command+"}{"+str(value)+"}\n"
 
 # generic \renewcommand
@@ -171,6 +171,8 @@ def generate(seed):
     x_offset and y_offset is integer between -10 and 10, nonzero.
     """
 
+    ### EX 1 ###
+
     CONTENT = newcommand("\seed", seed)
 
     [u1, v1, w1] = pythagorean_triple()
@@ -261,6 +263,38 @@ def generate(seed):
     CONTENT += newcommand("\\xmax", xmax)
     CONTENT += newcommand("\\ymin", ymin)
     CONTENT += newcommand("\\ymax", ymax)
+
+    ### EX 2 ###
+    """
+    Generates f(x) = ax where 0,20 <= a <= 0,30 is the slope.
+    Angle is tan(slope) and slope is arctan(angle)
+
+    Point A of absciss 300 <= xA <= 600
+    Max slope of 0,05 <= a' <= a-0,05
+    
+    Example slope percent 60 <= s <= 100
+    Example angle 5 <= angle <= 35
+    """
+    
+    slope1 = .2 + int(np.random.rand()*11)*.01
+    slope1_percent = int(100*slope1)
+    Ax = int(np.random.rand()*301)+300
+    Ay = slope1*Ax
+    
+    slope2 = 0.05+int(np.random.rand()*(slope1-.05)*100)/100
+    slope2_percent = int(100*slope2)
+
+    slope_percent = 60 + int(np.random.rand()*41)
+    angle = 5 + int(np.random.rand()*31)
+
+    CONTENT += newcommand("\\slopeI", comma(slope1)) 
+    CONTENT += newcommand("\\slopeIpercent", slope1_percent)
+    CONTENT += newcommand("\\Ax", Ax) 
+    CONTENT += newcommand("\\Ay", Ay) 
+    CONTENT += newcommand("\\slopeII", comma(slope2)) 
+    CONTENT += newcommand("\\slopeIIpercent", slope2_percent)
+    CONTENT += newcommand("\\slopepercent", slope_percent) 
+    CONTENT += newcommand("\\angle", angle)
 
     return CONTENT    
 
