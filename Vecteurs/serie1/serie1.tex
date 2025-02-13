@@ -38,23 +38,46 @@
 	
 	\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
-			\draw[very thick, ->, myg] (axis cs:0,0) -- (axis cs: 3,4) node[above] {$u$};
-			\draw[very thick, ->, myr] (axis cs:0,0) -- (axis cs: -5,6) node[above] {$v$};
-			\draw[very thick, ->, myb] (axis cs:0,0) -- (axis cs: 8,-5) node[above] {$w$};
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, myg] (axis cs:-3,-4) -- (axis cs: 0,0) node[above] {$u$};
+			\draw[very thick, ->, myr] (axis cs:-2,0) -- (axis cs: -7,6) node[above] {$v$};
+			\draw[very thick, ->, myb] (axis cs:0,3) -- (axis cs: 8,-2) node[above] {$w$};
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
 }{}
 
 
-\exe{[Parallélisme]
-	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(3;1)$.
-	
-	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
-	
-	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+\exe{[Vrai ou faux]
+	Pour chacune des propositions suivantes, montrer qu'elle est toujours vraie ou trouver un contre-exemple.
+	\begin{enumerate}
+		\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item Soient $u, v$ deux vecteurs tels que $v = 5u$.
+		Alors $\det(u,v) = 0$.
+		\item Si $\vec{AB}$ et $\vec{CD}$ sont colinéaires, alors les points $A, B, C$, et $D$ sont alignés.
+		\item Soient $u, v$ deux vecteurs.
+		Alors $\det(u,v) = -\det(v, u)$.
+		\item Si $\norm{v} = \sqrt{5}$, alors $u = \pvec{2}{1}$.
+	\end{enumerate}
 }{}
+
+\exe{[Parallélisme]
+
+	Soit $u = \pvec{4}{2}, v = \pvec{1}{3}$ deux vecteurs et $A(-3; -1)$ un point du plan.
+
+	Représenter dans un repère les points
+		\begin{align*}
+			A, && B = A+u, && C = A+u+v, && \text{ et } && D=A+v,
+		\end{align*}
+	et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Que dire du quadrilatère $ABCD$ visuellement ?
+		\item Montrer que $(AB)$ et $(CD)$ sont parallèles puis que $(AD)$ et $(BC)$ sont parallèles.
+		\item Démontrer de façon générale cette propriété pour $A, u, v$ un point et deux vecteurs quelconques.
+	\end{enumerate}
+}{}
+
+\newpage
 
 \exe{[Vecteur directeur]
 	On considère un point $A(5 ; -12)$ et un vecteur $v = \pvec{2}{-1}$.
@@ -66,6 +89,26 @@
 		\item
 		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
 	\end{enumerate}
+}{}
+
+\exe{[Quadrilatère]
+	Considérons quatre points $A(-4; 1), B(-3 ; -3), C(4; -4), D(3; 1)$.
+	
+	Le quadralitère $ABCD$ est-il un parallélogramme ?
+	Si non, donner un point $\tilde{D}$ tel que $ABC\tilde{D}$ en soit un.
+}{}
+
+\exe{[Milieu]
+	Soient $A, B, C$ trois points tels que $B$ soit le milieu du segment $[AC]$.
+	Faire un dessin puis montrer que $\vec{AB} = \vec{BC}$.
+}{}
+
+\exe{[Parallélisme]
+	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(3;1)$.
+	
+	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
+	
+	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
 }{}
 
 
