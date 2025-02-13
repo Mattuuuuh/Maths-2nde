@@ -8,81 +8,64 @@
 \fancyhead[C]{\textbf{Devoir Maison 3 -- \seed \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+Pour une fonction affine $f(x) = ax+b$, on parle de $\C_f$ comme la \og {droite d'équation} $y=ax+b$ \fg, et on note
+	\[ \C_f : y = ax+b. \]
+
 \exe{
-	On considère trois fonctions affines données par, pour tout $x\in\R$,
+	On considère trois droites, données par les équations suivantes
 		\begin{align*}
-			f(x) = \dfrac43 (x-1) + 2, && g(x) = \dfrac{12}5 (x-1) + 2, && h(x) = \dfrac{-4}7 (x-1) + \dfrac{24}{7
-			} + 2.
+			(d) : y= \aI x  \bI, && (e) : y = \aII x  \bII, && (f) : y = \aIII x  \bIII.
 		\end{align*}
 	\begin{enumerate}
-		\item Tracer les droites $\C_f, \C_g,$ et $\C_h$ dans un repère de domaine $\D = [-3; 5]$.
-		\item Calculer $\C_f \cap \C_g$, $\C_f \cap \C_h$, et $\C_g \cap \C_h$. Ces trois points d'intersection sont les sommets du triangle $T$.
+		\item Tracer les droites $(d), (e),$ et $(f)$ dans un repère de domaine $\D = [\xmin; \xmax]$.
+		\item Calculer $(d)\cap (e)$, $(d) \cap (f)$, et $(e)\cap (f)$. Ces trois points d'intersection sont les sommets du triangle $T$.
 		\item Calculer la longueur de chacun des côtés de $T$. Que dire de $T$ ?
 	\end{enumerate}
 }{}
 
-\exe{
-	Pour chaque paire de point $P$ et de fonction $f$, déterminer si $P\in\C_f$ ou non.
+
+\exe{\label{ex:2}
+	Considérons une fonction linéaire $f(x) = 0,16x$ où $a>0$ est un paramètre réel strictement positif.
+	On dit que $f$ est linéaire car son ordonnée à l'origine $b$ est nulle — c'est donc un cas particulier de fonction affine.
 	
-	\begin{multicols}{2}
+	On dit que la pente de $f$ est de $16\%$ : c'est le pourcentage qu'on voit écrit sur les panneaux de signalisation de descente routière.
 	\begin{enumerate}
-		\item $P = (0;1)$ et $f(x) = (3x- 1)^2$
-		\item $P = (0;1)$ et $f(x) = (3x- 1)^3$
-		\item $P = (-6;5)$ et $f(x) = \dfrac23 x + 7$
-		\item $P = (-2;2)$ et $f(x) = 4-x$
+		\item Montrer que $\C_f$ passe par l'origine $O(0;0)$ du repère.
+		\item Trouver le point $A$ d'abscisse $13$ appartenant à $\C_f$ .
+		\item Dans un repère, tracer le triangle de sommets $O, A, B(13;0)$ et calculer l'angle $\alpha = \widehat{AOB}$ à $10^{-2}$ près.
+		\item Un ingénieur détermine qu'une route ne doit pas dépasser une pente de $10\%$ pour qu'elle soit accessible pour les poids lourds.
+		Quel est l'ordonnée maximale d'un point $C$ d'abscisse $13$ si la pente de la fonction linéaire passant par $C$ ne peut pas dépasser $10\%$ ?
+		\item
+		Calculer l'angle $\beta = \widehat{COB}$ dans ce cas.
+		\item 
+		À quel angle $\gamma$ correspond une pente de $100\%$ ?
+		\item 
+		À quel pourcentage de pente correspond un angle de $45$° ?
 	\end{enumerate}
-	\end{multicols}
+	
 }{}
 
-%\exe{
-%	Pour chacune des paires de fonctions $f, g$ sur $\R$, calculer $\C_f \cap \C_g$.
-%	
-%	\begin{multicols}{2}
-%	\begin{enumerate}
-%		\item $f(x) = 7x -2, g(x) = -x+3$.
-%		\item $f(x) = -x + 3, g(x) = 7x -2$.
-%		\item $f(x) = 3, g(x) = -x$.
-%		\item $f(x) = -2x+1, g(x) = 1-x$.
-%		\item $f(x) = 2, g(x) = 4$.
-%		\item $f(x) = -x+1, g(x) = 1-x$.
-%	\end{enumerate}
-%	\end{multicols}
-%}{}
-
-%\exe{
-%	Montrer que l'identité
-%		\[ x^2 = \a x \]
-%	ne peut pas être vraie pour tout $x\in\R$.
-%}{}
-%
-%\exe{[$\star$]
-%	Montrer que, pour $m, n\in\N$, l'identité
-%		\[ x^m = x^n \]
-%	ne peut être vraie pour tout $x\in\R$ que lorsque $m=n$.
-%}{}
-%
-%
-%\exe{
-%	Montrer que l'identité
-%		\[ \sqrt{x^2} = x \]
-%	ne peut pas être vraie pour tout $x\in\R$, puis que $\sqrt{x^2} = |x|$ pour tout $x\in\R$.
-%}{}
-
-\exe{
-	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
-		\[ ax^2 + bx + c, \]
-	où $a, b, c \in\R$ sont des nombres réels.
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1.3]
+	\begin{axis}[xmin = -.8, xmax=10, ymin=-.8, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
 	
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $x + 2x + 3x$
-		\item $(1+3x) - (8 - 2x)$
-		\item $x - 2(2-x)$
-		\item $x(3-x) + 8(x+1)$
-		\item $(x+3)(x-1) - 2x + 1$
-		\item $(x+1)^2 + 4x - 4$
-	\end{enumerate}
-	\end{multicols}
-}{}
+		\draw[thick, black] (axis cs: 8, 0) -- (axis cs: 8,5);
+		\draw[thick, black] (axis cs: 0, 0) -- (axis cs: 8,5) node[pos = .5, above, sloped] {\huge\faTruck};
+		\draw (axis cs: 0, 0) node[above left] {$O$};
+		\draw (axis cs: 8, 0) node[below] {$B$};
+		\draw (axis cs: 8, 5) node[above left] {$A$};
+		\addplot[thick, myg, domain = .86:1] {sqrt(1-x^2) } node[right, pos=.6] {$\alpha$};
+		\addplot[dashed, thick, black, domain = -1:10] { 5*x/8 } node[above, pos=.95] {$\C_f$};
+		
+		
+		\draw (axis cs: 8, 3) node[right] {$C$};
+		\draw[thick, dotted, black] (axis cs: 0, 0) -- (axis cs: 8,3);
+		\addplot[thick, myr, domain = 1.75:2] {sqrt(1-(x-1)^2) } node[right, pos=.5] {$\beta$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Schéma simplifié, non à l'échelle, de l'exercice \ref{ex:2}.}
+\end{figure}
+
 
 \end{document}
