@@ -20,6 +20,8 @@ def renewcommand(command, value):
 
 # generic \newcommand with dfrac
 def newcommand_dfrac(command, numerator, denominator):
+    # turn things integer
+    numerator, denominator = int(numerator), int(denominator)
     # make coprime
     gcd = np.gcd(numerator, denominator)
     assert gcd != 0, "null GCD?"
@@ -138,25 +140,129 @@ def pdflatex(seed):
 ############# GENERATE FUNCTION ###############
 ###############################################
 
+# random pythagorean triple with generating formula (m²-n²)² + (2mn)² = (m²+n²)²
+# where 2<=n+1<=m<=15 (to keep things small)
+def pythagorean_triple():
+    m = int(np.random.rand()*14)+2
+    n = int(np.random.rand()*(m-2))+2
+    assert 2 <= n+1 <= m <= 15, "Bounds 2 <= n+1 <= m <= 15 not verified."
+    
+    # triple (u,v,w)
+    u = m**2 - n**2
+    v = 2*m*n
+    w = m**2+n**2
+
+    # coin toss to swap u and v
+    if np.random.rand()<.5:
+        u,v=v,u
+   
+    assert u**2 + v**2 == w**2, "Pythagorean triple ain't one."
+    return u, v, w
 
 def generate(seed):
+    """
+    Generates f(x) = ax+b, g(x) = a'x+b', and h(x) = a'' x + b'' such that
+    f and h cross at A, g and h cross at B, and ||A|| = ||B|| = L.
+    The triangle formed by the three lines is isosceles.
+
+    a, a', a'' are rationnal
+    A, B are rationnal (implying a, a' are pythogorean ratios)
+    L is integer between 5 and 15.
+    x_offset and y_offset is integer between -10 and 10, nonzero.
+    """
+
     CONTENT = newcommand("\seed", seed)
 
-    # generate random integer ax + b = cx + d to solve, with a != c.
-    [a,b,c,d] = (np.random.rand(4)*12 - 6).astype(int)
-    while a == c:
-        [a,b,c,d] = (np.random.rand(4)*12 - 6).astype(int)
-   
-    for s in ["a", "c"]:
-        CONTENT += newcommand_mult(f"\\{s}I", eval(s), 1)
-    for s in ["b", "d"]:
-        CONTENT += newcommand_add(f"\\{s}I", eval(s), 1)
+    [u1, v1, w1] = pythagorean_triple()
+    [u2, v2, w2] = pythagorean_triple()
+    assert u1*u2 != 0, "v1 or v2 is zero?"
+    a1 = v1/u1
+    a2 = v2/u2
 
-    CONTENT += newcommand_dfrac(f"\\solI", d-b, a-c)
+    # must keep slopes different!
+    # must keep angles at least pi/6-far away from each other
+    while v1/u1 == v2/u2 or np.abs(np.arctan(a1) - np.arctan(a2)) < np.pi/6 :
+        [u1, v1, w1] = pythagorean_triple()
+        [u2, v2, w2] = pythagorean_triple()
+        assert u1*u2 != 0, "v1 or v2 is zero?"
+
+    assert w1 != 0 and w2 != 0, "w is zero in Pythagorean triple?"
+
+    # slopes of f and g: a = v/u 
+    CONTENT += newcommand_mult("\\aI", v1, u1)
+    CONTENT += newcommand_mult("\\aII", v2, u2)
+   
+
+    # length L = ||A|| = ||B||
+    L = int(np.random.rand()*11)+5
+    assert 5 <= L <= 15, "Bound 5 <= L <= 15 is not verified."
+
+    # points A and B
+
+    assert L*u1/w1 != -L*u2/w2, "A and B have same x-coordinate: function h is ill-defined."
+    # coin toss for sign of x (such that xA*xB < 0 to keep things interesting)
+    sign=+1
+    if np.random.rand()<.5:
+        sign=-1
+
+    # coordinates of A and B: x = sign*L*u/w and y = sign*L*v/w
+    CONTENT += newcommand_dfrac("\\xA", sign*L*u1, w1)
+    CONTENT += newcommand_dfrac("\\yA", sign*L*v1, w1)
+    
+    CONTENT += newcommand_dfrac("\\xB", -sign*L*u2, w2)
+    CONTENT += newcommand_dfrac("\\yB", -sign*L*v2, w2)
+
+    # creating h going through A and B
+    # signs cancel out to make a = (v1*w2+v2*w1)/(u1*w2+u2*w1), denominator nonzero already asserted (xA != xB).
+    # b = sign*(L*u2*v1-L*u1*v2) / (u1*w2 + u2*w1), denominator nonzero
+    a3_numerator = v1*w2+v2*w1
+    a3_denominator = u1*w2+u2*w1
+    CONTENT += newcommand_mult("\\aIII", a3_numerator, a3_denominator)
+    
+    a3 = a3_numerator/a3_denominator
+    assert a3 != u1/v1 and a3 != u2/v2, "Slopes are identical."
+    
+    b3_numerator = sign*(L*u2*v1-L*u1*v2) 
+    b3_denominator = u1*w2 + u2*w1
+
+    # offset everything to make nonlinear functions
+    # new functions are a*(x-x_offset) + b + y_offset = a*x + b + y_offset - a*x_offset
+    x_offset, y_offset = (np.random.rand(2)*20 - 9).astype(int)
+    if x_offset <= 0:
+        x_offset -= 1
+    if y_offset <= 0:
+        y_offset -= 1
+
+    assert -10 <= x_offset <= 10 and x_offset != 0, "-10 <= x_offset <= 10 and x_offset != 0 is not verified."
+    assert -10 <= y_offset <= 10 and y_offset != 0, "-10 <= y_offset <= 10 and y_offset != 0 is not verified."
+
+    CONTENT += newcommand("\\xC", x_offset)
+    CONTENT += newcommand("\\yC", y_offset)
+
+    # defining the y-intercepts
+    # for f, g, b = 0 + y_offset - x_offset*v/u = (u*y_offset-x_offset*v)/u
+    CONTENT += newcommand_add("\\bI", u1*y_offset-v1*x_offset, u1)
+    CONTENT += newcommand_add("\\bII", u2*y_offset-v2*x_offset, u2)
+
+    # for h, b = b3_num/b3_denom + y_offset - a3_num/a3_denom*x_offset ...
+    # = (b3_num*a3_denom + y_offset*a3_denom*b3_denom - a3_num*b3_denom)/(b3_denom*a3_denom)
+    CONTENT += newcommand_add("\\bIII", b3_numerator*a3_denominator + y_offset*b3_denominator*a3_denominator - a3_numerator*b3_denominator, b3_denominator*a3_denominator)
+
+    # real values for graphs, etc...
+    xA, xB = sign*L*u1/w1+x_offset, sign*L*v1/w1+x_offset
+    yA, yB = -sign*L*u2/w2+y_offset, -sign*L*v2/w2+y_offset
+
+    xmin = int(min(xA, xB, x_offset,0))-2
+    xmax = int(max(xA, xB, x_offset,0))+2
+    ymin = int(min(yA, yB, y_offset,0))-2
+    ymax = int(max(yA, yB, y_offset,0))+2
+
+    CONTENT += newcommand("\\xmin", xmin)
+    CONTENT += newcommand("\\xmax", xmax)
+    CONTENT += newcommand("\\ymin", ymin)
+    CONTENT += newcommand("\\ymax", ymax)
 
     return CONTENT    
-
-    return 0
 
 
 ### main ###
