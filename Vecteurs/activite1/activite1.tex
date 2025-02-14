@@ -40,8 +40,25 @@
 			\[ \vec{AC} = \vec{AB} + \vec{BC}. \]
 	\end{enumerate}
 
-}{}
+}{
+	
+	\begin{enumerate}
+		\item On calcule
+			\[ \vec{AB} = B - A = \pvec{5 - (-6)}{6 - 3} = \pvec{11}{3}. \]
+		\item On calcule
+			\[ \vec{BC} = C - B = \pvec{0 - 5}{-7 - 6} = \pvec{-5}{-13}. \]
+		\item On calcule
+			\[ \vec{AC} = C - A = \pvec{0 - (-6)}{-7 -3} = \pvec{6}{-10}. \]
+		\item
+			La somme $\vec{AB} + \vec{BC}$ est donnée par
+				\[ \vec{AB} + \vec{BC} = \pvec{11}3 + \pvec{-5}{-13} = \pvec{11 - 5}{3-13} = \pvec{6}{-10} = \vec{AC}. \]
+		\item
+			On a, plus généralement, $\vec{AB} + \vec{BC} = B - A + C - B = C - A = \vec{AC}$.
+	\end{enumerate}
+}
 
+	\ifsolutions
+	\else
 	\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
@@ -54,6 +71,7 @@
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
+	\fi
 
 \exe{
 	Dessiner les vecteurs
@@ -65,21 +83,47 @@
 	\begin{enumerate}
 		\item Compléter les phrases suivantes.
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, son sens $\dots\dots\dots\dots\dots\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, son sens $\dots\dots\dots\dots\dots\dots$ \fg\\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, son sens $\dots\dots\dots\dots\dots\dots$ \fg
+				\og Lorsque le vecteur $u$ est multiplié par \ifsolutions {\color{myr} $2$} \else $\dots$ \fi pour obtenir $v$, son sens \ifsolutions {\color{myr} ne change pas} \else $\dots\dots\dots\dots\dots\dots$ \fi \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par  \ifsolutions {\color{myr} $-\dfrac32$} \else $\dots$ \fi pour obtenir $w$, son sens \ifsolutions {\color{myr} change} \else $\dots\dots\dots\dots\dots\dots$ \fi \fg\\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par  \ifsolutions {\color{myr} $-\dfrac12$} \else $\dots$ \fi pour obtenir $z$, son sens \ifsolutions {\color{myr} change} \else $\dots\dots\dots\dots\dots\dots$ \fi \fg
 			\end{center}
 		\item Calculer les normes de $u, v, w,$ et $z$ et les écrire sous forme $a\sqrt{b}$ où $a, b\in\N$ et $b$ est le plus petit possible.
 		\item Compléter les phrases suivantes.
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg
+				\og Lorsque le vecteur $u$ est multiplié par \ifsolutions {\color{myr} $2$} \else $\dots$ \fi pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par \ifsolutions {\color{myr} $2$} \else $\dots$ \fi  \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par \ifsolutions {\color{myr} $-\dfrac32$} \else $\dots$ \fi pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par \ifsolutions {\color{myr} $\dfrac32$} \else $\dots$ \fi\fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par \ifsolutions {\color{myr} $-\dfrac12$} \else $\dots$ \fi pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par \ifsolutions {\color{myr} $\dfrac12$} \else $\dots$ \fi \fg
 			\end{center}
 		\item Pour $u = \pvec{x}{y}$ et $\kappa\in\R$ quelconques, démontrer l'égalité 
 			\[\Vert \kappa \cdot u \Vert = | \kappa | \cdot  \Vert u \Vert. \]
 	\end{enumerate}
 
-}{}
+}{
+	\begin{enumerate}
+		\item[2.]
+			\begin{align*}
+				\norm{u} &= \sqrt{(-2)^2 + 4^2} = \sqrt{4 + 16} = \sqrt{20} = \sqrt{4 \times 5} = 2 \sqrt{5}. \\
+				\norm{v} &= \sqrt{(-4)^2 + 8^2} = \sqrt{16 + 64} = \sqrt{80} = \sqrt{16 \times 5} = 4\sqrt{5}. \\
+				\norm{w} &= \sqrt{3^2 + (-6)^2} = \sqrt{9 + 36} = \sqrt{45} = \sqrt{9 \times 5} = 3 \sqrt{5}. \\
+				\norm{z} &= \sqrt{1^2 + (-2)^2} = \sqrt{1 + 4} = \sqrt{5}.
+			\end{align*}
+	
+		On remarque qu'on a les relations suivantes.
+			\begin{align*}
+				\norm{v} = 2 \norm{u} && \norm{w} = \dfrac32 \norm{u} && \norm{z} = \dfrac12 \norm{u}
+			\end{align*}
+	
+		\item[4.]
+			On vérifie l'égalité calmement en utilisant que $\sqrt{x^2} = |x|$.
+				\begin{align*}
+					\norm{\kappa \cdot u} &= \norm{ \pvec{\kappa \cdot x}{\kappa \cdot y}} \\
+										&= \sqrt{ (\kappa \cdot x)^2 + (\kappa \cdot y)^2} \\
+										&= \sqrt{ \kappa^2 \cdot x^2 + \kappa^2 \cdot y^2} \\
+										&= \sqrt{ \kappa^2  (x^2 + y^2) } \\
+										&= \sqrt{\kappa^2} \sqrt{x^2 + y^2} \\
+										&= |\kappa| \cdot \norm{u}.
+				\end{align*}
+	\end{enumerate}
+}
 
 \end{document}
