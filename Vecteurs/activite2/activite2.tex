@@ -33,10 +33,10 @@
 		\item Calculer les vecteurs $\vec{AB}, \vec{BA}, \vec{CD}$ et $\vec{DC}$ et compléter les phrases suivantes.
 			\begin{center}
 			\begin{multicols}{2}
-				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{BA}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{DC}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{DC}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
-				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{CD}$ \fg
+				\og Si je multiplie $\vec{AB}$ par \ifsolutions {\color{myr} $-1$} \else $\dots$ \fi,j'obtiens $\vec{BA}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{AB}$ par \ifsolutions {\color{myr} $\dfrac12$} \else $\dots$ \fi,j'obtiens $\vec{DC}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{DC}$ par \ifsolutions {\color{myr} $2$} \else $\dots$ \fi,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
+				\og Si je multiplie $\vec{BA}$ par \ifsolutions {\color{myr} $\dfrac12$} \else $\dots$ \fi,j'obtiens $\vec{CD}$ \fg
 			\end{multicols}
 			\end{center}
 		
@@ -48,9 +48,49 @@
 		% cas droite verticale à part ?
 	\end{enumerate}
 
-}{}
+}{
+	\begin{enumerate}
+		\item Les droites semblent parallèles.
+		
+		\item On calcule d'une part
+			\[ \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{17}{-6} = \dfrac{-17}{6}, \]
+		puis d'autre part
+			\[ \dfrac{y_D - y_C}{x_D - x_C} = \dfrac{-8,5}{3} = \dfrac{-17}{6}. \]
+		Les coefficients directeurs des fonctions affines sont égaux et les droites $(AB)$ et $(CD)$ sont donc bien parallèles d'après le théorème de parallélisme du cours.
 
+		\item 
+		Les vecteurs sont donnés par
+			\begin{align*}
+				\vec{AB} = B-A = \pvec{-6}{17} && \vec{BA} = A - B = \pvec{6}{-17} \\
+				\vec{CD} = D - C = \pvec{3}{-8,5} && \vec{DC} = C - D = \pvec{-3}{8,5}
+			\end{align*}
+		On remarque donc qu'on a $\vec{AB} = - \vec{BA}, \vec{DC} = \dfrac12 \vec{AB}, \vec{AB} = 2 \vec{DC},$ et $\vec{CD} = \dfrac12 \vec{BA}$.
+		
+		\item Pour faire aparaître un vecteur colinéaire ayant $1$ en première coordonnée, il suffit de factoriser un vecteur par sa première coordonnée.
+		On a donc
+			\[ \vec{AB} = \pvec{-6}{17} = -6 \cdot \pvec{1}{\frac{-17}{6}}, \]
+		et le vecteur $\vec{AB}$ est colinéaire à $\pvec{1}{\frac{-17}{6}}$.
+		On en déduit $a = \dfrac{-17}{6}$, qui est exactement le coefficient directeur calculé à la question 2.
+		
+		Idem pour $\vec{CD}$, on trouve
+			\[ \vec{CD} = \pvec{3}{-8,5} = 3 \cdot \pvec{1}{\frac{-8,5}{3}} = 3 \cdot \pvec{1}{\frac{-17}{6}}, \]
+		et on trouve le même résultat pour $a'$.
+		
+		\item
+		Si les droites sont parallèles non verticales, on peut calculer le coefficient directeur $a$ des fonctions affines associées.
+		
+		Pour $(AB)$, on a
+			\[ \vec{AB} = B - A = \pvec{x_B - x_A}{y_B - y_A} = (x_B - x_A) \cdot \pvec{1}{a}, \]
+		où $a = \dfrac{y_B - y_A}{x_B-x_A}$ est exactement le coefficient directeur en question.
+		
+		Le même raisonnement pour $(CD)$ implique que $\vec{AB}$ et $\vec{CD}$ sont tous les deux colinéaires à $\pvec{1}{a}$. Ils sont donc nécessairement colinéaires.
+		
+		On montre que la colinéarité est une condition suffisante au parallélisme des droites non verticales en utilisant que si $\pvec{1}{a}$ est colinéaire à $\pvec{1}{a'}$, alors $a=a'$.
+	\end{enumerate}
+}
 
+	\ifsolutions
+	\else
 	\begin{center}
 		\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
@@ -63,6 +103,7 @@
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
+	\fi
 
 \exe{\label{ex:1}
 
@@ -75,23 +116,46 @@
 	\begin{enumerate}
 		\item Que dire des points visuellement ? 
 		\item Trouver la fonction affine $f$ telle que $\C_f$ passe par $A$ et $B$, puis démontrer que $C$ et $D$ appartiennent également à $\C_f$.
-%		\item Calculer les vecteurs $\vec{AB}, \vec{AC}, \vec{BA}, \vec{CB}, \vec{DB}$ et compléter les phrases suivantes.
-%			\begin{center}
-%			\begin{multicols}{2}
-%				\og Si je multiplie $\vec{AB}$ par $\dots$,j'obtiens $\vec{AC}$ \fg \\ \vspace{10pt}
-%				\og Si je multiplie $\vec{AC}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
-%				\og Si je multiplie $\vec{CB}$ par $\dots$,j'obtiens $\vec{DB}$ \fg \\ \vspace{10pt}
-%				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{AB}$ \fg \\ \vspace{10pt}
-%				\og Si je multiplie $\vec{BA}$ par $\dots$,j'obtiens $\vec{CB}$ \fg \\ \vspace{10pt}
-%				\og Si je multiplie $\vec{DB}$ par $\dots$,j'obtiens $\vec{CB}$ \fg
-%			\end{multicols}
-%			\end{center}
 		\item Calculer $\det\left(\vec{AB}, \vec{AD}\right)$ et en déduire que $D \in(AB)$.
 		\item Calculer $\det\left(\vec{CB}, \vec{DB}\right)$ et en déduire que $C \in (DB)$.
 				
 	\end{enumerate}
 
-}{}
+}{
+
+	\begin{enumerate}
+		\item Les points semblent alignés.
+		\item En se rappelant le chapitre Fonctions affines (si lointain), on calcule d'abord $a$ à l'aide du théorème du cours, puis $b$ à l'aide d'une appartenance d'un point.
+		
+			\[ a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{4 - 6}{-5 - (-6)} = -2. \]
+		
+		En notant $f(x) = ax + b = -2x + b$, l'appartenance de $A$ à $\C_f$ donne
+			\begin{align*}
+				y_A &= f(x_A) \\
+				6 &= f(-6) \\
+				6 &= 12 + b \\
+				b &= -6
+			\end{align*}
+		On trouve donc $f(x) = -2x - 6$ telle que $\C_f = (AB)$.
+		
+		Pour montrer que $C, D \in \C_f$, on vérifie que $f(x_C) = f(0) = -6 = y_C$, puis $f(x_D) = -10 = y_D$.
+		
+		\item 
+		On calcule 
+			\[ \det\left(\vec{AB}, \vec{AD}\right) = \det\left(\pvec{1}{-2}, \pvec{8}{-16}\right) = 1(-16) - (-2)(8) = 0. \]
+		D'après le cours, ceci suffit à conclure que $A, B, D$ sont alignés et donc que $D \in (AB)$.
+		
+		
+		\item 
+		On calcule 
+			\[ \det\left(\vec{CB}, \vec{DB}\right) = \det\left(\pvec{-5}{10}, \pvec{-7}{14}\right) = (-5)(14) - (10)(-7) = 0. \]
+		D'après le cours, ceci suffit à conclure que $C, B, D$ sont alignés et donc que $C \in (BD) = (AB)$.
+	\end{enumerate}
+	
+	La méthode vectorielle de démonstration que les points sont alignés est plus rapide que celle affine (et elle s'applique aussi aux points alignés verticalement).
+	D'ailleurs, il est inutile de calculer explicitement le détérminant si les vecteurs sont clairement colinéaires car celui-ci sera forcément nul.
+	C'est le cas des vecteur $\pvec{1}{-2}$ et $\pvec{8}{-16}$ de la question 3. par exemple.
+}
 
 
 \end{document}
