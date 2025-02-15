@@ -29,7 +29,32 @@
 	\end{enumerate}
 	\end{multicols}
 
-}{}
+}{
+
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\vec{AB} = B - A = \pvec{-4}{-4} && \vec{BA} = - \vec{AB} = \pvec44 && \vec{CA} = A - C = \pvec0{-5}.
+			\end{align*}
+		\item
+			\begin{align*}
+				\norm{\vec{AB}} &= \sqrt{(-4)^2 + (-4)^2} = 4\sqrt{2} \\ \norm{\vec{BA}} &= \norm{- \vec{AB}} = \norm{\vec{AB}} = 4\sqrt{2} \\ \norm{\vec{CA}} &= \sqrt{(-5)^2} = |-5| = 5.
+			\end{align*}
+		\item
+			On utilise la relation de Chasle $\vec{CB} = \vec{CA} + \vec{AB}$ pour obtenir immédiatement le résultat.
+			\begin{align*}
+				3 \vec{AB} + 3 \vec{CA} &= 3 \pvec{-4}{-4} + 3 \pvec0{-5} = \pvec{-12}{-27} \\
+				3 \vec{CB} &= 3 \left( \vec{CA} + \vec{AB} \right) =  3 \vec{AB} + 3 \vec{CA} = \pvec{-12}{-27}
+			\end{align*}
+		\item
+			\begin{gather*}
+				\norm{-4 \vec{AB}} = |-4| \cdot \norm{\vec{AB}} = 4\norm{\vec{AB}} = 16\sqrt{2}  \\
+				\norm{-\dfrac1{13} \vec{CA}} = \dfrac1{13} \norm{\vec{CA}} = \dfrac5{13}
+			\end{gather*}
+			
+	\end{enumerate}
+
+}
 
 \exe{[Représentation graphique]
 	Construire, dans le plan vierge de droite, les sommes 
@@ -45,8 +70,30 @@
 		\end{axis}
 		\end{tikzpicture}
 		\vline
+		\ifsolutions		
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=20, ymin=-15, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, black, dotted] (axis cs:-3,-4) -- (axis cs: 0,0) node[pos=.5, above left] {$u$};
+			\draw[very thick, ->, black, dotted] (axis cs:-2+2,0) -- (axis cs: -5+2,6) node[pos=.5, left] {$v$};
+			\draw[very thick, ->, black, dotted] (axis cs:0-3,3+3) -- (axis cs: 8-3,-2+3) node[pos=.5, above] {$w$};
+			
+			\draw[very thick, ->, red] (axis cs:-3,-4) -- (axis cs: 8-3,-2+3) node[pos=.5, below right] {$u+v+w$};
+			
+			
+			
+			\draw[very thick, ->, black, dotted] (axis cs:-3+15,-4) -- (axis cs:-1.5+15, -2) node[pos=.5, above left] {$\frac12u$};
+			\draw[very thick, ->, black, dotted] (axis cs:-2+2-1.5+15, 0-2) -- (axis cs: 4+2-1.5+15, -12-2) node[pos=.5, above right] {$-2v$};
+			\draw[very thick, ->, black, dotted] (axis cs:0+4+2-1.5+15,3-3-12-2) -- (axis cs: -8+4+2-1.5+15, 8-3-12-2) node[pos=.5, below left] {$-w$};
+			
+			\draw[very thick, ->, green](axis cs:-3+15,-4) -- (axis cs: -8+4+2-1.5+15, 8-3-12-2) node[pos=.8, left] {$\frac12u-2v-w$};
+		\end{axis}
+		\end{tikzpicture}
+		\fi
 	%\end{center}
-}{}
+}{
+	On met les vecteurs bout à bout pour créer la somme.
+	La multiplication par un scalaire ne change pas la direction mais multiplie la norme et peut changer le sens si celui-ci est négatif.
+}
 
 
 \exe{[Vrai ou faux]
@@ -57,9 +104,32 @@
 		Alors $\det(u,v) = 0$.
 		\item Si $\vec{AB}$ et $\vec{CD}$ sont colinéaires, alors les points $A, B, C$, et $D$ sont alignés.
 		\item Pour $u, v$ deux vecteurs, on a $\det(u, v) = -\det(v, u)$.
-		\item Si $\norm{v} = \sqrt{5}$, alors $u = \pvec{2}{1}$.
+		\item Si $\norm{v} = \sqrt{5}$, alors $v = \pvec{2}{1}$.
 	\end{enumerate}
-}{}
+}{
+
+	\begin{enumerate}
+		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item 
+		C'est vrai : d'après le cours, si $u$ et $v$ sont colinéaires, alors $\det(u, v) = 0$.
+		On peut aussi le démontrer par le calcul.
+		
+		\item 
+		C'est faux en général : on sait que $(AB)$ et $(CD)$ sont parallèles, mais pas si les droites sont confondues.
+		On pourra donc construire un contre-exemple comme $A(0;0), B(1;0)$ et $C(1;0), D(1;1)$.
+		
+		\item 
+		C'est vrai par le calcul. Soit $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$.
+		Alors $\det(u, v) = ad - bc$ et $\det(v, u) = cb - ad$.
+		
+		\item 
+		C'est faux car la norme d'un vecteur ne peut pas donner ses coordonnées (sauf si la norme est nulle).
+		
+		Par exemple, comme $\norm{v} = \norm{-v}$, on a que $v = \pvec{-2}{-1}$ est un contre-exemple.
+		
+		On pourrait aussi échanger les coordonnées pour avoir $v = \pvec12$ qui donne un autre contre-exemple.
+	\end{enumerate}
+}
 
 \exe{[Parallélisme]
 
@@ -74,9 +144,23 @@
 		\item Montrer que $(AB)$ et $(CD)$ sont parallèles puis que $(AD)$ et $(BC)$ sont parallèles.
 		\item Démontrer de façon générale cette propriété pour $A, u, v$ un point et deux vecteurs quelconques.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item $ABCD$ semble être un parallélogramme car ses cotés opposés sont parallèles deux à deux.
+		\item On calcule $\vec{AB} = B-A = u$ et $\vec{CD} = D-C = A+v - (A+u+v) = -u$ pour voir qu'ils sont coléinaires : les droites $(AB)$ et $(CD)$ sont donc parallèles.
+		
+		Idem avec $\vec{AD} = D - A = v$ et $\vec{BC} = C - B = A + u + v - (A + u) = v$, ce qui conclut similairement. 
+		\item 
+		La démonstration employée ci-dessus ne dépend aucunement des coordonnées de $A, u$, ou $v$.
+		En mathématiques, il est souvent plus facile de calculer en gardant les lettres qu'en les remplaçant avec des nombres.
+	\end{enumerate}
+	
+}
 
+\ifsolutions
+\else
 \newpage
+\fi
 
 \exe{[Vecteur directeur]
 	On considère un point $A(5 ; -12)$ et un vecteur $v = \pvec{2}{-1}$.
@@ -88,19 +172,58 @@
 		\item
 		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
 	\end{enumerate}
-}{}
+}{
+	
+	\begin{enumerate}
+		\item
+		D'après le cours, $A + k \cdot v$ appartient à la droite pour n'importe quel $k\in\R$.
+		On prendra donc $k=0$ pour retrouver $A$, $k=1, 2, 3$ pour avoir $B(7;-13), C(9;-13)$, et $D(11;-14)$.
+		
+		\item
+		On cherche $a$ et $b$ de l'expression algébrique de $f$ : $f(x) = ax+b$.
+		
+		$v$ est colinéaire au vecteur $\pvec{1}{-\frac12}$, ce qui nous donne immédiatement $a=-\dfrac12$ d'après le cours.
+		On pourrait utiliser l'appartenance d'un point à $\C_f$ pour trouver $b$, mais on peut à la place créer un point d'abscisse nulle en utilisant le raisonnement de la question 1.
+		
+		En effet, $A + k \cdot v$ appartient toujours à la droite.
+		Le $k\in\R$ donnant un point d'abscisse nulle vérifie donc $5 + 2k = 0 \iff k = -\dfrac52.$
+		
+		Il suit que $A - \dfrac52v = \left(0 ; -12 + \dfrac52 \right) = \left(0 ; \dfrac{-19}2 \right).$
+		Par conséquent, $b = \dfrac{-19}2$, et 
+			\[ f(x) = -\dfrac12 x - \dfrac{19}2. \]
+	\end{enumerate}
+
+}
 
 \exe{[Quadrilatère]
 	Considérons quatre points $A(-4; 1), B(-3 ; -3), C(4; -4), D(3; 1)$.
 	
 	Le quadralitère $ABCD$ est-il un parallélogramme ?
 	Si non, donner un point $\tilde{D}$ tel que $ABC\tilde{D}$ en soit un.
-}{}
+}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires et si $\vec{BC}$ et $\vec{AD}$ le sont aussi.
+	On calcule
+		\[ \vec{AB} = B-A = \pvec{1}{-4}, \qquad \qquad \vec{CD} = D - C = \pvec{-1}{5}. \]
+	Ces deux vecteurs ne sont pas colinéaires car s'ils l'étaient, on aurait un $k \in \R$ tel que
+		\[ \vec{AB} = k \vec{CD}, \]
+	ce qui donnerait $k = -1$ en étudiant la première coordonnée, et $k=-\dfrac45$ en regardant la deuxième.
+	Ça n'est bien sûr pas possible.
+	
+	En faisant un dessin, on remarque que le point $\tilde{D}$ doit nécessairement vérifier
+		\[ \tilde{D} + \vec{AB} = C \qquad \iff \qquad \tilde{D} = C - \vec{AB} = (4 - 1 ; -4 - (-4) ) = (3 ;0). \]
+	Par construction, $\vec{AB} = C- \tilde{D} = \vec{\tilde{D}C}$, qui montre que deux côtés opposés sont parallèles.
+	Le parallélisme des deux autres côtés se fait de la même manière.
+}
 
 \exe{[Milieu]
 	Soient $A, B, C$ trois points tels que $B$ soit le milieu du segment $[AC]$.
 	Faire un dessin puis montrer que $\vec{AB} = \vec{BC}$.
-}{}
+}{
+	La formule du milieu du cours
+		\[ B = \dfrac{A+C}2 \]
+	est équivalente à
+		\[ 2B = A + C \qquad \iff \qquad B-A = C-B \qquad \iff \qquad \vec{AB} = \vec{BC}. \]
+}
 
 \exe{[Parallélisme]
 	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(4;-6)$.
@@ -108,7 +231,21 @@
 	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
 	
 	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
-}{}
+}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+	On calcule
+		\[ \vec{AB} = B-A = \pvec{-6}{5}, \qquad \qquad \vec{CD} = D - C = \pvec{6}{-3}. \]
+	Les vecteurs ne sont pas colinéaires : s'il existait un $k\in\R$ tel que $\vec{AB} = k \vec{CD}$, on aurait nécessairement $k=-1$ par la première coordonnée, et $k=-\dfrac53 \neq -1$ par le seconde.
+	Les droites ne sont donc pas parallèles.
+	
+	Pour que $(A\tilde{B})$ et $(CD)$ soient parallèles, elles doivent partager un vecteur directeur.
+	Par exemple, le vecteur $\vec{CD}$ convient.
+	
+	On peut alors choisir $\tilde{B}$ parmis les $A+k \cdot \vec{CD}$ où $k\in\R$ est un scalaire quelconque.
+	En prenant $k=-\dfrac13$ pour montrer qu'on aime les fractions, on peut définir $\tilde{B} = (1 ; 3)$.
+	
+	On vérifiera que $\vec{A\tilde{B}} = \pvec{-2}{1}$, qui est bien colinéaire à $\vec{CD} = \pvec{6}{-3}$.
+}
 
 
 \end{document}
