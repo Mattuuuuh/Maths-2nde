@@ -249,12 +249,12 @@ def generate(seed):
     CONTENT += newcommand_add("\\bII", u2*y_offset-v2*x_offset, u2)
 
     # for h, b = b3_num/b3_denom + y_offset - a3_num/a3_denom*x_offset ...
-    # = (b3_num*a3_denom + y_offset*a3_denom*b3_denom - a3_num*b3_denom)/(b3_denom*a3_denom)
-    CONTENT += newcommand_add("\\bIII", b3_numerator*a3_denominator + y_offset*b3_denominator*a3_denominator - a3_numerator*b3_denominator, b3_denominator*a3_denominator)
+    # = (b3_num*a3_denom + y_offset*a3_denom*b3_denom - a3_num*x_offset*b3_denom)/(b3_denom*a3_denom)
+    CONTENT += newcommand_add("\\bIII", b3_numerator*a3_denominator + y_offset*b3_denominator*a3_denominator - a3_numerator*x_offset*b3_denominator, b3_denominator*a3_denominator)
 
     # real values for graphs, etc...
-    xA, xB = sign*L*u1/w1+x_offset, sign*L*v1/w1+x_offset
-    yA, yB = -sign*L*u2/w2+y_offset, -sign*L*v2/w2+y_offset
+    xA, yA = sign*L*u1/w1+x_offset, sign*L*v1/w1+y_offset
+    xB, yB = -sign*L*u2/w2+x_offset, -sign*L*v2/w2+y_offset
 
     xmin = int(min(xA, xB, x_offset,0))-2
     xmax = int(max(xA, xB, x_offset,0))+2
@@ -265,6 +265,15 @@ def generate(seed):
     CONTENT += newcommand("\\xmax", xmax)
     CONTENT += newcommand("\\ymin", ymin)
     CONTENT += newcommand("\\ymax", ymax)
+
+    print(sign)
+    print(L)
+    print(u1,v1,w1)
+    print(u2,v2,w2)
+
+    print(xA, yA)
+    print(xB, yB)
+    print(x_offset, y_offset)
 
     ### EX 2 ###
     """
@@ -308,7 +317,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 40
+    N = 1
     # always the same N to recompile if needed
     np.random.seed(51) # not a prime 
 
@@ -317,7 +326,7 @@ if __name__=="__main__":
         seed = int(np.random.rand() * (2**16 - 1))
 
         # uncomment to fix seed
-        #seed=10354
+        seed=34414
 
         np.random.seed(seed)
         
