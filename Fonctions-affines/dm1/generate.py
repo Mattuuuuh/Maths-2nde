@@ -265,7 +265,9 @@ def generate(seed):
     CONTENT += newcommand("\\xmax", xmax)
     CONTENT += newcommand("\\ymin", ymin)
     CONTENT += newcommand("\\ymax", ymax)
-
+    
+    """
+    # troubleshooting
     print(sign)
     print(L)
     print(u1,v1,w1)
@@ -274,6 +276,7 @@ def generate(seed):
     print(xA, yA)
     print(xB, yB)
     print(x_offset, y_offset)
+    """
 
     ### EX 2 ###
     """
@@ -317,7 +320,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 1
+    N = 40
     # always the same N to recompile if needed
     np.random.seed(51) # not a prime 
 
@@ -326,7 +329,7 @@ if __name__=="__main__":
         seed = int(np.random.rand() * (2**16 - 1))
 
         # uncomment to fix seed
-        seed=34414
+        #seed=34414
 
         np.random.seed(seed)
         
