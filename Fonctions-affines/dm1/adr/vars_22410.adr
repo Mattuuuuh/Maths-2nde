@@ -10,8 +10,8 @@
 \newcommand{\yC}{3}
 \newcommand{\bI}{+\dfrac{300}{91}}
 \newcommand{\bII}{+\dfrac{63}{5}}
-\newcommand{\bIII}{-\dfrac{432}{79}}
-\newcommand{\xmin}{-6}
+\newcommand{\bIII}{-\dfrac{147}{79}}
+\newcommand{\xmin}{-10}
 \newcommand{\xmax}{9}
 \newcommand{\ymin}{-10}
 \newcommand{\ymax}{5}

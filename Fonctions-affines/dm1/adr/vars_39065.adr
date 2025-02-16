@@ -10,7 +10,7 @@
 \newcommand{\yC}{-5}
 \newcommand{\bI}{-\dfrac{37}{65}}
 \newcommand{\bII}{+\dfrac{1321}{27}}
-\newcommand{\bIII}{-\dfrac{909}{74}}
+\newcommand{\bIII}{-\dfrac{22}{37}}
 \newcommand{\xmin}{-6}
 \newcommand{\xmax}{2}
 \newcommand{\ymin}{-12}

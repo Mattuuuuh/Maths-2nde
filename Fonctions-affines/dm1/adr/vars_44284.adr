@@ -12,7 +12,7 @@
 \newcommand{\bII}{+\dfrac{149}{60}}
 \newcommand{\bIII}{+\dfrac{317}{42}}
 \newcommand{\xmin}{-10}
-\newcommand{\xmax}{3}
+\newcommand{\xmax}{8}
 \newcommand{\ymin}{-2}
 \newcommand{\ymax}{14}
 \newcommand{\slopeI}{0,27}

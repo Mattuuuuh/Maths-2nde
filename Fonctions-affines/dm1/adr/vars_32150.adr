@@ -10,9 +10,9 @@
 \newcommand{\yC}{6}
 \newcommand{\bI}{+\dfrac{517}{84}}
 \newcommand{\bII}{+\dfrac{63}{8}}
-\newcommand{\bIII}{+\dfrac{385}{31}}
+\newcommand{\bIII}{+\dfrac{429}{31}}
 \newcommand{\xmin}{-15}
-\newcommand{\xmax}{2}
+\newcommand{\xmax}{7}
 \newcommand{\ymin}{-2}
 \newcommand{\ymax}{19}
 \newcommand{\slopeI}{0,26}

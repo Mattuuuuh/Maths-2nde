@@ -11,10 +11,10 @@
 \newcommand{\bI}{-\dfrac{31}{3}}
 \newcommand{\bII}{-\dfrac{1313}{144}}
 \newcommand{\bIII}{-\dfrac{11}{3}}
-\newcommand{\xmin}{-2}
-\newcommand{\xmax}{13}
-\newcommand{\ymin}{-23}
-\newcommand{\ymax}{2}
+\newcommand{\xmin}{-13}
+\newcommand{\xmax}{10}
+\newcommand{\ymin}{-12}
+\newcommand{\ymax}{3}
 \newcommand{\slopeI}{0,24}
 \newcommand{\slopeIpercent}{24}
 \newcommand{\Ax}{463}

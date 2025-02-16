@@ -12,8 +12,8 @@
 \newcommand{\bII}{+\dfrac{11}{28}}
 \newcommand{\bIII}{+\dfrac{143}{31}}
 \newcommand{\xmin}{-9}
-\newcommand{\xmax}{3}
-\newcommand{\ymin}{-2}
+\newcommand{\xmax}{8}
+\newcommand{\ymin}{-4}
 \newcommand{\ymax}{12}
 \newcommand{\slopeI}{0,23}
 \newcommand{\slopeIpercent}{23}

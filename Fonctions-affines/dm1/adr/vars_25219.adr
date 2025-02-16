@@ -10,10 +10,10 @@
 \newcommand{\yC}{-9}
 \newcommand{\bI}{-\dfrac{41}{9}}
 \newcommand{\bII}{-\dfrac{1929}{221}}
-\newcommand{\bIII}{-\dfrac{373}{67}}
-\newcommand{\xmin}{-3}
-\newcommand{\xmax}{6}
-\newcommand{\ymin}{-16}
+\newcommand{\bIII}{-\dfrac{233}{67}}
+\newcommand{\xmin}{-8}
+\newcommand{\xmax}{2}
+\newcommand{\ymin}{-12}
 \newcommand{\ymax}{2}
 \newcommand{\slopeI}{0,27}
 \newcommand{\slopeIpercent}{27}

@@ -10,11 +10,11 @@
 \newcommand{\yC}{3}
 \newcommand{\bI}{-\dfrac{93}{5}}
 \newcommand{\bII}{-\dfrac{3}{4}}
-\newcommand{\bIII}{-\dfrac{44}{13}}
+\newcommand{\bIII}{-\dfrac{148}{13}}
 \newcommand{\xmin}{-2}
-\newcommand{\xmax}{11}
-\newcommand{\ymin}{-2}
-\newcommand{\ymax}{14}
+\newcommand{\xmax}{20}
+\newcommand{\ymin}{-8}
+\newcommand{\ymax}{8}
 \newcommand{\slopeI}{0,27}
 \newcommand{\slopeIpercent}{27}
 \newcommand{\Ax}{509}
