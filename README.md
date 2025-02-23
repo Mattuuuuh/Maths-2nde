@@ -19,7 +19,7 @@ Contenu par chapitre :
 - [x] Problèmes de géométrie
 - [x] Probabilités
 - [x] Fonctions : droites du plan
-- [ ] Vecteurs dans le plan
+- [x] Vecteurs dans le plan
 - [ ] Fonctions : variations et extrema
 - [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
