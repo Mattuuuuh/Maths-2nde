@@ -14,6 +14,7 @@ Algorithmique :
 	calculs exacte de rationnels
 
 Autres : 
+	Logique !!! (vrai/faux, contre-exemples, etc...)
 	Entraînement (in)équations,
 	Fonction paire, impaire,
 	manipulation des puissances,
