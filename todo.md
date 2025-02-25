@@ -12,7 +12,7 @@ Algorithmique :
 	complexité facile (1 + 2 + ... + n vs n(n+1)/2)
 	conjectures, eg. 1 + ... + n³ vs (1 + ... + n)^2
 	calculs exacts avec encodage rationnels
-	arithmétique : crible d'Erathostène, liste de diviseurs
+	arithmétique : crible d'Eratosthène, liste de diviseurs
 
 
 Autres : 

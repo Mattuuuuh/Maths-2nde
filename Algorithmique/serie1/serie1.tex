@@ -1,0 +1,79 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Crible d'Ératosthène \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\begin{tikzpicture}
+	\foreach \i in {0, 1, ..., 9}{
+		\draw (\i,0) -- (\i,-10);
+		\draw (0,-\i) -- (10,-\i);
+		\foreach \j in {0, ..., 9}
+			\draw (\i+.5, -\j-.5) node {$\i\j$};
+	}
+	\draw (0,-10) -- (10,-10);
+	\draw (10,0) -- (10,-10);
+	
+	% crossed out 1
+	\draw[myr, thick] (0,-1) -- (1,-2);
+	\draw[myr, thick] (0,-2) -- (1,-1);
+	
+	% blanked out 0
+	\fill[color=white] 	(-1pt,1pt) rectangle (.99,-.99);
+	
+	% légende
+	\node[right] at (13, -2) {\underline{\textbf{Légende}}};
+	
+	\draw (12,-5) rectangle (13,-6) node[midway] {$n$};
+	\draw[myr, thick] (12,-5) -- (13,-6);
+	\draw[myr, thick] (12,-6) -- (13,-5);
+	\node[right] at (13.5, -5.5) {$n$ n'est pas premier};
+	
+	\draw (12,-3) rectangle (13,-4) node[midway] {$n$};
+	\node[right] at (13.5, -3.5) {$n$ est premier};
+	
+\end{tikzpicture}
+
+\IncMargin{1em}
+\begin{algorithm}
+\SetKwInput{KwRes}{retourner}%
+\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+\SetKwFor{Pr}{pour}{faire}{fin pour}%
+\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+	\Input{Nombre entier $N \geq 1$.}
+	\Output{Liste des nombre premiers inférieurs ou égaux à $N$.}
+	\BlankLine
+	Initialisation de la liste vide $P = \emptyset$ \hfill	\emph{Liste des premiers.}
+	\\
+	Initialisation de la liste $NP=(1)$. \hfill	\emph{Liste des non premiers.}
+	\\
+	\Pr{ $n = 1, 2, \dots, N$ }{
+		\Si{$n$ appartient à $NP$}{
+			Passer au $n$ suivant. \hfill \emph{L'entier $n$ fait déjà partie de $NP$.}
+		}
+		\Sinon{
+			Ajouter $n$ à $P$. \hfill \emph{L'entier $n$ est premier.}
+			\\
+			Ajouter tous les multiples propres de $n$ à $NP$.
+		}
+	}
+	\KwRes{La liste $P$ contenant tous les premiers inférieurs ou égaux à $N$.}
+\caption{Crible d'Érathostène.}\label{algo:crible}
+\end{algorithm}\DecMargin{1em} 
+
+\end{document}
