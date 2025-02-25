@@ -18,22 +18,28 @@
 \fancyhead[C]{\textbf{Crible d'Ératosthène \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+\begin{center}
 \begin{tikzpicture}
-	\foreach \i in {0, 1, ..., 9}{
+	\foreach \i in {1, ..., 9}{
 		\draw (\i,0) -- (\i,-10);
 		\draw (0,-\i) -- (10,-\i);
 		\foreach \j in {0, ..., 9}
 			\draw (\i+.5, -\j-.5) node {$\i\j$};
 	}
+	
+	
+	\draw (0,-1) -- (0,-10);
+	\draw (1,0) -- (10,0);
+
+	\foreach \j in {1, ..., 9}
+			\draw (.5, -\j-.5) node {$\j$};
+	
 	\draw (0,-10) -- (10,-10);
 	\draw (10,0) -- (10,-10);
 	
 	% crossed out 1
 	\draw[myr, thick] (0,-1) -- (1,-2);
 	\draw[myr, thick] (0,-2) -- (1,-1);
-	
-	% blanked out 0
-	\fill[color=white] 	(-1pt,1pt) rectangle (.99,-.99);
 	
 	% légende
 	\node[right] at (13, -2) {\underline{\textbf{Légende}}};
@@ -47,6 +53,7 @@
 	\node[right] at (13.5, -3.5) {$n$ est premier};
 	
 \end{tikzpicture}
+\end{center}
 
 \IncMargin{1em}
 \begin{algorithm}
