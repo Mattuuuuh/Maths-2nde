@@ -10,8 +10,10 @@ Algorithmique :
 	statistiques, 
 	probabilités et dénombrement (décompte chemins racines-feuilles, d'issues, calcul proba).
 	complexité facile (1 + 2 + ... + n vs n(n+1)/2)
-	conjectures (1 + ... + n³ vs (1 + ... + n)^2)
-	calculs exacte de rationnels
+	conjectures, eg. 1 + ... + n³ vs (1 + ... + n)^2
+	calculs exacts avec encodage rationnels
+	arithmétique : crible d'Erathostène, liste de diviseurs
+
 
 Autres : 
 	Logique !!! (vrai/faux, contre-exemples, etc...)
