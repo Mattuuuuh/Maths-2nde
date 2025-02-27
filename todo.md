@@ -17,6 +17,7 @@ Algorithmique :
 
 Autres : 
 	Logique !!! (vrai/faux, contre-exemples, etc...)
+    Contraposition, réciproque, ...
 	Entraînement (in)équations,
 	Fonction paire, impaire,
 	manipulation des puissances,
