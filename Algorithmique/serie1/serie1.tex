@@ -67,20 +67,41 @@
 	\BlankLine
 	Initialisation de la liste vide $P = \emptyset$ \hfill	\emph{Liste des premiers.}
 	\\
-	Initialisation de la liste $NP=(1)$. \hfill	\emph{Liste des non premiers.}
+	Initialisation de la liste \emph{NP}$=(1)$. \hfill	\emph{Liste des non premiers.}
 	\\
 	\Pr{ $n = 1, 2, \dots, N$ }{
-		\Si{$n$ appartient à $NP$}{
-			Passer au $n$ suivant. \hfill \emph{L'entier $n$ fait déjà partie de $NP$.}
+		\Si{$n$ appartient à NP}{
+			%Passer au $n$ suivant. \hfill \emph{L'entier $n$ fait déjà partie de NP.}
+			Sauter la suite et passer à la ligne $3$. \hfill \emph{L'entier $n$ fait déjà partie de NP.}
 		}
-		\Sinon{
+		% Sinon non nécessaire
+		%\Sinon{
 			Ajouter $n$ à $P$. \hfill \emph{L'entier $n$ est premier.}
 			\\
-			Ajouter tous les multiples propres de $n$ à $NP$.
-		}
+			Ajouter tous les multiples propres de $n$ à \emph{NP}.
+		%}
 	}
 	\KwRes{La liste $P$ contenant tous les premiers inférieurs ou égaux à $N$.}
 \caption{Crible d'Érathostène.}\label{algo:crible}
 \end{algorithm}\DecMargin{1em} 
+
+
+\begin{mintedbox}{python}
+N = 50
+rest=[1]
+primes=[]
+
+for i in range(1,N+1):
+    if i in rest:
+        continue
+    primes+=[i]
+    for k in range(1,N//i+1):
+        multiple = k*i
+        if not multiple in rest:
+            rest+=[multiple]
+    
+print(primes)
+print(rest)
+\end{mintedbox}
 
 \end{document}
