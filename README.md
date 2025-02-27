@@ -21,6 +21,7 @@ Contenu par chapitre :
 - [x] Fonctions : droites du plan
 - [x] Vecteurs dans le plan
 - [ ] Fonctions : variations et extrema
+- [ ] Algorithmique
 - [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
 
