@@ -1,0 +1,53 @@
+%!TEX encoding = UTF8
+%!TEX root =notes.tex
+
+\chapter{Algorithmique}
+
+Le but de ce chapitre est de traiter la partie \og Algorithmique et programmation \fg~ du bulletin officiel.
+
+Le contenu du chapitre est le suivant.
+	\begin{itemize}
+		\item Variables \texttt{int}, \texttt{bool}, \texttt{float}, \texttt{string} ; affectation ; instructions ; conditions.
+		\item Boucles \texttt{for} et \texttt{while}.
+		\item Fonctions à un ou plusieurs arguments.
+		\item Fonctions renvoyant un nombre aléatoire. Série statistique obtenue par la répétition de l'appel d'une telle fonction.
+	\end{itemize}
+
+Les capacités attendues sont les suivantes.
+	\begin{itemize}
+		\item Choisir ou déterminer le type d'une variable ; concevoir et écrire une instruction d'affectation, une séquence d'instructions, une instruction conditionnelle ; écrire une formule permettant un calcul combinant des variables.
+		\item Programmer, dans des cas simples, une boucle bornée, une boucle non bornée.
+		\item Dans des cas plus complexes : lire, comprendre, modifier ou compléter un algorithme ou un programme.
+		\item Écrire des fonctions simples ; lire, comprendre, modifier, compléter des fonctions plus complexes. Appeler une fonction.
+		\item Lire et comprendre une fonction renvoyant une moyenne, un écart type.
+		\item Écrire des fonctions renvoyant le résultat numérique d'une expérience aléatoire, d'une répétition d'expériences aléatoires indépendantes.
+	\end{itemize}
+
+\section{Synthaxe pseudo-code et Python}
+
+
+
+\section{Coût d'un algorithme : complexité en temps et en espace}
+
+On compte les opérations ($+$ et $\times$) ce qui est une simplification de la réalité (Machine de Turning vs. arithmetic model : real RAM)
+En effet, fait $\times 2$ en binaire est plus facile que faire $\times3$, au même titre que faire $\times10$ est plus facile que faire $\times11$ en base $10$.
+
+Méoïzation? l'exemple de Fibonacci est un algo récursif pas hyper simple? Faisable quand même.
+
+Peut-être avec les deux algos et $t_1, t_2$ les temps au début et à la fin. Remplir $print(t2-t1)$ et comparer le résultat (tous les $F_{\leq n}$ vs juste $F_n$) et les temps d'execution des deux programmes pour $n=3, 4, 10, 20, 30$.
+
+Comparer le résultat et le timing avec la forme close encore (inexact sans rounding mais plus rapide?)
+
+Complexité simple exacte : $S = 1 + ... + n$ ($n-1$ opérations), vs $n(n+1)/2$ (4 opérations)
+
+Bien sûr généralisable avec des formules pour $S_3 = 1+2³+...+n³$ p.ex. [$2(n-1) + (n-1)$] opérations vs expression de forme fermée vs $S^2$.
+
+Questions : à partir de quel n vaut-il mieux utiliser la formule plutôt qu'une boucle for?
+
+Simplification de complexité avec erreur. P.ex. $\sin(x) \equiv x$ ou $\cos(x) \equiv 1 - \dfrac{x^2}2$.
+
+Algorithmes par dichotomie pour trouver une racine.
+
+Fast exponentiation : comment calculer $q^n$ le plus vite possible ?
+
+
