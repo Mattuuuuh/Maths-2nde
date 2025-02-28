@@ -12,6 +12,7 @@ Algorithmique :
 	complexité facile (1 + 2 + ... + n vs n(n+1)/2)
 	conjectures, eg. 1 + ... + n³ vs (1 + ... + n)^2
 	calculs exacts avec encodage rationnels
+	floating point mishaps : 0.1+0.11 = 0.2100000001 en Python.
 	arithmétique : crible d'Eratosthène, liste de diviseurs
 
 
