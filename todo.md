@@ -21,6 +21,7 @@ Autres :
     Contraposition, réciproque, ...
 	Entraînement (in)équations,
 	Fonction paire, impaire,
+	tableau de signes, équations produit ou quotient.
 	manipulation des puissances,
 	ordres de grandeurs,
 	écriture scientifique,
