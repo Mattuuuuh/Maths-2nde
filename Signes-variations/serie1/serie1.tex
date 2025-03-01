@@ -1,0 +1,46 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Variations et maxima 1 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+
+	EXAMPLE
+	% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+	
+	\begin{tikzpicture}
+	   \tkzTabInit
+	   %[lgt=3,espcl=1.5]
+       		{$x$ / 1 , $x+4$ / 1, $x-2$ / 2 }
+       		{$0$, $\dfrac{\pi}{2}$, $\pi$, $\dfrac{3\pi}{2}$, $2\pi$}
+       		
+	\tkzTabLine
+		{z,,+,,t,h,,+, d}
+		
+	\tkzTabVar
+		{+/$12$, R/, +/$12$, R/, -/$-1$}
+
+	\tkzTabIma
+		{3}{5}{4}{0}
+	\end{tikzpicture}
+
+
+}{}
+
+
+\end{document}
