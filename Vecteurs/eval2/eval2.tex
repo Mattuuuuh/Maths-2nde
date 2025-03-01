@@ -1,0 +1,180 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[3]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation -- Vecteurs \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{[5pts]\label{ex:1}
+	On considère le point $A(-4; -2)$ et les deux vecteurs $u = \pvec{6}{2}$ et $v = \pvec{1}{-3}$.
+	On pose de plus les trois points
+		\begin{align*}
+			B = A + u, && C = B + v, && D = C - u.
+		\end{align*}
+	Les questions $1$, $2$, et $3$ peuvent être faites séparément en admettant les résultats des questions précédentes.
+	
+	\begin{enumerate}
+		\item 
+		Montrer que $B(2;0), C(3;-3)$, et $D(-3;-5)$ puis dessiner le quadrilatère $ABCD$ dans un repère.
+		
+		\item
+		\begin{enumerate}[label=(\alph*)]
+			\item Calculer les vecteurs $\vec{AB}$ et $\vec{DC}$, et montrer qu'ils sont colinéaires.
+			\item Calculer les vecteurs $\vec{AD}$ et $\vec{CB}$, et montrer qu'ils sont colinéaires.
+			\item Montrer qu'on a $\norm{\vec{AB}}= 2\sqrt{10}$, $\norm{\vec{AD}} = \sqrt{10}$, et $\norm{\vec{BD}} = 5\sqrt{2}$.
+			\item Vérifier qu'on ait bien $\det\left(\vec{AB}, \vec{AD}\right) = -20$.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}[label=(\alph*)]
+			\item Montrer que le quadrilatère $ABCD$ est un parallélogramme à l'aide des questions 2(a-b).
+			\item Montrer que le triangle $ABD$ est rectangle en $A$ à l'aide de la réciproque du théorème de Pythagore et de la question 2(c).
+			\item En déduire que $ABCD$ est un rectangle et calculer son aire à l'aide de la question 2(c).
+			\item Comparer l'aire obtenue à $\left| \det\left(\vec{AB}, \vec{AD}\right) \right|$, la valeur absolue du déterminant calculé à la question 2(d).
+		\end{enumerate}
+		
+	\end{enumerate}
+
+
+}{}
+
+%\exe{[Représentation graphique, 3pts]
+\exe{[2pts]
+	Construire en bas de page les vecteurs 
+		\begin{align*}
+			a = u+v+w, && b = -2u, && \text{ et } && c = 3u - \dfrac12v - \dfrac13w,
+		\end{align*}
+	où les vecteurs $u, v, w$ sont donnés dans le plan ci-dessous.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, myg] (axis cs:-1,-1) -- (axis cs: 1,-4) node[right] {$u$};
+			\draw[very thick, ->, myr] (axis cs: -2,8) -- (axis cs: -5,-1) node[left] {$v$};
+			\draw[very thick, ->, myb] (axis cs:0,1) -- (axis cs: 8,5) node[above] {$w$};
+		\end{axis}
+		\end{tikzpicture}
+		%\vline
+	\end{center}
+	\vspace{-1cm}
+	\underline{\textbf{Constructions :}}
+}{}
+
+\newpage
+
+\exe{[3pts]
+	À l'aide de la figure suivante et de la relation de Chasles, déterminer les sommes vectorielles suivantes en complétant les pointillés.
+
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\newcommand\len{.8cm}
+		\begin{axis}[xmin = 0, x=\len, y= \len, xmax=8, ymin=0, ymax=4, axis line style={ draw opacity=0 }, xlabel={}, ylabel={}, ticks = none, grid = both, enlargelimits={abs=0.8}, minor x tick num = 1, minor y tick num = 1]
+			\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 8,0);
+			\draw[very thick, -, myr] (axis cs:0,4) -- (axis cs: 8,4);
+			\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 0,4);
+			\draw[very thick, -, myr] (axis cs:8,0) -- (axis cs: 8,4);
+			\draw[very thick, -, myr] (axis cs:4,0) -- (axis cs: 4,4);
+			\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 4,4);
+			\draw[very thick, -, myr] (axis cs:0,4) -- (axis cs: 4,0);
+			\draw[very thick, -, myr] (axis cs:4,0) -- (axis cs: 8,4);
+			\draw[very thick, -, myr] (axis cs:4,4) -- (axis cs: 8,0);
+			
+			\addplot[black] (0,0) node[below] {$A$};
+			\addplot[black] (4,0) node[below] {$B$};
+			\addplot[black] (8,0) node[below] {$C$};
+			\addplot[black] (8,4) node[above] {$D$};
+			\addplot[black] (4,4) node[above] {$E$};
+			\addplot[black] (0,4) node[above] {$F$};
+			\addplot[black] (2,2) node[below=2pt] {$G$};
+			\addplot[black] (6,2) node[below=2pt] {$H$};
+			
+		\end{axis}
+		\end{tikzpicture}
+		%\vline
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{BC} = \vec{E \dots}$
+		\item $\vec{BE} = \vec{\dots F}$
+		\item $\vec{AB} + \vec{FA} = \vec{F \dots} + \vec{\dots B} = \vec{\vphantom{A} \dots\dots}$
+		\item $\vec{FD} + \vec{EB} = \vec{FD} + \vec{D\dots} = \vec{\vphantom{A}\dots\dots}$
+		\item $\vec{AE} + \vec{GB} + \vec{DH} = \vec{AE} + \vec{E\dots} + \vec{\vphantom{A}\dots\dots} = \vec{\vphantom{A}\dots\dots}$
+	\end{enumerate}
+	\end{multicols}
+
+}{}
+
+
+%\exe{[Vrai ou faux, 4pts]
+\exe{[4pts]
+	Pour chacune des propositions suivantes, \underline{montrer} qu'elle est toujours vraie ou \underline{donner} un contre-exemple.
+	
+	Soient $u, v, w$ trois vecteurs.
+	\begin{enumerate}
+		\item Si $v = -u$, alors $\det(u, v) = 0$.
+		\item Si $u$ est colinéaire à $v$, et $v$ est colinéaire à $w$, alors $u$ est colinéaire à $w$.
+		\item  Si $\norm{u} = \norm{v}$, alors $u$ et $v$ sont colinéaires.
+		\item Si $u$ et $v$ sont colinéaires, alors $\norm{u} = \norm{v}$.
+	\end{enumerate}
+}{}
+
+%\exe{[Vecteur directeur, 3pts]
+\exe{[3pts]
+	On considère un point $A(-4;5)$ et un vecteur $v = \pvec{3}{-2}$.
+	Soit $(d)$ la droite passant par $A$ et dirigée par $v$.
+	
+	\begin{enumerate}
+		\item
+		Donner $4$ points distincts appartenant à $(d)$.
+		\item
+		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
+	\end{enumerate}
+}{}
+
+%\exe{[Alignement, 3pts]
+\exe{[3pts]
+	Considérons les points
+		\begin{align*}
+			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Le point $C$ appartient-il à la droite $(AB)$ ?
+		\item Le point $D$ appartient-il à la droite $(CB)$ ?
+		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
+	\end{enumerate}
+}{}
+
+%\section*{Bonus (2pts)}
+\section*{Bonus : généralisation de l'exercice \ref{ex:1}}
+
+%\exe{[Généralisation de l'exercice \ref{ex:1}]
+\exe{[4pts]
+	Soient $u = \pvec{a}{b}, 	v = \pvec{c}{d}$	deux vecteurs tels que le triangle de sommets $O(0;0), O+u, O+v$ est rectangle en $O$. 
+	La question 2 peut être faite en admettant le résultat de la question 1.
+	Des points partiels peuvent être attribués même si la tentative est infructueuse.
+	\begin{enumerate}
+		\item Montrer à l'aide de la réciproque de Pythagore que 
+			\[ a\cdot c + b\cdot d = 0. \]
+		\item
+		Montrer à l'aide de la relation ci-dessus que
+			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
+	\end{enumerate}
+}{}
+
+
+\end{document}
