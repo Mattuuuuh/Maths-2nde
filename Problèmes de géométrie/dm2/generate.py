@@ -157,12 +157,20 @@ def generate(seed):
     
     CONTENT = newcommand("\seed", seed)
 
-    ###### l/L = ratio UNIFORM IN [.65, .75]
+    np.random.rand(3)
+
+    ###### l/L = ratio UNIFORM IN [.66, .76]
     ratio = np.random.rand()*.1 + .66
     ratio = np.round(ratio,5)
     # look for good integer approximations of ratio: diophantine approximations! continued fractions :)
     convergents = list(contfrac.convergents(ratio))
-    l, L = convergents[3 if len(convergents)>3 else -1]
+    l, L = convergents[5 if len(convergents)>5 else -1]
+    # not all l, L are possible here since (l,L)=1, 
+    # so we can always take 2l, 2L or modify them slightly
+    k=np.random.rand()*5+1
+    k=int(k)
+    l, L = k*l, k*L
+
     newratio = l/L
     xmax = np.arccos(newratio)*180/np.pi
 
