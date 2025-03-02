@@ -1,23 +1,25 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-\input{preamble.tex}\input{adr/test.adr}
+%\input{preamble.tex}\input{adr/vars_1.adr}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
 \fancyhead[C]{\textbf{Devoir Maison 4 -- \seed \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+%RATIO = $\ratio$, XMAX = $\xmax$
 
 Un joueur de CS2 est placé en $O$.
-Il se situe à $10$ unités de son adversaire immobile, placé en $A$.
+Il se situe à $\L$ unités de son adversaire immobile, placé en $A$.
 
-On estime que, étant donné le temps de réaction de l'adversaire, le joueur peut se déplacer de $2$ unités avant d'être attaqué.
+On estime que, étant donné le temps de réaction de l'adversaire, le joueur peut se déplacer de $\l$ unités avant d'être attaqué.
 On pose $B$ le point atteint par le joueur après son déplacement, et on considère le triangle $OAB$ ainsi formé.
 
 On note $\theta = \widehat{BAO}$, l'angle de correction que doit appliquer l'adversaire avant de tirer.
 
 Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}$ de déplacement lui permettant d'optimiser son avantage : il veut faire en sorte que l'angle de correction $\theta$ soit maximal.
+On supposera $\alpha \leq 90$°.
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -35,16 +37,16 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}$ de déplacement
 	\draw [black,thick, dashed,domain=130:210] plot ({3.16*cos(\x)}, {3.16*sin(\x)}) ;
 	
 	% angles alpha, theta
-	\draw [black,thick,domain=90:160] plot ({.2*cos(\x)}, {.2*sin(\x)})
-	node[above=5pt] {$\alpha$};
-	\draw [black,thick,domain=-90:-130] plot ({.2*cos(\x)}, {4+.2*sin(\x)})
-	node[below=2pt] {$\theta$};
+	\draw [black,thick,domain=90:160] plot ({.2*cos(\x)}, {.2*sin(\x)});
+	\node[below] at (-.2,.6) {$\alpha$};
+	\draw [black,thick,domain=-90:-130] plot ({.2*cos(\x)}, {4+.2*sin(\x)});
+	\node[below] at (-.2,3.8) {$\theta$};
 	
 	% length braces
 	\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
-  (-3,1) -- (0,0) node[midway, below = 5pt]{$2$};
+  (-3,1) -- (0,0) node[midway, below = 5pt]{$\l$};
 	\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
-  (0,0) -- (0,4) node[midway, right = 5pt]{$10$};
+  (0,0) -- (0,4) node[midway, right = 5pt]{$\L$};
 \end{tikzpicture}
 \end{center}
 
@@ -55,62 +57,69 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}$ de déplacement
 
 \exe{
 	Montrer qu'on a
-		\[ h = 2\sin(\alpha). \]
+		\[ h = \l\sin(\alpha). \]
 }{}
 
 \exe{
 	Montrer que la base $OI$ est donnée par
-		\[ OI = 2\cos(\alpha). \]
+		\[ OI = \l\cos(\alpha). \]
 }{}
 
 \exe{
 	Montrer qu'on a 
-		\[ \tan(\theta) = \dfrac{2 \sin(\alpha)}{10 - 2 \cos(\alpha)}. \]
+		\[ \tan(\theta) = \dfrac{\l \sin(\alpha)}{\L - \l \cos(\alpha)}. \]
 }{}
 
 \exe{
-	À l'aide de l'outil \texttt{Table} de la calculatrice ou d'un programme informatique et en approximant au centième, compléter les tableaux de valeurs de la fonction $f$ donnée algébriquement par
-		\[ f(\alpha ) = \arctan \left(\dfrac{2 \sin(\alpha)}{10 - 2 \cos(\alpha)} \right). \]
+	À l'aide de l'outil \texttt{Table} de la calculatrice ou d'un programme informatique et en approximant à $10^{-4}$, compléter les tableaux de valeurs de la fonction $f$ donnée algébriquement par
+		\[ f(\alpha ) = \arctan \left(\dfrac{\l \sin(\alpha)}{\L - \l \cos(\alpha)} \right). \]
 	
+	\begin{center}
+	\hspace{-1cm}
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
-		0° & \\ \hline
-		5° & \\ \hline
-		10° & 2,4°\\ \hline
-		15° & \\ \hline
+		$\sampleI$ & \\ \hline
+		$\sampleII$ & \\ \hline
+		$\sampleIII$ & $\imageIII$\\ \hline
+		$\sampleIV$ & \\ \hline
 	\end{tabular}
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
-		20° & \\ \hline
-		25° & \\ \hline
-		30° & \\ \hline
-		35° & 7,8° \\ \hline
+		$\sampleV$ & \\ \hline
+		$\sampleVI$ & \\ \hline
+		$\sampleVII$ & \\ \hline
+		$\sampleVIII$ & $\imageVIII$ \\ \hline
 	\end{tabular}
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
-		40° & 8,6 \\ \hline
-		45° & \\ \hline
-		50° & \\ \hline
-		55° & \\ \hline
+		$\sampleIX$ & \imageIX \\ \hline
+		$\sampleX$ & \\ \hline
+		$\sampleXI$ & \\ \hline
+		$\sampleXII$ & \\ \hline
 	\end{tabular}
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
-		60° & \\ \hline
-		65° & \\ \hline
-		70° & 11,4° \\ \hline
-		75° & \\ \hline
+		$\sampleXIII$ & \\ \hline
+		$\sampleXIV$ & \\ \hline
+		$\sampleXV$ & $\imageXV$ \\ \hline
+		$\sampleXVI$ & \\ \hline
 	\end{tabular}
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
-		80° & 11,53 \\ \hline
-		85° & \\ \hline
-		90° & \\ \hline
-		95° & \\ \hline
+		$\sampleXVII$ & $\imageXVII$ \\ \hline
+		$\sampleXVIII$ & \\ \hline
+		$\sampleXIX$ & \\ \hline
+		$\sampleXX$ & \\ \hline
 	\end{tabular}
+	\end{center}
 }{}
 
 \exe{
-	Tracer $\C_f$ dans un repère de domaine $[0; 95]$ et estimer le $x^\star \in [0;95]$ pour lequel $f(x^\star)$ est maximal.
+	Tracer $\C_f$ dans un repère de domaine $[0; 90]$ et estimer le $\alpha^\star \in [0;90]$ pour lequel $f(\alpha^\star)$ est maximal.
+}{}
+
+\exe{
+	Représenter le point d'abscisse $\arccos\left(\dfrac{\l}{\L}\right)$ sur $\C_f$.
 }{}
 
 
