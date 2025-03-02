@@ -16,7 +16,7 @@ Le contenu du chapitre est le suivant.
 Les capacités attendues sont les suivantes.
 	\begin{itemize}
 		\item Relier représentation graphique et tableau de variations.
-		\item Déterminer graphiquement les extremums d0une fonctions sur un intervalle.
+		\item Déterminer graphiquement les extrema d'une fonction sur un intervalle.
 		\item Exploiter un logiciel de géométrie dynamique ou de calcul formel, la calculatrice ou Python pour décrire les variations d'une fonction donnée par une formule.
 		\item Relier sens de variation, signe, et droite représentative d'une fonction affine.
 	\end{itemize}
@@ -291,6 +291,44 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	
 	Le signe est déduit des variations de $f$ : comme $f$ est croissante et qu'elle s'annule en $-30$, son signe est nécessairement négatif avant et positif après.
 }{}
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=.7]
+	\begin{axis}[xmin = -1, xmax=1, ymin=-2, ymax=2, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
+	
+		\addplot[very thick, myb, domain = -1:1] {2*x-.7} node[pos=.8, above=3pt] {\Large $\C_f$};
+		\draw (axis cs: -.5, 1.5) node {\Huge \underline{$a>0$}};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$f$ est croissante.}
+	\end{subfigure}
+	%\hspace{2cm}
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=.7]
+	\begin{axis}[xmin = -1, xmax=1, ymin=-2, ymax=2, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
+	
+		\addplot[very thick, myb, domain = -1:1] {-1.5*x-.5} node[pos=.4, below=3pt] {\Large $\C_f$};
+		\draw (axis cs: -.5, 1.5) node {\Huge \underline{$a<0$}};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$f$ est décroissante.}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=.7]
+	\begin{axis}[xmin = -1, xmax=1, ymin=-2, ymax=2, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
+	
+		\addplot[very thick, myb, domain = -1:1] {-.6} node[pos=.7, below] {\Large $\C_f$};
+		\draw (axis cs: -.5, 1.5) node {\Huge \underline{$a=0$}};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$f$ est constante.}
+	\end{subfigure}
+	\caption{Courbes représentatives de fonctions affines $f(x) = ax+b$ selon le signe du coefficient directeur $a$.}
+\end{figure}
 
 \section{Extrema}
 
