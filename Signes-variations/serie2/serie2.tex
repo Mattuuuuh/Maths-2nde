@@ -1,0 +1,97 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Signes et variations 2 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+}{}
+
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $-6x-2$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+}{}
+
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+}{}
+
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction carré $f(x) = x^2$ sur le domaine $\D = [-5 ; 5]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+}{}
+
+\newpage
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction carré $f(x) = \sqrt{x}$ sur le domaine $\D = [0; 40]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $\sqrt{x}$ / 2, Signe de $\sqrt{x}$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+}{}
+
+\end{document}
