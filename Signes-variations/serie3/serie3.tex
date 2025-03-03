@@ -1,0 +1,84 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Signes et variations 3 \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction carré $f(x) = x^2$ sur le domaine $\D = [-5 ; 5]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+
+\exe{
+	Soit $f$ la fonction
+		\[ f(x) = -3 - (x+1)^2. \]
+	Montrer que $f$ atteint son maximum en $x^\star=-1$ et remplir le tableau de variations et de signes ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variations de $f(x)$ / 2, Signe de $f(x)$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\exe{
+	Soit $f$ la fonction
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et remplir le tableau de variations ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variations de $f(x)$ / 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\exe{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction carré $f(x) = \sqrt{x}$ sur le domaine $\D = [0; 40]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $\sqrt{x}$ / 2, Signe de $\sqrt{x}$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\end{document}
