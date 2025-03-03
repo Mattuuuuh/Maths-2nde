@@ -24,7 +24,36 @@ Les capacités attendues sont les suivantes.
 
 Les manipulations d'inégalités ont été étudiées dans la section \ref{subsec:ineg} du chapitre \ref{chap:3}.
 
-\section{Signes et tableaux de signes}
+\section{Domaine de définition, signes, tableaux de signes}
+
+\subsection{Domaine de définition}
+
+\dfn{Domaine de définition, valeurs interdites}{
+	Soit $f$ une fonction quelconque. On souhaite connaître le domaine le plus grand possible sur lequel définir $f$.
+	On l'appelle le \emph{domaine de définition}, qu'on note $\D_f$.
+	
+	Pour cela, on étudie la fonction sur $\R$ dont on supprime les \emph{valeurs interdites}, c'est-à-dire les antécédents pour lesquels $f$ est mal définie.
+	On étudiera dans ce chapitre deux conditions qui permettront d'identifier ces valeurs interdites :
+		\begin{enumerate}
+			\item l'expression sous une racine carrée doit toujours être positive ou nulle ; et
+			\item un dénominateur ne doit jamais être nul.
+		\end{enumerate}
+}{}
+
+\ex{Valeurs interdites}{
+	Soit $f$ la fonction donnée par
+		\[ f(x) = \dfrac{\sqrt{7-2x}}{x}. \]
+	On identifie deux conditions qui doivent être vérifées pour que calculer $f(x)$ ait un sens :
+		\begin{enumerate}
+			\item $7-2x \geq 0$ ; et
+			\item $x \neq 0$.
+		\end{enumerate}
+	La première inégalité nous impose que $x \leq \dfrac72$, et la deuxième condition supprime $0$.
+	On obtient donc
+		\[ \D_f = \left] \minfty; \frac72 \right] - \{0\} =  \left] \minfty; 0 \right[ \cup  \left] 0; \frac72 \right]. \]
+}{}
+
+\subsection{Étude de signes : tableaux de signes}
 
 \dfn{Signe d'un nombre réel}{
 	Soit $x\in\R$ un nombre réel quelconque.
@@ -34,7 +63,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 			\item $x$ est \emph{strictement négatif} si $x<0$ ;
 			\item $x$ est \emph{nul} si $x=0$.
 		\end{itemize}
-	En français, dire \og $x$ est positif \fg~signifie que $x$ est positif ou nul : $x\geq0$.
+	En français, dire \og $x$ est positif \fg~signifie que $x$ est positif ou nul ($x\geq0$).
 	Il est préférable de dire \emph{positif ou nul} pour éviter toute ambiguïté.
 }{}
 
@@ -67,34 +96,6 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	Alors, le signe de $\dfrac1B$ est le même que celui de $B$, et donc le signe du quotient
 		\[ \dfrac{A}{B} = A \cdot \dfrac1B \]
 	suit les mêmes règles que celui du produit $A \cdot B$.
-}{}
-
-\ex{Problème de racines}{
-	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
-		\[ 21 x^2 - 11 x - 2  = 0. \]
-	Ce problème est un large domaine d'étude en mathématiques, c'est le problème des \emph{racines} d'une fonction. Ici, la fonction est $f(x) = 21 x^2 - 11 x - 2 $, et ses racines sont les antécédents qui annulent $f$.
-	
-	Plusieurs stratégies s'offrent à nous pour résoudre $f(x)=0$ : 
-		\begin{itemize}
-			\item Tracer $\C_f$ et lire les racines graphiquement. Cette méthode est utile pour approximer, mais ne permet pas d'obtenir les solutions exactes (ni le nombre de solution, d'ailleurs).
-			\item Tester des valeurs à partir du tracé. On pourrait démarrer vers une valeur approximative lue graphiquement puis se diriger vers la racine en affinant le pas au fur et à mesure. Cette méthode est très utilisée en pratique (\emph{cf.} la  dichotomie au chapitre d'algorithmique) mais ne permet parfois pas non plus d'obtenir une solution exacte.
-			\item Essayer de factoriser $f(x)$ en un produit de deux expressions linéaire et utiliser le théorème \ref{thm:signe-produit}. L'avantage est qu'on obtient des solutions exactes. Un (gros) inconvénient est que cela n'est pas faisable pour toutes les fonctions $f$ (voir le théorème d'Abel-Ruffini). Pour les fonctions du deuxième degré, ça fonctionne cependant tout le temps : la résolution générale est au programme de $1$ère.
-		\end{itemize}
-	
-	Ici, on vérifie que
-		\begin{align*}
-			(3x-2)(7x+1) &= 3x(7x + 1) - 2(7x+1) \\
-							&= 21x^2 + 3x - 14x - 2 \\
-							&= 21x^2 - 11x - 2 \\
-							&= f(x).
-		\end{align*}
-	D'après le théorème  \ref{thm:signe-produit}, on a
-		\begin{align*}
-			&& f(x) = 0  && \\
-			&& (3x-2)(7x+1) = 0 && \\
-			3x-2 = 0 && \text{ ou }&& 7x + 1 = 0 \\
-			x = \dfrac23 && \text{ ou } && x = -\dfrac17
-		\end{align*}
 }{}
 
 \ex{Problème de signe}{
@@ -146,7 +147,38 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 		\[ \left\{ x \in \R-\{3\} \text{ tq. } f(x) \geq 0 \right\} = \left]\minfty ; -\dfrac12 \right] \bigcup \left[ \dfrac43 ; 3 \right[. \]
 }{}
 
+
+\ex{Problème de racines}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\[ 21 x^2 - 11 x - 2  = 0. \]
+	Ce problème est un large domaine d'étude en mathématiques, c'est le problème des \emph{racines} d'une fonction. Ici, la fonction est $f(x) = 21 x^2 - 11 x - 2 $, et ses racines sont les antécédents qui annulent $f$.
+	
+	Plusieurs stratégies s'offrent à nous pour résoudre $f(x)=0$ : 
+		\begin{itemize}
+			\item Tracer $\C_f$ et lire les racines graphiquement. Cette méthode est utile pour approximer, mais ne permet pas d'obtenir les solutions exactes (ni le nombre de solution, d'ailleurs).
+			\item Tester des valeurs à partir du tracé. On pourrait démarrer vers une valeur approximative lue graphiquement puis se diriger vers la racine en affinant le pas au fur et à mesure. Cette méthode est très utilisée en pratique (\emph{cf.} la  dichotomie au chapitre d'algorithmique) mais ne permet parfois pas non plus d'obtenir une solution exacte.
+			\item Essayer de factoriser $f(x)$ en un produit de deux expressions linéaire et utiliser le théorème \ref{thm:signe-produit}. L'avantage est qu'on obtient des solutions exactes. Un (gros) inconvénient est que cela n'est pas faisable pour toutes les fonctions $f$ (voir le théorème d'Abel-Ruffini). Pour les fonctions du deuxième degré, ça fonctionne cependant tout le temps : la résolution générale est au programme de $1$ère.
+		\end{itemize}
+	
+	Ici, on vérifie que
+		\begin{align*}
+			(3x-2)(7x+1) &= 3x(7x + 1) - 2(7x+1) \\
+							&= 21x^2 + 3x - 14x - 2 \\
+							&= 21x^2 - 11x - 2 \\
+							&= f(x).
+		\end{align*}
+	D'après le théorème  \ref{thm:signe-produit}, on a
+		\begin{align*}
+			&& f(x) = 0  && \\
+			&& (3x-2)(7x+1) = 0 && \\
+			3x-2 = 0 && \text{ ou }&& 7x + 1 = 0 \\
+			x = \dfrac23 && \text{ ou } && x = -\dfrac17
+		\end{align*}
+}{}
+
 \section{Variations et tableaux de variations}
+
+\subsection{Définitions}
 
 \dfn{Variations}{
 	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
@@ -211,6 +243,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	Le tableau n'est pas très intéressant car les variations des fonctions affines ne le sont pas particulièrement...
 }{}
 
+\subsection{Cas particulier : fonctions affines}
 
 \thm{Variation d'une fonction affine}{
 	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
@@ -354,6 +387,21 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	C'est d'ailleurs \emph{le} minimum car seul $0$ vérifie $f(x) = 0$.
 }{}
 
-
+\ex{Forme canonique : du signe du carré à l'extremum}{
+	Considérons la fonction
+		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
+	On vérifiera que $\D_f = \R$ car aucune valeur n'est interdite à $f$.
+	
+	Remarquons que la fonction carré est toujours positive : on a donc toujours $\left( x - \dfrac72 \right)^2 \geq 0$.
+	Multiplier par $-1$ chanque le sens de l'inégalité et on obtient, en ajoutant $\dfrac{265}2$,
+		\begin{align*}
+			\left( x - \dfrac72 \right)^2 &\geq 0 \\
+			- \left( x - \dfrac72 \right)^2 & \leq 0 \\
+			\dfrac{265}2 - \left( x - \dfrac72 \right)^2 &\leq \dfrac{265}2 \\
+			f(x) &\leq \dfrac{265}2 
+		\end{align*}
+	En outre, $f\left(\dfrac72\right) = \dfrac{265}2 - 0^2 = \dfrac{265}2$. 
+	Il suit donc que $f$ atteint son maximum $\dfrac{265}2$ en $x^\star = \dfrac72$.
+}{}
 
 
