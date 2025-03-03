@@ -1,0 +1,51 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique : statistique \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\begin{mintedbox}{python}
+import math
+
+def MOYENNE(X):
+	N = len(X)
+	somme = sum(X)
+%	somme = 0
+%	for x in X:
+%		somme  = somme + x
+	return somme/N
+
+def VARIANCE(X):
+	moyenne = MOYENNE(X)
+	Y = [(x - moyenne)**2 for x in X]
+	return MOYENNE(Y)
+
+def ECARTTYPE(X):
+	return math.sqrt(VARIANCE(X))
+
+X = (1, 2, 3, 4, 5, 6,7, 8, 9, 10)
+mu = MOYENNE(X)
+sigma = ECARTTYPE(X)
+print(mu, sigma)
+\end{mintedbox}
+
+\exe{
+	
+}{}
+
+
+\end{document}
