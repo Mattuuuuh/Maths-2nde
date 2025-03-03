@@ -20,17 +20,63 @@
 
 
 \exe{
+	Pour chaque condition, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	\begin{enumerate}
+		\item $f$ s'annule en $1$.
+		\item $f$ s'annule en $-10$.
+		\item $f$ s'annule en $0$.
+		\item $f$ s'annule en $-10$ et en $1$.
+		\item Les racines de $f$ sont $2, -3, \dfrac27$, et $0$.
+	\end{enumerate}
+}{}
+
+\exe{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{}
+
+\exe{
+	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			4x^3 - 6x^2 - 2x + 3  = 0. \label{eq:2}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
+	\end{enumerate}
+}{}
+
+\exe{
+	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
+	\end{enumerate}
+}{}
+
+\exe{
 	\begin{enumerate}
 		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
 		\item Remplir le tableau de variations et de signes ci-dessous.
 	\end{enumerate}
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
+	\end{center}
 }{}
 
 
@@ -40,12 +86,14 @@
 		\item Remplir le tableau de variations et de signes ci-dessous.
 	\end{enumerate}
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $-6x-2$ / 1}
+	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
+	\end{center}
 }{}
 
 
@@ -55,12 +103,14 @@
 		\item Remplir le tableau de variations et de signes ci-dessous.
 	\end{enumerate}
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
+	\end{center}
 }{}
 
 
@@ -70,15 +120,31 @@
 		\item Remplir le tableau de variations et de signes ci-dessous.
 	\end{enumerate}
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
+	\end{center}
 }{}
 
-\newpage
+
+\exe{
+	Soit $f$ la fonction
+		\[ f(x) = -3 - (x+1)^2. \]
+	Montrer que $f$ atteint son maximum en $x^\star=-1$ et remplir le tableau de variations et de signes ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variations de $ -3 - (x+1)^2$ / 2, Signe de $ -3 - (x+1)^2$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
 
 \exe{
 	\begin{enumerate}
@@ -86,12 +152,14 @@
 		\item Remplir le tableau de variations et de signes ci-dessous.
 	\end{enumerate}
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $\sqrt{x}$ / 2, Signe de $\sqrt{x}$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
+	\end{center}
 }{}
 
 \end{document}
