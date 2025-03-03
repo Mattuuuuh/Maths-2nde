@@ -10,7 +10,6 @@ Le contenu du chapitre est le suivant.
 		\item Variables \texttt{int}, \texttt{bool}, \texttt{float}, \texttt{string} ; affectation ; instructions ; conditions.
 		\item Boucles \texttt{for} et \texttt{while}.
 		\item Fonctions à un ou plusieurs arguments.
-		\item Fonctions renvoyant un nombre aléatoire. Série statistique obtenue par la répétition de l'appel d'une telle fonction.
 	\end{itemize}
 
 Les capacités attendues sont les suivantes.
@@ -19,8 +18,6 @@ Les capacités attendues sont les suivantes.
 		\item Programmer, dans des cas simples, une boucle bornée, une boucle non bornée.
 		\item Dans des cas plus complexes : lire, comprendre, modifier ou compléter un algorithme ou un programme.
 		\item Écrire des fonctions simples ; lire, comprendre, modifier, compléter des fonctions plus complexes. Appeler une fonction.
-		\item Lire et comprendre une fonction renvoyant une moyenne, un écart type.
-		\item Écrire des fonctions renvoyant le résultat numérique d'une expérience aléatoire, d'une répétition d'expériences aléatoires indépendantes.
 	\end{itemize}
 
 \section{Synthaxe pseudo-code}
@@ -44,7 +41,7 @@ Bien sûr généralisable avec des formules pour $S_3 = 1+2³+...+n³$ p.ex. [$2
 
 Questions : à partir de quel n vaut-il mieux utiliser la formule plutôt qu'une boucle for?
 
-Simplification de complexité avec erreur. P.ex. $\sin(x) \equiv x$ ou $\cos(x) \equiv 1 - \dfrac{x^2}2$.
+Simplification de complexité avec erreur. P.ex. $\sin(x) \approx x$ ou $\cos(x) \approx 1 - \dfrac{x^2}2$.
 
 Algorithmes par dichotomie pour trouver une racine.
 
@@ -63,5 +60,32 @@ a = 3
 def fonction(x):
 	return x**2
 \end{mintedbox}
+
+\section{Application : dichotomie pour l'approximation de racines}
+
+\IncMargin{1em}
+\begin{algorithm}
+\SetKwInput{KwRes}{retourner}%
+\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+	\Input{
+	Fonction $f$ bien définie sur l'intervalle de départ $I=[a ;b]$ tel que $f(a) < 0 < f(b)$.
+	Précision souhaitée $\epsilon > 0$.
+	}
+	\Output{Intervalle de taille inférieur à $\epsilon$ contenant une racine de $f$.}
+	\BlankLine
+	\Tq{$b-a > \epsilon$}{
+		$m = \dfrac{a+b}2$ 		\hfill \emph{$m$ est le milieu de l'intervalle $I$}\\
+		\Si{ $G(m) \geq 0$}{
+			$I = [a ; m]$
+		}
+		\Sinon{
+			$I = [m ; b]$
+		}
+	}
+	\KwRes{L'intervalle $I$.¨}
+\caption{Dichotomie autour d'une racine.}\label{algo:seuil-geom}
+\end{algorithm}\DecMargin{1em} 
 
 
