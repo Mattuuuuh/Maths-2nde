@@ -1,0 +1,213 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique : affectation, condition, boucle \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 5
+b = 15
+m = (a+b)/2
+print(a, b, m)
+
+a = b
+b = a
+print(a, b, m)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & $a$ & $b$ & $m$ \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = -4
+b = 12
+print(a, b)
+
+temp = a
+a = b
+b = temp
+print(a, b, temp)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & $a$ & $b$ & $temp$ \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 13
+b = a+3
+print(a, b)
+
+a = a - 4
+b = 1.5*b - 10
+b = b+a
+print(a, b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|}\hline
+		Ligne & $a$ & $b$ \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+		$6$ && \\ \hline
+		$7$ && \\ \hline
+		$8$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\caption{Algorithmes d'affectation.}
+\label{fig:1}
+\end{figure}
+
+\exe{
+	On considère les algorithmes de la figure \ref{fig:1}.
+	\begin{enumerate}
+		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
+		\item Qu'impriment les trois algorithmes ?
+	\end{enumerate}
+}{}
+
+\newpage
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 4.5
+b = -2
+if a < b:
+	print(a)
+else:
+	print(b)
+a=a-4
+print(a+b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & $a$ & $b$ \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+		$6$ && \\ \hline
+		$7$ && \\ \hline
+		$8$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+k=0
+a = 2.5
+b = -1
+for k in range(1, 6):
+	b = b + 1
+	if b > a:
+		print(b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		$k$ & $a$ & $b$ \\ \hline
+		$0$ && \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 2.5
+b = -1
+while (b < a or b < 5):
+	b = b + 1
+	if b > a:
+		print(b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Itération de la boucle & $a$ & $b$ \\ \hline
+		$0$ && \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\caption{Algorithmes avec condition, boucle.}
+\label{fig:2}
+\end{figure}
+
+
+\exe{
+	On considère les algorithmes de la figure \ref{fig:2}.
+	\begin{enumerate}
+		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
+		\item Qu'impriment les trois algorithmes ?
+	\end{enumerate}
+}{}
+
+\end{document}
