@@ -1,12 +1,4 @@
 % DYSLEXIA SWITCH
-\newif\ifdys
-		
-				% ENABLE or DISABLE font change
-				% use XeLaTeX if true
-				\dystrue
-				\dysfalse
-
-
 \ifdys
 
 \documentclass[a4paper, 14pt]{extarticle}
@@ -29,9 +21,23 @@
 
 \usepackage[utf8x]{inputenc}
 %fonts
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
 
+\fi
+
+% SOLUTION SWITCH
+
+\ifsolutions
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+		\begin{sol} #2 \end{sol}
+	}
+\else
+	\newcommand{\exe}[2]{
+		\begin{ex} #1  \end{ex}
+	}
+	
 \fi
 
 
@@ -41,63 +47,97 @@ a4paper,
 margin=2cm,
 nomarginpar,% We don't want any margin paragraphs
 ]{geometry}
+%virgules
 \usepackage{icomma}
 
+% HEADER, ARRAY, ENUM, MULTIOCL
 \usepackage{fancyhdr}
 \usepackage{array}
-\usepackage{hyperref}
-
-\usepackage{multicol, enumerate}
+\usepackage{multicol, enumitem}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
-
 \usepackage{stackengine}
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
 % theorems
 
+\theoremstyle{theorem}
+\newtheorem{thm}{Théorème}
 \theoremstyle{plain}
-\newtheorem{theorem}{Th\'eor\`eme}
 \newtheorem*{sol}{Solution}
 \theoremstyle{definition}
-\newtheorem{ex}{Question}
+\newtheorem{ex}{Exercice}
+\newtheorem{dfn}{Définition}
+\newtheorem*{dfn*}{Définition}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newcounter{commonbox}
+\newtcbtheorem[use counter=commonbox]{theorem}{Théorème}%
+{fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{definition}{Définition}%
+{fonttitle=\bfseries}{th}
+
 
 % corps
-\usepackage{calrsfs}
-\newcommand{\C}{\mathcal{C}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rnn}{\mathbb{R}^{2n}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 
-% variance
-\newcommand{\Var}[1]{\text{Var}(#1)}
-
 % domain
-\newcommand{\D}{\mathbb{D}}
-
+\newcommand{\D}{\mathcal{D}}
+% for calligraphic C
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
 
 % date
 \usepackage{advdate}
-\AdvanceDate[0]
 
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\left\{ x \in \R \text{ tq. } #1 \right\}$
+}
+
+% vabs
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+
+%pinfty minfty
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
 
 % plots
 \usepackage{pgfplots}
 
-% table line break
-\usepackage{makecell}
-%tablestuff
-\def\arraystretch{2}
-\setlength\tabcolsep{15pt}
-
 %subfigures
 \usepackage{subcaption}
 
+%hyperlink footnote
+\usepackage{hyperref}
+
+%wider tabulars
+%\def\arraystretch{2}
+%\setlength\tabcolsep{15pt}
+
+%couleurs
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
 \definecolor{myr}{RGB}{199, 68, 64}
+
+% vecteur
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% tableaux var, signe
+\usepackage{tkz-tab}
+
 
 % algo
 \usepackage[ruled,vlined,linesnumbered,french]{algorithm2e}
@@ -122,6 +162,7 @@ nomarginpar,% We don't want any margin paragraphs
     breakafter=,,
     fontsize=\small,
     numbersep=8pt,
+    tabsize=4, % tab ident = 4 spaces
     #1},
   boxsep=0pt,
   left skip=0pt,

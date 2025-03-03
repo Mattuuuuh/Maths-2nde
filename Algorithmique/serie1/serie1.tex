@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Crible d'Ératosthène \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique : Crible d'Ératosthène \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
 \begin{center}
@@ -87,21 +87,20 @@
 
 
 \begin{mintedbox}{python}
-N = 50
-rest=[1]
-primes=[]
-
-for i in range(1,N+1):
-    if i in rest:
-        continue
-    primes+=[i]
-    for k in range(1,N//i+1):
-        multiple = k*i
-        if not multiple in rest:
-            rest+=[multiple]
+def premiers(N):
+	rest=[1]
+	primes=[]
+	for i in range(1,N+1):
+	    if i in rest:
+	        continue
+	    primes+=[i]
+	    for k in range(1,N//i+1):
+	        multiple = k*i
+	        if not multiple in rest:
+	            rest+=[multiple]
+	return primes
     
-print(primes)
-print(rest)
+print(premiers(100))
 \end{mintedbox}
 
 \end{document}
