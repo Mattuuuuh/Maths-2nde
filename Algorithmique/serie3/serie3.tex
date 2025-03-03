@@ -1,0 +1,37 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique : dichotomie \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	On souhaite approximer la valeur de $\sqrt{2}$, qu'on sait solution positive de l'équation
+		\[ x^2 = 2. \]
+	
+}{}
+
+\begin{mintedbox}{python}
+def racine2(a, b):
+	if b-a < 1e-3:
+		return a # or return b
+	m = (a+b)/2
+	if m**2 > 2:
+		return racine2(a,m)
+	return racine2(m,b)
+\end{mintedbox}
+
+\end{document}
