@@ -146,6 +146,7 @@ nomarginpar,% We don't want any margin paragraphs
 % MINTED FOR PYTHON ALGORITHMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \usepackage{tcolorbox}
 \tcbuselibrary{minted,breakable,xparse,skins}
 \definecolor{bg}{gray}{0.95}
@@ -163,6 +164,7 @@ nomarginpar,% We don't want any margin paragraphs
     fontsize=\small,
     numbersep=8pt,
     tabsize=4, % tab ident = 4 spaces
+    fontfamily=courier, %important pour les signes <, >
     #1},
   boxsep=0pt,
   left skip=0pt,
