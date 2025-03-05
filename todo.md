@@ -2,6 +2,7 @@ Chapitres :
 	Échantillonnage, 
 	Variations et extrema, 
 	Fonctions de références.
+	Algorithmique
 
 Algorithmique : 
 	échantillonnage,
@@ -18,7 +19,7 @@ Algorithmique :
 
 Autres : 
 	Logique !!! (vrai/faux, contre-exemples, etc...)
-    Contraposition, réciproque, ...
+   	Contraposition, réciproque, ...
 	Entraînement (in)équations,
 	Fonction paire, impaire,
 	tableau de signes, équations produit ou quotient.
