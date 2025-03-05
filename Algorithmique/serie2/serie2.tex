@@ -26,8 +26,8 @@
 	Implémenter (compléter?) les algorithmes et répondre aux questions suivantes.
 	
 	\begin{enumerate}
-		\item Appeler les fonctions \texttt{somme(N)} et \texttt{sommeclose(N)} pour $N=0, 1, 5, 10, 2^{10}, 2^{25}, 2^{28}$.
-		Que dire sur les valeurs retournées ? Que dire sur le temps d'execution ?
+		\item Appeler les fonctions \texttt{somme(N)} et \texttt{somme\_close(N)} pour $N=0, 1, 5, 10, 2^{10}, 2^{25}, 2^{28}$.
+		Que dire sur les valeurs renvoyées ? Que dire sur les temps d'execution ?
 		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme(N)} termine ? 
 		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme\_close(N)} termine ? 
 	\end{enumerate}
@@ -42,16 +42,16 @@ def somme(N):
 		S = S+i
 	return S
 \end{mintedbox}
-\caption{Algorithme 1}
+\caption{Version 1}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-def sommeclose(N):
+def somme_close(N):
 	return N*(N+1)/2
 \end{mintedbox}
-\caption{Algorithme 2}
+\caption{Version 2}
 \end{subfigure}
-\caption{Algorithmes de calcul de somme $S = 1 + \dots N$.}
+\caption{Programmes de calcul de la somme $S = 1 + \dots +N$.}
 \label{fig:1}
 \end{figure}
 
@@ -63,8 +63,8 @@ def sommeclose(N):
 	Implémenter (compléter?) les algorithmes et répondre aux questions suivantes.
 	
 	\begin{enumerate}
-		\item Appeler les fonctions \texttt{somme3(N)} et \texttt{somme3close(N)} pour $N=1, 2, 5, 9, 2^{10}, 2^{23}, 2^{25}$.
-		Que dire sur les valeurs retournées ? Que dire sur le temps d'execution ?
+		\item Appeler les fonctions \texttt{somme3(N)} et \texttt{somme3\_close(N)} pour $N=1, 2, 5, 9, 2^{10}, 2^{23}, 2^{25}$.
+		Que dire sur les valeurs renvoyées ? Que dire sur les temps d'execution ?
 		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme3(N)} termine ? 
 		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme3\_close(N)} termine ? 
 	\end{enumerate}
@@ -79,7 +79,7 @@ def somme3(N):
 		S = S+i**3
 	return S
 \end{mintedbox}
-\caption{Algorithme 1}
+\caption{Version 1}
 \label{fig:2a}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
@@ -87,28 +87,30 @@ def somme3(N):
 def somme3_close(N):
 	return (N*(N+1)/2)**2
 \end{mintedbox}
-\caption{Algorithme 2}
+\caption{Version 2}
 \end{subfigure}
-\caption{Algorithmes de calcul de somme $S = 1^3 + \dots N^3$.}
+\caption{Programmes de calcul de la somme $S = 1^3 + \dots + N^3$.}
 \label{fig:2}
 \end{figure}
 
 \newpage
 
 \exe{[Exponentiation rapide]
-	Le but de l'exercice est de calculer $q^N$ le plus vite possible, où $q, N\in\N$ sont deux entiers naturels.
+	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
 	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
 	
 	\begin{enumerate}
-		\item Créer une fonction \texttt{puissance(q,N)} qui retourne $q^N$ en utilisant uniquement la multiplication.
-		\item Combien de multiplications sont nécessaires pour  \texttt{puissance(q,N)} termine ?
-		\item Considérons l'algorithme \texttt{fastexp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+		\item Créer une fonction \texttt{puissance(q,N)} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:3}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
 		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
-		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}
+		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
 	\end{enumerate}
-}{}
 
+}{}
+	
 % fast exponentiation
+\begin{figure}[h]
 \begin{mintedbox}{python}
 def fastexp(q, n):
 	r = q
@@ -116,13 +118,27 @@ def fastexp(q, n):
 		r = r**2
 	return r
 \end{mintedbox}
+\caption{Exponentiation rapide}
+\label{fig:3}
+\end{figure}
+
+\exe{
+	Démonter que le programme de la figure \ref{fig:4} renvoie la somme $1 + \dots + N$ pour $N\in\Z$, $N$ non nul, et $0$ pour $N\leq0$.
+	
+	Écrire un algorithme récursif renvoyant la somme $S = 1 + 2^2 + 3^3 + \dots + N^N$ pour $N\in\N$.
+}{}
 
 % SOMME(N) RECURSIVE
-%\begin{mintedbox}{python}
-%def somme_recursive(N):
-%	if N==0:
-%		return 0
-%	return N+somme_recursive(N-1)
-%\end{mintedbox}
+\begin{figure}[h]
+\begin{mintedbox}{python}
+def somme_recursive(N):
+	if N<=0:
+		return 0
+	return N+somme_recursive(N-1)
+\end{mintedbox}
+\caption{Programme récursif de calcul de la somme $S=1+\dots+N$.}
+\label{fig:4}
+\end{figure}
+
 
 \end{document}
