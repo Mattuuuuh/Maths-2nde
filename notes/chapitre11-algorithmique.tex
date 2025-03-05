@@ -148,41 +148,122 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 
 \section{Application : dichotomie pour l'approximation de racines}
 
-	\IncMargin{1em}
-	\begin{algorithm}
-	\SetKwInput{KwRes}{retourner}%
-	\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
-	\SetKwFor{Tq}{tant que}{faire}{fin tq}%
-	\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
-		\Input{
-		Fonction $f$ bien définie sur l'intervalle de départ $I=[a ;b]$ tel que $f(a) < 0 < f(b)$.
-		Précision souhaitée $\epsilon > 0$.
-		}
-		\Output{Intervalle de taille inférieur à $\epsilon$ contenant une racine de $f$.}
-		\BlankLine
-		\Tq{$b-a > \epsilon$}{
-			$m = \dfrac{a+b}2$ 		\hfill \emph{$m$ est le milieu de l'intervalle $I$}\\
-			\Si{ $G(m) \geq 0$}{
-				$I = [a ; m]$
-			}
-			\Sinon{
-				$I = [m ; b]$
-			}
-		}
-		\KwRes{L'intervalle $I$.¨}
-	\caption{Dichotomie autour d'une racine.}\label{algo:dichotomie}
-	\end{algorithm}\DecMargin{1em} 
+On dispose d'une fonction $f$ dont on souhaite trouver une racine, c'est-à-dire trouver un antécédent $x_0\in\D_f$ tel que $f(x_0)=0$.
+Lorsque la factorisation de $f$ en produit de facteurs linéaires n'est pas connue (et d'ailleurs, elle n'existe pas en générale, voir le théorème d'Abel-Ruffini), il faut se contenter d'une approximation de $x_0$.
 
-\begin{figure}
+\ex{Racine carrée de $7$}{
+	Par exemple, pour calculer approximativement $\sqrt{7}$, on pourra considérer la fonction 
+		\[ f(x) = x^2 - 7, \]
+	et lui chercher une racine $x_0$.
+	Il existe deux racines : une positive et une négative. 
+	Pour approximer la racine positive, on cherchera $x_0$ entre $2$ et $3$, car 
+		\[ 2 = \sqrt{4} < \sqrt{7} < \sqrt{9} = 3 \]
+	puisque la fonction racine carrée est croissante.
+	
+	Le but du jeu est d'entretenir un intervalle $[a ; b]$ dans lequel $x_0 = \sqrt{7}$ appartient.
+	Pour réduire la taille de l'intervalle, on évalue calcule l'image du milieu $m = \dfrac{a+b}2$ de l'intervalle par $f$.
+	\begin{itemize}
+		\item Si cette image $f(m)$ est supérieure à $0$, la racine $x_0$ se situe entre $a$ et $m$, et on met à jour l'intervalle qui devient $[a ; m]$.
+		\item Si l'image $f(m)$ est inférieure à $0$, la racine $x_0$ si situe entre $m$ et $b$, et on met à jour l'intervalle qui devient $[m ; b]$.
+	\end{itemize}
+	Cet algorithme est donc récursif, avec condition de sortie généralement donnée par la longueur de l'intervalle : dès que l'intervalle est de longueur inférieur à $10^{-5}$ (par exemple), on s'arrête.
+	
+	Les quatre premières étapes sont décrites dans la figure \ref{fig:dichotomie}.
+	On en déduit que $\sqrt{7} \in [2,625 ; 2,6875]$.
+	
+	L'implémentation de l'algorithme en Python est donnée figure \ref{algo:dichotomie-python}.
+	Celle-ci nous donne 
+		\[ \sqrt{7} \in [2,6457443237304688 ; 2,645751953125]. \]
+	En continuant ainsi, on obtient l'approximation de la calculatrice :
+		\[ \sqrt{7} \approx 2,645751311. \]
+}{}
+
+	\begin{figure}
+	\begin{subfigure}{.5\textwidth}
+	%\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = 1.9, xmax=3.1, ymin=-3.5, ymax=2.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {2, 3}, ytick = {-4, -3, ..., 4}]
+		
+		% (f)
+		\addplot[myb, very thick, domain =1.9:3.1, samples=50] {x^2-7}  node[pos = .7, above=15pt] {$\C_f$};
+		
+		% a
+		\addplot[myg, thick, mark=|, mark size = 3] (2,0) node[above] {$a$};
+		% b
+		\addplot[myg, thick, mark=|, mark size = 3] (3,0) node[above] {$b$};
+		% m1
+		\addplot[myr, thick, mark=|, mark size = 3] (2.5,0) node[above] {$m_1$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Première étape. $a=2 ; m_1 = 2,5 ; b=3$.}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = 2.4, xmax=3.1, ymin=-3.5, ymax=2.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {2, 3}, ytick = {-4, -3, ..., 4}]
+		
+		% (f)
+		\addplot[myb, very thick, domain =1.9:3.1, samples=50] {x^2-7}  node[pos = .7, above=15pt] {$\C_f$};
+	
+		% b
+		\addplot[myg, thick, mark=|, mark size = 3] (3,0) node[above] {$b$};
+		% m1
+		\addplot[myg, thick, mark=|, mark size = 3] (2.5,0) node[above] {$m_1$};
+		% m2
+		\addplot[myr, thick, mark=|, mark size = 3] (2.75,0) node[below] {$m_2$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Troisième étape. $m_1=2,5 ; m_2=2,75 ; b = 3$.}
+	\end{subfigure}
+	
+	\begin{subfigure}{.5\textwidth}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = 2.4, xmax=2.85, ymin=-3.5, ymax=2.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {2, 3}, ytick = {-4, -3, ..., 4}]
+		
+		% (f)
+		\addplot[myb, very thick, domain =1.9:3.1, samples=50] {x^2-7}  node[pos = .7, above=15pt] {$\C_f$};
+	
+		% m1
+		\addplot[myg, thick, mark=|, mark size = 3] (2.5,0) node[above] {$m_1$};
+		% m2
+		\addplot[myg, thick, mark=|, mark size = 3] (2.75,0) node[below] {$m_2$};
+		% m3
+		\addplot[myr, thick, mark=|, mark size = 3] (2.625,0) node[above] {$m_3$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Troisième étape. $m_1=2,5 ; m_2=2,75 ; m_3 = 2,6875$.}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = 2.525, xmax=2.85, ymin=-3.5, ymax=2.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {2, 3}, ytick = {-4, -3, ..., 4}]
+		
+		% (f)
+		\addplot[myb, very thick, domain =1.9:3.1, samples=50] {x^2-7}  node[pos = .7, above=15pt] {$\C_f$};
+	
+		% m2
+		\addplot[myg, thick, mark=|, mark size = 3] (2.75,0) node[below] {$m_2$};
+		% m3
+		\addplot[myg, thick, mark=|, mark size = 3] (2.625,0) node[above] {$m_3$};
+		% m4
+		\addplot[myr, thick, mark=|, mark size = 3] (2.6875,0) node[below] {$m_4$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Quatrième étape. $m_3 = 2,625 ; m_4 =2,6875 ; m_2=2,75$.}
+	\end{subfigure}
+	%\end{center}
+	\caption{Les quatre premières étapes de l'algorithme de recherche de la racine positive de $f(x) = x^2 - 7$ en commençant avec l'intervalle $[2 ; 3]$. On en déduit que $\sqrt{7} \in [m_3 ; m4] = [2,625 ; 2,6875]$. }
+	\label{fig:dichotomie}
+	\end{figure}
+
+
+\begin{figure}[h]
 \begin{mintedbox}{python}
-# exemple de fonction f
 def f(x):
 	return x**2 - 7
 
-err = 1e-5 # précision souhaitée
+erreur = 1e-5 # précision souhaitée
 
 def dichotomie(a,b):
-	if b-a < err: # condition de sortie
+	if b-a < erreur: # condition de sortie
 		return a, b
 	m = (a+b)/2 # milieu de l'intervalle
 	if f(m) > 0:
@@ -191,13 +272,39 @@ def dichotomie(a,b):
 	
 dichotomie(2,3) # car f(2) < 0 et f(3) > 0
 
-err = 1e-10 # meilleure précision
+erreur = 1e-10 # meilleure précision
 dichotomie(2,3)
 \end{mintedbox}
 
-\caption{Programme de recherche de racine de $f(x)=x^2 - 7$ par dichotomie.}
-\label{algo:dichotomie-python}
+	\caption{Programme de recherche de racine de $f(x)=x^2 - 7$ par dichotomie.}
+	\label{algo:dichotomie-python}
 \end{figure}
+
+\IncMargin{1em}
+\begin{algorithm}
+\SetKwInput{KwRes}{retourner}%
+\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+	\Input{
+	Fonction $f$ bien définie sur l'intervalle de départ $I=[a ;b]$ tel que $f(a) < 0 < f(b)$.
+	Précision souhaitée $\epsilon > 0$.
+	}
+	\Output{Intervalle de taille inférieur à $\epsilon$ contenant une racine de $f$.}
+	\BlankLine
+	\Tq{$b-a > \epsilon$}{
+		$m = \dfrac{a+b}2$ 		\hfill \emph{$m$ est le milieu de l'intervalle $I$}\\
+		\Si{ $G(m) \geq 0$}{
+			$I = [a ; m]$
+		}
+		\Sinon{
+			$I = [m ; b]$
+		}
+	}
+	\KwRes{L'intervalle $I$.¨}
+\caption{Dichotomie autour d'une racine.}\label{algo:dichotomie}
+\end{algorithm}\DecMargin{1em} 
+
 
 
 
