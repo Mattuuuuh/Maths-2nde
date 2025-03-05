@@ -616,10 +616,12 @@ dot/.default = black % size of the circle diameter
   minted options={%
     linenos,
     gobble=0,
-    breaklines=true,
+    breaklines=false, % otherwise it breaks for no apparent reason?
     breakafter=,,
     fontsize=\small,
     numbersep=8pt,
+    tabsize=4, % tab ident = 4 spaces
+    fontfamily=courier, %important pour les signes <, >
     #1},
   boxsep=0pt,
   left skip=0pt,
