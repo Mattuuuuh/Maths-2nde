@@ -20,72 +20,203 @@ Les capacités attendues sont les suivantes.
 		\item Écrire des fonctions simples ; lire, comprendre, modifier, compléter des fonctions plus complexes. Appeler une fonction.
 	\end{itemize}
 
-\section{Synthaxe pseudo-code}
+%\section{Variables, boucles, fonctions}
+% est-ce bien nécessaire ? complexifie pour aucain gain je trouve.
+%\subsection{Synthaxe en pseudo-code} 
+
+\section{Variables, boucles, fonctions : synthaxe en Python}
+
+\subsection{Variables et boucles}
+
+
+
+\subsection{Fonctions}
+
+Retour : dès que \texttt{return} est atteint, rien la valeur est retournée et rien d'autre n'est lu.
+Les fonctions suivantes sont donc équivalentes.
+
+\begin{mintedbox}{python}
+def premiere(a, b):
+	if a <= b:
+		return b
+	else:
+		return a
+		
+def seconde(a,b):
+	if a <= b:
+		return b
+	return a
+\end{mintedbox}
+
+\subsection{Algorithmes récursifs}
+
+Un algorithme récursif est une fonction qui fait appel à elle-même.
+Pour ne pas tomber dans une boucle infinie, il faut s'assurer de deux choses.
+	\begin{enumerate}
+		\item La fonction s'appelle elle-même en changeant au moins un paramètre.
+		\item Le paramètre changé atteint vérifie une condition de sortie qui termine la boucle.
+	\end{enumerate}
+
+\ex{Factorielle}{
+	Supposons qu'on veuille calculer la \emph{factorielle} de $n$, notée
+		\[ n! = 1 \times 2 \times 3 \times \cdots \times (n-1) \times n. \]
+	 Nous souhaitons créer une fonction \texttt{factorielle(n)} qui retourne $n!$.
+	 On reconnaît que 
+		\[ n! = n \times (n-1)!, \]
+	et donc qu'on peut calculer \texttt{factorielle(n)} à l'aide de \texttt{factorielle(n-1)}.
+	Pour ne pas tomber dans une récursion infinie, on pose la condition de sortie qui est que $1! = 1$, et donc $\texttt{factorielle(1)}=1$.		
+		
+
+}{}
+\begin{mintedbox}{python}
+def factorielle(n):
+	if n==1:
+		return 1
+	return n*factorielle(n-1)
+\end{mintedbox}
+
+\ex{Coefficient binomial}{
+	Supposons qu'on veuille calculer le nombre de façon d'obtenir $4$ piles en $10$ lancers d'une pièce.
+	
+	On généralise ce problème à obtenir $k$ piles en $n$ lancers, où $n\geq k \geq 0$, et on appelle \texttt{binome(k,n)} cette valeur. \footnote{Voir l'article \emph{Coefficient binomial} sur Wikipédia.}
+	
+	On distingue deux cas après le premier lancer :
+		\begin{itemize}
+			\item soit on obtient pile, et il reste $k-1$ piles en $n-1$ lancers à obtenir ;
+			\item soit on obtient face, et il reste $k$ piles en $n-1$ lancers à obtenir.
+		\end{itemize}
+	Par conséquent, $\texttt{binome(k,n)} = \texttt{binome(k-1,n-1)} + \texttt{binome(k,n-1)}$.
+	
+	Comme $k$ et $n$ diminuent en parallèle, on définit deux conditions de sortie : $\texttt{binome(n,n)} = \texttt{binome(0,n)} = 1$.
+	
+	Un appel \texttt{binome(4,10)} permet d'obtenir de répondre à la question de départ : il y a $210$ façons d'obtenir $4$ piles en $10$ lancers d'une pièce.
+	Ce résultat est obtenu en $5,8 \time 10^{-5}$ secondes.
+}{}
+		
+\begin{mintedbox}{python}
+def binome(k, n):
+	if k==n or k == 0:
+		return 1
+	return binome(k-1, n-1) + binome(k,n-1)
+\end{mintedbox}
 
 
 
 \section{Coût d'un algorithme : complexité en temps et en espace}
 
-On compte les opérations ($+$ et $\times$) ce qui est une simplification de la réalité (Machine de Turning vs. arithmetic model : real RAM)
-En effet, fait $\times 2$ en binaire est plus facile que faire $\times3$, au même titre que faire $\times10$ est plus facile que faire $\times11$ en base $10$.
+Pour mesurer le coût des algorithmes étudiés, nous nous mettons dans le modèle RAM (pour \emph{random-access machine}).
+Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; des opérations arithmétiques de base (addition, multiplication) ; et de certaines instructions de base (désaffectation de variable, copie, saut au sein du code, conditions).
 
-Méoïzation? l'exemple de Fibonacci est un algo récursif pas hyper simple? Faisable quand même.
+\dfn{Complexité en temps d'un algorithme (modèle RAM)}{
+	Dans ce modèle, chaque opération arithmétiques \emph{élémentaire} sur des nombres réels est supposée prendre une même unité de temps.
+	
+	On compte alors les opérations arithmétiques élémentaires comme fonction des paramètres d'entrée.
+	Celles-ci sont
+	\begin{enumerate}
+		\item l'addition de deux nombres réels ; et
+		\item la multiplication de deux nombres réels.
+	\end{enumerate}
+}{}
 
-Peut-être avec les deux algos et $t_1, t_2$ les temps au début et à la fin. Remplir $print(t2-t1)$ et comparer le résultat (tous les $F_{\leq n}$ vs juste $F_n$) et les temps d'execution des deux programmes pour $n=3, 4, 10, 20, 30$.
+\nt{
+	Le modèle de Turing prend en compte la taille des nombres en question et est plus fidèle à la réalité. En effet, calculer $3\times7$ est plus rapide que $302194\times8491023$ !
+}{}
 
-Comparer le résultat et le timing avec la forme close encore (inexact sans rounding mais plus rapide?)
+\dfn{Complexité en espace d'un algorithme (modèle RAM)}{
+	Pour mesurer l'espace que prend un algorithme dans le modèle RAM, on compte le plus grand nombre de réels qui doivent être stockés à la fois.
+	Ce nombre dépend des paramètres d'entrée de l'algorithme en question.
+}{}
 
-Complexité simple exacte : $S = 1 + ... + n$ ($n-1$ opérations), vs $n(n+1)/2$ (4 opérations)
+\ex{Exponentiation rapide}{
+	Pour calculer $5^{18}$, on a plusieurs façons de faire.
+	\begin{enumerate}	
+		\item Calculer toutes les puissances de $5$, de $1$ à $18$.
+		On fait alors $17$ multiplications, et on garde $18$ nombres en mémoires.
+		\item Calculer toutes les puissances de $5$, de $1$ à $18$, en ne gardant en mémoire que la dernière puissance.
+		On fait alors $17$ multiplications, et on garde $2$ nombres en mémoire ($5$ et la dernière puissance de $5$).
+		\item Calculer $5, 5^2, 5^4, 5^8, 5^{16}$ avec mises au carré successives, en ne gardant en mémoire que $5^2$ et $5^{16}$.
+		Multiplier les deux résultats pour obtenir $5^{18}$.
+		On fait alors $5$ multiplications, et on garde $2$ nombres en mémoire.
+	\end{enumerate}
+	
+	La troisième façon de calculer une puissance est optimale car elle prend peu de temps et peu de mémoire.
+	C'est l'\emph{exponentiation rapide}.
+}{}
 
-Bien sûr généralisable avec des formules pour $S_3 = 1+2³+...+n³$ p.ex. [$2(n-1) + (n-1)$] opérations vs expression de forme fermée vs $S^2$.
-
-Questions : à partir de quel n vaut-il mieux utiliser la formule plutôt qu'une boucle for?
-
-Simplification de complexité avec erreur. P.ex. $\sin(x) \approx x$ ou $\cos(x) \approx 1 - \dfrac{x^2}2$.
-
-Algorithmes par dichotomie pour trouver une racine.
-
-Fast exponentiation : comment calculer $q^n$ le plus vite possible ?
 
 
-\section{Synthaxe Python}
-
-\begin{mintedbox}{python}
-from math import *
-import numpy as np
-from matplotlib import pyplot as plt
-
-a = 3
-
-def fonction(x):
-	return x**2
-\end{mintedbox}
 
 \section{Application : dichotomie pour l'approximation de racines}
 
-\IncMargin{1em}
-\begin{algorithm}
-\SetKwInput{KwRes}{retourner}%
-\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
-\SetKwFor{Tq}{tant que}{faire}{fin tq}%
-\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
-	\Input{
-	Fonction $f$ bien définie sur l'intervalle de départ $I=[a ;b]$ tel que $f(a) < 0 < f(b)$.
-	Précision souhaitée $\epsilon > 0$.
-	}
-	\Output{Intervalle de taille inférieur à $\epsilon$ contenant une racine de $f$.}
-	\BlankLine
-	\Tq{$b-a > \epsilon$}{
-		$m = \dfrac{a+b}2$ 		\hfill \emph{$m$ est le milieu de l'intervalle $I$}\\
-		\Si{ $G(m) \geq 0$}{
-			$I = [a ; m]$
+	\IncMargin{1em}
+	\begin{algorithm}
+	\SetKwInput{KwRes}{retourner}%
+	\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+	\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+	\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+		\Input{
+		Fonction $f$ bien définie sur l'intervalle de départ $I=[a ;b]$ tel que $f(a) < 0 < f(b)$.
+		Précision souhaitée $\epsilon > 0$.
 		}
-		\Sinon{
-			$I = [m ; b]$
+		\Output{Intervalle de taille inférieur à $\epsilon$ contenant une racine de $f$.}
+		\BlankLine
+		\Tq{$b-a > \epsilon$}{
+			$m = \dfrac{a+b}2$ 		\hfill \emph{$m$ est le milieu de l'intervalle $I$}\\
+			\Si{ $G(m) \geq 0$}{
+				$I = [a ; m]$
+			}
+			\Sinon{
+				$I = [m ; b]$
+			}
 		}
-	}
-	\KwRes{L'intervalle $I$.¨}
-\caption{Dichotomie autour d'une racine.}\label{algo:seuil-geom}
-\end{algorithm}\DecMargin{1em} 
+		\KwRes{L'intervalle $I$.¨}
+	\caption{Dichotomie autour d'une racine.}\label{algo:dichotomie}
+	\end{algorithm}\DecMargin{1em} 
 
+\begin{figure}
+\begin{mintedbox}{python}
+# exemple de fonction f
+def f(x):
+	return x**2 - 7
+
+err = 1e-5 # précision souhaitée
+
+def dichotomie(a,b):
+	if b-a < err: # condition de sortie
+		return a, b
+	m = (a+b)/2 # milieu de l'intervalle
+	if f(m) > 0:
+		return dichotomie(a,m)
+	return dichotomie(m, b)
+	
+dichotomie(2,3) # car f(2) < 0 et f(3) > 0
+
+err = 1e-10 # meilleure précision
+dichotomie(2,3)
+\end{mintedbox}
+
+\caption{Programme de recherche de racine de $f(x)=x^2 - 7$ par dichotomie.}
+\label{algo:dichotomie-python}
+\end{figure}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%% IDÉES %%%%%%%%%%
+%On compte les opérations ($+$ et $\times$) ce qui est une simplification de la réalité (Machine de Turning vs. arithmetic model : real RAM)
+%En effet, fait $\times 2$ en binaire est plus facile que faire $\times3$, au même titre que faire $\times10$ est plus facile que faire $\times11$ en base $10$.
+%Méoïzation? l'exemple de Fibonacci est un algo récursif pas hyper simple? Faisable quand même.
+%Peut-être avec les deux algos et $t_1, t_2$ les temps au début et à la fin. Remplir $print(t2-t1)$ et comparer le résultat (tous les $F_{\leq n}$ vs juste $F_n$) et les temps d'execution des deux programmes pour $n=3, 4, 10, 20, 30$.
+%Comparer le résultat et le timing avec la forme close encore (inexact sans rounding mais plus rapide?)
+%Complexité simple exacte : $S = 1 + ... + n$ ($n-1$ opérations), vs $n(n+1)/2$ (4 opérations)
+%Bien sûr généralisable avec des formules pour $S_3 = 1+2³+...+n³$ p.ex. [$2(n-1) + (n-1)$] opérations vs expression de forme fermée vs $S^2$.
+%Questions : à partir de quel n vaut-il mieux utiliser la formule plutôt qu'une boucle for?
+%Simplification de complexité avec erreur. P.ex. $\sin(x) \approx x$ ou $\cos(x) \approx 1 - \dfrac{x^2}2$.
+%Algorithmes par dichotomie pour trouver une racine.
+%Fast exponentiation : comment calculer $q^n$ le plus vite possible ?
 
