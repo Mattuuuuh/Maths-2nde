@@ -74,7 +74,9 @@
 
 \exe{\label{ex:4}
 	À l'aide de l'exercice \ref{ex:1} remplir les tableaux de signes ci-dessous et donner
-		\[ \{ x \in \R \text{ tq. } f(x) \geq 0 \} \]
+		\begin{align*}
+			\{ x \in \R \text{ tq. } f(x) \geq 0 \}, && \{ x \in \R \text{ tq. } g(x) \leq 0 \}, && \{ x \in \R \text{ tq. } h(x) \geq 0 \}
+		\end{align*}
 	sous forme d'union d'intervalles.
 	
 	\begin{center}
@@ -90,7 +92,7 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
-	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $f(x) = x(-4x-12)$ / 1}
+	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / 1}
 	       		{,,,}
 	\end{tikzpicture}
 	
@@ -99,7 +101,7 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $f(x) = -10x(x+3)(3x-10)$ / 1}
+	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / 1}
 	       		{,,,,}
 	\end{tikzpicture}
 	\end{center}
@@ -113,11 +115,11 @@
 
 \exe{
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
-		\[ f(x) = \dfrac{3-x}{6x^2 - 5x - 4} \geq 0 \]
+		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
 	
 	\begin{enumerate}
-		\item Montrer que $6x^2 - 5x - 4 = (3x-4)(2x+1)$.
-		\item En déduire les valeurs interdites et donc $\D_f$.
+		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
+		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
 		\item Remplir le tableau de signes ci-dessous.
 		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
@@ -133,7 +135,21 @@
 	\end{center}
 }{}
 
+\exe{
+	Donner le domaine de définition $\D_f$ de la fonction
+		\[ f(x) = \dfrac{\sqrt{7+2x}}{(3x+1) \sqrt{2-x}}, \]
+	et trouver l'ensemble des $x\in\D_f$ vérifiant $f(x) \leq 0$.
+}{}
 
+\exe{
+	Soit une fonction $f$ donnée par
+		\[ f(x) = \dfrac{4x-8}{-2x^2 + 5x + 12}. \]
+	\begin{enumerate}
+		\item Montrer que $-2x^2 + 5x + 12 = -2\left(x+\dfrac32\right)(x-4)$.
+		\item En déduire $\D_f$.
+		\item Donner $\{ x \in \D_f \text{ tq. } f(x) \leq 0 \}$ sous forme d'union d'intervalles.
+	\end{enumerate}
+}{}
 
 
 \end{document}
