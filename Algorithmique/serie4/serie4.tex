@@ -36,7 +36,7 @@ print(a, b, m)
 \hfill
 \begin{subfigure}{.45\textwidth}
 	\begin{tabular}{|c|c|c|c|}\hline
-		Ligne & $a$ & $b$ & $m$ \\ \hline
+		Ligne & a & b & m \\ \hline
 		$1$ &&& \\ \hline
 		$2$ &&& \\ \hline
 		$3$ &&& \\ \hline
@@ -64,7 +64,7 @@ print(a, b, temp)
 \hfill
 \begin{subfigure}{.45\textwidth}
 	\begin{tabular}{|c|c|c|c|}\hline
-		Ligne & $a$ & $b$ & $temp$ \\ \hline
+		Ligne & a & b & temp \\ \hline
 		$1$ &&& \\ \hline
 		$2$ &&& \\ \hline
 		$3$ &&& \\ \hline
@@ -92,7 +92,7 @@ print(a, b)
 \hfill
 \begin{subfigure}{.45\textwidth}
 	\begin{tabular}{|c|c|c|}\hline
-		Ligne & $a$ & $b$ \\ \hline
+		Ligne & a & b \\ \hline
 		$1$ && \\ \hline
 		$2$ && \\ \hline
 		$3$ && \\ \hline
@@ -104,19 +104,63 @@ print(a, b)
 	\end{tabular}
 \end{subfigure}
 
-\caption{Algorithmes d'affectation.}
+\caption{Trois programmes d'affectation.}
 \label{fig:1}
 \end{figure}
 
 \exe{
-	On considère les algorithmes de la figure \ref{fig:1}.
+	On considère les programmes de la figure \ref{fig:1}.
 	\begin{enumerate}
 		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois algorithmes ?
+		\item Qu'impriment les trois programmes ?
 	\end{enumerate}
 }{}
 
-\newpage
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 13
+b = 15
+print(a < b)
+C = (a != b)
+print(C, not C)
+
+print(C and True)
+print(not (C and C))
+print((not C) and C)
+
+print(a < b or a > b)
+print((not C) or C)
+print(not (C or C))
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+\begin{mintedbox}{python}
+a = -5
+b = -2
+D = (a < b)
+E = (a**2 < b**2)
+print(D, E)
+
+if D and not E:
+	print('Décroissant')
+elif D and E:
+	print('Croissant')
+\end{mintedbox}
+\end{subfigure}
+
+\caption{Deux programmes avec conditions.}
+\label{fig:3}
+\end{figure}
+
+\exe{
+	On considère les deux programmes de la figure \ref{fig:3} au verso.
+	Qu'impriment-ils ?
+}{}
+
+%\newpage
 
 
 \begin{figure}[h]
@@ -163,7 +207,7 @@ for k in range(1, 6):
 \hfill
 \begin{subfigure}{.45\textwidth}
 	\begin{tabular}{|c|c|c|c|}\hline
-		$k$ & $a$ & $b$ \\ \hline
+		Boucle indexée par $k$ & $a$ & $b$ \\ \hline
 		$0$ && \\ \hline
 		$1$ && \\ \hline
 		$2$ && \\ \hline
@@ -197,16 +241,17 @@ while (b < a or b < 5):
 	\end{tabular}
 \end{subfigure}
 
-\caption{Algorithmes avec condition, boucle.}
+\caption{Trois programmes avec conditions et boucles.}
 \label{fig:2}
 \end{figure}
 
 
 \exe{
-	On considère les algorithmes de la figure \ref{fig:2}.
+	On considère les programmes de la figure \ref{fig:2} au verso.
 	\begin{enumerate}
-		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois algorithmes ?
+		%\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
+		\item Remplir les tableaux avec la valeur de chaque variable.
+		\item Qu'impriment les trois programmes ?
 	\end{enumerate}
 }{}
 
