@@ -27,3 +27,4 @@ Autres :
 	ordres de grandeurs,
 	écriture scientifique,
 	entraînement identités remarquables
+	système d'équations linéaires. cas n=2.
