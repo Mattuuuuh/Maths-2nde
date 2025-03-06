@@ -20,7 +20,7 @@
 
 
 \exe{
-	Pour chaque condition, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
 	\begin{enumerate}
 		\item $f$ s'annule en $1$.
 		\item $f$ s'annule en $-10$.
@@ -65,35 +65,6 @@
 
 \hrule
 
-\exe{
-	Remplir approximativement le tableau ci-dessous à l'aide du graphe de $\C_f$.
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-    every y tick label/.style={
-        anchor=near yticklabel opposite,
-        xshift=0.2em,
-    }]
-			\addplot[no marks, blue, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80};
-			\addplot[no marks, blue, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
-			\addplot[no marks, blue, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
-			\addplot[no marks, blue, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2}
-			node[pos=.3, above]{$\mathcal{C}_f$};
-		\end{axis}
-	\end{tikzpicture}
-	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $f$ / 2, Signe de $f$ / 1}
-	       		{,,,,}
-	\end{tikzpicture}
-	\end{center}
-	
-}{}
-
- \newpage
 
 \exe{
 	\begin{enumerate}
@@ -143,6 +114,47 @@
 	       		{,,,}
 	\end{tikzpicture}
 	\end{center}
+}{}
+
+\exe{
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$.
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+    every y tick label/.style={
+        anchor=near yticklabel opposite,
+        xshift=0.2em,
+    }]
+    			%f de l'éval f° affines
+			\addplot[no marks, myb, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80} 
+			node[pos=.6, right]{$\mathcal{C}_f$};
+			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2};
+			
+			% g sinus
+			\addplot[no marks, myr, -, very thick] expression[domain=-11:-2.5, samples=500]{2*sin(x*60)}
+			node[pos=.75, above]{$\mathcal{C}_g$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f$ / 2, Signe de $f$ / 1}
+	       		{,,,,,}
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $g$ / 2, Signe de $g$ / 1}
+	       		{,,,,,}
+	\end{tikzpicture}
+	\end{center}
+	
 }{}
 
 
