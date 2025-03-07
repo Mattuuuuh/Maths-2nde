@@ -27,14 +27,15 @@ Contenu par chapitre :
 
 # Devoirs maison
 
-Les devoirs maison ont leur propre README rudimentaires dans les dossiers nommés `/dm*`.
-Chacun a ses fichiers `preamble.tex`, `dm*.tex`, et `generate.py` ; ce dernier permettant de générer les devoirs après création des dossiers `out/` et `adr/` si nécessaire.
+Les devoirs maison ont leur propre README rudimentaires dans les dossiers nommés `/dm*/`.
+Chacun a ses fichiers `preamble.tex`, `dm*.tex`, et `generate.py` ; ce dernier permettant de générer les devoirs après création des dossiers `/out/` et `/adr/` si nécessaire.
+
 La repo contient les DM suivants.
-- [x] Statistiques 1 (`/Statistiques/dm1`)
-- [x] Statistiques 2 (`/Statistiques/dm2`)
-- [x] Problèmes de géométrie 1 (`/Problèmes de géométrie/dm1`)
-- [x] Fonctions affines (`/Fonctions-affines/dm1`)
-- [ ] Problèmes de géométrie 2 (`/Problèmes de géométrie/dm2`)
+- [x] Statistiques 1 (`/Statistiques/dm1/`)
+- [x] Statistiques 2 (`/Statistiques/dm2/`)
+- [x] Problèmes de géométrie 1 (`/Problèmes de géométrie/dm1/`)
+- [x] Fonctions affines (`/Fonctions-affines/dm1/`)
+- [ ] Problèmes de géométrie 2 (`/Problèmes de géométrie/dm2/`)
 
 # Séries d'exercices, évaluations, automatismes, …
 
