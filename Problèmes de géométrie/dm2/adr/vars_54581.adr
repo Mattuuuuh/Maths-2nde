@@ -1,6 +1,6 @@
-\newcommand{\seed}{23987}
-\renewcommand{\l}{2}
-\renewcommand{\L}{3}
+\newcommand{\seed}{54581}
+\renewcommand{\l}{16}
+\renewcommand{\L}{24}
 \newcommand{\ratio}{0.6666666666666666}
 \newcommand{\xmax}{48.189685104221404}
 \newcommand{\sampleI}{0}
