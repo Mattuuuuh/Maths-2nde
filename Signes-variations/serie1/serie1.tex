@@ -10,7 +10,7 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[2]
 
 \begin{document}
 \pagestyle{fancy}
@@ -35,7 +35,29 @@
 	\end{multicols}
 }{}
 
-
+\ifdys
+\exe{
+	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
+		\begin{enumerate}
+			\item $\{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0\}$
+			\item $\{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0\}$
+			\item $\{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0\}$
+		\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+		
+		% (g)
+		\addplot[myr, very thick, domain =-3:3, samples=50] {(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_g$};
+		
+		% (f)
+		\addplot[myb, very thick, domain =-3:3, samples=50] {2.9-1.2*x^2}  node[pos = .41, above=4pt] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+\else
 \exe{
 	\begin{multicols}{2}
 	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
@@ -60,6 +82,7 @@
 	\end{center}
 	\end{multicols}
 }{}
+\fi
 
 \exe{
 	À l'aide de l'exercice \ref{ex:1}, donner le domaine de définition de chaque fonction suivante.
@@ -84,7 +107,7 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / 1}
+	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / \ifdys 2 \else1\fi}
 	       		{$\minfty$,,,$\pinfty$}
 	\end{tikzpicture}
 	
@@ -92,7 +115,7 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
-	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / 1}
+	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / \ifdys 2 \else1\fi}
 	       		{,,,}
 	\end{tikzpicture}
 	
@@ -101,7 +124,7 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / 1}
+	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / \ifdys 2 \else1\fi}
 	       		{,,,,}
 	\end{tikzpicture}
 	\end{center}
