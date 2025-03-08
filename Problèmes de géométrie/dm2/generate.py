@@ -1,6 +1,5 @@
 import subprocess
 import numpy as  np
-import contfrac
 
 ###############################################
 ############# UTILITY FUNCTIONS ###############
@@ -129,8 +128,11 @@ def pdflatex(seed):
     INPUTS = "\input{preamble.tex} \input{"+FILE_NAME+"} \input{dm2.tex}"
     PARAMETER1 = f"-output-directory=out"
     PARAMETER2 = f"-jobname=dm_{seed}"
-
-    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
+    # suppress output
+    PARAMETER3 = "-interaction=batchmode"
+    
+    print(f"COMPILING SEED {seed}")
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
     # compile twice if references are required
     
@@ -157,8 +159,8 @@ def generate(seed):
     
     CONTENT = newcommand("\seed", seed)
 
-    np.random.rand(3)
-
+    # below is commented because something simpler is possible i think
+    """
     ###### l/L = ratio UNIFORM IN [.66, .76]
     ratio = np.random.rand()*.1 + .66
     ratio = np.round(ratio,5)
@@ -170,13 +172,25 @@ def generate(seed):
     k=np.random.rand()*5+1
     k=int(k)
     l, L = k*l, k*L
+    """
+    # if i'm correct, q~unif(0,1) and p~unif(0,q) implies p/q~unif(0,1).
+    # shown with total probability formula. P(p/q <= t) = int_0^1 P(p <= tq) dq = int_0^1 tq/q dq = t
+    # implying that p/q*.1+0.66 ~ unif(.66,.76)
+    # then make p, q integer are you're done imo
+    q = np.random.rand()
+    p = np.random.rand()*q
+    p=p*.1 + .66*q
 
-    newratio = l/L
-    xmax = np.arccos(newratio)*180/np.pi
+    l = int(p*1000)
+    L = int(q*1000)
+    
+
+    ratio = l/L
+    xmax = np.arccos(ratio)*180/np.pi
 
     CONTENT += renewcommand("\l", l)
     CONTENT += renewcommand("\L", L)
-    CONTENT += newcommand("\\ratio", newratio)
+    CONTENT += newcommand("\\ratio", ratio)
     CONTENT += newcommand("\\xmax", xmax)
 
     ###### 20 SAMPLES IN [0,90°] WITH FOCUS AROUND XMAX
@@ -221,10 +235,10 @@ def generate(seed):
 
     for roman, arabic in zip(ROMAN_NUMERALS, range(20)):
         CONTENT += newcommand(f"\\image{roman}", comma(images[arabic]))
-    print(ratio, xmax)
+    #print(ratio, xmax)
 
-    for i in range(20):
-        print(samples[i], images[i])
+    #for i in range(20):
+    #    print(samples[i], images[i])
 
     return CONTENT    
 
@@ -233,7 +247,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 10
+    N = 40
     # always the same N to recompile if needed
     np.random.seed(650587708) # int("arccos",36)
 
