@@ -8,18 +8,19 @@
 \fancyhead[C]{\textbf{Devoir Maison 4 -- \seed \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-RATIO = $\ratio$, XMAX = $\xmax$
-
-Un joueur de CS2 est placé en $O$.
-Il se situe à $\L$ unités de son adversaire immobile, placé en $A$.
+%RATIO = $\ratio$, XMAX = $\xmax$
+Dans un jeu de tir, un joueur est placé en $O$ et fait face à un adversaire immobile placé en $A$.
+% situé à $\L$ unités de distance.
+%Il se situe à $\L$ unités de distance de son adversaire immobile placé en $A$.
+$\L$ unités de distance les sépare.
 
 On estime que, étant donné le temps de réaction de l'adversaire, le joueur peut se déplacer de $\l$ unités avant d'être attaqué.
-On pose $B$ le point atteint par le joueur après son déplacement, et on considère le triangle $OAB$ ainsi formé.
+On pose $B$ le point atteint par le joueur après son déplacement et on considère le triangle $OAB$ ainsi formé.
 
 On note $\theta = \widehat{BAO}$, l'angle de correction que doit appliquer l'adversaire avant de tirer.
 
-Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}$ de déplacement lui permettant d'optimiser son avantage : il veut faire en sorte que l'angle de correction $\theta$ soit maximal.
-On supposera $\alpha \leq 90$°.
+Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de déplacement lui permettant d'optimiser son avantage : il veut se déplacer de sorte que l'angle de correction $\theta$ soit maximal.
+%On supposera que $\alpha \leq 90$°.
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -34,7 +35,7 @@ On supposera $\alpha \leq 90$°.
 	\draw[-, thick, black] (-3,1) -- (0,0);
 	
 	% arc de cercle centré en O passant par B
-	\draw [black,thick, dashed,domain=130:210] plot ({3.16*cos(\x)}, {3.16*sin(\x)}) ;
+	\draw [black,thick, dashed,domain=120:180] plot ({3.16*cos(\x)}, {3.16*sin(\x)}) ;
 	
 	% angles alpha, theta
 	\draw [black,thick,domain=90:160] plot ({.2*cos(\x)}, {.2*sin(\x)});
@@ -71,7 +72,8 @@ On supposera $\alpha \leq 90$°.
 }{}
 
 \exe{
-	À l'aide de l'outil \texttt{Table} de la calculatrice ou d'un programme informatique et en approximant à $10^{-4}$, compléter les tableaux de valeurs de la fonction $f$ donnée algébriquement par
+	%À l'aide de l'outil \texttt{Table} de la calculatrice ou d'un programme informatique et en approximant à $10^{-4}$, compléter les tableaux de valeurs de la fonction $f$ donnée algébriquement par
+	En approximant à $10^{-4}$ , compléter les tableaux de valeurs de la fonction $f$ donnée algébriquement par
 		\[ f(\alpha ) = \arctan \left(\dfrac{\l \sin(\alpha)}{\L - \l \cos(\alpha)} \right). \]
 	
 	\begin{center}
@@ -83,6 +85,7 @@ On supposera $\alpha \leq 90$°.
 		$\sampleIII$ & $\imageIII$\\ \hline
 		$\sampleIV$ & \\ \hline
 	\end{tabular}
+	\hfill
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
 		$\sampleV$ & \\ \hline
@@ -90,6 +93,7 @@ On supposera $\alpha \leq 90$°.
 		$\sampleVII$ & \\ \hline
 		$\sampleVIII$ & $\imageVIII$ \\ \hline
 	\end{tabular}
+	\hfill
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
 		$\sampleIX$ & \imageIX \\ \hline
@@ -97,6 +101,7 @@ On supposera $\alpha \leq 90$°.
 		$\sampleXI$ & \\ \hline
 		$\sampleXII$ & \\ \hline
 	\end{tabular}
+	\hfill
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
 		$\sampleXIII$ & \\ \hline
@@ -104,6 +109,7 @@ On supposera $\alpha \leq 90$°.
 		$\sampleXV$ & $\imageXV$ \\ \hline
 		$\sampleXVI$ & \\ \hline
 	\end{tabular}
+	\hfill
 	\begin{tabular}{|c|c|}\hline
 		$\alpha$ & $f(\alpha)$ \\ \hline
 		$\sampleXVII$ & $\imageXVII$ \\ \hline
@@ -115,11 +121,11 @@ On supposera $\alpha \leq 90$°.
 }{}
 
 \exe{
-	Tracer $\C_f$ dans un repère de domaine $[0; 90]$ et estimer le $\alpha^\star \in [0;90]$ pour lequel $f(\alpha^\star)$ est maximal.
+	Tracer $\C_f$ dans un repère de domaine $[0; 90]$ et estimer l'angle $\alpha^\star \in [0;90]$ pour lequel $f(\alpha^\star)$ est maximal.
 }{}
 
 \exe{
-	Représenter le point d'abscisse $\arccos\left(\dfrac{\l}{\L}\right)$ sur $\C_f$.
+	Calculer les coordonnées à $10^{-4}$ près du point d'abscisse $\arccos\left(\dfrac{\l}{\L}\right)$ appartenant $\C_f$ puis le placer sur la courbe de la question précédente.
 }{}
 
 
