@@ -117,7 +117,7 @@
 }{}
 
 \exe{
-	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$.
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
 	
 	\begin{center}
 	\begin{tikzpicture}[scale=1]
@@ -139,18 +139,31 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $f$ / 2, Signe de $f$ / 1}
+	       		{$x$ / 1 , Signe de $f(x)$ / 1}
 	       		{,,,,,}
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $g$ / 2, Signe de $g$ / 1}
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{,,,,,}
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+	       		{,,,,,}
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $g(x)$ / 2}
 	       		{,,,,,}
 	\end{tikzpicture}
 	\end{center}
