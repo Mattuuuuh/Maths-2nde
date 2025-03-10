@@ -69,15 +69,49 @@
 \newpage
 
 \exe{
-	On considère le tableau de variations de $f, g, h$ sur le domaine $\D = [7 ; 31]$.
+	On considère le tableau des variations de $f, g,$ et $h$ sur le domaine $\D = [7 ; 31]$.
+	Pour chacune d'entre elles,
+		\begin{enumerate}[label=\roman*)]
+			\item donner son maximum sur $\D$ s'il est possible de le connaître.
+			Sinon, tracer deux courbes fidèles au tableau et de maximum différents.
+			\item donner son minimum sur $\D$ s'il est possible de le connaître.
+			Sinon, tracer deux courbes fidèles au tableau et de minimum différents.
+		\end{enumerate}
+	%Peut-on déduire le maximum et le minimum de chaque fonction sur $\D$ ?
 	
-	Peut-on déduire le maximum et le minimum de chaque fonction sur $\D$ ?
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
-	       		{7,,,,31}
+	       		{7,11,17,28,31}
+
+		\tkzTabVar
+			{+/,-/,+/,-/,+/}
+		\tkzTabIma
+			{1}{2}{1}{45}
+		\tkzTabIma
+			{1}{2}{2}{0}
+		\tkzTabIma
+			{3}{4}{3}{60}
+		\tkzTabIma
+			{3}{4}{4}{-10}
+		\tkzTabIma
+			{4}{5}{5}{30}
+			
+		\tkzTabVar
+			{+/, +/,R/,-/,+/}
+		\tkzTabIma
+			{1}{2}{1}{60}
+		\tkzTabIma
+			{2}{4}{4}{25}
+			
+		\tkzTabVar
+			{-/,+/,+/,R/,-/}
+		\tkzTabIma
+			{1}{2}{1}{10}
+		\tkzTabIma
+			{1}{2}{2}{40}
 	\end{tikzpicture}
 	\end{center}
 }{}
