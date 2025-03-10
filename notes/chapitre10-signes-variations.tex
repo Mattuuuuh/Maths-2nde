@@ -155,7 +155,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	
 	Plusieurs stratégies s'offrent à nous pour résoudre $f(x)=0$ : 
 		\begin{itemize}
-			\item Tracer $\C_f$ et lire les racines graphiquement. Cette méthode est utile pour approximer, mais ne permet pas d'obtenir les solutions exactes (ni le nombre de solution, d'ailleurs).
+			\item Tracer $\C_f$ et lire les racines graphiquement. Cette méthode est utile pour approximer, mais ne permet pas d'obtenir les solutions exactes (ni le nombre de solutions, d'ailleurs).
 			\item Tester des valeurs à partir du tracé. On pourrait démarrer vers une valeur approximative lue graphiquement puis se diriger vers la racine en affinant le pas au fur et à mesure. Cette méthode est très utilisée en pratique (\emph{cf.} la  dichotomie au chapitre d'algorithmique) mais ne permet parfois pas non plus d'obtenir une solution exacte.
 			\item Essayer de factoriser $f(x)$ en un produit de deux expressions linéaire et utiliser le théorème \ref{thm:signe-produit}. L'avantage est qu'on obtient des solutions exactes. Un (gros) inconvénient est que cela n'est pas faisable pour toutes les fonctions $f$ (voir le théorème d'Abel-Ruffini). Pour les fonctions du deuxième degré, ça fonctionne cependant tout le temps : la résolution générale est au programme de $1$ère.
 		\end{itemize}
@@ -230,6 +230,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	
 	On synthétise les variations obtenues dans le tableau suivant qu'on appelle \emph{tableau de variations}.
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
@@ -239,8 +240,9 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 		\tkzTabVar
 			{+/,-/}
 	\end{tikzpicture}
+	\end{center}
 	
-	Le tableau n'est pas très intéressant car les variations des fonctions affines ne le sont pas particulièrement...
+	Le tableau n'est pas très intéressant pour l'instant car les variations des fonctions affines ne le sont pas particulièrement...
 }{}
 
 \subsection{Cas particulier : fonctions affines}
@@ -307,6 +309,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	
 	On trouve $f(-30) = 0$, et on synthétise les résultats dans le tableau suivant.
 	
+	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
@@ -321,6 +324,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 		\tkzTabLine
 			{,-,z,+,}
 	\end{tikzpicture}
+	\end{center}
 	
 	Le signe est déduit des variations de $f$ : comme $f$ est croissante et qu'elle s'annule en $-30$, son signe est nécessairement négatif avant et positif après.
 }{}
