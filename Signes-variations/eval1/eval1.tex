@@ -28,7 +28,8 @@
 		%\item $f(x) = \sqrt{2x-1}$
 		%\item $g(x) = \sqrt{-x-3}$
 		\item $F(x) = \dfrac1{4(x+8)(x-3)}$
-		\item $G(x) = \dfrac{\sqrt{8-7x}}{(x+1)(x-124)}$
+		%\item $G(x) = \dfrac{\sqrt{8-7x}}{(x+1)(x-124)}$
+		\item $G(x) = \sqrt{8-7x}$
 	\end{enumerate}
 	\end{multicols}
 
@@ -61,12 +62,15 @@
 }{}
 
 \exe{
+% déjà factorisé car le développement est évalué à l'ex 6 je pense
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
-		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
+		%\[ f(x) = \dfrac{x+2}{-x^2 - x + 6} \geq 0 \]
+		\[ f(x) = \dfrac{x+2}{(x+3)(2-x)} \geq 0 \]
 	
 	\begin{enumerate}
-		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
-		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
+		%\item Montrer que $-x^2 - x + 6 = (x+3)(2-x)$.
+		%\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
+		\item Donner les valeurs interdites à $f$ et son domaine de définition $\D_f$.
 		\item Remplir le tableau de signes ci-dessous.
 		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
@@ -85,8 +89,9 @@
 \exe{
 	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
 	\begin{enumerate}
-		\item $f$ s'annule en $1$.
-		\item Les racines de $f$ sont $2, -3, \dfrac27$, et $0$.
+		\item $f$ s'annule en $3$.
+		\item $f$ s'annule en $0$ et en $1$.
+		\item Les racines de $f$ sont $0, -1$, et  $\dfrac12$.
 	\end{enumerate}
 }{}
 
@@ -130,18 +135,32 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{x / 1,  Signe de $f(x)$ / 1}
+	       		{$x$ / 1, /1, /1,  Signe de $f(x)$ / 1}
 	       		{$\minfty$,,,,$\pinfty$}
 	\end{tikzpicture}
 	
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{x / 1,  Variation de $f(x)$ / 2}
+	       		{$x$ / 1,  Variation de $f(x)$ / 2}
 	       		{$\minfty$,,,,$\pinfty$}
 	\end{tikzpicture}
 	\end{center}
 
+}{}
+
+\subsection*{Bonus}
+
+\exe{
+	Donner une fonction $f$ telle que
+		\begin{align*}
+			f(2) = 0, && f(-1) = 0, && \text{ et } && f(3)=8.
+		\end{align*}
+}{}
+
+\exe{
+	Donner une fonction $f$ de la forme $f(x) = ax^3 + bx^2 + cx +d$ où $a, b, c, d\in \Z$ sont des \underline{entiers relatifs} telle que
+		\[ f\left(\dfrac13\right) = f\left(\dfrac{1}{\sqrt2}\right) = 0. \]
 }{}
 
 \end{document}
