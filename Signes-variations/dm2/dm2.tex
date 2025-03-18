@@ -1,0 +1,61 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+\input{preamble.tex}
+%\input{adr/vars_44284.adr}
+\newcommand{\seed}{TEST}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 4 --- \seed \ifsolutions \, --- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	Considérons les trois fonctions du deuxième degré définies sur $\R$.
+	\begin{align*}
+		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
+	\end{align*}
+	
+	\begin{enumerate}
+		\item Montrer que $g = f$ en développant $g(x)$.
+		\item Remplir le tableau de signe de $f$ à l'aide de l'expression de $g$.
+		\item Montrer que $h = f$ en développant $h(x)$.
+		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1, /1, /1,  Signe de $f(x)$ / 1}
+	       		{$\minfty$,,,,$\pinfty$}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+	       		{$\minfty$,,,,$\pinfty$}
+	\end{tikzpicture}
+	\end{center}
+
+}{}
+
+\exe{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{}
+
+\exe{
+	Construire, en posant des nombres réels $a, b, c\in\R$, une équation de la forme
+			\[ ax^2 + bx + c = 0 \]
+	telle que l'ensemble des $x\in\R$ solutions soit $\left\{ -\dfrac{7}{12} ; \dfrac{14}{3} \right\}$.
+}{}
+
+\end{document}
