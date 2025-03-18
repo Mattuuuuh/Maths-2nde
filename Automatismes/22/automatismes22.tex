@@ -1,0 +1,83 @@
+\input{../preamble.tex}
+\AdvanceDate[2]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+%\large
+%Calculatrice interdite
+
+\end{frame}
+
+\subsection{Racines}
+
+\begin{frame}{1}	
+	\centering
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-4.1, ymax=2.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->, y=18pt, x=50pt]
+		\addplot[domain=-2:2, samples=2, myr, thick] {1*x-.3} node[pos=.7, above] {$\C_f$};
+		\addplot[domain=-2:2, samples=2, myg, thick] {-1*x-.5} node[pos=.3, above] {$\C_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\boxAB{
+		Donner approximativement le $x$ vérifiant $f(x) = 0$.
+	}{
+		Donner approximativement le $x$ vérifiant $g(x) = 0$.
+	}
+\end{frame}
+
+\begin{frame}{2}	
+	\centering
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-4.1, ymax=2.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->, y=18pt, x=50pt]
+		\addplot[domain=-2:2, samples=2, myr, thick] {-(x+.3)*.5} node[pos=.3, above] {$\C_f$};
+		\addplot[domain=-2:2, samples=2, myg, thick] {(x-1.2)*.5} node[pos=.8, above] {$\C_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\boxAB{
+		Donner approximativement le $x$ vérifiant $f(x) = 0$.
+	}{
+		Donner approximativement le $x$ vérifiant $g(x) = 0$.
+	}
+\end{frame}
+
+\subsection{Signe}
+
+\begin{frame}{3}	
+	\centering
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-4.1, ymax=2.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->, y=18pt, x=50pt]
+		\addplot[domain=-2:2, samples=2, myg, thick] {1*x-.3} node[pos=.7, above] {$\C_g$};
+		\addplot[domain=-2:2, samples=2, myr, thick] {-1*x-.5} node[pos=.3, above] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\boxAB{
+		Donner le signe du coefficient directeur de $f$.
+	}{
+		Donner le signe du coefficient directeur de $g$.
+	}
+\end{frame}
+
+\begin{frame}{4}	
+	\centering
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-4.1, ymax=2.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->, y=18pt, x=50pt]
+		\addplot[domain=-2:2, samples=2, myg, thick] {-(x+.3)*.5} node[pos=.3, above] {$\C_g$};
+		\addplot[domain=-2:2, samples=2, myr, thick] {(x-1.2)*.5} node[pos=.8, above] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\boxAB{
+		Donner le signe du coefficient directeur de $f$.
+	}{
+		Donner le signe du coefficient directeur de $g$.
+	}
+\end{frame}
+
+
+\end{document}
