@@ -15,10 +15,8 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Évaluation blanche -- Signes et variations \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Évaluation blanche --- Signes et variations \ifsolutions --- Solutions  \fi}}
 \fancyhead[R]{\today}
-
-
 
 
 \exe{
@@ -27,7 +25,8 @@
 	\begin{enumerate}
 		%\item $f(x) = \sqrt{2x-1}$
 		%\item $g(x) = \sqrt{-x-3}$
-		\item $F(x) = \dfrac1{4(x+8)(x-3)}$
+		%\item $F(x) = \dfrac1{4\left(x+\dfrac23\right)\left(x-\dfrac{23}7\right)}$
+		\item $F(x) = \dfrac1{4\left(x+\dfrac23\right)}$
 		%\item $G(x) = \dfrac{\sqrt{8-7x}}{(x+1)(x-124)}$
 		\item $G(x) = \sqrt{8-7x}$
 	\end{enumerate}
@@ -51,10 +50,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
 		
 		% (g)
-		\addplot[myr, very thick, domain =-3:3, samples=50] {(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_g$};
+		\addplot[myr, very thick, domain =-3:3, samples=50] {2*(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_g$};
 		
 		% (f)
-		\addplot[myb, very thick, domain =-3:3, samples=50] {2.9-1.2*x^2}  node[pos = .41, above=4pt] {$\C_f$};
+		\addplot[myb, very thick, domain =-3:3, samples=50] {-2.9+1.2*x^2}  node[pos = .41, above=4pt] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -63,14 +62,15 @@
 
 \exe{
 % déjà factorisé car le développement est évalué à l'ex 6 je pense
+% ex 6 supprimé finalement
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
-		%\[ f(x) = \dfrac{x+2}{-x^2 - x + 6} \geq 0 \]
-		\[ f(x) = \dfrac{x+2}{(x+3)(2-x)} \geq 0 \]
+		\[ f(x) = \dfrac{x+2}{6 - x - x^2} \geq 0 \]
+		%\[ f(x) = \dfrac{x+2}{(x+3)(2-x)} \geq 0 \]
 	
 	\begin{enumerate}
-		%\item Montrer que $-x^2 - x + 6 = (x+3)(2-x)$.
-		%\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
-		\item Donner les valeurs interdites à $f$ et son domaine de définition $\D_f$.
+		\item Montrer que $6 - x - x^2 = (x+3)(2-x)$.
+		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
+		%\item Donner les valeurs interdites à $f$ et son domaine de définition $\D_f$.
 		\item Remplir le tableau de signes ci-dessous.
 		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
@@ -95,6 +95,7 @@
 	\end{enumerate}
 }{}
 
+% produit nul déjà testé ex3
 %\exe{
 %	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
 %		\begin{align}
@@ -105,6 +106,8 @@
 %		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
 %	\end{enumerate}
 %}{}
+
+\newpage
 
 \exe{[Vrai ou faux]
 	Pour chaque proposition suivante, démontrer qu'elle est vraie ou donner un contre-exemple.
@@ -118,27 +121,51 @@
 	\end{enumerate}
 }{}
 
+% en DM ?
+%\exe{
+%	Considérons les trois fonctions du deuxième degré définies sur $\R$.
+%	\begin{align*}
+%		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
+%	\end{align*}
+%	
+%	\begin{enumerate}
+%		\item Montrer que $g = f$ en développant $g(x)$.
+%		\item Remplir le tableau de signe de $f$ à l'aide de l'expression de $g$.
+%		\item Montrer que $h = f$ en développant $h(x)$.
+%		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+%	\end{enumerate}
+%
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1, /1, /1,  Signe de $f(x)$ / 1}
+%	       		{$\minfty$,,,,$\pinfty$}
+%	\end{tikzpicture}
+%	
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+%	       		{$\minfty$,,,,$\pinfty$}
+%	\end{tikzpicture}
+%	\end{center}
+%
+%}{}
+
+% même exo avec doublon de développement mais uniquement variations...
 \exe{
-	Considérons les trois fonctions du deuxième degré définies sur $\R$.
+	Considérons les deux fonctions du deuxième degré définies sur $\R$.
 	\begin{align*}
-		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
+		f(x) = 64x^2 + 16x - 48, && h(x) = -49 + (8x+1)^2.
 	\end{align*}
 	
 	\begin{enumerate}
-		\item Montrer que $g = f$ en développant $g(x)$.
-		\item Remplir le tableau de signe de $f$ à l'aide de l'expression de $g$.
 		\item Montrer que $h = f$ en développant $h(x)$.
 		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
 	\end{enumerate}
 
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1, /1, /1,  Signe de $f(x)$ / 1}
-	       		{$\minfty$,,,,$\pinfty$}
-	\end{tikzpicture}
-	
+	\begin{center}	
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
