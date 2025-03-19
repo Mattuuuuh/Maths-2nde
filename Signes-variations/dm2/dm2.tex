@@ -11,7 +11,7 @@
 \fancyhead[R]{\today}
 
 \exe{
-	Considérons les trois fonctions du deuxième degré définies sur $\R$.
+	Considérons trois fonctions du deuxième degré définies sur $\R$.
 	\begin{align*}
 		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
 	\end{align*}
@@ -31,11 +31,34 @@
 	       		{$\minfty$,,,,$\pinfty$}
 	\end{tikzpicture}
 	
+	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1,  Variation de $f(x)$ / 2}
 	       		{$\minfty$,,,,$\pinfty$}
+	\end{tikzpicture}
+	\end{center}
+
+}{}
+
+\exe{
+	Construire, en posant des nombres réels $a, b, c\in\R$, une fonction de la forme
+			\[ f(x) = ax^2 + bx + c, \]
+	qui admet le tableau de variations suivant.
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+	       		{$\minfty$,,$-1$,,$\pinfty$}
+	       		
+		\tkzTabVar
+			{-/, R/, +/$-3$, R/, -/}
+%		\tkzTabIma
+%			{1}{2}{1}{60}
+%		\tkzTabIma
+%			{2}{4}{4}{25}
 	\end{tikzpicture}
 	\end{center}
 
@@ -54,8 +77,10 @@
 
 \exe{
 	Construire, en posant des nombres réels $a, b, c\in\R$, une équation de la forme
-			\[ ax^2 + bx + c = 0 \]
-	telle que l'ensemble des $x\in\R$ solutions soit $\left\{ -\dfrac{7}{12} ; \dfrac{14}{3} \right\}$.
+		\begin{align}
+			ax^2 + bx + c = 0 \label{eq:2}
+		\end{align}
+	telle que l'ensemble des $x\in\R$ solutions de l'équation \eqref{eq:2} soit $\left\{ -\dfrac{7}{12} ; \dfrac{14}{3} \right\}$.
 }{}
 
 \end{document}
