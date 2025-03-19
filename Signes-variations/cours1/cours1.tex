@@ -18,7 +18,7 @@
 \fancyhead[C]{\textbf{Cours --- Variations de fonctions parentes \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\exe{
+\ex{
 	On donne la courbe $\C_f$ graphiquement ci-dessous.
 	
 	\begin{enumerate}
@@ -36,29 +36,29 @@
 	    	%}
 	    	]
 		% g cos
-		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=.5, below]{$\mathcal{C}_f$};
 		\ifsolutions
-		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)+1}
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
 		node[pos=.2, above]{$\mathcal{C}_g$};
-		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)-2}
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
 		node[pos=.5,below]{$\mathcal{C}_h$};
 		\fi
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}{}
+}
 
 \begin{propriete}{ajout d'une constante}{}
 	Soit $c\in\R$ un nombre réel et $g(x) = f(x)+c$.
 	\begin{itemize}
-		\item Pour obtenir $\C_g$, on déplace $\C_f$ \ifsolutions verticalement de $c$ unités. \fi
+		\item Pour obtenir $\C_g$, on translate $\C_f$ \ifsolutions verticalement de $c$ unités. \fi
 		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
 	\end{itemize}
 \end{propriete}
 
 
-\exe{
+\ex{
 	On donne la courbe $\C_f$ graphiquement ci-dessous.
 	
 	\begin{enumerate}
@@ -75,12 +75,12 @@
 	        %xshift=0.2em,
 	    	%}
 	    	]
-		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=.25, above]{$\mathcal{C}_f$};
 		\ifsolutions
-		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+8)*(x+5)*(x-3)}
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+8)*(x+5)*(x-3)}
 		node[pos=.1, above]{$\mathcal{C}_g$};
-		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+1)*(x-2)*(x-10)}
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+1)*(x-2)*(x-10)}
 		node[pos=.95, below]{$\mathcal{C}_h$};
 		\fi
 		\end{axis}
@@ -92,14 +92,14 @@
 \begin{propriete}{translation d'une constante}{}
 	Soit $c\in\R$ un nombre réel et $g(x) = f(x+c)$.
 	\begin{itemize}
-		\item Pour obtenir $\C_g$, on déplace $\C_f$ \ifsolutions horizontalement de $-c$ unités. \fi
+		\item Pour obtenir $\C_g$, on translate $\C_f$ \ifsolutions horizontalement de $-c$ unités. \fi
 		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques mais les intervalles décalés de $-c$ unités. \fi
 	\end{itemize}
 \end{propriete}
 
 \newpage
 
-\exe{
+\ex{
 	On donne la courbe $\C_f$ graphiquement ci-dessous.
 	
 	\begin{enumerate}
@@ -116,12 +116,12 @@
 	        %xshift=0.2em,
 	    	%}
 	    	]
-		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=.45, above]{$\mathcal{C}_f$};
 		\ifsolutions
-		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.02*(x+6)*(x+3)*(x-5)}
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.02*(x+6)*(x+3)*(x-5)}
 		node[pos=.4, below]{$\mathcal{C}_g$};
-		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{-.01*(x+6)*(x+3)*(x-5)}
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{-.01*(x+6)*(x+3)*(x-5)}
 		node[pos=.45, above]{$\mathcal{C}_h$};
 		\fi
 		\end{axis}
@@ -133,7 +133,7 @@
 	Soit $c\in\R$ un nombre réel et $g(x) = c\cdot f(x)$.
 	\begin{itemize}
 		\item Si $c>0$, alors les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
-		\item Si $c<0$, alors les variations de $g$ et de $f$ sont \ifsolutions opposées. \fi
+		\item Si $c<0$, alors les variations de $g$ et de $f$ sont \ifsolutions opposées (croissante devient décroissante ; décroissante devient croissante ; et constante reste idem). \fi
 	\end{itemize}
 \end{propriete}
 
