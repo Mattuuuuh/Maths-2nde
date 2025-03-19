@@ -235,10 +235,10 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , $f(x)$ / 2}
-	       		{$\minfty$, $\pinfty$}
+	       		{$\minfty$,,, $\pinfty$}
 	       		
 		\tkzTabVar
-			{+/,-/}
+			{+/, R/, R/, -/}
 	\end{tikzpicture}
 	\end{center}
 	
@@ -313,16 +313,16 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , $f(x)$ / 2, $f(x)$ / 1}
-	       		{$\minfty$, $-30$, $\pinfty$}
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f(x)$ / 1}
+	       		{$\minfty$,, $-30$,, $\pinfty$}
 	       		
 		\tkzTabVar
-			{-/, R/, +/}
+			{-/,  R/, R/, R/, +/}
 		\tkzTabIma
-			{1}{3}{2}{0}
+			{1}{5}{3}{0}
 			
 		\tkzTabLine
-			{,-,z,+,}
+			{,,-,,z,,+}
 	\end{tikzpicture}
 	\end{center}
 	
@@ -366,6 +366,163 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	\end{subfigure}
 	\caption{Courbes représentatives de fonctions affines $f(x) = ax+b$ selon le signe du coefficient directeur $a$.}
 \end{figure}
+
+\subsection{Fonctions parentes : impact sur les variations}
+
+À partir des variations d'une fonction qu'on connaît bien (par exemple une fonction affine, la fonction carré, et on en verra d'autres au chapitre Fonctions de référence), on peut déduire les variations de toute une famille de fonctions apparentées.
+
+On distingue trois types de fonctions parentes à partir d'une courbe représentative : on considère son translaté (horizontalement et verticalement séparément) et son homothétie (agrandissement, réduction, et même symétrie).
+
+\ex{ajout d'une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = f(x)+1. \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0) + 1$.
+	De façon identique, $g(-3) = f(-3) + 1$, $g(12) = f(12) + 1$, etc…
+	
+	D'un point $(x; f(x))$ de la courbe $\C_f$, on peut donc en déduire le point $(x ; g(x)) = (x ; f(x)+1) = (x ; f(x)) + \pvec{0}{1}$ de la courbe $\C_g$.
+	Graphiquement, la courbe $\C_f$ est translatée de $1$ unité vers le haut pour obtenir $\C_g$
+	
+	Pour $h(x) = f(x) - 2$, on obtient les graphes suivants.
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.2, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.5,below]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\ex{translation d'une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = f(x+2). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0+2) = f(2)$.
+	De façon identique, $g(-3) = f(-1)$, $g(12) = f(14)$, etc…
+	
+	En fait, la fonction $g$ regarde dans l'avenir de la fonction $f$ : le point $(x ; f(x))$ de $\C_f$ correspond au point $(x-2 ; f(x)) = (x ; f(x)) + \pvec{-2}{0}$ sur $\C_g$.
+	Graphiquement, la courbe $\C_f$ est translatée de $2$ unité vers la gauche pour obtenir $\C_g$.
+	
+	Pour $h(x) = f(x-1)$, on obtient les graphes suivants.
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+8)*(x+5)*(x-3)}
+		node[pos=.1, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+1)*(x-2)*(x-10)}
+		node[pos=.95, below]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\ex{multiplication par une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = 2f(x). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = 2f(0)$.
+	De façon identique, $g(-3) = 2f(-3)$, $g(12) = 2f(12)$, etc…
+	
+	D'un point $(x ; f(x))$ de $\C_f$, on double son ordonnée (sa hauteur) pour obtenir $(x ; 2f(x)) = (x ; g(x))$, le point de $\C_g$ d'abscisse $x$.
+	C'est ce qu'on appelle une homothétie : on agrandit ou réduit l'ordonnée de chaque point d'un même facteur.
+	Si ce facteur est négatif, on fait en plus une symétrie par rapport à l'axe des abscisses.
+	
+	Pour $h(x) = -f(x)$, on obtient les graphes suivants.
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.02*(x+6)*(x+3)*(x-5)}
+		node[pos=.4, below]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{-.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.45, above]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\thm{Variations de fonctions parentes}{
+	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ deux nombres réels.
+		\begin{enumerate}
+			\item La fonction
+				\[ g(x) = f(x) + c \]
+			admet les mêmes variations que $f$.
+			\item La fonction
+				\[ h(x) = c \cdot f(x) \]
+				\begin{enumerate}[label=(\roman*)]
+					\item si $c>0$, $h$ admet les mêmes variations que $f$.
+					\item si $c<0$, les variations de $h$ sont opposées à celles de $f$ (croissante devient décroissante, décroissante devient croissante, et constante reste idem).
+				\end{enumerate}
+			\item La fonction
+				\[ F(x) = f(x+c) \]
+			admet les mêmes variations que $f$ mais décalées de $c$ vers la gauche.
+		\end{enumerate}
+}{}
+
+\nt{
+	On ne peut rien dire en général sur les variations de $f(x)+g(x)$ si $f$ et $g$ sont de variations différentes.
+	Prenons par exemple $f(x) = x$ et $g(x) = -2x$, ou $f(x) = 2x$ et $g(x) = -x$.
+}{}
+
+\ex{}{
+	Soit $f$ une fonction de tableau de variations donné par le tableau suivant.
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{$-60$,, $-10$,, $45$}
+	       		
+		\tkzTabVar
+			{-/$10$, R/, +/$60$, R/, -/$-40$}
+	\end{tikzpicture}
+	\end{center}
+	
+	Alors on déduit les variations de $3f, -f,$ et $f-10$ qu'on synthétise dans les tableaux suivants.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $3f(x)$ / 2, Variation de $-f(x)$ / 2, Variation de $f(x)-10$ / 2}
+	       		{$-60$,, $-10$,, $45$}
+	       		
+		\tkzTabVar
+			{-/$30$, R/, +/$180$, R/, -/$-120$}
+		\tkzTabVar
+			{+/$-10$, R/, -/$-60$, R/, +/$40$}
+		\tkzTabVar
+			{-/$0$, R/, +/$50$, R/, -/$-50$}
+	\end{tikzpicture}
+	\end{center}
+}{}
 
 \section{Extrema}
 
