@@ -54,7 +54,7 @@ Un algorithme récursif est une fonction qui fait appel à elle-même.
 Pour ne pas tomber dans une boucle infinie, il faut s'assurer de deux choses.
 	\begin{enumerate}
 		\item La fonction s'appelle elle-même en changeant au moins un paramètre.
-		\item Le paramètre changé atteint vérifie une condition de sortie qui termine la boucle.
+		\item Le paramètre changé atteint une condition de sortie qui termine la boucle.
 	\end{enumerate}
 
 \ex{Factorielle}{
@@ -250,7 +250,7 @@ Lorsque la factorisation de $f$ en produit de facteurs linéaires n'est pas conn
 	\caption{Quatrième étape. $m_3 = 2,625 ; m_4 =2,6875 ; m_2=2,75$.}
 	\end{subfigure}
 	%\end{center}
-	\caption{Les quatre premières étapes de l'algorithme de recherche de la racine positive de $f(x) = x^2 - 7$ en commençant avec l'intervalle $[2 ; 3]$. On en déduit que $\sqrt{7} \in [m_3 ; m4] = [2,625 ; 2,6875]$. }
+	\caption{Les quatre premières étapes de l'algorithme de recherche de la racine positive de $f(x) = x^2 - 7$ en commençant avec l'intervalle $[2 ; 3]$. On en déduit que $\sqrt{7} \in [m_3 ; m_4] = [2,625 ; 2,6875]$. }
 	\label{fig:dichotomie}
 	\end{figure}
 
@@ -301,7 +301,7 @@ dichotomie(2,3)
 			$I = [m ; b]$
 		}
 	}
-	\KwRes{L'intervalle $I$.¨}
+	\KwRes{L'intervalle $I$.}
 \caption{Dichotomie autour d'une racine.}\label{algo:dichotomie}
 \end{algorithm}\DecMargin{1em} 
 
