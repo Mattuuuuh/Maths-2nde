@@ -50,10 +50,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
 		
 		% (g)
-		\addplot[myr, very thick, domain =-3:3, samples=50] {2*(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_g$};
+		\addplot[myr, very thick, domain =-3:3, samples=50] {2*(x+1)*x*(x-2)+.5}  node[pos = .72, right=2pt] {$\C_g$};
 		
 		% (f)
-		\addplot[myb, very thick, domain =-3:3, samples=50] {-2.9+1.2*x^2}  node[pos = .41, above=4pt] {$\C_f$};
+		\addplot[myb, very thick, domain =-3:3, samples=50] {-2.9+1.2*x^2}  node[pos = .3, left] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -188,6 +188,12 @@
 \exe{
 	Donner une fonction $f$ de la forme $f(x) = ax^3 + bx^2 + cx +d$ où $a, b, c, d\in \Z$ sont des \underline{entiers relatifs} telle que
 		\[ f\left(\dfrac13\right) = f\left(\dfrac{1}{\sqrt2}\right) = 0. \]
+}{}
+
+\exe{
+	Soient $f$ et $g$ deux fonctions croissantes sur $\R$ tout entier.
+	
+	Montrer que la fonction composée $h(x) = f(g(x))$ est également croissante sur $\R$.
 }{}
 
 \end{document}
