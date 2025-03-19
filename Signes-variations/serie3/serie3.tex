@@ -18,53 +18,114 @@
 \fancyhead[C]{\textbf{Signes et variations 3 \ifsolutions -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\exe{
+\exe{\label{ex:1}
+	On considère la fonction carré $f(x) = x^2$.
 	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction carré $f(x) = x^2$ sur le domaine $\D = [-5 ; 5]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
+		\item Donner $\D_f$, le domaine de définition de $f$.
+		\item Esquisser $\C_f$ sur $\D = [-5 ; 5]$.
+		\item Compléter le tableau de variations ci-dessous.
 	\end{enumerate}
 	
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
-	       		{,,,}
-	\end{tikzpicture}
-	\end{center}
-}{}
-
-
-\exe{
-	Soit $f$ la fonction définie sur $\D_f = \R$ par
-		\[ f(x) = -3 - (x+1)^2. \]
-	Montrer que $f$ atteint son maximum en $x^\star=-1$ et remplir le tableau de variations et de signes ci-dessous.
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f(x)$ / 1}
-	       		{,,,}
+	       		{$x$ / 1 , Variations de $x^2$ / 2}
+	       		{$\minfty$,,,$\pinfty$}
 	\end{tikzpicture}
 	\end{center}
 }{}
 
 \exe{
-	Soit $f$ la fonction définie sur $\R$ par
-		\[ f(x) = -10 + 3(3x-1)^2. \]
-	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et remplir le tableau de variations ci-dessous.
-	Peut-on déduire le signe de $f(x)$ uniquement avec ce tableau ?
-	
+	À l'aide de l'exercice \ref{ex:1} et du cours, compléter les tableaux de variations des fonctions parentes à $x^2$.
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+		 [lgt=3]
+	       		{$x$ / 1 , Variation de $(x+1)^2$ / 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3]
+	       		{$x$ / 1 , Variation de $(x-3)^2$ / 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3]
+	       		{$x$ / 1 , Variation de $-2x^2$/ 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3]
+	       		{$x$ / 1, Variation de $3x^2$ / 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3]
+	       		{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
+	       		{,,,}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3]
+	       		{$x$ / 1 , Variation de $-3 - 2(x+4)^2$ / 2}
 	       		{,,,}
 	\end{tikzpicture}
 	\end{center}
 }{}
+
+% i dunno just make more organic
+%\exe{
+%	\begin{enumerate}
+%		\item Esquisser la courbe représentative de la fonction carré $f(x) = x^2$ sur le domaine $\D = [-5 ; 5]$.
+%		\item Remplir le tableau de variations et de signes ci-dessous.
+%	\end{enumerate}
+%	
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\end{center}
+%}{}
+%
+%
+%\exe{
+%	Soit $f$ la fonction définie sur $\D_f = \R$ par
+%		\[ f(x) = -3 - (x+1)^2. \]
+%	Montrer que $f$ atteint son maximum en $x^\star=-1$ et remplir le tableau de variations et de signes ci-dessous.
+%	
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f(x)$ / 1}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\end{center}
+%}{}
+%
+%\exe{
+%	Soit $f$ la fonction définie sur $\R$ par
+%		\[ f(x) = -10 + 3(3x-1)^2. \]
+%	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et remplir le tableau de variations ci-dessous.
+%	Peut-on déduire le signe de $f(x)$ uniquement avec ce tableau ?
+%	
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\end{center}
+%}{}
 
 \newpage
 
@@ -81,13 +142,13 @@
 }{}
 
 \exe{
-	On considère le tableau des variations de $f, g,$ et $h$ sur le domaine $\D = [7 ; 31]$.
+	On considère le tableau des variations des fonctions $f, g,$ et $h$ sur le domaine $\D = [7 ; 31]$.
 	Pour chacune d'entre elles,
 		\begin{enumerate}[label=\roman*)]
 			\item donner son maximum sur $\D$ s'il est possible de le connaître.
-			Sinon, tracer deux courbes fidèles au tableau et de maximum différents.
+			Sinon, tracer deux courbes fidèles au tableau et de maxima différents.
 			\item donner son minimum sur $\D$ s'il est possible de le connaître.
-			Sinon, tracer deux courbes fidèles au tableau et de minimum différents.
+			Sinon, tracer deux courbes fidèles au tableau et de minima différents.
 		\end{enumerate}
 	%Peut-on déduire le maximum et le minimum de chaque fonction sur $\D$ ?
 	
@@ -156,7 +217,7 @@
 		Proposition & Vrai & Faux \\ \hline
 		$f(a) = 35$ & & \\ \hline
 		$f(a) > 30$ & & \\ \hline
-		$f(b) = < 20$ & & \\ \hline
+		$f(b) \leq 20$ & & \\ \hline
 		$f(a) > f(b)$ & & \\ \hline
 	\end{tabular}	
 	\hfill
@@ -173,7 +234,7 @@
 		$f(d) = -5$ & & \\ \hline
 		$f(d) < 0$ & & \\ \hline
 		$f(c) = f(d)$ & & \\ \hline
-		$f(d) < f(a)$ & & \\ \hline
+		$f(d) \geq -30$ & & \\ \hline
 	\end{tabular}	
 	
 	\end{center}

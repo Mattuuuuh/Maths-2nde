@@ -1,0 +1,140 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Cours --- Variations de fonctions parentes \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	On donne la courbe $\C_f$ graphiquement ci-dessous.
+	
+	\begin{enumerate}
+		\item Dessiner, dans le même repère, la fonction $g(x) = f(x) + 1$.
+		\item Dessiner, dans le même repère, la fonction $h(x) = f(x) -2$.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\ifsolutions
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.2, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.5,below]{$\mathcal{C}_h$};
+		\fi
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\begin{propriete}{ajout d'une constante}{}
+	Soit $c\in\R$ un nombre réel et $g(x) = f(x)+c$.
+	\begin{itemize}
+		\item Pour obtenir $\C_g$, on déplace $\C_f$ \ifsolutions verticalement de $c$ unités. \fi
+		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
+	\end{itemize}
+\end{propriete}
+
+
+\exe{
+	On donne la courbe $\C_f$ graphiquement ci-dessous.
+	
+	\begin{enumerate}
+		\item Dessiner, dans le même repère, la fonction $g(x) = f(x+2)$.
+		\item Dessiner, dans le même repère, la fonction $h(x) = f(x-5)$.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.25, above]{$\mathcal{C}_f$};
+		\ifsolutions
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+8)*(x+5)*(x-3)}
+		node[pos=.1, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+1)*(x-2)*(x-10)}
+		node[pos=.95, below]{$\mathcal{C}_h$};
+		\fi
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+}{}
+
+\begin{propriete}{translation d'une constante}{}
+	Soit $c\in\R$ un nombre réel et $g(x) = f(x+c)$.
+	\begin{itemize}
+		\item Pour obtenir $\C_g$, on déplace $\C_f$ \ifsolutions horizontalement de $-c$ unités. \fi
+		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques mais les intervalles décalés de $-c$ unités. \fi
+	\end{itemize}
+\end{propriete}
+
+\newpage
+
+\exe{
+	On donne la courbe $\C_f$ graphiquement ci-dessous.
+	
+	\begin{enumerate}
+		\item Dessiner, dans le même repère, la fonction $g(x) = 2f(x)$.
+		\item Dessiner, dans le même repère, la fonction $h(x) = -f(x)$.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=500]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.45, above]{$\mathcal{C}_f$};
+		\ifsolutions
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=500]{.02*(x+6)*(x+3)*(x-5)}
+		node[pos=.4, below]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=500]{-.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.45, above]{$\mathcal{C}_h$};
+		\fi
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\begin{propriete}{multiplication par une constante}{}
+	Soit $c\in\R$ un nombre réel et $g(x) = c\cdot f(x)$.
+	\begin{itemize}
+		\item Si $c>0$, alors les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
+		\item Si $c<0$, alors les variations de $g$ et de $f$ sont \ifsolutions opposées. \fi
+	\end{itemize}
+\end{propriete}
+
+\end{document}
