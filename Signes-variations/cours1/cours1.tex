@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Cours --- Variations de fonctions parentes \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Cours --- Variations de fonctions parentes \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
 \ex{
@@ -26,7 +26,7 @@
 		\item Dessiner, dans le même repère, la fonction $h(x) = f(x) -2$.
 	\end{enumerate}
 	
-	\begin{center}
+	\begin{multicols}{2}
 	\begin{tikzpicture}[scale=1]
 		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
@@ -46,7 +46,16 @@
 		\fi
 		\end{axis}
 	\end{tikzpicture}
-	\end{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-8$,,$7$}
+	       		
+		%\tkzTabVar
+		%	{+/, R/, -/}
+	\end{tikzpicture}
+	\end{multicols}
 }
 
 \begin{propriete}{ajout d'une constante}{}
@@ -66,7 +75,7 @@
 		\item Dessiner, dans le même repère, la fonction $h(x) = f(x-5)$.
 	\end{enumerate}
 	
-	\begin{center}
+	\begin{multicols}{2}
 	\begin{tikzpicture}[scale=1]
 		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
@@ -85,7 +94,16 @@
 		\fi
 		\end{axis}
 	\end{tikzpicture}
-	\end{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-8$,,$7$}
+	       		
+		%\tkzTabVar
+		%	{+/, R/, -/}
+	\end{tikzpicture}
+	\end{multicols}
 	
 }{}
 
@@ -93,11 +111,11 @@
 	Soit $c\in\R$ un nombre réel et $g(x) = f(x+c)$.
 	\begin{itemize}
 		\item Pour obtenir $\C_g$, on translate $\C_f$ \ifsolutions horizontalement de $-c$ unités. \fi
-		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques mais les intervalles décalés de $-c$ unités. \fi
+		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques mais les intervalles translatés de $-c$ unités. \fi
 	\end{itemize}
 \end{propriete}
 
-\newpage
+%\newpage
 
 \ex{
 	On donne la courbe $\C_f$ graphiquement ci-dessous.
@@ -107,7 +125,7 @@
 		\item Dessiner, dans le même repère, la fonction $h(x) = -f(x)$.
 	\end{enumerate}
 	
-	\begin{center}
+	\begin{multicols}{2}
 	\begin{tikzpicture}[scale=1]
 		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
@@ -126,7 +144,16 @@
 		\fi
 		\end{axis}
 	\end{tikzpicture}
-	\end{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-8$,,$7$}
+	       		
+		%\tkzTabVar
+		%	{+/, R/, -/}
+	\end{tikzpicture}
+	\end{multicols}
 }{}
 
 \begin{propriete}{multiplication par une constante}{}
