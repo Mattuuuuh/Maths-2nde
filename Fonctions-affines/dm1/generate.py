@@ -210,11 +210,14 @@ def generate(seed):
         sign=-1
 
     # coordinates of A and B: x = sign*L*u/w and y = sign*L*v/w
+    # not needed and will be offset
+    """
     CONTENT += newcommand_dfrac("\\xA", sign*L*u1, w1)
     CONTENT += newcommand_dfrac("\\yA", sign*L*v1, w1)
     
     CONTENT += newcommand_dfrac("\\xB", -sign*L*u2, w2)
     CONTENT += newcommand_dfrac("\\yB", -sign*L*v2, w2)
+    """
 
     # creating h going through A and B
     # signs cancel out to make a = (v1*w2+v2*w1)/(u1*w2+u2*w1), denominator nonzero already asserted (xA != xB).
@@ -265,7 +268,32 @@ def generate(seed):
     CONTENT += newcommand("\\xmax", xmax)
     CONTENT += newcommand("\\ymin", ymin)
     CONTENT += newcommand("\\ymax", ymax)
+   
+    ### SOLS ###
+
+    CONTENT += newcommand("\\aIfloat", v1/u1)
+    CONTENT += newcommand("\\aIIfloat", v2/u2)
+    CONTENT += newcommand("\\aIIIfloat", a3_numerator/a3_denominator)
+    CONTENT += newcommand("\\bIfloat", (u1*y_offset-v1*x_offset)/u1)
+    CONTENT += newcommand("\\bIIfloat", (u2*y_offset-v2*x_offset)/u2)
+    CONTENT += newcommand("\\bIIIfloat", (b3_numerator*a3_denominator + y_offset*b3_denominator*a3_denominator - a3_numerator*x_offset*b3_denominator)/b3_denominator/a3_denominator)
+
+    CONTENT += newcommand_dfrac("\\xA", sign*L*u1+w1*x_offset, w1)
+    CONTENT += newcommand_dfrac("\\yA", sign*L*v1+w1*y_offset, w1)
     
+    CONTENT += newcommand_dfrac("\\xB", -sign*L*u2+w2*x_offset, w2)
+    CONTENT += newcommand_dfrac("\\yB", -sign*L*v2+w2*y_offset, w2)
+    
+    CONTENT += newcommand("\\xAfloat", xA)
+    CONTENT += newcommand("\\yAfloat", yA)
+    
+    CONTENT += newcommand("\\xBfloat", xB)
+    CONTENT += newcommand("\\yBfloat", yB)
+
+    CONTENT += renewcommand("\\L", L)
+    AB = np.sqrt((xA-xB)**2 + (yA-yB)**2)
+    CONTENT += newcommand("\\AB", comma(np.round(AB,3)))
+
     """
     # troubleshooting
     print(sign)
@@ -313,6 +341,31 @@ def generate(seed):
     CONTENT += newcommand("\\slopepercent", slope_percent) 
     CONTENT += newcommand("\\angle", angle)
 
+    ### SOLS ###
+
+    CONTENT += newcommand("\\Ayfloat", comma(Ay)) 
+    CONTENT += newcommand("\\graphoffset", int(Ax/10))
+    
+    alpha = np.arctan(slope1)*180/np.pi
+    alpha = comma(round(alpha,2))
+    CONTENT += newcommand("\\alphaI", alpha)
+
+    Cy = slope2*Ax
+    Cy = comma(round(Cy,2))
+    CONTENT += newcommand("\\Cy", Cy)
+    
+    beta = np.arctan(slope2)*180/np.pi
+    beta = comma(round(beta,2))
+    CONTENT += newcommand("\\betaI", beta)
+    
+    gamma = np.arctan(slope_percent/100)*180/np.pi
+    gamma = comma(round(gamma,2))
+    CONTENT += newcommand("\\gammaI", gamma)
+
+    penteI = np.tan(angle*np.pi/180)
+    penteI_percent = np.round(penteI*100,1)
+    CONTENT += newcommand("\\penteIpercent", penteI_percent)
+
     return CONTENT    
 
 
@@ -329,7 +382,7 @@ if __name__=="__main__":
         seed = int(np.random.rand() * (2**16 - 1))
 
         # uncomment to fix seed
-        #seed=34414
+        #seed=64064
 
         np.random.seed(seed)
         
