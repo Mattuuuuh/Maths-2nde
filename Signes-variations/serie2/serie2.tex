@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Signes et variations 2 \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Signes et variations 2 \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
 
@@ -28,7 +28,17 @@
 		\item $f$ s'annule en $-10$ et en $1$.
 		\item Les racines de $f$ sont $2, -3, \dfrac27$, et $0$.
 	\end{enumerate}
-}{}
+}{
+	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
+		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
+		\item $f(x) = x$ ou $f(x) = 500x$.
+		\item $f(x) = (x+10)(x-1) = x^2 +9x -10$.
+		\item $f(x) = (x-2)(x+3)(x-\frac27)x$.
+	\end{enumerate}
+
+}
 
 \exe{
 	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
@@ -39,7 +49,14 @@
 		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
 		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
+			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
+	\end{enumerate}
+}
 
 \exe{
 	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
@@ -50,7 +67,22 @@
 		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
 		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
 	\end{enumerate}
-}{}
+}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
+		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
+			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+		Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+		On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+	\end{enumerate}
+
+
+}
 
 \exe{
 	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
@@ -61,12 +93,23 @@
 		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
 		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
 	\end{enumerate}
-}{}
+}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
+		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
+			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
+		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
+	\end{enumerate}
+
+}
 
 \hrule
 
 
-\exe{
+\ex{
 	\begin{enumerate}
 		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
 		\item Remplir le tableau de variations et de signes ci-dessous.
@@ -77,13 +120,22 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
-	       		{,,,}
+	       		{ \ifsolutions $-10$ \fi,, \ifsolutions $\dfrac23$ \fi,, \ifsolutions $12$ \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/$-32$, R/, R/, R/, +/$34$}
+		\tkzTabIma
+			{1}{5}{3}{0}
+		\tkzTabLine
+			{,,-,,z,,+}
+		\fi
 	\end{tikzpicture}
 	\end{center}
 }{}
 
 
-\exe{
+\ex{
 	\begin{enumerate}
 		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
 		\item Remplir le tableau de variations et de signes ci-dessous.
@@ -94,13 +146,22 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
-	       		{,,,}
+	       		{ \ifsolutions $-10$ \fi,, \ifsolutions $-\dfrac13$ \fi,, \ifsolutions $8$ \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{+/$58$, R/, R/, R/, -/$-50$}
+		\tkzTabIma
+			{1}{5}{3}{0}
+		\tkzTabLine
+			{,,+,,z,,-}
+		\fi
 	\end{tikzpicture}
 	\end{center}
 }{}
 
 
-\exe{
+\ex{
 	\begin{enumerate}
 		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
 		\item Remplir le tableau de variations et de signes ci-dessous.
@@ -111,12 +172,19 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
-	       		{,,,}
+	       		{ \ifsolutions $-12$ \fi,,,, \ifsolutions $-5$ \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{+/$-3$, R/, R/, R/,+/$-3$}
+		\tkzTabLine
+			{,,,,-,,}
+		\fi
 	\end{tikzpicture}
 	\end{center}
 }{}
 
-\exe{
+\ex{
 	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
 	
 	\begin{center}
@@ -143,28 +211,48 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , Signe de $f(x)$ / 1}
-	       		{,,,,,}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions $-9$ \fi,\ifsolutions $-6$ \fi,\ifsolutions $-3$ \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,+,z,-,z,+,z,-}
+		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
+		[lgt=3,espcl=3]
 	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{,,,,,}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-10,5}$ \fi,\ifsolutions {$-7,5$} \fi,\ifsolutions {$-4,5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
+		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
+		 [lgt=3,espcl=2]
 	       		{$x$ / 1 , Signe de $g(x)$ / 1}
-	       		{,,,,,}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions $-10$ \fi,\ifsolutions {$-8,4$} \fi,\ifsolutions {$-6,5$} \fi, \ifsolutions {$-5,8$} \fi, \ifsolutions {$-5,3$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,-,z,+,z,-,z,+,z,-,z,+}
+		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
+		 [lgt=3,espcl=2]
 	       		{$x$ / 1 , Variation de $g(x)$ / 2}
-	       		{,,,,,}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-9,1}$ \fi,\ifsolutions {$-8$} \fi,\ifsolutions {$-6$} \fi, \ifsolutions {$-5,5$} \fi, \ifsolutions {$-5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
+		\fi
 	\end{tikzpicture}
 	\end{center}
 	
