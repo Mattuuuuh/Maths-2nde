@@ -10,7 +10,7 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[2]
+\AdvanceDate[0]
 
 \begin{document}
 \pagestyle{fancy}
@@ -33,7 +33,30 @@
 		\item $f(x) = 1$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{
+	\begin{enumerate}
+		\item 
+		L'inégalité $x+3 \geq 0$ est équivalente à $x \geq -3$.
+		On obtient donc 
+			\[ \{ x \in \R \text{ tq. } x+ 3 \geq 0 \} = \{ x \in \R \text{ tq. }x \geq -3 \} = [-3 ; \pinfty[. \]
+		\item 
+			\[ \left[ \dfrac{10}3 ; \pinfty \right[ \]
+		\item
+			\[ [0 ; \pinfty[ \]
+		\item
+		L'inégalité $-4x - 12 \geq 0$ est équivalente à $-4x \geq 12$.
+		Pour continuer, on multiplie par $-\dfrac14$ qui est négatif, ce qui change donc le sens de l'inégalité : $x \leq -3$.
+		On obtient donc
+			\[ ]\minfty ; -3]. \]
+		\item
+			\[ ]\minfty ; 0] \]
+		\item 
+			Tous les $x\in\R$ vérifie que $f(x) \geq 0$ car $1 \geq 0$ est toujours vrai.
+			Donc 
+			\[ \{ x \in \R \text{ tq. } 1 \geq 0 \} = \R. \]
+	\end{enumerate}
+
+}
 
 \ifdys
 \exe{
@@ -81,7 +104,27 @@
 	\end{tikzpicture}
 	\end{center}
 	\end{multicols}
-}{}
+}{
+	L'ordonnée du point d'abscisse $x$ appartenant à $\C_f$ est $f(x)$.
+	On lit donc son signe en regardant s'il est au-dessus ou en-dessous de l'axe des abscisses.
+	
+	\begin{enumerate}
+		\item On a environ 
+			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0\} \approx [-1,5 ; 1,5]. \]
+		\item On a environ 
+			\[ \{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0\} \approx [-3 ; -1,2] \cup [1,9 ; 3]. \]
+		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
+		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
+		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
+		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
+		Graphiquement, on lit que
+			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0 \text{ et } g(x) \geq 0 \} \approx [-1,2 ; 0,2], \]
+		et que (en faisant à nouveau une hypothèse de continuité)
+			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \leq 0 \text{ et } g(x) \leq 0 \} \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+		On prend l'union des deux pour obtenir
+			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x)  \geq 0 \} \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+	\end{enumerate}
+}
 \fi
 
 \exe{
@@ -93,7 +136,25 @@
 		\item $h(x) = \sqrt{-4x-12}$
 	\end{enumerate}
 
-}{}
+}{
+	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
+	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
+	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
+	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
+	
+	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
+	\begin{enumerate}
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } x + 3 \geq 0 \} = [-3; \pinfty[, \]
+		d'après l'exercice \ref{ex:1}.
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[, \]
+		d'après l'exercice \ref{ex:1}.
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } -4x-12 \geq 0 \} = ]\minfty; -3], \]
+		d'après l'exercice \ref{ex:1}.
+	\end{enumerate}
+}
 
 \exe{\label{ex:4}
 	À l'aide de l'exercice \ref{ex:1} remplir les tableaux de signes ci-dessous et donner
@@ -108,7 +169,16 @@
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
 	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / \ifdys 2 \else1\fi}
-	       		{$\minfty$,,,$\pinfty$}
+	       		{$\minfty$,\ifsolutions $-3$ \fi,\ifsolutions $\dfrac{10}3$ \fi,$\pinfty$}
+		
+		\ifsolutions
+		\tkzTabLine
+			{,-,z,+,,+}
+		\tkzTabLine
+			{,-,,-,z,+}
+		\tkzTabLine
+			{,+, z, -, z, +}
+		\fi
 	\end{tikzpicture}
 	
 	\begin{tikzpicture}
@@ -116,7 +186,16 @@
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
 	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / \ifdys 2 \else1\fi}
-	       		{,,,}
+	       		{\ifsolutions $\minfty$ \fi,\ifsolutions $-3$ \fi,\ifsolutions $0$ \fi,\ifsolutions $\pinfty$ \fi}
+	       		
+		\ifsolutions
+		\tkzTabLine
+			{,-,z,+,,+}
+		\tkzTabLine
+			{,+,,+,z,-}
+		\tkzTabLine
+			{,-, z, +, z, -}
+		\fi
 	\end{tikzpicture}
 	
 	
@@ -125,16 +204,46 @@
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
 	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / \ifdys 2 \else1\fi}
-	       		{,,,,}
+	       		{\ifsolutions $\minfty$ \fi,\ifsolutions $-3$ \fi, \ifsolutions $0$ \fi, \ifsolutions $\dfrac{10}3$ \fi,\ifsolutions $\pinfty$ \fi}
+	       		
+		\ifsolutions
+		\tkzTabLine
+			{,-,z,+,,+,,+}
+		\tkzTabLine
+			{,+,,+,z,-,,-}
+		\tkzTabLine
+			{,-,,-,, -,z,+}
+		\tkzTabLine
+			{,+,z,-,z, +,z,-}
+		\fi
 	\end{tikzpicture}
 	\end{center}
-}{}
+}{
+	On remplit le tableau de signe en calculant d'abord quand chaque fonction affine s'annule : c'est exactement quand elle change de signe (du positif vers le négatif, ou l'inverse).
+	
+	Par exemple, $x+3$ s'annule en $x=-3$, et l'exercice \ref{ex:1} donne que $x+3$ est positif après $-3$, est donc nécessairement négatif avant.
+	On fait idem pour $3x-10$, qui s'annule en $\dfrac{10}3$, et qui est positif après, et négatif avant.
+	
+	Le signe du produit $f(x) = (x+3)(3x-10)$ est déduit du signe des facteurs, à l'aide des règles ``positif $\times$ positif = positif ; négatif $\times$ négatif = positif ; positif $\times$ négatif = négatif''.
+	De puis, lorsqu'un des deux facteurs des nul, le produit est forcément nul, car zéro multiplié par n'importe quoi est nul.
+	
+	Le deuxième tableau est similaire, en faisant attention au fait que le signe de $-4x-12$ est positif puis négatif (cf. exercice \ref{ex:1}).
+	Ceci est en fait dû au fait qu'on ait multiplié par $-\dfrac14$ lors de la résolution de $-4x-12 \geq 0$.
+	Le signe du coefficient directeur $a$ de la fonction affine donne donc l'allure de la droite associée : si $a>0$, la droite monte du négatif vers le positif en passant par $0$, et si $a <0$, la droite descend du positif vers le négatif en passant par $0$.
+	
+	Le cas $a=0$ est le cas de la fonction constante, dont l'étude de signe n'est pas très intéressante.
+}
 
 
 \exe{
 	À l'aide de l'exercice \ref{ex:4}, donner le domaine de définition de la fonction
 		\[ f(x) = \sqrt{-10x(x+3)(3x-10)}. \]
-}{}
+}{
+	La seul contrainte à poser sur $x$ est que l'expression sous la racine soit positive ou nulle.
+		\[ \D_f = \{ x \in \R \text{ tq. } -10x(x+3)(3x-10) \geq 0 \}. \]
+	Or la dernière ligne du dernier tableau de signes de l'exercice \ref{ex:4} nous donne exactement les intervalles où $h(x) = -10x(x+3)(3x-10)$ est positive ou nulle :
+		\[ \D_f = ]\minfty ; -3] \cup \left[0 ; \dfrac{10}3 \right]. \]
+}
 
 \exe{
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
@@ -153,16 +262,61 @@
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1, $x-3$ / 1 , $7x+1$ / 1, $2x+1$ / 1 , $f(x)$ / 1}
-	       		{,,,,,}
+	       		{\ifsolutions $\minfty$ \fi,\ifsolutions $-\dfrac12$ \fi, \ifsolutions $-\dfrac17$ \fi, \ifsolutions $3$ \fi,\ifsolutions $\pinfty$ \fi}
+	       		
+		\ifsolutions
+		\tkzTabLine
+			{,-,,-,,-,z,+}
+		\tkzTabLine
+			{,-,,-,z,+,,+}
+		\tkzTabLine
+			{,-,z,+,,+,,+}
+		\tkzTabLine
+			{,-,z,+,d, -,d,+}
+		\fi
 	\end{tikzpicture}
 	\end{center}
-}{}
+}{
+	\begin{enumerate}
+		\item 
+		Par double distributivité,
+			\[ (x-3)(7x+1) = x^2 \cdot (7) + x \cdot (1 - 21) + (-3) = 7x^2 - 20x - 3. \]
+		\item
+		Il n'y a pas de racine carrée dans l'expression de $f$ : la seule opération illégale est la division par zéro.
+		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\dfrac17$.
+		Par conséquent, $\D_f = \R - \left\{ 3 ; -\dfrac17 \right\}$.
+		
+		\item 
+		Dans la dernière ligne, on note par les doubles barres les valeurs interdites à $f$.
+		Lorsque le numérateur $2x+1$ est nul, $f$ est bien nulle, mais $f$ n'est pas définie aux $x$ pour lesquels le dénominateur s'annule.
+		\item 
+			\[ \{ x \in \D_f \text{ tq. } f(x) \geq 0 \} = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
+		Les valeurs interdites $-\frac17$ et $3$ ne sont pas incluses car elles n'appartiennent pas à $\D_f$, ensemble dans lequel on pioche nos $x$.
+	\end{enumerate}
+}
 
 \exe{
 	Donner le domaine de définition $\D_f$ de la fonction
 		\[ f(x) = \dfrac{\sqrt{7+2x}}{(3x+1) \sqrt{2-x}}, \]
 	et trouver l'ensemble des $x\in\D_f$ vérifiant $f(x) \leq 0$.
-}{}
+}{
+	On identifie quatre contraintes sur $x$ :
+		\begin{enumerate}
+			\item $7+2x \geq 0$ ;
+			\item $3x+1 \neq 0$ ;
+			\item $2-x \geq 0$ ; et
+			\item $2-x \neq 0$.
+		\end{enumerate}
+	On traite d'abord les inégalités qui imposent $x \geq -\dfrac72$, et $x\leq 2$.
+	Ainsi, $x$ appartient nécessairement à l'intervalle $\left[ -\dfrac72 ; 2 \right]$.
+	
+	Les autres contraintes imposent que $x \neq -\dfrac13$ et $x\neq 2$, ce qui perfore l'intervalle obtenu :
+		\[ \D_f = \left[ -\dfrac72 ; 2 \right] - \left\{ -\dfrac13 ; 2 \right\} = \left[ -\dfrac72 ; -\dfrac13 \right[ \cup \left] -\dfrac13; 2 \right[. \]
+	
+	Pour obtenir le signe, remarquons qu'il n'est que nécessaire d'étudier le signe de $3x+1$, car les racines carrées sont toujours positives.
+	Or $3x+1$ est négatif avant sa racine et positif après, ce qui implique que
+		\[ \{ x \in \D_f \text{ tq. } f(x) \leq 0 \} = \D_f \cap \left]\minfty ; -\dfrac13 \right] = \left[ -\dfrac72 ; -\dfrac13 \right[. \]
+}
 
 \exe{
 	Soit une fonction $f$ donnée par
@@ -172,7 +326,47 @@
 		\item En déduire $\D_f$.
 		\item Donner $\{ x \in \D_f \text{ tq. } f(x) \leq 0 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
-}{}
+}{
+	\begin{enumerate}
+		\item 
+		Par double distributivité, on obtient
+			\[ -2\left(x+\dfrac32\right)(x-4) = -2 \left( x^2 + \dfrac32 x - 4x - \dfrac32 \cdot 4 \right) = -2x^2 + 5x + 12. \]
+		\item 
+		Les seules contraintes sont que le dénominateur ne s'annule pas :
+			\[ \D_f = \R - \left\{ - \dfrac32 ; 4 \right \}. \]
+		\item
+		On crée un tableau de signes utilisant que
+			\[ f(x) = \dfrac{(4x-8)(x-3)}{-2\left(x+\dfrac32\right)(x-4)} = -\dfrac12 \cdot \dfrac{(4x-8)(x-3)}{\left(x+\dfrac32\right)(x-4)}. \]
+		Remarquons, de manière importante, que le signe de $f$ est donc l'opposé du signe de $\dfrac{(4x-8)(x-3)}{\left(x+\dfrac32\right)(x-4)}$ à cause du $-2$ !
+		On l'ajoute donc au tableau pour ne pas l'oublier...
+	\end{enumerate}
+
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1, $4x-8$ / 1 , $x-3$ / 1, $x+\dfrac32$ / 1 , $x-4$ / 1, $-2$ / 1, $f(x)$ / 1}
+	       		{$\minfty$, $-\dfrac32$, $2$, $3$, $4$, $\pinfty$}
+	       		
+		\tkzTabLine
+			{,-,,-,z,+,,+,,+,}
+		\tkzTabLine
+			{,-,,-,,-,z,+,,+,}
+		\tkzTabLine
+			{,-,z,+,,+,,+,,+,}
+		\tkzTabLine
+			{,-,,-,,-,,-,z,+,}
+		\tkzTabLine
+			{,-,,-,,-,,-,,-,}
+		\tkzTabLine
+			{,-,d,+,z,-,z,+,d,-,}
+	\end{tikzpicture}
+	\end{center}
+	
+	D'où 
+		\[  \{ x \in \D_f \text{ tq. } f(x) \leq 0 \} = \left] \minfty ; -\dfrac32 \right[ \cup  \left[ 2 ; 3 \right]  \cup \left]4;\pinfty \right[. \]
+}
 
 
 \end{document}
