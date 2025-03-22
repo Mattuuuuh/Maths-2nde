@@ -225,6 +225,30 @@ nomarginpar,% We don't want any margin paragraphs
 		},
 	#1
 }{th}
+\newtcbtheorem[use counter=commonbox]{demonstration}{Démonstration}%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
 \newtcbtheorem[number within=commonbox]{definition}{Définition }%
 {
 	enhanced,
