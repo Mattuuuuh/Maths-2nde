@@ -39,42 +39,51 @@
 \exe{
 	À l'aide de l'exercice \ref{ex:1} et du cours, compléter les tableaux de variations des fonctions parentes à $x^2$.
 	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		{$x$ / 1 , Variation de $(x+1)^2$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		{$x$ / 1 , Variation de $(x-3)^2$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 [lgt=3]
-	       		{$x$ / 1 , Variation de $(x+1)^2$ / 2}
+	       		{$x$ / 1 , Variation de $-2x^2$/ 2, Variation de $3x^2$ / 2, Variation de $1+x^2$ / 2, Variation de $2x^2-7$ / 2, Variation de $-3 - 5x^2$ / 2, Variation de $-x^2+17$ / 2}
 	       		{,,,}
 	\end{tikzpicture}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3]
-	       		{$x$ / 1 , Variation de $(x-3)^2$ / 2}
-	       		{,,,}
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3]
-	       		{$x$ / 1 , Variation de $-2x^2$/ 2}
-	       		{,,,}
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3]
-	       		{$x$ / 1, Variation de $3x^2$ / 2}
-	       		{,,,}
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3]
-	       		{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
-	       		{,,,}
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3]
-	       		{$x$ / 1 , Variation de $-3 - 2(x+4)^2$ / 2}
-	       		{,,,}
-	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		{$x$ / 1, Variation de $3x^2$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		%{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
+%	       		{$x$ / 1, Variation de $1+x^2$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		%{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
+%	       		{$x$ / 1, Variation de $2x^2-7$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=3]
+%	       		%{$x$ / 1 , Variation de $-3 - 2(x+4)^2$ / 2}
+%	       		{$x$ / 1 , Variation de $-3 - 2x^2$ / 2}
+%	       		{,,,}
+%	\end{tikzpicture}
 	\end{center}
 }{}
 
@@ -96,11 +105,14 @@
 %}{}
 %
 %
-%\exe{
-%	Soit $f$ la fonction définie sur $\D_f = \R$ par
-%		\[ f(x) = -3 - (x+1)^2. \]
-%	Montrer que $f$ atteint son maximum en $x^\star=-1$ et remplir le tableau de variations et de signes ci-dessous.
-%	
+\exe{
+	Soit $f$ la fonction définie par
+		\[ f(x) = -3 - (x+1)^2. \]
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Montrer que $f$ atteint son maximum en $x^\star=-1$ et donner sa valeur.
+	\end{enumerate}
+	
 %	\begin{center}
 %	\begin{tikzpicture}
 %		\tkzTabInit
@@ -109,14 +121,16 @@
 %	       		{,,,}
 %	\end{tikzpicture}
 %	\end{center}
-%}{}
-%
-%\exe{
-%	Soit $f$ la fonction définie sur $\R$ par
-%		\[ f(x) = -10 + 3(3x-1)^2. \]
-%	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et remplir le tableau de variations ci-dessous.
-%	Peut-on déduire le signe de $f(x)$ uniquement avec ce tableau ?
-%	
+}{}
+
+\exe{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et donner sa valeur.
+	\end{enumerate}
+	
 %	\begin{center}
 %	\begin{tikzpicture}
 %		\tkzTabInit
@@ -125,7 +139,7 @@
 %	       		{,,,}
 %	\end{tikzpicture}
 %	\end{center}
-%}{}
+}{}
 
 \newpage
 
