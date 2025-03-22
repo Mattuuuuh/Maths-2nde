@@ -1,0 +1,71 @@
+\input{preamble}
+\AdvanceDate[3]
+
+\begin{document}
+
+\section{Exercice 1}
+
+\subsection{Graphe}
+
+\begin{frame}
+	\centering
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.35, above]{$\mathcal{C}_f$};
+		\only<2->{
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.35, above]{$\mathcal{C}_g$};
+		}
+		\only<3->{
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.35,above]{$\mathcal{C}_h$};
+		}´		
+		\end{axis}
+	\end{tikzpicture}
+	\pause
+		\pause
+		\pause
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-10$,{-4,6},{2},$7$}
+	       	
+	       	\pause	
+		\tkzTabVar
+			{-/{$-4,1$}, +/{$0,2$}, -/{$-1,2$}, +/{$2,5$}}
+		\tkzTabVar
+			{-/{$-3,1$}, +/{$1,2$}, -/{$-0,2$}, +/{$3,5$}}
+		\tkzTabVar
+			{-/{$-6,1$}, +/{$-1,2$}, -/{$-2,2$}, +/{$1,5$}}
+	\end{tikzpicture}
+
+\end{frame}
+
+
+\subsection{Variations}
+
+\subsection{Propriété}
+
+\subsection{Démonstration}
+
+\section{Exercice 2}
+
+\subsection{Graphe}
+
+\subsection{Variations}
+
+\subsection{Propriété}
+
+\subsection{Démonstration}
+
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass[14pt]{beamer}
+\usepackage[french]{babel}
+
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+\beamertemplatenavigationsymbolsempty
+
+
+\usepackage{libertinus}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+% corps
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathbb{D}}
+
+% theorems
+
+\theoremstyle{plain}
+\newtheorem{rappel}{Rappel}
+\newtheorem{propriete}{Propriété}
+\newtheorem{outil}{Outil}
+\newtheorem{exemple}{Exemple}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+
+%plots
+\usepackage{pgfplots, subcaption}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+
+%boxes
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+
+%icomma
+\usepackage{icomma}
+
+
+% tableaux var, signe
+\usepackage{tkz-tab}
+
+%https://osl.ugr.es/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!25,
+  colback  = #2!10,
+  coltitle = #2!20!black,  
+  halign title=flush center, 
+  title    = {#3},
+  #1,
+}
+
+% BOX A BOX B
+\newcommand{\boxAB}[2]{
+		\begin{mybox}{red}{A}
+		\begin{center}
+			#1
+		\end{center}
+		\end{mybox}
+		\begin{mybox}{green}{B}
+		\begin{center}
+			#2
+		\end{center}
+		\end{mybox}
+}
+
+
+% date
+\usepackage{advdate}
