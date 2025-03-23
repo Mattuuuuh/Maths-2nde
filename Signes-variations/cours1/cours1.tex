@@ -10,12 +10,12 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Cours --- Variations de fonctions parentes \ifsolutions \\ Solutions  \fi}}
+\fancyhead[C]{\textbf{Variations de fonctions parentes \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 %\pagenumbering{gobble}
 
@@ -82,9 +82,9 @@
 	\begin{enumerate}
 		\item
 		\begin{enumerate}[label=$\bullet$]
-			\item Le point $A$ de $\C_f$ d'abscisse $x$ est \ifsolutions $A(x ; f(x))$. \fi
+			\item Le point $A$ de $\C_f$ d'abscisse $x$ a pour coordonnées \ifsolutions $A(x ; f(x))$. \fi
 			\item Le vecteur qui translate verticalement de $c$ unités a pour coordonnées $v = $ \ifsolutions $ \pvec{0}{c}$. \fi
-			\item Le translaté $A+v$ a pour coordonnées \ifsolutions $(x ; f(x)+c) = (x ; g(x)) \in \C_g$. \fi
+			\item Donc le translaté $A+v$ a pour coordonnées \ifsolutions $(x ; f(x)+c) = (x ; g(x)) \in \C_g$. \fi
 %			\item Le point $A$ de $\C_f$ d'abscisse $x$ est \ifsolutions $A(x ; f(x))$. \fi
 %			\item Le point $B$ de $\C_g$ d'abscisse $x$ est \ifsolutions $B(x ; g(x))$. \fi
 %			\item Or $g(x) = f(x)+c$, donc $\vec{AB} =$ \ifsolutions $\pvec{x-x}{g(x) - f(x)} = \pvec{0}{c}$. \fi
@@ -93,15 +93,15 @@
 		\item 
 		\begin{enumerate}[label=$\bullet$]
 			\item 
-			Si $f$ est croissante sur un intervalle $I$, alors pour tous les $x < y$ de $I$, on a 
+			Par définition, $f$ est croissante sur un intervalle $I$, dès que \ifsolutions pour tous les $x < y$ de $I$, on a \fi
 				 \[ \ifsolutions f(x) < f(y). \fi \] 
 			\item 
-			Soient $x < y$ deux éléments de $I$. On sait que
+			Soient $x < y$ deux éléments de $I$. Comme $f$ est croissante, on sait que
 				 \[ \ifsolutions f(x) < f(y), \fi \]
 			et donc que 
-				 \begin{align*} \ifsolutions f(x)+c < f(y)+c \fi && \iff && \ifsolutions g(x) < g(y). \fi \end{align*}
+				 \begin{align*} \ifsolutions f(x)+c < f(y)+c  && \iff && g(x) < g(y). \fi \end{align*}
 			\item 
-			Donc $g$ est croissante sur $I$ : pour tous les $x < y$ de $I$, on a
+			Donc $g$ est croissante sur $I$ : \ifsolutions pour tous les $x < y$ de $I$, on a \fi
 				 \[ \ifsolutions g(x) < g(y). \fi \] 
 		\end{enumerate}
 	\end{enumerate}
@@ -195,11 +195,11 @@
 \begin{demonstration*}{de la propriété \ref{prop:2} dans le cas $f$ décroissante}{}
 	\begin{enumerate}[label=$\bullet$]
 		\item 
-		Si $f$ est décroissante sur un intervalle $I$, alors \ifsolutions pour tous les $x < y$ de $I$, on a \fi
-			 \[ \ifsolutions f(x) > f(y). \fi \] 
+			Par définition, $f$ est décroissante sur un intervalle $I$, dès que \ifsolutions pour tous les $x < y$ de $I$, on a \fi
+				 \[ \ifsolutions f(x) > f(y). \fi \] 
 		\item 
-		Soient $x < y$ deux éléments de $I$. On sait que
-			 \[ \ifsolutions f(x) < f(y), \fi \]
+		Soient $x < y$ deux éléments de $I$. Comme $f$ est décroissante, on sait que
+			 \[ \ifsolutions f(x) > f(y), \fi \]
 		et donc que 
 			\begin{multicols}{2}
 			\underline{si $c > 0$},
