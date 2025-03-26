@@ -4,7 +4,7 @@
 \newcommand{\aIII}{\dfrac{13}{16}}
 \newcommand{\xC}{-8}
 \newcommand{\yC}{4}
-\newcommand{\bI}{19}
+\newcommand{\bI}{+19}
 \newcommand{\bII}{+\dfrac{19}{3}}
 \newcommand{\bIII}{+\dfrac{11}{2}}
 \newcommand{\xmin}{-14}

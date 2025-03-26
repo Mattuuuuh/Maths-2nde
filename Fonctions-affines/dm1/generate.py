@@ -96,13 +96,14 @@ def newcommand_add(command, numerator, denominator):
     if numerator == 0:
         return newcommand(command, "")
     
-    # case val is integer
-    if denominator == 1:
-        return newcommand(command, numerator)
-
     # else
     # sign is separated
     sign = "+" if numerator>=0 else "-"
+    
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, sign+str(numerator))
+    
     numerator = np.abs(numerator)
     return newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
@@ -373,7 +374,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 40
+    N = 1
     # always the same N to recompile if needed
     np.random.seed(51) # not a prime 
 
@@ -382,7 +383,7 @@ if __name__=="__main__":
         seed = int(np.random.rand() * (2**16 - 1))
 
         # uncomment to fix seed
-        #seed=64064
+        seed=36729
 
         np.random.seed(seed)
         
