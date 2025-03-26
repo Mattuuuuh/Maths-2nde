@@ -1,9 +1,9 @@
 %% INPUT PREAMBLE.TEX
 %% THEN INPUT VARS_{i}.ADR
 %% THEN RUN THIS
-\input{preamble.tex}
+%\input{preamble.tex}
 %\input{adr/vars_44284.adr}
-\newcommand{\seed}{TEST}
+%\newcommand{\seed}{TEST}
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
@@ -13,14 +13,15 @@
 \exe{
 	Considérons trois fonctions du deuxième degré définies sur $\R$.
 	\begin{align*}
-		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
+		f(x) = \fa x^2  \fb x \fc, && g(x) = \left(\gaI x \gbI\right)\left(\gaII x \gbII\right), && h(x) = -\hbeta + (\ha x \hb)^2.
 	\end{align*}
 	
 	\begin{enumerate}
 		\item Montrer que $g = f$ en développant $g(x)$.
 		\item Remplir le tableau de signe de $f$ à l'aide de l'expression de $g$.
 		\item Montrer que $h = f$ en développant $h(x)$.
-		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+		%\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+		\item Donner le minimum de $f$ sur $\R$ et l'antécédent $x^\star \in \R$ qui le réalise.
 	\end{enumerate}
 
 	\begin{center}
@@ -31,13 +32,13 @@
 	       		{$\minfty$,,,,$\pinfty$}
 	\end{tikzpicture}
 	
-	\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1,  Variation de $f(x)$ / 2}
-	       		{$\minfty$,,,,$\pinfty$}
-	\end{tikzpicture}
+%	\vfill
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+%	       		{$\minfty$,,,,$\pinfty$}
+%	\end{tikzpicture}
 	\end{center}
 
 }{}
@@ -45,33 +46,37 @@
 \exe{
 	Construire, en posant des nombres réels $a, b, c\in\R$, une fonction de la forme
 			\[ f(x) = ax^2 + bx + c, \]
-	qui admet le tableau de variations suivant.
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1,  Variation de $f(x)$ / 2}
-	       		{$\minfty$,,$-1$,,$\pinfty$}
-	       		
-		\tkzTabVar
-			{-/, R/, +/$-3$, R/, -/}
+%	telle que
+%			\[ \max\{ f(x) \text{ où $x$ parcourt $\R$} \} = f(-1) = -3. \]
+	telle que $-3$ soit le maximum de $f$ sur $\R$, atteint en $x^\star = -1$.
+%	qui admet le tableau de variations suivant.
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+%	       		{$\minfty$,,$-1$,,$\pinfty$}
+%	       		
+%		\tkzTabVar
+%			{-/, R/, +/$-3$, R/, -/}
 %		\tkzTabIma
 %			{1}{2}{1}{60}
 %		\tkzTabIma
 %			{2}{4}{4}{25}
-	\end{tikzpicture}
-	\end{center}
+%	\end{tikzpicture}
+%	\end{center}
 
 }{}
 
 \exe{
 	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
 		\begin{align}
-			22x^2 - 125x + 22  = 0. \label{eq:1}
+			\eqIa x^2 + \eqIb x \eqIc = 0. \label{eq:1}
 		\end{align}
 	\begin{enumerate}
-		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item Montrer que $\eqIa x^2 + \eqIb x \eqIc = (\aV x^2 - \bV)(\cV - \dV x^2)$.
 		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+		Exprimer ces solutions sous la forme $q \sqrt{n}$ où $q\in\Q$ est rationnel et $n\in\N$ est un entier naturel.
 	\end{enumerate}
 }{}
 
