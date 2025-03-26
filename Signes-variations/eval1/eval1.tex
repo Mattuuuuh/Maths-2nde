@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Évaluation blanche --- Signes et variations \ifsolutions --- Solutions  \fi}}
+\fancyhead[C]{\textbf{Exercices d'entraînement --- Signes et variations \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
 
@@ -36,28 +36,73 @@
 
 
 \exe{
-	\begin{multicols}{2}
-	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
-		\begin{enumerate}
-			\item $A= \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0\}$
-			\item $B=\{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0\}$
-			\item $C=\{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0\}$
-		\end{enumerate}
-	\vfill
-	
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-3; -3]$.
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
 	\begin{axis}[xmin = -3, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
 		
 		% (g)
-		\addplot[myr, very thick, domain =-3:3, samples=50] {2*(x+1)*x*(x-2)+.5}  node[pos = .72, right=2pt] {$\C_g$};
+		\addplot[myr, very thick, domain =-3:3, samples=100] {2*(x+1)*x*(x-2)+.5}  node[pos = .72, right=2pt] {$\C_g$};
 		
 		% (f)
 		\addplot[myb, very thick, domain =-3:3, samples=50] {-2.9+1.2*x^2}  node[pos = .3, left] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
-	\end{multicols}
+%	\end{multicols}
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+		[lgt=3,espcl=3]
+	       		{$x$ / 1 , Signe de $f(x)$ / 1}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions $-9$ \fi,\ifsolutions $-6$ \fi,\ifsolutions $-3$ \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,+,z,-,z,+,z,-}
+		\fi
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=3,espcl=3]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-10,5}$ \fi,\ifsolutions {$-7,5$} \fi,\ifsolutions {$-4,5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
+		\fi
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=2]
+	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions $-10$ \fi,\ifsolutions {$-8,4$} \fi,\ifsolutions {$-6,5$} \fi, \ifsolutions {$-5,8$} \fi, \ifsolutions {$-5,3$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,-,z,+,z,-,z,+,z,-,z,+}
+		\fi
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=2]
+	       		{$x$ / 1 , Variation de $g(x)$ / 2}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-9,1}$ \fi,\ifsolutions {$-8$} \fi,\ifsolutions {$-6$} \fi, \ifsolutions {$-5,5$} \fi, \ifsolutions {$-5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
+		\fi
+	\end{tikzpicture}
+	\end{center}
+
+
 }{}
 
 \exe{
@@ -71,7 +116,7 @@
 		\item Montrer que $6 - x - x^2 = (x+3)(2-x)$.
 		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
 		%\item Donner les valeurs interdites à $f$ et son domaine de définition $\D_f$.
-		\item Remplir le tableau de signes ci-dessous.
+		\item Remplir le tableau de signes au dos.
 		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
 	
@@ -107,7 +152,7 @@
 %	\end{enumerate}
 %}{}
 
-\newpage
+%\newpage
 
 \exe{[Vrai ou faux]
 	Pour chaque proposition suivante, démontrer qu'elle est vraie ou donner un contre-exemple.
@@ -154,27 +199,27 @@
 %}{}
 
 % même exo avec doublon de développement mais uniquement variations...
-\exe{
-	Considérons les deux fonctions du deuxième degré définies sur $\R$.
-	\begin{align*}
-		f(x) = 64x^2 + 16x - 48, && h(x) = -49 + (8x+1)^2.
-	\end{align*}
-	
-	\begin{enumerate}
-		\item Montrer que $h = f$ en développant $h(x)$.
-		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
-	\end{enumerate}
-
-	\begin{center}	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1,  Variation de $f(x)$ / 2}
-	       		{$\minfty$,,,,$\pinfty$}
-	\end{tikzpicture}
-	\end{center}
-
-}{}
+%\exe{
+%	Considérons les deux fonctions du deuxième degré définies sur $\R$.
+%	\begin{align*}
+%		f(x) = 64x^2 + 16x - 48, && h(x) = -49 + (8x+1)^2.
+%	\end{align*}
+%	
+%	\begin{enumerate}
+%		\item Montrer que $h = f$ en développant $h(x)$.
+%		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+%	\end{enumerate}
+%
+%	\begin{center}	
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+%	       		{$\minfty$,,,,$\pinfty$}
+%	\end{tikzpicture}
+%	\end{center}
+%
+%}{}
 
 
 \exe{
@@ -184,17 +229,18 @@
 }{}
 
 \exe{
-	On pose l'intervalle perforé $I=]3; \pinfty[-\{17\}$.
+	On pose l'intervalle $I=]3; 17[$.
 	
 	\begin{enumerate}
-		\item Montrer que $3x+5 > 17 - x$ sur $I$.
-		\item Montrer que $7x-5 > 2(x+5)$ sur $I$.
+		\item Montrer que $3x+5 > 17 - x > 0$ sur $I$.
+		\item Montrer que $7x-5 > 2(x+5) > 0$ sur $I$.
 		\item En déduire que, pour tout $x\in I$,
 			\[ \dfrac{(3x+5)(7x-5)}{(17-x)(x+5)} > 2. \]
+		\item En développant $(3x+5)(7x-5)-2(17-x)(x+5)$, en déduire que $23x^2  > 4x + 195$ sur $I$.
 	\end{enumerate}
 }{}
 
-\subsection*{Exercices supplémentaires}
+%\subsection*{Exercices supplémentaires}
 
 \exe{
 	Donner une fonction $f$ telle que
