@@ -19,4 +19,105 @@ Les capacités attendues sont les suivantes.
 
 \section{Fonctions de référence}
 
+\subsection{Nouvelles fonctions parentes : transformations des abscisses}
+
+\ex{translation des abscisses}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = f(x+2). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0+2) = f(2)$.
+	De façon identique, $g(-3) = f(-1)$, $g(12) = f(14)$, etc…
+	
+	En fait, la fonction $g$ regarde dans l'avenir de la fonction $f$ : le point $(x ; f(x))$ de $\C_f$ correspond au point $(x-2 ; f(x)) = (x ; f(x)) + \pvec{-2}{0}$ sur $\C_g$.
+	Graphiquement, la courbe $\C_f$ est translatée de $2$ unité vers la gauche pour obtenir $\C_g$.
+	
+	Pour $h(x) = f(x-1)$, on obtient les graphes suivants.
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+8)*(x+5)*(x-3)}
+		node[pos=.1, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+1)*(x-2)*(x-10)}
+		node[pos=.95, below]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\ex{multiplication des abscisses}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = f(-x). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(-0) = f(0)$.
+	De façon identique, $g(-3) = f(3)$, $g(12) = f(-12)$, etc…
+	
+	Tout point $(x;f(x))$ est associé au point $(-x;g(-x)) = (-x ; f(x)) \in \C_g$.
+	Graphiquement, les courbes $\C_f$ et $\C_g$ sont symétriques par rapport à l'axe des ordonnées.
+	
+	Pour $h(x) = f(2x)$, on obtient les graphes suivants.
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(-x+6)*(-x+3)*(-x-5)}
+		node[pos=.1, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(2*x+6)*(2*x+3)*(2*x-5)}
+		node[pos=.95, below]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+
+\thm{Fonctions parentes : transformations des abscisses}{
+	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ un nombre réel.
+		\begin{enumerate}
+			\item La courbe représentative $\C_g$ de la fonction
+				\[ g(x) = f(x+c) \]
+			est obtenue en translatant la courbe $\C_f$ de $c$ unités vers la gauche.
+			\item La courbe représentative $\C_h$ de la fonction
+				\[ h(x) = f(c \cdot x) \]
+				est obtenue à partir de $\C_f$ en allongeant ou contractant l'axe des abscisses d'un facteur $c$ et, si $c<0$, en appliquant une symétrie selon l'axe des ordonnées.
+		\end{enumerate}
+}{}
+
+\subsection{Fonction inverse}
+
+\subsection{Fonction racine carrée}
+
+\subsection{Fonction cube}
+
 \section{Position relative des courbes, parité}
+
+\dfn{Fonction paire, fonction impaire}{
+	On dit qu'une fonction réelle $f$ est 
+		\begin{enumerate}
+			\item \emph{paire} si $\C_f$ est symétrique par rapport à l'axe des ordonnées.
+			Autrement dit, si
+				\[ f(x) = f(-x) \]
+			pour tout $x\in\R$ réel.
+			\item \emph{impaire} si $\C_f$ est symétrique par rapport à l'origine $O$ du repère.
+			Autrement dit, si
+				\[ f(x) = -f(x) \]
+			pour tout $x\in\R$ réel.
+		\end{enumerate}
+}{}
+
+
+
+

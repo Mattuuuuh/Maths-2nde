@@ -32,7 +32,7 @@ Les capacités attendues sont les suivantes.
 
 \subsection{Fonctions}
 
-Retour : dès que \texttt{return} est atteint, rien la valeur est retournée et rien d'autre n'est lu.
+Retour : dès que \texttt{return} est atteint, la valeur est retournée et rien d'autre n'est lu.
 Les fonctions suivantes sont donc équivalentes.
 
 \begin{mintedbox}{python}
@@ -76,7 +76,7 @@ def factorielle(n):
 \end{mintedbox}
 
 \ex{Coefficient binomial}{
-	Supposons qu'on veuille calculer le nombre de façon d'obtenir $4$ piles en $10$ lancers d'une pièce.
+	On souhaite calculer le nombre de façon d'obtenir $4$ piles en $10$ lancers d'une pièce.
 	
 	On généralise ce problème à obtenir $k$ piles en $n$ lancers, où $n\geq k \geq 0$, et on appelle \texttt{binome(k,n)} cette valeur. \footnote{Voir l'article \emph{Coefficient binomial} sur Wikipédia.}
 	
@@ -90,7 +90,7 @@ def factorielle(n):
 	Comme $k$ et $n$ diminuent en parallèle, on définit deux conditions de sortie : $\texttt{binome(n,n)} = \texttt{binome(0,n)} = 1$.
 	
 	Un appel \texttt{binome(4,10)} permet d'obtenir de répondre à la question de départ : il y a $210$ façons d'obtenir $4$ piles en $10$ lancers d'une pièce.
-	Ce résultat est obtenu en $5,8 \time 10^{-5}$ secondes.
+	Ce résultat est obtenu en $5,8 \times 10^{-5}$ secondes.
 }{}
 		
 \begin{mintedbox}{python}
@@ -149,7 +149,7 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 \section{Application : dichotomie pour l'approximation de racines}
 
 On dispose d'une fonction $f$ dont on souhaite trouver une racine, c'est-à-dire trouver un antécédent $x_0\in\D_f$ tel que $f(x_0)=0$.
-Lorsque la factorisation de $f$ en produit de facteurs linéaires n'est pas connue (et d'ailleurs, elle n'existe pas en générale, voir le théorème d'Abel-Ruffini), il faut se contenter d'une approximation de $x_0$.
+Lorsque la factorisation de $f$ en produit de facteurs linéaires n'est pas connue (et d'ailleurs, elle n'existe pas en général, voir le théorème d'Abel-Ruffini), il faut se contenter d'une approximation de $x_0$.
 
 \ex{Racine carrée de $7$}{
 	Par exemple, pour calculer approximativement $\sqrt{7}$, on pourra considérer la fonction 
@@ -260,10 +260,10 @@ Lorsque la factorisation de $f$ en produit de facteurs linéaires n'est pas conn
 def f(x):
 	return x**2 - 7
 
-erreur = 1e-5 # précision souhaitée
+precision = 1e-5 # précision souhaitée
 
 def dichotomie(a,b):
-	if b-a < erreur: # condition de sortie
+	if b-a < precision: # condition de sortie
 		return a, b
 	m = (a+b)/2 # milieu de l'intervalle
 	if f(m) > 0:
@@ -272,7 +272,7 @@ def dichotomie(a,b):
 	
 dichotomie(2,3) # car f(2) < 0 et f(3) > 0
 
-erreur = 1e-10 # meilleure précision
+precision = 1e-10 # meilleure précision
 dichotomie(2,3)
 \end{mintedbox}
 

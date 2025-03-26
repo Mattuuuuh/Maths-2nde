@@ -367,7 +367,7 @@ Les manipulations d'inégalités ont été étudiées dans la section \ref{subse
 	\caption{Courbes représentatives de fonctions affines $f(x) = ax+b$ selon le signe du coefficient directeur $a$.}
 \end{figure}
 
-\subsection{Fonctions parentes : impact sur les variations}
+\subsection{Fonctions parentes : transformations des ordonnées}
 
 À partir des variations d'une fonction qu'on connaît bien (par exemple une fonction affine, la fonction carré, et on en verra d'autres au chapitre Fonctions de référence), on peut déduire les variations de toute une famille de fonctions apparentées.
 
@@ -403,37 +403,37 @@ On distingue trois types de fonctions parentes à partir d'une courbe représent
 	\end{tikzpicture}
 	\end{center}
 }{}
-
-\ex{translation d'une constante}{
-	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
-		\[ g(x) = f(x+2). \]
-	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0+2) = f(2)$.
-	De façon identique, $g(-3) = f(-1)$, $g(12) = f(14)$, etc…
-	
-	En fait, la fonction $g$ regarde dans l'avenir de la fonction $f$ : le point $(x ; f(x))$ de $\C_f$ correspond au point $(x-2 ; f(x)) = (x ; f(x)) + \pvec{-2}{0}$ sur $\C_g$.
-	Graphiquement, la courbe $\C_f$ est translatée de $2$ unité vers la gauche pour obtenir $\C_g$.
-	
-	Pour $h(x) = f(x-1)$, on obtient les graphes suivants.
-	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
-		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-	    	%every y tick label/.style={
-	        %anchor=near yticklabel opposite,
-	        %xshift=0.2em,
-	    	%}
-	    	]
-		% g cos
-		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
-		node[pos=.5, below]{$\mathcal{C}_f$};
-		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+8)*(x+5)*(x-3)}
-		node[pos=.1, above]{$\mathcal{C}_g$};
-		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+1)*(x-2)*(x-10)}
-		node[pos=.95, below]{$\mathcal{C}_h$};
-		\end{axis}
-	\end{tikzpicture}
-	\end{center}
-}{}
+% moved to Fonctions de référence
+%\ex{translation d'une constante}{
+%	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+%		\[ g(x) = f(x+2). \]
+%	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0+2) = f(2)$.
+%	De façon identique, $g(-3) = f(-1)$, $g(12) = f(14)$, etc…
+%	
+%	En fait, la fonction $g$ regarde dans l'avenir de la fonction $f$ : le point $(x ; f(x))$ de $\C_f$ correspond au point $(x-2 ; f(x)) = (x ; f(x)) + \pvec{-2}{0}$ sur $\C_g$.
+%	Graphiquement, la courbe $\C_f$ est translatée de $2$ unité vers la gauche pour obtenir $\C_g$.
+%	
+%	Pour $h(x) = f(x-1)$, on obtient les graphes suivants.
+%	\begin{center}
+%	\begin{tikzpicture}[scale=1]
+%		\begin{axis}[xmin = -10, xmax=10, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+%		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+%	    	%every y tick label/.style={
+%	        %anchor=near yticklabel opposite,
+%	        %xshift=0.2em,
+%	    	%}
+%	    	]
+%		% g cos
+%		\addplot[no marks, myb, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+%		node[pos=.5, below]{$\mathcal{C}_f$};
+%		\addplot[no marks, myr, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+8)*(x+5)*(x-3)}
+%		node[pos=.1, above]{$\mathcal{C}_g$};
+%		\addplot[no marks, myg, -, very thick] expression[domain=-10:10, samples=50]{.01*(x+1)*(x-2)*(x-10)}
+%		node[pos=.95, below]{$\mathcal{C}_h$};
+%		\end{axis}
+%	\end{tikzpicture}
+%	\end{center}
+%}{}
 
 \ex{multiplication par une constante}{
 	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
@@ -468,7 +468,7 @@ On distingue trois types de fonctions parentes à partir d'une courbe représent
 }{}
 
 \thm{Variations de fonctions parentes}{
-	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ deux nombres réels.
+	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ un nombre réel.
 		\begin{enumerate}
 			\item La fonction
 				\[ g(x) = f(x) + c \]
@@ -479,9 +479,10 @@ On distingue trois types de fonctions parentes à partir d'une courbe représent
 					\item si $c>0$, $h$ admet les mêmes variations que $f$.
 					\item si $c<0$, les variations de $h$ sont opposées à celles de $f$ (croissante devient décroissante, décroissante devient croissante, et constante reste idem).
 				\end{enumerate}
-			\item La fonction
-				\[ F(x) = f(x+c) \]
-			admet les mêmes variations que $f$ mais décalées de $c$ vers la gauche.
+% moved to Fonctions de référence
+%			\item La fonction
+%				\[ F(x) = f(x+c) \]
+%			admet les mêmes variations que $f$ mais décalées de $c$ vers la gauche.
 		\end{enumerate}
 }{}
 
