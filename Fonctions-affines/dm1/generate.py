@@ -99,12 +99,12 @@ def newcommand_add(command, numerator, denominator):
     # else
     # sign is separated
     sign = "+" if numerator>=0 else "-"
+    numerator = np.abs(numerator)
     
     # case val is integer
     if denominator == 1:
         return newcommand(command, sign+str(numerator))
     
-    numerator = np.abs(numerator)
     return newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
 # write decimal separator with commas instead of dots
