@@ -365,6 +365,7 @@ def generate(seed):
 
     penteI = np.tan(angle*np.pi/180)
     penteI_percent = np.round(penteI*100,1)
+    penteI_percent = comma(penteI_percent)
     CONTENT += newcommand("\\penteIpercent", penteI_percent)
 
     return CONTENT    
