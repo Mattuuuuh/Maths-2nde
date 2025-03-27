@@ -16,3 +16,5 @@
 \newcommand{\eqIa}{-270}
 \newcommand{\eqIb}{159}
 \newcommand{\eqIc}{-21}
+\newcommand{\qI}{-2}
+\newcommand{\qII}{\dfrac{19}{15}}

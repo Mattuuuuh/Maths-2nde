@@ -205,7 +205,7 @@ def generate(seed):
     CONTENT += newcommand_add("\\fb", 2*a*b, 1)
     CONTENT += newcommand_add("\\fc", b**2 - beta, 1)
 
-    ### EX 2 ###
+    ### EX 3 ###
 
     """
     Generate a, b, c, d integers such that
@@ -227,6 +227,24 @@ def generate(seed):
     CONTENT += newcommand("\\eqIa", -a*d)
     CONTENT += newcommand("\\eqIb", a*c+b*d)
     CONTENT += newcommand("\\eqIc", -b*c)
+
+    ### EX 4 ###
+    """
+    Generate rationnals a/b, c/d such that
+        b·d != 0
+        a/b·c/d < 0
+        0 < |a,b,c,d| < 20
+    """
+
+    a, b, c, d = (np.random.rand(4)*19+1).astype(int)
+    
+    sign = 1 if np.random.rand() > .5 else -1
+    a *= sign
+    b *= -sign
+
+    CONTENT += newcommand_dfrac("\\qI", a, b)
+    CONTENT += newcommand_dfrac("\\qII", c, d)
+
 
     return CONTENT    
 
