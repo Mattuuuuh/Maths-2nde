@@ -130,9 +130,12 @@ def pdflatex(seed):
     INPUTS = "\input{preamble.tex} \input{"+FILE_NAME+"} \input{dm2.tex}"
     PARAMETER1 = f"-output-directory=out"
     PARAMETER2 = f"-jobname=dm_{seed}"
+    # suppress output
+    PARAMETER3 = "-interaction=batchmode"
 
-    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
-    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, INPUTS])
+    print(f"COMPILING SEED {seed}")
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMATER3, INPUTS])
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     # compile twice if references are required
     
     return 0
