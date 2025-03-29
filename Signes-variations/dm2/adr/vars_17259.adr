@@ -1,0 +1,20 @@
+\newcommand{\seed}{17259}
+\newcommand{\hbeta}{11}
+\newcommand{\ha}{10}
+\newcommand{\hb}{-4}
+\newcommand{\gaI}{10}
+\newcommand{\gaII}{10}
+\newcommand{\gbI}{-4 + \sqrt{11}}
+\newcommand{\gbII}{-4 - \sqrt{11}}
+\newcommand{\fa}{100}
+\newcommand{\fb}{-80}
+\newcommand{\fc}{+5}
+\newcommand{\aV}{8}
+\newcommand{\bV}{10}
+\newcommand{\cV}{7}
+\newcommand{\dV}{15}
+\newcommand{\eqIa}{-120}
+\newcommand{\eqIb}{206}
+\newcommand{\eqIc}{-70}
+\newcommand{\qI}{\dfrac{-11}{3}}
+\newcommand{\qII}{\dfrac{9}{16}}
