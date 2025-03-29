@@ -134,7 +134,7 @@ def pdflatex(seed):
     PARAMETER3 = "-interaction=batchmode"
 
     print(f"COMPILING SEED {seed}")
-    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMATER3, INPUTS])
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     # compile twice if references are required
     
