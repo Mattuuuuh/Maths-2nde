@@ -83,7 +83,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-\AdvanceDate[1]
+\AdvanceDate[2]
 
 
 % plots
@@ -102,7 +102,13 @@ nomarginpar,% We don't want any margin paragraphs
 \definecolor{myb}{RGB}{45, 111, 177}
 \definecolor{myr}{RGB}{199, 68, 64}
 
-
+% fake sections with no title to move around the merged pdf
+\newcommand{\fakesection}[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
 
 
 % SOLUTION SWITCH
