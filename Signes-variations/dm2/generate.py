@@ -240,7 +240,7 @@ def generate(seed):
     
     sign = 1 if np.random.rand() > .5 else -1
     a *= sign
-    b *= -sign
+    c *= -sign
 
     CONTENT += newcommand_dfrac("\\qI", a, b)
     CONTENT += newcommand_dfrac("\\qII", c, d)
@@ -253,7 +253,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 1
+    N = 40
     # always the same N to recompile if needed
     np.random.seed(125) # not a square 
 
