@@ -1,0 +1,102 @@
+\input{../preamble.tex}
+\AdvanceDate[2]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+%\large
+%Calculatrice interdite
+
+\end{frame}
+
+\subsection{Racines}
+
+\begin{frame}{1\vspace{-32pt}}	
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-3.1, ymax=3.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->,
+	xtick = {-2, -1, 0, 1, 2},
+	y=20pt,
+	x=80pt,
+	]
+		\addplot[domain=-2:2, samples=100, myr, very thick] {2*(x+1.5)*(x-1)*x} node[pos=.3, above] {$\C_f$};
+		\addplot[domain=-2:2, samples=100, myg, very thick] {-3*(x+.5)*(x-.5)*(x+1)} node[pos=.28, above] {$\C_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+			Donner $\{ x \in [-2;2] \text{ tq. } f(x) = 0 \}$.
+	}{
+			Donner $\{ x \in [-2;2] \text{ tq. } g(x) = 0 \}$.
+	}
+\end{frame}
+
+\subsection{Domaine de définition}
+
+\begin{frame}{2\vspace{-32pt}}
+	Donner le domaine de définition $\D_f$ de
+	\boxAB{
+			\[ f(x) = \sqrt{-4+2x}. \]
+	}{
+			\[ f(x) = \sqrt{12-3x}. \]
+	}
+\end{frame}
+
+
+
+\subsection{Fonctions parentes}
+
+\begin{frame}{3\vspace{-32pt}}
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-3.1, ymax=3.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->,
+	xtick = {-2, -1, 0, 1, 2},
+	y=22pt,
+	x=80pt,
+	]
+		\addplot[domain=-2:2, samples=100, teal , very thick] {sin(180*x)+2} node[pos=.88, above=-2pt] {$\C_1$};
+		\addplot[domain=-2:2, samples=100, black, very thick] {sin(180*x)+1} node[pos=.88, above=-2pt] {$\C_2$};
+		\addplot[domain=-2:2, samples=100, orange, very thick] {sin(180*x)} node[pos=.88, above=-2pt] {$\C_3$};
+		\addplot[domain=-2:2, samples=100, myb, very thick] {sin(180*x)-1} node[pos=.88, above=-2pt] {$\C_f$};
+		\addplot[domain=-2:2, samples=100, violet, very thick] {sin(180*x)-2} node[pos=.88, above=-2pt] {$\C_4$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	Quelle est la courbe représentative de
+	\boxAB{
+			$g(x) = f(x) + 2$ ?
+	}{
+			$h(x) = f(x) - 1$ ?
+	}
+\end{frame}
+
+\begin{frame}{4\vspace{-32pt}}	
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[xmin = -2, xmax=2, ymin=-3.1, ymax=3.1, grid = both, axis x line=middle, axis y line=middle, axis line style=<->,
+	xtick = {-2, -1, 0, 1, 2},
+	y=22pt,
+	x=80pt,
+	]
+		\addplot[domain=-2:2, samples=100, myb, very thick] {atan(x)/90*2} node[pos=.95, below=-2pt] {$\C_f$};
+		\addplot[domain=-2:2, samples=100, violet, very thick] {2*atan(x)/90*2} node[pos=.9, below=-2pt] {$\C_1$};
+		\addplot[domain=-2:2, samples=100, black, very thick] {-atan(x)/90*2} node[pos=.95, above=-2pt] {$\C_3$};
+		\addplot[domain=-2:2, samples=100, orange, very thick] {-2*atan(x)/90*2} node[pos=.9, above=-2pt] {$\C_4$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	Quelle est la courbe représentative de
+	\boxAB{
+			$g(x) = 2\cdot f(x)$ ?
+	}{
+			$h(x) = -f(x)$ ?
+	}
+\end{frame}
+
+\end{document}
