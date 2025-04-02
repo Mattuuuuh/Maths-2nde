@@ -15,7 +15,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Signes et variations 3 \ifsolutions -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Signes et variations 3 \ifsolutions --- Solutions  \fi}}
 \fancyhead[R]{\today}
 
 \exe{\label{ex:1}
@@ -31,80 +31,55 @@
 		\tkzTabInit
 		 [lgt=3]
 	       		{$x$ / 1 , Variations de $x^2$ / 2}
-	       		{$\minfty$,,,$\pinfty$}
+	       		{$\minfty$,,\ifsolutions 0 \fi,,$\pinfty$}
+	       		
+		\ifsolutions
+		\tkzTabVar
+			{+/25, R/, -/0, R/, +/25}
+		\fi
 	\end{tikzpicture}
 	\end{center}
-}{}
+}{
 
-\exe{
+	 Aucune opération n'est illégale lorsqu'on calcule l'image d'un $x\in\R$ réel : ni division par zéro, ni racine carrée de nombre éventuellement négatif.
+	Aucun $x$ n'est donc interdit, et $\D_f = \R$.
+		
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[ymin=0, xmin=-5, xmax=5]
+		\addplot[very thick, myb, domain=-5:5, samples=50] {x^2} node[pos=.5, above] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\ex{
 	À l'aide de l'exercice \ref{ex:1} et du cours, compléter les tableaux de variations des fonctions parentes à $x^2$.
 	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		{$x$ / 1 , Variation de $(x+1)^2$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		{$x$ / 1 , Variation de $(x-3)^2$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 [lgt=3]
 	       		{$x$ / 1 , Variation de $-2x^2$/ 2, Variation de $3x^2$ / 2, Variation de $1+x^2$ / 2, Variation de $2x^2-7$ / 2, Variation de $-3 - 5x^2$ / 2, Variation de $-x^2+17$ / 2}
-	       		{,,,}
+	       		{\ifsolutions $\minfty$ \fi,,\ifsolutions 0 \fi,, \ifsolutions $\pinfty$ \fi}
+	      
+		\ifsolutions
+		\tkzTabVar
+			{-/, R/, +/0, R/, -/}
+		\tkzTabVar
+			{+/, R/, -/0, R/, +/}
+		\tkzTabVar
+			{+/, R/, -/1, R/, +/}
+		\tkzTabVar
+			{+/, R/, -/{-7}, R/, +/}
+		\tkzTabVar
+			{-/, R/, +/{-3}, R/, -/}
+		\tkzTabVar
+			{-/, R/, +/{17}, R/, -/}
+		\fi
 	\end{tikzpicture}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		{$x$ / 1, Variation de $3x^2$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		%{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
-%	       		{$x$ / 1, Variation de $1+x^2$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		%{$x$ / 1, Variation de $1+(x+4)^2$ / 2}
-%	       		{$x$ / 1, Variation de $2x^2-7$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 [lgt=3]
-%	       		%{$x$ / 1 , Variation de $-3 - 2(x+4)^2$ / 2}
-%	       		{$x$ / 1 , Variation de $-3 - 2x^2$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
 	\end{center}
 }{}
 
-% i dunno just make more organic
-%\exe{
-%	\begin{enumerate}
-%		\item Esquisser la courbe représentative de la fonction carré $f(x) = x^2$ sur le domaine $\D = [-5 ; 5]$.
-%		\item Remplir le tableau de variations et de signes ci-dessous.
-%	\end{enumerate}
-%	
-%	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1 , Variations de $x^2$ / 2, Signe de $x^2$ / 1}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\end{center}
-%}{}
-%
-%
 \exe{
 	Soit $f$ la fonction définie par
 		\[ f(x) = -3 - (x+1)^2. \]
@@ -113,15 +88,28 @@
 		\item Montrer que $f$ atteint son maximum en $x^\star=-1$ et donner sa valeur.
 	\end{enumerate}
 	
-%	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1 , Variation de $f(x)$ / 2, Signe de $f(x)$ / 1}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\end{center}
-}{}
+}{
+	\begin{enumerate}
+		\item 
+		Aucune opération n'est illégale lorsqu'on calcule l'image d'un $x\in\R$ réel : ni division par zéro, ni racine carrée de nombre éventuellement négatif.
+		Aucun $x$ n'est donc interdit, et $\D_f = \R$.
+		\item 
+		Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour enfin construire $f(x)$.
+		Pour tout $x\in\R$ réel, on a donc
+			\begin{align*}
+				(x+1)^2 &\geq 0 \\
+				-(x+1)^2 &\leq 0 \\
+				-3 - (x+1)^2 &\leq -3 \\
+				f(x) &\leq -3
+			\end{align*}
+		On en déduit que $f(x)$ est borné supérieurement par $-3$ pour tous les $x\in\R$ réels.
+		
+		Pour montrer que c'est un maximum atteint en $-1$, on calcule $f(-1) = -3 - (-1+1)^2 = -3 + 0^2 = -3$.
+		En conclusion,
+			\[ f(x) \leq f(-1)=-3, \]
+		et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
+	\end{enumerate}
+}
 
 \exe{
 	Soit $f$ la fonction définie sur $\R$ par
@@ -130,18 +118,30 @@
 		\item Donner $\D_f$.
 		\item Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et donner sa valeur.
 	\end{enumerate}
-	
-%	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\end{center}
-}{}
+}{
 
+
+
+		Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+		Pour tout $x\in\R$ réel, on a donc
+			\begin{align*}
+				(3x-1)^2 &\geq 0 \\
+				3(3x-1)^2 &\geq 0 \\
+				-10 + 3(3x-1)^2 &\geq -10 \\
+				f(x) &\geq -10
+			\end{align*}
+		On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+		
+		Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+		En conclusion,
+			\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+		et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
+}
+
+\ifsolutions
+\else
 \newpage
+\fi
 
 \exe{[Vrai ou faux]
 	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple.
@@ -153,9 +153,40 @@
 		\item Si $F$ n'admet aucune racine, alors $F(x) > 0$ pour tout $x\in\R$.
 		\item $G(x) = (x-3)^2 (x-5)^2$ est toujours positive est admet exactement deux racines distinctes.
 	\end{enumerate}
-}{}
+}{
 
-\exe{
+	\begin{enumerate}
+		\item 
+		C'est vrai. 
+		Si $f$ est affine et admet deux racines distinctes, alors sa courbe représentative est une droite qui intersecte deux fois l'axe des abscisses en deux endroits différents.
+		$\C_f$ et l'axe des abscisses sont donc confondues et on a bien $f(x) = 0$ pour tout $x\in\R$.
+		
+		Algébriquement, on a $(x_A ; 0), (x_B ; 0) \in \C_f$ pour $x_A \neq x_B$.
+		La formule du coefficient directeur donne $a = 0$, et une appartenance donne $b=0$.
+		
+		\item 
+		C'est faux : être positif ou nul n'empêche pas d'être nul.
+		On pourra prend la fonction carré $f(x) = x^2$ comme contre-exemple : $f(x) \geq 0$ pour tout $x\in\R$ et pourtant $f$ admet $0$ pour racine car $f(0) = 0$.
+		
+		\item 
+		C'est vrai : être strictement positif empêche d'être nul. 
+		C'est bien la différence entre la positivité stricte ($>$) et large ($\geq$).
+		
+		\item 
+		C'est faux : si $F$ ne s'annule jamais, elle n'est pas nécessairement toujours strictement positive car elle pourrait aussi être toujours strictement négative !
+		Prenons par exemple $f(x) = -1 -x^2$ qui vérifie $f(x) \leq -1 < 0$ pour tout $x\in\R$ réel.
+		
+		\item 
+		C'est vrai.
+		Un carré est toujours positif, donc $G(x)$ est le produit de deux positifs et est positif.
+		En outre, si $G(x) = 0$, alors $(x-3)^2 = 0$ ou $(x-5)^2 = 0$.
+		Il suit que $x=3$ ou $x=5$, et ce sont les deux seules racines de $G$.
+		
+	\end{enumerate}
+
+}
+
+\ex{
 	On considère le tableau des variations des fonctions $f, g,$ et $h$ sur le domaine $\D = [7 ; 31]$.
 	Pour chacune d'entre elles,
 		\begin{enumerate}[label=\roman*)]
@@ -204,7 +235,7 @@
 }{}
 
 
-\exe{[Vrai ou faux]
+\ex{[Vrai ou faux]
 	Pour chaque proposition suivante, dire si elle est \underline{toujours vraie} ou si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
 	
 \def\arraystretch{1.5}
@@ -229,65 +260,34 @@
 	\vfill
 	\begin{tabular}{|c|c|c|} \hline
 		Proposition & Vrai & Faux \\ \hline
-		$f(a) = 35$ & & \\ \hline
-		$f(a) > 30$ & & \\ \hline
-		$f(b) \leq 20$ & & \\ \hline
-		$f(a) > f(b)$ & & \\ \hline
+		$f(a) = 35$ & & \tick \\ \hline
+		$f(a) > 30$ & \tick & \\ \hline
+		$f(b) \leq 20$ & \tick & \\ \hline
+		$f(a) > f(b)$ & \tick & \\ \hline
 	\end{tabular}	
 	\hfill
 	\begin{tabular}{|c|c|c|} \hline
 		Proposition & Vrai & Faux \\ \hline
-		$f(b) < f(c)$ & & \\ \hline
-		$f(c) < f(a)$ & & \\ \hline
-		$f(c) = 19$ & & \\ \hline
-		$f(c) < 30$ & & \\ \hline
+		$f(b) < f(c)$ & \tick & \\ \hline
+		$f(c) < f(a)$ & \tick & \\ \hline
+		$f(c) = 19$ & & \tick \\ \hline
+		$f(c) < 30$ & \tick & \\ \hline
 	\end{tabular}
 	\hfill
 	\begin{tabular}{|c|c|c|} \hline
 		Proposition & Vrai & Faux \\ \hline
-		$f(d) = -5$ & & \\ \hline
-		$f(d) < 0$ & & \\ \hline
-		$f(c) = f(d)$ & & \\ \hline
-		$f(d) \geq -30$ & & \\ \hline
+		$f(d) = -5$ & & \tick \\ \hline
+		$f(d) < 0$ & & \tick \\ \hline
+		$f(c) = f(d)$ & & \tick \\ \hline
+		$f(d) \geq -30$ & \tick & \\ \hline
 	\end{tabular}	
 	
 	\end{center}
 
 
-	
-%	\begin{multicols}{2}
-%	\begin{enumerate}
-%		\item $f(a) = -10$.
-%		\item $f(a) > f(b)$.
-%		\item $f(a) \geq f(b)$.
-%		\item $f(b) \leq f(c)$.
-%		\item $f(b) < f(c)$.
-%		\item $f(c) = 60$.
-%		\item $f(c) < 60$.
-%		\item $f(c) > 60$.
-%		\item $f(c) > 25$.
-%	\end{enumerate}
-%	\end{multicols}
 
 
 }{}
 
-
-% pour plus tard je pense
-%\exe{
-%	\begin{enumerate}
-%		\item Esquisser la courbe représentative de la fonction carré $f(x) = \sqrt{x}$ sur le domaine $\D = [0; 40]$.
-%		\item Remplir le tableau de variations et de signes ci-dessous.
-%	\end{enumerate}
-%	
-%	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1 , Variation de $\sqrt{x}$ / 2, Signe de $\sqrt{x}$ / 1}
-%	       		{,,,}
-%	\end{tikzpicture}
-%	\end{center}
-%}{}
 
 \end{document}
