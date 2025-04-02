@@ -209,32 +209,8 @@
 	
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Signe de $f(x)$ / 1}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions $-9$ \fi,\ifsolutions $-6$ \fi,\ifsolutions $-3$ \fi, \ifsolutions {$-2,5$} \fi}
-	       	
-	       	\ifsolutions
-		\tkzTabLine
-			{,+,z,-,z,+,z,-}
-		\fi
-	\end{tikzpicture}
-	\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		[lgt=3,espcl=3]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-10,5}$ \fi,\ifsolutions {$-7,5$} \fi,\ifsolutions {$-4,5$} \fi, \ifsolutions {$-2,5$} \fi}
-	       	
-	       	\ifsolutions
-		\tkzTabVar
-			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
-		\fi
-	\end{tikzpicture}
-	\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
 		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+	       		{$x$ / 1 , Signe de $f(x)$ / 1}
 	       		{\ifsolutions $-11$ \fi,\ifsolutions $-10$ \fi,\ifsolutions {$-8,4$} \fi,\ifsolutions {$-6,5$} \fi, \ifsolutions {$-5,8$} \fi, \ifsolutions {$-5,3$} \fi, \ifsolutions {$-2,5$} \fi}
 	       	
 	       	\ifsolutions
@@ -246,12 +222,36 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Variation de $g(x)$ / 2}
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
 	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-9,1}$ \fi,\ifsolutions {$-8$} \fi,\ifsolutions {$-6$} \fi, \ifsolutions {$-5,5$} \fi, \ifsolutions {$-5$} \fi, \ifsolutions {$-2,5$} \fi}
 	       	
 	       	\ifsolutions
 		\tkzTabVar
 			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
+		\fi
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions $-9$ \fi,\ifsolutions $-6$ \fi,\ifsolutions $-3$ \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,+,z,-,z,+,z,-}
+		\fi
+	\end{tikzpicture}
+	\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=3,espcl=3]
+	       		{$x$ / 1 , Variation de $g(x)$ / 2}
+	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-10,5}$ \fi,\ifsolutions {$-7,5$} \fi,\ifsolutions {$-4,5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       	
+	       	\ifsolutions
+		\tkzTabVar
+			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
 		\fi
 	\end{tikzpicture}
 	\end{center}
