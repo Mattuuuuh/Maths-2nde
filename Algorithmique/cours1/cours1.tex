@@ -1,0 +1,71 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique : Glossaire \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\subsection*{Variables}
+
+\begin{mintedbox}{python}
+print('Hello, World!')
+a = 3
+print(a) # imprime 3
+a = a + 2
+print(a) # imprime 5
+\end{mintedbox}
+
+\subsection*{Conditions}
+
+\begin{mintedbox}{python}
+a = 3
+b= 4
+COND = (a < b)
+print(COND) # imprime True
+
+if COND: # si COND, alors
+	print('COND est vraie')
+else: # sinon,
+	print('COND est fausse')
+
+# si a > b OU 2a > b
+if a > b or 2*a >= b:
+	print('a est strictement supérieur à b ou 2a est supérieur ou égal à b')
+
+# si a < b ET 2a > b
+if a < b and 2*a > b:
+	print('a < b < 2a')
+\end{mintedbox}
+
+\subsection*{Boucles}
+
+\begin{mintedbox}{python}
+# range(a, b) va de a à b-1
+for k in range(1, 10):
+	print(k)
+	if (k>=7):
+		print(k, ' est supérieur ou égal à 7')
+
+N=0		
+# tant que 
+while N <= 4:
+	print(N, ' est inférieur ou égal à 4')
+	N = N+1
+print(N)
+\end{mintedbox}
+
+
+\end{document}
