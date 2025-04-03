@@ -15,244 +15,130 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique : affectation, condition, boucle \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique : complexité et temps d'execution \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+\exe{
+	On considère différentes fonctions de la figure \ref{fig:1} qui servent à calculer la somme
+		\[ S = 1 + 2 + \dots + (N-1) + N, \]
+	pour un $N\in\N$ entier naturel donné.
+	
+	Implémenter (compléter?) les algorithmes et répondre aux questions suivantes.
+	
+	\begin{enumerate}
+		\item Appeler les fonctions \texttt{somme(N)} et \texttt{somme\_close(N)} pour $N=0, 1, 5, 10, 2^{10}, 2^{25}, 2^{28}$.
+		Que dire sur les valeurs renvoyées ? Que dire sur les temps d'execution ?
+		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme(N)} termine ? 
+		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme\_close(N)} termine ? 
+	\end{enumerate}
+}{}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
-\vspace{15pt}
 \begin{mintedbox}{python}
-a = 5
-b = 15
-m = (a+b)/2
-print(a, b, m)
-
-a = b
-b = a
-print(a, b, m)
+def somme(N):
+	S = 0
+	for i in range(1,N+1):
+		S = S+i
+	return S
 \end{mintedbox}
+\caption{Version 1}
 \end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\begin{tabular}{|c|c|c|c|}\hline
-		Ligne & \texttt{a} & \texttt{b} & \texttt{m} \\ \hline
-		$1$ &&& \\ \hline
-		$2$ &&& \\ \hline
-		$3$ &&& \\ \hline
-		$4$ &&& \\ \hline
-		$5$ &&& \\ \hline
-		$6$ &&& \\ \hline
-		$7$ &&& \\ \hline
-		$8$ &&& \\ \hline
-	\end{tabular}
-\end{subfigure}
-
 \begin{subfigure}{.5\textwidth}
-\vspace{15pt}
 \begin{mintedbox}{python}
-a = -4
-b = 12
-print(a, b)
-
-temp = a
-a = b
-b = temp
-print(a, b, temp)
+def somme_close(N):
+	return N*(N+1)/2
 \end{mintedbox}
+\caption{Version 2}
 \end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\begin{tabular}{|c|c|c|c|}\hline
-		Ligne & \texttt{a} & \texttt{b} & \texttt{temp} \\ \hline
-		$1$ &&& \\ \hline
-		$2$ &&& \\ \hline
-		$3$ &&& \\ \hline
-		$4$ &&& \\ \hline
-		$5$ &&& \\ \hline
-		$6$ &&& \\ \hline
-		$7$ &&& \\ \hline
-		$8$ &&& \\ \hline
-	\end{tabular}
-\end{subfigure}
-
-\begin{subfigure}{.5\textwidth}
-\vspace{15pt}
-\begin{mintedbox}{python}
-a = 13
-b = a+3
-print(a, b)
-
-a = a - 4
-b = 1.5*b - 10
-b = b+a
-print(a, b)
-\end{mintedbox}
-\end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\begin{tabular}{|c|c|c|}\hline
-		Ligne & \texttt{a} & \texttt{b} \\ \hline
-		$1$ && \\ \hline
-		$2$ && \\ \hline
-		$3$ && \\ \hline
-		$4$ && \\ \hline
-		$5$ && \\ \hline
-		$6$ && \\ \hline
-		$7$ && \\ \hline
-		$8$ && \\ \hline
-	\end{tabular}
-\end{subfigure}
-
-\caption{Trois programmes d'affectation.}
+\caption{Programmes de calcul de la somme $S = 1 + \dots +N$.}
 \label{fig:1}
 \end{figure}
 
 \exe{
-	On considère les programmes de la figure \ref{fig:1}.
+	On considère différentes fonctions de la figure \ref{fig:2} qui servent à calculer la somme
+		\[ S = 1^3 + 2^3 + \dots + (N-1)^3 + N^3, \]
+	pour un $N\in\N$ entier naturel donné.
+	
+	Implémenter (compléter?) les algorithmes et répondre aux questions suivantes.
+	
 	\begin{enumerate}
-		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois programmes ?
+		\item Appeler les fonctions \texttt{somme3(N)} et \texttt{somme3\_close(N)} pour $N=1, 2, 5, 9, 2^{10}, 2^{23}, 2^{25}$.
+		Que dire sur les valeurs renvoyées ? Que dire sur les temps d'execution ?
+		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme3(N)} termine ? 
+		\item Combien d'opérations arithmétiques sont nécessaires pour que \texttt{somme3\_close(N)} termine ? 
 	\end{enumerate}
 }{}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{subfigure}{.5\textwidth}
-\vspace{15pt}
 \begin{mintedbox}{python}
-a = 13
-b = 15
-print(a < b)
-C = (a != b)
-print(C, not C)
-
-print(C and True)
-print(not (C and C))
-print((not C) and C)
-
-print(a < b or a > b)
-print((not C) or C)
-print(not (C or C))
+def somme3(N):
+	S = 0
+	for i in range(1,N+1):
+		S = S+i**3
+	return S
 \end{mintedbox}
+\caption{Version 1}
+\label{fig:2a}
 \end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
+\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-a = -5
-b = -2
-D = (a < b)
-E = (a**2 < b**2)
-print(D, E)
-
-if D and not E:
-	print('Décroissant')
-elif D and E:
-	print('Croissant')
+def somme3_close(N):
+	return (N*(N+1)/2)**2
 \end{mintedbox}
+\caption{Version 2}
 \end{subfigure}
+\caption{Programmes de calcul de la somme $S = 1^3 + \dots + N^3$.}
+\label{fig:2}
+\end{figure}
 
-\caption{Deux programmes avec conditions.}
+\newpage
+
+\exe{[Exponentiation rapide]
+	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
+	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
+	
+	\begin{enumerate}
+		\item Créer une fonction \texttt{puissance(q,N)} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:3}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
+	\end{enumerate}
+
+}{}
+	
+% fast exponentiation
+\begin{figure}[h]
+\begin{mintedbox}{python}
+def fastexp(q, n):
+	r = q
+	for i in range(1,n+1):
+		r = r**2
+	return r
+\end{mintedbox}
+\caption{Exponentiation rapide}
 \label{fig:3}
 \end{figure}
 
 \exe{
-	On considère les deux programmes de la figure \ref{fig:3} au verso.
-	Qu'impriment-ils ?
+	Démonter que le programme de la figure \ref{fig:4} renvoie la somme $1 + \dots + N$ pour $N\in\Z$, $N$ non nul, et $0$ pour $N\leq0$.
+	
+	Écrire un algorithme récursif renvoyant la somme $S = 1 + 2^2 + 3^3 + \dots + N^N$ pour $N\in\N$.
 }{}
 
-%\newpage
-
-
+% SOMME(N) RECURSIVE
 \begin{figure}[h]
-\begin{subfigure}{.5\textwidth}
-\vspace{15pt}
 \begin{mintedbox}{python}
-a = 4.5
-b = -2
-if a < b:
-	print(a)
-else:
-	print(b)
-a=a-4
-print(a+b)
+def somme_recursive(N):
+	if N<=0:
+		return 0
+	return N+somme_recursive(N-1)
 \end{mintedbox}
-\end{subfigure}
-\hfill
-\begin{subfigure}{.4\textwidth}
-	\begin{tabular}{|c|c|c|c|}\hline
-		Ligne & \texttt{a} & \texttt{b} \\ \hline
-		$1$ && \\ \hline
-		$2$ && \\ \hline
-		$3$ && \\ \hline
-		$4$ && \\ \hline
-		$5$ && \\ \hline
-		$6$ && \\ \hline
-		$7$ && \\ \hline
-		$8$ && \\ \hline
-	\end{tabular}
-\end{subfigure}
-
-\begin{subfigure}{.5\textwidth}
-\vspace{15pt}
-\begin{mintedbox}{python}
-k=0
-a = 2.5
-b = -1
-for k in range(1, 6):
-	b = b + 1
-	if b > a:
-		print(b)
-\end{mintedbox}
-\end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\begin{tabular}{|c|c|c|c|}\hline
-		Boucle indexée par \texttt{k} & \texttt{a} & \texttt{b} \\ \hline
-		$0$ && \\ \hline
-		$1$ && \\ \hline
-		$2$ && \\ \hline
-		$3$ && \\ \hline
-		$4$ && \\ \hline
-		$5$ && \\ \hline
-	\end{tabular}
-\end{subfigure}
-
-\begin{subfigure}{.5\textwidth}
-\vspace{15pt}
-\begin{mintedbox}{python}
-a = 2.5
-b = -1
-while (b < a or b < 5):
-	b = b + 1
-	if b > a:
-		print(b)
-\end{mintedbox}
-\end{subfigure}
-\hfill
-\begin{subfigure}{.45\textwidth}
-	\begin{tabular}{|c|c|c|c|}\hline
-		Itération de la boucle & \texttt{a} & \texttt{b} \\ \hline
-		$0$ && \\ \hline
-		$1$ && \\ \hline
-		$2$ && \\ \hline
-		$3$ && \\ \hline
-		$4$ && \\ \hline
-		$5$ && \\ \hline
-	\end{tabular}
-\end{subfigure}
-
-\caption{Trois programmes avec conditions et boucles.}
-\label{fig:2}
+\caption{Programme récursif de calcul de la somme $S=1+\dots+N$.}
+\label{fig:4}
 \end{figure}
 
-
-\exe{
-	On considère les programmes de la figure \ref{fig:2} au verso.
-	\begin{enumerate}
-		%\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Remplir les tableaux avec la valeur de chaque variable.
-		\item Qu'impriment les trois programmes ?
-	\end{enumerate}
-}{}
 
 \end{document}

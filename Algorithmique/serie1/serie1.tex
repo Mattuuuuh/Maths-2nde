@@ -15,92 +15,244 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique : Crible d'Ératosthène \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique : affectation, condition, boucle \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\begin{center}
-\begin{tikzpicture}
-	\foreach \i in {1, ..., 9}{
-		\draw (\i,0) -- (\i,-10);
-		\draw (0,-\i) -- (10,-\i);
-		\foreach \j in {0, ..., 9}
-			\draw (\i+.5, -\j-.5) node {$\i\j$};
-	}
-	
-	
-	\draw (0,-1) -- (0,-10);
-	\draw (1,0) -- (10,0);
 
-	\foreach \j in {1, ..., 9}
-			\draw (.5, -\j-.5) node {$\j$};
-	
-	\draw (0,-10) -- (10,-10);
-	\draw (10,0) -- (10,-10);
-	
-	% crossed out 1
-	\draw[myr, thick] (0,-1) -- (1,-2);
-	\draw[myr, thick] (0,-2) -- (1,-1);
-	
-	% légende
-	\node[right] at (13, -2) {\underline{\textbf{Légende}}};
-	
-	\draw (12,-5) rectangle (13,-6) node[midway] {$n$};
-	\draw[myr, thick] (12,-5) -- (13,-6);
-	\draw[myr, thick] (12,-6) -- (13,-5);
-	\node[right] at (13.5, -5.5) {$n$ n'est pas premier};
-	
-	\draw (12,-3) rectangle (13,-4) node[midway] {$n$};
-	\node[right] at (13.5, -3.5) {$n$ est premier};
-	
-\end{tikzpicture}
-\end{center}
-
-\IncMargin{1em}
-\begin{algorithm}
-\SetKwInput{KwRes}{retourner}%
-\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
-\SetKwFor{Tq}{tant que}{faire}{fin tq}%
-\SetKwFor{Pr}{pour}{faire}{fin pour}%
-\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
-	\Input{Nombre entier $N \geq 1$.}
-	\Output{Liste des nombre premiers inférieurs ou égaux à $N$.}
-	\BlankLine
-	Initialisation de la liste vide $P = \emptyset$ \hfill	\emph{Liste des premiers.}
-	\\
-	Initialisation de la liste \emph{NP}$=(1)$. \hfill	\emph{Liste des non premiers.}
-	\\
-	\Pr{ $n = 1, 2, \dots, N$ }{
-		\Si{$n$ appartient à NP}{
-			%Passer au $n$ suivant. \hfill \emph{L'entier $n$ fait déjà partie de NP.}
-			Sauter la suite et passer à la ligne $3$. \hfill \emph{L'entier $n$ fait déjà partie de NP.}
-		}
-		% Sinon non nécessaire
-		%\Sinon{
-			Ajouter $n$ à $P$. \hfill \emph{L'entier $n$ est premier.}
-			\\
-			Ajouter tous les multiples de $n$ sauf $n$ lui-même à \emph{NP}.
-		%}
-	}
-	\KwRes{La liste $P$ contenant tous les premiers inférieurs ou égaux à $N$.}
-\caption{Crible d'Érathostène.}\label{algo:crible}
-\end{algorithm}\DecMargin{1em} 
-
-
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
 \begin{mintedbox}{python}
-def premiers(N):
-	rest=[1]
-	primes=[]
-	for i in range(1,N+1):
-	    if i in rest:
-	        continue
-	    primes+=[i]
-	    for k in range(2,N//i+1):
-	        multiple = k*i
-	        if not multiple in rest:
-	            rest+=[multiple]
-	return primes
-    
-print(premiers(100))
+a = 5
+b = 15
+m = (a+b)/2
+print(a, b, m)
+
+a = b
+b = a
+print(a, b, m)
 \end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{m} \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = -4
+b = 12
+print(a, b)
+
+temp = a
+a = b
+b = temp
+print(a, b, temp)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{temp} \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 13
+b = a+3
+print(a, b)
+
+a = a - 4
+b = 1.5*b - 10
+b = b+a
+print(a, b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+		$6$ && \\ \hline
+		$7$ && \\ \hline
+		$8$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\caption{Trois programmes d'affectation.}
+\label{fig:1}
+\end{figure}
+
+\exe{
+	On considère les programmes de la figure \ref{fig:1}.
+	\begin{enumerate}
+		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
+		\item Qu'impriment les trois programmes ?
+	\end{enumerate}
+}{}
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 13
+b = 15
+print(a < b)
+C = (a != b)
+print(C, not C)
+
+print(C and True)
+print(not (C and C))
+print((not C) and C)
+
+print(a < b or a > b)
+print((not C) or C)
+print(not (C or C))
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+\begin{mintedbox}{python}
+a = -5
+b = -2
+D = (a < b)
+E = (a**2 < b**2)
+print(D, E)
+
+if D and not E:
+	print('Décroissant')
+elif D and E:
+	print('Croissant')
+\end{mintedbox}
+\end{subfigure}
+
+\caption{Deux programmes avec conditions.}
+\label{fig:3}
+\end{figure}
+
+\exe{
+	On considère les deux programmes de la figure \ref{fig:3} au verso.
+	Qu'impriment-ils ?
+}{}
+
+%\newpage
+
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 4.5
+b = -2
+if a < b:
+	print(a)
+else:
+	print(b)
+a=a-4
+print(a+b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+		$6$ && \\ \hline
+		$7$ && \\ \hline
+		$8$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+k=0
+a = 2.5
+b = -1
+for k in range(1, 6):
+	b = b + 1
+	if b > a:
+		print(b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Boucle indexée par \texttt{k} & \texttt{a} & \texttt{b} \\ \hline
+		$0$ && \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\begin{subfigure}{.5\textwidth}
+\vspace{15pt}
+\begin{mintedbox}{python}
+a = 2.5
+b = -1
+while (b < a or b < 5):
+	b = b + 1
+	if b > a:
+		print(b)
+\end{mintedbox}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.45\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Itération de la boucle & \texttt{a} & \texttt{b} \\ \hline
+		$0$ && \\ \hline
+		$1$ && \\ \hline
+		$2$ && \\ \hline
+		$3$ && \\ \hline
+		$4$ && \\ \hline
+		$5$ && \\ \hline
+	\end{tabular}
+\end{subfigure}
+
+\caption{Trois programmes avec conditions et boucles.}
+\label{fig:2}
+\end{figure}
+
+
+\exe{
+	On considère les programmes de la figure \ref{fig:2} au verso.
+	\begin{enumerate}
+		%\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
+		\item Remplir les tableaux avec la valeur de chaque variable.
+		\item Qu'impriment les trois programmes ?
+	\end{enumerate}
+}{}
 
 \end{document}
