@@ -78,7 +78,7 @@
 		%\Sinon{
 			Ajouter $n$ à $P$. \hfill \emph{L'entier $n$ est premier.}
 			\\
-			Ajouter tous les multiples propres de $n$ à \emph{NP}.
+			Ajouter tous les multiples de $n$ sauf $n$ lui-même à \emph{NP}.
 		%}
 	}
 	\KwRes{La liste $P$ contenant tous les premiers inférieurs ou égaux à $N$.}
@@ -94,7 +94,7 @@ def premiers(N):
 	    if i in rest:
 	        continue
 	    primes+=[i]
-	    for k in range(1,N//i+1):
+	    for k in range(2,N//i+1):
 	        multiple = k*i
 	        if not multiple in rest:
 	            rest+=[multiple]
