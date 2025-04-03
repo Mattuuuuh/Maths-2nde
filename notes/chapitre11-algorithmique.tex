@@ -143,8 +143,94 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 	C'est l'\emph{exponentiation rapide}.
 }{}
 
+\section{Application : système de deux équations linéaires à deux inconnues}
 
+\dfn{Système de deux équations}{
+	Un \emph{système} de deux équations linéaires à deux inconnues réelles, notées $x$ et $y$, s'écrit sous la forme
+		\[ \begin{cases*} 2x - 3y &= 5, \\ x - y &= 12. \end{cases*} \]
+	L'accolade dénote le système : les deux équations sont valables \emph{simultanément} et donnent donc deux informations qui peuvent nous permettre de résoudre le système.
+}{}
 
+\dfn{Équations équivalentes, systèmes équivalents}{
+	Deux équations sont \emph{équivalentes} si on peut obtenir l'une à partir de l'autre, \underline{et inversement}.
+	On note l'équivalence par le signe $\iff$, amalgame des signes $\implies$ et $\impliedby$.
+	
+	Un système d'équations est équivalent à un autre si, pour passer de l'un à l'autre, on a remplacé certaines équations par des équivalentes.
+}{}
+
+\ex{Ajout d'un nombre}{
+	Pour $x, y \in \R$ et de l'équation
+		\[ 2x - y = 5, \]
+	on peut obtenir
+		\[ 2x - y + 3 = 8 \]
+	en ajoutant $3$.
+	En ajoutant $-3$ à la deuxième, on obtient la première, et les équations sont donc équivalentes.
+		\begin{align*}
+			2x - y = 5 && \iff && 2x - y + 3 = 8
+		\end{align*}
+	
+	En ajoutant $x$ et $-x$, on obtient aussi
+		\begin{align*}
+			2x - y = 5 && \iff && 3x - y = 5 + x
+		\end{align*}
+}{}
+
+\ex{Multiplication par un nombre non nul}{
+	De l'équation 
+		\[ x + 3y = -2, \]
+	on peut obtenir
+		\[ 4x + 12y = -8 \]
+	en multipliant par $4$.
+	En multipliant la deuxième équation par $\dfrac14$, on obtient la première, et les équations sont donc équivalentes.
+		\begin{align*}
+			x + 3y = -2 && \iff && 4x + 12y = -8
+		\end{align*}
+	
+	Attention : multiplier par zéro est irréversible, on a donc une implication 
+		\begin{align*}
+			x + 3y = -2 && \implies && 0 = 0,
+		\end{align*}
+	mais pas l'autre :
+		\begin{align*}
+			0 = 0 && \centernot\implies && x + 3y = -2,
+		\end{align*}
+}{}
+
+\thm{}{
+	Un système de deux équations linéaires à deux inconnues prend l'une de ces trois formes.	
+	\begin{enumerate}
+		\item Les équations sont redondantes (l'une implique l'autre), et il existe une infinité de solutions.
+		\item Les équations sont contradictoires, et il n'existe aucune solution.
+		\item Il existe une unique solution.
+	\end{enumerate}
+}{}
+
+Le but de la suite est de créer un algorithme qui, étant donné un système de deux équations linéaires à deux inconnues, renvoie la forme du système : y a-t-il aucune solution, une seule solution, ou une infinité ?
+De plus, s'il n'existe qu'une seule solution, l'algorithme la donnera.
+
+\mprop{Combinaisons d'équations}{
+	Considérons le système suivant.
+		\[ \begin{cases} A &= B, \\ C &= D. \end{cases}\]
+	Alors ce système est équivalent à
+		\[ \begin{cases} A &= B, \\ C+A &= D+B. \end{cases}\]
+}{}
+
+\str{
+	Considérons, par exemple, le système d'inconnues $x, y \in \R$ suivant.
+		\[ \begin{cases*} 2x - 3y &= 5, \\ x - y &= 12. \end{cases*} \]
+	On souhaite, tout en gardant un système équivalent, simplifier le système pour le résoudre.
+	Or, on ne sait que résoudre les équations à une seule inconnue : la stratégie est donc de modifier les équations puis de les combiner afin d'obtenir un système dont une équation n'a qu'une seule inconnue.
+	
+	Supposons qu'on veuille une équation en $y$ uniquement : on souhaite donc annuler le coefficient devant $x$.
+	On a l'équivalence des systèmes suivante.
+		\[ \begin{cases*} 2x - 3y &= 5, \\ x - y &= 12. \end{cases*} \iff \begin{cases*} 2x - 3y &= 5, \\ -2x +  2y &= -24. \end{cases*} \]
+	Puis, en combinant, on a
+		\[ \begin{cases*} 2x - 3y &= 5, \\ -2x +  2y &= -24. \end{cases*} \iff \begin{cases*} 2x - 3y &= 5, \\ -2x +  2y + 2x - 3y &= -24 + 5. \end{cases*} \iff \begin{cases*} 2x - 3y &= 5, \\ -y &= -19. \end{cases*} \]
+	Il suit immédiatement que $y = 19$, et que, comme $2x - 3y = 5$, on a $2x - 3\times19 = 5$, et $x = 31$.
+	
+	On vérifie finalement que $(x ; y) = (31 ; 19)$ résoud bien le système initial :
+		\[ \begin{cases} 2x - 3y = 2\times31 - 3\times19 = 62 - 57 = 5, \\ x -y = 31 - 19 = 12. \end{cases} \] 
+}{}
 
 \section{Application : dichotomie pour l'approximation de racines}
 
