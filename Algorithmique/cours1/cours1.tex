@@ -18,21 +18,45 @@
 \fancyhead[C]{\textbf{Algorithmique : Glossaire \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\subsection*{Variables}
+\subsection*{Variables : affectation, changement de type}
 
 \begin{mintedbox}{python}
 print('Hello, World!')
 a = 3
+b=5
 print(a) # imprime 3
-a = a + 2
+a = b
 print(a) # imprime 5
+
+c = 1.2
+d = int(c) # int(c) est la partie entière de b
+print(d) # imprime 1
 \end{mintedbox}
 
-\subsection*{Conditions}
+\subsection*{Opérations : somme, produit, puissance}
 
 \begin{mintedbox}{python}
-a = 3
-b= 4
+a, b = 5, -3 # version raccourcie de a=5 et b=-3
+
+# sommes et différences
+print(a+3) # imprime 8
+print(-b) # imprime 3
+
+# produits et quotients
+print(b*b) # imprime 9
+print(a/b) # imprime -1.6666666666666667
+print(int(a/b)) # imprime -1
+
+# puissances
+print(2**5) # imprime 32 : 2 puissance 5
+print(2e5) # imprime 200000.0 : 2 fois 10 puissance 5
+print(1e-3) # imprime 0.001 : 1 fois 10 puissance -3
+\end{mintedbox}
+
+\subsection*{Conditions et portes logiques OR, AND}
+
+\begin{mintedbox}{python}
+a, b = 3, 4
 COND = (a < b)
 print(COND) # imprime True
 
@@ -50,7 +74,7 @@ if a < b and 2*a > b:
 	print('a < b < 2a')
 \end{mintedbox}
 
-\subsection*{Boucles}
+\subsection*{Boucles \texttt{for} et \texttt{while}}
 
 \begin{mintedbox}{python}
 # range(a, b) va de a à b-1
@@ -67,5 +91,31 @@ while N <= 4:
 print(N)
 \end{mintedbox}
 
+\subsection*{Fonctions : nom, argument, retour, et récursivité}
+
+\begin{mintedbox}{python}
+# 'nomdefonction' est une fonction qui prend uniquement 'a' comme argument
+def nomdefonction(a):
+	return a+1
+
+a = 3
+b = nomdefonction(a)
+print(b) # imprime 4
+
+# fonction 'somme' qui prend deux arguments
+def somme(a,b):
+	return a+b
+
+print(somme(4,12)) # imprime 16
+
+def recursif(n):
+	if n<=0: # condition de sortie
+		return 0
+	
+	return 1 + recursif(n-1) # argument modifié qui se dirige vers la condition de sortie
+
+print(recursif(5)) # imprime 5
+print(recursif(12)) # imprime 12
+\end{mintedbox}
 
 \end{document}
