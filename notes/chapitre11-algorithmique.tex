@@ -149,13 +149,35 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 	Un \emph{système} de deux équations linéaires à deux inconnues réelles, notées $x$ et $y$, s'écrit sous la forme
 		\[ \begin{cases*} 2x - 3y &= 5, \\ x - y &= 12. \end{cases*} \]
 	L'accolade dénote le système : les deux équations sont valables \emph{simultanément} et donnent donc deux informations qui peuvent nous permettre de résoudre le système.
+	
+	Les nombres $2, -3, 5, \dots$ du système sont appelés les \emph{coefficients} : ils multiplient $x$ et $y$ à gauche et sont des coefficients dits \emph{constants} à droite.
 }{}
 
 \dfn{Équations équivalentes, systèmes équivalents}{
 	Deux équations sont \emph{équivalentes} si on peut obtenir l'une à partir de l'autre, \underline{et inversement}.
 	On note l'équivalence par le signe $\iff$, amalgame des signes $\implies$ et $\impliedby$.
 	
-	Un système d'équations est équivalent à un autre si, pour passer de l'un à l'autre, on a remplacé certaines équations par des équivalentes.
+	Un système d'équations est équivalent à un autre si, pour passer de l'un à l'autre, on a remplacé certaines équations par des équations équivalentes.
+}{}
+
+\nt{
+	Si un nombre est solution d'une équation d'inconnue $x$, alors il est nécessairement solution d'une équation équivalente.
+	C'est d'ailleurs comme ça qu'on résoud une équation linéaire simple, car $2x + 3 = 0$ est équivalente à $2x = -3$, et à $x = -\frac32$.
+	La seule solution de la deuxième équation est bien sûr $-\frac32$, unique solution de la première.
+	
+	Les équations 
+		\begin{align*}
+			x = 1 && \text{ et } && x^2 = x
+		\end{align*}
+	ne sont pas équivalentes car l'ensemble des solutions de la première est $\{ 1 \}$, alors que l'ensemble des solutions de la seconde est $\{ 0 ; 1 \}$.
+	En effet, la seconde est équivalente à $x(x-1) = 0$, et le théorème du produit nul conclut.
+
+	Les équations semblent cependant équivalentes, à première vue : on a multiplé la première par un nombre, $x$, pour obtenir la deuxième.
+	Il suit que multiplier par un nombre est parfois une opération irréversible : c'est le cas si ce nombre est nul !
+	En effet, de $3x + 1 = 3$, on peut déduire que $0 = 0$ en multipliant par zéro.
+	Mais l'implication inverse n'est bien sûr pas possible.
+	
+	En multipliant une équation par une variable $x$, on ajoute systématiquement la solution $x=0$.
 }{}
 
 \ex{Ajout d'un nombre}{
