@@ -207,6 +207,10 @@ def generate(seed):
     CONTENT += newcommand("\\fa", a**2)
     CONTENT += newcommand_add("\\fb", 2*a*b, 1)
     CONTENT += newcommand_add("\\fc", b**2 - beta, 1)
+    
+    ### EX 2 ##
+
+    # TODO ha! j'ai oublié
 
     ### EX 3 ###
 
