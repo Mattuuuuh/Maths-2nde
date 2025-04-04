@@ -1,0 +1,74 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Systèmes d'équations linéaires : approfondissements \ifsolutions \\ Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{
+	On considère le système de trois équations à trois inconnues $x, y, z \in \R$ suivant.
+		\[ \begin{cases} -x-2y+2z &= -2, \\ 3x - 5y + 2z &= 5, \\ 2x - 2y + 2z &= 10. \end{cases} \]
+	\begin{enumerate}
+		\item Ajouter aux équations 2 et 3 un multiple de la première équation pour annuler leur coefficient en $x$.
+		\item Écrire le système équivalent obtenu : les deux dernières équations forment le sous-système de deux équations à deux inconnues suivant.
+		\[ \begin{cases} - 11y + 8z &= -1, \\ - 6y + 6z &= 6. \end{cases} \]
+		\item Résoudre ce sous-système pour trouver $y=3$ et $z=4$.
+		\item En déduire que $x=4$.
+	\end{enumerate}
+}{}
+
+% ils vont pas le faire pfff
+%\exe{
+%	On considère le système de quatre équations à quatre inconnues réelles, $x, y, z,$ et $t$.
+%		\[ \begin{cases} x+2y-2z &= 2, \\ 3x - 5y + 2z &= 5, \\ 2x - 2y + 2z &= 10. \end{cases} \]
+%	\begin{enumerate}
+%		\item Comme à l'exercice précédent, annuler tous les coefficients en $x$ des trois dernières équations.
+%		\item Écrire le sous-système de trois équations à trois inconnues $y, z,$ et $t$.
+%		\item Résoudre le système comme à l'exercice précédent pour trouver $y, z,$ et $t$.
+%		\item Trouver $x$.
+%		\item Vérifier que les valeurs obtenues
+%	\end{enumerate}
+%}{}
+
+\exe{
+	Donner un système de deux équations linéaires à inconnues $x, y \in \R$ qui admet $(x ; y) = (2 ; 5)$ comme solution.
+	Modifier le système pour qu'aucun coefficient multipliant $x$ ou $y$ ne soit nul.
+}{}
+
+
+\exe{
+	Montrer que le système d'inconnues $x, y \in \R$ admet exactement quatre solutions : $(x ;y) = (\pm 2 ; \pm 3)$. \footnote{On rappelle la notation $\pm$ qui signifie \og plus ou moins \fg. Par exemple, $\pm3 = 3$ ou $-3$.}
+	\[ \begin{cases} x^2 - y^2 &= -5, \\ x^2 + y^2 &= 13. \end{cases} \]
+
+	Donner un système de deux équations \underline{non forcément linéaires} à inconnues $x, y \in \R$ admettant uniquement $(\pm 3; \pm4)$ comme solutions.
+}{}
+
+\exe{[$\star$]
+	On considère le système suivant.
+		\[ \begin{cases} 3x - 2y &= 7, \\ -x - 3y &= -10. \end{cases} \]
+	Supposons qu'on ait deux paires de solutions, $(x ; y)$ et $(x' ; y')$.
+	
+	Montrer que la différence $(u; v) = (x - x' ; y - y')$ est solution du système 
+		\[ \begin{cases} 3u - 2v &= 0, \\ -u - 3v &= 0. \end{cases}. \]
+	On appelle ce système \emph{homogène} car les coefficients constants à droite sont tous nuls.
+	
+	Montrer que $(u ; v) = (0 ; 0)$, et en déduire qu'on a nécessairement $(x ; y) = (x' ; y')$ : le système initial admet une unique solution s'il en admet au moins une.
+	
+	Montrer plus généralement que n'importe quel système linéaire admet au plus une solution dès que l'unique solution du système homogène est la solution nulle.
+}{}
+
+
+\end{document}

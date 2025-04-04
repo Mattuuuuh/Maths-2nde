@@ -1,0 +1,144 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				%\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Systèmes d'équations linéaires \ifsolutions \\ Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\ex{
+	Pour chaque paire d'équations, ajouter entre elles le symbole
+		\begin{enumerate}[itemindent=1.5cm]
+			\item[$\implies$] si la première équation implique la seconde ;
+			\item[$\impliedby$] si la deuxième équation implique la première ;
+			\item[$\iff$] si les deux équations sont équivalentes.
+		\end{enumerate}
+	Spécifier l'opération appliquée pour obtenir la deuxième équation à partir de la première le cas échéant.
+	L'absence de symbole signifie que les équations sont indépendantes.
+	
+	\begin{center}
+	\begin{tabular}{ccc|c|c}
+		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
+		$3x + 2y = 1$ & \ifsol{$\iff$} & $6x  + 4y = 2$ & \ifsol{$\times2$} & \ifsol{Oui} \\ \hline
+		$-x + 2y = 1$ & \ifsol{$\iff$} & $-x + 2y - 1 = 0$ & \ifsol{$-1$} & \ifsol{Oui} \\ \hline
+		$3x + 2y = 1$ & & $-3x - 5y = -3$ & & \ifsol{Non} \\ \hline
+		$x^2 = -3x$ & \ifsol{$\impliedby$} & $x = -3$ & & \ifsol{Non} \\ \hline
+		$-10x - y = 3$ & \ifsol{$\implies$} & $0=0$ & \ifsol{$\times0$} & \ifsol{Non} \\ \hline
+		$x-y= 3$ & \ifsol{$\iff$} & $-x + y = -3$ & \ifsol{$\times(-1)$} & \ifsol{Oui} \\ \hline
+		$x -y = 0$ &\ifsol{$\iff$} & $x=y$ & \ifsol{$+y$} & \ifsol{Oui} \\ \hline
+		$-x + 2y = 3$ & \ifsol{$\implies$} & $0=0$ & \ifsol{$\times0$} & \ifsol{Non} \\ \hline
+		$2x + 3y + 4 = 2x + 3y + 5$ & \ifsol{$\iff$} & $1=0$ & \ifsol{$+(-2x-3y)$} & \ifsol{Oui} \\ \hline
+		$-x - y = 1$ & & $-x - y = 1$ & & \ifsol{Non} \\ \hline
+		$0=0$ & \ifsol{$\impliedby$} & $23x - 10y = 6$ & & \ifsol{Non} \\ \hline
+		$x + 2y = 3$ & \ifsol{$\implies$} & $x^2 + 2yx = 3x$ & \ifsol{$\times x$} & \ifsol{Non} \\ \hline
+		$x-3y  =0$ & \ifsol{$\iff$} & $-2x+6y = 0$ & \ifsol{$\times(-2)$} & \ifsol{Oui} \\ \hline
+		$-2x + 3y = -3$ & & $4x - 6y = -6$ & & \ifsol{Non} \\ \hline
+		$x^2 = x$ & \ifsol{$\impliedby$} & $x = 1$ & & \ifsol{Non} \\ \hline
+		$x = 3$ & \ifsol{$\implies$} & $x^2 = 9$ & \ifsol{Mise au carré} & \ifsol{Non} \\ \hline
+	\end{tabular}
+	\end{center}
+}{}
+
+% inutile en fait, à part peut-être l'identification du coeff devant x.
+%\ex{
+%	Pour chaque équation d'inconnue $x\in\R$, 
+%		\begin{enumerate}
+%			\item donner le coefficient qui multiplie $x$ ; puis
+%			\item créer une équation équivalente telle que le coefficient multipliant $x$ soit $1$.
+%		\end{enumerate}
+%	
+%	\begin{multicols}{2}
+%	\begin{enumerate}[label=\roman*), itemsep=10pt]
+%		\item $2x + 4y = 6 \iff \ifsol{x + 2y = 3}$
+%		\item $-x + 2y = 10 \iff \ifsol{x - 2y = -10}$
+%		\item $-2x + 4y = -12 \iff \ifsol{x - 2x = 6}$
+%		\item $x - y = 3 \iff \ifsol{x -y = 3}$
+%		\item $3x - 7y = 0 \iff \ifsol{x - \frac73 y = 0}$
+%		\item $2x - y = -3 \iff \ifsol{x - \frac12 y = -\frac32}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{}
+
+\ex{\label{ex:3}
+	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients devant $x$ soient opposés (c'est-à-dire leur somme soit nulle). Préférablement en évitant les fractions.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \ifsolutions\systeme{2x+6y=6{,},-2x+2y=2.}\else\systeme{,}\fi$
+		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \ifsolutions\systeme{3x - 21y = 3{,}, -3x + 5y = 13.}\else\systeme{,}\fi$
+		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \ifsolutions\systeme{2x - y = 3{,}, -2x + 4y = -10.}\else\systeme{,}\fi$
+		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \ifsolutions\systeme{4x  - y = -4{,},  -4x - 20y = -8.}\else\systeme{,}\fi$
+		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff \ifsolutions\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}\else\systeme{,}\fi$
+		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \ifsolutions\systeme{35x - 5y = 50{,}, -35x - 14y = -7.}\else\systeme{,}\fi$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	Pour chaque système de l'exercice \ref{ex:3}, 
+		\begin{enumerate}
+			\item combiner les équations pour trouver $y$ ; puis
+			\item déduire $x$.
+		\end{enumerate}
+}{ \, \\
+	\begin{enumerate}[label=Système \roman*) :, itemsep=20pt]
+		\item La somme des deux équations donne
+			\[ 8y = 8 \iff y = 1. \]
+		En remplaçant $y$ par $1$ dans la première équation, on trouve $x + 3 = 3$, et donc $x =0$.
+			\[ (x ; y ) = (0; 1). \]
+		
+		\item La somme des deux équations donne
+			\[ -16y = 16 \iff y = -1. \]
+		En remplaçant $y$ par $-1$ dans la première équation, on trouve $x + 7 = 1$, et donc $x =-6$.
+			\[ (x ; y ) = (-6; -1). \]
+		
+		\item La somme des deux équations donne
+			\[ 3y = -7 \iff y = -\dfrac73. \]
+		En remplaçant $y$ par $-\dfrac73$ dans la première équation, on trouve $2x +\dfrac73 = 3$, et donc $x =\dfrac13$.
+			\[ (x ; y ) = \left(\dfrac13; -\dfrac73 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -21y = -12 \iff y = \dfrac{12}{21} = \dfrac47. \]
+		En remplaçant $y$ par $ \dfrac47$ dans la deuxième équation, on trouve $x +\dfrac{20}7 = 2$, et donc $x =-\dfrac67$.
+			\[ (x ; y ) = \left(-\dfrac67; \dfrac47 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ 8y = 5 \iff y = \dfrac58. \]
+		En remplaçant $y$ par $\dfrac58$ dans la deuxième équation, on trouve $3x +\dfrac{35}8 = 10 \iff x =\dfrac{45}{24} = \dfrac{15}8$.
+			\[ (x ; y ) = \left(\dfrac{15}8; \dfrac58 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -19y = 43 \iff y = -\dfrac{43}{19}. \]
+		En remplaçant $y$ par $-\dfrac{43}{19}$ dans la première équation, on trouve $7x +\dfrac{43}{19}= 10 \iff x =\dfrac{147}{133} = \dfrac{21}{19}$.
+			\[ (x ; y ) = \left( \dfrac{21}{19};  -\dfrac{43}{19} \right). \]
+	\end{enumerate}
+}
+
+\exe{
+	Donner les solutions $(x;y)$ des systèmes suivantes.
+	
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \ifsolutions\systeme{2x+6y=6{,},-2x+2y=2.}\else\systeme{,}\fi$
+		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \ifsolutions\systeme{3x - 21y = 3{,}, -3x + 5y = 13.}\else\systeme{,}\fi$
+		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \ifsolutions\systeme{2x - y = 3{,}, -2x + 4y = -10.}\else\systeme{,}\fi$
+		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \ifsolutions\systeme{4x  - y = -4{,},  -4x - 20y = -8.}\else\systeme{,}\fi$
+		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff \ifsolutions\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}\else\systeme{,}\fi$
+		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \ifsolutions\systeme{35x - 5y = 50{,}, -35x - 14y = -7.}\else\systeme{,}\fi$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\end{document}
