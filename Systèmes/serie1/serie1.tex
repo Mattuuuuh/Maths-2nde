@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				%\solutionsfalse
+				\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -71,8 +71,10 @@
 %	\end{multicols}
 %}{}
 
+\newpage
+
 \ex{\label{ex:3}
-	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients devant $x$ soient opposés (c'est-à-dire leur somme soit nulle). Préférablement en évitant les fractions.
+	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients multipliant $x$ soient opposés (c'est-à-dire leur somme soit nulle). Préférablement en évitant les fractions.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
 		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \ifsolutions\systeme{2x+6y=6{,},-2x+2y=2.}\else\systeme{,}\fi$
@@ -89,7 +91,7 @@
 	Pour chaque système de l'exercice \ref{ex:3}, 
 		\begin{enumerate}
 			\item combiner les équations pour trouver $y$ ; puis
-			\item déduire $x$.
+			\item trouver $x$.
 		\end{enumerate}
 }{ \, \\
 	\begin{enumerate}[label=Système \roman*) :, itemsep=20pt]
@@ -126,19 +128,40 @@
 }
 
 \exe{
-	Donner les solutions $(x;y)$ des systèmes suivantes.
-	
+	Donner les solutions réelles $(x;y)$ des systèmes suivantes.
 	
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \ifsolutions\systeme{2x+6y=6{,},-2x+2y=2.}\else\systeme{,}\fi$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \ifsolutions\systeme{3x - 21y = 3{,}, -3x + 5y = 13.}\else\systeme{,}\fi$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \ifsolutions\systeme{2x - y = 3{,}, -2x + 4y = -10.}\else\systeme{,}\fi$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \ifsolutions\systeme{4x  - y = -4{,},  -4x - 20y = -8.}\else\systeme{,}\fi$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff \ifsolutions\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}\else\systeme{,}\fi$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \ifsolutions\systeme{35x - 5y = 50{,}, -35x - 14y = -7.}\else\systeme{,}\fi$
+		\item $\sys{2x+4y=0}{-2x -2y = 2}$
+		\item $\sys{-6x+3y=-3}{x -3y = -2}$
+		\item $\sys{x+y = 2}{x+y=2}$
+		\item $\sys{8x-4y = 6+2x-y}{7x+12y=-5+y}$
+		\item $\sys{x-y = 1}{-x+y=10}$
+		\item $\sys{\dfrac12 x - \dfrac23 y= -1}{ ,\dfrac15 x + \dfrac72 y= 5}$
+		\item $\sys{2x - 8y = 2}{-4x+16y=-1}$
+		\item $\sys{5x + y = -2x-1-y}{8x = -1+2y}$
+		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \dfrac32}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{\, \\
+	
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $(x ; y) = (-2 ; 1)$
+		\item $(x ; y) = (1;1)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \{ (x ; y) \text{ tq. } x+y=2, x, y \in \R \} = \{ (x ; y) \text{ tq. } y = -x + 2, \text{ où $x$ parcourt $\R$} \} = \C_f, \]
+		où $f(x) = -x+2$.
+		\item $(x ; y) = \left(\dfrac{17}{29} ; -\dfrac{24}{29}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\dfrac{10}{113} ; \dfrac{162}{113}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\dfrac{2}{15} ; -\dfrac{1}{30}\right)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \dfrac32, x, y \in \R \right\} = \left\{ (x ; y) \text{ tq. } y= -6x - \dfrac32 \text{ où $x$ parcourt $\R$} \right\} = \C_f, \]
+		où $f(x) =-6x - \dfrac32$.
+	\end{enumerate}
+}
 
 \end{document}

@@ -23,10 +23,11 @@
 		\[ \begin{cases} -x-2y+2z &= -2, \\ 3x - 5y + 2z &= 5, \\ 2x - 2y + 2z &= 10. \end{cases} \]
 	\begin{enumerate}
 		\item Ajouter aux équations 2 et 3 un multiple de la première équation pour annuler leur coefficient en $x$.
-		\item Écrire le système équivalent obtenu : les deux dernières équations forment le sous-système de deux équations à deux inconnues suivant.
+		\item Écrire le système équivalent obtenu et vérifier que les deux dernières équations forment le sous-système de deux équations à deux inconnues suivant.
 		\[ \begin{cases} - 11y + 8z &= -1, \\ - 6y + 6z &= 6. \end{cases} \]
 		\item Résoudre ce sous-système pour trouver $y=3$ et $z=4$.
 		\item En déduire que $x=4$.
+		\item Vérifier que $(x ; y ; z) = (4 ; 3 ;4)$ est bien solution du système initial.
 	\end{enumerate}
 }{}
 
@@ -44,30 +45,66 @@
 %}{}
 
 \exe{
-	Donner un système de deux équations linéaires à inconnues $x, y \in \R$ qui admet $(x ; y) = (2 ; 5)$ comme solution.
+	Donner un système le plus simple possible de deux équations linéaires à inconnues $x, y \in \R$ qui admet uniquement $(x ; y) = (2 ; 5)$ comme solution.
 	Modifier le système pour qu'aucun coefficient multipliant $x$ ou $y$ ne soit nul.
 }{}
 
-
 \exe{
-	Montrer que le système d'inconnues $x, y \in \R$ admet exactement quatre solutions : $(x ;y) = (\pm 2 ; \pm 3)$. \footnote{On rappelle la notation $\pm$ qui signifie \og plus ou moins \fg. Par exemple, $\pm3 = 3$ ou $-3$.}
+	Montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement quatre solutions : $(x ;y) = (\pm 2 ; \pm 3)$. \footnote{On rappelle la notation $\pm$ qui signifie \og plus ou moins \fg. Par exemple, $\pm3 = 3$ ou $-3$.}
 	\[ \begin{cases} x^2 - y^2 &= -5, \\ x^2 + y^2 &= 13. \end{cases} \]
 
-	Donner un système de deux équations \underline{non forcément linéaires} à inconnues $x, y \in \R$ admettant uniquement $(\pm 3; \pm4)$ comme solutions.
+	Donner un système de deux équations non linéaires à inconnues $x, y \in \R$ admettant exactement quatre solutions : $(\pm 3; \pm4)$.
+	
+	Donner un système de deux équations non linéaires à inconnues $x, y \in \R$ admettant exactement deux solutions : $(0; \pm1)$.
 }{}
 
+\exe{\label{ex:5}
+	Montrer que, pour tout $y\in\R$,
+		\[ (y+1)^2 + y^2 - 13 = 2y^2 + 2y - 12 = 2(y-2)(y+3). \]
+
+	Montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement trois solutions : $(x ;y) = (0; 2),$ et $(x ;y) = \left( \pm \dfrac12 \sqrt{10} ; -3\right)$.
+	\[ \begin{cases} 2x^2 + (y+1)^2 &= 9, \\ 2x^2 - y^2 &=-4. \end{cases} \]
+}{}
+
+\newpage
+
 \exe{[$\star$]
-	On considère le système suivant.
+	On considère le système suivant qu'on ne cherche pas à résoudre.
 		\[ \begin{cases} 3x - 2y &= 7, \\ -x - 3y &= -10. \end{cases} \]
-	Supposons qu'on ait deux paires de solutions, $(x ; y)$ et $(x' ; y')$.
+	Supposons qu'on ait deux paires de solutions : $(x ; y)$ et $(x' ; y')$.
 	
-	Montrer que la différence $(u; v) = (x - x' ; y - y')$ est solution du système 
-		\[ \begin{cases} 3u - 2v &= 0, \\ -u - 3v &= 0. \end{cases}. \]
+	Montrer que la différence $(a; b) = (x - x' ; y - y')$ est solution du système 
+		\[ \begin{cases} 3a - 2b &= 0, \\ -a - 3b &= 0. \end{cases} \]
 	On appelle ce système \emph{homogène} car les coefficients constants à droite sont tous nuls.
 	
-	Montrer que $(u ; v) = (0 ; 0)$, et en déduire qu'on a nécessairement $(x ; y) = (x' ; y')$ : le système initial admet une unique solution s'il en admet au moins une.
+	Montrer que $(a ; b) = (0 ; 0)$, et en déduire qu'on a nécessairement $(x ; y) = (x' ; y')$ : le système initial admet au plus une solution.
 	
 	Montrer plus généralement que n'importe quel système linéaire admet au plus une solution dès que l'unique solution du système homogène est la solution nulle.
+}{}
+
+
+\def\arraystretch{1} % for pmatrix
+\exe{[$\star$]
+	On étudie le système homogène suivant qu'on ne cherche pas à résoudre.
+		\[ \systeme{12x - 5y = 0{,}, -7x + 2y = 0.} \]
+	\begin{enumerate}
+		\item 
+		Montrer que le système est équivalent à l'égalité de vecteurs
+			\[ x \cdot u + y \cdot v = \pvec{0}{0}, \]
+		pour les deux vecteurs $u = \pvec{12}{-7}$ et $v = \pvec{-5}{2}$.
+	
+		\item
+		Montrer qu'une solution $(x ;y)$ non nulle existe si et seulement si $u$ et $v$ sont colinéaires, et donc si et seulement si $\det(u, v) = 0$.
+		
+		\item	
+		Déduire dans ce cas que l'unique solution du système est la solution nulle $(x ;y) = (0;0)$.
+		
+		\item
+		À partir des vecteurs colinéaires $\pvec23$ et $\pvec{-6}{-9}$, construire un système linéaire ayant un nombre infini de solutions.
+		
+		\item
+		À partir des vecteurs colinéaires $\pvec23$ et $\pvec{-6}{-9}$, construire un système linéaire n'ayant aucune solution.
+	\end{enumerate}
 }{}
 
 
