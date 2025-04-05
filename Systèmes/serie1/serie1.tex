@@ -6,7 +6,7 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \input{../preamble.tex}
 
@@ -23,28 +23,30 @@
 		\begin{enumerate}[itemindent=1.5cm]
 			\item[$\implies$] si la première équation implique la seconde ;
 			\item[$\impliedby$] si la deuxième équation implique la première ;
-			\item[$\iff$] si les deux équations sont équivalentes.
+			\item[$\iff$] si les deux équations sont équivalentes ;
+			\item[$\centernot\iff$] si les deux équations sont indépendantes.
 		\end{enumerate}
 	Spécifier l'opération appliquée pour obtenir la deuxième équation à partir de la première le cas échéant.
-	L'absence de symbole signifie que les équations sont indépendantes.
+	
+	Par abus de notation et pour gagner du temps, l'absence de symbole signifie en général que les équations sont équivalentes, mais il faut toujours faire attention à que ça soit bien le cas !
 	
 	\begin{center}
 	\begin{tabular}{ccc|c|c}
 		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
 		$3x + 2y = 1$ & \ifsol{$\iff$} & $6x  + 4y = 2$ & \ifsol{$\times2$} & \ifsol{Oui} \\ \hline
 		$-x + 2y = 1$ & \ifsol{$\iff$} & $-x + 2y - 1 = 0$ & \ifsol{$-1$} & \ifsol{Oui} \\ \hline
-		$3x + 2y = 1$ & & $-3x - 5y = -3$ & & \ifsol{Non} \\ \hline
+		$3x + 2y = 1$ & \ifsol{$\centernot\iff$} & $-3x - 5y = -3$ & & \ifsol{Non} \\ \hline
 		$x^2 = -3x$ & \ifsol{$\impliedby$} & $x = -3$ & & \ifsol{Non} \\ \hline
 		$-10x - y = 3$ & \ifsol{$\implies$} & $0=0$ & \ifsol{$\times0$} & \ifsol{Non} \\ \hline
 		$x-y= 3$ & \ifsol{$\iff$} & $-x + y = -3$ & \ifsol{$\times(-1)$} & \ifsol{Oui} \\ \hline
 		$x -y = 0$ &\ifsol{$\iff$} & $x=y$ & \ifsol{$+y$} & \ifsol{Oui} \\ \hline
 		$-x + 2y = 3$ & \ifsol{$\implies$} & $0=0$ & \ifsol{$\times0$} & \ifsol{Non} \\ \hline
 		$2x + 3y + 4 = 2x + 3y + 5$ & \ifsol{$\iff$} & $1=0$ & \ifsol{$+(-2x-3y)$} & \ifsol{Oui} \\ \hline
-		$-x - y = 1$ & & $-x - y = 1$ & & \ifsol{Non} \\ \hline
+		$-x - y = 1$ & \ifsol{$\centernot\iff$} & $-x - y = 1$ & & \ifsol{Non} \\ \hline
 		$0=0$ & \ifsol{$\impliedby$} & $23x - 10y = 6$ & & \ifsol{Non} \\ \hline
 		$x + 2y = 3$ & \ifsol{$\implies$} & $x^2 + 2yx = 3x$ & \ifsol{$\times x$} & \ifsol{Non} \\ \hline
 		$x-3y  =0$ & \ifsol{$\iff$} & $-2x+6y = 0$ & \ifsol{$\times(-2)$} & \ifsol{Oui} \\ \hline
-		$-2x + 3y = -3$ & & $4x - 6y = -6$ & & \ifsol{Non} \\ \hline
+		$-2x + 3y = -3$ & \ifsol{$\centernot\iff$} & $4x - 6y = -6$ & & \ifsol{Non} \\ \hline
 		$x^2 = x$ & \ifsol{$\impliedby$} & $x = 1$ & & \ifsol{Non} \\ \hline
 		$x = 3$ & \ifsol{$\implies$} & $x^2 = 9$ & \ifsol{Mise au carré} & \ifsol{Non} \\ \hline
 	\end{tabular}
