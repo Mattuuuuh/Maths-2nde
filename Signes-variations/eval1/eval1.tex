@@ -6,11 +6,11 @@
 
 \newif\ifsolutions
 				\solutionstrue
-				\solutionsfalse
+				%\solutionsfalse
 
 \input{../preamble.tex}
 
-\AdvanceDate[2]
+\AdvanceDate[0]
 
 \begin{document}
 \pagestyle{fancy}
@@ -32,10 +32,33 @@
 	\end{enumerate}
 	\end{multicols}
 
-}{}
+}{
+	\begin{enumerate}
+		\item La seule opération éventuellement illégale est la division par zéro : il nous incombe donc d'empêcher que cela arrive.
+		Or cela arrive lorsque
+			\begin{align*}
+				4\left(x+\dfrac23\right) = 0 && \iff && x = -\dfrac23
+			\end{align*}
+		On empèche donc la valeur $-\frac23$ en perforant $\R$ :
+			\[ \D_f = \R - \left\{ -\dfrac23 \right\}. \]
+			
+		\item La seule opération éventuellement illégale est la prise de racine carrée d'un nombre négatif. 
+		Il nous incombe donc d'empêcher que cela arrive.
+		On impose donc que
+			\begin{align*}
+				8 - 7x &\geq 0 \\
+				8 &\geq 7x \\
+				x &\leq \dfrac87
+			\end{align*}
+		Il suit que $\D_f = \left]\minfty ; \dfrac87 \right]$.
+		
+		Remarques importantes : prendre la racine carrée de $0$ est légal, donc les inégalités sont larges, et la borne supérieure de $\D_f$ est incluse. 
+		De plus, on aurait pû déterminer les valeurs interdites en résolvant $8-7x < 0$ et en écrivant $\D_f = \R - \left]\dfrac87 ; \pinfty \right[$, ce qui donne le même résultat !
+	\end{enumerate}
+}
 
 
-\exe{
+\ex{
 	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-3; -3]$.
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
@@ -55,49 +78,49 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-		[lgt=3,espcl=3]
+		[lgt=3,espcl=4]
 	       		{$x$ / 1 , Signe de $f(x)$ / 1}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions $-9$ \fi,\ifsolutions $-6$ \fi,\ifsolutions $-3$ \fi, \ifsolutions {$-2,5$} \fi}
+	       		{\ifsolutions $-3$ \fi,\ifsolutions ${-1,5}$ \fi,\ifsolutions ${1,5}$ \fi,\ifsolutions $3$ \fi}
 	       	
 	       	\ifsolutions
 		\tkzTabLine
-			{,+,z,-,z,+,z,-}
+			{,+,z,-,z,+,}
 		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=3,espcl=3]
+		[lgt=3,espcl=6]
 	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-10,5}$ \fi,\ifsolutions {$-7,5$} \fi,\ifsolutions {$-4,5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       		{\ifsolutions $-3$ \fi,\ifsolutions ${0}$ \fi,\ifsolutions {$3$} \fi}
 	       	
 	       	\ifsolutions
 		\tkzTabVar
-			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
+			{+/,-/${-2,9}$, +/}
 		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		 [lgt=3,espcl=2]
+		 [lgt=3,espcl=3]
 	       		{$x$ / 1 , Signe de $g(x)$ / 1}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions $-10$ \fi,\ifsolutions {$-8,4$} \fi,\ifsolutions {$-6,5$} \fi, \ifsolutions {$-5,8$} \fi, \ifsolutions {$-5,3$} \fi, \ifsolutions {$-2,5$} \fi}
+	       		{\ifsolutions $-3$ \fi,\ifsolutions {$-1,1$} \fi,\ifsolutions {$0,1$} \fi,\ifsolutions {$1,9$} \fi, \ifsolutions {$3$} \fi}
 	       	
 	       	\ifsolutions
 		\tkzTabLine
-			{,-,z,+,z,-,z,+,z,-,z,+}
+			{,-,z,+,z,-,z,+,}
 		\fi
 	\end{tikzpicture}
 	\vfill
 	\begin{tikzpicture}
 		\tkzTabInit
-		 [lgt=3,espcl=2]
+		 [lgt=3,espcl=4]
 	       		{$x$ / 1 , Variation de $g(x)$ / 2}
-	       		{\ifsolutions $-11$ \fi,\ifsolutions ${-9,1}$ \fi,\ifsolutions {$-8$} \fi,\ifsolutions {$-6$} \fi, \ifsolutions {$-5,5$} \fi, \ifsolutions {$-5$} \fi, \ifsolutions {$-2,5$} \fi}
+	       		{\ifsolutions $-3$ \fi,\ifsolutions ${-0,6}$ \fi,\ifsolutions {$1,2$} \fi,\ifsolutions {$3$} \fi}
 	       	
 	       	\ifsolutions
 		\tkzTabVar
-			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
+			{-/,+/{$1,8$}, -/{$-3,6$}, +/}
 		\fi
 	\end{tikzpicture}
 	\end{center}
@@ -106,8 +129,6 @@
 }{}
 
 \exe{
-% déjà factorisé car le développement est évalué à l'ex 6 je pense
-% ex 6 supprimé finalement
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
 		\[ f(x) = \dfrac{x+2}{6 - x - x^2} \geq 0 \]
 		%\[ f(x) = \dfrac{x+2}{(x+3)(2-x)} \geq 0 \]
@@ -124,12 +145,44 @@
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{ / 1,  / 1 ,  / 1,  / 1 ,  / 1}
-	       		{,,,,,}
+		 [lgt=3,espcl=3]
+	       		{ {\ifsolutions $x$ \fi}/ 1,  {\ifsolutions $x+2$ \fi}/ 1 ,  {\ifsolutions $x+3$ \fi}/ 1,  {\ifsolutions $2-x$ \fi}/ 1 ,  {\ifsolutions $f(x)$ \fi}/ 1}
+	       		{{\ifsolutions $\minfty$ \fi}, {\ifsolutions $-3$ \fi}, {\ifsolutions $-2$ \fi},{\ifsolutions $2$ \fi}, {\ifsolutions $\pinfty$ \fi}}
+	       		
+	       	
+	       	\ifsolutions
+		\tkzTabLine
+			{,-,,-,z,+,,+}
+		\tkzTabLine
+			{,-,z,+,,+,,+}
+		\tkzTabLine
+			{,+,,+,,+,z,-}
+		\tkzTabLine
+			{,+,d,-,z,+,d,-}
+		\fi
 	\end{tikzpicture}
 	\end{center}
-}{}
+}{
+
+	\begin{enumerate}
+		\item 
+		Par distributivité, 
+			\[ (x+3)(2-x) = x(2-x) + 3(2-x) = 2x - x^2 + 6 - 3x = 6 - x - x^2. \]
+		
+		\item
+		La seule opération éventuellement illégale est la division par zéro : il nous incombe donc d'empêcher que cela arrive.
+		Or cela arrive lorsque
+			\begin{align*}
+				6-x-x^2= 0 && \iff && (x+3)(2-x) = 0 && \iff && x=-3 \text{ ou } x=2.
+			\end{align*}
+		On empèche donc les valeurs $-3$ et $2$ en perforant $\R$ :
+			\[ \D_f = \R - \left\{ -3 ; 2 \right\}. \]
+		\item[4.] 
+		On lit l'ensemble à l'aide du tableau de signes :
+			\[ \{ x \in \D_f \text{ tq. } f(x) \geq 0 \} = ]\minfty ; -3[ \cup [-2 ; 2[. \]
+		Remarques : l'inégalité $f(x) \geq 0$ est large donc $-2$ est inclu. Les valeurs interdites, elles, ne sont jamais incluses.
+	\end{enumerate}
+}
 
 \exe{
 	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
@@ -138,21 +191,14 @@
 		\item $f$ s'annule en $0$ et en $1$.
 		\item $f$ s'annule en $0, -1$, et  $\dfrac12$.
 	\end{enumerate}
-}{}
+}{
 
-% produit nul déjà testé ex3
-%\exe{
-%	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
-%		\begin{align}
-%			22x^2 - 125x + 22  = 0. \label{eq:1}
-%		\end{align}
-%	\begin{enumerate}
-%		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
-%		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
-%	\end{enumerate}
-%}{}
-
-%\newpage
+	\begin{enumerate}
+		\item Par exemple $f(x) = x-3$.
+		\item Par exemple $f(x) = 500x(x-1)$.
+		\item Par exemple $f(x) = -10^{40} (x+1)x\left(x-\dfrac12\right)$.
+	\end{enumerate}
+}
 
 \exe{[Vrai ou faux]
 	Pour chaque proposition suivante, démontrer qu'elle est vraie ou donner un contre-exemple.
@@ -164,69 +210,49 @@
 		\item Si $F$ est de signe constant (toujours positif ou toujours négatif), alors $F$ est constante.
 		
 	\end{enumerate}
-}{}
+}{
 
-% en DM ?
-%\exe{
-%	Considérons les trois fonctions du deuxième degré définies sur $\R$.
-%	\begin{align*}
-%		f(x) = 64x^2 + 16x - 48, && g(x) = 16(4x-3)(x+1), && h(x) = -49 + (8x+1)^2.
-%	\end{align*}
-%	
-%	\begin{enumerate}
-%		\item Montrer que $g = f$ en développant $g(x)$.
-%		\item Remplir le tableau de signe de $f$ à l'aide de l'expression de $g$.
-%		\item Montrer que $h = f$ en développant $h(x)$.
-%		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
-%	\end{enumerate}
-%
-%	\begin{center}
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1, /1, /1,  Signe de $f(x)$ / 1}
-%	       		{$\minfty$,,,,$\pinfty$}
-%	\end{tikzpicture}
-%	
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
-%	       		{$\minfty$,,,,$\pinfty$}
-%	\end{tikzpicture}
-%	\end{center}
-%
-%}{}
-
-% même exo avec doublon de développement mais uniquement variations...
-%\exe{
-%	Considérons les deux fonctions du deuxième degré définies sur $\R$.
-%	\begin{align*}
-%		f(x) = 64x^2 + 16x - 48, && h(x) = -49 + (8x+1)^2.
-%	\end{align*}
-%	
-%	\begin{enumerate}
-%		\item Montrer que $h = f$ en développant $h(x)$.
-%		\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
-%	\end{enumerate}
-%
-%	\begin{center}	
-%	\begin{tikzpicture}
-%		\tkzTabInit
-%		 %[lgt=3,espcl=1.5]
-%	       		{$x$ / 1,  Variation de $f(x)$ / 2}
-%	       		{$\minfty$,,,,$\pinfty$}
-%	\end{tikzpicture}
-%	\end{center}
-%
-%}{}
+	\begin{enumerate}
+		\item
+		C'est faux. Par exemple, $f(x) = x-1$ s'annule en $1$ mais pas en $-1$ car $f(-1) = -2 \neq 0$.
+		
+		\item 
+		C'est vrai.
+		$g$ est produit de deux carrés qui sont toujours positifs et s'annules en $x=0$ et $x=1$.
+		
+		\item 
+		C'est faux.
+		On peut facilement dessiner la courbe d'une fonction qui s'annule en $3$ et $4$ et donc le signe varie.
+		Par exemple une fonction sinusoïdale qui oscille.
+		
+		Algébriquement, $f(x) = (x-3)(x-4)$ fonctionne. Un tableau de signes ou les images $f(2,5) < 0$ et $f(5) > 0$ permettent de conclure.
+		
+		\item 
+		C'est faux.
+		On peut dessiner la courbe d'une fonction non constante (c'est-à-dire qui n'est pas une droite horizontale) et qui est toujours positive ou toujours négative.
+		
+		Algébriquement, la fonction carré est un contre-exemple, car $f(x) = x^2$ est toujours positive et n'est pas constante.
+		
+	\end{enumerate}
+	
+}
 
 
 \exe{
 	Soient $f$ et $g$ deux fonctions croissantes sur $\R$ tout entier.
 	
 	Montrer que la fonction $h(x) = f(x) + g(x)$ est également croissante sur $\R$.
-}{}
+}{
+	On souhait démontrer que $h$ préserve l'ordre : si $x$ augmente, $h(x)$ augmente aussi.
+	À cette fin, prenons $x < y$ deux nombres réels.
+	Comme $f$ et $g$ sont croissantes, on a nécessairement
+		\begin{align*}
+			f(x) < f(y), && \text{ et } && g(x) < g(y).
+		\end{align*}
+	Il suit que
+		\[ h(x) = f(x) + g(x) < f(y) + g(x) < f(y) + g(y) < h(y), \]
+	ce qui conclut.
+}
 
 \exe{
 	On pose l'intervalle $I=]3; 17[$.
@@ -238,7 +264,58 @@
 			\[ \dfrac{(3x+5)(7x-5)}{(17-x)(x+5)} > 2. \]
 		\item En développant $(3x+5)(7x-5)-2(17-x)(x+5)$, en déduire que $23x^2  > 4x + 195$ sur $I$.
 	\end{enumerate}
-}{}
+}{
+	
+	\begin{enumerate}
+		\item 
+		La première inégalité à vérifier est $3x+5 > 17-x$.
+		Celle-ci est équivalente à $4x > 12$, et aussi à $x > 3$, inégalité vraie sur $I$.
+		
+		La deuxième inégalité à vérifier est $17 - x > 0$, équivalente à $x < 17$, vraie sur $I$.
+		
+		\item
+		La première inégalité à vérifier est $7x - 5 > 2(x+5)$, équivalente à $7x - 5 > 2x + 10$, et à $5x > 15$ puis $x> 3$.
+		Cette inégalité est donc vraie sur $I$.
+		
+		La deuxième inégalité à vérifier est $2(x+5) > 0$, qui est équivalente à $x > -5$, ce qui est également vrai sur $I$.
+		
+		\item En déduire que, pour tout $x\in I$,
+			\[ \dfrac{(3x+5)(7x-5)}{(17-x)(x+5)} > 2. \]
+		
+		La première inégalité donne, par division par $17-x$,
+			\[ \dfrac{3x+5}{17-x} > \dfrac{17-x}{17-x} = 1, \]
+		où on a utilisé que $17-x >0$ sur $I$ pour s'assurer que le sens de l'inégalité ne change pas.
+		
+		La deuxième inégalité donne, par division par $x+5$,
+			\[ \dfrac{7x-5}{x+5} > \dfrac{2(x+5)}{x+5} = 2, \]
+		où on a utilisé que $2(x+5) >0$ sur $I$ pour s'assurer que le sens de l'inégalité ne change pas.
+		
+		On multiplie les deux inégalités ensembles et, par positivité, on conclut.
+			
+		\item
+		D'après la question précédente, on a
+			 \[ \dfrac{(3x+5)(7x-5)}{(17-x)(x+5)}- 2 > 0 \]
+		sur $I$.
+		Le dénominateur étant positif, on multiplie par $(17-x)(x+5)$ sans changer le sens de l'inégalité pour trouver que
+			\[ (3x+5)(7x-5)-2(17-x)(x+5) > 0 \]
+		sur $I$.
+		
+		 On développe ensuite
+		 	\begin{align*}
+		 		(3x+5)(7x-5)-2(17-x)(x+5) &= 21x^2 + (-15+35)x - 25 - 2(-x^2 + x(17-5)+85)
+		 		&= 21x^2 + 20x - 25 -2(-x^2 + 12x + 85) 
+		 		&= 21x^2 + 20x - 25 + 2x^2 - 24x - 170
+		 		&= 23x^2 - 4x - 195
+			\end{align*}
+		Il suit que, pour tout $x\in I$,
+			\begin{align*}
+				23x^2 - 4x - 195 > 0 && \iff && 23x^2 > 4x + 195.
+			\end{align*}
+		Un exercice très difficile, en somme !
+	\end{enumerate}
+
+
+}
 
 %\subsection*{Exercices supplémentaires}
 
@@ -247,17 +324,45 @@
 		\begin{align*}
 			f(2) = 0, && f(-1) = 0, && \text{ et } && f(3)=8.
 		\end{align*}
-}{}
+}{
+	On commence par prendre une fonction non identiquement nulle qui s'annule en $2$ et en $-1$.
+		\[ g(x) = (x-2)(x+1). \]
+	Or, $g(3) = (3-2)(3+1) = 4$, ce qui ne convient pas !
+	Remarquons cependant qu'on peut toujours multiplier $g$ par une constante au choix sans changer ses racines.
+	Par quoi multiplier $4$ pour obtenir $8$ ?
+	
+	On pose donc
+		\[ f(x) = 2g(x) = 2(x-2)(x+1), \]
+	qui vérifie alors $f(2) = f(-1) = 0$, et $f(3) = 8$, comme requis.
+}
 
 \exe{
 	Donner une fonction $f$ de la forme $f(x) = ax^2 + bx + c$ où $a, b, c\in\Z$ sont des \underline{entiers relatifs} telle que
 		\[ f\left(\dfrac13\right) = f\left(\dfrac{1}{2}\right) = 0. \]
-}{}
+}{
+	On commence par prendre une fonction qui s'annule en $\frac13$ et en $\frac12$.
+		\[ g(x) = \left(x - \dfrac13\right)\left( x - \dfrac12 \right) = x^2 - \dfrac56 x + \dfrac16. \]
+	Petit problème, les coefficients de $g$ ne sont pas des entiers !
+	Cependant, comme on peut multiplier $g$ par n'importe quel nombre sans changer ses racines, on se demande : par quoi multiplier $-\dfrac56$ et $\dfrac16$ pour obtenir un nombre entier relatif ?
+	
+	On pose donc
+		\[ f(x) = 6g(x) = 6x^2 - 5x + 1, \]
+	qui vérifie alors $f(\frac12) = f(\frac13) = 0$ (à vérifier !).
+}
 
 \exe{
 	Soient $f$ et $g$ deux fonctions croissantes sur $\R$ tout entier.
 	
 	Montrer que la fonction composée $k(x) = f(g(x))$ est également croissante sur $\R$.
-}{}
+}{
+	Soient $x < y$ deux réels.
+	Par croissance de $g$, on a 
+		\[ g(x) < g(y). \]
+	On comprend désormais $g(x)$ et $g(y)$ comme deux antécédents réels à donner à $f$ : par croissance de $f$, on a alors
+		\[ f(g(x)) < f(g(y)), \]
+	ce qui conclut.
+
+
+}
 
 \end{document}
