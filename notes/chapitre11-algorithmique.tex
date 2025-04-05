@@ -146,18 +146,35 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 \section{Application : système de deux équations linéaires à deux inconnues}
 
 \dfn{Système de deux équations}{
-	Un \emph{système} de deux équations linéaires à deux inconnues réelles, notées $x$ et $y$, s'écrit sous la forme
+	Un \emph{système} de deux équations linéaires à deux inconnues réelles $x$ et $y$ s'écrit sous la forme
 		\[ \begin{cases*} 2x - 3y &= 5, \\ x - y &= 12. \end{cases*} \]
 	L'accolade dénote le système : les deux équations sont valables \emph{simultanément} et donnent donc deux informations qui peuvent nous permettre de résoudre le système.
 	
 	Les nombres $2, -3, 5, \dots$ du système sont appelés les \emph{coefficients} : ils multiplient $x$ et $y$ à gauche et sont des coefficients dits \emph{constants} à droite.
 }{}
 
+\nt{
+	Une règle heuristique qui est valable généralement en mathématiques est la suivante :
+		\begin{center}
+			(nombre de variables) - (nombre d'équations) = degrés de liberté.
+		\end{center}
+	Par exemple, une équation linéaire $3x + 1 = 2$ n'offre aucun degré de liberté car elle force la valeur de $x$.
+	
+	Une équation à deux inconnues, par exemple $y= 2x - 5$ offre un degré de liberté : chaque valeur de $x$ donne une unique valeur de $y$, et on a une infinité de couples $(x ; y)$ qui vérifient cette équation.
+	La théorie des fonctions affines nous donne en plus que l'ensemble de ces couples forment une droite.
+	
+	Une équation à trois inconnues, par exemples $2x + 3y - z = 10$ offre deux degrés de liberté : chaque choix de $x$ et $y$ force une unique valeur de $z$.
+	Il s'avère que cette équation est celle d'un plan en trois dimensions.
+	
+	Inversement, s'il y a trop de contraintes et pas assez de variables, il n'y a généralement pas de solutions.
+	Par exemple, $2x + 1 = 3$ et $2-x = 0$ ne peuvent pas être valables simultanéments : les équations sont contradictoires.
+}{}
+
 \dfn{Équations équivalentes, systèmes équivalents}{
 	Deux équations sont \emph{équivalentes} si on peut obtenir l'une à partir de l'autre, \underline{et inversement}.
 	On note l'équivalence par le signe $\iff$, amalgame des signes $\implies$ et $\impliedby$.
 	
-	Un système d'équations est équivalent à un autre si, pour passer de l'un à l'autre, on a remplacé certaines équations par des équations équivalentes.
+	Un système d'équations est \emph{équivalent} à un autre si on peut obtenir l'un à partir de l'autre, et inversement.
 }{}
 
 \nt{
