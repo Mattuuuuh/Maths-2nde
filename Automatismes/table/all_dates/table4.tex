@@ -1,0 +1,64 @@
+% uncomment this to compile in standalone
+% else use generate.py and change N
+
+%\documentclass[14pt]{extarticle}
+%\newcommand{\datedelta}{0}
+
+
+\usepackage[french]{babel}
+\usepackage[
+a5paper,
+landscape,
+margin=2cm,
+nomarginpar,% We don't want any margin paragraphs
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% 2xa5 on a4
+\usepackage{pgfpages}                                 % <— load the package
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] % <— set options
+
+\usepackage{atbegshi}
+  % duplicate the content at shipout time
+  \AtBeginShipout{
+    \pgfpagesshipoutlogicalpage{1}\copy\AtBeginShipoutBox
+    \pgfpagesshipoutlogicalpage{2}\box\AtBeginShipoutBox
+    \pgfshipoutphysicalpage
+  }
+
+
+% date
+\usepackage{advdate}
+\AdvanceDate[\datedelta]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{ Automatismes }}
+\fancyhead[R]{\today}
+
+Nom :
+
+\begin{center}
+\begin{tabular}{ | P{.25\linewidth} | P{.70\linewidth} |  } 
+	\hline\xrowht{15pt}
+	 Question & Réponse
+	 \\ \hline \xrowht{40pt}
+	 1 & 
+	 \\ \hline \xrowht{40pt}
+	 2 &  
+	 \\ \hline \xrowht{40pt}
+	 3 & 
+	 \\ \hline \xrowht{40pt}
+	 4 & 
+	 \\ \hline
+\end{tabular}
+\end{center}
+\end{document}
