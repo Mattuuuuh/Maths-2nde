@@ -50,19 +50,17 @@
 }{}
 
 \exe{
-	Montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement quatre solutions : $(x ;y) = (\pm 2 ; \pm 3)$. \footnote{On rappelle la notation $\pm$ qui signifie \og plus ou moins \fg. Par exemple, $\pm3 = 3$ ou $-3$.}
+	En sommant les équations, montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement quatre solutions : $(x ;y) = (\pm 2 ; \pm 3)$. \footnote{On rappelle la notation $\pm$ qui signifie \og plus ou moins \fg. Par exemple, $\pm3 = 3$ ou $-3$.}
 	\[ \begin{cases} x^2 - y^2 &= -5, \\ x^2 + y^2 &= 13. \end{cases} \]
 
 	Donner un système de deux équations non linéaires à inconnues $x, y \in \R$ admettant exactement quatre solutions : $(\pm 3; \pm4)$.
-	
-	Donner un système de deux équations non linéaires à inconnues $x, y \in \R$ admettant exactement deux solutions : $(0; \pm1)$.
 }{}
 
 \exe{\label{ex:5}
 	Montrer que, pour tout $y\in\R$,
-		\[ (y+1)^2 + y^2 - 13 = 2y^2 + 2y - 12 = 2(y-2)(y+3). \]
+		\[ (y+1)^2 + y^2 - 13 = 2(y-2)(y+3). \]
 
-	Montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement trois solutions : $(x ;y) = (0; 2),$ et $(x ;y) = \left( \pm \dfrac12 \sqrt{10} ; -3\right)$.
+	En combinant les équations, montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement trois solutions : $(x ;y) = (0; 2),$ et $(x ;y) = \left( \pm \dfrac12 \sqrt{10} ; -3\right)$.
 	\[ \begin{cases} 2x^2 + (y+1)^2 &= 9, \\ 2x^2 - y^2 &=-4. \end{cases} \]
 }{}
 
@@ -84,7 +82,7 @@
 
 
 \def\arraystretch{1} % for pmatrix
-\exe{[$\star$]
+\exe{
 	On étudie le système homogène suivant qu'on ne cherche pas à résoudre.
 		\[ \systeme{12x - 5y = 0{,}, -7x + 2y = 0.} \]
 	\begin{enumerate}
@@ -98,12 +96,22 @@
 		
 		\item	
 		Déduire dans ce cas que l'unique solution du système est la solution nulle $(x ;y) = (0;0)$.
+	\end{enumerate}
+}{}
+
+\exe{[$\star$]
+	
 		
+	\begin{enumerate}
 		\item
-		À partir des vecteurs colinéaires $\pvec23$ et $\pvec{-6}{-9}$, construire un système linéaire ayant un nombre infini de solutions.
+		Si $u$ et $v$ sont colinéaires, et $w$ un troisième vecteur quelconque, montrer que le système $x \cdot u + y \cdot v = w$ admet une solution si et seulement si $w$ est colinéaire à $u$ et $v$.
+
+		\item
+		À partir des vecteurs colinéaires $u = \pvec23$ et $v = \pvec{-6}{-9}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ n'ayant aucune solution.
+		\item
+		À partir des vecteurs colinéaires $u = \pvec1{-4}$ et $v = \pvec{-2}{8}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ ayant un nombre infini de solutions.
 		
-		\item
-		À partir des vecteurs colinéaires $\pvec23$ et $\pvec{-6}{-9}$, construire un système linéaire n'ayant aucune solution.
+
 	\end{enumerate}
 }{}
 
