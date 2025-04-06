@@ -1,3 +1,7 @@
+```
+pdflatex -shell-escape notes.tex
+```
+
 # Fork
 
 Fork from CMT - Charlie's Math Template.
