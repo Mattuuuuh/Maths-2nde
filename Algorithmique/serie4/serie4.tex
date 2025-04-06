@@ -95,32 +95,33 @@ def somme3_close(N):
 
 \newpage
 
-\exe{[Exponentiation rapide]
-	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
-	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
-	
-	\begin{enumerate}
-		\item Créer une fonction \texttt{puissance(q,N)} qui renvoie $q^N$ en utilisant uniquement la multiplication.
-		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
-		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:3}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
-		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
-		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
-	\end{enumerate}
-
-}{}
-	
-% fast exponentiation
-\begin{figure}[h]
-\begin{mintedbox}{python}
-def fastexp(q, n):
-	r = q
-	for i in range(1,n+1):
-		r = r**2
-	return r
-\end{mintedbox}
-\caption{Exponentiation rapide}
-\label{fig:3}
-\end{figure}
+% moved to set 6
+%\exe{[Exponentiation rapide]
+%	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
+%	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
+%	
+%	\begin{enumerate}
+%		\item Créer une fonction \texttt{puissance(q,N)} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+%		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+%		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:3}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+%		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+%		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
+%	\end{enumerate}
+%
+%}{}
+%	
+%% fast exponentiation
+%\begin{figure}[h]
+%\begin{mintedbox}{python}
+%def fastexp(q, n):
+%	r = q
+%	for i in range(1,n+1):
+%		r = r**2
+%	return r
+%\end{mintedbox}
+%\caption{Exponentiation rapide}
+%\label{fig:3}
+%\end{figure}
 
 \exe{
 	Démonter que le programme de la figure \ref{fig:4} renvoie la somme $1 + \dots + N$ pour $N\in\Z$, $N$ non nul, et $0$ pour $N\leq0$.

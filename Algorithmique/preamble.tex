@@ -72,9 +72,11 @@ nomarginpar,% We don't want any margin paragraphs
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
 \newcounter{commonbox}
-\newtcbtheorem[use counter=commonbox]{theorem}{Théorème}%
+\newtcbtheorem[use counter=commonbox]{theorem}{Théorème }%
 {fonttitle=\bfseries}{th}
-\newtcbtheorem[number within=section]{definition}{Définition}%
+\newtcbtheorem[number within=section]{definition}{Définition }%
+{fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{proprietes}{Propriétés }%
 {fonttitle=\bfseries}{th}
 
 

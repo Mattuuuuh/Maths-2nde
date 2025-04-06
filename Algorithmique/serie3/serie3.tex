@@ -21,11 +21,16 @@
 
 \begin{figure}[h]
 \begin{mintedbox}{python}
+def f(x):
+	return x**2 - 2
+
+precision = 1e-2
+
 def racine2(a, b):
-	if b-a < 1e-2:
+	if b-a < precision:
 		return a, b
 	m = (a+b)/2
-	if m**2 - 2> 0:
+	if f(m)> 0:
 		return racine2(a,m)
 	return racine2(m,b)
 	
@@ -44,20 +49,26 @@ a, b = racine2(1, 2)
 		\item Montrer que si $a < \sqrt2 < b$ au départ, alors l'algorithme maintient un intervalle $[a ; b]$ contenant toujours $\sqrt{2}$.
 		\item Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16}$ et appeler \texttt{racine2(1,2)}.
 		Que remarque-t-on ?
-		 \item Montrer que, d'un appel de \texttt{racine2} à l'autre, la taille de l'intervalle $[a ; b]$ est divisé par $2$.
+		 \item Montrer que, d'un appel de \texttt{racine2} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisé par $2$.
 		 \item Combien d'opérations sont nécessaires pour obtenir un intervalle de longueur $2^{-10}$ ? Et $2^{-n}$ ?
 	\end{enumerate}
 }{}
 
-\hrule
+%\hrule
+\newpage
 
 \begin{figure}[h]
 \begin{mintedbox}{python}
+def f(x):
+	return x**2 - x - 1
+
+precision = 1e-10
+
 def phi(a, b):
-	if b-a < 1e-10:
+	if b-a < precision:
 		return a, b
 	m = (a+b)/2
-	if m**2 - m - 1> 0:
+	if f(m) > 0:
 		return phi(a,m)
 	return phi(m,b)
 	
@@ -72,12 +83,12 @@ a, b = phi( _, _)
 		\[ x^2 - x - 1 = 0. \]
 	\begin{enumerate}
 		\item Compléter l'algorithme par dichotomie (figure \ref{fig:2}). Avec quels paramètres appeler la fonction \texttt{phi} ?
-		\item Montrer que $\phi = \dfrac{1+\sqrt{5}}2$.
+		\item Montrer que $x^2 - x - 1 = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
 		\item On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
 			\[ a < \phi < b, \]
 		de longueur $b-a = \ell$.
 		
-		En déduire un encadrement de $\sqrt{5}$ et la longueur de celui-ci.
+		En déduire un encadrement de $\sqrt{5}$ et la longueur de celui-ci en fonction de $\ell$.
 		L'approximation de $\sqrt{5}$ donnée par l'intervalle est-elle plus ou moins précise que l'approximation de $\phi$ ?
 	\end{enumerate}
 }{}

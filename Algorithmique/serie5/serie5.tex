@@ -10,138 +10,128 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique : applications \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique 3 : puissances et ordres de grandeur \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
+Ci-dessous, $q\in\R^*_+$ est un nombre réel strictement positif qu'on appelle \emph{base}.
 
-\exe{[Statistiques]
+\begin{definition*}{Puissance sur $\N^*$}{}
+	Soit $n \in \N^*$ un entier naturel non nul.
+	Alors \og $q$ puissance $n$ \fg~est égal à
+		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\text{$n$ fois}}. \]
+	En particulier,
+		\begin{align*}
+			q^1 = \ifsolutions q \else\quad \fi && q^2 = \ifsolutions q\times q \else\quad \fi && q^3 = \ifsolutions q \times q \times q \else\quad \fi
+		\end{align*}
+\end{definition*}
+
+\begin{proprietes*}{}{}
+	Soient $a, b \in \Z$. Alors
+		\[ q^{a} \times q^{b} = \ifsolutions q^{a+b}, \else \hspace{2cm} \fi \]
+	et 
+		\[ \left( q^{a}\right)^b = \ifsolutions q^{a\times b}. \else \hspace{2cm} \fi \]
+	En particulier, on a 
+		\begin{align*}
+			q^0 = \ifsolutions 1\else\quad \fi && q^{-1} = \ifsolutions \dfrac1q \else\quad\fi &&  q^{-a} = \ifsolutions \dfrac1{q^a} \else\quad\fi
+		\end{align*}
+\end{proprietes*}
+
+\exe{
+	Sans calculatrice, exprimer les nombres suivants sous la forme $a^b$, où $a \in \N$ et $b\in\Z$ sont des entiers.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^3 \times 10^5$
+		\item $\left(4^5\right)^2$
+		\item $\dfrac{5^3}{5^3}$
+		\item $1$
+		\item $\dfrac{2^4}{2^7}$
+		\item $\left(2^{-1}\right)^3$
+		\item $\left(2^{3}\right)^{-1}$
+		\item $\left(\dfrac{1}{7^2}\right)^6$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+		\item $\dfrac{10^{-5}}{10^{6}}$
+	\end{enumerate}
+	\end{multicols}
 }{}
 
+\exe{
+	On estime que, dans l'univers, il y a au moins
+		\begin{itemize}
+			\item $10^{11}$ galaxies ; que chacune contient
+			\item $10^{11}$ étoiles ; dont la masse moyenne est de
+			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
+			\item $10^{24}$ atomes.
+		\end{itemize}
+	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
+}{}
+
+\exe{
+	Montrer qu'on a environ $2^{10} \approx 10^3$. 
+	On dira que $2^{10}$ a pour \emph{ordre de grandeur} $10^3$ car c'est la puissance de $10$ la plus proche.
+	
+	\begin{enumerate}
+		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{}
+
+% redondant un peu
+%\exe{
+%	Montrer qu'on a environ $6^{8} \approx 10^6$ et $7^6 \approx 10^5$ : ce sont leur \emph{ordre de grandeur}.
+%	
+%	\begin{enumerate}
+%		\item En déduire l'ordre de grandeur de $6^{16}$ et le nombre de chiffres nécessaires pour l'écrire.
+%		\item En déduire l'ordre de grandeur de $7^{18}$ et le nombre de chiffres nécessaires pour l'écrire.
+%		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
+%	\end{enumerate}
+%}{}
+
+\newpage
+
+\exe{[Exponentiation rapide]
+	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
+	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
+	
+	\begin{enumerate}
+		\item Compléter la fonction \texttt{puissance(q,N)} figure \ref{fig:1} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:1}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
+		\item[$(\star)$] Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
+	\end{enumerate}
+
+}{}
+
+	
+% fast exponentiation
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-import math
-
-def MOYENNE(X):
-	N = len(X)
-	somme = sum(X)
-%	somme = 0
-%	for x in X:
-%		somme  = somme + x
-	return somme/N
-
-def VARIANCE(X):
-	moyenne = MOYENNE(X)
-	Y = [(x - moyenne)**2 for x in X]
-	return MOYENNE(Y)
-
-def ECARTTYPE(X):
-	return math.sqrt(VARIANCE(X))
-
-X = (1, 2, 3, 4, 5, 6,7, 8, 9, 10)
-mu = MOYENNE(X)
-sigma = ECARTTYPE(X)
-print(mu, sigma)
+def puissance(q, N):
+	r = q
+	for i in range(__,____):
+		__________
+	return r
 \end{mintedbox}
-
-
-\exe{[Interpolation affine]
-
-}{}
-
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-def interp(A,B):
-	xA, yA = A
-	xB, yB = B
-	assert xA != xB, 'Les points sont alignés verticalement.'
-	
-	a = (yB-yA)/(xB-xA)
-	b = yA - a*xA
-	
-	return a, b
-	
-def verif(a, b, A, B):
-	# check if A, B belong to y=ax+b
-	
-	return 1	
+def fastexp(q, n):
+	r = q
+	for i in range(1,n+1):
+		r = r*r
+	return r
 \end{mintedbox}
-
-\exe{[Intersection de droites]
-	
-	Calculer l'intersection $P$ des droites $y=x+1$ et $y=x-4$. Que remarque-t-on ?
-	
-	Calculer l'intersection $P$ des droites $y=3x+1$ et $y=2x-4$, et vérifier que $P$ appartient bien aux droites avec la fonction \texttt{verif}.
-	
-	Calculer l'intersection $P$ des droites $y=7x+1$ et $y=x-4$, et vérifier que $P$ appartient bien aux droites avec la fonction \texttt{verif}.
-	Expliquer le résultat obtenu.
-}{}
-
-\begin{mintedbox}{python}
-def intersection(a1, b1, a2, b2):
-	assert a1 != a2, 'Les droites sont parallèles.'
-	
-	xP =  (b2-b1)/(a1-a2)
-	yP = a1*xP+b1
-	
-	verif(a1,b1,a2,b2,xP,yP)
-	
-	return xP, yP
-	
-def verif(a1,b1,a2,b2,xP,yP):
-	assert yP == a1*xP+b1 and yP == a2*xP+b2
-	return 0
-\end{mintedbox}
-
-\exe{[Arithmétique exacte]
-	On cherche à faire de l'arithmétique exacte en programmation pour éviter les problèmes de virgule flottante de l'exercice précédent.
-	
-	Pour cela, on encode toutes les valeurs en un couple numérateur-denominateur d'entiers relatifs.
-	On déclare $x=\dfrac{p}q$ ($q\neq0$) en écrivant \texttt{x=(p,q)}.
-	Pour un couple $x$, on extrait le numérateur et le dénominateur en écrivant \texttt{p, q = x}.
-	Compléter les fonctions de somme, produit, et d'égalité entre rationnels.
-}{}
-
-
-\begin{mintedbox}{python}
-x=1/6
-y=7*x
-
-VF = (y == 1+x)
-print(VF)
-
-def somme(x,y):
-	a, b=x
-	c, d=y
-	return (a*d+b*c, b*d)
-
-def produit(x,y):
-	a, b=x
-	c, d=y
-	return (a*c, b*d)
-	
-def egalite(x,y):
-	a, b=x
-	c, d=y
-	return a*d==b*c
-	
-x=(1,6)
-sept=(7,1)
-y=produit(sept,x)
-un=(1,1)
-
-VF = egalite(y, somme(x,un))
-
-print(VF)
-\end{mintedbox}
-
-
-\exe{[$\star$, intersection en arithmétique exacte]
-	Créer un programme calculant le point d'intersection de droites affines non parallèles de façon exacte.
-	Pour cela, on supposera que tous les paramètres sont rationnels, donnés sous forme de couple numérateur-dénominateur comme à l'exercice précédent.
-}{}
-
+\end{subfigure}
+\caption{Fonctions d'exponentiation.}
+\label{fig:1}
+\end{figure}
 
 \end{document}

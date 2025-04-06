@@ -1,0 +1,147 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique : applications \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{[Statistiques]
+}{}
+
+\begin{mintedbox}{python}
+import math
+
+def MOYENNE(X):
+	N = len(X)
+	somme = sum(X)
+%	somme = 0
+%	for x in X:
+%		somme  = somme + x
+	return somme/N
+
+def VARIANCE(X):
+	moyenne = MOYENNE(X)
+	Y = [(x - moyenne)**2 for x in X]
+	return MOYENNE(Y)
+
+def ECARTTYPE(X):
+	return math.sqrt(VARIANCE(X))
+
+X = (1, 2, 3, 4, 5, 6,7, 8, 9, 10)
+mu = MOYENNE(X)
+sigma = ECARTTYPE(X)
+print(mu, sigma)
+\end{mintedbox}
+
+
+\exe{[Interpolation affine]
+
+}{}
+
+\begin{mintedbox}{python}
+def interp(A,B):
+	xA, yA = A
+	xB, yB = B
+	assert xA != xB, 'Les points sont alignés verticalement.'
+	
+	a = (yB-yA)/(xB-xA)
+	b = yA - a*xA
+	
+	return a, b
+	
+def verif(a, b, A, B):
+	# check if A, B belong to y=ax+b
+	
+	return 1	
+\end{mintedbox}
+
+\exe{[Intersection de droites]
+	
+	Calculer l'intersection $P$ des droites $y=x+1$ et $y=x-4$. Que remarque-t-on ?
+	
+	Calculer l'intersection $P$ des droites $y=3x+1$ et $y=2x-4$, et vérifier que $P$ appartient bien aux droites avec la fonction \texttt{verif}.
+	
+	Calculer l'intersection $P$ des droites $y=7x+1$ et $y=x-4$, et vérifier que $P$ appartient bien aux droites avec la fonction \texttt{verif}.
+	Expliquer le résultat obtenu.
+}{}
+
+\begin{mintedbox}{python}
+def intersection(a1, b1, a2, b2):
+	assert a1 != a2, 'Les droites sont parallèles.'
+	
+	xP =  (b2-b1)/(a1-a2)
+	yP = a1*xP+b1
+	
+	verif(a1,b1,a2,b2,xP,yP)
+	
+	return xP, yP
+	
+def verif(a1,b1,a2,b2,xP,yP):
+	assert yP == a1*xP+b1 and yP == a2*xP+b2
+	return 0
+\end{mintedbox}
+
+\exe{[Arithmétique exacte]
+	On cherche à faire de l'arithmétique exacte en programmation pour éviter les problèmes de virgule flottante de l'exercice précédent.
+	
+	Pour cela, on encode toutes les valeurs en un couple numérateur-denominateur d'entiers relatifs.
+	On déclare $x=\dfrac{p}q$ ($q\neq0$) en écrivant \texttt{x=(p,q)}.
+	Pour un couple $x$, on extrait le numérateur et le dénominateur en écrivant \texttt{p, q = x}.
+	Compléter les fonctions de somme, produit, et d'égalité entre rationnels.
+}{}
+
+
+\begin{mintedbox}{python}
+x=1/6
+y=7*x
+
+VF = (y == 1+x)
+print(VF)
+
+def somme(x,y):
+	a, b=x
+	c, d=y
+	return (a*d+b*c, b*d)
+
+def produit(x,y):
+	a, b=x
+	c, d=y
+	return (a*c, b*d)
+	
+def egalite(x,y):
+	a, b=x
+	c, d=y
+	return a*d==b*c
+	
+x=(1,6)
+sept=(7,1)
+y=produit(sept,x)
+un=(1,1)
+
+VF = egalite(y, somme(x,un))
+
+print(VF)
+\end{mintedbox}
+
+
+\exe{[$\star$, intersection en arithmétique exacte]
+	Créer un programme calculant le point d'intersection de droites affines non parallèles de façon exacte.
+	Pour cela, on supposera que tous les paramètres sont rationnels, donnés sous forme de couple numérateur-dénominateur comme à l'exercice précédent.
+}{}
+
+
+\end{document}

@@ -10,37 +10,55 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique : fonctions \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique 2 : fonctions \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\begin{figure}[h]
-\begin{mintedbox}{python}
-def nomdefonction(a):
-	return a+1
+\exe{
+	On considère les deux programmes de la figure \ref{fig:1}. Qu'impriment-t-ils ?
+}{}
 
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+\begin{mintedbox}{python}
+def plusun(a):
+	return a+1
+	
+print(plusun(4))
+print(plusun(-1))
+print(plusun(0))
+\end{mintedbox}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\begin{mintedbox}{python}
 def somme(a,b):
 	return a+b
-\end{mintedbox}
 
-\caption{Deux fonctions.}
+print(somme(4,3))
+print(somme(-1,2))
+print(somme(-3, -10))
+\end{mintedbox}
+\end{subfigure}
+
+\caption{Fonctions à un et deux arguments.}
 \label{fig:1}
 \end{figure}
 
+
 \exe{
-	On considère les programmes de la figure \ref{fig:1}.
+	On considère les deux programmes de la figure \ref{fig:2}.
 	\begin{enumerate}
-		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois programmes ?
+		\item Qu'impriment les deux programmes ?
+		\item Décrire ce que renvoie \texttt{seconde(a,b)} pour deux nombres réels $a$ et $b$.
 	\end{enumerate}
 }{}
 
-
-\begin{figure}[h]
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
 def premiere(a, b):
 	if a <= b:
@@ -48,42 +66,79 @@ def premiere(a, b):
 	else:
 		return a
 		
+print(premiere(2,10))
+print(premiere(10,2))
+print(premiere(-5,3))
+print(premiere(3,-5))
+\end{mintedbox}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\begin{mintedbox}{python}
 def seconde(a,b):
 	if a <= b:
 		return b
 	return a
-\end{mintedbox}
 
-\caption{Deux fonctions.}
+
+print(seconde(3,11))
+print(seconde(11,3))
+print(seconde(-6,0))
+print(seconde(0,-6))
+\end{mintedbox}
+\end{subfigure}
+
+\caption{Deux fonctions à deux arguments.}
 \label{fig:2}
 \end{figure}
 
-\exe{
-	On considère les programmes de la figure \ref{fig:2}.
-	\begin{enumerate}
-		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois programmes ?
-	\end{enumerate}
-}{}
 
-\begin{figure}[h]
+
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-def recursif(n):
-	if n<=0: # condition de sortie
-		return 0
+def triangulaire(n):
+	if n==1:
+		return 1
+	return n + triangulaire(n-1)
 	
-	return 1 + recursif(n-1) # argument modifié qui se dirige vers la condition de sortie
+print(triangulaire(1))
+print(triangulaire(2))
+print(triangulaire(3))
+print(triangulaire(5))
 \end{mintedbox}
+\caption{Nombres triangulaires}
+\label{fig:3a}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\begin{mintedbox}{python}
+def factorielle(n):
+	if n==1:
+		return 1
+	return n*factorielle(n-1)
+	
+print(factorielle(1))
+print(factorielle(2))
+print(factorielle(3))
+print(factorielle(5))
+\end{mintedbox}
+\caption{Factorielle}
+\label{fig:3b}
+\end{subfigure}
 
-\caption{Fonction récursive.}
+\caption{Fonctions récursives.}
 \label{fig:3}
 \end{figure}
+
 
 \exe{
 	On considère les programmes de la figure \ref{fig:3}.
 	\begin{enumerate}
-		\item Remplir les tableaux avec la valeur de chaque variable après execution de chaque ligne.
-		\item Qu'impriment les trois programmes ?
+		\item Qu'impriment les deux programmes ?
+		\item Décrire ce que \texttt{triangulaire(n)} renvoie pour un entier $n\in\N$.
+		\item Que se passe-t-il si on appelle \texttt{triangulaire(0)} ? Comment régler ce problème ?
+		\item Décrire ce que \texttt{factorielle(n)} renvoie pour un entier $n\in\N$.
+		\item Que se passe-t-il si on appelle \texttt{factorielle(-10)} ? Comment régler ce problème ?
 	\end{enumerate}
 }{}
 
