@@ -26,13 +26,16 @@ Les capacités attendues sont les suivantes.
 
 \section{Variables, boucles, fonctions : synthaxe en Python}
 
-\subsection{Variables et boucles}
-
-
+%\subsection{Variables et boucles}
+%
+%Revoir les cours de NSI pour réviser les instructions de base de Python.
 
 \subsection{Fonctions}
 
-Retour : dès que \texttt{return} est atteint, la valeur est retournée et rien d'autre n'est lu.
+Une fonction est un objet qui prend un ou plusieurs arguments.
+Une fonction peut être un outil qui ne renvoie rien (par exemple une fonction qui vérifie un résultat), ou elle peut renvoyer un ou plusieurs nombres, des listes, du texte, etc...
+
+Dès que \texttt{return} est atteint, la valeur est retournée et rien d'autre n'est lu.
 Les fonctions suivantes sont donc équivalentes.
 
 \begin{mintedbox}{python}
@@ -50,11 +53,12 @@ def seconde(a,b):
 
 \subsection{Algorithmes récursifs}
 
-Un algorithme récursif est une fonction qui fait appel à elle-même.
+Un algorithme récursif est un algorithme qui fait appel à lui-même.
+Implémenté, il prend la forme d'une fonction qui s'appelle elle-même.
 Pour ne pas tomber dans une boucle infinie, il faut s'assurer de deux choses.
 	\begin{enumerate}
-		\item La fonction s'appelle elle-même en changeant au moins un paramètre.
-		\item Le paramètre changé atteint une condition de sortie qui termine la boucle.
+		\item La fonction s'appelle elle-même en changeant au moins un argument.
+		\item L'argument changé atteint une condition de sortie en temps fini.
 	\end{enumerate}
 
 \ex{Factorielle}{
