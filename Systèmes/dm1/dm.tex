@@ -1,0 +1,83 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}
+%\input{adr/vars_44284.adr}
+%\newcommand{\seed}{TEST}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 5 --- \seed \ifsolutions \, --- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+\exe{
+	On considère le système de deux équations à deux inconnues $x, y \in \R$ suivant.
+
+	\[\systeme[xy]{
+		\Aa x \Ab y = \ba{,},
+		\Ac x \Ad y = \bb.
+	}\]
+	
+	%\[ (x ; y) = (\x ; \y). \]
+
+	\begin{enumerate}
+		\item Trouver la solution exacte $(x;y)$ du système en explicitant sa démarche.
+		\item Vérifier que le couple $(x;y)$ trouvé est bien solution du système.
+	\end{enumerate}
+}{}
+
+\exe{
+	
+	On considère le système de trois équations à trois inconnues $x, y, z \in \R$ suivant.
+
+	\[\systeme{
+		\AaII x \AbII y \AcII z = \baII{,}, 
+		\AdII x \AeII y \AfII z = \bbII{,}, 
+		\AgII x \AhII y \AiII z = \bcII.
+	}\]
+	
+	%\[ (x ; y; z) = (\xII ; \yII ; \zII). \]
+	
+	\begin{enumerate}
+		\item Ajouter aux équations 2 et 3 un multiple de la première équation pour annuler leur coefficient en $x$.
+		\item Écrire le système équivalent obtenu et vérifier que les deux dernières équations forment le sous-système de deux équations à deux inconnues suivant.
+			\[\systeme[yz]{
+				\AaIII y \AbIII z = \baIII{,},
+				\AcIII y \AdIII z = \bbIII.
+			}\]
+		\item Résoudre ce sous-système pour trouver $y$ et $z$.
+		\item Trouver $x$.
+		\item Vérifier que le triplet $(x;y;z)$ trouvé est bien solution du système initial.
+	\end{enumerate}
+
+}{}
+
+\exe{
+	On considère le système d'inconnues $x, y\in\R$ suivant qu'on ne cherche pas à résoudre.
+		\[ \systeme{
+			\AaIV x \AbIV y = \baIV {,},
+			\AcIV x \AdIV y = \bbIV.
+		}\]
+	\begin{enumerate}
+		\item
+		Montrer qu'une solution réelle $(x;y)$ du système
+		vérifie l'égalité vectorielle
+			\[ x \cdot u + y\cdot v = w, \]
+		où 
+			\begin{align*}
+				u = \pvec{\AaV}{\AcV}, && v=\pvec{\AbV}{\AdV}, && \text{ et } && w=\pvec{\baV}{\bbV}.
+			\end{align*}
+		\item
+		Montrer que $u$ et $v$ sont colinéaires en donnant le nombre $\lambda\in\R$ tel que $v=\lambda\cdot u$.
+		\item 
+		Montrer que si $(x;y)$ est une solution quelconque du système, alors $w$ est nécessairement colinéaire à $u$.
+		\item 
+		Montrer que $u$ et $w$ ne sont pas colinéaires et en déduire qu'il n'existe aucune solution au système.
+	\end{enumerate}
+
+}{}
+
+
+\end{document}
