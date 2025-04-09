@@ -20,7 +20,7 @@ Contenu par chapitre :
 - [x] Probabilités
 - [x] Fonctions : droites du plan
 - [x] Vecteurs dans le plan
-- [ ] Fonctions : variations et extrema
+- [x] Fonctions : variations et extrema
 - [ ] Algorithmique
 - [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
@@ -35,7 +35,16 @@ La repo contient les DM suivants.
 - [x] Statistiques 2 (`/Statistiques/dm2/`)
 - [x] Problèmes de géométrie 1 (`/Problèmes de géométrie/dm1/`)
 - [x] Fonctions affines (`/Fonctions-affines/dm1/`)
+- [~] Signes et variations 2 (`/Signes-variations/dm2/`)
+- [ ] Systèmes 1 (`/Systèmes/dm1/`)
+
 - [ ] Problèmes de géométrie 2 (`/Problèmes de géométrie/dm2/`)
+- [ ] Signes et variations 1 (`/Signes-variations/dm1/`)
+
+TODO : 
+- unifier les scripts en un module avec documentation ;
+- implémenter l'ex 2 de Signes et variations 2 ;
+- revisiter Signes et variations 1 sur l'interpolation de Lagrange ;
 
 # Séries d'exercices, évaluations, automatismes, …
 
