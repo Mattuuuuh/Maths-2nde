@@ -39,7 +39,7 @@ def newcommand_dfrac(command, numerator, denominator):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-def newcommand_mult(command, numerator, denominator):
+def newcommand_mult(command, numerator, denominator, sign=False):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
     La constante numerator/denominator est supposée multiplicative :
@@ -62,14 +62,18 @@ def newcommand_mult(command, numerator, denominator):
 
     # case val = 1
     if (denominator == 1) and (numerator == 1):
-        return newcommand(command, "")
+        return newcommand(command, "+" if sign else "")
+    
+    # case val = -1
+    if (denominator == 1) and (numerator == -1):
+        return newcommand(command, "-")
     
     # case val is integer
     if denominator == 1:
-        return newcommand(command, numerator)
+        return newcommand(command, ("+" if sign and numerator>0 else "") + str(numerator))
 
     # else
-    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    return newcommand(command, ("+" if sign and numerator>0 else "") + "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
 def newcommand_add(command, numerator, denominator):
     """
@@ -137,7 +141,7 @@ def pdflatex(seed):
     subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     # compile twice if references are required
-    
+
     return 0
 
 ###############################################
@@ -194,9 +198,9 @@ def generate(seed):
     CONTENT += newcommand_dfrac("\\ba", c[0], 1)
     CONTENT += newcommand_dfrac("\\bb", c[1], 1)
     CONTENT += newcommand_mult("\\Aa", M[0,0], 1)
-    CONTENT += newcommand_add("\\Ab", M[0,1], 1)
+    CONTENT += newcommand_mult("\\Ab", M[0,1], 1, sign=True)
     CONTENT += newcommand_mult("\\Ac", M[1,0], 1)
-    CONTENT += newcommand_add("\\Ad", M[1,1], 1)
+    CONTENT += newcommand_mult("\\Ad", M[1,1], 1, sign=True)
     
     ### EX 2 ###
 
@@ -243,21 +247,21 @@ def generate(seed):
     CONTENT += newcommand_dfrac("\\bbII", cc[1], 1)
     CONTENT += newcommand_dfrac("\\bcII", cc[2], 1)
     CONTENT += newcommand_mult("\\AaII", MM[0,0], 1)
-    CONTENT += newcommand_add("\\AbII", MM[0,1], 1)
-    CONTENT += newcommand_add("\\AcII", MM[0,2], 1)
+    CONTENT += newcommand_mult("\\AbII", MM[0,1], 1, sign=True)
+    CONTENT += newcommand_mult("\\AcII", MM[0,2], 1, sign=True)
     CONTENT += newcommand_mult("\\AdII", MM[1,0], 1)
-    CONTENT += newcommand_add("\\AeII", MM[1,1], 1)
-    CONTENT += newcommand_add("\\AfII", MM[1,2], 1)
+    CONTENT += newcommand_mult("\\AeII", MM[1,1], 1, sign=True)
+    CONTENT += newcommand_mult("\\AfII", MM[1,2], 1, sign=True)
     CONTENT += newcommand_mult("\\AgII", MM[2,0], 1)
-    CONTENT += newcommand_add("\\AhII", MM[2,1], 1)
-    CONTENT += newcommand_add("\\AiII", MM[2,2], 1)
+    CONTENT += newcommand_mult("\\AhII", MM[2,1], 1, sign=True)
+    CONTENT += newcommand_mult("\\AiII", MM[2,2], 1, sign=True)
 
     CONTENT += newcommand_dfrac("\\baIII", c[0], 1)
     CONTENT += newcommand_dfrac("\\bbIII", c[1], 1)
     CONTENT += newcommand_mult("\\AaIII", M[0,0], 1)
-    CONTENT += newcommand_add("\\AbIII", M[0,1], 1)
+    CONTENT += newcommand_mult("\\AbIII", M[0,1], 1, sign=True)
     CONTENT += newcommand_mult("\\AcIII", M[1,0], 1)
-    CONTENT += newcommand_add("\\AdIII", M[1,1], 1)
+    CONTENT += newcommand_mult("\\AdIII", M[1,1], 1, sign=True)
    
     ### EX 3 ###
 
@@ -282,9 +286,9 @@ def generate(seed):
     CONTENT += newcommand_dfrac("\\baIV", w[0], 1)
     CONTENT += newcommand_dfrac("\\bbIV", w[1], 1)
     CONTENT += newcommand_mult("\\AaIV", u[0], 1)
-    CONTENT += newcommand_add("\\AbIV", v[0], 1)
+    CONTENT += newcommand_mult("\\AbIV", v[0], 1, sign=True)
     CONTENT += newcommand_mult("\\AcIV", u[1], 1)
-    CONTENT += newcommand_add("\\AdIV", v[1], 1)
+    CONTENT += newcommand_mult("\\AdIV", v[1], 1, sign=True)
 
     # vector form
     CONTENT += newcommand_dfrac("\\baV", w[0], 1)
@@ -301,7 +305,7 @@ def generate(seed):
 
 if __name__=="__main__":
 
-    N = 1
+    N = 40
     # always the same N to recompile if needed
     np.random.seed(3) # troua :)  
 
