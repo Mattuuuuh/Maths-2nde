@@ -69,14 +69,44 @@ nomarginpar,% We don't want any margin paragraphs
 \newtheorem{dfn}{Définition}
 \newtheorem*{dfn*}{Définition}
 
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems}
-\newcounter{commonbox}
-\newtcbtheorem[use counter=commonbox]{theorem}{Théorème}%
-{fonttitle=\bfseries}{th}
-\newtcbtheorem[number within=section]{definition}{Définition}%
-{fonttitle=\bfseries}{th}
 
+%couleurs
+\usepackage{tcolorbox}
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myr}{RGB}{199, 68, 64}
+\definecolor{mygr}{HTML}{2C3338}
+
+%thm
+\tcbuselibrary{theorems,skins,hooks}
+\newcounter{commonbox}
+\makeatletter
+\newtcbtheorem[use counter=commonbox]{exercice}{Exercice}%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	separator sign none,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{th}
+\makeatother
 
 % corps
 \newcommand{\R}{\mathbb{R}}
@@ -120,11 +150,6 @@ nomarginpar,% We don't want any margin paragraphs
 %wider tabulars
 %\def\arraystretch{2}
 \setlength\tabcolsep{15pt}
-
-%couleurs
-\definecolor{myg}{RGB}{56, 140, 70}
-\definecolor{myb}{RGB}{45, 111, 177}
-\definecolor{myr}{RGB}{199, 68, 64}
 
 % vecteur
 \renewcommand{\vec}[1]{\overrightarrow{#1}}

@@ -10,91 +10,84 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
-
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-    \node[shape=circle,draw,inner sep=3pt] (char) {#1};}}
+\AdvanceDate[2]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{5 petits problèmes \ifsolutions \\ Solutions  \fi}}
+\fancyhead[C]{\textbf{5 petits problèmes (+1) \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
-\circled{1}
-\fbox{
-	\parbox{.3\textwidth}{
-	
+\pagenumbering{gobble}
+
+
+\centering
+\hfill
+\parbox{.3\textwidth}{
+	\begin{exercice}{}{}
 		Louis achète 1 DVD et 2 CD pour un total de 26€.
 		\\\\
 		Son frère Paul achète 2 DVD et 2 CD pour un total de 38€.
 		\\\\
 		Quel est le prix d'un DVD ? et d'un CD ?
-	}
+	\end{exercice}	
 }
 \hfill
-\circled{2}
-\fbox{
-	\parbox{.5\textwidth}{
-	
+\parbox{.5\textwidth}{
+	\begin{exercice}{}{}
 		En voyage scolaire à Paris, Marie achète une petite Tour Eiffel et 3 porte-clés Arc de Triomphe pour 23€.
 		\\\\
 		Son amie Anne achète quant à elle 5 petites Tour Eiffel et 3 porte-clés Arc de Triomphe pour 55€.
 		\\\\
-		Combien coute une petite Tour Eiffel ?
+		Combien coûte une petite Tour Eiffel ?
 		et un arc de Triomphe en porte-clés ?
 		\\\\
-		Combien couterait 10 Tours Eiffel et 6 porte-clés ?
-	}
+		Combien coûteraient 10 Tours Eiffel et 6 porte-clés ?
+	\end{exercice}	
 }
 	
-\circled{3}
-\fbox{
-	\parbox{.5\textwidth}{
-	
+\parbox{.7\textwidth}{
+	\begin{exercice}{}{}
 		En 2023, les cotisation du club de danse se sont élevée à 2 712€ pour 32 enfants et 54 adultes.
 		\\\\
 		En 2024, sans changement de tarif, les cotisations ont rapporté seulement 2 616€ pour 16 enfants et 62 adultes.
 		\\\\
 		Quel est le montant des cotisations enfant et adulte ?
-	}
+	\end{exercice}	
 }
 
 
-\circled{4}
-\fbox{
-	\parbox{.8\textwidth}{
-	
-		À la terrasse d'un café, le serveur annonce : \og 2 thés et 3 sodas, cela fera 12,20€ s'il vous plaît ! \fg.
+\parbox{.8\textwidth}{
+	\begin{exercice}{}{}
+		À la terrasse d'un café, le serveur annonce : \og 2 thés et 3 sodas, cela fera 12,20€ s'il vous plaît ! \fg
 		\\\\
-		Les clients ne sont pas d'accord et protestent : \og Non ! nous avions commandé 3 thés et 2 sodas ! \fg.
+		Les clients ne sont pas d'accord et protestent : \og Non ! nous avions commandé 3 thés et 2 sodas ! \fg
 		\\\\
-		Le serveur, confus, corrige sa commande et revient en annonçant : \og vous avez gagné 80 centimes ! \fg.
+		Le serveur, confus, corrige sa commande et revient en annonçant : \og vous avez gagné 80 centimes ! \fg
 		\\\\
-		Mais, au fait, combien coût un thé ? et un soda ?
-	}
+		Mais, au fait, combien coûte un thé ? et un soda ?
+	\end{exercice}	
 }
 
-\circled{+1}
-\fbox{
-	\parbox{.2\textwidth}{
-	
+\hfill
+\parbox{.3\textwidth}{
+	\begin{exercice*}{bonus}{}
 		Dans un troupeau de dromadaires et de chameaux, on compte 28 têtes et 45 bosses.
 		\\\\
 		Combien y a-t-il de dromadaires et de chameaux ?
-	}
+	\end{exercice*}	
 }
-\circled{5}
-\fbox{
-	\parbox{.7\textwidth}{
-	
-		Émilien explique : \og j'ai ajouté le triple d'un premier nombre à un second et j'ai trouvé 2 \fg.
+\hfill
+\parbox{.6\textwidth}{
+	\begin{exercice}{}{}
+		Émilien explique : \og j'ai ajouté le triple d'un premier nombre à un second et j'ai trouvé 2. \fg
 		\\\\
-		Anissa lui répond : \og j'ai ajouté le double de ton premier nombre au double du second et j'ai trouvé 28 \fg.
+		Anissa lui répond : \og j'ai ajouté le double de ton premier nombre au double du second et j'ai trouvé 28. \fg
 		\\\\
 		Devine quels sont les nombres choisis par Émilien et Anissa.
-	}
+	\end{exercice}	
 }
+
 
 
 \end{document}
