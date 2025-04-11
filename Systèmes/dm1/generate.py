@@ -268,7 +268,7 @@ def generate(seed):
     # u, w noncolinear
     uw = np.zeros((2,2))
     while np.linalg.det(uw) == 0 or uw[0,0]*uw[0,1]*uw[1,0]*uw[1,1] == 0:
-        uw = (np.random.rand(2,2)*30 - 60).astype(int)
+        uw = (np.random.rand(2,2)*60 - 30).astype(int)
 
     u = uw[:,0]
     w = uw[:, 1]
