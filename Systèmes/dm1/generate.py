@@ -267,7 +267,7 @@ def generate(seed):
 
     # u, w noncolinear
     uw = np.zeros((2,2))
-    while np.linalg.det(uw) == 0 or uw[0,0]*uw[0,1]*uw[1,0]*uw[1,1] == 0:
+    while np.linalg.det(uw) == 0 or uw[0,0]*uw[0,1]*uw[1,0]*uw[1,1] == 0 or uw[0,0]/uw[1,0] in [1,-1] or uw[1,0]/uw[1,1] in [1, -1]:
         uw = (np.random.rand(2,2)*60 - 30).astype(int)
 
     u = uw[:,0]
@@ -276,7 +276,7 @@ def generate(seed):
     # v, nonzero multiple of u
 
     m = 0
-    while m == 0:
+    while m in [0,1,-1]:
         m = np.random.rand()*22-11
         m=int(m)
     
