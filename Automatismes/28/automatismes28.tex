@@ -1,0 +1,133 @@
+\input{../preamble.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MINTED FOR PYTHON ALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    tabsize=4, % tab ident = 4 spaces
+    fontfamily=courier, %important pour les signes <, >
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
+
+
+\AdvanceDate[1]
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Équation linéaire}
+
+\begin{frame}{1\vspace{-32pt}}	
+	\boxAB{
+		Donner le $x\in\R$ réel vérifiant
+			\[ 7x + 12 = 4. \]
+	}{
+		Donner le $x\in\R$ réel vérifiant
+			\[ 4x - 10 = 7. \]
+	}
+\end{frame}
+
+\subsection{Affectation}
+
+% fragile frame when verbatim content is included
+\begin{frame}[fragile]{2\vspace{-32pt}}	
+\vspace{-5pt}
+\begin{center}
+\begin{minipage}{0.4\textwidth}
+\begin{mintedbox}{python}
+A = 12
+temp = -4
+A = 2*temp + A
+\end{mintedbox}
+\end{minipage}
+\hspace{20pt}
+\begin{minipage}{0.4\textwidth}
+\begin{mintedbox}{python}
+B = 20
+temp = -2
+B = 3*temp + B
+\end{mintedbox}
+\end{minipage}
+\end{center}
+
+	\boxAB{
+		Donner la valeur de \texttt{A} après exécution complète du programme de gauche.
+	}{
+		Donner la valeur de \texttt{B} après exécution complète du programme de droite.
+	}
+\end{frame}
+
+
+
+\subsection{Vérification de solution}
+
+\begin{frame}{3\vspace{-32pt}}
+	\vfill 
+	Est-ce que le couple $(x;y) = (4;-6)$ est solution du système suivant ?
+	\boxAB{
+		$\systeme{3x - 2y = 24{,}, -2x + y = -2.}$
+	}{
+		$\systeme{x-2y = 16{,}, 2x - y = 2.}$
+	}
+\end{frame}
+
+
+\subsection{Substitution puis équation linéaire}
+
+\begin{frame}{4\vspace{-32pt}}	
+	En sachant que $y=3$, donner le $x\in\R$ réel vérifiant
+
+	\boxAB{
+		$3x - 2y = 10. $
+	}{
+		$x + 7y = -1.$
+	}
+\end{frame}
+
+\end{document}
