@@ -39,7 +39,7 @@ def newcommand_dfrac(command, numerator, denominator):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-def newcommand_mult(command, numerator, denominator):
+def newcommand_mult(command, numerator, denominator, sign=False):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
     La constante numerator/denominator est supposée multiplicative :
@@ -62,15 +62,21 @@ def newcommand_mult(command, numerator, denominator):
 
     # case val = 1
     if (denominator == 1) and (numerator == 1):
-        return newcommand(command, "")
+        return newcommand(command, "+" if sign else "")
+    
+    # case val = -1
+    if (denominator == 1) and (numerator == -1):
+        return newcommand(command, "-")
     
     # case val is integer
     if denominator == 1:
-        return newcommand(command, numerator)
+        return newcommand(command, ("+" if sign and numerator>0 else "") + str(numerator))
 
     # else
-    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    if sign:
+        return newcommand(command, ("+" if numerator>0 else "-") + "\dfrac{"+str(np.abs(numerator))+"}{"+str(denominator)+"}")
 
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 def newcommand_add(command, numerator, denominator):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
@@ -208,6 +214,13 @@ def generate(seed):
     CONTENT += newcommand_add("\\fb", 2*a*b, 1)
     CONTENT += newcommand_add("\\fc", b**2 - beta, 1)
     
+    ### SOL ###
+
+    CONTENT += newcommand_dfrac("\\xstar", -b, a)
+    CONTENT += newcommand("\\xzero", "\\dfrac{"+f"{-b} - \\sqrt{{{beta}}}"+"}{"+str(a)+"}")
+    CONTENT += newcommand("\\xone", "\\dfrac{"+f"{-b} + \\sqrt{{{beta}}}"+"}{"+str(a)+"}")
+
+
     ### EX 2 ##
 
     # TODO ha! j'ai oublié
@@ -252,6 +265,15 @@ def generate(seed):
     CONTENT += newcommand_dfrac("\\qI", a, b)
     CONTENT += newcommand_dfrac("\\qII", c, d)
 
+    ### SOL ###
+    
+    CONTENT += newcommand_add("\\mqI", -a, b)
+    CONTENT += newcommand_add("\\mqII", -c, d)
+
+    CONTENT += newcommand_mult("\\sumIV", a*d+b*c,-b*d, sign=True)
+    CONTENT += newcommand_dfrac("\\bIV", a*d+b*c, -b*d)
+    CONTENT += newcommand_add("\\prodIV", a*c, b*d)
+    CONTENT += newcommand_dfrac("\\cIV", a*c, b*d)
 
     return CONTENT    
 

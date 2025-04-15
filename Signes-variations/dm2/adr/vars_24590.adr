@@ -9,6 +9,9 @@
 \newcommand{\fa}{36}
 \newcommand{\fb}{-60}
 \newcommand{\fc}{+19}
+\newcommand{\xstar}{\dfrac{5}{6}}
+\newcommand{\xzero}{\dfrac{5 - \sqrt{6}}{6}}
+\newcommand{\xone}{\dfrac{5 + \sqrt{6}}{6}}
 \newcommand{\aV}{19}
 \newcommand{\bV}{17}
 \newcommand{\cV}{7}
@@ -18,3 +21,9 @@
 \newcommand{\eqIc}{-119}
 \newcommand{\qI}{\dfrac{19}{5}}
 \newcommand{\qII}{\dfrac{-1}{2}}
+\newcommand{\mqI}{-\dfrac{19}{5}}
+\newcommand{\mqII}{+\dfrac{1}{2}}
+\newcommand{\sumIV}{-\dfrac{33}{10}}
+\newcommand{\bIV}{\dfrac{-33}{10}}
+\newcommand{\prodIV}{-\dfrac{19}{10}}
+\newcommand{\cIV}{\dfrac{-19}{10}}

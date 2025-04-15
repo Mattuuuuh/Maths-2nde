@@ -9,6 +9,9 @@
 \newcommand{\fa}{25}
 \newcommand{\fb}{+40}
 \newcommand{\fc}{+2}
+\newcommand{\xstar}{\dfrac{-4}{5}}
+\newcommand{\xzero}{\dfrac{-4 - \sqrt{14}}{5}}
+\newcommand{\xone}{\dfrac{-4 + \sqrt{14}}{5}}
 \newcommand{\aV}{14}
 \newcommand{\bV}{5}
 \newcommand{\cV}{17}
@@ -18,3 +21,9 @@
 \newcommand{\eqIc}{-85}
 \newcommand{\qI}{\dfrac{-14}{5}}
 \newcommand{\qII}{\dfrac{11}{9}}
+\newcommand{\mqI}{+\dfrac{14}{5}}
+\newcommand{\mqII}{-\dfrac{11}{9}}
+\newcommand{\sumIV}{+\dfrac{71}{45}}
+\newcommand{\bIV}{\dfrac{71}{45}}
+\newcommand{\prodIV}{-\dfrac{154}{45}}
+\newcommand{\cIV}{\dfrac{-154}{45}}
