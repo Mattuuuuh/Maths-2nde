@@ -10,128 +10,91 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[1]
+\AdvanceDate[0]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique 5 : puissances et ordres de grandeur \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Algorithmique 5 : dichotomie \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-Ci-dessous, $q\in\R^*_+$ est un nombre réel strictement positif qu'on appelle \emph{base}.
 
-\begin{definition*}{Puissance sur $\N^*$}{}
-	Soit $n \in \N^*$ un entier naturel non nul.
-	Alors \og $q$ puissance $n$ \fg~est égal à
-		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\text{$n$ fois}}. \]
-	En particulier,
-		\begin{align*}
-			q^1 = \ifsolutions q \else\quad \fi && q^2 = \ifsolutions q\times q \else\quad \fi && q^3 = \ifsolutions q \times q \times q \else\quad \fi
-		\end{align*}
-\end{definition*}
-
-\begin{proprietes*}{}{}
-	Soient $a, b \in \Z$. Alors
-		\[ q^{a} \times q^{b} = \ifsolutions q^{a+b}, \else \hspace{2cm} \fi \]
-	et 
-		\[ \left( q^{a}\right)^b = \ifsolutions q^{a\times b}. \else \hspace{2cm} \fi \]
-	En particulier, on a 
-		\begin{align*}
-			q^0 = \ifsolutions 1\else\quad \fi && q^{-1} = \ifsolutions \dfrac1q \else\quad\fi &&  q^{-a} = \ifsolutions \dfrac1{q^a} \else\quad\fi
-		\end{align*}
-\end{proprietes*}
-
-\exe{
-	Sans calculatrice, exprimer les nombres suivants sous la forme $a^b$, où $a \in \N$ et $b\in\Z$ sont des entiers.
-	
-	\begin{multicols}{3}
-	\begin{enumerate}[label=\roman*)]
-		\item $10^3 \times 10^5$
-		\item $\left(4^5\right)^2$
-		\item $\dfrac{5^3}{5^3}$
-		\item $1$
-		\item $\dfrac{2^4}{2^7}$
-		\item $\left(2^{-1}\right)^3$
-		\item $\left(2^{3}\right)^{-1}$
-		\item $\left(\dfrac{1}{7^2}\right)^6$
-		\item $\dfrac{10^{12}}{10^{-12}}$
-		\item $\dfrac{10^{-5}}{10^{6}}$
-	\end{enumerate}
-	\end{multicols}
-}{}
-
-\exe{
-	On estime que, dans l'univers, il y a au moins
-		\begin{itemize}
-			\item $10^{11}$ galaxies ; que chacune contient
-			\item $10^{11}$ étoiles ; dont la masse moyenne est de
-			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
-			\item $10^{24}$ atomes.
-		\end{itemize}
-	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
-}{}
-
-\exe{
-	Montrer qu'on a environ $2^{10} \approx 10^3$. 
-	On dira que $2^{10}$ a pour \emph{ordre de grandeur} $10^3$ car c'est la puissance de $10$ la plus proche.
-	
-	\begin{enumerate}
-		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
-		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
-	\end{enumerate}
-}{}
-
-% redondant un peu
-%\exe{
-%	Montrer qu'on a environ $6^{8} \approx 10^6$ et $7^6 \approx 10^5$ : ce sont leur \emph{ordre de grandeur}.
-%	
-%	\begin{enumerate}
-%		\item En déduire l'ordre de grandeur de $6^{16}$ et le nombre de chiffres nécessaires pour l'écrire.
-%		\item En déduire l'ordre de grandeur de $7^{18}$ et le nombre de chiffres nécessaires pour l'écrire.
-%		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
-%	\end{enumerate}
-%}{}
-
-\newpage
-
-\exe{[Exponentiation rapide]
-	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
-	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique de base (la puissance n'en est pas une !).
-	
-	\begin{enumerate}
-		\item Compléter la fonction \texttt{puissance(q,N)} figure \ref{fig:1} qui renvoie $q^N$ en utilisant uniquement la multiplication.
-		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
-		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:1}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
-		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
-		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
-		\item[$(\star)$] Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
-	\end{enumerate}
-
-}{}
-
-	
-% fast exponentiation
 \begin{figure}[h]
-\begin{subfigure}{.5\textwidth}
 \begin{mintedbox}{python}
-def puissance(q, N):
-	r = q
-	for i in range(__,____):
-		__________
-	return r
+def f(x):
+	return x**2 - 2
+
+precision = 1e-2
+
+def racine2(a, b):
+	if b-a < precision:
+		return a, b
+	m = (a+b)/2
+	if f(m)> 0:
+		return racine2(a,m)
+	return racine2(m,b)
+	
+a, b = racine2(1, 2)
 \end{mintedbox}
-\end{subfigure}
-\begin{subfigure}{.5\textwidth}
-\begin{mintedbox}{python}
-def fastexp(q, n):
-	r = q
-	for i in range(1,n+1):
-		r = r*r
-	return r
-\end{mintedbox}
-\end{subfigure}
-\caption{Fonctions d'exponentiation.}
+\caption{Algorithme d'encadrement de $\sqrt{2}$ par dichotomie.}
 \label{fig:1}
 \end{figure}
+
+\exe{
+	On souhaite approximer la valeur de $\sqrt{2}$, qu'on sait solution positive de l'équation
+		\[ x^2 - 2= 0. \]
+	Pour cela, on implémente l'algorithme par dichotomie (figure \ref{fig:1}) vu en cours.
+	\begin{enumerate}
+		\item Esquisser $\C_f$ où $f(x) = x^2 - 2$ pour s'assurer que $f$ est croissante autour de $\sqrt{2}$.
+		\item Pourquoi appelle-t-on la fonction avec $a = 1$ et $b=2$ ?
+		\item Montrer que si $a < \sqrt2 < b$ au départ, alors l'algorithme maintient un intervalle $[a ; b]$ contenant toujours $\sqrt{2}$.
+		\item Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16}$ et appeler \texttt{racine2(1,2)}.
+		Que remarque-t-on ?
+		 \item Montrer que, d'un appel de \texttt{racine2} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisé par $2$.
+		 \item Combien d'opérations sont nécessaires pour obtenir un intervalle de longueur $2^{-10}$ ? Et $2^{-n}$ ?
+	\end{enumerate}
+}{}
+
+%\hrule
+\newpage
+
+\begin{figure}[h]
+\begin{mintedbox}{python}
+def f(x):
+	return _______
+
+precision = 1e-10
+
+def phi(a, b):
+	if b-a < ________:
+		return a, b
+	m = (a+b)/2
+	if _______:
+		return phi(a,m)
+	return phi(m,b)
+	
+a, b = phi(__,__)
+\end{mintedbox}
+\caption{Algorithme d'encadrement de $\phi$ par dichotomie.}
+\label{fig:2}
+\end{figure}
+
+\exe{
+	On souhaite approximer la valeur du nombre d'or $\phi$, qu'on sait unique solution positive de l'équation
+		\[ x^2 - x - 1 = 0. \]
+	La fonction $f(x) = x^2 - x- 1$ est croissante autour de $\phi$.
+	\begin{enumerate}
+		\item Compléter l'algorithme par dichotomie (figure \ref{fig:2}). Justifier les choix de paramètres initiaux ligne $14$.
+		\item Montrer que $f(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
+		\item On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
+			\[ a < \phi < b, \]
+		de longueur $b-a = \ell$.
+		
+		En déduire un encadrement de $\sqrt{5}$ et la longueur de celui-ci en fonction de $\ell$.
+		L'approximation de $\sqrt{5}$ déduite est-elle plus ou moins précise que l'approximation de $\phi$ ?
+	\end{enumerate}
+}{}
+
+
 
 \end{document}
