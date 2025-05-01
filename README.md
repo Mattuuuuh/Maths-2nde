@@ -21,7 +21,7 @@ Contenu par chapitre :
 - [x] Fonctions : droites du plan
 - [x] Vecteurs dans le plan
 - [x] Fonctions : variations et extrema
-- [ ] Algorithmique
+- [x] Algorithmique
 - [ ] Fonctions : fonctions de référence
 - [ ] Échantillonnage
 
@@ -36,7 +36,7 @@ La repo contient les DM suivants.
 - [x] Problèmes de géométrie 1 (`/Problèmes de géométrie/dm1/`)
 - [x] Fonctions affines (`/Fonctions-affines/dm1/`)
 - [~] Signes et variations 2 (`/Signes-variations/dm2/`)
-- [ ] Systèmes 1 (`/Systèmes/dm1/`)
+- [x] Systèmes 1 (`/Systèmes/dm1/`)
 
 - [ ] Problèmes de géométrie 2 (`/Problèmes de géométrie/dm2/`)
 - [ ] Signes et variations 1 (`/Signes-variations/dm1/`)
