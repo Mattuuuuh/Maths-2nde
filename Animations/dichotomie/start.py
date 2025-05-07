@@ -8,14 +8,17 @@ class Dichotomie(MovingCameraScene):
     def f(self, x):
         return x**2-7
 
-    def dichotomie(self,a, b):
+    def dichotomie(self,a,b):
         # exit condition
         if b-a < self.precision:
             return 0
-
+        
         axes = self.axes
         f_graph = self.f_graph
-
+        
+        # halve font size for next step
+        self.font_size /= 2
+        
         # middle xm of the [a,b] interval
         # m(xm,ym) on C_f to check for sign
         xm = (a+b)/2
@@ -23,29 +26,36 @@ class Dichotomie(MovingCameraScene):
         
         sign_of_ym = 1 if ym>0 else -1
 
-        m = Dot(point=axes.c2p(xm,ym), radius=.1*self.font_size/100, color=RED)
+        m = Dot(point=axes.c2p(xm,ym), radius=.1*self.font_size/48, color=RED)
         
         # tick on [a,b] with xm label
-        tick_length = .1 * self.font_size/50
+        tick_length = .5 * self.font_size/48
         #tick_length = .1 if self.font_size >= 25 else .05
         mtick = Line(
                 start=axes.c2p(xm,tick_length),
                 end=axes.c2p(xm,-tick_length),
                 color=RED,
-                stroke_width=2*self.font_size/50,
+                stroke_width=8*self.font_size/48,
                 #width=2*self.font_size/50,
         )
-        mlabel = (Tex(f"{self.comma(xm)}", color=RED).next_to(mtick, direction=-sign_of_ym*1*self.font_size/100*UP))
+        mlabel = (Tex(f"{self.comma(xm)}", color=RED).next_to(mtick, direction=-sign_of_ym*1*self.font_size/96*UP))
  
-        # turn a, b labels white
-        self.play(self.alabel.animate.set_color(WHITE))
-        self.play(self.blabel.animate.set_color(WHITE))
+        # turn a, b labels white and lower opacity
+        self.play(
+                self.alabel.animate.set_color(WHITE), 
+                self.blabel.animate.set_color(WHITE),
+        )
+        self.play(
+                self.alabel.animate.set_opacity(0.2),
+                self.blabel.animate.set_opacity(0.2),
+        )
+
 
         # show tick and label
         self.play(Create(mtick),FadeIn(mlabel))
 
         # dashes lines for coordinates of m
-        m_lines = axes.get_vertical_line(axes.c2p(xm,self.f(xm)), stroke_width=5*self.font_size/100)
+        m_lines = axes.get_vertical_line(axes.c2p(xm,self.f(xm)), stroke_width=5*self.font_size/96)
 
         # show lines and point
         self.play(Create(m_lines))
@@ -54,13 +64,12 @@ class Dichotomie(MovingCameraScene):
         self.wait()
 
         # text specifying sign of ym
-        # TODO: change width of frame somehow
         text_sign = Label(
                 MathTex(f"f({self.comma(xm)})"+(">0" if ym>0 else "<0"), color=RED),
-                frame_config={"stroke_width":self.font_size/50, "buff":self.font_size/100},
-                box_config={"buff":self.font_size/100},
+                frame_config={"stroke_width":self.font_size/48, "buff":.5*self.font_size/48},
+                box_config={"buff":.5*self.font_size/48},
         )
-        text_sign.next_to(m, direction=1*self.font_size/100*RIGHT)
+        text_sign.next_to(m, direction=2*self.font_size/48*(RIGHT+sign_of_ym*UP))
         self.play(FadeIn(text_sign))
         
         self.wait()
@@ -78,7 +87,7 @@ class Dichotomie(MovingCameraScene):
             self.a = m
             self.atick = mtick
             self.alabel = mlabel
-            camera_center = axes.c2p((xm+b)/2,0)
+            nextxm = (xm + b)/2 # next center, used for camera pan
         # if ym > 0: fadeout objects associated to b and replace them by objets of m
         else:
             self.play(FadeOut(self.b))
@@ -87,7 +96,7 @@ class Dichotomie(MovingCameraScene):
             self.b = m
             self.btick = mtick
             self.blabel = mlabel
-            camera_center = axes.c2p((a+xm)/2,0)
+            nextxm = (a+xm)/2
        
         # redefine fonts
         MathTex.set_default(font_size=self.font_size)
@@ -96,40 +105,37 @@ class Dichotomie(MovingCameraScene):
         # soften labels
         self.alabel.font_size = self.font_size
         # ya < 0, always
-        self.alabel = self.alabel.next_to(self.atick, direction=1*self.font_size/100*UP)
+        self.alabel = self.alabel.next_to(self.atick, direction=.5*self.font_size/48*UP)
 
         self.blabel.font_size = self.font_size 
         # yb > 0, always
-        self.blabel = self.blabel.next_to(self.btick, direction=-1*self.font_size/100*UP)
+        self.blabel = self.blabel.next_to(self.btick, direction=-.5*self.font_size/48*UP)
 
+        #TODO: this is not the best. Ideally i'd rescale the frame to perfectly fit [a,b] horizontally and [f(a), f(b)] vertically.
         # zoom in 
+        # soften axes and C_f
         # cannot change both height and width idk why
-        #self.play(self.camera.frame.animate.set(height=max((b-a)*2,ym*2)).move_to(camera_center))
-        yb = self.b.arc_center[1]
-        self.play(self.camera.frame.animate.set(height=max(yb*16/9,(b-a))).move_to(camera_center))
-
-        # soften axes
-        self.axes.set_stroke(width=self.font_size/50)
-        
-        # soften C_f
-        #self.play(FadeOut(self.f_graph), scale=2)
-        self.f_graph.set_stroke(width=self.font_size/50)
-        #self.play(FadeIn(self.f_graph))
-
-
         # soften tick lengths
-        self.atick.start[1] /= 2
-        self.atick.end[1] /= 2
-        self.btick.start[1] /= 2
-        self.btick.end[1] /= 2
-        self.atick.stroke_width /= 2
-        self.btick.stroke_width /= 2
+        camera_center = axes.c2p(nextxm,0)
+        nextym = self.f(nextxm)
+        sign_of_nextym = 1 if nextym > 0 else -1
 
-        # halve font size for next step
-        self.font_size /= 2
+        self.play(
+                self.camera.frame.animate.set(width=2*max(sign_of_nextym*nextym*16/9,(b-a))).move_to(camera_center),
+                self.axes.animate.set_stroke(width=2*self.font_size/48),
+                self.f_graph.animate.set_stroke_width(2*self.font_size/48),
+                self.atick.animate.set_stroke_width(4*self.font_size/48),
+                self.btick.animate.set_stroke_width(4*self.font_size/48),
+        )
 
+        # scale ticks separately from the above otherwise it gets stuck idk
+        self.play(
+                self.atick.animate(run_time=.5).scale(.5),
+                self.btick.animate(run_time=.5).scale(.5),
+        )
+        
         # wait after zoom a bit
-        self.wait(1)
+        self.wait(.5)
 
         if ym < 0:
             return self.dichotomie(xm, b)
@@ -153,8 +159,8 @@ class Dichotomie(MovingCameraScene):
                 y_length = 9*2,
                 tips=False,
                 background_line_style={
-                    #"stroke_width": 1,
-                    "stroke_opacity": .5,
+                    "stroke_width": 2,
+                    "stroke_opacity": .3,
                 },
         )
     
@@ -164,9 +170,10 @@ class Dichotomie(MovingCameraScene):
 
         # graph and labels
         f_graph = axes.plot(
-                lambda x: self.f(x), # referencing f directly create an error?
+                lambda x: self.f(x), # referencing self.f directly create an error?
                 x_range=[-4,4, 0.01],
                 color=BLUE,
+                stroke_width=2,
         )
         equation = Label(MathTex("y = x^2 - 7"))
         equation.move_to(axes.c2p(6.5,7), RIGHT)
@@ -175,12 +182,12 @@ class Dichotomie(MovingCameraScene):
         
        
         # ticks
-        self.atick = Line(start=axes.c2p(0,.1), end=axes.c2p(0,-.1), color=RED)
-        self.btick = Line(start=axes.c2p(3,.1), end=axes.c2p(3,-.1), color=RED)
+        self.atick = Line(start=axes.c2p(0,.25), end=axes.c2p(0,-.25), color=RED, stroke_width=4)
+        self.btick = Line(start=axes.c2p(3,.25), end=axes.c2p(3,-.25), color=RED, stroke_width=4)
        
         self.play(Create(self.atick), Create(self.btick))
 
-        self.blabel = (Tex("3", color=RED).next_to(self.btick, direction=RIGHT+DOWN))
+        self.blabel = (Tex("3", color=RED).next_to(self.btick, direction=DOWN))
         self.alabel = (Tex("0", color=RED).next_to(self.atick, direction=LEFT + DOWN))
         self.play(Create(self.blabel), Create(self.alabel))
 
@@ -217,7 +224,7 @@ class Dichotomie(MovingCameraScene):
         self.axes = axes
         self.f_graph = f_graph
         
-        self.precision = .05
+        self.precision = .01
 
         # recursive dichotomy
         self.dichotomie(0, 3)
