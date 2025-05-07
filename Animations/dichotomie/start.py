@@ -16,10 +16,6 @@ class Dichotomie(MovingCameraScene):
         axes = self.axes
         f_graph = self.f_graph
 
-        # redefine fonts
-        MathTex.set_default(font_size=self.font_size)
-        Tex.set_default(font_size=self.font_size)
-        
         # middle xm of the [a,b] interval
         # m(xm,ym) on C_f to check for sign
         xm = (a+b)/2
@@ -41,23 +37,31 @@ class Dichotomie(MovingCameraScene):
         )
         mlabel = (Tex(f"{self.comma(xm)}", color=RED).next_to(mtick, direction=-sign_of_ym*1*self.font_size/100*UP))
  
+        # turn a, b labels white
+        self.play(self.alabel.animate.set_color(WHITE))
+        self.play(self.blabel.animate.set_color(WHITE))
+
         # show tick and label
-        self.play(Create(mtick),Write(mlabel))
+        self.play(Create(mtick),FadeIn(mlabel))
 
         # dashes lines for coordinates of m
         m_lines = axes.get_vertical_line(axes.c2p(xm,self.f(xm)), stroke_width=5*self.font_size/100)
 
         # show lines and point
         self.play(Create(m_lines))
-        self.play(FadeIn(m))
+        self.play(Create(m))
 
         self.wait()
 
         # text specifying sign of ym
         # TODO: change width of frame somehow
-        text_sign = Label(MathTex(f"f({self.comma(xm)})"+(">0" if ym>0 else "<0"), color=RED), frame_config={"stroke_width":self.font_size/50})
+        text_sign = Label(
+                MathTex(f"f({self.comma(xm)})"+(">0" if ym>0 else "<0"), color=RED),
+                frame_config={"stroke_width":self.font_size/50, "buff":self.font_size/100},
+                box_config={"buff":self.font_size/100},
+        )
         text_sign.next_to(m, direction=1*self.font_size/100*RIGHT)
-        self.play(Write(text_sign))
+        self.play(FadeIn(text_sign))
         
         self.wait()
 
@@ -85,11 +89,15 @@ class Dichotomie(MovingCameraScene):
             self.blabel = mlabel
             camera_center = axes.c2p((a+xm)/2,0)
        
+        # redefine fonts
+        MathTex.set_default(font_size=self.font_size)
+        Tex.set_default(font_size=self.font_size)
         
         # soften labels
         self.alabel.font_size = self.font_size
         # ya < 0, always
         self.alabel = self.alabel.next_to(self.atick, direction=1*self.font_size/100*UP)
+
         self.blabel.font_size = self.font_size 
         # yb > 0, always
         self.blabel = self.blabel.next_to(self.btick, direction=-1*self.font_size/100*UP)
@@ -117,8 +125,11 @@ class Dichotomie(MovingCameraScene):
         self.atick.stroke_width /= 2
         self.btick.stroke_width /= 2
 
-        # redefine font size
+        # halve font size for next step
         self.font_size /= 2
+
+        # wait after zoom a bit
+        self.wait(1)
 
         if ym < 0:
             return self.dichotomie(xm, b)
@@ -206,7 +217,7 @@ class Dichotomie(MovingCameraScene):
         self.axes = axes
         self.f_graph = f_graph
         
-        self.precision = .01
+        self.precision = .05
 
         # recursive dichotomy
         self.dichotomie(0, 3)
