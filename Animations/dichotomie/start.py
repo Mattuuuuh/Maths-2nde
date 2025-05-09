@@ -63,7 +63,7 @@ class Dichotomie(MovingCameraScene):
         m_lines = axes.get_vertical_line(
                 axes.c2p(xm,ym),
                 #stroke_width=.5*abs(ym),
-                stroke_width=2*self.scale,
+                stroke_width=3*self.scale,
                 color=WHITE,
                 line_config={"dashed_ratio": .5, 
                     "dash_length": abs(ym)/20,
@@ -80,17 +80,18 @@ class Dichotomie(MovingCameraScene):
                 frame_config={"stroke_width":self.scale, "buff":0*.05*self.scale, "color":GREEN},
                 box_config={"buff":0*.05*self.scale},
         )
-        text_sign.next_to(m, direction=.5*self.scale*(RIGHT-sign_of_ym*UP))
+        text_sign.next_to(m, direction=.5*self.scale*(RIGHT+sign_of_ym*UP))
         
         # zoom in relative to the objects_in_frame group i want to keep in frame
         # soften axes and C_f
         objects_in_frame = Group(
-                Dot(axes.c2p(xm,ym)),
-                Dot(axes.c2p(xm,-ym)),
                 self.alabel,
                 self.atick,
                 self.blabel,
                 self.btick,
+                m,
+                mtick,
+                mlabel,
                 text_sign
         )
 
@@ -248,13 +249,6 @@ class Dichotomie(MovingCameraScene):
                 color=RED,
                 line_config={"dashed_ratio": .5, "dash_length": 7/20},
         )
-        a_lineH = axes.get_horizontal_line(
-                axes.c2p(0,self.f(0)),
-                stroke_width=5*self.scale,
-                color=RED,
-                line_config={"dashed_ratio": .5, "dash_length": 7/20},
-        )
-
 
         b_lineV = axes.get_vertical_line(
                 axes.c2p(3,self.f(3)),
@@ -282,11 +276,12 @@ class Dichotomie(MovingCameraScene):
         # show a, b lines then dots and signs f(.)
         self.play(Create(b_lineV))
         self.play(Create(b))
-        self.play(Create(b_lineH), Write(text_signB))
+        self.play(Create(b_lineH)) # i tried reverse=True but doesn't work
+        self.play(Write(text_signB))
         
         self.play(Create(a_lineV))
         self.play(Create(a))
-        self.play(Create(a_lineH), Write(text_signA))
+        self.play(Write(text_signA))
 
         self.wait()
 
@@ -298,7 +293,6 @@ class Dichotomie(MovingCameraScene):
                 Uncreate(a),
                 Uncreate(b_lineH),
                 Uncreate(b_lineV),
-                Uncreate(a_lineH),
                 Uncreate(a_lineV),
                 FadeOut(equation),
         )
@@ -318,7 +312,7 @@ class Dichotomie(MovingCameraScene):
         self.width_ratio = .5  
         self.ym = self.f(1.5)
 
-        self.precision = .01
+        self.precision = .001
 
         # recursive dichotomy
         self.dichotomie(0, 3)
