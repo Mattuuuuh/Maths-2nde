@@ -1,5 +1,7 @@
 from manim import *
 
+LOW_OPACITY = .3
+
 class Dichotomie(MovingCameraScene):
 
     def comma(self, x):
@@ -13,63 +15,116 @@ class Dichotomie(MovingCameraScene):
         if b-a < self.precision:
             return 0
         
+        # aliases
         axes = self.axes
         f_graph = self.f_graph
         
-        # halve font size for next step
-        self.font_size /= 2
+        # images of a, b
+        ya = self.f(a)
+        yb = self.f(b)
         
         # middle xm of the [a,b] interval
-        # m(xm,ym) on C_f to check for sign
         xm = (a+b)/2
         ym = self.f(xm)
-        
         sign_of_ym = 1 if ym>0 else -1
 
-        m = Dot(point=axes.c2p(xm,ym), radius=.1*self.font_size/48, color=RED)
+        # halve font size for next step
+        # and redefine fonts
+        scale_factor=.5
+        #self.scale = self.width_ratio
+        scale_factor = max(.5, min(abs(ym/self.ym), 1))
+        self.ym = ym
+        self.scale *= scale_factor
+        self.font_size *= scale_factor 
+        MathTex.set_default(font_size=self.font_size)
+        Tex.set_default(font_size=self.font_size)
+        
+        # Dot m(xm,ym)        
+        m = Dot(
+                point=axes.c2p(xm,ym), 
+                #radius=.5*self.scale, 
+                radius=min(.05*abs(ym), .05*self.scale), 
+                color=GREEN
+        )
         
         # tick on [a,b] with xm label
-        tick_length = .5 * self.font_size/48
-        #tick_length = .1 if self.font_size >= 25 else .05
+        # half the size of the bounds
+        tick_length = .25 * self.scale
+        #tick_length = .05*abs(ym)
         mtick = Line(
                 start=axes.c2p(xm,tick_length),
                 end=axes.c2p(xm,-tick_length),
-                color=RED,
-                stroke_width=8*self.font_size/48,
-                #width=2*self.font_size/50,
+                color=GREEN,
+                stroke_width=3*self.scale,
         )
-        mlabel = (Tex(f"{self.comma(xm)}", color=RED).next_to(mtick, direction=-sign_of_ym*1*self.font_size/96*UP))
+        mlabel = (Tex(f"{self.comma(xm)}", color=GREEN).next_to(mtick, direction=-sign_of_ym*.5*self.scale*UP))
+        
+        # dashes lines for coordinates of m
+        m_lines = axes.get_vertical_line(
+                axes.c2p(xm,ym),
+                #stroke_width=.5*abs(ym),
+                stroke_width=2*self.scale,
+                color=WHITE,
+                line_config={"dashed_ratio": .5, 
+                    "dash_length": abs(ym)/20,
+                    "color":GREEN, 
+                    #"stroke_opacity": LOW_OPACITY
+                },
+        )
+
+        # show lines and point
+        
+        # text specifying sign of ym
+        text_sign = Label(
+                MathTex(f"f({self.comma(xm)})"+(">0" if ym>0 else "<0"), color=GREEN),
+                frame_config={"stroke_width":self.scale, "buff":0*.05*self.scale, "color":GREEN},
+                box_config={"buff":0*.05*self.scale},
+        )
+        text_sign.next_to(m, direction=.5*self.scale*(RIGHT-sign_of_ym*UP))
+        
+        # zoom in relative to the objects_in_frame group i want to keep in frame
+        # soften axes and C_f
+        objects_in_frame = Group(
+                Dot(axes.c2p(xm,ym)),
+                Dot(axes.c2p(xm,-ym)),
+                self.alabel,
+                self.atick,
+                self.blabel,
+                self.btick,
+                text_sign
+        )
+
+        self.play(
+                self.camera.auto_zoom(objects_in_frame),
+                self.axes.animate.set_stroke(width=2*self.scale),
+                self.f_graph.animate.set_stroke_width(2*self.scale),
+                self.atick.animate(run_time=.5).set_stroke_width(4*self.scale).scale(scale_factor),
+                self.alabel.animate(run_time=.5).set_font_size(self.font_size).next_to(self.atick, .5*self.scale*UP),
+                self.btick.animate(run_time=.5).set_stroke_width(4*self.scale).scale(scale_factor),
+                self.blabel.animate(run_time=.5).set_font_size(self.font_size).next_to(self.btick, .5*self.scale*DOWN),
+        )
+        
+        """
+        # this sucks because it's one iterate behind what it should be
+        # because i generate text before zooming in...
+        new_width = self.camera.frame.width
+        self.width_ratio = new_width/self.frame_width
+        self.frame_width = new_width
+        """
+
+        # wait after zoom a bit
+        self.wait(.5)
+
  
-        # turn a, b labels white and lower opacity
-        self.play(
-                self.alabel.animate.set_color(WHITE), 
-                self.blabel.animate.set_color(WHITE),
-        )
-        self.play(
-                self.alabel.animate.set_opacity(0.2),
-                self.blabel.animate.set_opacity(0.2),
-        )
-
-
         # show tick and label
         self.play(Create(mtick),FadeIn(mlabel))
 
-        # dashes lines for coordinates of m
-        m_lines = axes.get_vertical_line(axes.c2p(xm,self.f(xm)), stroke_width=5*self.font_size/96)
-
-        # show lines and point
         self.play(Create(m_lines))
         self.play(Create(m))
 
         self.wait()
 
         # text specifying sign of ym
-        text_sign = Label(
-                MathTex(f"f({self.comma(xm)})"+(">0" if ym>0 else "<0"), color=RED),
-                frame_config={"stroke_width":self.font_size/48, "buff":.5*self.font_size/48},
-                box_config={"buff":.5*self.font_size/48},
-        )
-        text_sign.next_to(m, direction=2*self.font_size/48*(RIGHT+sign_of_ym*UP))
         self.play(FadeIn(text_sign))
         
         self.wait()
@@ -81,68 +136,62 @@ class Dichotomie(MovingCameraScene):
         
         # if ym < 0: fadeout objects associated to a and replace them by objets of m
         if ym < 0:
-            self.play(FadeOut(self.a))
-            self.play(Uncreate(self.atick))
-            self.play(FadeOut(self.alabel))
+            # fade out all a stuff
+            # turn mtick red
+            self.play(
+                    FadeOut(self.a),
+                    Uncreate(self.atick),
+                    FadeOut(self.alabel),
+                    mtick.animate(run_time=.5).set_color(RED),
+                    mlabel.animate(run_time=.5).set_color(RED).set_opacity(LOW_OPACITY),
+            )
+            
+            # scale btick down, move and soften blabel
+            """            
+            self.play(
+                    self.btick.animate(run_time=.5).set_stroke_width(4*scale_factor).scale(.5),
+                    self.blabel.animate(run_time=.5).set_font_size(self.font_size).next_to(self.btick, .5*scale_factor*DOWN)
+            )
+            """
+
+            # replace a by m
             self.a = m
             self.atick = mtick
             self.alabel = mlabel
-            nextxm = (xm + b)/2 # next center, used for camera pan
+
         # if ym > 0: fadeout objects associated to b and replace them by objets of m
         else:
-            self.play(FadeOut(self.b))
-            self.play(Uncreate(self.btick))
-            self.play(FadeOut(self.blabel))
+            # fade out all b stuff
+            # turn mtick red
+            self.play(
+                    FadeOut(self.b),
+                    Uncreate(self.btick),
+                    FadeOut(self.blabel),
+                    mtick.animate(run_time=.5).set_color(BLUE),
+                    mlabel.animate(run_time=.5).set_color(BLUE).set_opacity(.2),
+            )
+
+            # scale atick down, move and soften alabel
+            """            
+            self.play(
+                    self.atick.animate(run_time=.5).set_stroke_width(4*self.scale).scale(.5),
+                    self.alabel.animate(run_time=.5).set_font_size(self.font_size).next_to(self.atick, .5*self.scale*DOWN)
+            )
+            """
+            
+            # replace b by m
             self.b = m
             self.btick = mtick
             self.blabel = mlabel
-            nextxm = (a+xm)/2
-       
-        # redefine fonts
-        MathTex.set_default(font_size=self.font_size)
-        Tex.set_default(font_size=self.font_size)
-        
-        # soften labels
-        self.alabel.font_size = self.font_size
-        # ya < 0, always
-        self.alabel = self.alabel.next_to(self.atick, direction=.5*self.font_size/48*UP)
 
-        self.blabel.font_size = self.font_size 
-        # yb > 0, always
-        self.blabel = self.blabel.next_to(self.btick, direction=-.5*self.font_size/48*UP)
-
-        #TODO: this is not the best. Ideally i'd rescale the frame to perfectly fit [a,b] horizontally and [f(a), f(b)] vertically.
-        # zoom in 
-        # soften axes and C_f
-        # cannot change both height and width idk why
-        # soften tick lengths
-        camera_center = axes.c2p(nextxm,0)
-        nextym = self.f(nextxm)
-        sign_of_nextym = 1 if nextym > 0 else -1
-
-        self.play(
-                self.camera.frame.animate.set(width=2*max(sign_of_nextym*nextym*16/9,(b-a))).move_to(camera_center),
-                self.axes.animate.set_stroke(width=2*self.font_size/48),
-                self.f_graph.animate.set_stroke_width(2*self.font_size/48),
-                self.atick.animate.set_stroke_width(4*self.font_size/48),
-                self.btick.animate.set_stroke_width(4*self.font_size/48),
-        )
-
-        # scale ticks separately from the above otherwise it gets stuck idk
-        self.play(
-                self.atick.animate(run_time=.5).scale(.5),
-                self.btick.animate(run_time=.5).scale(.5),
-        )
-        
-        # wait after zoom a bit
-        self.wait(.5)
-
+        # recursion :)
         if ym < 0:
             return self.dichotomie(xm, b)
         return self.dichotomie(a, xm) 
 
     def construct(self):
         self.font_size = 48
+        self.scale = 1
         MathTex.set_default(font_size=self.font_size)
         
         # set the frame
@@ -172,7 +221,7 @@ class Dichotomie(MovingCameraScene):
         f_graph = axes.plot(
                 lambda x: self.f(x), # referencing self.f directly create an error?
                 x_range=[-4,4, 0.01],
-                color=BLUE,
+                color=GOLD,
                 stroke_width=2,
         )
         equation = Label(MathTex("y = x^2 - 7"))
@@ -182,48 +231,93 @@ class Dichotomie(MovingCameraScene):
         
        
         # ticks
-        self.atick = Line(start=axes.c2p(0,.25), end=axes.c2p(0,-.25), color=RED, stroke_width=4)
-        self.btick = Line(start=axes.c2p(3,.25), end=axes.c2p(3,-.25), color=RED, stroke_width=4)
+        tick_length = .25 * self.scale
+        self.atick = Line(start=axes.c2p(0,tick_length), end=axes.c2p(0,-tick_length), color=RED, stroke_width=4)
+        self.btick = Line(start=axes.c2p(3,tick_length), end=axes.c2p(3,-tick_length), color=BLUE, stroke_width=4)
        
         self.play(Create(self.atick), Create(self.btick))
 
-        self.blabel = (Tex("3", color=RED).next_to(self.btick, direction=DOWN))
-        self.alabel = (Tex("0", color=RED).next_to(self.atick, direction=LEFT + DOWN))
+        self.alabel = (Tex("0", color=RED).next_to(self.atick, direction=LEFT + UP))
+        self.blabel = (Tex("3", color=BLUE).next_to(self.btick, direction=DOWN))
         self.play(Create(self.blabel), Create(self.alabel))
 
-        # only b line is necessary
-        b_lines = axes.get_lines_to_point(axes.c2p(3,self.f(3)))
-       
-        self.play(Create(b_lines))
+        # a and b lines
+        a_lineV = axes.get_vertical_line(
+                axes.c2p(0,self.f(0)),
+                stroke_width=5*self.scale,
+                color=RED,
+                line_config={"dashed_ratio": .5, "dash_length": 7/20},
+        )
+        a_lineH = axes.get_horizontal_line(
+                axes.c2p(0,self.f(0)),
+                stroke_width=5*self.scale,
+                color=RED,
+                line_config={"dashed_ratio": .5, "dash_length": 7/20},
+        )
 
-        # show a, b dots
+
+        b_lineV = axes.get_vertical_line(
+                axes.c2p(3,self.f(3)),
+                stroke_width=5*self.scale,
+                color=BLUE,
+                line_config={"dashed_ratio": .5, "dash_length": 2/20},
+        )
+        b_lineH = axes.get_horizontal_line(
+                axes.c2p(3,self.f(3)),
+                stroke_width=5*self.scale,
+                color=BLUE,
+                line_config={"dashed_ratio": .5, "dash_length": 2/20},
+        )
+        
         # dots a(x=0) and b(x=3)
-        a = Dot(point=axes.c2p(0,-7), radius=.05, color=RED)
-        b = Dot(point=axes.c2p(3,2), radius=.05, color=RED)
-        self.play(Create(b), Create(a))
-       
-        # show sign of f(0) and f(3)
-        text_signA = Label(MathTex(f"f(0)<0", color=RED))
+        a = Dot(point=axes.c2p(0,-7), radius=.05*self.scale, color=RED)
+        b = Dot(point=axes.c2p(3,2), radius=.05*self.scale, color=BLUE)
+            
+        # f(a), f(b) texts
+        text_signA = Label(MathTex("f(0)<0", color=RED))
         text_signA = text_signA.next_to(a, direction=LEFT)
-        text_signB = Label(MathTex(f"f(3)>0", color=RED))
+        text_signB = Label(MathTex("f(3)>0", color=BLUE))
         text_signB = text_signB.next_to(b, direction=RIGHT)
-        self.play(Write(text_signA), Write(text_signB))
+        
+        # show a, b lines then dots and signs f(.)
+        self.play(Create(b_lineV))
+        self.play(Create(b))
+        self.play(Create(b_lineH), Write(text_signB))
+        
+        self.play(Create(a_lineV))
+        self.play(Create(a))
+        self.play(Create(a_lineH), Write(text_signA))
 
         self.wait()
 
         # remove everything in reverse order except ticks and labels
-
-        self.play(FadeOut(text_signA), FadeOut(text_signB))
-        self.play(Uncreate(b), Uncreate(a))
-        self.play(Uncreate(b_lines))
-        self.play(FadeOut(equation))
+        self.play(
+                FadeOut(text_signA),
+                FadeOut(text_signB),
+                Uncreate(b),
+                Uncreate(a),
+                Uncreate(b_lineH),
+                Uncreate(b_lineV),
+                Uncreate(a_lineH),
+                Uncreate(a_lineV),
+                FadeOut(equation),
+        )
+        
+        # lower opacity of a, b labels
+        self.play(
+                self.alabel.animate.set_opacity(LOW_OPACITY), 
+                self.blabel.animate.set_opacity(LOW_OPACITY),
+        )
 
         # def class objects 
         self.a = a
         self.b = b
         self.axes = axes
         self.f_graph = f_graph
-        
+        self.frame_width = self.camera.frame.width
+        self.width_ratio = .5  
+        self.ym = self.f(1.5)
+
         self.precision = .01
 
         # recursive dichotomy
