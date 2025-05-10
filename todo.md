@@ -18,13 +18,15 @@ Algorithmique :
 
 
 Autres : 
-	Logique !!! (vrai/faux, contre-exemples, etc...)
    	Contraposition, réciproque, ...
 	Entraînement (in)équations,
+	entraînement identités remarquables
+	écriture scientifique,
 	Fonction paire, impaire,
+	echantillonnage.
+	
+	Logique !!! (vrai/faux, contre-exemples, etc...)
 	tableau de signes, équations produit ou quotient.
 	manipulation des puissances,
 	ordres de grandeurs,
-	écriture scientifique,
-	entraînement identités remarquables
 	système d'équations linéaires. cas n=2.
