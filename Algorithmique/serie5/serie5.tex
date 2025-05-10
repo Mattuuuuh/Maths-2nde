@@ -10,7 +10,7 @@
 
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[2]
 
 \begin{document}
 \pagestyle{fancy}
@@ -22,36 +22,43 @@
 \begin{figure}[h]
 \begin{mintedbox}{python}
 def f(x):
-	return x**2 - 2
+	return x**2 - 7
 
-precision = 1e-2
+precision = 10**-2
 
-def racine2(a, b):
+def racine(a, b):
 	if b-a < precision:
 		return a, b
 	m = (a+b)/2
 	if f(m)> 0:
-		return racine2(a,m)
-	return racine2(m,b)
+		return racine(a,m)
+	return racine(m,b)
 	
-a, b = racine2(1, 2)
+a, b = racine(0, 3)
+print('a = ', a)
+print('b = ', b)
 \end{mintedbox}
-\caption{Algorithme d'encadrement de $\sqrt{2}$ par dichotomie.}
+\caption{Algorithme d'encadrement de $\sqrt{7}$ par dichotomie.}
 \label{fig:1}
 \end{figure}
 
 \exe{
-	On souhaite approximer la valeur de $\sqrt{2}$, qu'on sait solution positive de l'équation
-		\[ x^2 - 2= 0. \]
+	On souhaite approximer la valeur de $\sqrt{7}$, qu'on sait solution positive de l'équation
+		\[ x^2 - 7= 0. \]
 	Pour cela, on implémente l'algorithme par dichotomie (figure \ref{fig:1}) vu en cours.
 	\begin{enumerate}
-		\item Esquisser $\C_f$ où $f(x) = x^2 - 2$ pour s'assurer que $f$ est croissante autour de $\sqrt{2}$.
-		\item Pourquoi appelle-t-on la fonction avec $a = 1$ et $b=2$ ?
-		\item Montrer que si $a < \sqrt2 < b$ au départ, alors l'algorithme maintient un intervalle $[a ; b]$ contenant toujours $\sqrt{2}$.
-		\item Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16}$ et appeler \texttt{racine2(1,2)}.
+		\item Esquisser $\C_f$ où $f(x) = x^2 - 7$ pour s'assurer que $f$ est croissante autour de $\sqrt{7}$.
+		\item Montrer que
+			\[ f(0) < f\bigl(\sqrt7\bigr) < f(3), \]
+		et en déduire que $\sqrt7 \in [0; 3]$ à l'aide de la croissance de $f$ sur $[0 ; +\infty[$.
+		%\item Pourquoi appelle-t-on la fonction avec $a = 0$ et $b=3$ ?
+		%\item Montrer que l'algorithme maintient un intervalle $[a ; b]$ contenant toujours $\sqrt{7}$.
+		\item Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16},$ et rappeler \texttt{racine(0,3)}.
 		Que remarque-t-on ?
-		 \item Montrer que, d'un appel de \texttt{racine2} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisé par $2$.
-		 \item Combien d'opérations sont nécessaires pour obtenir un intervalle de longueur $2^{-10}$ ? Et $2^{-n}$ ?
+		 \item Justifier que, d'un appel de \texttt{racine} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisée par $2$.
+		 \item Donner la longueur de l'intervalle $[0;3]$ de départ. Combien d'opérations arithmétiques sont nécessaires pour obtenir un intervalle de longueur $3 \times 2^{-4}$ ? Et $3\times 2^{-10}$ ? Et $3 \times 2^{-n}$ ?
+		 
+		 \item[($\star$)] Combien d'étape faut-il pour obtenir un intervalle de longeur $10^{-10}$ ? On cherche le plus petit $n\in\N$ tel que $3 \times 2^{-n} \leq 10^{-10}$. Résoudre ce problème algorithmiquement et vérifier qu'on obtient bien $n=35$.
 	\end{enumerate}
 }{}
 
@@ -65,15 +72,15 @@ def f(x):
 
 precision = 1e-10
 
-def phi(a, b):
+def racine(a, b):
 	if b-a < ________:
 		return a, b
 	m = (a+b)/2
 	if _______:
-		return phi(a,m)
-	return phi(m,b)
+		return racine(a,m)
+	return racine(m,b)
 	
-a, b = phi(__,__)
+a, b = racine(__,__)
 \end{mintedbox}
 \caption{Algorithme d'encadrement de $\phi$ par dichotomie.}
 \label{fig:2}
@@ -82,16 +89,16 @@ a, b = phi(__,__)
 \exe{
 	On souhaite approximer la valeur du nombre d'or $\phi$, qu'on sait unique solution positive de l'équation
 		\[ x^2 - x - 1 = 0. \]
-	La fonction $f(x) = x^2 - x- 1$ est croissante autour de $\phi$.
+	On admet que la fonction $f(x) = x^2 - x- 1$ est croissante autour de $\phi$.
 	\begin{enumerate}
-		\item Compléter l'algorithme par dichotomie (figure \ref{fig:2}). Justifier les choix de paramètres initiaux ligne $14$.
+		\item Compléter l'algorithme par dichotomie (figure \ref{fig:2}). Justifier le choix de paramètres initiaux ligne $14$.
 		\item Montrer que $f(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
 		\item On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
 			\[ a < \phi < b, \]
 		de longueur $b-a = \ell$.
 		
 		En déduire un encadrement de $\sqrt{5}$ et la longueur de celui-ci en fonction de $\ell$.
-		L'approximation de $\sqrt{5}$ déduite est-elle plus ou moins précise que l'approximation de $\phi$ ?
+		L'encadrement de $\sqrt{5}$ déduit est-il plus ou moins précis que celui de $\phi$ ?
 	\end{enumerate}
 }{}
 
