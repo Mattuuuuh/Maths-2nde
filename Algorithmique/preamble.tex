@@ -101,10 +101,10 @@ nomarginpar,% We don't want any margin paragraphs
 			(title.center-|frame.east)
 			[rounded corners=\kvtcb@arc] |-
 			(frame.north) -| cycle;
-		},
+		}
 	#1
-}{th}
-\newtcbtheorem[use counter=commonbox]{proprietes}{Propriétés}%
+}{def}
+\newtcbtheorem[use counter=commonbox]{proprietes}{Propriétés }%
 {
 	enhanced,
 	colback=white,
@@ -127,7 +127,31 @@ nomarginpar,% We don't want any margin paragraphs
 			(frame.north) -| cycle;
 		},
 	#1
-}{th}
+}{prop}
+\newtcbtheorem[use counter=commonbox]{theoreme}{Théorème }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{thm}
 \makeatother
 
 % corps

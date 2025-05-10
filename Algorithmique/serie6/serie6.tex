@@ -1,0 +1,156 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Algorithmique 6 : encadrements et notation scientifique \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\begin{proprietes*}{puissances de 10}
+	Soit $n\in\N$ un entier naturel. Comme
+		\begin{enumerate}[label=$\bullet$]
+			\item multiplier par $10$ décale la virgule d'une position vers la droite ; et
+			\item diviser par $10$ décale la virgule d'une position vers la gauche ;
+		\end{enumerate}
+	on a nécessairement
+		\begin{flalign*}
+			&&
+			10^n = 1\underbrace{00\dots00}_{\ifsolutions \text{$n$ fois} \fi}
+			&&
+			\text{et}
+			&&
+			10^{-n} = \dfrac1{10^n} = \underbrace{0,00\dots00}_{\ifsolutions \text{$n$ fois} \fi}1.
+			&&
+		\end{flalign*}
+\end{proprietes*}
+
+\exe{\label{ex:1}
+	Sans calculatrice, donner la valeur numérique des fractions suivantes.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{10}$
+		\item $\dfrac1{5}$
+		\item $\dfrac3{10^{5}}$
+		\item $\dfrac7{20}$
+		\item $\dfrac{395}{50}$
+		\item $\dfrac{11}{200}$
+	\end{enumerate}
+	\end{multicols}
+
+}{}
+
+\begin{definition*}{notation scientifique}
+	Soit $x\in\R$ un nombre réel \emph{décimal}, c'est-à-dire que $x$ s'écrit avec un nombre fini de chiffres après la virgule.
+	Alors $x$ s'écrit
+		\[ x = a \times 10^n, \]
+	pour un certain nombre décimal $a \in [1 ; 10[$, et $n\in\Z$ entier relatif, l'ordre de grandeur de $x$.
+\end{definition*}
+
+\exe{
+	Sans calculatrice,  écrire les nombres de l'exercice \ref{ex:1} en notation scientifique.
+}{}
+
+\exe{
+	Sans calculatrice, écrire les nombres suivants en notation scientifique.
+		
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item $201$
+		\item $10$
+		\item $123 400 000$
+		\item $0,8$
+		\item $0,000327$
+		\item $0,0090001$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\begin{definition*}{encadrement}
+	On dit que $a$ et $b$ \emph{encadrent} le nombre réel $x\in\R$ si $a < x < b$.
+	\begin{enumerate}[label=$\bullet$]
+		\item $b-a$ est l'\emph{amplitude} de l'encadrement.
+		\item L'encadrement est à $10^{n}$ près si son amplitude est égale à $10^{n}$ (pour $n\in\Z$ entier relatif).
+	\end{enumerate}
+\end{definition*}
+
+\exe{[Vrai ou faux]
+	L'encadrement 
+	
+	\def\arraystretch{2}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$2,6 < \sqrt{7} < 2,8$ est à $10^{-1}$ près & $\square$ & $\square$  \\
+		$3,14 < \pi < 3,15$ est à $10^{-2}$ près & $\square$ & $\square$  \\
+		$-4,473 < -2\sqrt5 < -4,472$ est à $10^{-3}$ près & $\square$ & $\square$  \\
+		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & $\square$ & $\square$  \\
+	\end{tabular}
+}{}
+
+\newpage
+
+\exe{
+	Encadrer les nombres suivants à l'amplitude demandée.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $9 854,698 \times 10^3$ à $10^4$ près.
+		\item $36,05 \times 10^{-4}$ à $10^{-1}$ près.
+		\item $-31,45$ à $10^{-1}$ près.
+		\item $-0,0125$ à $10^{-4}$ près.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	On donne l'encadrement du nombre d'or $\phi =  \dfrac{1+\sqrt5}2$ suivant.
+		\[ 1,61803 < \dfrac{1+\sqrt5}2 < 1,618035 \]
+	\begin{enumerate}
+		\item Donner l'amplitude de l'encadrement en notation scientifique.
+		\item Trouver un encadrement de $\sqrt{5}$ et donner son amplitude.
+	\end{enumerate}
+}{}
+
+% pour échantillonnage je pense
+% \hrule
+%
+%\exe{
+%	Donner les ensembles suivants sous forme d'intervalle.
+%		\begin{multicols}{2}
+%		\begin{enumerate}
+%			\item $ B_{0;1} = \bigl\{ x \in \R \text{ tq. } |x| \leq 1 \bigr\}$
+%			\item $ B_{0;2} = \bigl\{ x \in \R \text{ tq. } |x| \leq 2 \bigr\} $
+%			\item $ B_{0;10^{-2}} = \bigl\{ x \in \R \text{ tq. } |x| \leq 10^{-2} \bigr\} $
+%			\item $ B_{5;1} = \bigl\{ x \in \R \text{ tq. } |x-5| \leq 1 \bigr\} $
+%			\item $ B_{-3; 2} = \bigl\{ x \in \R \text{ tq. } |x+3| \leq 1 \bigr\}$
+%			\item $ B_{-10; 10^{-1}} = \bigl\{ x \in \R \text{ tq. } |x+10| \leq 10^{-1} \bigr\}$
+%		\end{enumerate}
+%		\end{multicols}
+%}{}
+%
+%\begin{theoreme*}{intervalle symétrique}
+%	Soit $c \in \R$ un réel, et $r \in \R_+$ un réel positif ou nul. 
+%	Alors l'ensemble
+%		\[ B_{c, r} = \bigl\{ x \in \R \text{ tq. } |x - c| \leq r \bigr\} \]
+%	est égal à l'intervalle contenant tous les nombres réels à distance inférieure à $r$ de $c$.
+%		\[ B_{c,r} = [c -r ; c+r] \]
+%\end{theoreme*}
+%
+%\exe{
+%	
+%}{}
+
+\end{document}
