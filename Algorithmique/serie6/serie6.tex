@@ -56,7 +56,7 @@
 	Soit $x\in\R$ un nombre réel \emph{décimal}, c'est-à-dire que $x$ s'écrit avec un nombre fini de chiffres après la virgule.
 	Alors $x$ s'écrit
 		\[ x = a \times 10^n, \]
-	pour un certain nombre décimal $a \in [1 ; 10[$, et $n\in\Z$ entier relatif, l'ordre de grandeur de $x$.
+	pour un certain nombre décimal $a \in [1 ; 10[$, et $n\in\Z$ entier relatif.
 \end{definition*}
 
 \exe{
@@ -107,8 +107,8 @@
 	Encadrer les nombres suivants à l'amplitude demandée.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\alph*)]
+		\item $3,605 \times 10^{-2}$ à $10^{-4}$ près.
 		\item $9 854,698 \times 10^3$ à $10^4$ près.
-		\item $36,05 \times 10^{-4}$ à $10^{-1}$ près.
 		\item $-31,45$ à $10^{-1}$ près.
 		\item $-0,0125$ à $10^{-4}$ près.
 	\end{enumerate}
@@ -124,6 +124,84 @@
 	\end{enumerate}
 }{}
 
+\hrule
+
+\exe{
+	Sans calculatrice, écrire les nombres suivants en notation scientifique.
+		
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item $3 106 000$
+		\item $1,8$
+		\item $0,000080021$
+		\item $134,1$
+		\item $60$
+		\item $0,09$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{
+	Encadrer les nombres suivants à l'amplitude demandée.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $7 345 \times 10^6$ à $10^8$ près.
+		\item $36,05 \times 10^{-4}$ à $10^{-1}$ près.
+		\item $-2 048,1632$ à $10^{-2}$ près.
+		\item $-4,1 \times 10^{-8}$ à $10^{-8}$ près.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{\label{ex:7}
+	Le but de l'exercice est de montrer que $\dfrac13$ n'est pas décimal (il ne s'écrit pas avec un nombre fini de chiffres après la virgule) et qu'on ne peut donc pas l'écrire en notation scientifique.
+	\begin{enumerate}
+		\item Rappeler la définition de $\dfrac13$ et montrer que $\dfrac13 \neq 0,3333$.
+		\item Supposons $\dfrac13$ décimal. Montrer qu'il existe un $n\in\N$ et un $a\in\Z$ tel que
+			\[ 10^n \cdot \dfrac13 = a. \]
+		\item Montrer que $10^n$ n'est pas un multiple de $3$.
+		\item Conclure par contradiction.
+	\end{enumerate}
+}{}
+
+\exe{[$\star$]
+	Montrer, en reprenant le raisonnement de l'exercice \ref{ex:7}, que $\dfrac1q$ n'est pas décimal si $q\in\N^*$ est un entier qui ne divise aucune puissance de $10$.
+	
+	En raisonnant avec l'unicité de la décomposition en facteurs premiers, montrer que c'est le cas dès qu'un nombre premier différent de 2 et de 5 divise $q$. Par exemple, $\dfrac1{14}$ n'est pas décimal.
+}{}
+
+\exe{[$\star$]
+	Le but de l'exercice est de montrer que $\sqrt7$ n'est pas rationnel (et donc pas décimal non plus).	
+	À cette fin, pour $a, b\in\N^*$ deux entiers naturel non nuls, on suppose par contradiction que $\sqrt7 = \dfrac{a}{b}$, fraction irréductible. En particulier, $a$ et $b$ ne peuvent pas tous les deux être multiples de 7 (la fraction serait réductible).
+	
+	\begin{enumerate}
+		\item Montrer que $a^2 = 7b^2$ et donc que $a^2$ est multiple de $7$.
+		\item En raisonnant avec l'unicité de la décomposition en facteurs premiers, montrer si $7$ ne divise pas $a$, alors $7$ ne divise pas non plus $a^2$.
+		\item En déduire que $a$ est également multiple de 7. On note $a=7c$.
+		\item En mettant au carré, déduire que $7c^2 = b^2$ et donc que $b^2$ est aussi multiple de 7.
+		\item Conclure par contradiction.
+	\end{enumerate}
+}{}
+
+% un peu compliqué pour eux
+%\exe{
+%	Le but de l'exercice est de montrer que $\sqrt7$ est mal approximable par les rationnels.	
+%	À cette fin, pour $a, b\in\N^*$ deux entiers naturel non nuls, on étudie l'expression
+%		\[ \left| \dfrac{a}{b} - \sqrt7 \right|, \]
+%	distance entre $\sqrt7$ et la fraction $\dfrac{a}{b}$.
+%	\begin{enumerate}
+%		\item Montrer que
+%			\[ \left| \dfrac{a}{b} - \sqrt7 \right| = \dfrac1{b}\left|a - b \sqrt7 \right|. \]
+%		\item Montrer que
+%			\[ \left|a - b \sqrt7 \right| \cdot \left|a + b \sqrt7 \right| = \left| a^2 - 7b^2 \right|. \]
+%		On appelle $a + b \sqrt7$ l'\emph{expression conjuguée} de $a - b \sqrt7$.
+%		\item En raisonnant avec la décomposition en facteurs premiers, montrer que $a^2 - 7b^2$ est un entier non nul, et donc que $|a^2 - 7b^2| \geq 1$.
+%		\item En déduire que
+%			\[  \left| \dfrac{a}{b} - \sqrt7 \right| \geq \dfrac{1}{b \left|a + b \sqrt7 \right|}. \]
+%	
+%	\end{enumerate}
+%}{}
+%
 % pour échantillonnage je pense
 % \hrule
 %
