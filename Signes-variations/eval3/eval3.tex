@@ -1,0 +1,192 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\newdate{date}{14}{05}{2025}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Évaluation --- Signes et variations \ifsolutions \\ Solutions  \fi}}
+\fancyhead[R]{\date}
+
+
+\exe{[3pts]
+	Donner le domaine de définition de chaque fonction suivante.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $f(x) = \dfrac1{-2\left(x+2\right)}$
+		\item $g(x) = \dfrac{\sqrt{3-x}}{10}$
+		\item $h(x) = \dfrac{\sqrt{4x+7}}{x}$
+		%\item $F(x) = \dfrac{1}{\sqrt{x+1}}$
+	\end{enumerate}
+	\end{multicols}
+
+}{
+}
+
+
+\exe{[3pts]
+	On considère la fonction $f$ donnée graphiquement ci-dessous sur le domaine $\D = [-3; 2,5]$.
+	
+	\begin{enumerate}
+		\item Remplir approximativement les tableaux de signes et de variations de $f$ sur $\D$ ci-dessous.
+		\item Tracer la courbe de $g(x) = -f(x)$ dans le même repère.
+	\end{enumerate}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=2.5, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
+		% (f)
+		% y = -.5-x maps -3 -> 2.5 to 2.5 -> -3
+		\addplot[myb, very thick, domain =-3:2.5, samples=100] {.2*(-.5-x+2.6)*(-.5-x+.5)*(-.5-x-.8)*(-.5-x-2.1)}  node[pos = .45, above] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=3]
+	       		{$x$ / 1,  Signe de $f(x)$ / 1 }
+	       		{,,,,}
+	\end{tikzpicture}
+	\vspace{10pt}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=3]
+	       		{$x$ / 1,  Variation de $f(x)$ / 2}
+	       		{,,,,}
+	\end{tikzpicture}
+	\end{center}
+}{}
+
+\exe{[4pts]
+	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
+		\[ f(x) = \dfrac{12 - x - x^2}{3(x-4)} \geq 0 \]
+		%\[ f(x) = \dfrac{x+2}{(x+3)(2-x)} \geq 0 \]
+	
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Montrer que $12 - x - x^2 = (x+4)(3-x)$.
+		%\item Donner les valeurs interdites à $f$ et son domaine de définition $\D_f$.
+		\item Remplir le tableau de signes ci-dessous.
+		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
+	\end{enumerate}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=3]
+	       		{ $x$ / 1, / 1 ,  / 1,  / 1 , Signe de $f(x)$ / 1}
+	       		{,,,,}
+	\end{tikzpicture}
+	\end{center}
+}{
+}
+
+
+
+\exe{[4pts]
+	Pour chaque propriété, donner l'expression algébrique d'une fonction $f$ non identiquement nulle la vérifiant. Il s'agit ici de donner une expression de la forme $f(x) = \dots$, et non pas une courbe.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f$ s'annule en $11$.
+		\item $f$ s'annule en $-1$, en $0$, et en $\dfrac23$.
+		\item $f(x) < 0$ pour tout $x\in\R$.
+		\item $\D_f = [-2 ; \pinfty[$.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{[2pts]
+	Soit $f$ une fonction décroissante sur $\R$.
+	
+	\begin{enumerate}
+		\item Donner la définition d'une fonction décroissante sur $\R$.
+		\item  Démontrer, avec ou sans le cours, que la fonction $g$ donnée par 
+		\[ g(x) = 3f(x) - 12 \]
+		est également décroissante sur $\R$.
+	\end{enumerate}
+}{}
+
+\exe{[2pts]
+	Soit $f$ la fonction définie par
+		\[ f(x) = -3 + 7(4x-2)^2. \]
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Démontrer soigneusement que $f$ atteint son minimum en $x^\star=\dfrac12$ et donner sa valeur.
+	\end{enumerate}
+}{}
+
+\exe{[2pts]
+	Pour chaque proposition du tableau ci-dessous, cocher \og Vrai \fg~si elle est \underline{toujours vraie} et \og Faux \fg~si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
+	
+\def\arraystretch{1.5}
+\setlength\tabcolsep{6pt}
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{-5,$a$,$b$,3,$c$,5,8,$d$}
+			
+		\tkzTabVar
+			{-/, +/,-/$-45$,R/,R/,+/$-20$, R/, -/}
+%		\tkzTabIma
+%			{1}{2}{1}{$30$}
+%		\tkzTabIma
+%			{3}{6}{3}{25}
+%		\tkzTabIma
+%			{3}{6}{6}{70}
+			
+	\end{tikzpicture}
+	
+	\vspace{1cm}
+	
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$a \geq -5$ & & \\ \hline
+		$f(a) = 10$ & & \\ \hline
+		$8 \leq d$ & & \\ \hline
+		$f(-5) = -45$ & & \\ \hline
+	\end{tabular}	
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(3) < f(c)$ & & \\ \hline
+		$f(c) = f(8)$ & & \\ \hline
+		$f(8) \geq 0$ & & \\ \hline
+		$f(-5) \geq -45$ & & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(8) > f(d)$ & & \\ \hline
+		$f(b) \leq 10$ & & \\ \hline
+		$f(-5) \leq 15$ & & \\ \hline
+		$f(a) \leq 100$ & & \\ \hline
+	\end{tabular}	
+	
+	\end{center}
+
+}{}
+
+\subsection*{Bonus}
+
+\exe{[2pts]	
+	Montrer que $(2x+1)^{18}$ est un carré à l'aide des propriétés des puissances vues en classe puis donner le maximum de la fonction $f$, définie sur $\R$ par
+		\[ f(x) = 7 - 3(2x+1)^{18} \]
+	ainsi que le $x^\star$ qui le réalise.
+}{}
+
+
+\end{document}
