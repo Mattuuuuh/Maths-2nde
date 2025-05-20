@@ -28,6 +28,8 @@
 \newcommand{\AbIII}{+30}
 \newcommand{\AcIII}{-7}
 \newcommand{\AdIII}{-21}
+\newcommand{\multI}{-2}
+\newcommand{\multII}{7}
 \newcommand{\baIV}{5}
 \newcommand{\bbIV}{-13}
 \newcommand{\AaIV}{-14}
@@ -40,3 +42,4 @@
 \newcommand{\AbV}{112}
 \newcommand{\AcV}{28}
 \newcommand{\AdV}{-224}
+\newcommand{\lambdaI}{-8}

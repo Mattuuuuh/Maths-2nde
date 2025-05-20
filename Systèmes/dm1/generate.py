@@ -139,7 +139,7 @@ def pdflatex(seed):
 
     print(f"COMPILING SEED {seed}")
     subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
-    #subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
+    subprocess.run(["pdflatex",PARAMETER1, PARAMETER2, PARAMETER3, INPUTS])
     # compile twice if references are required
 
     return 0
@@ -262,7 +262,11 @@ def generate(seed):
     CONTENT += newcommand_mult("\\AbIII", M[0,1], 1, sign=True)
     CONTENT += newcommand_mult("\\AcIII", M[1,0], 1)
     CONTENT += newcommand_mult("\\AdIII", M[1,1], 1, sign=True)
-   
+  
+    ### SOL ###
+    CONTENT += newcommand("\\multI", -m1)
+    CONTENT += newcommand("\\multII", -m2)
+
     ### EX 3 ###
 
     # u, w noncolinear
@@ -297,6 +301,10 @@ def generate(seed):
     CONTENT += newcommand_dfrac("\\AbV", v[0], 1)
     CONTENT += newcommand_dfrac("\\AcV", u[1], 1)
     CONTENT += newcommand_dfrac("\\AdV", v[1], 1)
+
+    ### SOL ###
+
+    CONTENT += newcommand("\\lambdaI", m)
 
     return CONTENT    
 

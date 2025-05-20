@@ -7,7 +7,7 @@
 
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Devoir Maison 5 --- \seed \ifsolutions \, --- Solutions  \fi}}
+\fancyhead[C]{\textbf{Devoir Maison 5 --- \seed \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
 \fakesection{Devoir \seed}
@@ -20,13 +20,17 @@
 		\Ac x \Ad y = \bb.
 	}\]
 	
-	%\[ (x ; y) = (\x ; \y). \]
 
 	\begin{enumerate}
 		\item Trouver la solution exacte $(x;y)$ du système en explicitant sa démarche.
 		\item Vérifier que le couple $(x;y)$ trouvé est bien solution du système.
 	\end{enumerate}
-}{}
+}{
+	En faisant comme en cours et en exercices, on modifie le système pour annuler un coefficient en $x$ ou en $y$ pour obtenir $x$ ou $y$. On substitue alors la valeur obtenue dans une équation au choix pour trouver l'autre inconnue.
+	Ceci nous donne alors la solution
+		\[ (x ; y) = \left(\x ; \y\right), \]
+	dont on vérifiera bien sûr la justesse en substituant les valeurs dans le système.
+}
 
 \exe{
 	
@@ -38,7 +42,6 @@
 		\AgII x \AhII y \AiII z = \bcII.
 	}\]
 	
-	%\[ (x ; y; z) = (\xII ; \yII ; \zII). \]
 	
 	\begin{enumerate}
 		\item Ajouter aux équations 2 et 3 un multiple de la première équation pour annuler leur coefficient en $x$.
@@ -52,7 +55,21 @@
 		\item Vérifier que le triplet $(x;y;z)$ trouvé est bien solution du système initial.
 	\end{enumerate}
 
-}{}
+}{
+	Pour annuler le coefficient en $x$, on ajoute $\multI$ fois la première équation à la deuxième, et $\multII$ fois la première à la troisième.
+	On obtient bien le sous-système requis, qu'on résoud sans trop de peine pour obtenir
+		\[ (y; z) = \left(\yII ; \zII\right). \]
+	On substitue ensuite dans une équation au choix du système initial pour trouver $x = \xII$.
+	On conclut donc que l'unique solution est 
+		\[ (x ; y; z) = \left(\xII ; \yII ; \zII\right), \]
+	qu'on vérifiera de même en substituant dans le système originel.
+
+	En conclusion, résoudre un système de 3 équations linéares à 3 inconnues n'est pas particulièrement plus difficile que résoudre un système de deux 2 équations linéaires à 2 inconnues.
+	En faisant certaines opérations révérsibles, on peut systématiquement réduire le nombre d'inconnues de 1 et continuer. 
+	Ce procédé s'appelle l'\emph{algorithme du pivot de Gauss}, ou juste l'\emph{élimination de Gauss}, portant le nom de Carl Friedrich Gauss, un des plus grands mathématiciens ayant existé.
+}
+
+\ifsolutions \newpage \fi
 
 \exe{
 	On considère le système d'inconnues $x, y\in\R$ suivant qu'on ne cherche pas à résoudre.
@@ -77,7 +94,41 @@
 		Montrer que $u$ et $w$ ne sont pas colinéaires et en déduire qu'il n'existe aucune solution au système.
 	\end{enumerate}
 
-}{}
+}{
+	\begin{enumerate}
+		\item
+		Si un couple $(x;y)$ vérifie le système de départ, alors on a nécessairement
+			\[ x \cdot u + y \cdot v = x \pvec{\AaV}{\AcV} + y \pvec{\AbV}{\AdV} = \pvec{\Aav x \AbV y}{\AcV x \AdV y} = \pvec{\baV}{\bbV} = w, \]
+		comme requis.
+
+		\item
+		On identifie en divisant les coordonnées deux à deux que $\lambda = \lambdaI$ fonctionne car
+			\[ \lambdaI \cdot \pvec{\AaV}{\AcV} = \pvec{\AbV}{\AdV}. \]
+		
+		\item
+		Si $(x;y)$ est solution du système, alors $xu + yv = w$, d'après la première question.
+		D'après la deuxième question, $v = \lambdaI u$.
+		Il suit donc que
+			\begin{align*}
+				xu + y(\lambdaI u) = w && \iff && \bigl(x + (\lambdaI)y \bigr) u = w.
+			\end{align*}
+		Par conséquent, $w$ est multiple de $u$ et donc, par définition, $w$ est colinéaire à $u$.
+
+		\item
+		On peut raisonner par facteurs multiplicateurs candidats qui ne sont pas égaux en divisant les premières coordonnées ensemble puis les deuxièmes.
+		Plus simplement, et d'après le cours, on peut calculer le déterminant
+			\[ \det(u, w) = (\AaV)\cdot(\bbV) - (\AcV)(\baV) \neq 0. \]
+		Celui-ci étant non nul, $u$ et $w$ ne sont pas colinéaires.
+
+		En conclusion, si on suppose qu'un couple quelconque $(x;y)$ est solution du système initial, alors $u$ et $w$ doivent nécessairement être colinéaires.
+		Ceci n'étant pas le cas, on arrive à une contradiction : aucun couple $(x;y)$ ne peut être solution du système.
+		En fait, ce système admet deux équations contradictoires.
+
+		Remarquons qu'au lieu d'avoir fait des opérations sur les lignes du système (les équations), on a étudié les colonnes (les coordonnées des vecteurs).
+		Ceci est toujours possible, même quand on a $3, 4, 5, \dots$ inconnues. Il s'agira alors d'étudier les vecteurs en 3, 4, 5 dimensions !
+	\end{enumerate}
+
+}
 
 
 \end{document}
