@@ -1,0 +1,75 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Échantillonnage : loi de grands nombres \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+% Si $p$ est la probabilité d'une issue et $f$ sa fréquence observée dans un échantillon, calculer la proportion des cas où l'écart entre $p$ et $f$ est inférieur ou égal à $\frac1{\sqrt{n}}$.
+
+\exe{
+	On lance un grand nombre de fois un D6 équilibré, dé à 6 faces, et on note la face du dessus.
+	Tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}} les uns des autres.
+	Au bout de 50 lancers, on écrit le nombre de fois que la face 6 a été obtenue depuis le début en séparant, dans le tableau ci-dessous, les résultat en groupes de 10 lancers.
+	
+	\begin{tabular}{|c|c|c|c|}\hline
+		$N$ & 10 & 10 & 10  \\ \hline
+		Nombre de 6 obtenus &&& \\ \hline
+		Fréquence $f$ de 6 &&& \\ \hline
+		Distance entre $f$ et $p$ &&& \\ \hline
+	\end{tabular}
+	
+	\begin{enumerate}
+		\item Donner $p$, la probabilité d'obtenir 6 après un seul lancer.
+		\item Pour chaque groupe de 10 lancers, calculer la fréquence $f$ du nombre de 6 obtenus.
+		\item Pour chaque groupe de 10 lancers, calculer la distance entre $p$ et $f$ à $10^{-3}$ près.
+		\item Quelle est la proportion de groupes de 10 lancers pour lesquels la distance est inférieure à $0,1$ ? Et $0,05$ ? 
+	\end{enumerate}
+}{}
+
+\exe{
+	À quel intervalle correspondent les ensembles suivants ?
+		\begin{align*}
+			E_1 &= \bigl\{ x \in \R \text{ tq. } \bigl|x\bigr| \leq 20 \bigr\} \\
+			E_2 &= \bigl\{ x \in \R \text{ tq. } \bigl|x - 4\bigr| \leq 10 \bigr\} \\
+			E_3 &= \left\{ x \in \R \text{ tq. } \left|x - \dfrac16\right| \leq 2\sqrt{3} \right\}
+		\end{align*}
+}{}
+
+\exe{
+
+}{}
+
+\exe{	
+	On lance un grand nombre de fois un D$6$, dé à $6$ faces.
+	On suppose que tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}} les uns des autres.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Nombre de tirages & 19780 & 29557 & 9952 & 14769 & 19903 & 4955 \\ \hline
+		Fréquence & \ifsolutions $\color{red} 0,2$ \fi & \ifsolutions $\color{red} 0,3$ \fi & \ifsolutions $\color{red} 0,1$ \fi & \ifsolutions $\color{red} 0,15$ \fi & \ifsolutions $\color{red} 0,2$ \fi & \ifsolutions $\color{red} 0,05$ \fi \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Calculer $N$, le nombre de lancers.
+		\item Donner un intervalle de confiance à $95\%$ 
+	\end{enumerate}
+}{}
+
+
+\end{document}

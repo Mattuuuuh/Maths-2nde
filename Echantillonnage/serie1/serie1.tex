@@ -15,18 +15,24 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Algorithmique : dénombrement et probabilités \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Échantillonnage : dénombrement et probabilités \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
-
+%% NE PAS LEUR DONNER EN FAIT, C'EST MIEUX. %%
 \begin{mintedbox}{python}
 import numpy as np
 
+# renvoie le nombre de 6 dans une liste X
 def num6(X):
-	# renvoie le nombre de 6 dans une liste X
-	X = np.array(X)
-	return sum(X==6)
-	
+	somme = 0
+	for i in X:
+		if i == 6:
+			somme = somme +1
+	return somme
+	% X = np.array(X)	
+	%return sum(X==6)
+
+# renvoie le nombre de pile après 13 jets de pièce
 def jet13():
 	return sum(np.random.rand(13)>.5)
 
