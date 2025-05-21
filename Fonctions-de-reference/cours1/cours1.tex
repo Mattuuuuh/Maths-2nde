@@ -1,0 +1,219 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[1]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Fonctions de référence \ifsolutions \\ Solutions  \fi}}
+\fancyhead[R]{\today}
+%\pagenumbering{gobble}
+
+\ex{
+	On donne la courbe $\C_f$ graphiquement ci-dessous.
+	
+	\begin{enumerate}
+		\item Esquisser, dans le même repère, la courbe de $g(x) = f(x+1)$.
+		\item Esquisser, dans le même repère, la courbe de $h(x) = f(x-2)$.
+		\item Remplir le tableau de variations ci-dessous.
+		\item Peut-on déduire le signe de $g$ en connaissant celui de $f$ en général ?
+	\end{enumerate}
+	
+	\begin{multicols}{2}
+	\begin{tikzpicture}[scale=1.1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.35, above]{$\mathcal{C}_f$};
+		\ifsolutions
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.35, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.35,above]{$\mathcal{C}_h$};
+		\fi
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-10$,\ifsolutions {-4,6} \fi,\ifsolutions {2} \fi,$7$}
+	       	
+	       	\ifsolutions	
+		\tkzTabVar
+			{-/{$-4,1$}, +/{$0,2$}, -/{$-1,2$}, +/{$2,5$}}
+		\tkzTabVar
+			{-/{$-3,1$}, +/{$1,2$}, -/{$-0,2$}, +/{$3,5$}}
+		\tkzTabVar
+			{-/{$-6,1$}, +/{$-1,2$}, -/{$-2,2$}, +/{$1,5$}}
+		\fi
+	\end{tikzpicture}
+	\end{multicols}
+}
+
+\begin{propriete}[label=prop:1]{ajout d'une constante}{}
+	Soit $c\in\R$ un nombre réel et $g(x) = f(x)+c$.
+	\begin{enumerate}
+		\item Pour obtenir $\C_g$, on translate $\C_f$ \ifsolutions verticalement de $c$ unités. \fi
+		\item Les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
+		\item Les signes de $g$ et de $f$ sont \ifsolutions différents en général. \fi
+	\end{enumerate}
+\end{propriete}
+
+\begin{demonstration*}{de la propriété \ref{prop:1} dans le cas $f$ croissante}{}
+	\begin{enumerate}
+		\item
+		\begin{enumerate}[label=$\bullet$]
+			\item Le point $A$ de $\C_f$ d'abscisse $x$ a pour coordonnées \ifsolutions $A(x ; f(x))$. \fi
+			\item Le vecteur qui translate verticalement de $c$ unités a pour coordonnées $v = $ \ifsolutions $ \pvec{0}{c}$. \fi
+			\item Donc le translaté $A+v$ a pour coordonnées \ifsolutions $(x ; f(x)+c) = (x ; g(x)) \in \C_g$. \fi
+%			\item Le point $A$ de $\C_f$ d'abscisse $x$ est \ifsolutions $A(x ; f(x))$. \fi
+%			\item Le point $B$ de $\C_g$ d'abscisse $x$ est \ifsolutions $B(x ; g(x))$. \fi
+%			\item Or $g(x) = f(x)+c$, donc $\vec{AB} =$ \ifsolutions $\pvec{x-x}{g(x) - f(x)} = \pvec{0}{c}$. \fi
+		\end{enumerate}
+		
+		\item 
+		\begin{enumerate}[label=$\bullet$]
+			\item 
+			Par définition, $f$ est croissante sur un intervalle $I$, dès que \ifsolutions pour tous les $x < y$ de $I$, on a \fi
+				 \[ \ifsolutions f(x) < f(y). \fi \] 
+			\item 
+			Soient $x < y$ deux éléments de $I$. Comme $f$ est croissante, on sait que
+				 \[ \ifsolutions f(x) < f(y), \fi \]
+			et donc que 
+				 \begin{align*} \ifsolutions f(x)+c < f(y)+c  && \iff && g(x) < g(y). \fi \end{align*}
+			\item 
+			Donc $g$ est croissante sur $I$ : \ifsolutions pour tous les $x < y$ de $I$, on a \fi
+				 \[ \ifsolutions g(x) < g(y). \fi \] 
+		\end{enumerate}
+	\end{enumerate}
+\end{demonstration*}
+
+
+\newpage
+
+\ex{
+	On donne la courbe $\C_f$ graphiquement ci-dessous.
+	
+	\begin{enumerate}
+		\item Esquisser, dans le même repère, la courbe de $g(x) = f(2x)$.
+		\item Esquisser, dans le même repère, la courbe de $h(x) = f(-x)$.
+		\item Remplir le tableau de variations ci-dessous.
+		\item Peut-on déduire le signe de $g$ en connaissant celui de $f$ en général ?
+	\end{enumerate}
+	
+	\begin{multicols}{2}
+	\begin{tikzpicture}[scale=1.1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=100]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.65, above]{$\mathcal{C}_f$};
+		\ifsolutions
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=100]{.02*(x+6)*(x+3)*(x-5)}
+		node[pos=.65, below]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=100]{-.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.65, above]{$\mathcal{C}_h$};
+		\fi
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-10$,\ifsolutions {-4,6} \fi,\ifsolutions {2} \fi,$7$}
+	       	
+	       	\ifsolutions	
+		\tkzTabVar
+			{-/{$-4,1$}, +/{$0,2$}, -/{$-1,2$}, +/{$2,5$}}
+		\tkzTabVar
+			{-/{$8,2$}, +/{$0,4$}, -/{$-2,4$}, +/{$5$}}
+		\tkzTabVar
+			{+/{$4,1$}, -/{$-0,2$}, +/{$1,2$}, -/{$-2,5$}}
+		\fi
+	       		
+		%\tkzTabVar
+		%	{+/, R/, -/}
+	\end{tikzpicture}
+	\end{multicols}
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [espcl=4]
+%	       		{$x$ / 1 , Signe de $f(x)$ / 2, Signe de $g(x)$ / 2, Signe de $h(x)$ / 2}
+%	       		{$-10$,,,$7$}
+%	       		
+%		%\tkzTabVar
+%		%	{+/, R/, -/}
+%	\end{tikzpicture}
+%	\end{center}
+}{}
+
+\begin{propriete}[label=prop:2]{multiplication par une constante}{}
+	Soit $c\in\R$ un nombre réel et $g(x) = c\cdot f(x)$.
+	\begin{enumerate}
+		\item Si $c > 0$, alors
+		\begin{itemize}
+			\item les variations de $g$ et de $f$ sont \ifsolutions identiques. \fi
+			\item les signes de $g$ et de $f$ sont \ifsolutions identiques. \fi
+	\end{itemize}
+		\item Si $c < 0$, alors
+		\begin{itemize}
+			\item les variations de $g$ et de $f$ sont \ifsolutions opposées. \fi % (croissante devient décroissante ; décroissante devient croissante ; et constante reste constant). \fi
+			\item les signes de $g$ et de $f$ sont \ifsolutions opposés. \fi % (positif devient négatif ; négatif devient positif ; nul reste nul). \fi
+	\end{itemize}
+	\end{enumerate}
+\end{propriete}
+
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{1pt}
+
+\begin{demonstration*}{de la propriété \ref{prop:2} dans le cas $f$ décroissante}{}
+	\begin{enumerate}[label=$\bullet$]
+		\item 
+			Par définition, $f$ est décroissante sur un intervalle $I$, dès que \ifsolutions pour tous les $x < y$ de $I$, on a \fi
+				 \[ \ifsolutions f(x) > f(y). \fi \] 
+		\item 
+		Soient $x < y$ deux éléments de $I$. Comme $f$ est décroissante, on sait que
+			 \[ \ifsolutions f(x) > f(y), \fi \]
+		et donc que 
+			\begin{multicols}{2}
+			\underline{si $c > 0$},
+			\begin{align*} \ifsolutions  c \cdot f(x) &> c \cdot f(y) \\  g(x) &< g(y). \fi \end{align*}
+			et $g$ est \ifsolutions décroissante sur $I$. \fi
+			
+			\underline{si $c < 0$},
+			 \begin{align*} \ifsolutions  c \cdot f(x) &< c \cdot f(y) \\  g(x) &> g(y). \fi \end{align*}
+			et $g$ est \ifsolutions croissante sur $I$. \fi
+			\end{multicols}
+	\end{enumerate}
+\end{demonstration*}
+
+
+
+
+\end{document}
