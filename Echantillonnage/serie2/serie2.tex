@@ -9,34 +9,28 @@
 				\solutionsfalse
 
 \input{../preamble.tex}
+\usepackage{rotating}
 
-\AdvanceDate[0]
+\AdvanceDate[2]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Échantillonnage : loi de grands nombres \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Échantillonnage : loi des grands nombres \ifsolutions \\ Solutions  \fi}}
 \fancyhead[R]{\today}
 
 % Si $p$ est la probabilité d'une issue et $f$ sa fréquence observée dans un échantillon, calculer la proportion des cas où l'écart entre $p$ et $f$ est inférieur ou égal à $\frac1{\sqrt{n}}$.
 
-\exe{
-	On lance un grand nombre de fois un D6 équilibré, dé à 6 faces, et on note la face du dessus.
-	Tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}} les uns des autres.
-	Au bout de 50 lancers, on écrit le nombre de fois que la face 6 a été obtenue depuis le début en séparant, dans le tableau ci-dessous, les résultat en groupes de 10 lancers.
-	
-	\begin{tabular}{|c|c|c|c|}\hline
-		$N$ & 10 & 10 & 10  \\ \hline
-		Nombre de 6 obtenus &&& \\ \hline
-		Fréquence $f$ de 6 &&& \\ \hline
-		Distance entre $f$ et $p$ &&& \\ \hline
-	\end{tabular}
+\exe{\label{ex:1}
+	On lance 1 600 fois un D6 équilibré, dé à 6 faces, et on note la face du dessus.
+	Tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}}.
+	Au bout de 1 600 lancers, on écrit le nombre de fois que la face 6 a été obtenue depuis le début en séparant les résultat en groupes de 100 (voir table \ref{table:1} au dos).
 	
 	\begin{enumerate}
-		\item Donner $p$, la probabilité d'obtenir 6 après un seul lancer.
-		\item Pour chaque groupe de 10 lancers, calculer la fréquence $f$ du nombre de 6 obtenus.
-		\item Pour chaque groupe de 10 lancers, calculer la distance entre $p$ et $f$ à $10^{-3}$ près.
-		\item Quelle est la proportion de groupes de 10 lancers pour lesquels la distance est inférieure à $0,1$ ? Et $0,05$ ? 
+		\item Donner la probabilité d'obtenir 6 après un seul lancer, qu'on appelle $p$.
+		\item Pour chaque groupe de 100 lancers, calculer la fréquence $f$ du nombre de 6 obtenus.
+		\item Pour chaque groupe de 100 lancers, calculer la distance entre $p$ et $f$ en arrondissant à $10^{-2}$.
+		\item Quelle est la proportion de groupes de 100 lancers pour lesquels la distance est inférieure à $0,1$ ? $0,05$ ? $0,03$ ? et $0,01$ ?
 	\end{enumerate}
 }{}
 
@@ -45,19 +39,17 @@
 		\begin{align*}
 			E_1 &= \bigl\{ x \in \R \text{ tq. } \bigl|x\bigr| \leq 20 \bigr\} \\
 			E_2 &= \bigl\{ x \in \R \text{ tq. } \bigl|x - 4\bigr| \leq 10 \bigr\} \\
-			E_3 &= \left\{ x \in \R \text{ tq. } \left|x - \dfrac16\right| \leq 2\sqrt{3} \right\}
+			E_3 &= \left\{ x \in \R \text{ tq. } \left|x - \dfrac16\right| \leq \dfrac{1}{\sqrt{50}} \right\}
 		\end{align*}
-}{}
-
-\exe{
-
 }{}
 
 \exe{	
 	On lance un grand nombre de fois un D$6$, dé à $6$ faces.
-	On suppose que tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}} les uns des autres.
+	On suppose que tous les lancers sont \underline{\smash{identiques}} et \underline{\smash{indépendants}}.
 	Les résultats sont décrits dans le tableau suivant.
+	
 	\begin{center}
+	\setlength\tabcolsep{15pt}
 	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
 		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
 		Nombre de tirages & 19780 & 29557 & 9952 & 14769 & 19903 & 4955 \\ \hline
@@ -66,10 +58,40 @@
 	\end{center}
 	
 	\begin{enumerate}
-		\item Calculer $N$, le nombre de lancers.
-		\item Donner un intervalle de confiance à $95\%$ 
+		\item Calculer $N$, le nombre de lancers, puis la fréquence de chaque résultat en arrondissant à $10^{-3}$.
+		\item Donner les intervalles suivants en arrondissant les bornes à $10^{-3}$.
+			\begin{enumerate}[label=\alph*)]
+				\item un intervalle de confiance à $95\%$ de la probabilité d'obtenir 6. 
+				\item un intervalle de confiance à $99\%$ de la probabilité d'obtenir 4. 
+				\item un intervalle de confiance à $99,5\%$ de la probabilité d'obtenir 1. 
+			\end{enumerate}
 	\end{enumerate}
 }{}
 
+\exe{
+	À partir de quel $N \in\N$ l'encadrement
+		\[ 2^{12} \left( f - \dfrac{1}{\sqrt{N}} \right) \leq k \leq 2^{12} \left( f + \dfrac{1}{\sqrt{N}} \right) \]
+	a-t-il une amplitude strictement inférieure à $1$ ?
+	Estimer son ordre de grandeur à l'aide de l'approximation $2^{10} \approx 10^3$.
+}{}
+
+\newpage
+
+\begin{sidewaystable}
+	\setlength\tabcolsep{10pt}
+	\ifsolutions
+	\setlength\tabcolsep{9pt}
+	\fi 
+	
+	\centering	
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+		Nombre de lancers & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100  \\ \hline
+		Nombre de 6 obtenus &25&18&21&20&14&20&14&14&17&13&19&14&10&22&17&13 \\ \hline
+		Fréquence $f$ de 6 & \ifsolutions $\color{red} 0,25$ \fi & \ifsolutions $\color{red}0,18$ \fi & \ifsolutions $\color{red}0,21$ \fi & \ifsolutions $\color{red}0,2 $ \fi & \ifsolutions $\color{red}0,14$ \fi & \ifsolutions $\color{red}0,2 $ \fi & \ifsolutions $\color{red}0,14$ \fi & \ifsolutions $\color{red}0,14$ \fi & \ifsolutions $\color{red}0,17$ \fi & \ifsolutions $\color{red}0,13$ \fi & \ifsolutions $\color{red}0,19$ \fi & \ifsolutions $\color{red}0,14$ \fi & \ifsolutions $\color{red}0,1 $ \fi & \ifsolutions $\color{red}0,22$ \fi & \ifsolutions $\color{red}0,17$ \fi & \ifsolutions $\color{red}0,13$ \fi \\ \hline
+		Distance entre $p$ et $f$ & \ifsolutions $\color{red}0,08$ \fi & \ifsolutions $\color{red} 0,01$ \fi & \ifsolutions $\color{red} 0,04$ \fi & \ifsolutions $\color{red} 0,03$ \fi & \ifsolutions $\color{red} 0,02$ \fi & \ifsolutions $\color{red}  0,03$ \fi & \ifsolutions $\color{red} 0,02$ \fi & \ifsolutions $\color{red} 0,02$ \fi & \ifsolutions $\color{red} 0,01$ \fi & \ifsolutions $\color{red} 0,03$ \fi & \ifsolutions $\color{red} 0,02$ \fi & \ifsolutions $\color{red} 0,02$ \fi & \ifsolutions $\color{red} 0,06$ \fi & \ifsolutions $\color{red} 0,05$ \fi & \ifsolutions $\color{red} 0,01$ \fi & \ifsolutions $\color{red}0,03$ \fi \\ \hline
+	\end{tabular}
+  \caption{Tableau de l'exercice \ref{ex:1}}
+  \label{table:1}
+\end{sidewaystable}
 
 \end{document}
