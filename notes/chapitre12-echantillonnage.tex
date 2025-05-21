@@ -3,12 +3,12 @@
 
 \chapter{Échantillonnage}
 
-Le but de ce chapitre est de traiter la partie \og Échantillonnage \fg~ du bulletin officiel.
+Le but de ce chapitre est de traiter la partie « Échantillonnage » du bulletin officiel.
 
 Le contenu du chapitre est le suivant.
 	\begin{itemize}
 		\item Échantillon aléatoire de taille $n$ pour une expérience à deux issues.
-		\item Version vulgarisée de la loi des grands nombres : \og Lorsque $n$ est grand, la fréquence observée est proche de la probabilité. \fg
+		\item Version vulgarisée de la loi des grands nombres : « Lorsque $n$ est grand, la fréquence observée est proche de la probabilité. »
 		\item Principe de l'estimation d'une probabilité, ou d'une proportion dans une population par une fréquence observée sur un échantillon.
 		\item Fonctions renvoyant un nombre aléatoire. Série statistique obtenue par la répétition de l'appel d'une telle fonction.
 	\end{itemize}
@@ -25,8 +25,8 @@ Les capacités attendues sont les suivantes.
 \section{Introduction}
 
 Considérons une expérience aléatoire et un événement, ensemble d'issues.
-Par exemple, on jette une pièce, et on prend $E$ : \og obtenir pile. \fg
-À chaque lancer de la pièce, soit $E$ se réalise, soit $\overline{E}$, l'événement contraire à $E$ (ici, \og obtenir face \fg).
+Par exemple, on jette une pièce, et on prend $E$ : « obtenir pile. »
+À chaque lancer de la pièce, soit $E$ se réalise, soit $\overline{E}$, l'événement contraire à $E$ (ici, « obtenir face »).
 Appelons les lancers où $E$ arrive les \emph{succès}.
 
 Il semble naturel que, si la pièce est bien équilibrée, et après un très grand nombre de lancers, environ la moitié des lancers devraient être pile, et l'autre moitié face.
@@ -34,7 +34,7 @@ De façon équivalente, on s'attend à ce que la fréquence de succès soit envi
 Remarquons qu'elle ne peut être égale à $0,5$ exactement si on jette la pièce un nombre impair de fois, mais que la fréquence peut quand même être très très proche de $0,5$.
 
 Supposons désormais qu'on ne sache pas que la pièce est équilibrée, et qu'on souhaite plutôt savoir si elle l'est ou pas.
-Ce genre de problème est classique en statistique : on formule l'hypothèse $\mathcal{H}_0 :$ \og la probabilité d'obtenir face est $0,5$ \fg, qu'on souhaite valider ou rejetter.
+Ce genre de problème est classique en statistique : on formule l'hypothèse $\mathcal{H}_0 :$ « la probabilité d'obtenir face est $0,5$ », qu'on souhaite valider ou rejetter.
 Ce genre d'hypothèse appelle un \emph{test bilatéral} car les conclusions $p< 0,5$ et $p>0,5$ rejettent toutes les deux l'hypothèse.
 
 Pour répondre à ce problème, une seule chose nous est accessible : lancer la pièce un très grand nombre de fois.
@@ -53,7 +53,7 @@ Cela ne nous empêchera pas d'appliquer les résultats d'échantillonnage à div
 
 \section{Intervalles de confiance}
 
-Dans toute cette section, 
+Dans toute cette section, on suppose que
 	\begin{enumerate}
 		\item une expérience aléatoire est réalisée $N \in \N$ fois ;
 		\item la probabilité d'un succès est notée $p \in [0;1]$ et n'est pas nécessairement connue ; et
@@ -70,13 +70,12 @@ Dans toute cette section,
 		\[ f - k \leq p \leq  f + k. \]
 }{}
 
-\thm{Intervalle de confiance}{
+\thm{Loi des grands nombres}{
 	Lorsque $N$ devient très grand, et en supposant que $p$ est relativement loin de $0$ et $1$, on a les probabilités suivantes.
-	
 	\begin{align*}
-		P\bigl( \bigl| f - p \right| < \dfrac1{\sqrt{N}} \bigr) &> 0,95 \\
-		P\bigl( \bigl| f - p \right| < \dfrac{1,2}{\sqrt{N}} \bigr) &> 0,99 \\
-		P\bigl( \bigl| f - p \right| < \dfrac{1,3}{\sqrt{N}} \bigr) &> 0,995
+		P\left( \bigl| f - p \bigr| \leq \dfrac{1}{\sqrt{N}} \right) &> 0,95 \\
+		P\left( \bigl| f - p \bigr| \leq \dfrac{1,2}{\sqrt{N}} \right) &> 0,99 \\
+		P\left( \bigl| f - p \bigr| \leq \dfrac{1,3}{\sqrt{N}} \right) &> 0,995
 	\end{align*}
 	
 	On lit alors, pour la première inégalité, que la distance $|f - p|$ de la vraie probabilité $p$ à la fréquence observée $f$ est inférieure ou égale à $\dfrac1{\sqrt{N}}$ avec probabilité supérieure à $95\%$.
@@ -86,8 +85,70 @@ Dans toute cette section,
 	avec probabilité $95\%$. On appelle ce pourcentage le \emph{niveau de confiance} de l'intervalle.
 }{}
 
+\section{Application : dénombrement}
+
+\ex{Nombre de chemins racine-feuille}{
+	On jette une pièce 12 fois et on souhaite connaître le nombre $k$ de façons d'obtenir exactement 6 fois « pile ».
+	C'est le nombre de chemin racine-feuille passant par 6 « pile » et 6 « face » de l'arbre binaire de profondeur 12 correspondant à l'expérience.
+	Pour cela, on utilise le fait qu'on puisse estimer $p = P(\text{obtenir 6 piles en 12 lancers})$ par échantillonnage.
+	En effet, comme chaque issue a pour probabilité $\dfrac1{2^{12}}$, on a la relation
+		\[ p = k \times \dfrac1{2^{12}}. \]
+	En connaissant $p$, on peut alors déduire $k = 2^{12} p$.
+}{}
+
+\nt{
+	Supposons qu'après avoir échantillonné $N$ fois une série de 12 lancers de pièce, on ait un encadrement de $p$ à 95\% de la forme
+		\[ f - \dfrac1{\sqrt{N}} \leq p \leq f + \dfrac1{\sqrt{N}}. \]
+	En multipliant par $2^{12}$, on trouve un encadrement pour $k$ :
+		\[ 2^{12} f - \dfrac{2^{12}}{\sqrt{N}} \leq k \leq 2^{12} f + \dfrac{2^{12}}{\sqrt{N}}. \]
+	La longueur de ce deuxième encadrement est de $\dfrac{2^{13}}{\sqrt{N}}$.
+	Pour pouvoir déduire la valeur de l'entier $k$ (à confiance 95\%), il faut un encadrement de longueur inférieure à $1$ : un intervalle de longueur strictement inférieur à 1 ne contient qu'un seul entier.
+	On impose donc
+		\begin{align*}
+			\dfrac{2^{13}}{\sqrt{N}} &< 1, \\
+			2^{13} &< \sqrt{N}, \\
+			2^{26} &< N.
+		\end{align*}
+	Un échantillonnage de 
+		\[ N = 2^{26} = 2^{6} \times (2^{10})^2 \approx 64 \times (10^3)^2 = 6,4 \times 10^{7}, \]
+	soit $64$ millions d'expériences est nécessaire pour obtenir un encadrement à l'unité de $k$, fiable à 95\%.
+	
+	Cela semble être un grand nombre mais un ordinateur fait ça sans trop de problème avec une bonne gestion de la mémoire (notons qu'il faut encore multiplier par 12 pour avoir le nombre de lancers à faire).
+	De plus, la fréquence observée $f$ se stabilise très rapidement autour de $p$.
+}{}
+
+\ex{Nombre de mots sur alphabet}{
+	Un mot sur l'alphabet $\{P; F\}$ est une suite ordonnée de P et de F.
+	On souhaite compter le nombre de mots de 12 lettres contenant exactement 6 P et 6 F.
+	Sans surprise, ce nombre est égal au $k$ de l'exemple précédent : chaque mot donne lieu à un unique chemin racine-feuille, et vice-versa.
+}{}
+
+\ex{Nombre de façons de traverser un échiquier}{
+	On se met sur un échiquier $7\times7$, c'est-à-dire un quadrillage de 7 carrés en longueur et 7 en largeur.
+	On pose une dame sur le carré tout en bas à gauche et on se restreint aux mouvements suivants : la dame ne peut que monter d'une case, ou avancer une case vers la droite.
+	Étant restreinte à l'échiquier, la dame atteint nécessairement la case tout en haut à droite en 12 mouvements (6 horizontaux, 6 verticaux).
+	
+	En combien de façons différentes la dame peut-être atteindre sa destination à partir de sa case de départ ?
+	Sans surprise à nouveau, ce nombre est égal au $k$ de l'exemple précédent : chaque chemin est associé à un mot de longueur 12 sur l'alphabet \{ Haut ; Droite \} contenant exactement 6 « Haut » et 6 « Droite ».
+}{}
+
+\ex{Coefficient binomial}{
+	On souhaite, sans développer l'expression, connaître le coefficient de $x^6$ du polynôme de degré 12
+		\[ f(x) = (1+x)^{12}. \]
+	Remarquons que les coefficients du produit
+		\[ (1+x)(1+x) = 1 + x + x + x^2 = 1 + 2x + x^2  \]
+	correspondent au façons différentes de choisir 1 ou $x$ pour obtenir la puissance de $x$ associée.
+	Par exemple, il n'y a qu'une façon de n'avoir aucun $x$ (choisir tout le temps 1) ; deux façons d'avoir $x$ (choisir 1 puis $x$ ou $x$ puis 1) ; et une seule façon d'obtenir $x^2$ (choisir $x$ et $x$).
+	
+	Idem,
+		\[ (1+x)(1+x)(1+x) = 1 + 3x + 3x^2 + x^3, \]
+	fonctionne de la même façon : pour obtenir $x$, on peut choisir $(1, 1, x)$, ou $(1, x, 1)$, ou $(x, 1, 1)$.
+
+	Comme on a 
+		\[ f(x) = \underbrace{(1+x) \cdot (1+x) \cdots (1+x)}_{\text{12 fois}}, \]
+	le coefficient en $x^6$ est obtenu lorsque 6 $x$ sont choisis parmis les 12 disponibles.
+	C'est encore une fois égal au nombre $k$ considéré plus précédemment !
+}{}
 
 
 
-%Estimation empirique de $P(|X - \mu| \geq k) \leq \dfrac1{k^2} \sigma$.
-%Avec $k = \frac1{\sqrt{n}}$ et $\sigma$ fixé, on peut tracer les différentes fonctions et voir laquelle s'approche le plus.
