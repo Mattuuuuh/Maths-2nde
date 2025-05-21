@@ -15,16 +15,79 @@ Le contenu du chapitre est le suivant.
 
 Les capacités attendues sont les suivantes.
 	\begin{itemize}
-		\item Lire et comprnedre un fonction Python renvoyant le nombre ou la fréquence de succès dans un échantillon de taille $n$ pour une expérience aléatoire à deux issues.
+		\item Lire et comprendre un fonction Python renvoyant le nombre ou la fréquence de succès dans un échantillon de taille $n$ pour une expérience aléatoire à deux issues.
 		\item Observer la loi des grands nombres à l'aide d'une simulation Python ou tableau.
-		\item Simuler $N$ échantillons de taille $n$ d'une expérience aléatoire à deux issues. Si $p$ est la probabilité d'une issue et $f$ sa fréquence observée dans un échantillon, calculer la proportion des vas où l'écart entre $p$ et $f$ est inférieur ou égal à $\frac1{\sqrt{n}}$.
+		\item Simuler $N$ échantillons de taille $n$ d'une expérience aléatoire à deux issues. Si $p$ est la probabilité d'une issue et $f$ sa fréquence observée dans un échantillon, calculer la proportion des cas où l'écart entre $p$ et $f$ est inférieur ou égal à $\frac1{\sqrt{n}}$.
 		\item Lire et comprendre une fonction renvoyant une moyenne, un écart type.
 		\item Écrire des fonctions renvoyant le résultat numérique d'une expérience aléatoire, d'une répétition d'expériences aléatoires indépendantes.
 	\end{itemize}
 
 \section{Introduction}
 
-\section{Loi des grands nombres}
+Considérons une expérience aléatoire et un événement, ensemble d'issues.
+Par exemple, on jette une pièce, et on prend $E$ : \og obtenir pile. \fg
+À chaque lancer de la pièce, soit $E$ se réalise, soit $\overline{E}$, l'événement contraire à $E$ (ici, \og obtenir face \fg).
+Appelons les lancers où $E$ arrive les \emph{succès}.
 
-Estimation empirique de $P(|X - \mu| \geq k) \leq \dfrac1{k^2} \sigma$.
-Avec $k = \frac1{\sqrt{n}}$ et $\sigma$ fixé, on peut tracer les différentes fonctions et voir laquelle s'approche le plus.
+Il semble naturel que, si la pièce est bien équilibrée, et après un très grand nombre de lancers, environ la moitié des lancers devraient être pile, et l'autre moitié face.
+De façon équivalente, on s'attend à ce que la fréquence de succès soit environ $\dfrac12$.
+Remarquons qu'elle ne peut être égale à $0,5$ exactement si on jette la pièce un nombre impair de fois, mais que la fréquence peut quand même être très très proche de $0,5$.
+
+Supposons désormais qu'on ne sache pas que la pièce est équilibrée, et qu'on souhaite plutôt savoir si elle l'est ou pas.
+Ce genre de problème est classique en statistique : on formule l'hypothèse $\mathcal{H}_0 :$ \og la probabilité d'obtenir face est $0,5$ \fg, qu'on souhaite valider ou rejetter.
+Ce genre d'hypothèse appelle un \emph{test bilatéral} car les conclusions $p< 0,5$ et $p>0,5$ rejettent toutes les deux l'hypothèse.
+
+Pour répondre à ce problème, une seule chose nous est accessible : lancer la pièce un très grand nombre de fois.
+C'est ce qu'on appelle l'\emph{échantillonnage}.
+On observe alors la fréquence de succès $f = \dfrac{\text{nombre de succès}}{\text{nombre d'expériences}}$.
+Plus $N$ est grand, plus on s'attend à ce que $f$ soit proche de $p$. À quel point proche ? Le but de la prochaine section est de quantifier cette distance.
+Mais au préalable, il nous faut d'abord supposer les choses suivantes, sans quoi rien ne peut être conclu :
+	\begin{itemize}
+		\item tous les lancers sont indépendants : le résultat de l'un n'influe pas le résultat de l'autre ;
+		\item rien n'est modifié par un lancer : tous les lancers sont fait dans des conditions identiques. En particulier, la pièce ne change pas d'équilibre, et la gravité, la pression atmosphérique, la température sont autants de paramètres qui ne changent pas.
+	\end{itemize}
+La deuxième contrainte est la plus forte et n'est bien sûr jamais vérifée en réalité.
+Cependant, les mathématiques ne peuvent étudier certaines situations qu'en les simplifiant au maximum, malheureusement jusqu'à ce qu'elles deviennent irréalistes.
+Cela ne nous empêchera pas d'appliquer les résultats d'échantillonnage à divers contextes quand même !
+
+
+\section{Intervalles de confiance}
+
+Dans toute cette section, 
+	\begin{enumerate}
+		\item une expérience aléatoire est réalisée $N \in \N$ fois ;
+		\item la probabilité d'un succès est notée $p \in [0;1]$ et n'est pas nécessairement connue ; et
+		\item la fréquence observée de succès est notée $f\in[0;1]$.
+	\end{enumerate}
+
+\dfn{Intervalle de confiance}{
+	On appelle \emph{intervalle de confiance} pour $p$ un intervalle du type
+		\[ \bigl[ f - k ; f + k \bigr], \]
+	où $k>0$ est un nombre réel quelconque.
+	
+	Cet intervalle est centré autour de $f$ et est de longueur $2k$.
+	L'appartenance $p\in\bigl[ f - k ; f + k \bigr]$ est équivalente à l'encadrement
+		\[ f - k \leq p \leq  f + k. \]
+}{}
+
+\thm{Intervalle de confiance}{
+	Lorsque $N$ devient très grand, et en supposant que $p$ est relativement loin de $0$ et $1$, on a les probabilités suivantes.
+	
+	\begin{align*}
+		P\bigl( \bigl| f - p \right| < \dfrac1{\sqrt{N}} \bigr) &> 0,95 \\
+		P\bigl( \bigl| f - p \right| < \dfrac{1,2}{\sqrt{N}} \bigr) &> 0,99 \\
+		P\bigl( \bigl| f - p \right| < \dfrac{1,3}{\sqrt{N}} \bigr) &> 0,995
+	\end{align*}
+	
+	On lit alors, pour la première inégalité, que la distance $|f - p|$ de la vraie probabilité $p$ à la fréquence observée $f$ est inférieure ou égale à $\dfrac1{\sqrt{N}}$ avec probabilité supérieure à $95\%$.
+	
+	Autrement dit, $p$ appartient à l'intervalle de confiance
+		\[ \left[ f - \dfrac1{\sqrt{N}} ; f + \dfrac1{\sqrt{N}} \right], \]
+	avec probabilité $95\%$. On appelle ce pourcentage le \emph{niveau de confiance} de l'intervalle.
+}{}
+
+
+
+
+%Estimation empirique de $P(|X - \mu| \geq k) \leq \dfrac1{k^2} \sigma$.
+%Avec $k = \frac1{\sqrt{n}}$ et $\sigma$ fixé, on peut tracer les différentes fonctions et voir laquelle s'approche le plus.
