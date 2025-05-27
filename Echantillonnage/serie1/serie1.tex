@@ -15,49 +15,62 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Échantillonnage : dénombrement et probabilités \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[C]{\textbf{Échantillonnage : histogramme et dénombrement \ifsolutions \, -- Solutions  \fi}}
 \fancyhead[R]{\today}
 
 %% NE PAS LEUR DONNER EN FAIT, C'EST MIEUX. %%
 \begin{mintedbox}{python}
+# module numpy pour jet de pièce
 import numpy as np
+# module pyplot pour l'histogramme
+import matplotlib.pyplot as plt
+
+# renvoie le nombre de pile après 12 jets de pièce
+def jet12():
+	return sum(np.random.rand(12)>.5)
+
+# jette 12 dés 1 000 fois et  crée un liste du nombre de pile obtenus
+N = 1000
+X = [jet12() for i in range(N)]
+
+# crée et affiche l'histogramme du nombre de pile
+plt.hist(X, bins=range(14))
+plt.show()
 
 # renvoie le nombre de 6 dans une liste X
 def num6(X):
-	somme = 0
-	for i in X:
-		if i == 6:
-			somme = somme +1
-	return somme
-	% X = np.array(X)	
-	%return sum(X==6)
+	nombre_de_6 = 0
+	# à compléter
+	return nombre_de_6
 
-# renvoie le nombre de pile après 13 jets de pièce
-def jet13():
-	return sum(np.random.rand(13)>.5)
-
-X = [jet13() for i in range(1000)]
-p = num6(X) / len(X)
-N = 2**13 * p
-print(N)
+f = num6(X) / N
+k = 2**12 * f
+print(k)
 \end{mintedbox}
 
 \exe{
-	On jette une pièce équilibrée $13$ fois de suite.
-	Le but de l'exercice est de calculer le nombre $N$ de façons d'obtenir exactement $6$ \og pile \fg en $13$ jets.
+	On jette une pièce équilibrée $12$ fois de suite.
+	Le but de l'exercice est de calculer le nombre $k$ de façons d'obtenir exactement $6$ \og pile \fg en $12$ lancers.
 	Pour cela, on considère la probabilité de l'événement correspondant,
-		\[ p = P(\text{\og obtenir exactement $6$ fois pile en $13$ lancers \fg}). \]
+		\[ p = P(\text{\og obtenir exactement $6$ fois pile en $12$ lancers \fg}). \]
 	\begin{enumerate}
 		\item À l'aide d'un croquis d'arbre de probabilité, montrer que
 			\begin{align*}
-				p = N \cdot \left(\dfrac12\right)^{13} && \iff && N = 2^{13} \cdot p.
+				p = k \cdot \left(\dfrac12\right)^{12},
 			\end{align*}
-		\item Créer une fonction qui jette $13$ pièces équilibrées et qui retourne le nombre de \og pile \fg.
-		\item Appeler cette fonction $1000$ fois et calculer la proportion de $6$ obtenus, approximativement égale à $p$.
-		\item En déduire une valeur approximative de $N$.
-		\item Augmenter le nombre d'appels à la fonction et noter les valeurs de $N$ obtenues. $N$ se stabilise-t-il autour d'un certain entier ?
-		\item Comparer $N$ avec la valeur de
-			\[ \dfrac{13\times12\times11\times10\times9\times8}{6\times5\times4\times3\times2\times1}. \]
+		et en déduire que
+			\[ k = 2^{12} \cdot p. \]
+		\item On appelle  \texttt{N} = 1 000 fois la fonction \texttt{jet12()} et on crée une liste \texttt{X} de résultats (ligne 12), puis on crée et on affiche l'histogramme des résultats (lignes 15-16).
+		La hauteur de chaque colonne donne le nombre de « pile » obtenus, entre 0 et 12.
+		Pourquoi l'histogramme est-il symétrique ?
+		%Obtenir aucun « pile » est très rare, et idem pour aucun « face » (et donc 12 « pile »). En fait les probabilités sont nécessairement symétriques, et l'histogramme l'est aussi.
+		\item Compléter la fonction \texttt{num6} qui prend une liste \texttt{X} afin qu'elle renvoie le nombre de 6 qu'elle contient.
+		\item Interpréter les lignes 24 et 25. Qu'est-ce que \texttt{f} ?
+		\item Augmenter le nombre d'appels à la fonction et noter les valeurs de $k$ obtenues. $k$ se stabilise-t-il autour d'un certain entier ?
+		\item Comparer la valeur de $k$ avec 
+			\[ 
+			\dfrac{12\times11\times10\times9\times8\times7}{6\times5\times4\times3\times2\times1}.
+			\]
 	\end{enumerate}
 }{}
 
