@@ -69,19 +69,42 @@ nomarginpar,% We don't want any margin paragraphs
 \newtheorem{dfn}{Définition}
 \newtheorem*{dfn*}{Définition}
 
-
-\usepackage{tcolorbox}
 %couleurs
+\usepackage{tcolorbox}
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
 \definecolor{myr}{RGB}{199, 68, 64}
 \definecolor{mygr}{HTML}{2C3338}
 
-%thms
+%thm
 \tcbuselibrary{theorems,skins,hooks}
 \newcounter{commonbox}
 \makeatletter
-\newtcbtheorem[use counter=commonbox]{propriete}{Propriété}%
+\newtcbtheorem[use counter=commonbox]{definition}{Définition }%
+{
+	enhanced,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		}
+	#1
+}{def}
+\newtcbtheorem[use counter=commonbox]{proprietes}{Propriétés }%
 {
 	enhanced,
 	colback=white,
@@ -104,13 +127,12 @@ nomarginpar,% We don't want any margin paragraphs
 			(frame.north) -| cycle;
 		},
 	#1
-}{th}
-\newtcbtheorem[use counter=commonbox]{demonstration}{Démonstration}%
+}{prop}
+\newtcbtheorem[use counter=commonbox]{theoreme}{Théorème }%
 {
 	enhanced,
 	colback=white,
 	colframe=mygr,
-	separator sign none,
 	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
 	fonttitle=\bfseries,
 	title={#2},
@@ -129,10 +151,8 @@ nomarginpar,% We don't want any margin paragraphs
 			(frame.north) -| cycle;
 		},
 	#1
-}{th}
+}{thm}
 \makeatother
-
-
 
 % corps
 \newcommand{\R}{\mathbb{R}}
@@ -149,9 +169,6 @@ nomarginpar,% We don't want any margin paragraphs
 
 % date
 \usepackage{advdate}
-% fixed date
-\usepackage{datetime}
-\renewcommand{\date}{\displaydate{date}}
 
 % ensembles tq. 
 \newcommand{\xRtq}[1]{
@@ -178,7 +195,7 @@ nomarginpar,% We don't want any margin paragraphs
 
 %wider tabulars
 %\def\arraystretch{2}
-%\setlength\tabcolsep{15pt}
+\setlength\tabcolsep{15pt}
 
 
 % vecteur
@@ -193,5 +210,51 @@ nomarginpar,% We don't want any margin paragraphs
 % tableaux var, signe
 \usepackage{tkz-tab}
 
-% vrai/faux tick
-\newcommand{\tick}{\ifsolutions \checkmark \fi}
+
+% algo
+\usepackage[ruled,vlined,linesnumbered,french]{algorithm2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MINTED FOR PYTHON ALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    tabsize=4, % tab ident = 4 spaces
+    fontfamily=courier, %important pour les signes <, >
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
