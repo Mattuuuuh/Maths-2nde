@@ -1,5 +1,5 @@
 Élève n°,A/B,Groupe,Arithmétique,Droite réelle,Droite et plan,Automatismes 1-5,Problèmes de géométrie 1,Problèmes de géométrie 2,Fonctions,Statistiques (DM),Automatisme 6-10,Probabilités 1,DM2 (fonctions+plan),Probabilités,Fonctions affines,Automatisme 11-15,Vecteurs,DM 3 (fonctions affines),Automatisme 16-20,Exercices Signes et variations,Automatisme 21-25,DM 4 (Signes et variations),Signes et variations,Automatismes 26-30,,,,,,,,
-1,A,1,12.67,13.5,13,13,9,14,12.5,12.25,11,14.61,12.5,16,12.5,12.5,14.5,17,16.5,17,15.5,14,13.5,16.25,,,,,,,,
+1,A,1,12.67,13.5,13,13,9,14,12.5,12.25,11,14.61,12.5,16,12.5,12.5,14.5,17,16.5,17,15.5,14,13.5,18.75,,,,,,,,
 2,A,1,13.33,16,17,15,12,17,17,18,19,15.38,18,18,14.5,16.875,19,19.5,17,20,17,17,,18,,,,,,,,
 3,B,1,10.67,12.25,17.5,16.25,7,14.5,18,15.25,16.6666666667,16.92,11.5,15,19.5,18,,,15.5,20,15.8333333333333,,13.5,11.6666666666667,,,,,,,,
 4,A,1,11.33,16.25,12.5,13,4,12,12,18.5,12.5,8.46,15,12.5,17,11.5,9,11,10.5,19,12.5,13,12.5,14.5,,,,,,,,
@@ -55,7 +55,7 @@
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Élève n°,A/B,Groupe,Automatisme 1,Automatisme 2,Automatisme 3,Automatisme 4,Automatisme 5,Automatisme 6,Automatisme 7,Automatisme 8,Automatisme 9,Automatisme 10,Automatisme 11,Automatisme 12,Automatisme 13,Automatisme 14,Automatisme 15,Automatisme 16,Automatisme 17,Automatisme 18,Automatisme 19,Automatisme 20,Automatisme 21,Automatisme 22,Automatisme 23,Automatisme 24,Automatisme 25,Automatisme 26,Automatisme 27,Automatisme 28,Automatisme 29,Automatisme 30
-1,A,1,3,2,1,3,4,1.5,4,0,1.5,4,3,2.5,,2.5,2,2,4,4,4,2.5,4,3,3,4,1.5,4,,4,4,1
+1,A,1,3,2,1,3,4,1.5,4,0,1.5,4,3,2.5,,2.5,2,2,4,4,4,2.5,4,3,3,4,1.5,4,,4,4,3
 2,A,1,4,2,3,2,4,3.5,4,3.5,4,4,4,3.5,,3,3,3.5,4,4,2,3.5,2.5,3.5,3.5,4,3.5,4,3,4,4,3
 3,B,1,4,3,2,4,,3.5,4,2.5,,,4,2.5,4,4,3.5,3,3.5,3,4,2,1.5,,,4,4,,2,4,,1
 4,A,1,4,1,2,2,4,2.5,3,2,2,3,3,2,1,3,2.5,2,4,0.5,2,2,3.5,3,2,2,2,4,1,3,2.5,4
