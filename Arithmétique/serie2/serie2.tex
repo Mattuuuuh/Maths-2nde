@@ -1,0 +1,89 @@
+				% ENABLE or DISABLE font change
+				% use XeLaTeX if true
+\newif\ifdys
+				\dystrue
+				\dysfalse
+
+\newif\ifsolutions
+				\solutionstrue
+				\solutionsfalse
+
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Arithmétique : nombres rationnels \ifsolutions -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\exe{[Vrai ou faux]
+	Justifier la réponse.
+	
+	\def\arraystretch{2}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\dfrac13 = 0,3$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,333$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,3333$ & $\square$ & $\square$  \\
+	\end{tabular}
+}{}
+
+\exe{[Problème]
+	Supposons que le développement décimal de $\dfrac13$ soit fini.
+	
+	Que dire alors du nombre $10^n \times \dfrac13$ pour un $n\in\N$ suffisamment grand (mais fini) ?
+	
+	En déduire que $10^n$ est divisible par 3.
+}{}
+
+\exe{[Problème]
+	Montrer que $10^n - 1$ est toujours divisible par 3.
+}{}
+
+\hrule
+
+\exe{[Problème]
+	Montrer que 
+		\[ 0,3333... = \dfrac13, \]
+	où les points de suspension ... indiquent que le développement décimal est infini (il ne s'arrête jamais).
+}{}
+
+\exe{\label{ex:3}
+	Écrire chaque nombre, chacun ayant un développement décimal infini, sous forme de fraction de deux entiers.
+	\begin{enumerate}
+		\item $A = 0,666...$
+		\item $B = 0,999...$
+		\item $C = 0,12121212...$
+		\item $D = 1,666...$
+		\item $E = 0,34777...$
+		\item $F = 0,123123123...$
+		\item[($\star$)] $x = 0,123456789123456789...$
+	\end{enumerate}
+}{}
+
+\exe{[Problème]
+	Donner quelques termes en plus de la somme infinie suivante. 
+		\[ \dfrac1{10} + \dfrac1{100} + \dfrac1{1 000} + \dfrac1{10 000} + \dots \]
+	Écrire le nombre en écriture décimale, puis l'exprimer sous forme de fraction de deux entiers comme à l'exercice \ref{ex:3}.
+}{}
+
+\exe{[Problème]
+	Donner quelques termes en plus de la somme infinie suivante.
+		\[ \dfrac12 + \dfrac14 + \dfrac18 + \dfrac1{16} + \dots \]
+	À quoi est-elle égale ? Un résultat entier est attendu.
+}{}
+
+\exe{[Problème]
+	On considère la somme finie suivante
+		\[ S = 1 + 2 + 4 + 8 + 16 + \dots + 2^{n-1} +  2^n, \]
+	où $n\in\N$ est un entier naturel.
+	
+	Montrer que $2S = S - 1 + 2^{n+1}$, et en déduire la valeur de $S$ sous forme close (sans points de suspension).
+}{}
+
+
+\end{document}
