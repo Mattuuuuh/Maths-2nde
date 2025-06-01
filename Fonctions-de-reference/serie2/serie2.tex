@@ -122,6 +122,12 @@
 }
 
 \exe{
+	Montrer que si $f$ est impaire, alors $f(0) = 0$.
+}{}
+
+\newpage
+
+\exe{
 	Donner le domaine de définition de chaque fonction suivante, puis montrer qu'elles sont impaires.
 		
 		\begin{multicols}{2}
@@ -134,7 +140,7 @@
 		\end{multicols}
 }
 
-\exe{
+\exe{[$\star$]
 	Soit $f$ une fonction réelle définie sur $\R$ tout entier.
 	Montrer que, pour tout $x\in\R$,
 		\[ f(x) = \dfrac{f(x) + f(-x)}2 + \dfrac{f(x) - f(-x)}2. \]
@@ -188,11 +194,19 @@
 	\end{enumerate}
 }{}
 
-\begin{enigme}[Bonus]\label{enigme:2}
-	Compléter la suite logique suivante de la façon souhaitée en trouvant un polynôme $f$ de degré 3\footnote{C'est-à-dire $f(x) = ax^3 + bx^2 + cx + d$ pour certains coefficients $a, b, c, d \in \R$. Le degré est la plus haute puissance de $x$.} tel que la suite soit $f(1)$ — $f(2)$ — $f(3)$ — $f(4)$.
-		\begin{center}
-			$3$ --- $4$ --- $5$ --- ?
-		\end{center}
-\end{enigme}
+\exe{[$\star$]
+	Trouver un polynôme $f$ de degré 3\footnote{C'est-à-dire $f(x) = ax^3 + bx^2 + cx + d$ pour certains coefficients $a, b, c, d \in \R$. Le degré est la plus haute puissance de $x$.} par interpolation de Lagrange tel que 
+		\begin{align*}
+			f(1) = 3, && f(2) = 4, && f(3) = 5, && f(4) = 12.
+		\end{align*}
+	Vérifier que $f(x) = x^3 -6x^2 + 12x - 4$ fonctionne.
+}{}
+
+%\begin{enigme}[Bonus]\label{enigme:2}
+%	Compléter la suite logique suivante de la façon souhaitée en trouvant un polynôme $f$ de degré 3\footnote{C'est-à-dire $f(x) = ax^3 + bx^2 + cx + d$ pour certains coefficients $a, b, c, d \in \R$. Le degré est la plus haute puissance de $x$.} tel que la suite soit $f(1)$ — $f(2)$ — $f(3)$ — $f(4)$.
+%		\begin{center}
+%			$3$ --- $4$ --- $5$ --- ?
+%		\end{center}
+%\end{enigme}
 
 \end{document}
