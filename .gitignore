@@ -23,3 +23,4 @@ bib/rdv13-01-25.csv
 *.pyg*
 *.vrb
 Animations/*
+*.svg

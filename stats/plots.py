@@ -29,12 +29,23 @@ fig = px.bar(BAR,
         x="Évaluation", 
         y = "Moyenne", 
         #color="Type", 
-        title="Moyennes",
+        title="Moyennes de toutes les évaluations de l'année.",
     )
 
 #colour now i guess
-fig.update_traces(marker_color=["#ff7f0e" if i == "DS" else "#1f77b4" if i == "DM" else "#2ca02c" if i =="Aut" else "#9467bd" for i in BAR.Type], showlegend=False)
+fig.update_traces(
+        marker_color=["#ff7f0e" if i == "DS" else "#1f77b4" if i == "DM" else "#2ca02c" if i =="Aut" else "#9467bd" for i in BAR.Type], 
+        showlegend=False,
+        textangle=45,
+    )
 
+fig.update_layout(
+        height=1080,
+        width=1920,
+        font=dict(size=16),
+    )
+
+fig.write_image("Moyennes-annee.svg")
 fig.show()
 
 ##### Moyennes pondérées par trimestre avec et sans DM ####
@@ -55,8 +66,18 @@ MOY_POND_NO_DM = MOY_POND_NO_DM.to_frame("Moyenne sans DM")
 
 GROUP = MOY_POND_DM.merge(MOY_POND_NO_DM, left_index=True, right_index=True)
 
-fig = px.bar(GROUP,barmode="group")
+fig = px.bar(
+        GROUP,
+        barmode="group",
+        title = "Moyennes par trimestre et avec ou sans inclusion des DM.",
+    )
 
+fig.update_layout(
+        height=1080,
+        width=1920,
+        font=dict(size=16),
+    )
+fig.write_image("Moyennes-trimeste.svg")
 fig.show()
 
 
