@@ -3,24 +3,43 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%
+% tcolor environments VS clean environments
+%%
+
+\ifclean
+
+\newcommand{\thm}[3]{\begin{theorem}[#1]\label{#3}#2\end{theorem}}
+\newcommand{\cor}[3]{\begin{corollaire}[#1]\label{#3}#2\end{corollaire}}
+\newcommand{\lem}[3]{\begin{lemme}[#1]\label{#3}#2\end{lemme}}
+\newcommand{\mprop}[3]{\begin{proposition}[#1]\label{#3}#2\end{proposition}}
+\newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
+\newcommand{\exe}[3]{\begin{exercice}[#1]\label{#3}#2\end{exercice}}
+\newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
+\newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
+\newcommand{\pf}[2]{\begin{preuve}[#1]#2\end{preuve}}
+\newcommand{\nt}[1]{\begin{remarque}#1\end{remarque}}
+\newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
+\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+
+\else
+
 \newcommand{\thm}[3]{\begin{Theorem}[label=#3]{#1}{}#2\end{Theorem}}
 \newcommand{\cor}[3]{\begin{Corollary}[label=#3]{#1}{}#2\end{Corollary}}
 \newcommand{\lem}[3]{\begin{Lemma}[label=#3]{#1}{}#2\end{Lemma}}
 \newcommand{\mprop}[3]{\begin{Prop}[label=#3]{#1}{}#2\end{Prop}}
-\newcommand{\clm}[3]{\begin{claim}{#1}{#2}#3\end{claim}}
-\newcommand{\wc}[2]{\begin{wconc}{#1}{}\setlength{\parindent}{1cm}#2\end{wconc}}
-\newcommand{\thmcon}[2]{\begin{Theoremcon}[label=#2]{#1}\end{Theoremcon}}
 \newcommand{\ex}[3]{\begin{Example}[label=#3]{#1}{}#2\end{Example}}
 \newcommand{\exe}[3]{\begin{Exercise}[label=#3]{#1}{}#2\end{Exercise}}
 \newcommand{\dfn}[3]{\begin{Definition}[colbacktitle=red!75!black, label=#3]{#1}{}#2\end{Definition}}
-\newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
-\newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
+\newcommand{\qs}[2]{\begin{MyQuestion}{#1}{}#2\end{MyQuestion}}
 \newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
-\newcommand{\nt}[1]{\begin{note}#1\end{note}}
-\newcommand{\str}[1]{\begin{strategy}#1\end{strategy}}
-\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+\newcommand{\nt}[1]{\begin{Note}#1\end{Note}}
+\newcommand{\str}[1]{\begin{Strategy}#1\end{Strategy}}
+\newcommand{\mth}[1]{\begin{Methode}#1\end{Methode}}
 
+\fi
 
+%%
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
@@ -45,8 +64,6 @@
 	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
 }
 \makeatother
-
-
 
 
 \tikzset{
