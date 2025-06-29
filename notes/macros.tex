@@ -39,6 +39,8 @@
 
 \fi
 
+\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
+
 %%
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
@@ -130,8 +132,15 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 
-% PLUS INFTY AND MINUS INFTY WITH NO SPACE
+% tel que
+\newcommand{\tqs}{\text{ tels que }}
+\newcommand{\tq}{\text{ tq. }}
 
+% ensemble avec bigl et bigr
+\newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
+\newcommand{\Bigset}[1]{\Bigl\{ #1 \Bigr\}}
+
+% PLUS INFTY AND MINUS INFTY WITH NO SPACE
 \newcommand{\pinfty}{{+}\infty}
 \newcommand{\minfty}{{-}\infty}
 

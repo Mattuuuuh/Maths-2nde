@@ -1,0 +1,131 @@
+%!TEX encoding = UTF8
+%!TEX root =notes.tex
+
+\setcounter{maincounter}{0}
+\chapter{Nombres rationnels, nombres réels}
+
+\section{Ensembles de nombres}
+
+\notations{
+	Un collection \emph{non ordonnée} d'éléments est un \emph{ensemble}, noté avec des accolades et des points-virgules entre les éléments.
+	
+		\[ E = \bigset{ 2 ; 3 ; 5 ; 7 ; 11 }. \]
+	
+	Un ensemble peut contenir un nombre infini d'éléments.
+	
+		\[ F = \bigset{ 0 ; 2 ; 4 ; 6 ; 8 ; 10 ; \dots }. \]
+}
+
+\dfn{Nombres entiers}{
+	On pose les nombres entiers \emph{naturels}
+		\[ \N =  \bigset{ 0 ; 1 ; 2 ; \dots }, \]
+	et les nombres entiers \emph{relatifs}
+		\[ \Z =  \bigset{ \dots ; -2 ; -1 ; 0 ; 1 ; 2 ; \dots }. \]
+}{dfn:nombres-entiers}
+	
+	
+\notations{
+	Il est aussi possible de décrire l'ensemble $F$
+		\[ F =  \bigset{ 0 ; 2 ; 4 ; 6 ; 8 ; 10 ; \dots } \]
+	sous la forme
+		\[ F =  \bigset{ n \in \N \tqs \text{$n$ est pair} }. \]
+	La deuxième forme est plus précise et évite au lecteur d'avoir à deviner la structure de l'ensemble.
+}
+
+\dfn{Nombres rationnels}{
+	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
+	
+	Alors le \emph{rationnel} $\dfrac{a}{b}$ est l'unique nombre tel que
+		\[ \dfrac{a}b \times b = a. \]
+	
+	On note l'ensemble de tous les rationnels
+		\[ \Q = \Bigset{ \dfrac{a}{b} \tq a \in \Z, b \in \Z, b \neq 0}. \]
+}{dfn:nombres-rationnels}
+
+\ex{}{
+	Le nombre rationnel $\dfrac12$ est l'unique nombre vérifiant
+		\[ \dfrac12 \times 2 = 1. \]
+	Comme $0,5 \times 2 = 1$, on a $\dfrac12  = 0,5$. C'est le \emph{développement décimal} de $\dfrac12$.
+	
+	Le nombre rationnel $\dfrac13$ est l'unique nombre vérifiant
+		\[ \dfrac13 \times 3 = 1. \]
+}{ex:nombres-rationnels}
+
+\qs{}{
+	Est-il possible d'écrire le développement décimal de $\dfrac13$ sur un feuille de papier A4 ?
+	
+	Le but de la prochaine section est de répondre à cette question par la négative.
+}
+
+\section{Développements décimaux}
+
+\dfn{Nombres décimaux}{
+	On dit d'un nombre $A$ qu'il est \emph{décimal} si on peut écrire son développement décimal.
+	Autrement dit, son développement décimal est fini.
+	
+	On note 
+		\[ \D = \bigset{ A \in \Q \tq \text{ le développement décimal de $A$ est fini} }. \]
+}{dfn:nombres-décimaux}
+
+\thm{Caractérisation de $\D$}{
+	On a 
+		\[ \D = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
+}{}
+
+\thm{}{
+	Le nombre rationnel $\dfrac13$ n'est pas décimal : $\dfrac13 \not\in \D$.
+}{}
+
+\pf{}{
+	Par l'absurde, supposons que $\dfrac13 = \dfrac{a}{10^n}$.
+	Alors on a nécessairement 
+		\[ 10^n = 3a. \]
+	Comme le membre de droite est un multiple de $3$, le membre de gauche aussi.
+	
+	On arrive ici à une contradiction car une puissance de $10$ ne peut pas être un multiple de $3$.
+	En effet, les multiples de $3$ adviennent tous les $3$ entiers ($\{0 ; 3 ; 6 ; 9 ; 12 ; \dots\}$).
+	Or l'entier avant $10^n$ est un multiple de $3$, car c'est 
+		\[ 10^n - 1 = \underbrace{99\cdots99}_{\text{n fois}} = 3 \times \underbrace{33\cdots33}_{\text{n fois}} . \]
+}
+
+\mprop{}{
+	Le développement décimal de $\dfrac13$ est donné par
+		\[ \dfrac13 = 0,333\dots.\]
+	Il est \emph{infini} et \emph{périodique}.
+}{}
+
+\pf{}{
+	Posons $x = 0,333\dots$ et montrons que $x=\dfrac13$.
+	On a 
+		\[ 10x = 3,333\dots = 3 + x. \]
+	Il suit donc que $9x = 3$, et donc que $x=\dfrac13$.
+}{}
+
+\dfn{Développement périodique}{
+	On dit que le développement décimal d'un nombre est périodique dès qu'il se répète à partir d'un certain point.
+}{}
+
+\thm{}{
+	Si $x$ est rationnel, alors $x$ admet un développement décimal périodique.
+}{}
+
+\thm{Contraposée}{
+	Si $x$ admet un développement décimal périodique, alors $x$ est rationnel.
+}{}
+
+\nt{
+	On a donc l'égalité d'ensembles
+		\[ \bigset{ \text{nombres $x$ tels que le développement décimal de $x$ est périodique} } = \Q. \]
+}
+
+\qs{}{
+	Existe-t-il un nombre $x$ tel que son développement décimal ne soit pas périodique ?
+}
+
+\section{Nombres réels}
+
+\thm{}{
+	Il existe un nombre $x$ non rationnel.
+}{}
+
+
