@@ -72,6 +72,23 @@
 		\[ \D = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
 }{}
 
+\nomen{
+	On appelle « corollaire » une proposition qui découle immédiatement d'un théorème mais qui mérite d'être énoncée seule.
+	Le corollaire couronne ainsi le théorème.
+}
+
+\cor{}{
+	On a l'inclusion d'ensembles
+		\[ \D \subseteq \Q. \]
+}{}
+
+\pf{}{
+	Pour montrer une inclusion $\subseteq$ d'ensembles, il faut montrer que n'importe quel élément de l'ensemble de gauche (le plus petit) appartient à l'ensemble de droite (le plus grand).
+	
+	Ici, pour tout élément de $\D$, il a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
+	Comme $10^n \in \N$, l'élément est bien un ratio de deux entiers et il appartient aux rationnels.
+}
+
 \thm{}{
 	Le nombre rationnel $\dfrac13$ n'est pas décimal : $\dfrac13 \not\in \D$.
 }{}
@@ -85,19 +102,19 @@
 	On arrive ici à une contradiction car une puissance de $10$ ne peut pas être un multiple de $3$.
 	En effet, les multiples de $3$ adviennent tous les $3$ entiers ($\{0 ; 3 ; 6 ; 9 ; 12 ; \dots\}$).
 	Or l'entier avant $10^n$ est un multiple de $3$, car c'est 
-		\[ 10^n - 1 = \underbrace{99\cdots99}_{\text{n fois}} = 3 \times \underbrace{33\cdots33}_{\text{n fois}} . \]
+		\[ 10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}} = 3 \times \underbrace{33{\dots}33}_{\text{n fois}} . \]
 }
 
 \mprop{}{
 	Le développement décimal de $\dfrac13$ est donné par
-		\[ \dfrac13 = 0,333\dots.\]
+		\[ \dfrac13 = 0,333{\dots}.\]
 	Il est \emph{infini} et \emph{périodique}.
 }{}
 
 \pf{}{
 	Posons $x = 0,333\dots$ et montrons que $x=\dfrac13$.
 	On a 
-		\[ 10x = 3,333\dots = 3 + x. \]
+		\[ 10x = 3,333{\dots} = 3 + x. \]
 	Il suit donc que $9x = 3$, et donc que $x=\dfrac13$.
 }{}
 
@@ -105,13 +122,23 @@
 	On dit que le développement décimal d'un nombre est périodique dès qu'il se répète à partir d'un certain point.
 }{}
 
+\notations{
+	L'expression « si et seulement si » est notée $\iff$ et traduit l'équivalence de deux propositions.
+	Deux propositions $(p)$ et $(q)$ sont \emph{équivalentes} si
+		\begin{enumerate}
+			\item dès que $(p)$ est vraie, alors $(q)$ est vraie. On note $(p) \implies (q)$ ; et
+			\item dès que $(q)$ est vraie, alors $(p)$ est vraie. On note $(q) \implies (p)$.
+		\end{enumerate}
+}
+
 \thm{}{
-	Si $x$ est rationnel, alors $x$ admet un développement décimal périodique.
+	Soit $x$ un nombre. $x$ est rationnel si et seulement si $x$ admet un développement décimal périodique.
+	Autrement dit :
+	\[
+		\text{Pour tout nombre $x$}, \bigl( \text{$x$ est rationnel} \bigr) \iff \big( \text{$x$ admet un développement décimal périodique}· \bigr)
+	\]
 }{}
 
-\thm{Contraposée}{
-	Si $x$ admet un développement décimal périodique, alors $x$ est rationnel.
-}{}
 
 \nt{
 	On a donc l'égalité d'ensembles
@@ -119,13 +146,32 @@
 }
 
 \qs{}{
-	Existe-t-il un nombre $x$ tel que son développement décimal ne soit pas périodique ?
+	Existe-t-il un nombre irrationnel ? C'est-à-dire, existe-t-il un nombre tel que son développement décimal ne soit pas périodique ?
 }
 
 \section{Nombres réels}
 
 \thm{}{
-	Il existe un nombre $x$ non rationnel.
+	Il existe un nombre non rationnel.
 }{}
 
+\pf{}{
+	On considère le nombre $x$ dont on construit le développement décimal de la façon suivante.
+		\[ x = 0,10100100010000100000100{\dots} . \]
+	Entre chaque paire de $1$, on place un nombre croissant de zéros ($1, 2, 3, \dots$).
+	
+	Supposons, par l'absurde, que $x$ devienne éventuellement périodique de période $p$.
+	Il existe donc nécessairement une série de $2p$ zéros dans la partie périodique.
+	La partie périodique est donc entièrement nulle. Le développement décimal de $x$ est ainsi éventuellement nul ($x$ est décimal), ce qui n'est pas vrai. 
+}
+
+\dfn{Nombres réels}{
+	L'ensemble de tous les nombres est noté $\R$.
+	On les appelle \emph{les nombres réels}.
+}{dfn:nombres-réels}
+
+\nt{
+	On a ainsi le drapeau d'ensembles suivant.
+		\[ \N \subseteq \Z \subseteq \D \subseteq \Q \subseteq \R. \]
+}
 

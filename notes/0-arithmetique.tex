@@ -1,0 +1,102 @@
+%!TEX encoding = UTF8
+%!TEX root =notes.tex
+
+\setcounter{maincounter}{0}
+\chapter{Arithmétique}
+
+\section{Parité}
+
+\notations{
+	Pour noter la multiplication entre deux valeurs numériques, on note $2\times3$.
+	Si une lettre rentre en jeu, on notera la multiplication par un point médian ($2\cdot b$) ou simplement rien ($2b$).
+}
+
+\dfn{Multiple de 2}{
+	La table de multiplication de $2$ donne tous les \emph{multiples} de $2$ :
+		\setlength{\columnseprule}{0.4pt}
+		\begin{multicols}{3}
+			$2\times0 = 0$
+			
+			$2\times1 = 2$
+			
+			$2\times2 = 4$
+			
+			$2\times3 = 6$
+			
+			$2\times4 = 8$
+			
+			$2\times5 = 10$
+			
+			$2\times6 = 12$
+			
+			$2\times7 = 14$
+			
+			$2\times8 = 16$
+			
+			$2\times9 = 18$
+			
+			$2\times10 = 20$
+			
+			\qquad\vdots
+		\end{multicols}
+	Un multiple de $2$ est donc un nombre de la forme $2 \cdot k$, où $k\in\N$ est un entier naturel.
+}{}
+
+\dfn{Parité}{
+	Soit $n\in\N$ un nombre entier.
+	
+	On dit que $n$ est \emph{pair} si $n$ est un multiple de 2.
+	Sinon, on dit que $n$ est \emph{impair}.
+}{}
+
+\thm{}{
+	Si $n\in\N$ est impair, alors
+		\[ n = 2\cdot k + 1 \]
+	pour un certain entier naturel $k\in\N$.
+}{}
+
+\notations{
+	Lorsque deux éléments $a, b$ appartiennent au même ensemble $E$, on notera « $a, b \in E$ » pour signifier « $a \in E, b \in E$ ».
+}
+
+\thm{}{
+	Soient $m, n\in\N$ deux entiers naturels.
+		\begin{enumerate}
+			\item Si $m$ et $n$ sont pairs, alors $m+n$ est également pair.
+			\item Si $m$ est pair et $n$ est impair, alors $m+n$ est impair.
+			\item Si $m$ et $n$ sont impairs, alors $m+n$ est pair.
+		\end{enumerate}
+}{}
+
+\section{Diviseurs}
+
+\dfn{}{
+	Soient $a, b \in \N$ deux entiers naturels.
+	
+	On dit que « $a$ divise $b$ » ou que « $b$ est un multiple de $a$ » dès que
+		\[ b = a \cdot k, \]
+	où $k\in\N$ est un entier naturel.
+}{}
+
+\notations{
+	On note $a | b$ la relation « $a$ divise $b$ ».
+}
+
+\thm{}{
+	Considérons $n\in\N$ un entier naturel tel que $2 | n$ et $3 | n$ : $n$ est pair et multiple de $3$.
+	
+	Alors $6 | n$ : $n$ est multiple de $6$.
+}{}
+
+\pf{}{
+	Par hypothèses, $n=2k$ et $n=3\ell$, pour certains $k,\ell\in\N$.
+	Or $n = 3n - 2n = 3(2k) - 2(3\ell) = 6(k-\ell)$, ce qui conclut.
+}
+
+\nt{
+	Le même argument peut s'étendre de la façon suivante : s'il existe $u, v \in\Z$ tels que
+		\[ ua + vb = 1, \]
+	alors $\bigl( a|n \text{ et } b|n \bigr) \implies \bigl( (ab) | n \bigr)$.
+}
+
+
