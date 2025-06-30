@@ -168,7 +168,7 @@
 \section{Développements décimaux}
 
 \dfn{Nombres décimaux}{
-	On dit d'un nombre $x$ qu'il est \emph{décimal} si on peut écrire son développement décimal.
+	On dit d'un nombre $x$ qu'il est \emph{décimal} si on peut écrire son développement décimal sur un feuille de papier A4 (possiblement en écrivant très petit).
 	Autrement dit, son développement décimal est fini.
 	
 	On note 
@@ -287,14 +287,40 @@
 
 \exe{}{
 	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
-	\begin{align*}
+	\[
+	\begin{aligned}
 		A &= 0,666{\dots} \\
-		A &= 1,666{\dots} \\
-		A &= 1,666{\dots}
-	\end{align*}
-		
+		B &= 9,999{\dots} \\
+		C &= 0,121212{\dots} \\
+	\end{aligned}
+	\hspace{5cm}
+	\begin{aligned}
+		D &= 1,666{\dots} \\
+		E &= 0,34777{\dots} \\
+		F &= 0,123123123{\dots}
+	\end{aligned}
+	\]
+	\[
+	G = 0,123456789123456789123{\dots} \text{ (nombre d'Amandine) }
+	\]
 }{exe:dev-to-fraction}{
-
+	\begin{enumerate}[label=\Alph*.]
+		\item 
+		La relation $10A = 6 + A$ donne $A = \dfrac23$.
+		\item
+		La relation $10B = 90 + B$ donne $A = 10$. Il s'avère donc que $10$ admet deux écritures décimales différentes.
+		Pour se convaincre encore que $B=10$, on peut remarquer la chose suivante : il n'existe pas de nombre entre $B$ et $10$ strictement différent des deux. Or il existe toujours un nombre situé entre deux nombres distincts (leur moyenne, par exemple).
+		\item
+		La relation $100C = 12 + C$ donne $C = \dfrac{12}{99} = \dfrac{4}{33}$.
+		\item
+		La relation $10D = 15 + D$ donne $D = \dfrac{15}{9} = \dfrac53$.
+		\item
+		En posant $E' = 100E = 34,777{\dots}$, on obtient $10E' = 313 + E'$, d'où $E' = \dfrac{313}{9}$, et donc $E = \dfrac{1}{100}E' = \dfrac{313}{900}$.
+		\item
+		La relation $1000F = 123 + F$ donne $F = \dfrac{123}{999} = \dfrac{41}{333}$.
+		\item 
+		La relation $10^9 G = 123456789 + G$ donne $G = \dfrac{123456789}{999999999}$.
+	\end{enumerate}
 }
 
 \dfn{Développement périodique}{
@@ -328,25 +354,36 @@
 	Existe-t-il un nombre irrationnel ? C'est-à-dire, existe-t-il un nombre tel que son développement décimal ne soit pas périodique ?
 }
 
+\exe{, difficulty=2}{
+	Donner un nombre irrationnel.
+}{exe:nombre-R}{
+	Voir la démonstration du théorème \ref{thm:nombre-R}.
+}
+
 \section{Nombres réels}
 
 \thm{}{
 	Il existe un nombre non rationnel.
-}{}
+}{thm:nombre-R}
 
 \pf{}{
 	On considère le nombre $x$ dont on construit le développement décimal de la façon suivante.
 		\[ x = 0,10100100010000100000100{\dots} . \]
-	Entre chaque paire de $1$, on place un nombre croissant de zéros ($1, 2, 3, \dots$).
+	Entre chaque paire de $1$, on place un nombre croissant de zéros (un, puis deux, puis trois etc…).
 	
 	Supposons, par l'absurde, que $x$ devienne éventuellement périodique de période $p$.
-	Il existe donc nécessairement une série de $2p$ zéros dans la partie périodique.
-	La partie périodique est donc entièrement nulle. Le développement décimal de $x$ est ainsi éventuellement nul ($x$ est décimal), ce qui n'est pas vrai. 
+	Il existe nécessairement une série de $2p$ zéros dans sa partie périodique.
+	Cette série contient une période entière, qui doit donc être entièrement nulle. 
+	Le développement décimal de $x$ est ainsi éventuellement nul ($x$ est décimal), ce qui n'est pas vrai.	
+	
+	% un dessin serait bien ici mais je sais pas encore comment en faire un qui éclaire.
 }
 
 \dfn{Nombres réels}{
 	L'ensemble de tous les nombres est noté $\R$.
 	On les appelle \emph{les nombres réels}.
+	
+	Ils sont continus dans le sens où il n'y pas de trous comme dans les rationnels
 }{dfn:nombres-réels}
 
 \nt{
@@ -354,3 +391,34 @@
 		\[ \N \subseteq \Z \subseteq \D \subseteq \Q \subseteq \R. \]
 }
 
+\thm{}{
+	Quelque soit $x\in\R$ réel et quelque soit $n\in\N$, il existe $r, s \in\Q$ rationnels tels que
+		\begin{align*}
+			r \leq x \leq s, && \text { et } && s - r \leq \dfrac{1}{10^{n}}.
+		\end{align*}
+	Ainsi les rationnels sont \emph{denses} dans les réels car il peuvent s'approcher d'aussi près que souhaité (ordre $10^{-n}$).
+}{thm:densité-Q}
+
+
+\exe{, difficulty=1}{
+	Démontrer le théorème \ref{thm:densité-Q}.
+}{exe:densité-Q}{
+	Considérons le nombre $10^n x$, qu'on encadre par deux entiers consécutifs $a$ et $a+1$ en tronquant les chiffres après la virgule :
+		\[ a \leq 10^n x \leq (a+1). \]
+	En divisant par $10^n$, on obtient l'encadrement
+		\[ \dfrac{a}{10^n} \leq x \leq \dfrac{a+1}{10^n}, \]
+	qui vérifie bien les propriétés souhaitées car $\dfrac{a+1}{10^n} - \dfrac{a}{10^n} = \dfrac{a+1-a}{10^n} = \dfrac{1}{10^n}$.
+}
+
+\thm{de Cantor}{
+	Les nombres rationnels sont énumérables, alors que les réels ne le sont pas.
+}{thm:Q-dénombrable}
+
+\nt{
+	Cantor\footnote{Georg Cantor (1845-1918), mathématicien allemand.} démontre ce théorème grâce à son désormais célèbre \emph{argument de la diagonale}.
+	Celui-ci en déduit que, en un certain sens (dont la définition précise est en dehors du champ d'application du cours), 
+	\begin{enumerate}
+		\item il y a autant de rationnels que de nombres entiers ; et
+		\item il y a davantage de réels entre 0 et 1 que de rationnels dans leur intégralité.
+	\end{enumerate}
+}

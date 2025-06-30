@@ -6,8 +6,16 @@
 Construction d'un cours de mathématiques : Exemple -- Remarque -- Définition -- Lemme -- Proposition -- Théorème -- Démonstration.
 
 Les problèmes sont de la forme
-\exe{}{
-	Exemple de problème
-}{ex:ex}{
-	Exemple de solution
-}
+\newcounter{preface}
+\begin{Exercise}[counter=preface]
+	Exemple de problème nécessaire de savoir faire.
+\end{Exercise}
+\begin{Exercise}[difficulty=1, counter=preface]
+	Exemple de problème difficile mais accessible.
+\end{Exercise}
+\begin{Exercise}[difficulty=2, counter=preface]
+	Exemple de problème d'approfondissement.
+\end{Exercise}
+
+
+Wolframalpha permet de faire du calcul exact (voir chapitre nombres rationnels pour la nécessité).

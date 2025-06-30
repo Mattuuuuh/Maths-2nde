@@ -112,6 +112,20 @@
 	On note $a \big| n$ la relation « $a$ divise $n$ ».
 }
 
+\exe{, difficulty=1}{
+	Montrer que si $a \big| n$, alors $(2a) \big| (2n)$.
+}{exe:aknk}{
+	Par définition, $n = ak$.
+	En multipliant par $2$, on obtient $2n = (2a)k$, ce qui conclut.
+}
+
+\exe{, difficulty=1}{
+	Montrer que si $a \big| n$, alors $(am) \big| (nm)$ pour tout $m\in\Z$.
+}{exe:aknk}{
+	Par définition, $n = ak$.
+	En multipliant par $m$, on obtient $nm = (am)k$, ce qui conclut.
+}
+
 \dfn{}{
 	Pour un $n\in\N$, on pose $\D_n$ l'ensemble des diviseurs de $n$.
 		\[ D_n = \bigset{ a \in \N \tq a \big| n }. \]
@@ -120,7 +134,6 @@
 \nt{
 	Les diviseurs se regroupent toujours par paires, car si $a$ divise $n$ et $n=a \cdot b$, alors $b$ divise $n$ aussi.
 }
-
 
 \exe{}{
 	Donner $\D_2, \D_3, \D_4, \D_5, \D_6, \D_7, \D_8$.
@@ -142,7 +155,7 @@
 	\end{multicols}
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	Montrer que le nombre de diviseurs de $n$ n'est pas pair si et seulement si $n$ est un carré parfait ($n = k^2$ pour un $k\in\N$).
 }{exe:parité-diviseurs}{
 	Les diviseurs se regroupent par paires $(a ; b)$ où $a\cdot b = n$, sauf éventuellement si $a$ et $b$ sont égaux, auquel cas $n = a^2$.
@@ -166,9 +179,9 @@
 		\[ n = 6n - 5n = 6(5k) - 5(6\ell) = 30(k - \ell). \]
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	Montrer que si $a \big| n$ et $(a+1) \big| n$, alors $a(a+1) \big| n$.
-}{ex:coprimalité2}{
+}{exe:coprimalité2}{
 	On a bien sûr $(a+1) - a = 1$, qui implique
 		\[ n = (a+1)n - an. \]
 	Le terme $(a+1)n$ est divisible par $a(a+1)$ car $n$ est divisible par $a$.
@@ -210,6 +223,16 @@
 	alors $\bigl( a\big|n \text{ et } b\big|n \bigr) \implies \bigl( (ab) \big| n \bigr)$.
 }
 
+\exe{, difficulty=2}{
+	Démontrer la remarque ci-dessus.
+}{ex:coprimalité2}{
+	Si $ua + vb = 1$ et que $a\big|n \text{ et } b\big|n$, alors
+		\[ u(an) + v(bn) = n, \]
+	avec $ab$ qui divise $bn$ et $an$ car $a$ divise $n$ et $b$ divise $n$ (voir exercice \ref{exe:aknk}).
+	
+	Ainsi $ab$ divise aussi $uan$ et $vbn$ ainsi que leur somme, valant $n$.
+}
+
 \thm{Règle de divisibilité par 3, 9}{
 	Un nombre est divisible par 3 (respectivement 9) si et seulement si la somme de ses chiffres est divisible par 3 (resp. 9).
 }{thm:règle-divisibilité-3-9}
@@ -234,7 +257,7 @@
 }{}
 
 \exe{}{
-	Démontrer le théorème \ref{thm:règle-divisibilité-3-9} pour la divisibilité par 9.
+	Démontrer la règle de divisibilité par 9 énoncée dans le théorème \ref{thm:règle-divisibilité-3-9}.
 }{exe:règle-divisibilité-3-9}{
 	$10^n \cdot a$ est divisible par $9$ si et seulement si $a$ l'est, car 
 		\[ 10^n \cdot a = (10^n - 1)a + a, \]
