@@ -1,7 +1,6 @@
 %!TEX encoding = UTF8
-%!TEX root =notes.tex
+%!TEX root =0-notes.tex
 
-\setcounter{maincounter}{0}
 \chapter{Arithmétique}
 
 \section{Parité}
@@ -53,7 +52,19 @@
 	Si $n\in\N$ est impair, alors
 		\[ n = 2\cdot k + 1 \]
 	pour un certain entier naturel $k\in\N$.
-}{}
+}{thm:impair}
+
+\exe{}{
+	Démontrer le théorème \ref{thm:impair}.
+}{exe:thm-impair}{
+	Considérons l'algorithme suivant : en partant de $n$ et tant que le résultat est postiif ou nul, on soustrait $2$ au nombre en mémoire.
+	En notant $k$ le nombre de fois que 2 a été soustrait, deux résultats sont possibles : 
+		\begin{enumerate}[label=\roman*)]
+			\item soit on obtient 0, auquel cas $n=2k$ ;
+			\item soit on obtient 1, auquel cas $n=2k+1$.
+		\end{enumerate}
+	Si le nombre est impair, la première situation ne peut pas advenir, et $n  = 2k+1$.
+}
 
 \notations{
 	Lorsque deux éléments $a, b$ appartiennent au même ensemble $E$, on notera « $a, b \in E$ » pour signifier « $a \in E, b \in E$ ».
@@ -66,20 +77,75 @@
 			\item Si $m$ est pair et $n$ est impair, alors $m+n$ est impair.
 			\item Si $m$ et $n$ sont impairs, alors $m+n$ est pair.
 		\end{enumerate}
-}{}
+}{thm:parité-somme}
+
+\exe{}{
+	Démontrer le théorème \ref{thm:parité-somme}.
+}{exe:thm-parité-somme}{
+	Si $m$ et $n$ sont pairs, alors $m=2k$ et $n=2\ell$ pour deux entiers $k, \ell \in \N$.
+	Il suit que 
+		\[ m + n = 2k + 2\ell = 2(k+\ell), \]
+	et donc que $m+n$ est pair, car $k+\ell \in \N$.
+	
+	Si $m$ est pair et $n$ est impair, alors $m=2k$ et $n=2\ell+1$ pour deux entiers $k, \ell \in \N$.
+	Il suit que 
+		\[ m + n = 2k + 2\ell + 1 = 2(k+\ell) + 1, \]
+	et donc que $m+n$ est impair, car $k+\ell \in \N$.
+	
+	Si $m$ et $n$ sont impairs, alors $m=2k+1$ et $n=2\ell+1$ pour deux entiers $k, \ell \in \N$.
+	Il suit que 
+		\[ m + n = 2k +1 + 2\ell + 1 = 2(k+\ell + 1), \]
+	et donc que $m+n$ est pair, car $k+\ell+1 \in \N$.
+}
 
 \section{Diviseurs}
 
 \dfn{}{
-	Soient $a, b \in \N$ deux entiers naturels.
+	Soient $a, n \in \N$ deux entiers naturels.
 	
-	On dit que « $a$ divise $b$ » ou que « $b$ est un multiple de $a$ » dès que
-		\[ b = a \cdot k, \]
+	On dit que « $a$ divise $n$ » ou que « $n$ est un multiple de $a$ » dès que
+		\[ n = a \cdot k, \]
 	où $k\in\N$ est un entier naturel.
 }{}
 
 \notations{
-	On note $a | b$ la relation « $a$ divise $b$ ».
+	On note $a \big| n$ la relation « $a$ divise $n$ ».
+}
+
+\dfn{}{
+	Pour un $n\in\N$, on pose $\D_n$ l'ensemble des diviseurs de $n$.
+		\[ D_n = \bigset{ a \in \N \tq a \big| n }. \]
+}{dfn:ensemble-diviseurs}
+
+\nt{
+	Les diviseurs se regroupent toujours par paires, car si $a$ divise $n$ et $n=a \cdot b$, alors $b$ divise $n$ aussi.
+}
+
+
+\exe{}{
+	Donner $\D_2, \D_3, \D_4, \D_5, \D_6, \D_7, \D_8$.
+}{exe:diviseurs}{
+	\begin{multicols}{2}
+	$D_2 = \{ 1 ; 2\}$
+	
+	$D_3 = \{ 1 ; 3\}$
+	
+	$D_4 = \{ 1 ; 4 ; 2 \}$
+	
+	$D_5 = \{ 1 ; 5\}$
+	
+	$D_6 = \{ 1 ; 6 ; 2 ; 3\}$
+	
+	$D_7 = \{ 1 ; 7\}$
+	
+	$D_8 = \{ 1 ; 8 ; 2 ; 4\}$
+	\end{multicols}
+}
+
+\exe{}{
+	Montrer que le nombre de diviseurs de $n$ n'est pas pair si et seulement si $n$ est un carré parfait ($n = k^2$ pour un $k\in\N$).
+}{exe:parité-diviseurs}{
+	Les diviseurs se regroupent par paires $(a ; b)$ où $a\cdot b = n$, sauf éventuellement si $a$ et $b$ sont égaux, auquel cas $n = a^2$.
 }
 
 \thm{}{
@@ -93,10 +159,84 @@
 	Or $n = 3n - 2n = 3(2k) - 2(3\ell) = 6(k-\ell)$, ce qui conclut.
 }
 
+\exe{}{
+	Montrer que si $5 \big| n$ et $6 \big| n$, alors $30 \big| n$.
+}{exe:coprimalité1}{
+	Comme $n = 5k$ et $n = 6 \ell$, on peut écrire
+		\[ n = 6n - 5n = 6(5k) - 5(6\ell) = 30(k - \ell). \]
+}
+
+\exe{}{
+	Montrer que si $a \big| n$ et $(a+1) \big| n$, alors $a(a+1) \big| n$.
+}{ex:coprimalité2}{
+	On a bien sûr $(a+1) - a = 1$, qui implique
+		\[ n = (a+1)n - an. \]
+	Le terme $(a+1)n$ est divisible par $a(a+1)$ car $n$ est divisible par $a$.
+	Le terme $an$ est aussi divisible par $a(a+1)$ car $n$ est divisible par $a+1$.
+	La somme, $n$, l'est donc également.
+}
+
+\exe{}{
+	Montrer qu'en général, si $a\big|n$ et $b\big|n$, on a pas nécessairement $(ab)\big|n$.
+}{exe:non-coprimalité}{
+	Trivialement, 2 divise 2, mais 4 ne divise pas 2.
+	Autrement, on peut également citer $3 \big|  24$ et $6 \big| 24$ mais 18 ne divise pas 24.
+}
+
+\thm{}{
+	Considérons $a \big| n$. Alors
+		\[ \bigl( m \text{ divisible par $a$} \bigr) \iff \bigl( m+n \text{ divisible par $a$} \bigr). \]
+	
+	Ajouter un multiple de $a$ ne change pas la divisibilité par $a$ d'un nombre : s'il l'était avant, il le sera alors, et s'il ne l'était pas, il ne le sera pas.
+}{thm:divisibilité-combinaison-entière}
+
+
+\pf{}{
+	On a d'abord $n=a\cdot k$, par définition.
+	Pour montrer une équivalence $\iff$, on sépare les deux implications à démontrer.
+	\begin{enumerate}[leftmargin=120pt]
+		\item[\underline{Direction $\implies$ :}]
+		Si $a \big| m$, alors $m=a \cdot \ell$, et $n+m = a(k + \ell)$, qui est divisible par $a$ comme requis.
+		
+		\item[\underline{Direction $\impliedby$ :}]
+		Si $a \big| (n+m)$, alors $n+m = a \cdot \ell$.
+		Il suit que $m = a \cdot \ell - n = a (\ell - k)$, qui est multiple de $a$ comme requis.
+	\end{enumerate}
+}
+
 \nt{
 	Le même argument peut s'étendre de la façon suivante : s'il existe $u, v \in\Z$ tels que
 		\[ ua + vb = 1, \]
-	alors $\bigl( a|n \text{ et } b|n \bigr) \implies \bigl( (ab) | n \bigr)$.
+	alors $\bigl( a\big|n \text{ et } b\big|n \bigr) \implies \bigl( (ab) \big| n \bigr)$.
 }
 
+\thm{Règle de divisibilité par 3, 9}{
+	Un nombre est divisible par 3 (respectivement 9) si et seulement si la somme de ses chiffres est divisible par 3 (resp. 9).
+}{thm:règle-divisibilité-3-9}
 
+\pf{Démonstration du théorème \ref{thm:règle-divisibilité-3-9} pour la divisibilité par 3}{
+	Considérons un nombre à deux chiffres pour commencer.
+		\begin{align*}
+			n = [ab] && \iff && n = 10a + b.
+		\end{align*}
+	Or comme $-9a = 3(-3a)$ est divisible par 3, on peut soustraire $9a$ sans changer la divisibilité par $3$ de $n$ d'après le théorème \ref{thm:divisibilité-combinaison-entière}.
+	On obtient ainsi notre critère de divisibilité car
+		\[ \bigl( n = 10a+b \text{ divisible par 3} \bigr) \iff \bigl( n-9a = a+b \text{ divisible par 3} \bigr). \]
+	
+	Continuons pour un nombre à trois chiffres :
+		\begin{align*}
+			n = [abc] && \iff && n = 100a + 10b + c.
+		\end{align*}
+	On résonne de la même façon en soustrayant $99a$ et $9b$ à $n$ sans changer sa divisibilité par $3$ :
+		\[ \bigl( n = 100a + 10b + c \text{ divisible par 3} \bigr) \iff \bigl( n-99a-9b = a+b+c \text{ divisible par 3} \bigr). \]
+	
+	En général, $10^n \cdot a$ est divisible par 3 si et seulement si $a$ l'est, ce qui conclut.
+}{}
+
+\exe{}{
+	Démontrer le théorème \ref{thm:règle-divisibilité-3-9} pour la divisibilité par 9.
+}{exe:règle-divisibilité-3-9}{
+	$10^n \cdot a$ est divisible par $9$ si et seulement si $a$ l'est, car 
+		\[ 10^n \cdot a = (10^n - 1)a + a, \]
+	et puisque $10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}}$ est un multiple de 9.
+}

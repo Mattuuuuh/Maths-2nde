@@ -1,6 +1,72 @@
 %!TEX encoding = UTF8
-%!TEX root =notes.tex
+%!TEX root =0-notes.tex
+  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CLEAN SETUPS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{corollaire}[theorem]{Corollaire}
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{exercice}[theorem]{Exercice}
+\newtheorem{exemple}[theorem]{Exemple}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem*{question}{Question}
+\newtheorem*{preuve}{Preuve}
+\newtheorem*{remarque}{Remarque}
+\newtheorem*{strategie}{Stratégie}
+\newtheorem*{methode}{Méthode}
+\newtheorem*{notation}{Notation}
+\newtheorem*{nomenclature}{Nomenclature}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CLEAN SETUPS : MDFRAMED SURROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[framemethod=tikz]{mdframed}
+% def
+\surroundwithmdframed[
+	hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{definition}
+% thm
+\surroundwithmdframed[
+	%hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISES 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[answerdelayed, lastexercise]{exercise}
+\renewcommand{\ExerciseHeader}{
+	\textbf{
+	\ExerciseHeaderDifficulty
+	\ExerciseHeaderNB.
+	}
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	\centerline{\textbf{
+	Exercice \ExerciseHeaderNB
+	}}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MINTED FOR PYTHON ALGORITHMS
@@ -45,28 +111,6 @@
     \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
     \end{tcbclipinterior}},
   #3}
-  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CLEAN SETUPS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcounter{maincounter}
-\theoremstyle{definition}
-\newtheorem{theorem}[maincounter]{Théorème}
-\newtheorem{corollaire}[maincounter]{Corollaire}
-\newtheorem{lemme}[maincounter]{Lemme}
-\newtheorem{proposition}[maincounter]{Proposition}
-\newtheorem{exercice}[maincounter]{Exercice}
-\newtheorem{exemple}[maincounter]{Exemple}
-\newtheorem{definition}[maincounter]{Définition}
-\newtheorem*{question}{Question}
-\newtheorem*{preuve}{Preuve}
-\newtheorem*{remarque}{Remarque}
-\newtheorem*{strategie}{Stratégie}
-\newtheorem*{methode}{Méthode}
-\newtheorem*{notation}{Notation}
-\newtheorem*{nomenclature}{Nomenclature}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,7 +234,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Exercise}{Exercice}
+\newtcbtheorem[use counter=tcb@cnt@Theorem]{Exe}{Exercice}
 {%
 	enhanced,
 	breakable,

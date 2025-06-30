@@ -1,7 +1,6 @@
 %!TEX encoding = UTF8
-%!TEX root =notes.tex
+%!TEX root =0-notes.tex
 
-\setcounter{maincounter}{0}
 \chapter{Nombres rationnels, nombres réels}
 
 \section{Ensembles de nombres}
@@ -14,6 +13,18 @@
 	Un ensemble peut contenir un nombre infini d'éléments.
 	
 		\[ F = \bigset{ 0 ; 2 ; 4 ; 6 ; 8 ; 10 ; \dots }. \]
+}
+
+\exe{}{
+	Donner l'ensemble $A$ des entiers supérieurs ou égaux à 0 et inférieurs ou égaux à 7.
+	
+	Donner l'ensemble $B$ des éléments de $A$ qui sont pairs.
+}{exe:set1}{
+	\begin{multicols}{2}
+		$A = \bigset{ 0 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7}$
+		
+		$B = \bigset{ 0 ; 2 ; 4 ; 6 }$
+	\end{multicols}
 }
 
 \dfn{Nombres entiers}{
@@ -32,6 +43,20 @@
 	La deuxième forme est plus précise et évite au lecteur d'avoir à deviner la structure de l'ensemble.
 }
 
+\exe{}{
+	Décrire l'ensemble $A$ de l'exercice \ref{exe:set1} sous les formes $\bigset{ n \in \N \tq \dots }$ et $\bigset{ n \in \Z \tq \dots }$.
+	
+	Décrire l'ensemble $B$ de l'exercice \ref{exe:set1} sous la forme $\bigset{ n \in A \tq \dots }$.
+}{exe:set2}{
+	\begin{multicols}{2}
+		$A = \bigset{ n \in \N \tq n \leq 7}$
+		
+		$A = \bigset{ n \in \Z \tq 0 \leq n \leq 7}$
+		
+		$B = \bigset{ n \in A \tq \text{$n$ est pair}}$
+	\end{multicols}
+}
+
 \dfn{Nombres rationnels}{
 	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
 	
@@ -46,10 +71,93 @@
 	Le nombre rationnel $\dfrac12$ est l'unique nombre vérifiant
 		\[ \dfrac12 \times 2 = 1. \]
 	Comme $0,5 \times 2 = 1$, on a $\dfrac12  = 0,5$. C'est le \emph{développement décimal} de $\dfrac12$.
-	
+}{ex:nombres-rationnels1}
+
+\ex{}{
 	Le nombre rationnel $\dfrac13$ est l'unique nombre vérifiant
 		\[ \dfrac13 \times 3 = 1. \]
-}{ex:nombres-rationnels}
+}{ex:nombres-rationnels2}
+
+\exe{}{
+	Montrer que $\dfrac13 = \dfrac26$.
+}{exe:reduction-fraction}{
+	Par définition, $\dfrac13$ est l'unique $x\in\Q$ vérifiant $3x = 1$.
+	Cependant, on a l'équivalence suivante :
+		\[ 3x = 1 \iff 6x = 2. \]
+	$x$ est donc égal à $\dfrac26$, par définition.
+}
+
+\exe{}{
+	Montrer que $\dfrac{a}{a} = 1$ pour n'importe que $a\in\Z$ non nul.
+}{exe:a-div-a}{
+	Par définition, $\dfrac{a}{a}$ est l'unique $x\in\Q$ vérifiant $ax = a$.
+	Comme $x=1$ vérifie cette équation, l'unicité conclut.
+}
+
+\exe{, difficulty=1}{
+	Montrer que $\dfrac12 + \dfrac13 = \dfrac56$.
+}{exe:somme-rationnels}{
+	Posons $x = \dfrac12 + \dfrac13$.
+	On a alors
+		\begin{align*}
+			6x &= 6 \times \dfrac12 + 6 \times \dfrac13, \\
+				&= 3(2 \times \dfrac12) + 2(3 \times \dfrac13), \\
+				&= 3 + 2 = 5.
+		\end{align*}
+	On conclut que $x = \dfrac56$.
+}
+
+\exe{, difficulty=1}{
+	Montrer que $\dfrac12 \times \dfrac23 = \dfrac26$.
+}{exe:produit-rationnels}{
+	Posons $x = \dfrac12 \times \dfrac23$.
+	On a alors, par associativité,
+		\begin{align*}
+			6x &= 6 \times \left(\dfrac12 \times \dfrac23\right), \\
+				&= (2\times3) \times \left(\dfrac12 \times \dfrac23\right), \\
+				&= \left(2\times\dfrac12\right)\times \left(3\times\dfrac23\right), \\
+				&= 1 \times 2 = 2.
+		\end{align*}
+	On conclut que $x = \dfrac26$.
+}
+
+\thm{}{
+	On a les identités suivantes, pour $a, b, c, d \in \Z$, non nuls lorsques dénominateurs.
+	
+	\begin{align*}
+		\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{ac}{bd}
+		&& \text{ et } &&
+		\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{ad + bc}{bd}.
+	\end{align*}
+}{thm:stabilité-Q}
+
+\nomen{
+	On appelle « corollaire » une proposition qui découle immédiatement d'un théorème mais qui mérite d'être énoncée seule.
+	Le corollaire couronne ainsi le théorème.
+}
+
+\cor{}{
+	Pour $a, b, c \in \Z$, non nuls lorsques dénominateurs, on a 
+		\[ \dfrac{a}{b} = \dfrac{ac}{bc}. \]
+}{cor:simplification-Q}
+
+\exe{, difficulty=2}{
+	Démontrer le théorème \ref{thm:stabilité-Q}.
+}{exe:stabilité-Q}{
+	Soit $r = \dfrac{a}{b}$ et $s = \dfrac{c}{d}$.
+	Alors
+		\begin{align*}
+			br = a, && \text{ et } && ds = c.
+		\end{align*}
+	En multipliant la première équation par $d$ et la deuxième par $b$, on pourra factoriser et obtenir une équation pour $r+s$ :
+		\begin{align*}
+			(db)r = da, && \text{ et } && (bd)s = bc,
+		\end{align*}
+	implique $db(r + s) = da + bc$.
+	Il suit que $r+s = \dfrac{ad + bc}{bd} \in \Q$.
+	
+	Similairement, en multipliant les équations, on obtient $(br)(ds)=ac \iff (bd)(rs) = ac$, et donc $r \cdot s = \dfrac{ac}{bd} \in \Q$.
+}
 
 \qs{}{
 	Est-il possible d'écrire le développement décimal de $\dfrac13$ sur un feuille de papier A4 ?
@@ -60,32 +168,67 @@
 \section{Développements décimaux}
 
 \dfn{Nombres décimaux}{
-	On dit d'un nombre $A$ qu'il est \emph{décimal} si on peut écrire son développement décimal.
+	On dit d'un nombre $x$ qu'il est \emph{décimal} si on peut écrire son développement décimal.
 	Autrement dit, son développement décimal est fini.
 	
 	On note 
-		\[ \D = \bigset{ A \in \Q \tq \text{ le développement décimal de $A$ est fini} }. \]
+		\[ \D = \bigset{ x \in \Q \tq \text{ le développement décimal de $x$ est fini} }. \]
 }{dfn:nombres-décimaux}
+
+\exe{}{
+	Sans calculatrice, donner la valeur numérique des fractions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac1{10}$
+		\item $\dfrac1{5}$
+		\item $\dfrac3{10^{5}}$
+		\item $\dfrac7{20}$
+		\item $\dfrac{395}{50}$
+		\item $\dfrac{11}{200}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimaux}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{10} = 0,1.$
+		\item $\dfrac1{5} = \dfrac2{10} = 0,2.$
+		\item $\dfrac3{10^{5}} = 0,00003.$
+		\item $\dfrac7{20} = \dfrac{3,5}{10} = 0,35.$
+		\item $\dfrac{395}{50} = \dfrac{790}{100} = 7,9.$
+		\item $\dfrac{11}{200} = \dfrac{5,5}{100} = 0,055.$
+	\end{enumerate}
+	\end{multicols}
+}
 
 \thm{Caractérisation de $\D$}{
 	On a 
 		\[ \D = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
-}{}
+}{thm:caractérisation-D}
 
-\nomen{
-	On appelle « corollaire » une proposition qui découle immédiatement d'un théorème mais qui mérite d'être énoncée seule.
-	Le corollaire couronne ainsi le théorème.
-}
+\pf{}{
+	Posons $E = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }$.
+	Pour montrer l'égalité d'ensembles $\D = E$, il faut toujours montrer la double inclusion $\D \subseteq E$ et $E \subseteq \D$.
+	Pour montrer une inclusion $\subseteq$ d'ensembles, il faut montrer que n'importe quel élément de l'ensemble de gauche (le plus petit) appartient à l'ensemble de droite (le plus grand).
+	
+	\begin{enumerate}[leftmargin=110pt]
+		\item[\underline{Inclusion $\D \subseteq E$ :}]
+		Un élément $x$ de $\D$ admet un développement décimal fini, posons $n\in\N$ sa longueur.
+		Alors $10^n x = a$ est un entier relatif. Il suit que $x = \dfrac{a}{10^n} \in E$ comme requis.
+		
+		\item[\underline{Inclusion $E \subseteq \D$ :}]
+		Un élément $x$ de $E$ est de la forme $x = \dfrac{a}{10^n}$. Comme $a$ est entier, le développement décimal de $x$ est de longueur au plus $n$, et est donc fini.
+	\end{enumerate} 
+}{}
 
 \cor{}{
 	On a l'inclusion d'ensembles
 		\[ \D \subseteq \Q. \]
-}{}
+}{cor:D-in-Q}
 
-\pf{}{
-	Pour montrer une inclusion $\subseteq$ d'ensembles, il faut montrer que n'importe quel élément de l'ensemble de gauche (le plus petit) appartient à l'ensemble de droite (le plus grand).
-	
-	Ici, pour tout élément de $\D$, il a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
+\exe{}{
+	Montrer le corollaire \ref{cor:D-in-Q}.
+}{exe:caractérisation-D}{
+	Tout élément de $\D$ a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
 	Comme $10^n \in \N$, l'élément est bien un ratio de deux entiers et il appartient aux rationnels.
 }
 
@@ -101,8 +244,32 @@
 	
 	On arrive ici à une contradiction car une puissance de $10$ ne peut pas être un multiple de $3$.
 	En effet, les multiples de $3$ adviennent tous les $3$ entiers ($\{0 ; 3 ; 6 ; 9 ; 12 ; \dots\}$).
-	Or l'entier avant $10^n$ est un multiple de $3$, car c'est 
+	Or l'entier juste avant $10^n$ est un multiple de $3$, car c'est 
 		\[ 10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}} = 3 \times \underbrace{33{\dots}33}_{\text{n fois}} . \]
+	$10^n$ ne peut donc pas être multiple de $3$, une contradiction ! \Large\Lightning
+}
+
+\exe{}{
+	Montrer que $\dfrac19$ n'est pas décimal.
+}{exe:nondecimal}{
+	Si $\dfrac19 = \dfrac{a}{10^n}$, alors $10^n = 9a$ et est multiple de $9$.
+	Or l'entier d'avant est multiple de $9$ car
+		\[ 10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}} = 9 \times \underbrace{11{\dots}11}_{\text{n fois}} . \]
+	$10^n$ ne peut donc pas être multiple de $9$, une contradiction ! \Large\Lightning
+}
+
+\exe{}{
+	Montrer que $\dfrac1{k}$ n'est pas décimal dès que $k$ ne divise aucune puissance de 10.
+}{exe:nondecimal}{
+	Si $\dfrac1k = \dfrac{a}{10^n}$, alors $10^n = ka$ et est multiple de $k$, une contradiction ! \Large\Lightning
+}
+
+\exe{}{
+	Montrer que si $k$ divise une certaine puissance de 10, alors $\dfrac1k$ est décimal.
+}{exe:nondecimal}{
+	Si $k$ divise $10^n$, alors il existe un $a \in \Z$ tel que
+		\[ ak = 10^n. \]
+	Ainsi $\dfrac1k = \dfrac{a}{10^n} \in \D$.
 }
 
 \mprop{}{
@@ -117,6 +284,18 @@
 		\[ 10x = 3,333{\dots} = 3 + x. \]
 	Il suit donc que $9x = 3$, et donc que $x=\dfrac13$.
 }{}
+
+\exe{}{
+	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
+	\begin{align*}
+		A &= 0,666{\dots} \\
+		A &= 1,666{\dots} \\
+		A &= 1,666{\dots}
+	\end{align*}
+		
+}{exe:dev-to-fraction}{
+
+}
 
 \dfn{Développement périodique}{
 	On dit que le développement décimal d'un nombre est périodique dès qu'il se répète à partir d'un certain point.

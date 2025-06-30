@@ -2,6 +2,8 @@
 pdflatex -shell-escape notes.tex
 ```
 
+Add parameter `-output-directory=out` after creating `/out/` folder to redirect out files (pdf included).
+
 # Fork
 
 Fork from CMT - Charlie's Math Template.
