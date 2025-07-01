@@ -168,7 +168,7 @@
 }{}
 
 \pf{}{
-	Par hypothèses, $n=2k$ et $n=3\ell$, pour certains $k,\ell\in\N$.
+	Par hypothèses, $n=2k$ et $n=3\ell$, pour certains $k, \ell\in\N$.
 	Or $n = 3n - 2n = 3(2k) - 2(3\ell) = 6(k-\ell)$, ce qui conclut.
 }
 
@@ -233,7 +233,7 @@
 	Ainsi $ab$ divise aussi $uan$ et $vbn$ ainsi que leur somme, valant $n$.
 }
 
-\thm{Règle de divisibilité par 3, 9}{
+\thm{Règle de divisibilité par 3 et 9}{
 	Un nombre est divisible par 3 (respectivement 9) si et seulement si la somme de ses chiffres est divisible par 3 (resp. 9).
 }{thm:règle-divisibilité-3-9}
 
@@ -256,10 +256,168 @@
 	En général, $10^n \cdot a$ est divisible par 3 si et seulement si $a$ l'est, ce qui conclut.
 }{}
 
-\exe{}{
-	Démontrer la règle de divisibilité par 9 énoncée dans le théorème \ref{thm:règle-divisibilité-3-9}.
+\exe{, difficulty=1}{
+	Démontrer la règle de divisibilité par 9 énoncée par le théorème \ref{thm:règle-divisibilité-3-9}.
 }{exe:règle-divisibilité-3-9}{
 	$10^n \cdot a$ est divisible par $9$ si et seulement si $a$ l'est, car 
 		\[ 10^n \cdot a = (10^n - 1)a + a, \]
 	et puisque $10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}}$ est un multiple de 9.
 }
+
+\section{Nombres premiers}
+
+\dfn{Nombre premier}{
+	Soit $p \in\N$. On suppose $p\geq2$ pour des raisons techniques qui seront précisées plus tard.
+	
+	On appelle $p$ \emph{nombre premier} ou simplement \emph{premier} dès que
+		\[ \D_p = \{ 1 ; p \}. \]
+	Autrement dit, les seuls diviseurs de $p$ sont $1$ et lui-même, et $p$ n'est pas 1.
+}{dfn:nombre-premier}
+
+\notations{
+	\[ \P = \bigset{ n \in \N \tq \text{$n$ est premier}}. \]
+}
+
+\exe{}{
+	Donner les 5 plus petits nombres premiers.
+}{exe:premiers}{
+	D'après l'exercice \ref{exe:diviseurs}, on sait que 2, 3, 5, et 7 sont premiers, et que 4, 6, 8 ne le sont pas.
+	On énumère $\D_9 = \bigset{ 1 ; 9 ; 3 }$, $\D_{10} = \bigset{ 1 ; 10 ; 2 ; 5 }$, puis $\D_{11} = \bigset{ 1 ; 11 }$, ce qui nous donne le 5è premiers.
+	
+	\[ \P = \bigset{ 2 ; 3 ; 5 ; 7 ; 11 ; 13 ; 17 ; 19 ; 23 ; 29 ; 31 ; \dots }. \]
+}
+
+\exe{}{
+	Montrer que $n^2$ n'est jamais premier pour n'importe quel $n\in\N$.
+}{exe:carré-non-premier}{
+	Si $n=0$, $n^2=0$ qui n'est pas premier car ceux-ci commencent à 2.
+	Idem pour $n=1$ : $n^2 = 1$ qui n'est pas premier.
+	
+	Si $n\geq2$, alors $n^2 = n \times n$, et donc $n^2$ admet $n$ comme diviseur, qui n'est ni 1, ni $n^2$, et donc $n^2$ n'est pas premier.
+}
+
+
+\thm{}{
+	Soit $n\N$, $n\geq2$.
+	Alors $n$ se scinde en produit de nombres premiers.
+}{thm:decomposition-primaire}
+
+\pf{}{
+	Par définition, un nombre est soit premier, soit il se scinde en produit de deux entiers strictement inférieurs à celui-ci.
+	Ainsi pour n'importe quel nombre $n\in\N$ supérieur à $2$, il y a deux alternatives : soit $n$ est premier, soit il se scinde.
+	S'il se scinde, on répète le raisonnement sur ses deux facteurs. 
+	Ce processus se termine nécessairement en au plus $n$ étapes car chaque facteur est strictement plus petit que son parent.
+	À la fin, aucun facteur ne peut se scinder davantage : ils sont donc tous premiers.
+}
+
+\exe{}{
+	Donner la décomposition en facteurs premiers de tous les éléments de $\D_{24}$ excepté 1.
+}{exe:décompositions-primaires}{
+	On a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 , 4 ; 6 }$, qui se décomposent comme suit.
+	\begin{multicols}{2}
+		$2 = 2$ est déjà premier.
+		
+		$3=3$ est déjà premier.
+		
+		$4 = 2 \times 2 = 2^2$.
+		
+		$6 = 2\times3$.
+		
+		$8 = 2\times4 = 2\times2\times2 = 2^3$.
+		
+		$12 = 3 \times 4 = 2^2 \times 3$.
+		
+		$24 = 4 \times 6 = 2^2 \times 2 \times 3 = 2^3 \times 3$.
+	\end{multicols}
+}
+
+\mprop{}{
+	Il existe une infinité de nombres premiers.
+}{prop:infinité-premiers}
+
+\exe{, difficulty=2}{
+	Considérons $p_1, p_2, \dots, p_k$ des nombres premiers.
+	Montrer que le nombre
+		\[ N = p_1 \cdot p_2 \cdot\cdots\cdot p_k + 1 \]
+	n'est divisible par aucun des premiers $p_1, \dots, p_k$.
+	
+	Conclure qu'il existe une infinité de nombres premiers.
+}{exe:infinité-premiers}{
+	Pour chacun des premiers $p_i$ ($i=1, \dots, k$), on peut soustraire à $N$ un multiple de $p_i$ sans changer son caractère divisible ou non par celui-ci (voir théorème \ref{thm:divisibilité-combinaison-entière}).
+	Or bien sûr $p_1 \cdot p_2 \cdots p_k$ est un multiple de $p_i$. 
+	En le soustrayant à $N$, on sait que
+		\[ \big( N \text{ divisible par } p_i \big) \iff \big( 1 \text{ divisible par } p_i \big). \]
+	Or 1 n'est pas divisible par $p_i$, donc $N$ ne l'est pas non plus.
+	
+	Pour conclure sur l'infinité des nombres premiers, supposons par l'absurde qu'il existe exactement $k$ nombres premiers : $p_1, \dots, p_k$.
+	Le nombre $N$ construit n'est divisible par aucun d'eux.
+	D'après le théorème \ref{thm:decomposition-primaire}, $N$ se décompose en produit de premiers, aucun d'eux n'appartenant à la liste ! \Lightning
+}
+
+\nt{
+	Le théorème d'unicité suivante est très important mais sa démonstration est (malheureusement) en dehors du champ d'application du cours.
+	Cependant, les outils présentés dans ce chapitre permettent déjà de le démontrer.
+}
+
+\thm{}{
+	\emph{La} décomposition en facteurs premiers est unique à permutation des facteurs près.
+}{thm:decomposition-primaire-strong}
+
+\cor{}{
+	Soit $n\in\N$ dont la décomposition en facteurs premiers est donnée par
+		\[ n = p_1^{n_1} \cdot\cdots\cdot p_k^{n_k}. \]
+	Alors les diviseurs de $n$ sont tous de la forme
+		\[ p_1^{m_1} \cdot\cdots\cdot p_k^{m_k}, \]
+	où $0 \leq m_i \leq n_i$ pour tout $i=1, \dots, k$.
+}{cor:divisibilité-avec-decomposition}
+
+\exe{}{
+	Vérifier le corollaire \ref{cor:divisibilité-avec-decomposition} pour $n=24$ à l'aide de l'exercice \ref{exe:décompositions-primaires}.
+}{exe:nombre-diviseurs-avec-decomposition}{
+	La décomposition de $24$ est $24 = 2^3 \times 3$.
+	Une inspection rapide des décompositions des diviseurs de $24$ montre bien qu'ils sont tous de la forme $2^a \times 3^b$ avec $0 \leq a \leq 3$ et $0 \leq b \leq 1$.
+}
+
+\exe{, difficulty=2}{
+	Démontrer le corollaire \ref{cor:divisibilité-avec-decomposition}.
+}{exe:nombre-diviseurs-avec-decomposition}{
+	Si $a$ est de la forme décrite par le théorème, alors $a$ divise $n$ : il suffit de compléter la décomposition de $a$ pour obtenir celle de $n$ en multipliant par un nombre adéquat.
+	Par exemple, $2^3 \times 5^2$ divise $2^6 \times 3^2 \times 5^2$ car
+		\[ 2^6 \times 3^2 \times 5^2 = (2^3 \times 5^2) \times (2^3 \times 3^2). \]
+
+	Inversement, si $a$ divise $n$, alors $n = a \cdot k$ pour un certain $k\in\N$.
+	Considérons désormais les décompositions en facteurs premiers de $a$ et $k$ séparément.
+	En les rejoignant, on obtient une décomposition du produit $a \cdot k = n$.
+	Par unicité, cette décomposition est \emph{la} décomposition de $n$.
+	Ainsi, tous les premiers de la décomposition de $a$ doivent apparaître dans la décomposition de $n$.
+	La décomposition de $a$ est donc constituée des premiers apparaissant dans la décomposition de $n$ à une puissance inférieure (et possiblement nulle).
+}
+
+\cor{}{
+	Soit $n\in\N$ dont la décomposition en facteurs premiers est donnée par
+		\[ n = p_1^{n_1} \cdots p_k^{n_k}. \]
+	Alors le nombre de diviseurs de $n$ est égal à
+		\[ (n_1 + 1)\cdot(n_2+1)\cdot\cdots\cdot(n_k+1). \]
+	C'est le nombre d'éléments de $\D_n$.
+}{cor:nombre-diviseurs-avec-decomposition}
+
+\exe{}{
+	Vérifier le corollaire \ref{cor:nombre-diviseurs-avec-decomposition} pour $n=24$ et $n=28$.
+}{exe:nombre-diviseurs-avec-decomposition}{
+	D'abord pour $n=24$, on a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 ; 4 ; 6 }$, qui contient 8 éléments. 
+	Comme $24 = 2^3 \times 3^1$, le calcul $(3+1)\times(1+1) = 8$ donne bien le nombre de diviseurs de $24$.
+	
+	Ensuite pour $n=28$, on a $28 = 2^2 \times 7^1$ et on s'attend donc à ce que les diviseurs de $28$ soient au nombre de $(2+1)\times(1+1) = 6$.
+	On énumère $\D_{28} = \bigset{ 1 ; 28 ; 2 ; 14 ; 4 ; 7 }$ qui contient bien 6 éléments.
+}
+
+\exe{, difficulty=2}{
+	Démontrer le corollaire \ref{cor:nombre-diviseurs-avec-decomposition}.
+}{ex:nombre-diviseurs-avec-decomposition}{
+	Par unicité de la décomposition en facteurs premiers, tous les diviseurs du corollaire \ref{cor:divisibilité-avec-decomposition} sont différents.
+	Il y a donc une correspondance entre le nombre de diviseurs et les configurations différentes de puissances $m_1, \dots, m_k$.
+	
+	Pour chaque $i=1, \dots, k$, il y a $n_i+1$ choix pour la puissance $m_i$  ($m_i$ peut valoir $0, 1, 2, \dots, n_i$).
+	Au total, il y a donc bien $(n_1 + 1)\cdot(n_2+1)\cdot\cdots\cdot(n_k+1)$ uniques choix de puissances.
+}
+

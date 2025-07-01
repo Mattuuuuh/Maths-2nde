@@ -46,7 +46,12 @@
 \newcommand{\str}[1]{\begin{Strategy}#1\end{Strategy}}
 \newcommand{\mth}[1]{\begin{Methode}#1\end{Methode}}
 
-\newcommand{\exe}[4]{\begin{Exe}[label=#3]{#1}{}#2\end{Exe}}
+\newcommand{\exe}[4]{
+	\begin{Exe}[label=#3]{}{}#2\end{Exe}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
 
 \fi
 
