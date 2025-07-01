@@ -1,0 +1,199 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Fonction carré, fonction racine carrée, et valeur absolue}
+
+\section{Fonction carré}
+
+
+
+\section{Fonction racine carrée}
+
+
+\section{Fonction valeur absolue}
+
+\dfn{Valeur absolue}{
+	On nomme la fonction $f(x) = \sqrt{x^2}$ la fonction \emph{valeur absolue}.
+	On note $|x|$ la valeur absolue de $x$, image de $x$ par $f$.
+}{dfn:valeur-absolue}
+
+\exe{}{
+	Écrire les nombres suivants sans les barres de valeur absolue.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $|-7|$
+		\item $|8|$
+		\item $|-13-8|$
+		\item $|\pi - 4|$
+		\item $|-5+3| + |-7+4|$
+		\item $|\sqrt{2} - \sqrt{3}|$
+	\end{enumerate}
+	\end{multicols}
+}{exe:valeur-absolue}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $7$
+		\item $8$
+		\item $21$
+		\item $4 - \pi$
+		\item $5$
+		\item $\sqrt{3}- \sqrt{2}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\mprop{}{
+	La valeur absolue est toujours positive ou nulle.
+	
+	On a en fait
+		%\[ |x| =  \begin{cases} x \text{ si $x$ \geq 0}, \\ -x \text{ si $x$ \leq 0}. \end{cases} \]
+}{prop:caractérisation-valeur-absolue}
+
+\pf{}{
+	Si $x\geq0$, alors $x$ est le nombre positif tel que, mis au carré, il vaut $x^2$.
+	C'est donc la racine carrée de $x^2$.
+
+	Si $x\leq0$, le même raisonnement ne tient pas, car la racine carrée de $x^2$ est le nombre \emph{positif} tel que, mis au carré, il vaut $x^2$.
+	Le nombre $-x$ fonctionne ici : il est positif, et $(-x)^2 = (-1)^2 x^2 = x^2$.
+	Par conséquent, $\sqrt{x^2} = -x$ dans ce cas.
+}
+
+\exe{}{
+	Montrer que pour tout $x\in\R$, $|x| = |-x|$.
+}{exe:moinsabs}{
+	Comme $x^2 = (-x)^2$, appliquer la racine carrée conclut.
+	
+	On aurait aussi pû étudier les cas $x\geq0$ et $x\leq0$ séparément :
+	\begin{itemize}
+		\item Si $x\geq0$, alors $-x\leq0$ et $|-x| = -(-x)= x = |x|$.
+		\item Si $x\leq0$, alors $-x\geq0$ et $|x| = -x= |-x|$.
+	\end{itemize}
+}
+
+\exe{}{
+	Montrer que pour tout $x\in\R$, $|2x| = 2|x|$.
+}{exe:2abs}{
+	Comme $(2|x|)^2 = 4x^2 = (2x)^2$, appliquer la racine carrée conclut.
+	
+	On aurait aussi pû étudier les cas $x\geq0$ et $x\leq0$ séparément :
+	\begin{itemize}
+		\item Si $x\geq0$, $2x\geq0$ et $|2x| = 2x = 2|x|$.
+		\item Si $x\leq0$, alors $2x\leq0$ et $|2x| = -2x= 2(-x) = 2|x|$.
+	\end{itemize}
+}
+
+\exe{}{
+	Montrer que pour tout $x\in\R$, $|x|^2 = x^2$.
+}{exe:abscarre}{
+	$|x| = x$ ou $-x$. Dans le premier cas, il n'y a rien à montrer, et dans le second, $(-x)^2 = (-1)^2 x^2 = x^2$.
+}
+
+\thm{}{
+	Pour tout $x, y\in\R$, on a
+		\[ |x\cdot y| = |x|\cdot|y|. \]
+}{thm:produit-valeur-absolue}
+
+\pf{}{
+	D'après l'exercice \ref{exe:abscarre}, on a $(|x|\cdot|y|)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
+	En appliquant la racine carrée, on trouve
+		\[ |x| \cdot |y| = \big| |x|\cdot|y| \big| = |xy|. \]
+}
+
+\thm{}{
+	Soit $x, y \in \R$. Alors la distance entre $x$ et $y$ sur la droite réelle est donnée par 
+		\[ \text{distance}(x,y) = |x-y| = |y-x|. \]
+}{thm:valeurs-absolue-distance}
+
+\pf{}{
+	Remarquons d'abord que $|x-y| = |y-x|$ d'après l'exercice \ref{exe:abs} et car $x-y$ est l'opposé de $y-x$.	
+
+	Si $x \leq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $y-x$ qui vaut $|y-x|$ par positivité.
+	Sinon, $x \geq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $x-y$ qui vaut $|x-y|$, à nouveau par positivité.
+
+	Dans tous les cas, la distance vaut donc bien $|x-y| = |y-x|$.
+}
+
+\exe{}{
+	Donner l'ensemble des $x\in\R$ vérifiant $|x| = 4$.
+}{exe:vabs-4}
+{
+	Comme $|x|$ vaut soit $x$, soit $-x$, on a $x=4$ ou $-x=4 \iff x = -4$.
+	Ainsi $\bigset{ x \in \R \tq |x| = 4 } = \bigset{-4 ; 4}$.
+}
+
+\exe{}{
+	Donner l'ensemble des $x\in\R$ vérifiant $x^2 = 16$.
+}{exe:carre-16}
+{
+	En appliquant la racine carrée, on a $|x| = \sqrt{x^2} = \sqrt{16} = 4$.
+	L'exercice \ref{exe:vabs-4} permet de conclure que $\bigset{ x \in \R \tq x^2 = 16 } = \bigset{-4 ; 4}$.
+}
+
+\exe{}{
+	Donner l'ensemble des $x\in\R$ vérifiant $|x| \leq 9$.
+}{exe:vabs-9}
+{
+	Comme $|x|$ donne la distance de $x$ à 0, on a 
+		\[ \bigset{ x \in \R \tq |x|\leq9 } = [-9; 9]. \]
+}
+
+\exe{}{
+	Donner l'ensemble des $x\in\R$ vérifiant $x^2 \leq 81$.
+}{exe:carre-81}
+{
+	En appliquant la racine carrée, et comme la fonction racine est croissante, on a $x^2 \leq 81 \iff |x| \leq 9$.
+	L'exercice \ref{exe:vabs-9} permet de conclure que $\bigset{ x \in \R \tq x^2 \leq 81 } = [-9 ; 9]$.
+}
+
+\cor{Manipulation d'égalités, d'inégalités avec valeurs absolues}{
+	Soit $E\in\R$ une expression quelconque et $a\geq0$ un réel positif ou nul.
+	Alors 
+		\begin{align*}
+			| E | = a && \iff && E = a \text{ ou } E = -a, \\
+			|E| \leq a && \iff && E \in [-a ; a], \\
+			%|E| \geq a && \iff && E \in ]\minfty; -a] \text{ ou } E\in [a ; \pinfty[.
+		\end{align*}
+}{cor:manipulations-valeurs-absolues}
+
+\exe{, difficulty=1}{
+	Démontrer le corollaire \ref{cor:manipulations-valeurs-absolues}.
+}{exe:manipulations-valeurs-absolues}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner l'ensemble des $x\in\R$ vérifiant $|x| \geq 21$.
+}{exe:vabs-9}
+{
+	Comme $|x|$ donne la distance de $x$ à 0, on a 
+		\[ \bigset{ x \in \R \tq |x|\geq21 } = ]\minfty; -21] \cup [21 ; \pinfty[. \]
+}
+
+
+\cor{}{
+	Pour $r, c \in\R$ et $r\geq0$, on a l'égalité d'ensembles
+		\[ \bigset{ x \in \R \tq |x - c| \leq r} = [c - r ; c+r]. \]
+}{cor:boule-rc}
+
+\exe{}{
+	Démontrer le corollaire \ref{cor:boule-rc}.
+}{exe:boule-rc}{
+	L'ensemble $\bigset{ x \in \R \tq |x - c| \leq r}$ contient tous les nombres réels $x$ à distance inférieure à $r$ de $c$.
+	C'est donc un segment centré en $c$ et de rayon $r$, l'équivalent du disque en une dimension.
+	
+	Purement algébriquement, on a $|E| \leq r \iff E\in[-r ; r] \iff -r \leq E \leq r$ d'après le corollaire \ref{cor:manipulations-valeurs-absolues}.
+	Avec $E = x-c$, on a $-r \leq x-c \leq r \iff c-r \leq x \leq c+r \iff x \in [c-r ; c+r]$.
+}
+
+\exe{, difficulty=2}{
+	Montrer que pour tout $x,y\in\R$, on a 
+		\begin{align*}
+			\min\{x,y\} = \dfrac{x+y}2 - \dfrac{|x-y|}2, && \text{ et } && \min\{x,y\} = \dfrac{x+y}2 + \dfrac{|x-y|}2.
+		\end{align*}
+}{exe:valeur-absolue-minmax}{
+	Quels que soient $x, y\in\R$, le segment borné par $x$ et $y$ est de milieu $\dfrac{x+y}2$ et de longueur $|x-y|$.
+	Ses extrémités s'expriment donc comme $c - r$ et $c+r$ où $c$ est le centre du segment et $r$ son rayon, c'est-à-dire la moitié de sa longueur.
+
+	Algébriquement, si $x<y$, alors $\dfrac{x+y}2 - \dfrac{|x-y|}2 = \dfrac{x+y}2 - \dfrac{y-x}2 = \dfrac{(x+y)-(y-x)}2 = \dfrac{2x}2 = x = \min\{x ,y\}$.
+	On peut faire de même pour le maximum puis dans le cas $x>y$ (ou se convaincre que le cas $x>y$ n'est pas à faire par symétrie des expressions).
+}
