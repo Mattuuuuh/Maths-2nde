@@ -2,13 +2,139 @@
 %!TEX root = 0-notes.tex
 
 \chapter{Fonction carré, fonction racine carrée, et valeur absolue}
+\label{chap:fonction-carré}
+
 
 \section{Fonction carré}
 
 
 
-\section{Fonction racine carrée}
+\exe{}{
+	Donner $\bigset{k^2 \text{ où } k = 0, 1, 2, \dots, 12}$.
+}{exe:carrés-parfaits}{
+	Les carrés de 0 à 12 sont
+		\[ \bigset{0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144}. \]
+}
 
+
+\exe{, difficulty=1}{
+	Montrer que si $0 < x < 1$, alors $x^2 < x$, et que si $x>1$, alors $x^2 > x$.
+}{exe:sq-id}{
+	On peut multiplier chaque inégalité par $x$ sans changer l'ordre dès que celui-ci est strictement positif.
+	Ainsi $x < 1 \implies x^2 < x$, et $x>1 \implies x^2 > x$ pour n'importe quel $x>0$.
+}
+
+\section{Fonction racine carrée}
+\label{sec:racine-carrée}
+
+\dfn{Racine carrée}{
+	Soit $a \in \R, a\geq0$ un réel positif ou nul.
+	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
+		\[ \sqrt{a}^2 = a. \]
+}{}
+
+
+
+\exe{}{
+	Compléter les pointillés.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\sqrt{25} = \dots$
+		\item $\sqrt{81} = \dots$
+		\item $\sqrt{121} = \dots$
+		\item $\sqrt{\quad\dots\quad} = 25$
+		\item $\sqrt{\quad\dots\quad} = 12$
+		\item $\sqrt{\quad\dots\quad} = 10^3$
+	\end{enumerate}
+	\end{multicols}
+}
+{}
+
+\exe{}{
+	Calculer les racines carrées suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\sqrt{7^2}$
+		\item $\sqrt{17}^2$
+		\item $\sqrt{(-9)^2}$
+		\item $\sqrt{10^4}$
+		\item $\left(-\sqrt{4}\right)^2$
+		\item $-\sqrt{15^2}$
+	\end{enumerate}
+	\end{multicols}
+}
+{}
+
+ pas hyper intéressant sans notion de croissance de sqrt je trouve
+\exe{}{
+	Donner un encadrement des nombres à l'unité.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\sqrt{43}$
+			\item $\sqrt{70,8}$
+			\item $\sqrt{\dfrac{61}7}$
+			\item $\sqrt{101,204}$
+		\end{enumerate}
+		\end{multicols}
+}{}
+
+\thm{Propriétés de la racine carrée}{
+	Soient $a,b \in\R$ deux réels positifs, $b\neq0$.
+	Alors
+		\begin{align*}
+			\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, && \text{ et } && \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}.
+		\end{align*}
+}{}
+
+\exe{}{
+	Calculer les produits suivants.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\sqrt{169} \cdot \sqrt{81}$
+		\item $\sqrt{169 \cdot 81}$
+		\item $\sqrt{0,16} \cdot \sqrt{900}$
+		\item $\sqrt{0,16 \cdot 900}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{}{
+	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\sqrt{12}$
+		\item $\sqrt{150}$
+		\item $5\sqrt{96}$
+		\item $2\sqrt{300}$
+		\item $\dfrac{12}{\sqrt{3}}$
+		\item $\dfrac{18}{\sqrt{6}}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+
+\exe{}{
+	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $3\sqrt{2}$
+		\item $50\sqrt{0,5}$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\exe{}{
+	Calculer les fractions suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
+		\item $\sqrt{\dfrac{64}4}$
+		\item $\dfrac{\sqrt{0,81}}{\sqrt{0,09}}$
+		\item $\sqrt{\dfrac{0,81}{0,09}}$
+	\end{enumerate}
+	\end{multicols}
+}{}
 
 \section{Fonction valeur absolue}
 

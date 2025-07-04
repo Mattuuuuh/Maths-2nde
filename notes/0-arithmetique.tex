@@ -1,7 +1,8 @@
 %!TEX encoding = UTF8
-%!TEX root =0-notes.tex
+%!TEX root = 0-notes.tex
 
 \chapter{Arithmétique}
+\label{chap:arithmétique}
 
 \section{Parité}
 
@@ -98,6 +99,59 @@
 	et donc que $m+n$ est pair, car $k+\ell+1 \in \N$.
 }
 
+
+\exe{}{
+	Montrer que si $n$ est pair, alors $m \cdot n$ est également pair pour n'importe quel entier $m\in\N$.
+}{exe:mod2}{
+	Par hypothèse, $n=2k$ pour un $k\in\N$.
+	Donc $mn = m(2k) = 2(mk)$, qui est également pair car $mk\in\N$.
+}
+
+\notations{
+	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
+	On lit « $x$ au carré » ou « $x$ carré ».
+}
+
+\nomen{
+	Un entier $n\in\N$ est un \emph{carré parfait} si $n = k^2$ pour un certain entier $k\in\N$.
+}
+
+\exe{, difficulty=1}{
+	Montrer que la différence de deux carrés parfaits consécutifs est un nombre impair.
+}{exe:diff-carrés}{
+	On pour tout $n\in\N$ et en utilisant une identité remarquable au choix, $(n+1)^2 - n^2 = (n+1+n)(n+1-n) = 2n+1$ est impair.
+}
+
+\exe{, difficulty=2}{
+	À l'aide de l'exercice \ref{exe:diff-carrés}, montrer que la somme des $n+1$ premiers nombres impairs est un carré parfait. Plus précisément,
+		\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
+}{exe:sum-odd}{
+	La différence de deux impairs consécutifs étant un impair, et zéro étant un carré parfait, ajouter des impairs consécutifs permet de passer de carrés en carrés.
+	
+	Plus précisément, on a les différences suivantes :
+		\begin{align*}
+			1^2 - 0^2 &= 1 \\
+			2^2 - 1^2 &= 3 \\
+			3^2 - 2^2 &= 5 \\
+					&\vdots \\
+			(n+1)^2 - n^2 &= 2n+1.
+		\end{align*}
+	En ajoutant tous les termes à gauche, on obtient une somme téléscopique qui vaut $(n+1)^2$.
+	La somme des termes à droite vaut bien $1 + 3 + 5 + \cdots + (2n+1)$.
+}
+
+
+\exe{, difficulty=2}{
+	Déduire de la somme des impairs de l'exercice \ref{exe:sum-odd} que
+		\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
+}{exe:sum-all}{
+	En partant de l'identité $1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2$, et en soustrayant $n+1$ de chaque côté, on obtient
+		\[ 0 + 2 + 4 + \cdots + (2n) = (n+1)^2 - (n+1) = n(n+1),\]
+	car $n+1=\underbrace{1+1+\cdots+1}_\text{n fois}$ et car la somme de gauche a $n+1$ termes.
+	En divisant par 2, on conclut que
+		\[ 1 + 2 + \cdots + n = \dfrac{n(n+1)}2. \]
+}
+
 \section{Diviseurs}
 
 \dfn{}{
@@ -110,6 +164,13 @@
 
 \notations{
 	On note $a \big| n$ la relation « $a$ divise $n$ ».
+}
+
+\exe{}{
+	Montrer que 2 divise toujours le produit de deux entiers consécutifs.
+}{exe:2divcons}{
+	Parmis deux entiers consécutifs, au moins l'un deux est pair.
+	L'exercice \ref{exe:mod2} conclut donc.
 }
 
 \exe{, difficulty=1}{
@@ -288,6 +349,15 @@
 }
 
 \exe{}{
+	Montrer que 2 est le seul nombre premier pair.
+}{exe:premier-pair}{
+	Soit $p\in\P$ un premier pair.
+	Autrement dit, 2 divise $p$. 
+	Mais les seuls diviseurs de $p$ sont 1 et lui-même.
+	Donc $p=2$.
+}
+
+\exe{}{
 	Montrer que $n^2$ n'est jamais premier pour n'importe quel $n\in\N$.
 }{exe:carré-non-premier}{
 	Si $n=0$, $n^2=0$ qui n'est pas premier car ceux-ci commencent à 2.
@@ -296,9 +366,20 @@
 	Si $n\geq2$, alors $n^2 = n \times n$, et donc $n^2$ admet $n$ comme diviseur, qui n'est ni 1, ni $n^2$, et donc $n^2$ n'est pas premier.
 }
 
+\exe{, difficulty=2}{
+	Déduire de l'exercice \ref{exe:sum-odd} que n'importe quelle somme de plus deux deux impairs consécutifs n'est jamais un nombre premier.
+}{exe:odd-nonprime}{
+	N'importe quelle somme d'impairs consécutifs différence de deux somme d'impairs commençant à 0 et donc différence de deux carrés parfaits :
+		\begin{align*}
+			(2a + 1) + (2a+3) + \cdots + (2b+1) &= \bigl[0 + 3 + \cdots + (2b+1) \bigr] - \bigl[0 + 3 + \cdots + (2a-1) \bigr], \\
+				&= (b+1)^2 - a^2 = (a+b+1)(b-a+1).
+		\end{align*}
+	La factorisation montrer que la différence de deux carrés n'est jamais un nombre premier dès que $b-a+1 \neq 1$, c'est-à-dire quand $a$ est différence de $b$ (et donc que la somme contient plus d'un impair).
+}
+
 
 \thm{}{
-	Soit $n\N$, $n\geq2$.
+	Soit $n\in\N$, $n\geq2$.
 	Alors $n$ se scinde en produit de nombres premiers.
 }{thm:decomposition-primaire}
 
@@ -331,9 +412,9 @@
 	\end{multicols}
 }
 
-\mprop{}{
+\thm{}{
 	Il existe une infinité de nombres premiers.
-}{prop:infinité-premiers}
+}{thm:infinité-premiers}
 
 \exe{, difficulty=2}{
 	Considérons $p_1, p_2, \dots, p_k$ des nombres premiers.
@@ -394,7 +475,7 @@
 }
 
 \cor{}{
-	Soit $n\in\N$ dont la décomposition en facteurs premiers est donnée par
+	Soit $n\in\N, n\geq2$ dont la décomposition en facteurs premiers est donnée par
 		\[ n = p_1^{n_1} \cdots p_k^{n_k}. \]
 	Alors le nombre de diviseurs de $n$ est égal à
 		\[ (n_1 + 1)\cdot(n_2+1)\cdot\cdots\cdot(n_k+1). \]
@@ -421,3 +502,24 @@
 	Au total, il y a donc bien $(n_1 + 1)\cdot(n_2+1)\cdot\cdots\cdot(n_k+1)$ uniques choix de puissances.
 }
 
+\cor{}{
+	Soit $n\in\N, n\geq2$ dont la décomposition en facteurs premiers est donnée par
+		\[ n = p_1^{n_1} \cdots p_k^{n_k}. \]
+	Alors
+		\begin{align*}
+			\bigl( \text{$n$ est un carré parfait} \bigr) && \iff && \bigl( \text{$n_1, n_2, \dots, n_k$ sont tous pairs} \bigr)
+		\end{align*}
+}{cor:carré-paire}
+
+\exe{, difficulty=2}{
+	Démontrer le corollaire \ref{cor:carré-paire}.
+}{exe:carré-paire}{
+	Si $n$ est un carré parfait, alors $n=k^2$.
+	En écrivant $k = q_1^{m_1} \cdots q_{l}^{m_l}$ la décomposition de $k$, et en utilisant que $(ab)^2 = (ab)(ab) = a^2 b^2$ et que $(a^n)^2 = a^{2n}$, on trouve
+		\[ n = k^2  = q_1^{2m_1} \cdots q_{l}^{2m_l}. \]
+	Par unicité, cette égalité donne la décomposition en facteurs premiers, dont chaque puissance est paire.
+	
+	Réciproquement, si $n_1, n_2, \dots, n_k$ sont tous pairs, alors $n_1 = 2m_1, n_2 = 2m_2, \dots n_k=2m_k$.
+	Il suit que $n$ est un carré parfait :	
+		\[ n = p_1^{2m_1} \cdots p_k^{2m_k} ) \left( n = p_1^{m_1} \cdots p_k^{m_k}\right)^2. \]
+}
