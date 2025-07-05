@@ -201,6 +201,167 @@
 	$l(-x) = k(-x) + k(-(-x)) = k(-x) + k(x) = k(x) + k(-x) = l(x)$ pour tout $x\in\R$, donc $k$ est paire.
 }
 
+
+\section{Identités remarquables}
+
+\ex{}{
+	Considérons les fonctions $f,g$ données par
+	\begin{align*}
+		f: \R & \longrightarrow \R &g: \R & \longrightarrow \R \\
+		x& \longmapsto x^2 -6\cdot x + 9,  &x& \longmapsto (x-3)^2. 
+	\end{align*}
+	Autrement dit, $f(x) =x^2 -8\cdot x + 16$ et $g(x)=(x-4)^2$ pour tout $x\in\R$.
+	
+	On se demande quels sont les antécédents d'une certaine valeur, mettons $64$ par exemple, par $f$.
+	En nommant un tel antécédent $x$, on a l'équation
+		\begin{align*}
+			f(x) &= 64, \\
+			x^2 - 8\cdot x + 16 &= 64,
+		\end{align*}
+	qui n'est pas simple du tout à résoudre car non linéaire.
+	Cependant, si on arrive à démontrer que
+		\begin{align*}
+			(x-4)^2 = x^2 - 8\cdot x + 16 && \text{c'est-à-dire} && g(x) = f(x),
+		\end{align*}
+	et ceci pour tout $x\in\R$ nombre réel, on pourra utiliser la forme plus agréable de $g$ afin d'obtenir les antécédents recherchés.
+	
+	Pour développer $(x-4)^2 = (x-4)\cdot(x-4)$, on utilise la distributivité qui est rappelée ci-après par le théorème \ref{thm:distr}.
+	On voit l'un des $(x-4)$ comme un tout, et l'autre comme un somme de deux quantités, $x$ et $-4$.
+	En découle que, par distributivité utilisée trois fois,
+		\begin{align*}
+			(x-4)^2 &= (x-4) \cdot (x-4) \\
+					&= (x-4) \cdot x + (x-4) \cdot (-4) \\
+					&= x\cdot x + (-4) \cdot x + x \cdot(-4) + (-4) \cdot (-4) \\
+					&= x^2 - 8 \cdot x + 16
+		\end{align*}
+	comme recherché.
+	
+	En revenant à notre situation, on se permet donc de résoudre
+		\begin{align*}
+			g(x) &= 64 \\
+			(x-4)^2 &= 64 \\
+			|x-4| &= 8,
+		\end{align*}
+	en utilisant la propriété de la valeur absolue vue au théorème \ref{thm:prop-vabs}, chapitre \ref{chap:3}.
+	Le chapitre en question nous a enseigné à résoudre ce genre d'équations :
+		\begin{align*}
+			|x-4| &= 8 \\
+			x-4=8 \qquad&\text{ou}\qquad x-4 = -8 \\
+			x = 12  \qquad&\text{ou}\qquad  x=-4
+		\end{align*}
+	
+	La fonction $f(x) = x^2 -8\cdot x + 16$ admet donc exactement deux antécédents de $64$ : $-4$ et $12$.
+	Il conviendra de vérifier ceci en calculant $f(-4)$ et $f(12)$.
+}{ex:id-rem1}{}
+
+\thm{Distributivité}{
+	Pour $a,b,c\in\R$ nombres réels, on a
+		\[ c \cdot (a+b) = (a+b) \cdot c = a\cdot c + b \cdot c. \]
+}{thm:distr}
+
+Certaines expressions de fonctions sont donc plus agréables à étudier que d'autres.
+Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui permettront à la fois de développer une forme factorisée, et de factoriser une forme développée.
+
+\thm{Identités remarquables}{
+	Pour tous les $a,b\in\R$ réels, on a les identités
+		\begin{align*}
+			a^2 - b^2 &= (a+b)(a-b) \\
+			(a+b)^2 &= a^2 + 2ab + b^2 \\
+			(a-b)^2 &= a^2 - 2ab + b^2
+		\end{align*}
+	Remarquons que les points médians $\cdot$ de la multiplication disparaissent et sont sous-entendus.
+	En lisant $2ab$, il faut comprendre \og 2 fois $a$ fois $b$ \fg, aussi noté $2\cdot a \cdot b$.
+}{thm:id-rem}
+
+\pf{Démonstration du théorème \ref{thm:id-rem}}{
+	Toutes les identités remarquables découlent de la distributivité.
+	La première se déduit en développant le produit $(a+b)\cdot (a-b)$.
+		\begin{align*}
+			(a+b)\cdot(a-b) &= a \cdot(a-b) + b \cdot (a-b) \\
+							&= a \cdot a + a \cdot (-b) + b\cdot a + b \cdot(-b)\\
+							&= a^2 - ab + ba - b^2 \\
+							&= a^2 - b^2
+		\end{align*}
+	La deuxième s'obtient similairement.
+		\begin{align*}
+			(a+b)^2 &= (a+b)\cdot(a+b) \\
+						&= a \cdot(a+b) + b \cdot (a+b) \\
+						&= a \cdot a + a \cdot b + b\cdot a + b \cdot b \\
+						&= a^2 + ab + ba + b^2 \\
+						&= a^2 +2ab + b^2
+		\end{align*}
+	Pour obtenir la dernière, on peut remplacer $-b$ par $b$ de la façon suivante.
+		\begin{align*}
+			(a-b)^2 &= \left( a + (-b) \right)^2 \\
+					&= a^2 + 2\cdot a\cdot (-b) + (-b)^2 \\
+					&= a^2 - 2ab + b^2.
+		\end{align*}
+}{}
+
+\nt{
+	Il sera utile de connaître quelques carrés parfaits pour développer tranquillement les expressions factorisées.
+	On énumère alors
+		\begin{align*}
+			0^2 &= 0 & 7^2 &= 49 \\
+			1^2 &= 1 & 8^2 &= 64 \\
+			2^2 &= 4  & 9^2 &= 81  \\
+			3^2 &= 9  & 10^2 &= 100 \\
+			4^2 &= 16  &  11^2 &= 121 \\
+			5^2 &= 25  & 12^2 &= 144 \\
+			6^2 &= 36 & 13^2 &= 169 
+		\end{align*}
+	Remarquons qu'on a toujours $(-n)^2 = n^2$, donc qu'on peut en déduire aussi les carrés d'entiers négatifs. 
+	Par exemple, $(-9)^2 = 9^2 = 81$.
+}
+
+\exe{}{
+	Développer les expressions algébriques suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=$\bullet$]
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3-x)^2$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:développement}{
+	TODO
+}
+
+\exe{}{
+	Factoriser les membres de gauche à la façon de l'exemple \ref{ex:id-rem1} et trouver toutes les solutions $x\in\R$ des équations suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $x^2 + 2x + 1 = 16$
+			\item $4x^2 - 4x + 1 = 9$
+			\item $9 - 18x + 9x^2 = 0$
+			\item $3x^2 - 6x + 3 = 0$
+			\item $x^2 +6x + 9 = -1$
+			\item $-4x^2 + 8x - 1 = 3$
+		\end{enumerate}
+		\end{multicols}
+}{exe:factorisation}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	On appelle \emph{triplet pythagoricien} un triplet $(a ; b ; c)$, liste de $3$ nombres entiers naturels $a, b, c\in\N$ vérifiants
+		\[ a^2 + b^2 = c^2. \]
+	Nommons deux paramètres entiers $k, \ell\in\N$ avec $k\geq \ell$.
+	Vérifier que le triplet
+		\[ (k^2 - \ell^2 ; 2k\ell ; k^2 + \ell^2) \]
+	est pythagoricien.
+	
+	Créer quelques triplets en prenant des valeurs de $k \geq \ell$ et les vérifier à la calculatrice.
+	Par exemple, pour $k=4$ et $\ell=2$, on trouve le triplet $(12 ; 16 ; 20)$, qui vérifie bien
+		\[ 12^2 + 16^2 = 20^2. \] 
+}{}{}
+
+
+
+
 \section{Fonction racine carrée}
 \label{sec:racine-carrée}
 
