@@ -7,7 +7,10 @@
 
 \section{Fonction carré}
 
-
+\dfn{Fonction carré}{
+	La \emph{fonction carré} est la fonction qui prend un nombre $x$ et renvoie son carré, $x^2 = x \cdot x$ :
+		\[ f(x) = x^2 \qquad \pourtout x\in\R. \]
+}{dfn:fonction-carré}
 
 \exe{}{
 	Donner $\bigset{k^2 \text{ où } k = 0, 1, 2, \dots, 12}$.
@@ -16,12 +19,139 @@
 		\[ \bigset{0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144}. \]
 }
 
+\exe{}{
+	Tracer la courbe représentation de la fonction carré sur le domaine $\D = [-4 ; 4]$.
+}{exe:courbe-carré}{
+	Les images $f(-4) = f(4) = 16, f(-3) = f(3) = 9, f(-2) = f(2) = 4, f(-1)=f(1) = 1$, et $f(0) =0$ permettent de tracer la courbe bleue suivante. La courbe verte est la version avec 101 points choisis uniformément.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-4:4, samples=9]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
 
 \exe{, difficulty=1}{
 	Montrer que si $0 < x < 1$, alors $x^2 < x$, et que si $x>1$, alors $x^2 > x$.
 }{exe:sq-id}{
 	On peut multiplier chaque inégalité par $x$ sans changer l'ordre dès que celui-ci est strictement positif.
 	Ainsi $x < 1 \implies x^2 < x$, et $x>1 \implies x^2 > x$ pour n'importe quel $x>0$.
+}
+
+%\thm{Signe du produit}{
+%	Soit $A, B \in \R$ deux réels.
+%	On distingue trois cas sur le signe du produit $A \cdot B$.
+%		\begin{enumerate}
+%			\item Si $A \cdot B = 0$, alors $A=0$ ou $B=0$. (le « ou » est inclusif)
+%			\item Si $A \cdot B > 0$, alors $A$ et $B$ ont le même signe :
+%				\begin{enumerate}[label=\roman*)]
+%					\item soit $A, B > 0$ ;
+%					\item soit $A, B < 0$.
+%				\end{enumerate}
+%			\item Si $A \cdot B < 0$, alors $A$ et $B$ sont de signes opposés :
+%				\begin{enumerate}[label=\roman*)]
+%					\item soit $A> 0$ et $B < 0$ ;
+%					\item  soit $A < 0$ et $B > 0$.
+%				\end{enumerate}
+%		\end{enumerate}
+%}{thm:signe-produit}
+
+\thm{Propriétés du carré}{
+	Soient $a, b \in\R$ deux réels, $b$ non nul lorsque dénominateur.
+	Alors
+		\begin{align*}
+			(a \cdot b)^2 = a^2 \cdot b^2, && \et && \left(\dfrac{a}{b}\right)^2 = \dfrac{a^2}{b^2}.
+		\end{align*}
+}{thm:prop-carré}
+
+
+\thm{Signe du produit}{
+	Le signe d'un produit suit les règles suivantes, où la positivité et la négativité sont strictes :
+	\begin{itemize}
+		\item $\oplus \cdot \oplus = \oplus$
+		\item $\ominus \cdot \ominus = \oplus$
+		\item $\oplus \cdot\ominus = \ominus$
+	\end{itemize}
+}{thm:signe-produit}
+
+\thm{Positivité du carré}{
+	Pour n'importe quel $x\in\R$, $x^2 \geq 0$ avec égalité uniquement en $x=0$.
+}{thm:carré-positif}
+
+\pf{}{
+	On a d'abord $0^2 = 0$.
+	Ensuite, si $x\neq0$ est non nul on distingue les deux cas suivants.
+	\begin{itemize}
+		\item Si $x>0$, alors $x^2 = x\cdot x >0$ comme produit de deux positifs.
+		\item Si $x<0$, alors $x^2 = x\cdot x > 0$ comme produit de deux négatifs.
+	\end{itemize}
+}
+
+\mprop{Symétrie du carré}{
+	La fonction $f(x) = x^2$ vérifie $f(-x)=f(x)$ pour tout $x\in\R$.
+	Graphiquement, la courbe représentative $\C_f$ est symétrie par rapport à l'axe des ordonnées.
+}{prop:sym-carré}
+
+\pf{}{
+	$f(-x) = (-x)^2 = \bigl( (-1)x \bigr)^2 = (-1)^2 x^2 = x^2 = f(x)$ pour tout $x\in\R$.
+}
+
+\dfn{Fonction paire}{
+	Une fonction quelconque $f$ définie sur $\R$ est dite \emph{paire} dès que $f(x) = f(-x)$ pour tout $x\in\R$.
+	Sa courbe représentative $\C_f$ est symétrie par rapport à l'axe des ordonnées.
+}{dfn:fonction-paire}
+
+\exe{}{
+	Montrer que les fonctions suivantes sont paires.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x^2$
+		\item $g(x) = 4x^2 + 7$
+		\item $h(x) = \dfrac{1}{4x^2 + 7}$
+		\item $k(x) = x^4$
+	\end{enumerate}
+	\end{multicols}
+}{exe:paires}{
+	Pour tout $x\in\R$ on a bien 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(-x) = 2(-x)^2 = 2x^2 = f(x)$.
+		\item $g(-x) = 4(-x)^2 + 7 = 4x^2 + 7 = g(x)$
+		\item $h(-x) = \dfrac{1}{4(-x)^2 + 7} = \dfrac{1}{4x^2 + 7} = h(x)$
+		\item $k(-x) = (-x)^4 = \bigl( (-x)^2 \bigr)^2 = \bigl( x^2 \bigr)^2 = x^4 = k(x)$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{, difficulty=1}{
+	Montrer que la fonction $f(x) = x^2 - x^3$ n'est pas paire.
+}{exe:non-paire}{
+	Supposons que $f$ soit paire.
+	Par définition, $f(-x) = f(x)$ pour tout $x\in\R$.
+	
+	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
+	Par conséquence, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
+	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
+	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas paire.
+}
+
+\exe{, difficulty=2}{
+	Montrer que si $g$ est une fonction de $x^2$, alors $g$ est paire.
+	Plus précisément, on suppose que $g(x) = h(x^2)$ pour une certaine fonction $h$.
+}{exe:gpaire}{
+	$g(-x) = h\bigl( (-x)^2 \bigr) = h(x^2) = g(x)$ pour tout $x\in\R$, donc $g$ est paire.
+}
+
+\exe{, difficulty=2}{
+	Montrer que si $k$ est une fonction quelconque, alors la fonction $l(x) = k(x) + k(-x)$ est paire.
+}{exe:symétrisation}{
+	$l(-x) = k(-x) + k(-(-x)) = k(-x) + k(x) = k(x) + k(-x) = l(x)$ pour tout $x\in\R$, donc $k$ est paire.
 }
 
 \section{Fonction racine carrée}
@@ -32,8 +162,6 @@
 	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
 		\[ \sqrt{a}^2 = a. \]
 }{}
-
-
 
 \exe{}{
 	Compléter les pointillés.
@@ -47,8 +175,9 @@
 		\item $\sqrt{\quad\dots\quad} = 10^3$
 	\end{enumerate}
 	\end{multicols}
+}{exe:sqrt1}{
+	TODO
 }
-{}
 
 \exe{}{
 	Calculer les racines carrées suivantes.
@@ -62,29 +191,54 @@
 		\item $-\sqrt{15^2}$
 	\end{enumerate}
 	\end{multicols}
+}{exe:sqrt2}{
+	TODO
 }
-{}
 
- pas hyper intéressant sans notion de croissance de sqrt je trouve
+% pas hyper intéressant sans notion de croissance de sqrt je trouve
+%\exe{}{
+%	Donner un encadrement des nombres à l'unité.
+%		\begin{multicols}{2}
+%		\begin{enumerate}
+%			\item $\sqrt{43}$
+%			\item $\sqrt{70,8}$
+%			\item $\sqrt{\dfrac{61}7}$
+%			\item $\sqrt{101,204}$
+%		\end{enumerate}
+%		\end{multicols}
+%}{}
+
 \exe{}{
-	Donner un encadrement des nombres à l'unité.
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item $\sqrt{43}$
-			\item $\sqrt{70,8}$
-			\item $\sqrt{\dfrac{61}7}$
-			\item $\sqrt{101,204}$
-		\end{enumerate}
-		\end{multicols}
+	Montrer que la notation $x = \sqrt{-1}$ n'a pas de sens pour $x\in\R$ réel.
+}{exe:sqrt-undef}{
+	À supposer qu'il existe un tel $x\in\R$, alors il vérifierait $x^2 = -1$.
+	Ce n'est pas possible car la fonction carré est toujours positive. \Large\Lightning
+}
+
+\dfn{Domaine de définition}{
+	Soit $f$ une fonction sur $\R$.
+	Le plus grand domaine de $\R$ sur lequel $f$ est bien définie est le \emph{domaine de définition} de $f$.
 }{}
+
+\notations{
+	Le domaine de définition de $f$ est noté $\D_f$.
+}
+
+\mprop{}{
+	Le domaine de définition de la fonction racine carrée est $[0 ; \pinfty[$.
+}{prop:domaine-sqrt}
+
+\notations{
+	On note également $\R_+ = [0 ; \pinfty[$ l'ensemble des réels positifs ou nuls.
+}
 
 \thm{Propriétés de la racine carrée}{
-	Soient $a,b \in\R$ deux réels positifs, $b\neq0$.
+	Soient $a, b \in\R$ deux réels positifs, $b$ non nul lorsque dénominateur.
 	Alors
 		\begin{align*}
-			\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, && \text{ et } && \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}.
+			\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, && \et && \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}.
 		\end{align*}
-}{}
+}{thm:prop-sqrt}
 
 \exe{}{
 	Calculer les produits suivants.
@@ -96,7 +250,9 @@
 		\item $\sqrt{0,16 \cdot 900}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:sqrt3}{
+	TODO
+}
 
 \exe{}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
@@ -111,7 +267,9 @@
 		\item $\dfrac{18}{\sqrt{6}}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:sqrt4}{
+	TODO
+}
 
 
 \exe{}{
@@ -122,7 +280,9 @@
 		\item $50\sqrt{0,5}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:sqrt5}{
+	TODO
+}
 
 \exe{}{
 	Calculer les fractions suivantes.
@@ -134,7 +294,9 @@
 		\item $\sqrt{\dfrac{0,81}{0,09}}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:sqrt6}{
+	TODO
+}
 
 \section{Fonction valeur absolue}
 

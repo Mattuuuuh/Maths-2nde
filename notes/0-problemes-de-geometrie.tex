@@ -2,8 +2,6 @@
 %!TEX root = 0-notes.tex
 
 \chapter{Problèmes de géométrie}
-
-\chapter{Problèmes de géométrie}
 \label{chap:pb-geom}
 
 \section{Projeté orthogonal}
@@ -25,9 +23,10 @@
 		\node[black] at (70*10/116,70*4/116) {$\bullet$};
 		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
 		
+		% proj pourquoi ai-je calculé ça
 		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
-		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2);
-		\draw[-, thick, black] (5.87,2) -- (6.15,2.1);
+		% angle droit à vue d'oeil car y'en a marre
+		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2)  -- (6.15,2.1);
 	\end{tikzpicture}
 	\end{center}
 
@@ -50,11 +49,9 @@
 		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
 		
 		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
-		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2);
-		\draw[-, thick, black] (5.87,2) -- (6.15,2.1);
-		
-		
-		
+		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2) -- (6.15,2.1);
+	
+	
 		\node[black] at (70*10/116*.6,70*4/116*.6) {$\bullet$};
 		\node[black, above] at  (70*10/116*.6,70*4/116*.6) {$P$};
 		\draw[-, thick, black, dotted] (70*10/116*.6,70*4/116*.6) -- (7,0);
@@ -93,8 +90,7 @@
 		\node[black, above] at  (2,2) {};
 		
 		% angle droit
-		\draw[-, thick, black] (2,.15)-- (2.15,.15);
-		\draw[-, thick, black] (2.15,.15)-- (2.15,0);
+		\draw[-, thick, black] (2,.15)-- (2.15,.15) -- (2.15,0);
 		
 		%hauteur
 		\draw[-, thick, black, dotted] (2,0) -- (2,2) node[pos=.85, left=8pt, rotate=90] {hauteur};
@@ -114,8 +110,7 @@
 		\draw[-, thick, black, dotted] (3,0) -- (4,0);
 		
 		% angle droit
-		\draw[-, thick, black] (4,.15)-- (3.85,.15);
-		\draw[-, thick, black] (3.85,.15)-- (3.85,0);
+		\draw[-, thick, black] (4,.15)-- (3.85,.15) -- (3.85,0);
 		
 		%hauteur
 		\draw[-, thick, black, dotted] (4,0) -- (4,2) node[pos=.35, right=8pt, rotate=90] {hauteur};
@@ -158,8 +153,7 @@ Les côtés opposé et adjacent dépendent de l'angle choisi.
 		\node[black, below] at  (3,0) {};
 		\node[black, above] at  (3,2) {};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
@@ -175,8 +169,7 @@ Les côtés opposé et adjacent dépendent de l'angle choisi.
 		\node[black, below] at  (3,0) {};
 		\node[black, above] at  (3,2) {};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)});
@@ -217,8 +210,7 @@ Ces formules sont en fait une conséquence du théorème de Thalès : en connais
 		\node[black, below] at  (3,0) {};
 		\node[black, above] at  (3,2) {};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
@@ -238,8 +230,7 @@ Ces formules sont en fait une conséquence du théorème de Thalès : en connais
 		\node[black, below] at  (3,0) {};
 		\node[black, above] at  (3,2) {};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
@@ -275,8 +266,7 @@ On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du qua
 			\draw[GREY, very thick] (axis cs:0.625, 0) -- (axis cs:0.625,0.7805);
 			
 			% angle droit
-			\draw[-, thick, black] (axis cs:0.585,0) -- (axis cs:0.585,.05);
-			\draw[-, thick, black] (axis cs:0.585,.05) -- (axis cs:0.625,.05);
+			\draw[-, thick, black] (axis cs:0.585,0) -- (axis cs:0.585,.05) -- (axis cs:0.625,.05);
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -335,7 +325,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\[ x = \dfrac{16 \sqrt{2}}{\sqrt{2}^2} = 8 \sqrt{2}. \]
 	Les deux nombres $\dfrac{16}{\sqrt{2}}$ et $8 \sqrt{2}$ sont égaux, au même titre que $\dfrac36 = \dfrac12$.
 	La deuxième expression est cependant plus agréable à lire et à écrire.
-}{}
+}{ex:eq-sqrt}
 
 \qs{}{
 	Peut-on simplifier encore davantage l'expression $8 \sqrt{2}$ ?
@@ -389,7 +379,9 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\item $\dfrac3{5x} =-\sqrt{5}$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:équations-sqrt}{
+	TODO
+}
 
 \exe{}{
 	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles suivants.
@@ -405,8 +397,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\node[black, below] at  (3,0) {$B$};
 		\node[black, above] at  (3,2) {$C$};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
@@ -423,8 +414,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\node[black, below] at  (3,0) {$B$};
 		\node[black, above] at  (3,2) {$C$};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
@@ -441,8 +431,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\node[black, below] at  (3,0) {$B$};
 		\node[black, above] at  (3,2) {$C$};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
@@ -460,8 +449,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\node[black, below] at  (3,0) {$B$};
 		\node[black, above] at  (3,2) {$C$};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
@@ -472,6 +460,8 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]
 	
 		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
-}{}
+}{exe:trigo}{
+	TODO
+}
 
 
