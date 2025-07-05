@@ -1,7 +1,14 @@
+Pour compiler tous les fichiers `.tex` du dossier `figures` :
 ```
-pdflatex -shell-escape notes.tex
+cd figures
+find . -name \*.tex -exec pdflatex \{\} \;
+```
+Pour compiler les notes :
+```
+pdflatex -shell-escape 0-notes.tex
 ```
 
+Optionnel :
 Add parameter `-output-directory=out` after creating `/out/` folder to redirect out files (pdf included).
 
 # Fork

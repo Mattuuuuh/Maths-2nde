@@ -20,6 +20,7 @@
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{caption, subcaption}
 
 %virgules
@@ -34,6 +35,9 @@
 
 % tikz
 \usepackage{tikz}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
 
 % for function graph
 \usetikzlibrary{positioning}
@@ -49,6 +53,7 @@ dot/.default = black % size of the circle diameter
 \usetikzlibrary{decorations.pathreplacing}
 % for hashing area
 \usetikzlibrary{patterns}
+
 % tableaux var, signe
 % source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
 \usepackage{tkz-tab}

@@ -2,6 +2,8 @@
 
 # Notes de cours
 
+Les images `tikz` sont à compiler avant la compilation des notes de cours. Chaque fichier `.tex` du dossier `/notes/figures/` est donc à compiler. 
+
 Les notes de cours du dossier `/notes/` sont à compiler avec pdfLaTeX et le flag `-shell-escape`.
 
 ```

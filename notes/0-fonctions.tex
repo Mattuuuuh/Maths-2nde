@@ -2,13 +2,816 @@
 %!TEX root = 0-notes.tex
 
 \chapter{Fonctions}
+\label{chap:fonctions}
 
-\section{Fonction comme boite noire}
+%\section{Fonction comme boite noire}
+%
+%\section{Définition algébrique d'une fonction}
+%
+%\section{Courbe représentative d'une fonction}
+%
+%\section{Implémentation}
 
-\section{Définition algébrique d'une fonction}
 
-\section{Courbe représentative d'une fonction}
+\section{Introduction}
 
-\section{Implémentation}
+\dfn{Fonction, variable, constante}{
+	On dit qu'une quantité $y\in\R$ s'exprime en \emph{fonction} d'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une seule} valeur $y$.
+	On note alors $x \mapsto y$ et $x$ est appelé la \emph{variable}.
+	Si une quantité ne dépend pas de $x$, on l'appelle \emph{constante}, ou \emph{indépendante} de $x$.
+}{}
+
+\nt{
+	Pour faire signifier la dépendance de $y$ comme fonction de $x$, on utilise la notation fonctionnelle $y(x)$, lu \og $y$ de $x$ \fg.
+	Ainsi, lorsque $x$ vaut $2$, la valeur associée sera $y(2)$, lu \og $y$ de $2$ \fg.
+	Ceci permet de différencier les valeurs qui émanent de différents $x\in\R$ : $y(1), y(-3), y(\frac34), \dots$.
+	La notation $y(x)$ est remplacée par $f(x)$ ($f$ pour fonction) pour se libérer la lettre $y$.
+}
+
+\ex{}{
+	Le périmètre d'un cercle de rayon $R$ est donné par $2\pi \cdot R$.
+	Un rayon détermine donc un unique périmètre, et la fonction périmètre, dépendant de la variable rayon, est donnée par
+		\[ R\mapsto 2\pi\cdot R. \]
+	En appelant $P$ cette fonction, on peut aussi noter 
+		\[ P(R) = 2\pi \cdot R. \]	
+}{ex:perimètre}
+
+\exe{}{
+	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
+	Il note ses résultats dans le tableau ci-dessous.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+			Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+			Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item La hauteur est-elle une fonction du temps ? Justifier.
+		\item Le temps est-il une fonction de la hauteur ? Justifier.
+	\end{enumerate}
+}{exe:table}{
+	TODO
+}
+
+\exe{}{
+	\begin{enumerate}
+		\item
+		Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
+		\item
+		Montrer que l'aire d'un cercle est fonction de son rayon et écrire la fonction associée.
+		\item
+		En déduire que l'aire d'un cercle est fonction de son périmètre et écrire la fonction associée.
+	\end{enumerate}
+}{exe:rayon-périmètre-aire}{
+	TODO
+}
+
+\dfn{Fonction réelle, domaine}{
+	Soit $\D \subset \R$ un ensemble de nombres qu'on appelle \emph{domaine}.
+	
+	Une fonction $f$ de $\D$ dans $\R$ associe à chaque élément $x\in\D$ du domaine un nombre $f(x) \in \R$.
+	
+	On note alors
+		\begin{align*}
+			f: \D & \longrightarrow \R \\
+			x& \longmapsto f(x).
+		\end{align*}
+	
+	\begin{center}
+	\includegraphics[page=1]{figures/fig-fonctions.pdf}
+	\end{center}
+}{}
+
+\ex{Fonctions vues en cours jusqu'ici}{
+
+	\begin{enumerate}
+		\item 
+		La valeur absolue $|x|$ peut être formulée sous forme de fonction notée $|\cdot|$ : elle associe à chaque nombre réel sa valeur absolue.
+		\begin{align*}
+			|\cdot|: \R & \longrightarrow \R \\
+			x& \longmapsto |x|.
+		\end{align*}	
+		
+		\item
+		Considérons la série statistiques $X$ suivante dépendant d'un entier naturel $k\in\N$.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|}\hline
+				Valeur   & 0 & 20 & 10 \\ \hline
+				Effectif & 17 & 17 & k \\ \hline
+			\end{tabular}
+			\end{center}
+		La quantité $\Var(X)$ peut être vue comme une fonction qui à tout entier naturel $k\in\N$ associe la variance de la série $X$.
+		Nommons $f$ cette fonction pour ne pas utiliser surcharger la notation $\Var$.
+		\begin{align}
+		\begin{split}
+			f: \N & \longrightarrow \R \\
+			k& \longmapsto \Var(X)
+		\end{split}\label{func:vark}
+		\end{align}
+		Remarquons que le domaine de $f$ est l'ensemble des entiers naturels $\N$ car un effectif est forcément un nombre entier et positif.
+		
+		\item
+		Pour définir l'écart type, il a fallu utiliser la fonction racine carrée.
+		Comme la racine carrée d'un nombre négatif n'existe pas, le domaine de cette fonction est $[0;\pinfty[$, et non $\R$ tout entier.
+			\begin{align*}
+			\sqrt{\cdot}: [0;\pinfty[ & \longrightarrow \R \\
+			x& \longmapsto \sqrt{x}
+			\end{align*}
+
+		\item 
+		Une constante est en particulier une fonction d'une variable $x\in\R$ réelle.
+		Ainsi la fonction $g$ donnée par
+			\begin{align*}
+			g: \R & \longrightarrow \R \\
+			x& \longmapsto 42
+			\end{align*}
+		vaut constamment $42$, peut importe la valeur de $x$. 
+		
+		On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
+		$g$ est une fonction constante.
+					
+	\end{enumerate}
+
+}{ex:fonctions-deja-vues}
+
+\dfn{Antécédent, image}{
+	Considérons une fonction $f$ et deux nombres réels $x,y\in\R$ vérifiants
+		\[ y = f(x). \]
+	On lit \og $y$ égal $f$ de $x$ \fg, et on dit alors que
+		\begin{enumerate}
+			\item
+			$y$ est l'\emph{image} de $x$ par $f$ ; et
+			\item
+			$x$ est \underline{un} \emph{antécédent} de $y$ par $f$.
+		\end{enumerate}
+}{}
+
+\nt{
+	\begin{enumerate}
+		\item 
+		Chaque $x\in\D$, élément du domaine, a \underline{exactement une} image par $f$ qui est $f(x)$.
+		\item
+		Un nombre $y\in\R$ peut avoir \underline{un, aucun, ou même plusieurs} antécédents. C'est le cas par exemple de $y=-1$ pour la fonction valeur absolue $f(x) = |x|$.
+	\end{enumerate}
+}
+
+\ex{}{
+	Considérons la fonction valeur absolue.
+	On peut l'appeler $f$ en posant $f(x) = |x|$ pour tout $x\in\R$.
+	
+	Calculons les images de $1; 4; -1; -0,31; \frac23 ; -\frac23;$ et $0$.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(1) = 1$
+			\item $f(-1) = 1$
+			\item $f( -0,31) = 0,31$
+			\item $f\left(\dfrac23\right) = \dfrac23$
+			\item $f\left( -\dfrac23\right) = \dfrac23$
+			\item $f(0) = 0$
+		\end{enumerate}
+		\end{multicols}
+		
+	On en déduit les propositions suivantes.
+		\begin{enumerate}[label=$\bullet$]
+			\item
+			L'image de $1$ par $f$ est $1$.
+			\item
+			L'image de $-1$ par $f$ est $1$.
+			\item
+			$1$ et $-1$ sont donc deux antécédents de $1$ par $f$.
+			\item
+			Un antécédent de $0,31$ par $f$ est $-0,31$.
+			\item
+			Un antécédent de $\dfrac23$ par $f$ est $\dfrac23$.
+			\item
+			Un antécédent de $\dfrac23$ par $f$ est $-\dfrac23$.
+			\item
+			$0$ est l'image et un antécédent de $0$ par $f$. C'est d'ailleurs le seul antécédent.
+		\end{enumerate}
+}{ex:v-abs}
+
+\exe{}{
+	Considérons la fonction $f$ donnée par
+	\begin{align*}
+		f: \R & \longrightarrow \R \\
+		x& \longmapsto 3\cdot x+1.
+	\end{align*}
+	Autrement dit, $f(x) = 3\cdot x + 1$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$, de $3,1$, de $\frac13$, de $-1$, de $-\frac23$.
+		\item
+		Donner un antécédent de $1$ par $f$.
+		\item
+		Déterminer tous les antécédents de $6$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents}{
+	TODO
+}
+
+\dfn{Forme algébrique}{
+	On appelle 
+		\[ f(x) = 3\cdot x+1 \]
+	la forme \emph{algébrique} de $f$.
+	On lit dans ce cas \og $f$ de $x$ égal trois $x$ plus 1 \fg.
+	
+	C'est une forme entièrement générale qui permet de déduire l'image $f(x)$ à partir de n'importe quel réel $x\in\D$ du domaine de $f$.
+}{}
+
+%\newpage %temp
 
 
+\exe{}{
+	Lire les deux programmes Python de la figure \ref{python:1-2}.
+	Quelles valeurs impriment-t-ils ?
+	
+	Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
+}{exe:fonction-python}{
+	TODO
+}
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+y = 2*x-3
+return y
+
+f1 = f(1)
+f2 = f(-1/2)
+
+
+print(f1, f2)
+\end{mintedbox}
+	\caption{Programme 1.}
+	\label{python:1}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+y = x*x + 1
+z = -2*x
+return y+z
+
+f1 = f(4)
+f2 = f(-2)
+
+print(f1, f2)
+\end{mintedbox}
+	\caption{Programme 2.}
+	\label{python:2}
+	\end{subfigure}
+	\caption{Deux fonctions implémentées en Python.}
+	\label{python:1-2}
+\end{figure}
+
+% exe -> ex car suppression des exercices et celui-ci est référencé
+\ex{}{
+	On reconsidère la fonction $f$ de l'exemple \ref{ex:fonctions-deja-vues} donnée en $\eqref{func:vark}$.
+	
+	\begin{enumerate}
+		\item
+		Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
+		\item
+		Utiliser la formule \eqref{eq:var} de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
+		\item
+		Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
+	\end{enumerate}
+}{exe:vark}
+
+\nt{
+	Suite à l'exemple \ref{exe:vark} ci-dessus, on dira alors qu'on a écrit la variance \emph{en fonction de}  l'entier naturel $k\in\N$.
+	
+	L'expression algébrique permet de calculer facilement plusieurs images sans refaire le raisonnement à chaque fois.
+}
+
+\exe{}{
+	Un fonction $f$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{-x^2 - x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:fonctions-QCM}{
+	TODO
+}
+
+\exe{}{
+	Considérons la fonction $f$ donnée par
+	\begin{align*}
+		f: \R & \longrightarrow \R \\
+		x& \longmapsto \dfrac15-x.
+	\end{align*}
+	Autrement dit, $f(x) = \frac15-x$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$, de $-3,1$, de $-\frac47$, de $0,2$, de $-\frac23$.
+		\item
+		Donner un antécédent de $0$ par $f$.
+		\item
+		Déterminer tous les antécédents de $5$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents2}{
+	TODO
+}
+
+\exe{}{
+	Considérons les fonctions $f,g$ données par
+	\begin{align*}
+		f: \R & \longrightarrow \R &g: \R & \longrightarrow \R \\
+		x& \longmapsto x^2 -6\cdot x + 9,  &x& \longmapsto (x-3)^2. 
+	\end{align*}
+	Autrement dit, $f(x) =x^2 -6\cdot x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer les images par $f$ et $g$ de $0$, de $-1$, de $3$, de $-\frac12$, de $-\frac23$.
+		\item
+		Donner un antécédent de $9$ par $f$.
+		\item
+		Déterminer tous les antécédents de $9$ par $g$.	
+		\item
+		Montrer que $g(x) - 3^2 = x^2 - 6\cdot x$ pour tout $x\in\R$ réel, et en déduire que $f(x) = g(x)$ pour tout $x\in\R$ réel.
+		\item 
+		Déterminer tous les antécédents de $16$ par $f$.
+	\end{enumerate}
+}{exe:forme-canonique}{
+	TODO
+}
+
+
+\section{Représentation graphique}
+
+On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver plusieurs informations sur $f$.
+Une bonne représentation graphique nous permet de lire
+	%\begin{multicols}{2}
+	\begin{enumerate}[label=$\bullet$]
+		\item les images $f(x)$;
+		\item les antécédents $x$ ;
+		\item les variations de $f$ (croissante, décroissante, constante) ;
+		\item le signe de $f(x)$ (positif, négatif, nul).
+	\end{enumerate}
+	%\end{multicols}
+
+Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut donc pouvoir facilement lire son image $f(x)$ par $f$.
+À cette fin et pour chaque $x\in\D$, on crée un point d'abscisse $x$ et d'ordonnée $f(x)$.
+L'ensemble de ces points est la courbe représentative de $f$.
+Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'unique point de la courbe d'abscisse $x$.
+
+\dfn{Courbe représentative}{
+	Considérons $f : \D \rightarrow \R$ une fonction.
+	
+	La \emph{courbe représentative} de $f$, notée $\C_f$, est donnée par l'ensemble de points
+		\[ \C_f = \left\{ \left(x ; f(x) \right) \text{ où } x\in\D \right\}. \]
+	On lit \og la courbe représentative de $f$ est l'ensemble des points $(x,f(x))$ du plan où $x$ parcourt le domaine de $f$ \fg.
+}{}	
+
+\cor{Propriété fondamentale}{
+	On a donc la propriété fondamentale suivante valable pour tout $x,y\in\R$.
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x).
+		\end{align*}
+		
+		
+		\begin{center}
+		 \includegraphics[page=2, scale=1.5]{figures/fig-fonctions.pdf}
+		\end{center}
+	Note : $f(x) = \dfrac1{200}(x+3,5)(x+2,5)(x-3,5)(x-4,5)(x-5,5) + 2$, polynôme de degré $5$ dans l'exemple ci-dessus.
+}{cor:prop-fond}
+
+\ex{}{
+	Soit la fonction $f : [-1,5; 2,5] \rightarrow \R$ donnée algébriquement par
+		\[ f(x) = 3\cdot x^3 -x - 3, \]
+	et considérons les points $P(0;-3), Q(1; 1), R(-1; 1),$ et $S(2; 19)$.
+	On se demande si les points appartiennent à la courbe représentative de $f$ ou non.
+	
+	D'après la propriété fondamentale \ref{cor:prop-fond}, un point $(x;y)$ appartient à la courbe de $f$ si et seulement si l'équation $y=f(x)$ est vérifiée.
+	On a donc les (non) appartenances suivantes.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(0) = -3$, et donc $P \in \C_f$.
+			\item $f(1) = -1 \neq 1$, donc $Q \not\in \C_f$.
+			\item $f(-1) = -5 \neq 1$, donc $R \not\in\C_f$.
+			\item $f(2) = 19$, et donc $S\in\C_f$.
+		\end{enumerate}
+		
+		\begin{center}
+		 \includegraphics[page=3, scale=1.1]{figures/fig-fonctions.pdf}
+		\end{center}
+	\end{multicols}
+}{}
+
+
+\exe{}{
+	Considérons la fonction $f: \left]{-}\dfrac72 ; \dfrac{11}2 \right[ \rightarrow\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \dfrac17\right)$
+		\item $\left(\dfrac17 ; 0\right)$
+		\item $\left(\dfrac27 ; \dfrac37\right)$
+		\item $\left(-\dfrac{13}7 ; 2\right)$
+		\item $\left(\dfrac67 ; 1\right)$
+		\item $\left(\dfrac27 ; -\dfrac17\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	TODO
+}
+
+\exe{}{
+	Considérons deux fonctions $f, g: ]{-}3 ; 3[ \rightarrow\R$ données algébriquement par
+		\begin{align*}
+			f(x) = x^2 - 2\cdot x && g(x) = (x-1)^2
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
+		\item Démontrer que $g(x) - 1 = f(x)$ pour tout $x$ du domaine.
+		\item En déduire que $(x-1)^2 = x^2 - 2\cdot x + 1$ pour tout $x$ du domaine.
+	\end{enumerate}
+}{exe:id-rem-graph}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = 3. \]
+	Que dire de $f$ et de $\C_f$ ?
+}{exe:graph-const}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[-5;3]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = 1-x. \]
+	Que dire $\C_f$ ?
+}{exe:graph-droite}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f:[3;10]\rightarrow\R$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	TODO
+}
+
+% exe -> ex car suppression des exe et celui-ci est référencé	
+\ex{}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
+	
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-fonctions.pdf}
+	\end{center}
+	\begin{enumerate}
+		\item Donner approximativement les images de $-1,5$ et de $-\dfrac{20}7$ par $f$.
+		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+	\end{enumerate}
+	Supposons désormais que $f(x) = 3-2\cdot x +\dfrac13 \cdot x^3$ pour tout $x\in\D$ du domaine.
+	\begin{enumerate}
+		\item[5.] Vérifier à la calculatrice les réponses aux deux premières questions.
+		\item[6.] Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+	\end{enumerate}
+}{exe:deg3}{
+	TODO
+}
+
+
+\exe{}{
+	Un fonction $f$ admet une représentation graphique suivante.
+		\begin{center}
+		 \includegraphics[page=4]{figures/fig-fonctions.pdf}
+		\end{center}
+	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $\dfrac{-1-x}3$
+			\item $\left(x+\dfrac13\right)^2$
+			\item $-2\cdot x - \dfrac23$
+		\end{enumerate}
+		\end{multicols}
+}{exe:expr-from-graph}{
+	TODO
+}
+
+\exe{}{
+	Comparer les représentations graphiques des fonctions suivantes données algébriquement.
+		\begin{align*}
+			f(x) = x^2 && g(x) = x^2 - 3 && h(x) = (x+4)^2.
+		\end{align*}
+}{exe:y-shift}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner une fonction réelle et un domaine telle qu'une de ses images admet
+		\begin{enumerate}
+			\item Exactement un antécédent
+			\item Exactement deux antécédents
+			\item Exactement trois antécédents
+			\item Une infinité d'antécédents
+		\end{enumerate}	
+}{exe:nb-antécédents}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images de $f$ admettent un nombre infini d'antécédents.
+}{exe:infinité-antécédents}{
+	TODO
+}
+
+\section{Identités remarquables}
+
+\ex{}{
+	Considérons les fonctions $f,g$ données par
+	\begin{align*}
+		f: \R & \longrightarrow \R &g: \R & \longrightarrow \R \\
+		x& \longmapsto x^2 -6\cdot x + 9,  &x& \longmapsto (x-3)^2. 
+	\end{align*}
+	Autrement dit, $f(x) =x^2 -8\cdot x + 16$ et $g(x)=(x-4)^2$ pour tout $x\in\R$.
+	
+	On se demande quels sont les antécédents d'une certaine valeur, mettons $64$ par exemple, par $f$.
+	En nommant un tel antécédent $x$, on a l'équation
+		\begin{align*}
+			f(x) &= 64, \\
+			x^2 - 8\cdot x + 16 &= 64,
+		\end{align*}
+	qui n'est pas simple du tout à résoudre car non linéaire.
+	Cependant, si on arrive à démontrer que
+		\begin{align*}
+			(x-4)^2 = x^2 - 8\cdot x + 16 && \text{c'est-à-dire} && g(x) = f(x),
+		\end{align*}
+	et ceci pour tout $x\in\R$ nombre réel, on pourra utiliser la forme plus agréable de $g$ afin d'obtenir les antécédents recherchés.
+	
+	Pour développer $(x-4)^2 = (x-4)\cdot(x-4)$, on utilise la distributivité qui est rappelée ci-après par le théorème \ref{thm:distr}.
+	On voit l'un des $(x-4)$ comme un tout, et l'autre comme un somme de deux quantités, $x$ et $-4$.
+	En découle que, par distributivité utilisée trois fois,
+		\begin{align*}
+			(x-4)^2 &= (x-4) \cdot (x-4) \\
+					&= (x-4) \cdot x + (x-4) \cdot (-4) \\
+					&= x\cdot x + (-4) \cdot x + x \cdot(-4) + (-4) \cdot (-4) \\
+					&= x^2 - 8 \cdot x + 16
+		\end{align*}
+	comme recherché.
+	
+	En revenant à notre situation, on se permet donc de résoudre
+		\begin{align*}
+			g(x) &= 64 \\
+			(x-4)^2 &= 64 \\
+			|x-4| &= 8,
+		\end{align*}
+	en utilisant la propriété de la valeur absolue vue au théorème \ref{thm:prop-vabs}, chapitre \ref{chap:3}.
+	Le chapitre en question nous a enseigné à résoudre ce genre d'équations :
+		\begin{align*}
+			|x-4| &= 8 \\
+			x-4=8 \qquad&\text{ou}\qquad x-4 = -8 \\
+			x = 12  \qquad&\text{ou}\qquad  x=-4
+		\end{align*}
+	
+	La fonction $f(x) = x^2 -8\cdot x + 16$ admet donc exactement deux antécédents de $64$ : $-4$ et $12$.
+	Il conviendra de vérifier ceci en calculant $f(-4)$ et $f(12)$.
+}{ex:id-rem1}{}
+
+\thm{Distributivité}{
+	Pour $a,b,c\in\R$ nombres réels, on a
+		\[ c \cdot (a+b) = (a+b) \cdot c = a\cdot c + b \cdot c. \]
+}{thm:distr}
+
+Certaines expressions de fonctions sont donc plus agréables à étudier que d'autres.
+Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui permettront à la fois de développer une forme factorisée, et de factoriser une forme développée.
+
+\thm{Identités remarquables}{
+	Pour tous les $a,b\in\R$ réels, on a les identités
+		\begin{align*}
+			a^2 - b^2 &= (a+b)(a-b) \\
+			(a+b)^2 &= a^2 + 2ab + b^2 \\
+			(a-b)^2 &= a^2 - 2ab + b^2
+		\end{align*}
+	Remarquons que les points médians $\cdot$ de la multiplication disparaissent et sont sous-entendus.
+	En lisant $2ab$, il faut comprendre \og 2 fois $a$ fois $b$ \fg, aussi notée $2\cdot a \cdot b$.
+}{thm:id-rem}
+
+\pf{Démonstration du théorème \ref{thm:id-rem}}{
+	Toutes les identités remarquables découlent de la distributivité.
+	La première se déduit en développant le produit $(a+b)\cdot (a-b)$.
+		\begin{align*}
+			(a+b)\cdot(a-b) &= a \cdot(a-b) + b \cdot (a-b) \\
+							&= a \cdot a + a \cdot (-b) + b\cdot a + b \cdot(-b)\\
+							&= a^2 - ab + ba - b^2 \\
+							&= a^2 - b^2
+		\end{align*}
+	La deuxième s'obtient similairement.
+		\begin{align*}
+			(a+b)^2 &= (a+b)\cdot(a+b) \\
+						&= a \cdot(a+b) + b \cdot (a+b) \\
+						&= a \cdot a + a \cdot b + b\cdot a + b \cdot b \\
+						&= a^2 + ab + ba + b^2 \\
+						&= a^2 +2ab + b^2
+		\end{align*}
+	Pour obtenir la dernière, on peut remplacer $-b$ par $b$ de la façon suivante.
+		\begin{align*}
+			(a-b)^2 &= \left( a + (-b) \right)^2 \\
+					&= a^2 + 2\cdot a\cdot (-b) + (-b)^2. 
+		\end{align*}
+	Or comme $-b = (-1)\cdot b$, on trouve que $2a(-b) = -2ab$, et que $(-b)^2 = b^2$, ce qui conclut.
+}{}
+
+\nt{
+	Il sera utile de connaître quelques carrés parfaits pour développer tranquillement les expressions factorisées.
+	On énumère alors
+		\begin{align*}
+			0^2 &= 0 & 7^2 &= 49 \\
+			1^2 &= 1 & 8^2 &= 64 \\
+			2^2 &= 4  & 9^2 &= 81  \\
+			3^2 &= 9  & 10^2 &= 100 \\
+			4^2 &= 16  &  11^2 &= 121 \\
+			5^2 &= 25  & 12^2 &= 144 \\
+			6^2 &= 36 & 13^2 &= 169 
+		\end{align*}
+	Remarquons qu'on a toujours $(-n)^2 = n^2$, donc qu'on peut en déduire aussi les carrés d'entiers négatifs. 
+	Par exemple, $(-9)^2 = 9^2 = 81$.
+}
+
+\exe{}{
+	Développer les expressions algébriques suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=$\bullet$]
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3-x)^2$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:développement}{
+	TODO
+}
+
+\exe{}{
+	Factoriser les membres de gauche à la façon de l'exemple \ref{ex:id-rem1} et trouver toutes les solutions $x\in\R$ des équations suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*)]
+			\item $x^2 + 2x + 1 = 16$
+			\item $4x^2 - 4x + 1 = 9$
+			\item $9 - 18x + 9x^2 = 0$
+			\item $3x^2 - 6x + 3 = 0$
+			\item $x^2 +6x + 9 = -1$
+			\item $-4x^2 + 8x - 1 = 3$
+		\end{enumerate}
+		\end{multicols}
+}{exe:factorisation}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	On appelle \emph{triplet pythagoricien} un triplet $(a ; b ; c)$, liste de $3$ nombres entiers naturels $a, b, c\in\N$ vérifiants
+		\[ a^2 + b^2 = c^2. \]
+	Nommons deux paramètres entiers $k, \ell\in\N$ avec $k\geq \ell$.
+	Vérifier que le triplet
+		\[ (k^2 - \ell^2 ; 2k\ell ; k^2 + \ell^2) \]
+	est pythagoricien.
+	
+	Créer quelques triplets en prenant des valeurs de $k \geq \ell$ et les vérifier à la calculatrice.
+	Par exemple, pour $k=4$ et $\ell=2$, on trouve le triplet $(12 ; 16 ; 20)$, qui vérifie bien
+		\[ 12^2 + 16^2 = 20^2. \] 
+}{}{}
+
+\section{Résolutions graphiques d'équations et d'inéquations}
+
+Soient $f, g$ deux fonctions admettant un domaine $\D$ commun.
+Le but de cette partie est d'étudier graphiquement les solutions $x\in\D$ des (in)équations du type
+	\begin{multicols}{2}
+	\begin{enumerate}[label=$\bullet$]
+		\item $f(x) = k$
+		\item $f(x) \leq k$
+		\item $f(x) = g(x)$
+		\item $f(x) \leq g(x)$
+	\end{enumerate}
+	\end{multicols}
+\noindent où $k\in\R$ est un réel quelconque.
+C'est-à-dire qu'on cherche l'ensemble des nombres réels $x$ tels que les (in)équations ci-dessus soient vraies.
+
+\subsection{Résoudre graphiquement $f(x) = k$}
+
+
+On cherche à résoudre graphiquement une équation du type $f(x)=k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+En reformulant, il s'agit de trouver l'ensemble des antécédents de $k$ par $f$. 
+
+\str{
+	En reprenant l'exemple \ref{ex:5.24}, on peut généraliser la stratégie à employer.
+	Supposons qu'on souhaite résoudre $f(x) = 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
+	Comme chaque point de $\C_f$ est de la forme $(x; f(x))$, on souhaite trouver les points de la forme $(x;2)$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
+	Pour trouver tous les points d'ordonnée $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
+		\begin{center}
+		\includegraphics[page=8, scale=2]{figures/fig-fonctions.pdf}
+		\end{center}
+	Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizontale avec $\C_f$ sont
+		\begin{align*}
+			A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
+		\end{align*}
+	L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
+		\[ \{ -2,67 \ ; 0,52 \ ; 2,14 \}. \]
+}{}
+
+\thm{}{
+	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
+	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x)=k$ sont les abscisses des points d'intersection de $\C_f$ et de la droite d'équation $y=k$.
+}{}
+
+
+\subsection{Résoudre graphiquement $f(x) < k$}
+
+
+On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
+
+\str{
+	En reprenant l'exemple \ref{ex:5.24}, on peut généraliser la stratégie à employer.
+	Supposons qu'on souhaite résoudre $f(x) \leq 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
+	Comme chaque point de $\C_f$ est de la forme $(x; f(x))$, on souhaite trouver les points d'ordonnée inférieure à $2$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
+	Pour trouver tous les points d'ordonnée inférieure à $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
+		\begin{center}
+		 \includegraphics[page=5, scale=2]{figures/fig-fonctions.pdf}
+		\end{center}
+	Les points de $\C_f$ d'ordonnée inférieure à $2$ ont leur abscisse appartenant à l'union d'intervalles
+		\[ ] {-}3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
+	C'est notre ensemble de solutions de l'équation $f(x) \leq 2$.
+}{}
+
+\thm{}{
+	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
+	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x) \leq k$ sont les abscisses des points de $\C_f$ situés en dessous de la droite d'équation $y=k$.
+}{}
+
+
+\subsection{Résoudre graphiquement $f(x) = g(x)$}
+
+On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+
+\str{
+	Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
+
+		\begin{center}
+		 \includegraphics[page=6, scale=2]{figures/fig-fonctions.pdf}
+		\end{center}
+		
+	Imaginons un nombre réel $x\in\R$ parcourant $]{-}3,4 ; 2,3[$ en partant de la gauche et allant vers la droite.
+	Pour chaque $x$, le point de $\C_f$ d'abscisse $x$ est d'ordonnée $f(x)$, par définition.
+	Idem pour le point de $\C_g$ d'abscisse $x$ : il est d'ordonnée $g(x)$.
+	
+	Ainsi quand $x$ traverse le domaine, ces deux points sont confondus si et seulement si ces deux points sont de même ordonnée, c'est-à-dire si et seulement si $f(x) = g(x)$.		
+		
+	Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc données approximativement par l'ensemble
+		\[ \{ -0,8 ; 1,2 \}. \]
+
+}{}
+
+\thm{}{
+	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+	Les solutions dans $\D$ de l'équation $f(x) = g(x)$ sont les abscisses des points d'intersection de $\C_f$ et $\C_g$.
+}{}
+
+
+\subsection{Résoudre graphiquement $f(x) \leq g(x)$}
+
+On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
+
+\ex{}{
+	Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
+
+	\begin{center}
+	\includegraphics[page=7, scale=2]{figures/fig-fonctions.pdf}
+	\end{center}
+	
+	Pour chaque $x$ parcourant $]{-}3,4 ; 2,3[$, la hauteur (l'ordonnée) du point de $\C_f$ d'abscisse $x$ est donnée par $f(x)$, et celle du point de $\C_g$ d'abscisse $x$ est donnée par $g(x)$.
+	Ainsi, le premier point est en dessous du second dès que $f(x) \leq g(x)$.
+	
+	L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné approximativement par
+		\[ [{-}0,8 ; 1,2 ]. \]
+}{}
+
+\thm{}{
+	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ dont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
+}{}

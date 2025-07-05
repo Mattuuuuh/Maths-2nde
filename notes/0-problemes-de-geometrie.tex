@@ -14,20 +14,7 @@
 }{}
 
 	\begin{center}
-	\begin{tikzpicture}[scale=.8]
-		\draw[-, thick, black] (0,0) -- (10, 4) node[below]{$(d)$};
-	
-		\node[black] at (7,0){$\bullet$};
-		\node[black, right] at (7,0) {$M$};
-		
-		\node[black] at (70*10/116,70*4/116) {$\bullet$};
-		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
-		
-		% proj pourquoi ai-je calculé ça
-		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
-		% angle droit à vue d'oeil car y'en a marre
-		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2)  -- (6.15,2.1);
-	\end{tikzpicture}
+	\includegraphics[page=8]{figures/fig-geom.pdf}
 	\end{center}
 
 \thm{Distance minimale}{
@@ -39,23 +26,7 @@
 
 
 	\begin{center}
-	\begin{tikzpicture}[scale=.8]
-		\draw[-, thick, black] (0,0) -- (10, 4) node[below]{$(d)$};
-	
-		\node[black] at (7,0){$\bullet$};
-		\node[black, right] at (7,0) {$M$};
-		
-		\node[black] at (70*10/116,70*4/116) {$\bullet$};
-		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
-		
-		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
-		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2) -- (6.15,2.1);
-	
-	
-		\node[black] at (70*10/116*.6,70*4/116*.6) {$\bullet$};
-		\node[black, above] at  (70*10/116*.6,70*4/116*.6) {$P$};
-		\draw[-, thick, black, dotted] (70*10/116*.6,70*4/116*.6) -- (7,0);
-	\end{tikzpicture}
+	\includegraphics[page=9]{figures/fig-geom.pdf}
 	\end{center}
 
 \pf%{Démonstration du théorème \ref{thm:proj-min}}
@@ -80,41 +51,6 @@
 		\[ \text{Aire}(\text{triangle}) = \dfrac{\text{base} \cdot \text{hauteur}}2. \]
 	
 	\begin{center}
-	\begin{tikzpicture}[scale=1.5]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {base};
-		\draw[-, thick, black] (3,0) -- (2,2);
-		\draw[-, thick, black] (2,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (2,0) {};
-		\node[black, above] at  (2,2) {};
-		
-		% angle droit
-		\draw[-, thick, black] (2,.15)-- (2.15,.15) -- (2.15,0);
-		
-		%hauteur
-		\draw[-, thick, black, dotted] (2,0) -- (2,2) node[pos=.85, left=8pt, rotate=90] {hauteur};
-		
-	\end{tikzpicture}
-	\hspace{30pt}
-	\begin{tikzpicture}[scale=1.5]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {base};
-		\draw[-, thick, black] (3,0) -- (4,2);
-		\draw[-, thick, black] (4,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (4,0) {};
-		\node[black, above] at  (4,2) {};
-		
-		% droite base
-		\draw[-, thick, black, dotted] (3,0) -- (4,0);
-		
-		% angle droit
-		\draw[-, thick, black] (4,.15)-- (3.85,.15) -- (3.85,0);
-		
-		%hauteur
-		\draw[-, thick, black, dotted] (4,0) -- (4,2) node[pos=.35, right=8pt, rotate=90] {hauteur};
-	\end{tikzpicture}
 	\end{center}
 	
 	Notons que cette construction ne dépend pas de la base choisie : il faut simplement que la hauteur soit perpendiculaire à cette base, et qu'elle aille jusqu'au point culminant du triangle. 
@@ -144,37 +80,7 @@ Les côtés opposé et adjacent dépendent de l'angle choisi.
 	\end{align*}
 	
 	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {adjacent};
-		\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {opposé};
-		\draw[-, thick, black] (3,2) -- (0,0) node[midway, rotate=33.69, above]{hypoténuse};
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (3,0) {};
-		\node[black, above] at  (3,2) {};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
-		\node[black, right] at  (0.45,.2) {$\alpha$};
-	\end{tikzpicture}
-	\hspace{30pt}
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {opposé};
-		\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {adjacent};
-		\draw[-, thick, black] (3,2) -- (0,0) node[midway, rotate=33.69, above]{hypoténuse};
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (3,0) {};
-		\node[black, above] at  (3,2) {};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)});
-		\node[black, below] at  (2.65,1.6) {$\beta$};
-	\end{tikzpicture}
+	\includegraphics[page=1, scale=1]{figures/fig-geom.pdf}
 	\end{center}
 Moyens mnémotechniques : 
 	\begin{center}
@@ -201,42 +107,7 @@ Remarquons immédiatement qu'on a la relation
 Ces formules sont en fait une conséquence du théorème de Thalès : en connaissant deux angles et un côté d'un triangle, on peut l'agrandir ou le rapetisser pour maintenir les proportions et les angles et se ramener à un triangle rectangle étalon d'hypoténuse de longueur $1$.
 
 	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {opposé};
-		\draw[-, thick, black] (3,0) -- (3,2);
-		\draw[-, thick, black] (3,2) -- (0,0) node[midway, rotate=33.69, above]{hypoténuse};
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (3,0) {};
-		\node[black, above] at  (3,2) {};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
-		\node[black, right] at  (0.5,.2) {$\alpha$};
-		
-		% %
-		
-		\draw[->, thick, black] (4.5,1) -- (6.5,1) node[midway, above]{agrandissement};
-		
-	\end{tikzpicture}
-	\begin{tikzpicture}[scale=1.5]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$\cos(\alpha)$};
-		\draw[-, thick, black] (3,0) -- (3,2)node[midway, right] {$\sin(\alpha)$};
-		\draw[-, thick, black] (3,2) -- (0,0) node[midway, above]{1};
-		
-		\node[black, left] at  (0,0) {};
-		\node[black, below] at  (3,0) {};
-		\node[black, above] at  (3,2) {};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
-		\node[black, right] at  (0.5,.2) {$\alpha$};
-		
-	\end{tikzpicture}
+	\includegraphics[page=2, scale=1]{figures/fig-geom.pdf}
 	\end{center}
 
 En effet, les deux triangles ci-dessus sont semblables (on obtient l'un en (dé)zoomant l'autre), et en \emph{définissant} les longueur des côtés du deuxième par $\cos(\alpha)$ et $\sin(\alpha)$, le théorème de Thalès nous donne, par exemple,
@@ -251,24 +122,7 @@ Considérons, dans le quadrant supérieur-droit d'un repère d'origine $O$, un q
 On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du quart de cercle tel que l'angle entre $(OP)$ et l'axe des abscisse soit $\theta$.
 
 	\begin{center}
-	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = 0, xmax=1.1, ymin=0, ymax=1.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-			\addplot[no marks, BLUE_E, -, very thick] expression[domain=0:1, samples=101]{sqrt(1-x^2)};
-			\addplot[mark=*, mark size = 1, PURPLE, thick] (0.625, 0.7805) node[right=3pt] {$P(x;y)$};
-			
-			
-			\addplot[no marks, GREY, -, very thick] expression[domain=0:0.625, samples=2]{0.7805/0.625*x}
-			node[midway, above=]{$1$};
-			
-			\addplot[no marks, RED_E, -, very thick] expression[domain=0.11:0.1732, samples=101]{sqrt(.03-x^2)}
-			node[right, pos=.2] {$\theta$};
-			
-			\draw[GREY, very thick] (axis cs:0.625, 0) -- (axis cs:0.625,0.7805);
-			
-			% angle droit
-			\draw[-, thick, black] (axis cs:0.585,0) -- (axis cs:0.585,.05) -- (axis cs:0.625,.05);
-		\end{axis}
-	\end{tikzpicture}
+	\includegraphics[page=3, scale=1]{figures/fig-geom.pdf}
 	\end{center}
 
 Le triangle rectangle ainsi créé est d'hypoténuse $1$ et vérifie donc les propriétés du triangle étalon considéré dans la section précédente.
@@ -340,6 +194,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \cor{}{
 	La racine carrée de $2$ est irrationnelle : $\sqrt2 \notin \Q.$
+	On écriture décimale est infinie est apériodique.
 }{cor:sqrt2-irrational}
 
 \pf{Démonstration du corrolaire \ref{cor:sqrt2-irrational}}{
@@ -354,7 +209,9 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	À gauche, $a^2$ est un carré parfait, et donc la puissance de $2$ dans sa décomposition en facteurs premiers est nécessairement paire.
 	À droite, la même chose tient pour $b^2$. Il suit que, dans la décomposition en facteurs premiers de $2b^2$, la puissance de $2$ est impaire.
 	
-	L'entier $a^2$ admet donc deux décompositions en facteurs premiers différentes, ce qui contredit le théorème fondamental de l'arithmétique. \Large\Lightning
+	L'entier $a^2$ admet donc deux décompositions en facteurs premiers différentes, ce qui contredit le théorème fondamental de l'arithmétique. {\Large\Lightning}
+	
+	Concernant l'écriture décimale d'un nombre irrationnel, voir le théorème \ref{thm:décimal-périodique}.
 }
 
 \exe{, difficulty=2}{
@@ -388,73 +245,13 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 
 	\begin{multicols}{2}
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$14$};
-		\draw[-, thick, black] (3,0) -- (3,2);
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {$A$};
-		\node[black, below] at  (3,0) {$B$};
-		\node[black, above] at  (3,2) {$C$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
-		node[left=5pt, right=5pt] {$30$°};
-	\end{tikzpicture}
+	\includegraphics[page=4]{figures/fig-geom.pdf}
 	
+	\includegraphics[page=5]{figures/fig-geom.pdf}
 	
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$13$};
-		\draw[-, thick, black] (3,0) -- (3,2);
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {$A$};
-		\node[black, below] at  (3,0) {$B$};
-		\node[black, above] at  (3,2) {$C$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
-		node[below=5pt] {$30$°};
-	\end{tikzpicture}
+	\includegraphics[page=6]{figures/fig-geom.pdf}
 	
-
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0);
-		\draw[-, thick, black] (3,0) -- (3,2) node[midway, right] {$2\sqrt{6}$} ;
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {$A$};
-		\node[black, below] at  (3,0) {$B$};
-		\node[black, above] at  (3,2) {$C$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=270:215] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
-		node[below=5pt] {$60$°};
-	\end{tikzpicture}
-
-
-
-	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0);
-		\draw[-, thick, black] (3,0) -- (3,2)  node[midway, right] {$6\sqrt{15}$} ;
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {$A$};
-		\node[black, below] at  (3,0) {$B$};
-		\node[black, above] at  (3,2) {$C$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
-		node[left=5pt, right=5pt] {$60$°};
-	\end{tikzpicture}
+	\includegraphics[page=7]{figures/fig-geom.pdf}
 	\end{multicols}
 	\emph{Données : }	
 		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]

@@ -128,12 +128,24 @@
 }
 
 \exe{, difficulty=2}{
-	À l'aide de l'exercice \ref{exe:diff-carrés}, montrer que la somme des $n+1$ premiers nombres impairs est un carré parfait. Plus précisément,
+	Vérifier d'abord que $1 + 3 + 5 + 7 + 9 = 5^2,$
+	puis montrer à l'aide de l'exercice \ref{exe:diff-carrés} que la somme des $n+1$ premiers nombres impairs est un carré parfait. Plus précisément,
 		\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
 }{exe:sum-odd}{
 	La différence de deux impairs consécutifs étant un impair, et zéro étant un carré parfait, ajouter des impairs consécutifs permet de passer de carrés en carrés.
 	
-	Plus précisément, on a les différences suivantes :
+	On a d'abord
+	\begin{align*}
+		1 &= 1 \\
+		2^2 - 1 &= 3 \\
+		3^2 - 2^2 &= 5 \\
+		4^2 - 3^2 &= 7 \\
+		5^2 - 4^2 &= 9
+	\end{align*}
+	d'où, en sommant, $1+3+5+7+9 = 1 + (2^2 - 1) + (3^2 - 2^2) + (4^2 - 3^2) + (5^2 - 4^2) = 5^2 = 25$.
+	La somme est dite \emph{téléscopique} car chaque terme en plus annule le précédent.
+	
+	En continuant, on a les différences suivantes :
 		\begin{align*}
 			1^2 - 0^2 &= 1 \\
 			2^2 - 1^2 &= 3 \\
@@ -442,10 +454,12 @@
 
 \nt{
 	Le théorème d'unicité suivante est très important mais sa démonstration est (malheureusement) en dehors du champ d'application du cours.
-	Cependant, les outils présentés dans ce chapitre permettent déjà de le démontrer.
+	Cependant, les outils présentés dans ce chapitre permettent presque de le démontrer (voir le lemme d'Euclide\footnotemark).
 }
 
-\thm{}{
+\footnotetext{Euclide (actif vers -300, dates exactes inconnues), mathématicien de la Grèce antique.}
+
+\thm{Théorème fondamental de l'arithmétique}{
 	\emph{La} décomposition en facteurs premiers est unique à permutation des facteurs près.
 }{thm:decomposition-primaire-strong}
 

@@ -42,6 +42,48 @@
 	\end{center}
 }
 
+\exe{}{
+	À l'aide du tracé de l'exercice \ref{exe:courbe-carré}, décrire l'ensemble $\bigset{ x\in\R \tq x^2 = 4}$.
+}{exe:carré-eg}{
+	Un point de la courbe $y=x^2$ prend la forme $(x ; x^2)$. 
+	On cherche donc les points de la courbe d'ordonnée $y=4$ et on lit leur abscisse $x$.
+	Le graphe ci-dessous donne $\bigset{ x\in\R \tq x^2 = 4} = \bigset{ -2 ; 2}$.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, PURPLE, -, very thick] expression[domain=-2:2, samples=2]{4};
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (-2,4) node[left] {$(-2;4)$};		
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (2,4) node[right] {$(2;4)$};		
+			\draw[PURPLE, very thick] (axis cs:-2,0) -- (axis cs:-2,4);	
+			\draw[PURPLE, very thick] (axis cs:2,0) -- (axis cs:2,4);
+			
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
+	À l'aide du tracé de l'exercice \ref{exe:courbe-carré}, décrire l'ensemble $\bigset{ x\in\R \tq x^2 \leq 9}$.
+}{exe:carré-ineg}{
+	Un point de la courbe $y=x^2$ prend la forme $(x ; x^2)$. 
+	On cherche donc les points de la courbe d'ordonnée $y\leq4$ et on lit leur abscisse $x$.
+	Le graphe ci-dessous donne $\bigset{ x\in\R \tq x^2 = 4} = [-3 ; 3]$.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, PURPLE, -, very thick] expression[domain=-3:3, samples=2]{9};
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (-3,9) node[above right] {$(-3;9)$};		
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (3,9) node[above left] {$(3;9)$};		
+			\draw[PURPLE, very thick] (axis cs:-3,0) -- (axis cs:-3,9);	
+			\draw[PURPLE, very thick] (axis cs:3,0) -- (axis cs:3,9);
+			
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
 \exe{, difficulty=1}{
 	Montrer que si $0 < x < 1$, alors $x^2 < x$, et que si $x>1$, alors $x^2 > x$.
 }{exe:sq-id}{
