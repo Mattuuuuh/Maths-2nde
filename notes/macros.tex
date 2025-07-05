@@ -25,6 +25,8 @@
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
 		#2
+		%
+		\hfill\mbox{\scriptsize(solution page \pageref{\ExerciseLabel-Answer})}
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
 		#4
@@ -152,6 +154,8 @@
 % tel que
 \newcommand{\tqs}{\text{ tels que }}
 \newcommand{\tq}{\text{ tq. }}
+\newcommand{\et}{\text{ et }}
+\newcommand{\pourtout}{\text{ pour tout }}
 
 % ensemble avec bigl et bigr
 \newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
