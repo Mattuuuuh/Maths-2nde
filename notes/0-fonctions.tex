@@ -54,7 +54,7 @@
 	TODO
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	\begin{enumerate}
 		\item
 		Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
@@ -83,15 +83,16 @@
 	\end{center}
 }{}
 
-\ex{Fonctions vues en cours jusqu'ici}{
+\ex{}{
+	Fonctions vues en cours jusqu'ici.
 
 	\begin{enumerate}
-		\item 
-		La valeur absolue $|x|$ peut être formulée sous forme de fonction notée $|\cdot|$ : elle associe à chaque nombre réel sa valeur absolue.
-		\begin{align*}
-			|\cdot|: \R & \longrightarrow \R \\
-			x& \longmapsto |x|.
-		\end{align*}	
+%		\item 
+%		La valeur absolue $|x|$ peut être formulée sous forme de fonction notée $|\cdot|$ : elle associe à chaque nombre réel sa valeur absolue.
+%		\begin{align*}
+%			|\cdot|: \R & \longrightarrow \R \\
+%			x& \longmapsto |x|.
+%		\end{align*}	
 		
 		\item
 		Considérons la série statistiques $X$ suivante dépendant d'un entier naturel $k\in\N$.
@@ -111,13 +112,13 @@
 		\end{align}
 		Remarquons que le domaine de $f$ est l'ensemble des entiers naturels $\N$ car un effectif est forcément un nombre entier et positif.
 		
-		\item
-		Pour définir l'écart type, il a fallu utiliser la fonction racine carrée.
-		Comme la racine carrée d'un nombre négatif n'existe pas, le domaine de cette fonction est $[0;\pinfty[$, et non $\R$ tout entier.
-			\begin{align*}
-			\sqrt{\cdot}: [0;\pinfty[ & \longrightarrow \R \\
-			x& \longmapsto \sqrt{x}
-			\end{align*}
+%		\item
+%		Pour définir l'écart type, il a fallu utiliser la fonction racine carrée.
+%		Comme la racine carrée d'un nombre négatif n'existe pas, le domaine de cette fonction est $[0;\pinfty[$, et non $\R$ tout entier.
+%			\begin{align*}
+%			\sqrt{\cdot}: [0;\pinfty[ & \longrightarrow \R \\
+%			x& \longmapsto \sqrt{x}
+%			\end{align*}
 
 		\item 
 		Une constante est en particulier une fonction d'une variable $x\in\R$ réelle.
@@ -220,55 +221,9 @@
 	C'est une forme entièrement générale qui permet de déduire l'image $f(x)$ à partir de n'importe quel réel $x\in\D$ du domaine de $f$.
 }{}
 
-%\newpage %temp
-
-
-\exe{}{
-	Lire les deux programmes Python de la figure \ref{python:1-2}.
-	Quelles valeurs impriment-t-ils ?
-	
-	Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
-}{exe:fonction-python}{
-	TODO
-}
-
-\begin{figure}[!htb]
-	\begin{subfigure}[b]{.45\textwidth}
-\begin{mintedbox}{python}
-def f(x):
-y = 2*x-3
-return y
-
-f1 = f(1)
-f2 = f(-1/2)
-
-
-print(f1, f2)
-\end{mintedbox}
-	\caption{Programme 1.}
-	\label{python:1}
-	\end{subfigure}
-	\begin{subfigure}[b]{.45\textwidth}
-\begin{mintedbox}{python}
-def f(x):
-y = x*x + 1
-z = -2*x
-return y+z
-
-f1 = f(4)
-f2 = f(-2)
-
-print(f1, f2)
-\end{mintedbox}
-	\caption{Programme 2.}
-	\label{python:2}
-	\end{subfigure}
-	\caption{Deux fonctions implémentées en Python.}
-	\label{python:1-2}
-\end{figure}
 
 % exe -> ex car suppression des exercices et celui-ci est référencé
-\ex{}{
+\exe{}{
 	On reconsidère la fonction $f$ de l'exemple \ref{ex:fonctions-deja-vues} donnée en $\eqref{func:vark}$.
 	
 	\begin{enumerate}
@@ -279,7 +234,9 @@ print(f1, f2)
 		\item
 		Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
 	\end{enumerate}
-}{exe:vark}
+}{exe:vark}{
+	TODO
+}
 
 \nt{
 	Suite à l'exemple \ref{exe:vark} ci-dessus, on dira alors qu'on a écrit la variance \emph{en fonction de}  l'entier naturel $k\in\N$.
@@ -595,7 +552,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un
 	Comme chaque point de $\C_f$ est de la forme $(x; f(x))$, on souhaite trouver les points d'ordonnée inférieure à $2$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
 	Pour trouver tous les points d'ordonnée inférieure à $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
 		\begin{center}
-		 \includegraphics[page=5, scale=2]{figures/fig-fonctions.pdf}
+		 \includegraphics[page=5, scale=1.5]{figures/fig-fonctions.pdf}
 		\end{center}
 	Les points de $\C_f$ d'ordonnée inférieure à $2$ ont leur abscisse appartenant à l'union d'intervalles
 		\[ ] {-}3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
@@ -616,7 +573,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 	Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
 
 		\begin{center}
-		 \includegraphics[page=6, scale=2]{figures/fig-fonctions.pdf}
+		 \includegraphics[page=6, scale=1.5]{figures/fig-fonctions.pdf}
 		\end{center}
 		
 	Imaginons un nombre réel $x\in\R$ parcourant $]{-}3,4 ; 2,3[$ en partant de la gauche et allant vers la droite.
@@ -644,7 +601,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 	Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
 
 	\begin{center}
-	\includegraphics[page=7, scale=2]{figures/fig-fonctions.pdf}
+	\includegraphics[page=7, scale=1.5]{figures/fig-fonctions.pdf}
 	\end{center}
 	
 	Pour chaque $x$ parcourant $]{-}3,4 ; 2,3[$, la hauteur (l'ordonnée) du point de $\C_f$ d'abscisse $x$ est donnée par $f(x)$, et celle du point de $\C_g$ d'abscisse $x$ est donnée par $g(x)$.
@@ -658,3 +615,52 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
 	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ dont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
 }{}
+
+\section{Implémentation}
+
+
+
+
+\exe{}{
+	Lire les deux programmes Python de la figure \ref{python:1-2}.
+	Quelles valeurs impriment-t-ils ?
+	
+	Écrire la fonction $f(x)$ de chaque programme sous forme algébrique.
+}{exe:fonction-python}{
+	TODO
+}
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+y = 2*x-3
+return y
+
+f1 = f(1)
+f2 = f(-1/2)
+
+
+print(f1, f2)
+\end{mintedbox}
+	\caption{Programme 1.}
+	\label{python:1}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\textwidth}
+\begin{mintedbox}{python}
+def f(x):
+y = x*x + 1
+z = -2*x
+return y+z
+
+f1 = f(4)
+f2 = f(-2)
+
+print(f1, f2)
+\end{mintedbox}
+	\caption{Programme 2.}
+	\label{python:2}
+	\end{subfigure}
+	\caption{Deux fonctions implémentées en Python.}
+	\label{python:1-2}
+\end{figure}
