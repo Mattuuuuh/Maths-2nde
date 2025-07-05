@@ -49,16 +49,21 @@
 	Sinon, on dit que $n$ est \emph{impair}.
 }{}
 
+\exe{}{
+	Donner les chiffres pairs dont l'écriture en toutes lettres contient un nombre pair de lettres.
+}{exe:pair-pair}{
+	Il y a 5 chiffres pairs : 0, 2, 4, 6, et 8.
+	Parmis eux, zéro, deux, quatre, et huit s'écrivent avec un nombre pair de lettres.
+}
+
 \thm{}{
 	Si $n\in\N$ est impair, alors
 		\[ n = 2\cdot k + 1 \]
 	pour un certain entier naturel $k\in\N$.
 }{thm:impair}
 
-\exe{}{
-	Démontrer le théorème \ref{thm:impair}.
-}{exe:thm-impair}{
-	Considérons l'algorithme suivant : en partant de $n$ et tant que le résultat est postiif ou nul, on soustrait $2$ au nombre en mémoire.
+\pf{}{
+	Considérons l'algorithme suivant : en partant de $n$ et tant que le résultat est supérieur ou égal à 2, on soustrait 2 au nombre en mémoire.
 	En notant $k$ le nombre de fois que 2 a été soustrait, deux résultats sont possibles : 
 		\begin{enumerate}[label=\roman*)]
 			\item soit on obtient 0, auquel cas $n=2k$ ;
