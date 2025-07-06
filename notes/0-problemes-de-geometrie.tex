@@ -51,10 +51,11 @@
 		\[ \text{Aire}(\text{triangle}) = \dfrac{\text{base} \cdot \text{hauteur}}2. \]
 	
 	\begin{center}
+	\includegraphics[page=1, scale=1]{figures/fig-geom.pdf}
 	\end{center}
-	
-	Notons que cette construction ne dépend pas de la base choisie : il faut simplement que la hauteur soit perpendiculaire à cette base, et qu'elle aille jusqu'au point culminant du triangle. 
-	Ce point est nécessairement le sommet qui n'appartient pas à la base.
+	\warning\textbf{La hauteur est une fonction de la base. Si un autre côté est pris pour base, alors la hauteur sera différente.}
+	La formule de l'aire ne dépend pas de la base choisie, mais il faut impérativement que la hauteur soit perpendiculaire à cette base, et qu'elle aille jusqu'au point culminant du triangle. 
+	Ce point est le sommet du triangle qui n'appartient pas à la base.
 	
 	Autrement dit, la hauteur suit le projeté orthogonal du sommet n'appartenant pas à la base sur la droite engendrée par cette base.
 	
@@ -69,7 +70,7 @@ Les angles sont généralement dénotés par des lettres grecques minuscules.
 	\end{align*}
 
 On rappelle les formules de trigonométrie uniquement applicables dans un triangle rectangle.
-Les côtés opposé et adjacent dépendent de l'angle choisi.
+\warning\textbf{Les côtés opposé et adjacent dépendent de l'angle choisi.}
 
 	\begin{align*}
 		\text{sinus} = \dfrac{\text{côté opposé}}{\text{hypoténuse}}
@@ -80,7 +81,9 @@ Les côtés opposé et adjacent dépendent de l'angle choisi.
 	\end{align*}
 	
 	\begin{center}
-	\includegraphics[page=1, scale=1]{figures/fig-geom.pdf}
+	\includegraphics[page=10, scale=1]{figures/fig-geom.pdf}
+	\hspace{30pt}
+	\includegraphics[page=11, scale=1]{figures/fig-geom.pdf}
 	\end{center}
 Moyens mnémotechniques : 
 	\begin{center}
@@ -159,11 +162,18 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 }{}
 
 
-\section{Manipulations des racines carrées}
+
+
+\section{Calculs exacts}
+
+\subsection{Calculs exacts de $\cos(\theta), \sin(\theta), \tan(\theta)$}
+
+Considérons le triangle remarquable suivant.
+
+\subsection{Calculs exacts de longueurs : manipulation des racines carrées}
 
 Le calcul exact de longueurs implique de pouvoir manipuler les racines carrées dans les équations.
 La racine et ses propriétés ont été étudiées dans la section \ref{sec:racine-carrée} du chapitre \ref{chap:fonction-carré}.
-
 
 \ex{}{
 	Pour résoudre pour $x\in\R$, $x\neq0$, l'équation 
@@ -259,6 +269,48 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
 }{exe:trigo}{
 	TODO
+}
+
+\ex{}{
+	Exemple sur expression conjuguée pour rationnalisation de dénominateur.
+	
+	TODO
+}{ex:conjugué}
+
+\mprop{}{
+	Soit $d\in\R_+$, $d\neq1$. Alors
+		\[ \dfrac1{1+\sqrt{d}} = \dfrac{1-\sqrt{d}}{1-d}. \]
+}{prop:conjugué}
+\pf{}{
+	On utilise l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour supprimer la racine du dénominateur.
+	\begin{align*}
+		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}, \\
+							&= \dfrac{1-\sqrt{d}}{1-d}.
+	\end{align*}
+}
+
+\exe{, difficulty=2}{
+	Montrer que $\sqrt2 = 1 + \dfrac1{1+\sqrt2}$.
+	En déduire que $\sqrt2 = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ et que
+		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
+	Exprimer le rationnel $1 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}$ sous la form $\dfrac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \dfrac{p}q \right|$ au millième près.
+	Faire idem avec $1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}}$.
+}{exe:frac-continue-sqrt2}{
+	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \dfrac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
+	
+	Comme $\sqrt2 = 1 + \dfrac1{1+\sqrt2}$, on peut remplacer le $\sqrt2$ dans l'expression de droite par toute l'expression de droite.
+	On obtient donc $\sqrt2 = 1 + \cfrac1{1 + 1 + \cfrac1{1+\sqrt2}} = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ comme voulu.
+	On obtient l'expression d'après en répétant le même raisonnement.
+	
+	Par simplifications simples, on trouve $\dfrac{p}{q} = \dfrac{17}{12}$.
+	La calculatrice nous donne alors $\left| \sqrt2 - \dfrac{17}{12} \right| \approx 0,002$.
+	
+	Finalement, remarquons que 
+	\begin{align*}
+		1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}} &= 1 + \cfrac1{1+ 1 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}}, \\
+			&= 1 + \cfrac1{1+ \dfrac{17}{12}} = \dfrac{41}{29}.
+	\end{align*}
+	Le rationnel $\dfrac{41}{29}$ vérifie $\left| \sqrt2 - \dfrac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
 }
 
 
