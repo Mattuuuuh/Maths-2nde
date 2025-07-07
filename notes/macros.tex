@@ -30,7 +30,8 @@
 	\begin{Exercise}[title=#1, label=#3]
 		#2
 		%
-		\hfill\mbox{\scriptsize(solution page \pageref{\ExerciseLabel-Answer})}
+		%\hfill\mbox{\scriptsize(solution page \pageref{\ExerciseLabel-Answer})}
+		\hfill\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
 		#4
@@ -160,6 +161,7 @@
 \newcommand{\tqs}{\text{ tels que }}
 \newcommand{\tq}{\text{ tq. }}
 \newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
 \newcommand{\pourtout}{\text{ pour tout }}
 
 % ensemble avec bigl et bigr
@@ -178,3 +180,8 @@
 
 % vecteur norme
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% point plan
+\newcommand{\point}[3]{
+	#1\left(#2 ; #3 \right)
+}

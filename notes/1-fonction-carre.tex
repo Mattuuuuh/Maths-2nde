@@ -650,3 +650,51 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 	Algébriquement, si $x<y$, alors $\dfrac{x+y}2 - \dfrac{|x-y|}2 = \dfrac{x+y}2 - \dfrac{y-x}2 = \dfrac{(x+y)-(y-x)}2 = \dfrac{2x}2 = x = \min\{x ,y\}$.
 	On peut faire de même pour le maximum puis dans le cas $x>y$ (ou se convaincre que le cas $x>y$ n'est pas à faire par symétrie des expressions).
 }
+
+
+\mprop{}{
+	Soient $a, b \in \R$ deux nombres réels tels que $a < b$.
+	
+	Alors le milieu de l'intervalle $[a,b]$ est égal à $\dfrac{a+b}2$.
+}{prop:milieu-inter}
+
+\pf%{Démonstration de la proposition \ref{prop:milieu-inter}}{
+{}{
+	Notons $x\in\R$ le milieu de l'intervalle.
+	Celui-ci est à équidistance de $a$ et de $b$ et vérifie donc
+		\[ |x-a| = |x-b|. \]
+	Comme $x$ vérifie $a \leq x \leq b$, et par définition de la valeur absolue, on a
+		\begin{align*}
+			|x-a| &= x-a, \text{ et} \\
+			|x-b| &= -(x-b) = b-x.
+		\end{align*}
+	On peut alors résoudre pour $x\in\R$ :
+		\begin{align*}
+			x-a = b-x && \iff && 2x = a+b && \iff && x = \dfrac{a+b}2
+		\end{align*}
+}
+
+\nt{
+	En voyant $\dfrac{a+b}2$ comme $\dfrac12 a + \dfrac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
+	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient -- leur poids est alors $\dfrac12$.
+	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
+	
+	En changeant les poids, on peut créer d'autres points de l'intervalle. 
+	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\dfrac23$ et $\dfrac13$.
+	 La formule de la moyenne pondérée sera alors
+		\[ \dfrac23a + \dfrac13b, \]
+	qui est plus proche de $a$ que de $b$.
+}
+
+\exe{, difficulty=2}{
+	Considérons l'intervalle $[15;20]$ qui correspond à deux notes : $15$ et $20$.
+	\begin{enumerate}
+		\item Si les deux notes ont le même coefficient fixé à $1$, quel est le poids de chaque note et quelle est la moyenne pondérée ? Comparer avec le milieu de l'intervalle.
+		\item Posons $\lambda \in [0;1]$ le poids de la première note, et $1-\lambda$ celui de la deuxième.
+			Calculer la moyenne pondérée $15\lambda + 20(1-\lambda)$ pour certaines valeurs de $\lambda$ dans son intervalle $[0;1]$. 
+			Vérifier que toutes les valeurs obtenues appartiennent bien à l'intervalle $[15;20]$.
+		\item Quel $\lambda \in [0;1]$ choisir pour avoir une moyenne de $18{,}5$ ?
+	\end{enumerate}
+}{exe:milieu-inter}{
+	TODO
+}

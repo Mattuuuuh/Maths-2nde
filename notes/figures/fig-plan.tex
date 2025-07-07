@@ -1,0 +1,120 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=3.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=3.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]
+		
+			\addplot[DARK_BROWN, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\addplot[DARK_BROWN, mark=*, mark size = 1] (1,0) node[above] {$I$};
+			\addplot[DARK_BROWN, mark=*, mark size = 1] (0,1) node[right] {$J$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 2
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]
+		
+			\addplot[GREY, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\addplot[GREY, mark=*, mark size = 1] (1,0) node[above] {$I$};
+			\addplot[GREY, mark=*, mark size = 1] (0,1) node[right] {$J$};
+			
+			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$A(2 ; 3)$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,2) node[above left] {$B(-1 ; 2)$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (3,-1) node[below right] {$C(3; -1)$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 3
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -6.9, xmax=22.9, xticklabel=\empty, ymin=-2.9, ymax=4.9, yticklabel=\empty, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},  ticks=none, clip=false, x=10pt]
+		
+			% A and B
+			\addplot[black, mark=*, mark size = 1] (1,3) node[above right] {$A({\color{PURPLE_E}x_A}; {\color{RED_E}y_A})$};
+			\addplot[black, mark=*, mark size = 1] (20,-2) node[below right] {$B({\color{PURPLE_E}x_B}; {\color{RED_E}y_B})$};
+			
+			
+			\addplot[PURPLE_E, very thick, mark=|, mark size = 2] (1,-.07) node[below] {$x_A$};
+			\addplot[PURPLE_E, very thick, mark=|, mark size = 2] (20,.07) node[above] {$x_B$};
+			\addplot[RED_E,very thick, mark=-, mark size = 2] (-.2,3) node[left] {$y_A$};
+			\addplot[RED_E, very thick, mark=-, mark size = 2] (-.2,-2) node[left] {$y_B$};
+			
+			% midpoint
+			\addplot[black, mark=*, mark size = 1] (10.5,.5) node[above right] {$M$};	
+			
+			\addplot[PURPLE_E, very thick, mark=|, mark size = 2] (10.5,-.07) node[below=3pt] {$\dfrac{x_A+x_B}2$};
+			\draw[PURPLE_E, dotted, very thick] (axis cs:10.5, 0) -- (axis cs:10.5,.5);
+			
+			\addplot[RED_E, very thick, mark=-, mark size = 2] (-.2,.5) node[above=3pt, left] {$\dfrac{y_A+y_B}2$};
+			\addplot[RED_E, dotted, very thick, domain = 0:10.5, samples=2] {.5};			
+			
+			% dotted rectangle
+			\draw[PURPLE_E, dotted, very thick] (axis cs:1, 0) -- (axis cs:1,3);
+			\draw[PURPLE_E, dotted, very thick] (axis cs:20, 0) -- (axis cs:20,-2);
+			\addplot[RED_E, dotted, very thick, domain = 0:1, samples=2] {3};
+			\addplot[RED_E, dotted, very thick, domain = 0:20, samples=2] {-2};
+			
+			% formula
+			%\addplot[black] (15,3) node[right, draw] {$M = \dfrac{A+B}2$};
+			\addplot[black] (12,3) node[right, draw] {$M\Bigl({\color{PURPLE_E}\dfrac{x_A+x_B}2} ; {\color{RED_E}\dfrac{y_A+y_B}2}\Bigr)$};
+			
+			% [AB]
+			
+			\draw[-, black, dotted, thin] (axis cs:1,3) -- (axis cs:20,-2);
+			
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 4
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -1.9, xmax=12.9, xticklabel=\empty, ymin=-1.9, ymax=10.9, yticklabel=\empty, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, clip=false, x=20pt]
+		
+			% A and B
+			\addplot[black, mark=*, mark size = 1] (1,3) node[below left] {$A$};
+			\addplot[black, mark=*, mark size = 1] (10,8) node[above right] {$B$};
+			
+			
+			\addplot[PURPLE_E, mark=|, mark size = 2, very thick] (1,0) node[below] {$x_A$};
+			\addplot[PURPLE_E, mark=|, mark size = 2, very thick] (10,0) node[below] {$x_B$};
+			\addplot[RED_E, mark=-, mark size = 2, very thick] (0,3) node[left] {$y_A$};
+			\addplot[RED_E, mark=-, mark size = 2, very thick] (0,8) node[left] {$y_B$};
+			
+			% triangle
+			\draw[RED_E, very thick, decorate, decoration = {brace, mirror}] (axis cs:10,3) -- (axis cs:10,8) node [midway, right]{$(y_B - y_A)$};
+			\draw[black, very thick, decorate, decoration = {brace}] (axis cs:1, 3) -- (axis cs:10,8) node [midway, above=10pt, left]{$\ell$};
+			\draw[PURPLE_E, very thick, decorate, decoration = {brace, mirror}] (axis cs:1, 3) -- (axis cs:10,3) node [midway, below]{$(x_B-x_A)$};
+			
+			% formula
+			\addplot[black] (3,9.5) node[right, draw] {$\ell^2 = {\color{PURPLE_E}(x_B-x_A)}^2 + {\color{RED_E}(y_B - y_A)}^2$};
+			
+		\end{axis}
+	\end{tikzpicture}
+%
+\end{document}
