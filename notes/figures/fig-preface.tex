@@ -1,0 +1,83 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{prerex}
+\input{../colors}
+
+\begin{document}
+%
+	% page 1
+	\begin{chart}
+	%\grid
+	% y = 60
+	\reqhalfcoursec 30,60:{Chapitre 1}{Nombres rationnels, \\ nombres réels}{}{PURPLE_A}
+	\reqhalfcoursec 10,60:{Chapitre 2}{Arithmétique}{}{PURPLE_A}
+	\reqhalfcoursec 50,60:{Chapitre 3}{Plan cartésien}{}{BLUE_B}
+	
+	% y = 50
+	\reqhalfcoursec 20,50:{Chapitre 4}{Fonctions}{}{YELLOW_D}
+	\reqhalfcoursec 40,50:{Chapitre 10}{Vecteurs}{}{BLUE_B}
+	
+	% y = 40
+	\reqhalfcoursec 10,40:{Chapitre 11}{Fonctions affines}{}{YELLOW_D}
+	\reqhalfcoursec 30,40:{Chapitre 5}{Fonctions carré, \\ racine carrée, \\ valeur absolue}{}{YELLOW_D}
+	\reqhalfcoursec 50,40:{Chapitre 6}{Problèmes de géométrie}{}{BLUE_B}
+	
+	% y = 30
+	\reqhalfcoursec 50,30:{Chapitre 7}{Statistiques}{}{RED}
+	\reqhalfcoursec 20,30:{Chapitre 12}{Signes et \\ fonction inverse}{}{YELLOW_D}
+	
+	% y = 20
+	\reqhalfcoursec 20,20:{Chapitre 13}{Variations et extrema}{}{YELLOW_D}
+	\reqhalfcoursec 50,20:{Chapitre 8}{Probabilités}{}{GREEN}
+	
+	% y = 10
+	\reqhalfcoursec 50,10:{Chapitre 9}{Échantionnage}{}{GREEN}
+
+	% PREREQUISITES
+	% to y = 60
+	\prereq 30,60,50,60:
+	
+	% to y = 50
+	\prereq 30,60,20,50:
+	\prereqc 50,60,20,50;-20:
+	
+	\prereq 50,60,40,50:
+	
+	% to y = 40
+	\prereq 20,50,30,40:
+	\prereq 20,50,10,40:
+	
+	\prereq 50,60,50,40:
+	
+	% to y = 30
+	\prereq 20,50,20,30:
+	\prereq 10,40,20,30:
+	\prereq 30,40,20,30:
+	
+	% to y = 20
+	\prereq 20,30,20,20:
+	\prereqc 30,40,20,20;-60:
+	
+	% to y = 10
+	\prereq 50,20,50,10:
+	
+	% RECOMMENDATIONS
+	% to y = 60
+	
+	% to y = 50
+	
+	% to y = 40
+	\recomm 30,40,50,40:
+	
+	% to y = 30
+	\recommc 30,40,50,30;-20:
+	
+	% to y = 20
+	
+	% to y = 10
+	\recommc 30,40,50,10;-30:
+	
+	\end{chart}
+%
+\end{document}
