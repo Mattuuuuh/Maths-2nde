@@ -28,10 +28,8 @@
 
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
+		\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 		#2
-		%
-		%\hfill\mbox{\scriptsize(solution page \pageref{\ExerciseLabel-Answer})}
-		\hfill\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
 		#4

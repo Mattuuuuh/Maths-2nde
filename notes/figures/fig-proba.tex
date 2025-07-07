@@ -1,0 +1,198 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% left hand
+		\scope
+		\draw[pattern=north west lines, pattern color=RED_E] (-.5,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\draw[pattern=north east lines, pattern color=BLUE_E] (.5,0) circle (1);
+		\endscope
+		% outline
+		\draw[thick] (-.5,0) circle (1) (-.5,1)  node [text=black,above left, RED_E] {$A$}
+		      (.5,0) circle (1) (.5,1)  node [text=black,above right, BLUE_E] {$B$}
+		      (3,-2) rectangle (-3,2) node [text=black,below right] {$\Omega$};
+		%\draw (.5,0) node [text=black] {$A \cap B$};
+	\end{tikzpicture}
+	% page 2
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% intersection
+		\scope
+		\fill[PURPLE] (-.5,0) circle (1);
+		\endscope
+		% left hand
+		\scope
+		\clip (-3,-2) rectangle (3,2)
+		      (.5,0) circle (1);
+		\fill[RED_B] (-.5,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\clip (-3,-2) rectangle (3,2)
+		      (-.5,0) circle (1);
+		\fill[BLUE_C] (.5,0) circle (1);
+		\endscope
+		% outline
+		\draw[thick] (-.5,0) circle (1) (-.5,1)  node [above left, RED_E] {$A\setminus B$}
+		      (.5,0) circle (1) (.5,1)  node [above right, BLUE_E] {$B\setminus A$}
+		      (3,-2) rectangle (-3,2) node [below right] {$\Omega$};
+		\draw (0,0) node [black] {$A \cap B$};
+	\end{tikzpicture}
+	% page 3
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% intersection
+		\scope
+		\fill[PURPLE_E] (-.5,0) circle (1);
+		\endscope
+		% left hand
+		\scope
+		\clip (-3,-2) rectangle (3,2)
+		      (.5,0) circle (1);
+		\fill[PURPLE] (-.5,0) circle (1);
+		\endscope
+		% right hand
+		\scope
+		\clip (-3,-2) rectangle (3,2)
+		      (-.5,0) circle (1);
+		\fill[PURPLE] (.5,0) circle (1);
+		\endscope
+		% outline
+		\draw[thick] (-.5,0) circle (1) (-.5,1) 
+		      (.5,0) circle (1) (.5,1) 
+		      (3,-2) rectangle (-3,2) node [text=black,below right] {$\Omega$};
+		\draw (0,1) node [text=black, above, PURPLE_E] {$A \cup B$};
+		\draw (0,0) node [text=black] {$A \cap B$};
+	\end{tikzpicture}
+	
+	% page 4
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {3} \foreach \j in {-2, 0, 2}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\foreach \i in {-3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (0,0) node[above] {Départ};
+		\draw (3,-2) node[right] {Multiple de $3$};
+		\draw (-3,-2) node[left] {Pas multiple de $3$};
+		\draw (-4,-4) node[below] {B};
+		\draw (-2,-4) node[below] {N};
+		\draw (1,-4) node[below] {B};
+		\draw (3,-4) node[below] {N};
+		\draw (5,-4) node[below] {R};
+	\end{tikzpicture}
+	
+	% page 5
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {3} \foreach \j in {-2, 0, 2}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\foreach \i in {-3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (0,0) node[above] {Départ};
+		\draw (3,-2) node[right] {Multiple de $3$};
+		\draw (-3,-2) node[left] {Pas multiple de $3$};
+		\draw (-4,-4) node[below] {B};
+		\draw (-2,-4) node[below] {N};
+		\draw (1,-4) node[below] {B};
+		\draw (3,-4) node[below] {N};
+		\draw (5,-4) node[below] {R};
+		
+		\draw (-1.5, -1) node[above left] {$\dfrac23$};
+		\draw (1.5, -1) node[above right] {$\dfrac13$};
+		
+		\draw (-3.5, -3.25) node[above left] {$\frac25$};
+		\draw (-2.5, -3.25) node[above right] {$\frac35$};
+		
+		\draw (2, -3.25) node[above left] {$\frac25$};
+		\draw (3, -3.25) node[right] {$\frac3{10}$};
+		\draw (4, -3.25) node[above right] {$\frac3{10}$};
+	\end{tikzpicture}
+	% page 6
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% univers
+		\draw[fill=GREEN_A] (3,-2) rectangle (-3,2) node [below right] {$\Omega = \{ 1 ; 2 ; 3 ; 4 ; 5 ; 6 \}$};
+		
+		% E
+		\draw[rounded corners, fill = PURPLE, thick] (0,0) -- (.5,.5) -- (0,1) -- (1,1.5) -- (1.5,1) -- (2, .5) -- (1.5,.5) -- (1,1) -- (1,0) -- (0,-.5) -- (-.3,-.5) -- cycle;
+		\draw[PURPLE_E] (-1.8,-1) node {$E = \{1 ; 3 ; 5\}$};
+		\draw[GREEN_E!65!BLACK] (-1.8,-1.5) node {$\overline{E} = \{2 ; 4 ; 6\}$};
+		% wish that GREEN_E would work but it's hard to read
+		
+		% e in E
+		\node[cross=2pt, label=below:1, thick] at (-.1,-.4){};
+		\node[cross=2pt, label=above:3, thick] at (.16,.96){};
+		\node[cross=2pt, label=right:5, thick] at (1.8,.58){};
+		
+		% e notin E
+		\node[cross=2pt, label=below:2, thick] at (1.15,.7){};
+		\node[cross=2pt, label=left:4, thick] at (0,.5){};
+		\node[cross=2pt, label=below:6, thick] at (2,-1){};
+	\end{tikzpicture}
+	% page 7
+	\begin{tikzpicture}[fill=gray, scale=1]
+		% outline
+		\draw[fill=GREEN_A] (0,0) circle (1)
+		      (3,-2) rectangle (-3,2) node [text=black,below right] {$\Omega$};
+		% E
+		\scope
+		\fill[PURPLE] (0,0) circle (1);
+		\endscope
+		\draw[thick] (0,0) circle (1);
+		      
+		% e in E
+		\draw (0,.7) node [text=black] {$E$};
+		\node[cross=2pt, label=right:1, thick] at (0,0){};
+		\node[cross=2pt, label=above:3, thick] at (-.5,-.5){};
+		\node[cross=2pt, label=right:5, thick] at (.5,-.5){};
+		% e notin E
+		%\draw (2,0) node [text=black] {$\overline{E}$};
+		\node[cross=2pt, label=above:2, thick] at (1,1){};
+		\node[cross=2pt, label=left:4, thick] at (-1,1){};
+		\node[cross=2pt, label=below:6, thick] at (1,-1){};
+	\end{tikzpicture}
+%
+\end{document}
