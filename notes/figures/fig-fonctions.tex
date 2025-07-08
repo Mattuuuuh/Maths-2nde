@@ -71,29 +71,33 @@ dot/.default = black % size of the circle diameter
 	    
 	    % page 2
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -2.1, xmax=5.1, xtick={-2, ..., 5},xticklabel=\empty, ymin=-2.1, ymax=4.1, ytick={-2, ...,4}, yticklabel=\empty, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\begin{axis}[xmin = -2.1, xmax=5.1, xtick={-2, ..., 5},xticklabel=\empty, ymin=-2.1, ymax=4.1, ytick={-2, ...,4}, yticklabel=\empty, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			]
 				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4.1: 5.1, samples=100]{(x+3.5)*(x+2.5)*(x-3.5)*(x-4.5)*(x-5.5)/200 + 2}
 				node[pos=.86, above]{$\mathcal{C}_f $};
 				
 				\addplot[black, mark=*, mark size = 1] (1.2,3) node[above, right] {$({\color{PURPLE}x};{\color{RED_E}y})$};
 				\addplot[black, mark=*, mark size = 1] (1.2,-.85) node[below, right] {$\bigl({\color{PURPLE}x};{\color{RED_E}f(x)}\bigr)$};
 				
-				\draw[PURPLE, dotted, thick] (axis cs:1.2, -.85) -- (axis cs:1.2,3);
-				\addplot[RED_E, dotted, thick, domain = 0:1.2, samples=2] {3};
-				\addplot[RED_E, dotted, thick, domain = 0:1.2, samples=2] {-.85};
+				\draw[PURPLE, dotted, very thick] (axis cs:1.2, -.85) -- (axis cs:1.2,3);
+				\addplot[RED_E, dotted, very thick, domain = 0:1.2, samples=2] {3};
+				\addplot[RED_E, dotted, very thick, domain = 0:1.2, samples=2] {-.85};
 				
-				\addplot[PURPLE, thick, mark=|, mark size = 4] (1.2,0); % x cross
+				\addplot[PURPLE, very thick, mark=|, mark size = 4] (1.2,0); % x cross
 				\addplot[PURPLE] (1.5,0) node[above=2pt] {$x$}; % x label
-				\addplot[RED_E, thick, mark=-, mark size = 4] (0,3) node[left] {$y$};
-				\addplot[RED_E, thick, mark=-, mark size = 4] (0,-.85) node[left] {$f(x)$};
+				\addplot[RED_E, very thick, mark=-, mark size = 4] (0,3) node[left] {$y$};
+				\addplot[RED_E, very thick, mark=-, mark size = 4] (0,-.85) node[left] {$f(x)$};
 			\end{axis}
 		
 		\end{tikzpicture}
 		
 		%page 3
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -1.6, xmax=2.6, ymin=-4.1, ymax=21.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-1.1: 2.5, samples=100]{3*x^3 -x -3}
+			\begin{axis}[xmin = -1.6, xmax=2.6, ymin=-4.1, ymax=21.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-1.1: 2.5, samples=100]{3*x^3 -x -3}
 				node[pos=.3, right]{$\mathcal{C}_f$};
 				
 				\addplot[GREEN_E, mark=*, mark size = 1] (0,-3) node[above left] {$P$};
@@ -106,8 +110,10 @@ dot/.default = black % size of the circle diameter
 		
 		% page 4
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.1, xmax=1.1, ymin=-3.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-3:2, samples=2]{-2/3 - 2*x}
+			\begin{axis}[xmin = -3.1, xmax=1.1, ymin=-3.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:2, samples=2]{-2/3 - 2*x}
 				node[pos=.3, right]{$\mathcal{C}_f$};
 			\end{axis}
 		
@@ -115,11 +121,14 @@ dot/.default = black % size of the circle diameter
 		
 		% page 5
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}
 				node[pos=.55, above=5pt]{$\mathcal{C}_f$};
 				
-				\addplot[no marks, RED_E, thick, -] expression[domain=-5:3, samples=2]{2}
+				\addplot[no marks, RED_E, very thick, -] expression[domain=-5:3, samples=2]{2}
 				node[pos=.45, above]{$y=2$};
 				
 				
@@ -143,10 +152,13 @@ dot/.default = black % size of the circle diameter
 		
 		% page 6
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			]
+				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 				node[pos=.4, above=8pt]{$\mathcal{C}_f$};
-				\addplot[no marks, RED_E, thick, -] expression[domain=-4:3, samples=50]{-4*x^2 + 7}
+				\addplot[no marks, RED_E, very thick, -] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
 				node[pos=.68, above=10pt]{$\mathcal{C}_g$};
 			
 				\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
@@ -167,7 +179,10 @@ dot/.default = black % size of the circle diameter
 		
 		% page 7
 	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			]
 			\addplot[no marks, BLUE_E, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 			node[pos=.4, above=8pt]{$\mathcal{C}_f$};
 			\addplot[no marks, RED_E, -,  thick] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
@@ -187,14 +202,17 @@ dot/.default = black % size of the circle diameter
 			\draw[PURPLE, dotted, very thick] (axis cs:.4, 0) -- (axis cs:.4, 6.36);
 			
 			
-			\addplot[no marks, PURPLE, thick, -] expression[domain=-.8:1.2, samples=2]{0};
+			\addplot[no marks, PURPLE, very thick, -] expression[domain=-.8:1.2, samples=2]{0};
 		\end{axis}
 	\end{tikzpicture}
 	
 	% page 8
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 				node[pos=.55, above=5pt]{$\mathcal{C}_f$};
 				
 				\addplot[no marks, RED_E, thick, -] expression[domain=-5:3, samples=2]{2}
@@ -217,9 +235,42 @@ dot/.default = black % size of the circle diameter
 		
 		% page 9
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=50]{x^3 /3 - 2*x +3}node[pos=.5, right]{$\C_f$};
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.5, right]{$\C_f$};
 			\end{axis}
 		\end{tikzpicture}
+		%page 10
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10.25, xmax=10.25, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		grid style = {opacity=.5},
+	    	x=15pt,
+	    	]
+		% g cos
+		\addplot[no marks, BLUE_E, -, very thick] expression[domain=-10:10, samples=100]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, RED_E, -, very thick] expression[domain=-10:10, samples=100]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.2, above]{$\mathcal{C}_g$};
+		\addplot[no marks, GREEN_E, -, very thick] expression[domain=-10:10, samples=100]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.5,below]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	%page 11
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10.25, xmax=10.25, ymin=-4.25, ymax=4.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,,
+		grid style = {opacity=.5},
+	    	x=15pt,
+	    	]
+		% g cos
+		\addplot[no marks, BLUE_E, -, very thick] expression[domain=-10:10, samples=100]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.5, below]{$\mathcal{C}_f$};
+		\addplot[no marks, RED_E, -, very thick] expression[domain=-10:10, samples=100]{.02*(x+6)*(x+3)*(x-5)}
+		node[pos=.4, below]{$\mathcal{C}_g$};
+		\addplot[no marks, GREEN_E, -, very thick] expression[domain=-10:10, samples=100]{-.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.45, above]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
 %
 \end{document}

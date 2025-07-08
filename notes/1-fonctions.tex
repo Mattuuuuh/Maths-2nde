@@ -309,8 +309,13 @@
 	TODO
 }
 
+\section{Intervalles}
+
+$[a,b]$
 
 \section{Représentation graphique}
+
+\subsection{Courbe représentative}
 
 On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver plusieurs informations sur $f$.
 Une bonne représentation graphique nous permet de lire
@@ -498,20 +503,6 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	TODO
 }
 
-\section{Résolutions graphiques d'équations et d'inéquations}
-
-Soient $f, g$ deux fonctions admettant un domaine $\D$ commun.
-Le but de cette partie est d'étudier graphiquement les solutions $x\in\D$ des (in)équations du type
-	\begin{multicols}{2}
-	\begin{enumerate}[label=$\bullet$]
-		\item $f(x) = k$
-		\item $f(x) \leq k$
-		\item $f(x) = g(x)$
-		\item $f(x) \leq g(x)$
-	\end{enumerate}
-	\end{multicols}
-\noindent où $k\in\R$ est un réel quelconque.
-C'est-à-dire qu'on cherche l'ensemble des nombres réels $x$ tels que les (in)équations ci-dessus soient vraies.
 
 \subsection{Résoudre graphiquement $f(x) = k$}
 
@@ -583,7 +574,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 	Ainsi quand $x$ traverse le domaine, ces deux points sont confondus si et seulement si ces deux points sont de même ordonnée, c'est-à-dire si et seulement si $f(x) = g(x)$.		
 		
 	Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc données approximativement par l'ensemble
-		\[ \{ -0,8 ; 1,2 \}. \]
+		\[ \bigset{ -0,8 ; 1,2 }. \]
 
 }{}
 
@@ -615,6 +606,43 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
 	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ dont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
 }{}
+
+\subsection{Fonctions parentes : transformations des ordonnées}
+
+À partir de la courbe d'une fonction qu'on connaît bien, on peut déduire les courbes de toute une famille de fonctions apparentées.
+
+\ex{ajout d'une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = f(x)+1. \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = f(0) + 1$.
+	De façon identique, $g(-3) = f(-3) + 1$, $g(12) = f(12) + 1$, etc…
+	
+	D'un point $\bigpar{x; f(x)}$ de la courbe $\C_f$, on peut donc en déduire le point $\bigpar{x ; g(x)} = \bigpar{ x ; f(x)+1 }$ de la courbe $\C_g$.
+	Graphiquement, la courbe $\C_f$ est translatée de $1$ unité vers le haut pour obtenir $\C_g$
+	
+	Pour $h(x) = f(x) - 2$, on obtient les graphes suivants.
+	\begin{center}
+	\includegraphics[page=10, scale=1.5]{figures/fig-fonctions.pdf}
+	\end{center}
+}{}
+
+\ex{multiplication par une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = 2f(x). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = 2f(0)$.
+	De façon identique, $g(-3) = 2f(-3)$, $g(12) = 2f(12)$, etc…
+	
+	D'un point $(x ; f(x))$ de $\C_f$, on double son ordonnée (sa hauteur) pour obtenir $(x ; 2f(x)) = (x ; g(x))$, le point de $\C_g$ d'abscisse $x$.
+	C'est ce qu'on appelle une homothétie : on agrandit ou réduit l'ordonnée de chaque point d'un même facteur.
+	Si ce facteur est négatif, on fait en plus une symétrie par rapport à l'axe des abscisses.
+	
+	Pour $h(x) = -f(x)$, on obtient les graphes suivants.
+	\begin{center}
+	\includegraphics[page=11, scale=1.5]{figures/fig-fonctions.pdf}
+	\end{center}
+}{}
+
+
 
 \section{Implémentation}
 
