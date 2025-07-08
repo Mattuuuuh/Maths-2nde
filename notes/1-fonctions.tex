@@ -311,7 +311,105 @@
 
 \section{Intervalles}
 
-$[a,b]$
+\dfn{Intervalle borné}{
+	Un intervalle borné est un segment de la droite réelle $\R$. C'est donc un ensemble de nombres.
+	Il est donné par une \emph{borne inférieure} $a \in \R$ et une \emph{borne supérieure} $b\in\R$ et peut contenir ou non ses bornes.
+	
+	\begin{enumerate}
+		\item Si $a$ et $b$ sont contenues dans l'intervalle, on le note $[a ; b]$.
+		\item Si $a$  est contenue dans l'intervalle mais $b$ ne l'est pas, on le note $[a ; b [$.
+		\item Si $a$ n'est pas contenue dans l'intervalle mais $b$ l'est, on le note $] a ; b]$.
+		\item Si ni $a$ ni $b$ ne sont contenues dans l'intervalle, on le note $] a ; b [$.
+	\end{enumerate}
+}{}
+
+\ex{}{
+	Les intervalles suivants sont bornés.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=$\bullet$]
+		\item $[-1 ; 1]$
+		\item $[-3 ; 1[$
+		\item $\left]-10{,}341 ; \pi\right]$
+		\item $\left]\sqrt{2} ; 130\right[$
+	\end{enumerate}
+	\end{multicols}
+
+}{}
+
+\dfn{Intervalle non borné}{
+	Un intervalle n'est pas forcément borné : une ou les deux bornes peuvent être infinies ($\pinfty$ ou $\minfty$). 
+	Dans ce cas, l'intervalle n'inclut jamais l'infini car ce n'est pas un nombre.
+}{}
+
+\ex{}{
+	Les intervalles suivants ne sont pas bornés.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=$\bullet$]
+		\item $]\minfty; 2]$
+		\item $]\minfty ; 3[$
+		\item $]0; \pinfty[$
+		\item $\R = ]\minfty; \pinfty[$
+	\end{enumerate}
+	\end{multicols}
+}{ex:3.5}
+
+Un intervalle n'a de sens que si la borne inférieure est plus petite que la borne supérieure.
+De plus, un élément appartient à l'ensemble dès qu'il est plus petit que la borne supérieure, et plus grand que la borne inférieure.
+
+Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \og plus grand que \fg.
+
+\dfn{Inégalités}{
+	On définit les signes suivants correspondant à des inégalités \emph{strictes} et \emph{larges}.
+		\begin{enumerate}
+			\item $<$ : strictement inférieur à
+			\item $\leq$ : inférieur ou égal à
+			\item $>$ : strictement supérieur à
+			\item $\geq$ : supérieur ou égal à
+		\end{enumerate}
+}{}
+
+\ex{}{
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $1 \leq 2$
+		\item $-3 \leq -2$
+		\item $0 \leq 0$
+		\item $1{,}02 < 1{,}1$
+		\item $7{,}391 > 7{,}30001$
+		\item $-4{,}001 > -4{,}0001$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\nt{
+	Appartenir à un intervalle est donc équivalent à respecter certaines inégalités.
+	En particulier : être inférieur à la borne supérieure, et être supérieur à la borne inférieure.
+	
+	On a donc l'équivalence suivante.
+		\[ x \in [a ; b] \qquad \iff \qquad x \in \R, x \geq a, \textbf{ et } x \leq b. \]
+		
+	On peut noter deux inégalités sur la même lignes dès qu'elles vont dans le même sens.
+	Par exemple, les deux inégalités ci-dessus peuvent être condensées en une :
+		\[ x \in \R, \text{ et } a \leq x \leq b, \]
+	ou encore
+		\[ x \in \R, \text{ et } b \geq x \geq a. \]
+}
+
+\ex{}{
+	\begin{enumerate}
+		\item Prendre $x \in [-3 ; 4]$ est équivalent à prendre $x \in \R$ vérifiant $-3 \leq x \leq 4$.
+		\item Prendre $x \in [-4 ; 3[$ est équivalent à prendre $x \in \R$ vérifiant $-4 \leq x < 3$.
+		\item Prendre $x \in ]\minfty ; 0[$ est équivalent à prendre $x \in \R$ vérifiant $x < 0$.
+		
+		On dit alors que $x$ est strictement négatif.
+		\item Prendre $x \in [0; \pinfty [$ est équivalent à prendre $x \in \R$ vérifiant $x \geq 0$.
+		
+		On dit alors que $x$ est positif ou nul.
+		\item Prendre $x \in ]\minfty; \pinfty[$ est équivalent à prendre $x \in \R$.	
+		
+		Ceci est en fait tautologique car $]\minfty; \pinfty[ = \R$, comme vu dans l'exemple \ref{ex:3.5}.
+	\end{enumerate}
+}{}
 
 \section{Représentation graphique}
 
