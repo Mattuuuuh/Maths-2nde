@@ -353,24 +353,25 @@
 	\end{multicols}
 }{ex:3.5}
 
-Un intervalle n'a de sens que si la borne inférieure est plus petite que la borne supérieure.
-De plus, un élément appartient à l'ensemble dès qu'il est plus petit que la borne supérieure, et plus grand que la borne inférieure.
+\nt{
+	Un intervalle n'a de sens que si la borne inférieure est plus petite que la borne supérieure.
+	De plus, un élément appartient à l'ensemble dès qu'il est plus petit que la borne supérieure, et plus grand que la borne inférieure.
+	Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \og plus grand que \fg.
+}
 
-Il faut donc pouvoir noter simplement les relations \og plus petit que \fg et \og plus grand que \fg.
-
-\dfn{Inégalités}{
+\notations{
 	On définit les signes suivants correspondant à des inégalités \emph{strictes} et \emph{larges}.
 		\begin{enumerate}
-			\item $<$ : strictement inférieur à
-			\item $\leq$ : inférieur ou égal à
-			\item $>$ : strictement supérieur à
-			\item $\geq$ : supérieur ou égal à
+			\item[$<$] : strictement inférieur à
+			\item[$\leq$] : inférieur ou égal à
+			\item[$>$] : strictement supérieur à
+			\item[$\geq$] : supérieur ou égal à
 		\end{enumerate}
-}{}
+}
 
 \ex{}{
 	\begin{multicols}{3}
-	\begin{enumerate}
+	\begin{enumerate}[label=\roman*)]
 		\item $1 \leq 2$
 		\item $-3 \leq -2$
 		\item $0 \leq 0$
@@ -435,7 +436,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	Considérons $f : \D \rightarrow \R$ une fonction.
 	
 	La \emph{courbe représentative} de $f$, notée $\C_f$, est donnée par l'ensemble de points
-		\[ \C_f = \left\{ \left(x ; f(x) \right) \text{ où } x\in\D \right\}. \]
+		\[ \C_f = \Bigset{ \bigpar{x ; f(x)} \text{ où $x$ parcourt } \D }. \]
 	On lit \og la courbe représentative de $f$ est l'ensemble des points $(x,f(x))$ du plan où $x$ parcourt le domaine de $f$ \fg.
 }{}	
 

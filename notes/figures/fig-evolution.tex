@@ -1,0 +1,67 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur finale};
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times (m_1\cdot m_2)$};
+	\end{tikzpicture}
+	
+	% page 2
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dfrac{1}{m_1}$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times \left(m_1\cdot \dfrac{1}{m_1}\right) = \times 1$};
+	\end{tikzpicture}
+%
+\end{document}
