@@ -1,0 +1,185 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both, grid style = {opacity=.5}]
+		\addplot[BLUE_E, very thick, domain =-3.5:3, samples=2] {-3*x-3}  node[above=3pt] {$(d)$};
+		\addplot[BLUE_E, very thick, dotted, domain =-4:-3.5, samples=2] {-3*x-3} ;
+		\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {-3*x-3};
+		\addplot[black, mark=*, mark size = 1] (0,-3) node[left=10pt] {$(0;b)$};
+		\addplot[black, very thick] (0,0) node[above right] {$O$};
+	\end{axis}
+	\end{tikzpicture}
+	% page 2
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-13, ymax=9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ticks=none, grid=both, grid style = {opacity=.5}]]
+		\addplot[BLUE_E, very thick, domain =-3.5:3, samples=2] {-3*x-3}  node[above=3pt, pos=.1] {$(d)$};
+		\addplot[BLUE_E, very thick, dotted, domain =-4:-3.5, samples=2] {-3*x-3} ;
+		\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {-3*x-3};
+		\addplot[black, mark=*, mark size = 1] (0,-3) node[left=10pt] {$(0;b)$};
+		\addplot[black, very thick] (0,0) node[above right] {$O$};
+		
+		% (x,y)
+		\addplot[PURPLE, very thick, mark=|, mark size = 1] (2.5,0) node[above] {$\color{PURPLE} x$};
+		\addplot[RED_E, very thick, mark=-, mark size = 1] (0,-10.5) node[left] {$\color{RED_E} y=f(x)$};
+		\draw[PURPLE, dotted, very thick] (axis cs:2.5, 0) -- (axis cs:2.5, -10.5);
+		\addplot[RED_E, dotted, very thick, domain = 0:2.5, samples=2] {-10.5};
+		
+		\addplot[black, mark=*, mark size = 1] (2.5,-10.5) node[right] {$({\color{PURPLE} x},{\color{RED_E} y})$};
+		
+		\addplot[black, dotted, very thick, domain = 0:2.5, samples=2] {-3};
+		
+		% alpha
+		\addplot[myg,very thick,domain=.455:2/3, samples = 30] {(-3-sqrt(4-(x*3)^2))} ;
+		\addplot[myg, very thick] (.7,-3) node[below right] {$\alpha$};
+	\end{axis}
+	\end{tikzpicture}
+	% page 3
+	\begin{tikzpicture}[scale=1]
+		\draw[-, very thick, black] (0,0) -- (3,0) node[midway, above] {$\color{PURPLE} |x|$};
+		\draw[-, very thick, black] (3,0) -- (3,-3) node [midway, right] {$\color{RED_E} |y-b|$};
+		\draw[-, very thick, BLUE_E] (3,-3) -- (0,0);
+		
+		% angle droit
+		\draw[-, black] (2.7,0)-- (2.7, -.3);
+		\draw[-, black] (2.7, -.3)-- (3, -.3);
+		
+		% angle
+		\draw [myg,very thick,domain=-45:0] plot ({.5*cos(\x)}, {.5*sin(\x)})
+		node[below right] {$\color{myg}\alpha$};
+	\end{tikzpicture}
+	% page 4
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {x}  node[above=3pt, left] {$(d)$};
+		\addplot[BLUE_E, very thick, dotted, domain =-4:-3, samples=2] {x} ;
+		\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {x};
+	
+		
+	\end{axis}
+	\end{tikzpicture}
+	% page 5
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=2, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+		
+			\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {x+6}  node[above=3pt, left] {$(d)$};
+			\addplot[BLUE_E, very thick, dotted, domain =-4:-3, samples=2] {x+6} ;
+			\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {x+6};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	% page 6
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=1, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+		
+			\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {2.2}  node[above=3pt] {$(d)$};
+			\addplot[BLUE_E, very thick, dotted, domain =-4:-3, samples=2] {2.2} ;
+			\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {2.2};
+			
+		\end{axis}
+	\end{tikzpicture}
+	% page 7
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-6, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+		
+			\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {1-2*x}  node[above=5pt] {$(d)$};
+			\addplot[BLUE_E, very thick, dotted, domain =-4:-3, samples=2] {1-2*x} ;
+			\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {1-2*x};
+			
+		\end{axis}
+	\end{tikzpicture}
+	% page 8
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+		
+		% (d)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {2-.5*x}  node[above=3pt] {$\C_f$};
+		\addplot[BLUE_E, very thick, dotted, domain =-4:-3, samples=2] {2-.5*x} ;
+		\addplot[BLUE_E, very thick, dotted, domain =3:4, samples=2] {2-.5*x};
+		
+		% (0,b)
+		\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
+	\end{axis}
+	\end{tikzpicture}
+	% page 9
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = -1, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, grid style = {opacity=.5}]]
+		
+		% (d)
+		\addplot[BLUE_E, very thick, domain =-0.8:2.6, samples=2] {2-2*x}  node[above=3pt] {$\C_f$};
+		\addplot[BLUE_E, very thick, dotted, domain =-1:-.8, samples=2] {2-2*x} ;
+		\addplot[BLUE_E, very thick, dotted, domain =2.6:3, samples=2] {2-2*x};
+		
+		% (0,b)
+		\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
+		
+		% (1, b+a)
+		\addplot[black, mark=*, mark size = 1] (1,0) node[above right] {$(1;0)$};
+		
+		% (2, b+2a)
+		\addplot[black, mark=*, mark size = 1] (2,-2) node[above right] {$(2;-2)$};
+	\end{axis}
+	\end{tikzpicture}
+	% page 10
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = -1.2, xmax=1, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, grid style = {opacity=.5}]]
+		
+		% (d)
+		\addplot[BLUE_E, very thick, domain =-0.55:.9, samples=2] {-1+5*x}  node[pos = .8, above=2pt] {$\C_f$};
+		\addplot[BLUE_E, very thick, dotted, domain =-.6:-.55, samples=2] {-1+5*x} ;
+		\addplot[BLUE_E, very thick, dotted, domain =.9:1, samples=2] {-1+5*x};
+		
+		% 2 points
+		\addplot[black, mark=*, mark size = 1] (.5,1.5) node[right] {$(0,5 ; 1,5)$};
+		\addplot[black, mark=*, mark size = 1] (-.5,-3.5);
+		\addplot[black] (-.8,-2.7) node{$(-0,5 ; -3,5)$};
+	\end{axis}
+	\end{tikzpicture}
+	% page 11
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -3.9, xmax=3.9, ymin=-3.9, ymax=3.9, xtick={-3,...,3}, ytick={-3,...,3}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+		
+			\addplot[RED_E, very thick, domain =-3:0, samples=2] {2*x+3}  node[left, pos=.7] {$(d)$};
+			\addplot[RED_E, dotted, very thick, domain =-4:-3, samples=2] {2*x+3};
+			\addplot[RED_E, dotted, very thick, domain =0:1, samples=2] {2*x+3};
+			
+			\addplot[PURPLE_E, very thick, domain =0:3, samples=2] {2*x-3}  node[above=3pt, left] {};
+			\addplot[PURPLE_E, dotted, very thick, domain =-1:0, samples=2] {2*x-3};
+			\addplot[PURPLE_E, dotted, very thick, domain =3:4, samples=2] {2*x-3};
+		
+			\addplot[black, mark=*, mark size = 1] (2,1) node[right] {$(2;1)$};
+		
+		\end{axis}
+	\end{tikzpicture}
+%
+\end{document}
