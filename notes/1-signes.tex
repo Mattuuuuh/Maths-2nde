@@ -8,13 +8,502 @@
 
 \subsection{Fonction affine}
 
+\dfn{Signe d'un nombre réel}{
+	Soit $x\in\R$ un nombre réel quelconque.
+	On dit que
+		\begin{itemize}
+			\item $x$ est \emph{strictement positif} si $x>0$ ;
+			\item $x$ est \emph{strictement négatif} si $x<0$ ;
+			\item $x$ est \emph{nul} si $x=0$.
+		\end{itemize}
+	En français, dire \og $x$ est positif \fg~signifie que $x$ est positif ou nul ($x\geq0$).
+	Il est préférable de dire \emph{positif ou nul} pour éviter toute ambiguïté.
+}{}
+
+\nt{
+	Pour simplifier la notation, au lieu d'écrire \og $A >0$ et $B > 0$ \fg, on écrira juste \og$A, B > 0$\fg.
+}{}
+
+\thm{Signe du produit}{
+	Soit $A, B \in \R$ deux réels.
+	On distingue trois cas sur le signe du produit $A \cdot B$.
+		\begin{enumerate}
+			\item Si $A \cdot B = 0$, alors $A=0$ ou $B=0$. (le \og ou \fg~est inclusif)
+			\item Si $A \cdot B > 0$, alors $A$ et $B$ ont le même signe :
+				\begin{enumerate}[label=\roman*)]
+					\item soit $A, B > 0$ ;
+					\item soit $A, B < 0$.
+				\end{enumerate}
+			\item Si $A \cdot B < 0$, alors $A$ et $B$ sont de signes opposés :
+				\begin{enumerate}[label=\roman*)]
+					\item soit $A> 0$ et $B < 0$ ;
+					\item  soit $A < 0$ et $B > 0$.
+				\end{enumerate}
+		\end{enumerate}
+}{thm:signe-produit}
+
+
+\cor{Signe du quotient}{
+	Soit $A, B \in \R$ deux réels. On suppose que $B \neq 0$.
+	
+	Alors, le signe de $\dfrac1B$ est le même que celui de $B$, et donc le signe du quotient
+		\[ \dfrac{A}{B} = A \cdot \dfrac1B \]
+	suit les mêmes règles que celui du produit $A \cdot B$.
+}{}
+
+
+\exe{}{
+	Pour chacune des fonctions affines $f$ suivantes, donner l'intervalle 
+		\[ \{ x \in \R \tq f(x) \geq 0 \}. \]
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = x+3$
+		\item $f(x) = 3x-10$
+		\item $f(x) = x$
+		\item $f(x) = -4x-12$
+		\item $f(x) = -10x$
+		\item $f(x) = 1$
+	\end{enumerate}
+	\end{multicols}
+}{exe:signes1}{
+	\begin{enumerate}
+		\item 
+		L'inégalité $x+3 \geq 0$ est équivalente à $x \geq -3$.
+		On obtient donc 
+			\[ \{ x \in \R \tq x+ 3 \geq 0 \} = \{ x \in \R \tq x \geq -3 \} = [-3 ; \pinfty[. \]
+		\item 
+			\[ \left[ \dfrac{10}3 ; \pinfty \right[ \]
+		\item
+			\[ [0 ; \pinfty[ \]
+		\item
+		L'inégalité $-4x - 12 \geq 0$ est équivalente à $-4x \geq 12$.
+		Pour continuer, on multiplie par $-\dfrac14$ qui est négatif, ce qui change donc le sens de l'inégalité : $x \leq -3$.
+		On obtient donc
+			\[ ]\minfty ; -3]. \]
+		\item
+			\[ ]\minfty ; 0] \]
+		\item 
+			Tous les $x\in\R$ vérifie que $f(x) \geq 0$ car $1 \geq 0$ est toujours vrai.
+			Donc 
+			\[ \{ x \in \R \tq 1 \geq 0 \} = \R. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	\begin{multicols}{2}
+	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
+		\begin{enumerate}
+			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 }$
+			\item $\bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 }$
+			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x) \geq 0 }$
+		\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=2]{figures/fig-signes.pdf}
+	\end{center}
+	\end{multicols}
+}{exe:signes2}{
+	L'ordonnée du point d'abscisse $x$ appartenant à $\C_f$ est $f(x)$.
+	On lit donc son signe en regardant s'il est au-dessus ou en-dessous de l'axe des abscisses.
+	
+	\begin{enumerate}
+		\item On a environ 
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 } \approx [-1,5 ; 1,5]. \]
+		\item On a environ 
+			\[ \bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 } \approx [-3 ; -1,2] \cup [1,9 ; 3]. \]
+		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
+		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
+		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
+		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
+		Graphiquement, on lit que
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 \text{ et } g(x) \geq 0 } \approx [-1,2 ; 0,2], \]
+		et que (en faisant à nouveau une hypothèse de continuité)
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \leq 0 \text{ et } g(x) \leq 0 } \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+		On prend l'union des deux pour obtenir
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x)  \geq 0 } \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	\begin{enumerate}
+		\item $f$ s'annule en $1$.
+		\item $f$ s'annule en $-10$.
+		\item $f$ s'annule en $0$.
+	\end{enumerate}
+}{exe:signes3}{
+	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
+		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
+		\item $f(x) = x$ ou $f(x) = 500x$.
+	\end{enumerate}
+
+}
+
 \subsection{Produits de fonctions affines}
+
+\ex{Problème de signe}{
+	On souhaite connaître pour quels $x\in\D$ l'inégalité suivante est vérifée.
+		\[ f(x) = \dfrac{6x^2 - 5x - 4}{3-x} \geq 0. \]
+	En premier lieu, remarquons que certaines valeurs sont interdites : ce sont les valeurs pour lesquelles le dénominateur s'annule.
+	Le domaine de $f$ est donc tout $\R$ perforé en $x=3$ :
+		\[ \D = \R - \{3 \} = ]\minfty ; 3[ \cup ]3 ; \pinfty[. \]
+	
+	Ensuite, on vérifie qu'on a bien 
+		\[ (3x-4)(2x+1) = 6x^2 - 5x - 4, \]
+	factorisation qui nous est donnée par le professeur.
+	
+	On obtient alors
+		\[ f(x) = \dfrac{(3x-4)(2x+1)}{3-x}, \]
+	et connaître le signe de chacun des facteurs permettra de connaitre le signe de $f$.
+	
+	On a les équivalences suivantes.
+		\begin{align*}
+			3x-4 \geq 0 && 2x+1  \geq 0 && 3-x \geq 0 \\
+			\iff\quad && \iff\quad && \iff\quad \\
+			x \geq \dfrac43 && x \geq -\dfrac12 && x \leq 3
+		\end{align*}
+	On synthétise les signes obtenus dans le tableau suivant qu'on appelle \emph{tableau de signes}.
+	
+	\begin{center}
+	\includegraphics[page=1]{figures/fig-signes.pdf}
+	\end{center}
+	
+	Le signe de $f(x)$ dans la première case est déduit du fait qu'on fait \og moins $\times$ moins $\times$ plus \fg, qui donne \og plus \fg, car le produit d'un positif avec deux négatifs est positif. On fait idem pour le reste.
+	
+	De plus, on note avec les doubles barres $||$ la valeur interdite $x=3$.
+	
+	En conclusion, l'ensemble des $x \in \D$ vérifiant $f(x) \geq 0$ est donné par
+		\[ \bigset{ x \in \R-\{3\} \tq f(x) \geq 0 } = \left]\minfty ; -\dfrac12 \right] \bigcup \left[ \dfrac43 ; 3 \right[. \]
+}{}
+
+
+\ex{Problème de racines}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\[ 21 x^2 - 11 x - 2  = 0. \]
+	Ce problème est un large domaine d'étude en mathématiques, c'est le problème des \emph{racines} d'une fonction. Ici, la fonction est $f(x) = 21 x^2 - 11 x - 2 $, et ses racines sont les antécédents qui annulent $f$.
+	
+	Plusieurs stratégies s'offrent à nous pour résoudre $f(x)=0$ : 
+		\begin{itemize}
+			\item Tracer $\C_f$ et lire les racines graphiquement. Cette méthode est utile pour approximer, mais ne permet pas d'obtenir les solutions exactes (ni le nombre de solutions, d'ailleurs).
+			\item Tester des valeurs à partir du tracé. On pourrait démarrer vers une valeur approximative lue graphiquement puis se diriger vers la racine en affinant le pas au fur et à mesure. Cette méthode est très utilisée en pratique (\emph{cf.} la  dichotomie au chapitre d'algorithmique) mais ne permet parfois pas non plus d'obtenir une solution exacte.
+			\item Essayer de factoriser $f(x)$ en un produit de deux expressions linéaire et utiliser le théorème \ref{thm:signe-produit}. L'avantage est qu'on obtient des solutions exactes. Un (gros) inconvénient est que cela n'est pas faisable pour toutes les fonctions $f$ (voir le théorème d'Abel-Ruffini). Pour les fonctions du deuxième degré, ça fonctionne cependant tout le temps : la résolution générale est au programme de $1$ère.
+		\end{itemize}
+	
+	Ici, on vérifie que
+		\begin{align*}
+			(3x-2)(7x+1) &= 3x(7x + 1) - 2(7x+1) \\
+							&= 21x^2 + 3x - 14x - 2 \\
+							&= 21x^2 - 11x - 2 \\
+							&= f(x).
+		\end{align*}
+	D'après le théorème  \ref{thm:signe-produit}, on a
+		\begin{align*}
+			&& f(x) = 0  && \\
+			&& (3x-2)(7x+1) = 0 && \\
+			3x-2 = 0 && \text{ ou }&& 7x + 1 = 0 \\
+			x = \dfrac23 && \text{ ou } && x = -\dfrac17
+		\end{align*}
+}{}
+
+\exe{}{
+	À l'aide de l'exercice \ref{exe:signes1} remplir les tableaux de signes ci-dessous et donner
+		\begin{align*}
+			\{ x \in \R \tq f(x) \geq 0 \}, && \{ x \in \R \tq g(x) \leq 0 \}, && \{ x \in \R \tq h(x) \geq 0 \}
+		\end{align*}
+	sous forme d'union d'intervalles.
+	
+	\begin{center}
+	\includegraphics[page=3]{figures/fig-signes.pdf}
+	\includegraphics[page=4]{figures/fig-signes.pdf}
+	\includegraphics[page=5]{figures/fig-signes.pdf}
+	\end{center}
+}{exe:signes4}{
+	On remplit le tableau de signe en calculant d'abord quand chaque fonction affine s'annule : c'est exactement quand elle change de signe (du positif vers le négatif, ou l'inverse).
+	
+	Par exemple, $x+3$ s'annule en $x=-3$, et l'exercice \ref{exe:signes1} donne que $x+3$ est positif après $-3$, est donc nécessairement négatif avant.
+	On fait idem pour $3x-10$, qui s'annule en $\dfrac{10}3$, et qui est positif après, et négatif avant.
+	
+	Le signe du produit $f(x) = (x+3)(3x-10)$ est déduit du signe des facteurs, à l'aide des règles ``positif $\times$ positif = positif ; négatif $\times$ négatif = positif ; positif $\times$ négatif = négatif''.
+	De plus, lorsqu'un des deux facteurs des nul, le produit est forcément nul, multiplier par zéro donne toujours zéro.
+	
+	Le deuxième tableau est similaire, en faisant attention au fait que le signe de $-4x-12$ est positif puis négatif (cf. exercice \ref{exe:signes1}).
+	Ceci est en fait dû au fait qu'on ait multiplié par $-\dfrac14$ lors de la résolution de $-4x-12 \geq 0$.
+	Le signe du coefficient directeur $a$ de la fonction affine donne donc l'allure de la droite associée : si $a>0$, la droite monte du négatif vers le positif en passant par $0$, et si $a <0$, la droite descend du positif vers le négatif en passant par $0$.
+	
+	Le cas $a=0$ est le cas de la fonction constante, dont l'étude de signe n'est pas très intéressante.
+	
+	
+	\begin{center}
+	\includegraphics[page=6]{figures/fig-signes.pdf}
+	\includegraphics[page=7]{figures/fig-signes.pdf}
+	\includegraphics[page=8]{figures/fig-signes.pdf}
+	\end{center}
+}
+
+
+\exe{}{
+	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	\begin{enumerate}
+		\item $f$ s'annule en $-10$ et en $1$.
+		\item Les racines de $f$ sont $2, -3, \dfrac27$, et $0$.
+	\end{enumerate}
+}{exe:signes5}{
+	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = (x+10)(x-1) = x^2 +9x -10$.
+		\item $f(x) = (x-2)(x+3)(x-\frac27)x$.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{exe:signes6}{
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
+			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
+	\end{enumerate}
+}
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			4x^3 - 6x^2 - 2x + 3  = 0. \label{eq:2}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
+	\end{enumerate}
+}{exe:signes7}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
+		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
+			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+		Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+		On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+	\end{enumerate}
+
+
+}
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
+	\end{enumerate}
+}{exe:signes8}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
+		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
+			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
+		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
+	\end{enumerate}
+
+}
+
+\exe{}{
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
+	
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-signes.pdf}
+	
+	\includegraphics[page=10]{figures/fig-signes.pdf}
+	
+	\includegraphics[page=11]{figures/fig-signes.pdf}
+	\end{center}
+	
+}{exe:signes9}{
+	
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-signes.pdf}
+	\includegraphics[page=13]{figures/fig-signes.pdf}
+	\end{center}
+}
+
 
 \section{Fonction inverse}
 
-
+TODO
 
 \section{Domaine de définition}
 
+\dfn{Domaine de définition, valeurs interdites}{
+	Soit $f$ une fonction quelconque. On souhaite connaître le domaine le plus grand possible sur lequel définir $f$.
+	On l'appelle le \emph{domaine de définition}, qu'on note $\D_f$.
+	
+	Pour cela, on étudie la fonction sur $\R$ dont on supprime les \emph{valeurs interdites}, c'est-à-dire les antécédents pour lesquels $f$ est mal définie.
+	On étudiera dans ce chapitre deux conditions qui permettront d'identifier ces valeurs interdites :
+		\begin{enumerate}
+			\item l'expression sous une racine carrée doit toujours être positive ou nulle ; et
+			\item un dénominateur ne doit jamais être nul.
+		\end{enumerate}
+}{}
+
+\ex{Valeurs interdites}{
+	Soit $f$ la fonction donnée par
+		\[ f(x) = \dfrac{\sqrt{7-2x}}{x}. \]
+	On identifie deux conditions qui doivent être vérifées pour que calculer $f(x)$ ait un sens :
+		\begin{enumerate}
+			\item $7-2x \geq 0$ ; et
+			\item $x \neq 0$.
+		\end{enumerate}
+	La première inégalité nous impose que $x \leq \dfrac72$, et la deuxième condition supprime $0$.
+	On obtient donc
+		\[ \D_f = \left] \minfty; \frac72 \right] - \{0\} =  \left] \minfty; 0 \right[ \cup  \left] 0; \frac72 \right]. \]
+}{}
+
+\exe{}{
+	À l'aide de l'exercice \ref{exe:signes1}, donner le domaine de définition de chaque fonction suivante.
+	
+	\begin{enumerate}
+		\item $f(x) = \sqrt{x+3}$
+		\item $g(x) = \sqrt{3x-10}$
+		\item $h(x) = \sqrt{-4x-12}$
+	\end{enumerate}
+
+}{exe:signes10}{
+	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
+	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
+	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
+	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
+	
+	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
+	\begin{enumerate}
+		\item
+			\[ \D_f = \{ x \in \R \tq x + 3 \geq 0 \} = [-3; \pinfty[, \]
+		d'après l'exercice \ref{exe:signes1}.
+		\item
+			\[ \D_f = \{ x \in \R \tq 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[, \]
+		d'après l'exercice \ref{exe:signes1}.
+		\item
+			\[ \D_f = \{ x \in \R \tq -4x-12 \geq 0 \} = ]\minfty; -3], \]
+		d'après l'exercice \ref{exe:signes1}.
+	\end{enumerate}
+}
+
+\exe{}{
+	À l'aide de l'exercice \ref{exe:signes4}, donner le domaine de définition de la fonction
+		\[ f(x) = \sqrt{-10x(x+3)(3x-10)}. \]
+}{exe:signes11}{
+	La seul contrainte à poser sur $x$ est que l'expression sous la racine soit positive ou nulle.
+		\[ \D_f = \{ x \in \R \tq -10x(x+3)(3x-10) \geq 0 \}. \]
+	Or la dernière ligne du dernier tableau de signes de l'exercice \ref{exe:signes4} nous donne exactement les intervalles où $h(x) = -10x(x+3)(3x-10)$ est positive ou nulle :
+		\[ \D_f = ]\minfty ; -3] \cup \left[0 ; \dfrac{10}3 \right]. \]
+}
+
+\exe{}{
+	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
+		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
+	
+	\begin{enumerate}
+		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
+		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
+		\item Remplir le tableau de signes ci-dessous.
+		\item Exprimer $\{ x \in \D_f \tq f(x) \geq 0 \}$ sous forme d'union d'intervalles.
+	\end{enumerate}
+	
+	
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-signes.pdf}
+	\end{center}
+}{exe:signes12}{
+	\begin{enumerate}
+		\item 
+		Par double distributivité,
+			\[ (x-3)(7x+1) = x^2 \cdot (7) + x \cdot (1 - 21) + (-3) = 7x^2 - 20x - 3. \]
+		\item
+		Il n'y a pas de racine carrée dans l'expression de $f$ : la seule opération illégale est la division par zéro.
+		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\dfrac17$.
+		Par conséquent, $\D_f = \R - \left\{ 3 ; -\dfrac17 \right\}$.
+		
+		\item 
+		Dans la dernière ligne, on note par les doubles barres les valeurs interdites à $f$.
+		Lorsque le numérateur $2x+1$ est nul, $f$ est bien nulle, mais $f$ n'est pas définie aux $x$ pour lesquels le dénominateur s'annule.
+		\item 
+			\[ \{ x \in \D_f \tq f(x) \geq 0 \} = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
+		Les valeurs interdites $-\frac17$ et $3$ ne sont pas incluses car elles n'appartiennent pas à $\D_f$, ensemble dans lequel on pioche nos $x$.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-signes.pdf}
+	\end{center}
+}
+
+\exe{}{
+	Donner le domaine de définition $\D_f$ de la fonction
+		\[ f(x) = \dfrac{\sqrt{7+2x}}{(3x+1) \sqrt{2-x}}, \]
+	et trouver l'ensemble des $x\in\D_f$ vérifiant $f(x) \leq 0$.
+}{exe:signes13}{
+	On identifie quatre contraintes sur $x$ :
+		\begin{enumerate}
+			\item $7+2x \geq 0$ ;
+			\item $3x+1 \neq 0$ ;
+			\item $2-x \geq 0$ ; et
+			\item $2-x \neq 0$.
+		\end{enumerate}
+	On traite d'abord les inégalités qui imposent $x \geq -\dfrac72$, et $x\leq 2$.
+	Ainsi, $x$ appartient nécessairement à l'intervalle $\left[ -\dfrac72 ; 2 \right]$.
+	
+	Les autres contraintes imposent que $x \neq -\dfrac13$ et $x\neq 2$, ce qui perfore l'intervalle obtenu :
+		\[ \D_f = \left[ -\dfrac72 ; 2 \right] - \left\{ -\dfrac13 ; 2 \right\} = \left[ -\dfrac72 ; -\dfrac13 \right[ \cup \left] -\dfrac13; 2 \right[. \]
+	
+	Pour obtenir le signe, remarquons qu'il n'est que nécessaire d'étudier le signe de $3x+1$, car les racines carrées sont toujours positives.
+	Or $3x+1$ est négatif avant sa racine et positif après, ce qui implique que
+		\[ \{ x \in \D_f \tq f(x) \leq 0 \} = \D_f \cap \left]\minfty ; -\dfrac13 \right] = \left[ -\dfrac72 ; -\dfrac13 \right[. \]
+}
+
+\exe{}{
+	Soit une fonction $f$ donnée par
+		\[ f(x) = \dfrac{(4x-8)(x-3)}{-2x^2 + 5x + 12}. \]
+	\begin{enumerate}
+		\item Montrer que $-2x^2 + 5x + 12 = -2\left(x+\dfrac32\right)(x-4)$.
+		\item En déduire $\D_f$.
+		\item Donner $\{ x \in \D_f \tq f(x) \leq 0 \}$ sous forme d'union d'intervalles.
+	\end{enumerate}
+}{exe:signes14}{
+	\begin{enumerate}
+		\item 
+		Par double distributivité, on obtient
+			\[ -2\left(x+\dfrac32\right)(x-4) = -2 \left( x^2 + \dfrac32 x - 4x - \dfrac32 \cdot 4 \right) = -2x^2 + 5x + 12. \]
+		\item 
+		Les seules contraintes sont que le dénominateur ne s'annule pas :
+			\[ \D_f = \R - \left\{ - \dfrac32 ; 4 \right \}. \]
+		\item
+		On crée un tableau de signes utilisant que
+			\[ f(x) = \dfrac{(4x-8)(x-3)}{-2\left(x+\dfrac32\right)(x-4)} = -\dfrac12 \cdot \dfrac{(4x-8)(x-3)}{\left(x+\dfrac32\right)(x-4)}. \]
+		Remarquons, de manière importante, que le signe de $f$ est donc l'opposé du signe de $\dfrac{(4x-8)(x-3)}{\left(x+\dfrac32\right)(x-4)}$ à cause du $-2$ !
+		On l'ajoute donc au tableau pour ne pas l'oublier...
+	\end{enumerate}
 
 
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-signes.pdf}
+	\end{center}
+	
+	D'où 
+		\[  \{ x \in \D_f \tq f(x) \leq 0 \} = \left] \minfty ; -\dfrac32 \right[ \cup  \left[ 2 ; 3 \right]  \cup \left]4;\pinfty \right[. \]
+}

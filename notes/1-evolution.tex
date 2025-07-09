@@ -331,20 +331,6 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
   Ceci correspond à un pourcentage supérieur à $100\%$.
 }
 
-\exe{Intérêts au long terme}{
-  Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
-  Ainsi, après la première année, il y aura $1,03 \cdot 10 = 10,3$€ sur son compte.
-  La deuxième année, il y aura $1,03 \cdot 10,35 = 10,609$€, etc...
-  
-  À l'aide de la calculatrice, répondre aux questions suivantes.
-  \begin{enumerate}
-  \item Combien d'argent aura-t-elle après $5$ ans ?
-  \item Combien d'argent aura-t-elle après $50$ ans ?
-  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
-  \end{enumerate}
-}
-{}
-
 \dfn{Augmentation, diminution}{
   Une \emph{augmentation} d'une valeur $N$ d'une proportion $p\geq0$ correspond à la somme
   \[ N + p\cdot N = (1+p)\cdot N.\]
@@ -408,6 +394,36 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	ce qui correspond à une diminution de $4\%$.
 }{}
 
+\exe{}{
+        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{exe:evol5}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
+
+\exe{, difficulty=1}{
+  Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
+  Ainsi, après la première année, il y aura $1,03 \cdot 10 = 10,3$€ sur son compte.
+  La deuxième année, il y aura $1,03 \cdot 10,35 = 10,609$€, etc...
+
+  À l'aide de la calculatrice, répondre aux questions suivantes.
+  \begin{enumerate}
+  \item Combien d'argent aura-t-elle après $5$ ans ?
+  \item Combien d'argent aura-t-elle après $50$ ans ?
+  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+  \end{enumerate}
+}{exe:evol4}{
+  \begin{enumerate}
+  \item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10  \approx 11,59$€.
+  \item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10  \approx 43,84$€.
+  \item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10  \approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
+  \end{enumerate}
+}
+
 \exe{, difficulty=2}{
     Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
     \begin{enumerate}
@@ -454,36 +470,6 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }{}
 
 \exe{}{
-  Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
-  Ainsi, après la première année, il y aura $1,03 \cdot 10 = 10,3$€ sur son compte.
-  La deuxième année, il y aura $1,03 \cdot 10,35 = 10,609$€, etc...
-
-  À l'aide de la calculatrice, répondre aux questions suivantes.
-  \begin{enumerate}
-  \item Combien d'argent aura-t-elle après $5$ ans ?
-  \item Combien d'argent aura-t-elle après $50$ ans ?
-  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
-  \end{enumerate}
-}{exe:evol4}{
-  \begin{enumerate}
-  \item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10  \approx 11,59$€.
-  \item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10  \approx 43,84$€.
-  \item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10  \approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
-  \end{enumerate}
-}
-
-\exe{}{
-        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
-}{exe:evol5}{
-	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
-	Une diminution, elle, multiplie par $0,8$.
-	
-	La quantité finale est donné par 
-		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
-	qui correspond à une diminution de $4\%$.
-}
-
-\exe{}{
   Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
 }{exe:evol6}{
 	Notons $P$ le prix initial de l'objet.
@@ -507,8 +493,8 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 \exe{, difficulty=2}{
-        On considère l'ensemble $E= \{1; 2; \dots ; n-1 ; n\}$ dépendant d'un entier naturel $n\geq1$.
-        On pose $F = \{k \in E \text{ tq. } 2 | k\}$, l'ensemble des éléments pairs de $E$.
+        On considère l'ensemble $E= \bigset{1; 2; \dots ; n-1 ; n}$ dépendant d'un entier naturel $n\geq1$.
+        On pose $F = \bigset{k \in E \tq 2 | k}$, l'ensemble des éléments pairs de $E$.
 
         A-t-on toujours $\dfrac{|F|}{|E|} = \dfrac12$ ? Donner l'ensemble des entiers $n\geq1$ pour lesquels l'égalité est vraie.
 }{exe:evol8}{
@@ -516,7 +502,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	
 	D'une part, pour avoir $\dfrac{|F|}{|E|} = \dfrac12$, on doit nécessairement avoir $n = |E| = 2 \cdot |F|$, et donc $n$ pair.
 	
-	Réciproquement, si $n$ est pair, alors $n=2k$ et $F = \{ 2\times1; 2\times2; 2\times3; \cdot ; 2\times(k-1) ; 2 \times k\}$.
+	Réciproquement, si $n$ est pair, alors $n=2k$ et $F = \bigset{ 2\times1; 2\times2; 2\times3; \cdot ; 2\times(k-1) ; 2 \times k}$.
 	Ainsi $|F| = k = \dfrac{n}2$ et l'égalité est vérifiée. 
 }
 
@@ -533,12 +519,12 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 \exe{, difficulty=2}{
-    Soit l'ensemble d'entiers $E=\{n; n+1; \dots; m-1 ; m\}$ dépendant de deux entiers relatifs $n<m$.
+    Soit l'ensemble d'entiers $E=\bigset{n; n+1; \dots; m-1 ; m}$ dépendant de deux entiers relatifs $n<m$.
     Calculer $|E|$ en fonction de $n$ et $m$.
-    Vérifier la formule avec $n=-1$ et $m=1$ en sachant que $|\{-1 ; 0 ; 1 \}| = 3$.
+    Vérifier la formule avec $n=-1$ et $m=1$ en sachant que $\bigl|\bigset{-1 ; 0 ; 1 }\bigr| = 3$.
 }{exe:evol13}{
 	On soustrait $n$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
-		\[ |E| = |\{ 0; 1 ; \dots ; m-n \}. \]
+		\[ |E| = \bigset{ 0; 1 ; \dots ; m-n }. \]
 	Il y a $m-n$ entiers de $1$ à $m-n$, et donc $|E| = m-n+1$ éléments au total en n'oubliant pas $0$.
 
 	Pour $n=-1, m=1$, on a bien $m-n+1 = (1) - (-1) + 1  = 3$.

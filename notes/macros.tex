@@ -188,3 +188,7 @@
 \newcommand{\point}[3]{
 	#1\left(#2 ; #3 \right)
 }
+
+% \smash avant \underline pour coller la ligne au mot
+\let\oldunderline\underline
+\renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}

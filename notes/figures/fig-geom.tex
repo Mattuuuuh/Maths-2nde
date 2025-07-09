@@ -42,7 +42,7 @@ dot/.default = black % size of the circle diameter
 		\draw[-, thick, black] (2,.15)-- (2.15,.15) -- (2.15,0);
 		
 		%hauteur
-		\draw[-, thick, black, dotted] (2,0) -- (2,2) node[pos=.85, left=8pt, rotate=90] {hauteur};
+		\draw[-,very thick, black, dotted] (2,0) -- (2,2) node[pos=.85, left=8pt, rotate=90] {hauteur};
 		
 		\draw[-, thick, black] (5,0) -- (8,0) node[midway, below] {base};
 		\draw[-, thick, black] (8,0) -- (9,2);
@@ -53,13 +53,13 @@ dot/.default = black % size of the circle diameter
 		\node[black, above] at  (9,2) {};
 		
 		% droite base
-		\draw[-, thick, black, dotted] (8,0) -- (9,0);
+		\draw[-, very thick, black, dotted] (8,0) -- (9,0);
 		
 		% angle droit
 		\draw[-, thick, black] (9,.15)-- (8.85,.15) -- (8.85,0);
 		
 		%hauteur
-		\draw[-, thick, black, dotted] (9,0) -- (9,2) node[pos=.35, right=8pt, rotate=90] {hauteur};
+		\draw[-, very thick, black, dotted] (9,0) -- (9,2) node[pos=.35, right=8pt, rotate=90] {hauteur};
 	\end{tikzpicture}
 	
 	% page 2
@@ -100,18 +100,18 @@ dot/.default = black % size of the circle diameter
 	
 	% page 3
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = 0, xmax=1.1, ymin=0, ymax=1.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		\begin{axis}[xmin = 0, xmax=1.1, ymin=0, ymax=1.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, grid style = {opacity=.5}]
 			\addplot[no marks, BLUE_E, -, very thick] expression[domain=0:1, samples=101]{sqrt(1-x^2)};
 			\addplot[mark=*, mark size = 1, black, thick] (0.625, 0.7805) node[right=3pt] {$P({\color{PURPLE}x};{\color{RED_E}y})$};
 			
 			
-			\addplot[black, dotted, thick] expression[domain=0:0.625, samples=2]{0.7805/0.625*x}
+			\addplot[black, dotted, very thick] expression[domain=0:0.625, samples=2]{0.7805/0.625*x}
 			node[midway, above=]{$1$};
 			
 			\addplot[no marks, GREEN_E, -, very thick] expression[domain=0.11:0.1732, samples=101]{sqrt(.03-x^2)}
 			node[right, pos=.3] {$\theta$};
 			
-			\draw[black, dotted, thick] (axis cs:0.625, 0) -- (axis cs:0.625,0.7805);
+			\draw[black, dotted, very thick] (axis cs:0.625, 0) -- (axis cs:0.625,0.7805);
 			
 			% angle droit
 			\draw[-, thick, black] (axis cs:0.585,0) -- (axis cs:0.585,.05) -- (axis cs:0.625,.05);
@@ -194,11 +194,11 @@ dot/.default = black % size of the circle diameter
 		\node[black] at (7,0){$\bullet$};
 		\node[black, right] at (7,0) {$M$};
 		
-		\node[black] at (70*10/116,70*4/116) {$\bullet$};
+		\node[black] at (70*10/116,70*4/116 - .03) {$\bullet$};
 		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
 		
 		% proj pourquoi ai-je calculé ça
-		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
+		\draw[-, very thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
 		% angle droit à vue d'oeil car y'en a marre
 		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2)  -- (6.15,2.1);
 	\end{tikzpicture}
@@ -210,16 +210,16 @@ dot/.default = black % size of the circle diameter
 		\node[black] at (7,0){$\bullet$};
 		\node[black, right] at (7,0) {$M$};
 		
-		\node[black] at (70*10/116,70*4/116) {$\bullet$};
+		\node[black] at (70*10/116 ,70*4/116 - .03) {$\bullet$};
 		\node[black, above] at  (70*10/116,70*4/116) {$M'$};
 		
-		\draw[-, thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
+		\draw[-, very thick, black, dotted] (7,0) -- (70*10/116,70*4/116);
 		\draw[-, thick, black] (70*10/116*0.95, 70*4/116*0.95) -- (5.87,2) -- (6.15,2.1);
 	
 	
 		\node[black] at (70*10/116*.6,70*4/116*.6) {$\bullet$};
 		\node[black, above] at  (70*10/116*.6,70*4/116*.6) {$P$};
-		\draw[-, thick, black, dotted] (70*10/116*.6,70*4/116*.6) -- (7,0);
+		\draw[-, very thick, black, dotted] (70*10/116*.6,70*4/116*.6) -- (7,0);
 	\end{tikzpicture}
 	
 	% page 10

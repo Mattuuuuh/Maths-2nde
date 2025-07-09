@@ -23,6 +23,11 @@
 \newtheorem*{nomenclature}{Nomenclature}
 \newtheorem{axiome}[theorem]{Axiome}
 
+\newtheorem*{definition*}{Définition}
+\newtheorem*{lemme*}{Lemme}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{corollaire*}{Corollaire}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CLEAN SETUPS : MDFRAMED SURROUND
@@ -56,6 +61,34 @@
 	innertopmargin=-4pt,
 	nobreak=true,
 ]{proposition}
+
+
+% def
+\surroundwithmdframed[
+	hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{definition*}
+% thm
+\surroundwithmdframed[
+	%hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{theorem*}
+\surroundwithmdframed[
+	%hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{proposition*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

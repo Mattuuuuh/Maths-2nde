@@ -1,0 +1,518 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Variations et extrema}
+\label{chap:variations}
+
+
+\section{Variations et tableaux de variations}
+
+\subsection{Définitions}
+
+\dfn{Variations}{
+	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
+	Alors
+		\begin{itemize}
+			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \implies && f(x) \leq f(y).
+				\end{align*}	
+			On interprète l'implication ainsi :
+			\begin{center}
+				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
+			\end{center}
+				
+			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
+				\begin{align*}
+					x < y && \implies && f(x) \geq f(y).
+				\end{align*}
+			On interprète l'implication ainsi :
+			\begin{center}
+				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
+			\end{center}
+				
+			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
+				\begin{align*}
+					f(x) = K.
+				\end{align*}
+		\end{itemize}
+	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
+}{}
+
+\ex{Variation d'une fonction affine}{
+	On considère $f(x) = -3x + 8$, une fonction affine sur $\R$.
+	Comme $\C_f$ est une droite, on s'attend à ce que $f$ soit soit croissante, soit décroissante, soit constante.
+	
+	Prenons donc $x<y$ deux nombres réels quelconques.
+	Comme $f$ n'est clairement pas constante, on essaye d'obtenir soit $f(x) < f(y)$, soit $f(y) < f(x)$.
+	
+	Le coefficient directeur $-3$ étant négatif, il change le sens de l'inégalité lorsqu'on multiplie par celui-ci.
+	\begin{align*}
+		x &< y \\
+		-3x &> -3y \\
+		-3x + 8 &> -3y + 8  \\
+		f(x) &> f(y)
+	\end{align*}
+	On lit ce qu'on a obtenu ainsi : si on prend deux antécédents $x, y$ avec $x$ à gauche de $y$, alors $f(x)$ est au-dessus de $f(y)$.
+	Graphiquement, la droite $\C_f$ doit nécessairement descendre pour aller de $(x, f(x))$ à $(y, f(y))$.
+	Par définition, $f$ est décroissante. 
+	
+	On synthétise les variations obtenues dans le tableau suivant qu'on appelle \emph{tableau de variations}.
+	
+	\begin{center}
+	\includegraphics[page=1]{figures/fig-variations.pdf}
+	\end{center}
+	
+	Le tableau n'est pas très intéressant pour l'instant car les variations des fonctions affines ne le sont pas particulièrement...
+}{}
+
+\subsection{Cas particulier : fonctions affines}
+
+\thm{Variation d'une fonction affine}{
+	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
+		\begin{align*}
+			f(x) = a x + b && (x\in\R)
+		\end{align*}
+	On distingue trois cas de figure.
+		\begin{itemize}
+			\item Si $a < 0$, alors $f$ est strictement décroissante.
+			\item Si $a=0$, alors $f$ est constante.
+			\item Si $a>0$, alors $f$ est strictement croissante.
+		\end{itemize}
+}{thm:affine-var}
+
+%\pf{Démonstration du théorème \ref{thm:affine-var}}{
+\pf{}{
+	Soient $(x_A;y_A), (x_B; y_B) \in \C_f$ deux points distincts de la droite $\C_f$.
+	Supposons de sucroît que $x_A < x_B$, c'est-à-dire que $A$ soit à gauche de $B$ dans le plan.
+	
+	Le dénominateur du coefficient directeur
+		\[ a = \dfrac{y_B - y_A}{x_B-x_A} \]
+	 est positif, et donc le numérateur détermine son signe.
+	 
+	 Si $a<0$, c'est que $y_B < y_A$, et donc que la fonction $f$ est décroissante.
+	 Graphiquement, le point $A$ est à gauche et au-dessus du point $B$, et la droite descend.
+	 
+	 Les autres cas sont similaires.
+}
+
+\ex{Variation et signe d'une fonction affine}{
+	On considère $f(x) = \dfrac25x + 12$, une fonction affine sur $\R$.
+	Comme le coefficient directeur est $\dfrac25 > 0$, $f$ est croissante.
+	Par conséquent, on peut connaître son signe en connaissant là où elle s'annule (son unique racine existe tant que $f$ n'est pas constante).
+	
+	On trouve $f(-30) = 0$, et on synthétise les résultats dans le tableau suivant.
+	
+	\begin{center}
+	\includegraphics[page=2]{figures/fig-variations.pdf}
+	\end{center}
+	
+	Le signe est déduit des variations de $f$ : comme $f$ est croissante et qu'elle s'annule en $-30$, son signe est nécessairement négatif avant et positif après.
+}{}
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\includegraphics[page=3]{figures/fig-variations.pdf}
+	\caption{$f$ est croissante.}
+	\end{subfigure}
+	%\hspace{2cm}
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\includegraphics[page=4]{figures/fig-variations.pdf}
+	\caption{$f$ est décroissante.}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+	\centering
+	\includegraphics[page=5]{figures/fig-variations.pdf}
+	\caption{$f$ est constante.}
+	\end{subfigure}
+	\caption{Courbes représentatives de fonctions affines $f(x) = ax+b$ selon le signe du coefficient directeur $a$.}
+\end{figure}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:var1}{
+	\begin{center}
+	\includegraphics[page=10]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=11]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:var2}{
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=13]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:var3}{
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+\exe{}{
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
+	
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-variations.pdf}
+	
+	\includegraphics[page=16]{figures/fig-variations.pdf}
+	
+	\includegraphics[page=17]{figures/fig-variations.pdf}
+	\end{center}
+	
+}{exe:var4}{
+	
+	\begin{center}
+	\includegraphics[page=18]{figures/fig-variations.pdf}
+	\includegraphics[page=19]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+
+\subsection{Variations de fonctions parentes}
+
+À partir des variations d'une fonction qu'on connaît bien (par exemple une fonction affine, la fonction carré, et on en verra d'autres au chapitre Fonctions de référence), on peut déduire les variations de toute une famille de fonctions apparentées.
+
+\ex{multiplication par une constante}{
+	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
+		\[ g(x) = 2f(x). \]
+	Pour calculer $g(0)$, on utilise donc la définition $g(0) = 2f(0)$.
+	De façon identique, $g(-3) = 2f(-3)$, $g(12) = 2f(12)$, etc…
+	
+	D'un point $(x ; f(x))$ de $\C_f$, on double son ordonnée (sa hauteur) pour obtenir $(x ; 2f(x)) = (x ; g(x))$, le point de $\C_g$ d'abscisse $x$.
+	C'est ce qu'on appelle une homothétie : on agrandit ou réduit l'ordonnée de chaque point d'un même facteur.
+	Si ce facteur est négatif, on fait en plus une symétrie par rapport à l'axe des abscisses.
+	
+	Pour $h(x) = -f(x)$, on obtient les graphes suivants.
+	\begin{center}
+	\includegraphics[page=6]{figures/fig-variations.pdf}
+	\end{center}
+}{}
+
+\thm{Variations de fonctions parentes}{
+	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ un nombre réel.
+		\begin{enumerate}
+			\item La fonction
+				\[ g(x) = f(x) + c \]
+			admet les mêmes variations que $f$.
+			\item La fonction
+				\[ h(x) = c \cdot f(x) \]
+				\begin{enumerate}[label=(\roman*)]
+					\item si $c>0$, $h$ admet les mêmes variations que $f$.
+					\item si $c<0$, les variations de $h$ sont opposées à celles de $f$ (croissante devient décroissante, décroissante devient croissante, et constante reste idem).
+				\end{enumerate}
+% moved to Fonctions de référence
+%			\item La fonction
+%				\[ F(x) = f(x+c) \]
+%			admet les mêmes variations que $f$ mais décalées de $c$ vers la gauche.
+		\end{enumerate}
+}{}
+
+\nt{
+	On ne peut rien dire en général sur les variations de $f(x)+g(x)$ si $f$ et $g$ sont de variations différentes.
+	Prenons par exemple $f(x) = x$ et $g(x) = -2x$, ou $f(x) = 2x$ et $g(x) = -x$.
+}{}
+
+\ex{}{
+	Soit $f$ une fonction de tableau de variations donné par le tableau suivant.
+
+	\begin{center}
+	\includegraphics[page=7]{figures/fig-variations.pdf}
+	\end{center}
+	
+	Alors on déduit les variations de $3f, -f,$ et $f-10$ qu'on synthétise dans les tableaux suivants.
+	
+	\begin{center}
+	\includegraphics[page=8]{figures/fig-variations.pdf}
+	\end{center}
+}{}
+
+\section{Extrema}
+
+\dfn{Minimum, maximum d'une fonction sur un intervalle}{
+	Soit $f : I \rightarrow \R$ une fonction réelle $f$ sur un intervalle $I$.
+	
+	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le minimum de $f$ sur $I$ dès que
+		\[ f(x^\star) \leq f(x), \]
+	pour tout $x\in I$.
+	$x^\star$ est l'antécédent qui \emph{réalise} le minimum. Il n'est pas nécessairement unique.
+	
+	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le maximum de $f$ sur $I$ dès que
+		\[ f(x^\star) \geq f(x), \]
+	pour tout $x\in I$.
+	$x^\star$ est l'antécédent qui \emph{réalise} le maximum. Il n'est pas nécessairement unique.
+}{}
+
+\ex{}{
+	La fonction carré $f(x)=x^2$ sur $\R$ tout entier n'admet pas de maximum (à démontrer rigoureusement !).
+	Cependant, $f$ admet son minimum $0$ en $x^\star = 0$, car on a 
+		\[ f(x) = x^2 \geq 0 = f(0), \]
+	pour tout $x\in\R$.
+	C'est d'ailleurs \emph{le} minimum car seul $0$ vérifie $f(x) = 0$.
+}{}
+
+\ex{Forme canonique : du signe du carré à l'extremum}{
+	Considérons la fonction
+		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
+	On vérifiera que $\D_f = \R$ car aucune valeur n'est interdite à $f$.
+	
+	Remarquons que la fonction carré est toujours positive : on a donc toujours $\left( x - \dfrac72 \right)^2 \geq 0$.
+	Multiplier par $-1$ chanque le sens de l'inégalité et on obtient, en ajoutant $\dfrac{265}2$,
+		\begin{align*}
+			\left( x - \dfrac72 \right)^2 &\geq 0 \\
+			- \left( x - \dfrac72 \right)^2 & \leq 0 \\
+			\dfrac{265}2 - \left( x - \dfrac72 \right)^2 &\leq \dfrac{265}2 \\
+			f(x) &\leq \dfrac{265}2 
+		\end{align*}
+	En outre, $f\left(\dfrac72\right) = \dfrac{265}2 - 0^2 = \dfrac{265}2$. 
+	Il suit donc que $f$ atteint son maximum $\dfrac{265}2$ en $x^\star = \dfrac72$.
+}{}
+
+
+\exe{}{
+	On considère la fonction carré $f(x) = x^2$.
+	\begin{enumerate}
+		\item Donner $\D_f$, le domaine de définition de $f$.
+		\item Esquisser $\C_f$ sur $\D = [-5 ; 5]$.
+		\item Compléter le tableau de variations ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=20]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:extrema1}{
+
+	 Aucune opération n'est illégale lorsqu'on calcule l'image d'un $x\in\R$ réel : ni division par zéro, ni racine carrée de nombre éventuellement négatif.
+	Aucun $x$ n'est donc interdit, et $\D_f = \R$.
+		
+	\begin{center}
+	\includegraphics[page=21]{figures/fig-variations.pdf}
+	\includegraphics[page=22]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+\exe{}{
+	À l'aide de l'exercice \ref{exe:extrema1}, compléter les tableaux de variations des fonctions parentes à $x^2$.
+	\begin{center}
+	\includegraphics[page=23]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:extrema2}{
+	\begin{center}
+	\includegraphics[page=24]{figures/fig-variations.pdf}
+	\end{center}
+}
+
+\exe{}{
+	Soit $f$ la fonction définie par
+		\[ f(x) = -3 - (x+1)^2. \]
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Montrer que $f$ atteint son maximum en $x^\star=-1$ et donner sa valeur.
+	\end{enumerate}
+	
+}{exe:extrema3}{
+	\begin{enumerate}
+		\item 
+		Aucune opération n'est illégale lorsqu'on calcule l'image d'un $x\in\R$ réel : ni division par zéro, ni racine carrée de nombre éventuellement négatif.
+		Aucun $x$ n'est donc interdit, et $\D_f = \R$.
+		\item 
+		Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour enfin construire $f(x)$.
+		Pour tout $x\in\R$ réel, on a donc
+			\begin{align*}
+				(x+1)^2 &\geq 0 \\
+				-(x+1)^2 &\leq 0 \\
+				-3 - (x+1)^2 &\leq -3 \\
+				f(x) &\leq -3
+			\end{align*}
+		On en déduit que $f(x)$ est borné supérieurement par $-3$ pour tous les $x\in\R$ réels.
+		
+		Pour montrer que c'est un maximum atteint en $-1$, on calcule $f(-1) = -3 - (-1+1)^2 = -3 + 0^2 = -3$.
+		En conclusion,
+			\[ f(x) \leq f(-1)=-3, \]
+		et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
+	\end{enumerate}
+}
+
+\exe{}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	\begin{enumerate}
+		\item Donner $\D_f$.
+		\item Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et donner sa valeur.
+	\end{enumerate}
+}{exe:extrema4}{
+
+		Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+		Pour tout $x\in\R$ réel, on a donc
+			\begin{align*}
+				(3x-1)^2 &\geq 0 \\
+				3(3x-1)^2 &\geq 0 \\
+				-10 + 3(3x-1)^2 &\geq -10 \\
+				f(x) &\geq -10
+			\end{align*}
+		On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+		
+		Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+		En conclusion,
+			\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+		et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
+}
+
+\exe{, difficulty=1}{
+	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple.
+	$f, g, h, F$ et $G$ sont des fonctions définies sur $\R$.
+	\begin{enumerate}
+		\item Si $f$ est affine et admet deux racines distinctes, alors $f(x) = 0$ pour tout $x\in\R$.
+		\item Si $g(x) \geq 0$ pour tout $x\in\R$, alors $g$ n'admet aucune racine.
+		\item Si $h(x) > 0$ pour tout $x\in\R$, alors $h$ n'admet aucune racine.
+		\item Si $F$ n'admet aucune racine, alors $F(x) > 0$ pour tout $x\in\R$.
+		\item $G(x) = (x-3)^2 (x-5)^2$ est toujours positive est admet exactement deux racines distinctes.
+	\end{enumerate}
+}{exe:extrema5}{
+
+	\begin{enumerate}
+		\item 
+		C'est vrai. 
+		Si $f$ est affine et admet deux racines distinctes, alors sa courbe représentative est une droite qui intersecte deux fois l'axe des abscisses en deux endroits différents.
+		$\C_f$ et l'axe des abscisses sont donc confondues et on a bien $f(x) = 0$ pour tout $x\in\R$.
+		
+		Algébriquement, on a $(x_A ; 0), (x_B ; 0) \in \C_f$ pour $x_A \neq x_B$.
+		La formule du coefficient directeur donne $a = 0$, et une appartenance donne $b=0$.
+		
+		\item 
+		C'est faux : être positif ou nul n'empêche pas d'être nul.
+		On pourra prend la fonction carré $f(x) = x^2$ comme contre-exemple : $f(x) \geq 0$ pour tout $x\in\R$ et pourtant $f$ admet $0$ pour racine car $f(0) = 0$.
+		
+		\item 
+		C'est vrai : être strictement positif empêche d'être nul. 
+		C'est bien la différence entre la positivité stricte ($>$) et large ($\geq$).
+		
+		\item 
+		C'est faux : si $F$ ne s'annule jamais, elle n'est pas nécessairement toujours strictement positive car elle pourrait aussi être toujours strictement négative !
+		Prenons par exemple $f(x) = -1 -x^2$ qui vérifie $f(x) \leq -1 < 0$ pour tout $x\in\R$ réel.
+		
+		\item 
+		C'est vrai.
+		Un carré est toujours positif, donc $G(x)$ est le produit de deux positifs et est positif.
+		En outre, si $G(x) = 0$, alors $(x-3)^2 = 0$ ou $(x-5)^2 = 0$.
+		Il suit que $x=3$ ou $x=5$, et ce sont les deux seules racines de $G$.
+		
+	\end{enumerate}
+}
+
+\exe{}{
+	On considère le tableau des variations des fonctions $f, g,$ et $h$ sur le domaine $\D = [7 ; 31]$.
+	Pour chacune d'entre elles,
+		\begin{enumerate}[label=\roman*)]
+			\item donner son maximum sur $\D$ s'il est possible de le connaître.
+			Sinon, tracer deux courbes fidèles au tableau et de maxima différents.
+			\item donner son minimum sur $\D$ s'il est possible de le connaître.
+			Sinon, tracer deux courbes fidèles au tableau et de minima différents.
+		\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=25]{figures/fig-variations.pdf}
+	\end{center}
+}{exe:extrema6}{
+	TODO
+}
+
+
+\exe{}{
+	Pour chaque proposition suivante, dire si elle est \underline{toujours vraie} ou si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
+	
+	\begin{center}
+	\includegraphics[page=26]{figures/fig-variations.pdf}
+	
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{6pt}
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(a) = 35$ & &  \\ \hline
+		$f(a) > 30$ &  & \\ \hline
+		$f(b) \leq 20$ &  & \\ \hline
+		$f(a) > f(b)$ &  & \\ \hline
+	\end{tabular}	
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(b) < f(c)$ &  & \\ \hline
+		$f(c) < f(a)$ &  & \\ \hline
+		$f(c) = 19$ & &  \\ \hline
+		$f(c) < 30$ &  & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(d) = -5$ & &  \\ \hline
+		$f(d) < 0$ & &  \\ \hline
+		$f(c) = f(d)$ & &  \\ \hline
+		$f(d) \geq -30$ &  & \\ \hline
+	\end{tabular}	
+	
+	\end{center}
+}{exe:extrema7}{
+	\begin{center}
+
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{6pt}
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(a) = 35$ & & \checkmark \\ \hline
+		$f(a) > 30$ & \checkmark & \\ \hline
+		$f(b) \leq 20$ & \checkmark & \\ \hline
+		$f(a) > f(b)$ & \checkmark & \\ \hline
+	\end{tabular}	
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(b) < f(c)$ & \checkmark & \\ \hline
+		$f(c) < f(a)$ & \checkmark & \\ \hline
+		$f(c) = 19$ & & \checkmark \\ \hline
+		$f(c) < 30$ & \checkmark & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(d) = -5$ & & \checkmark \\ \hline
+		$f(d) < 0$ & & \checkmark \\ \hline
+		$f(c) = f(d)$ & & \checkmark \\ \hline
+		$f(d) \geq -30$ & \checkmark & \\ \hline
+	\end{tabular}	
+	
+	\end{center}
+
+}
+
+
+
+
