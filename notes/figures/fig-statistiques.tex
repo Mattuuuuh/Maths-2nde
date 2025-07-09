@@ -1,0 +1,115 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+\begin{document}
+%
+	% page 1
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=GREEN_E, thick, fill=GREEN_A] plot coordinates {
+        (2,1) (3,0) (4,0) (5,1) (6,1) (7,3) (8,1) (9,5) (10,1) (11,0) (12,3) (13,4) (14,3) (15,3) (16,5) (17,1) (18,2) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  % page 2
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        %xtick = {4, 5, ..., 18, 19},
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=BLUE_E, thick, fill=BLUE_A] plot coordinates {
+        (4,1) (5,0) (6,1) (7,0) (8,2) (9,1) (10,4) (11,2) (12,7) (13,7) (14,3) (15,0) (16,2) (17,2) (18,1) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  % page 3
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xtick = {2, 4, ..., 16, 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=RED_E, thick, fill=RED_A] plot coordinates {
+      		(2,1) (3,0) (8,2) (9,0) (10, 1) (11,4) (12,1) (13,4) (14,4) (15,7) (16,7) (17,1) (18,2) (19,0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  % page 4
+  % j'aime pas les pie chart c'est inutile
+\def\angle{0}
+\def\radius{3}
+\def\cyclelist{{"myg","gray","myr","myb"}}
+\newcount\cyclecount \cyclecount=-1
+\newcount\ind \ind=-1
+  \begin{tikzpicture}
+      \foreach \percent/\name in {
+        75/{préoccupation mineure (LC)},
+        6/{données insufficantes (DD)},
+        14/{éteintes ou menacées (EX à VU)},
+        5/{quasi menacées (NT)}
+    } {
+      \ifx\percent\empty\else               % If \percent is empty, do nothing
+        \global\advance\cyclecount by 1     % Advance cyclecount
+        \global\advance\ind by 1            % Advance list index
+        \ifnum3<\cyclecount                 % If cyclecount is larger than list
+          \global\cyclecount=0              %   reset cyclecount and
+          \global\ind=0                     %   reset list index
+        \fi
+        \pgfmathparse{\cyclelist[\the\ind]} % Get color from cycle list
+        \edef\color{\pgfmathresult}         %   and store as \color
+        % Draw angle and set labels
+        \draw[fill={\color!50},draw={\color}] (0,0) -- (\angle:\radius)
+          arc (\angle:\angle+\percent*3.6:\radius) -- cycle;
+        \node at (\angle+0.5*\percent*3.6:0.7*\radius) {\percent\,\%};
+        \node[pin=\angle+0.5*\percent*3.6:\name]
+          at (\angle+0.5*\percent*3.6:\radius) {};
+        \pgfmathparse{\angle+\percent*3.6}  % Advance angle
+        \xdef\angle{\pgfmathresult}         %   and store in \angle
+      \fi
+    };
+  \end{tikzpicture}
+\end{document}

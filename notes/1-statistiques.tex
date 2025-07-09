@@ -1,0 +1,448 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Statistiques descriptives}
+\label{chap:statistiques}
+
+
+On considère dans cette section une \emph{série statistique}, c'est-à-dire une liste de valeurs d'une même nature qu'on souhaite étudier.
+Les exemples de séries statistiques sont nombreux : une liste de notes à une évaluation, une liste de notes d'un élève unique à plusieurs évaluations, une liste de salaires bruts, une liste de températures dans un même lieu, etc…
+
+On parle ici de \emph{liste} et non d'\emph{ensemble} car une valeur peut se répéter plusieurs fois, ce qui change alors la nature de la série statistique.
+La moyenne de la liste $(8; 10; 12)$ est différente de la moyenne de $(8; 10; 12; 12)$.
+
+Dans toute la section suivante, $N, p \in \N$ sont deux entiers naturels non nuls qui désignent un cardinal (de liste ou d'ensemble). 
+Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
+
+\dfn{Étendue}{
+	Considérons $X$ une série statistique.
+	L'\emph{étendue} de la série $X$ est égale à la distance entre la plus petite et la plus grande valeur.
+		\[ \bigl|\min(X) - \max(X) \bigr|. \]
+}{}
+
+\section{Moyennes pondérées}
+
+\dfn{Moyenne}{
+	Considérons $X = (x_1, x_2, \dots, x_N)$ une série statistique.
+	On note $\overline{X}$ sa moyenne, donnée par
+		\[ \overline{X} = \dfrac{x_1 + \dots + x_N}N. \]
+}{}
+
+
+\exe{}{
+	Calculer la moyenne de chaque série statistique suivante.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $(0; 20)$
+			\item $(0; 0; 20)$
+			\item $(0; 20; 20)$
+			\item $(1;2;3; \dots; 18; 19; 20)$
+		\end{enumerate}
+		\end{multicols}
+}{exe:stats1}{
+	TODO
+}
+
+
+\dfn{Moyenne pondérée}{
+	Soit $X = (x_1, x_2, \dots, x_N)$ une série statistique à coefficients $(c_1, \dots, c_N)$.
+	
+	On note $\overline{X}$ sa moyenne, donnée par
+		\[ \overline{X} = \dfrac{c_1 \cdot x_1 + \dots + c_N \cdot x_N}{c_1 + \cdots + c_N}. \]
+}{def:moyenne-pond}
+
+
+\exe{}{
+	Un élève reçoit $5$ notes listées ainsi : $(4,25 ; 10; 18,5 ; 15,5 ; 11,25)$.
+	À ces notes sont associés $5$ coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
+	
+	Calculer la moyenne pondérée des notes.
+}{exe:stats2}{
+	TODO
+}
+
+
+\nt{
+	Remarquons que la moyenne de la définition \ref{def:moyenne-pond} s'écrit aussi 
+		\begin{align}
+			\overline{X} &=  \dfrac{c_1 \cdot x_1 + \dots + c_N \cdot x_N}{c_1 + \cdots c_N} \nonumber\\
+						&= \dfrac{c_1}{c_1 + \cdots c_N} \cdot x_1 + \dfrac{c_2}{c_1 + \cdots c_N} \cdot x_2 + \dots + \dfrac{c_N}{c_1 + \cdots c_N} \cdot x_n \label{expr:poids}
+		\end{align}
+	En divisant par la somme des coefficients, on a \emph{normalisé} les coefficients en poids, qu'on multiplie à chaque valeur.
+	
+	% to fix
+	Une discussion dans le cas de deux valeurs ($N=2$) est donnée dans la section \ref{sec:longueur-milieu} du chapitre \ref{chap:3}.
+	Celle-ci lie la notion de milieu avec celle de moyenne, puis la notion d'intervalle avec celle de moyenne pondérée.
+}
+
+\lem{}{
+	Les poids $\dfrac{c_1}{c_1 + \cdots c_N}, \dfrac{c_2}{c_1 + \cdots c_N}, \dots, \dfrac{c_N}{c_1 + \cdots c_N}$ de l'expression \eqref{expr:poids} ci-dessus vérifient
+		\begin{enumerate}
+			\item Chaque poids est un nombre appartenant à $[0;1]$ ; et
+			\item La somme des poids vaut $1$.
+		\end{enumerate}
+}{lem:poids-normalisés}
+
+\nt{
+	Certaines séries statistiques sont données sous la forme d'un ensemble de couples $(x, n)$ où $n$ est le nombre d'appartitions de $x$ dans la liste.
+	Chaque valeur $x$ est alors distincte et on peut bien parler d'ensemble.
+}{}
+
+\dfn{Moyenne avec effectifs}{
+	Considérons $X = \left\{ (x_1, n_1), (x_2, n_2), \dots, (x_p, n_p) \right\}$ une série statistique avec effectifs.
+	
+	On note $\overline{X}$ sa moyenne, donnée par
+		\begin{align}\label{eq:moyenne-effectifs}
+			\overline{X} = \dfrac{n_1 \cdot x_1 + \dots + n_p \cdot x_p}{n_1 + \dots + n_p}.
+		\end{align}
+}{}
+
+\nt{
+	Notons $n = n_1 + \dots + n_p$. On peut réécrire la moyenne $\overline{X}$ donnée en \eqref{eq:moyenne-effectifs} comme
+		\begin{align*}
+			\overline{X} &= \dfrac{n_1 \cdot x_1 + \dots + n_p \cdot x_p}{n} \\
+						&= \dfrac{n_1}n \cdot x_1 + \dfrac{n_2}n x_2 + \dots + \dfrac{n_p}n x_p \\
+						&= f_1 \cdot x_1 + f_2 \cdot x_2 + \dots f_p \cdot x_p,
+		\end{align*}
+	où $f_1 = \dfrac{n_1}n$, $f_ 2 = \dfrac{n_2}n$, etc... sont les fréquences d'apparition des valeurs dans la série statistique.
+}
+
+\dfn{Fréquence d'apparition}{
+	Soit $X = \left\{ (x_1, n_1), (x_2, n_2), \dots, (x_p, n_p) \right\}$ une série statistique avec effectifs.
+
+	On pose $n = n_1 + \dots + n_p$. 
+	Alors
+		\begin{align*}
+			f_1 = \dfrac{n_1}n, && f_ 2 = \dfrac{n_2}n, && \dots && f_ p = \dfrac{n_p}n,
+		\end{align*}
+	désignent les \emph{fréquences d'apparition} de chaque valeur $x_1, x_2, \dots, x_p$.
+}
+{def:freq-app}
+
+\exe{}{
+	Pour chaque série statistique suivante, remplir la ligne \og Fréquence \fg et calculer la moyenne.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 1 & 2  \\ \hline
+				Fréquence & &  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|}\hline
+				Valeur   & 0 & 20 \\ \hline
+				Effectif & 2 & 1  \\ \hline
+				Fréquence & &  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 11 & 13 & 9 & 7 \\ \hline
+				Effectif & 2 & 1 & 5 & 10 \\ \hline
+				Fréquence & &&&  \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & -23 & -1 & 1 & 23 \\ \hline
+				Effectif & 176 & 304 &304 & 176 \\ \hline
+				Fréquence & &&&  \\ \hline
+				\end{tabular}
+
+		\end{enumerate}
+		\end{multicols}
+}{exe:stats3}{
+	TODO
+}
+
+\lem{}{
+	Les fréquences $f_1, \dots, f_p$ de la définition \ref{def:freq-app} vérifient
+		\begin{align*}
+			f_1 \in [0;1], && f_2 \in [0;1], && \dots && f_p \in [0;1],
+		\end{align*}
+	ainsi que
+		\[ f_1 + \dots + f_p = 1. \]
+}{lem:fréquences-normalisées}
+
+\nt{
+	La remarque suivante est en dehors du champ d'application du cours.
+	
+	Du lemme \ref{lem:fréquences-normalisées}, on déduit qu'une moyenne est en fait une \emph{combinaison convexe} des valeurs d'une série statistique. On parle aussi de \emph{barycentre}. 
+	Un intervalle est donné par l'ensemble de telles combinaisons des bornes inférieure et supérieure : c'est l'enveloppe convexe de ses bornes.
+}
+
+\mprop{Linéarité de la moyenne}{
+	Soit $X=(x_1 ; \dots ; x_N)$ une série statistique, et $\overline{X}$ sa moyenne.
+	On étudie deux opérations faites sur la série statistique entière : multiplier chaque valeur par un nombre $a\in\R$, et additionner un nombre $b\in\R$ à chaque valeur.	
+	
+	Pour n'importe quel $a \in \R$, la série statistique
+		\[ (a\cdot x_1; a\cdot x_2; \dots ; a\cdot x_N) \]
+	a pour moyenne $a\cdot \overline{X}$.
+	Autrement dit, $\overline{aX} = a \overline{X}$.
+	
+	Pour n'importe quel $b\in\R$, la série statistique
+		\[ (x_1 + b; x_2 + b; \dots ; x_N + b) \]
+	a pour moyenne $\overline{X} + b$.
+	Autrement dit, $\overline{X+b} = \overline{X} + b$.
+	
+	La combinaison des deux opérations dites \emph{linéaires} donne
+		\[ \overline{aX + b} = a\overline{X} + b \]
+	pour n'importe quel $a,b \in \R$.
+}{}
+
+
+\exe{Inflation et euro fixe}{
+	La moyenne des salaires mensuels d'une entreprise est de $1860$€.
+	L'inflation désigne une augmentation générale des prix. Ainsi, $6\%$ d'inflation signifie que, en moyenne, les prix augmentent de $6\%$.
+	Réciproquement et afin de pouvoir comparer les pouvoirs d'achats, on peut fixer les prix et voir l'inflation comme une diminution du salaire (en l'occurrence de $1-\frac{1}{1,06} \approx 5,6 \%$, d'après le théorème \ref{thm:ev-rec}).
+	
+	L'entreprise, après une année où l'inflation se mesurait à $6\%$ décide d'ajouter des primes aux salaires : tous les employés recevront $50$€ mensuellement en plus. Ces $50$€ sont, eux aussi, soumis à l'inflation.
+	
+	Quelle est la nouvelle moyenne des salaires mensuels de l'entreprise ?
+
+}{exe:stats4}{
+	TODO
+}
+
+
+\section{Écart type}
+
+La moyenne seule ne suffit pas à elle seule à caractériser une série statistique.
+L'exercice suivant considère plusieurs séries différentes ayant une même moyenne.
+Le but de la section est d'introduire l'\emph{écart type}, noté $\sigma$ et lu \og sigma \fg, qui permet d'indiquer la \emph{dispersion} d'une série : son caractère plus ou moins concentré autour de sa moyenne.
+
+\exe{}{
+	Pour chaque série statistique suivante, calculer la moyenne.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 9 & 13 & 11 & 7 \\ \hline
+				Effectif & 5 & 12 & 5 & 12 \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 2 & 13 & 18 & 7 \\ \hline
+				Effectif & 5 & 12 & 5 & 12 \\ \hline
+				\end{tabular}
+				
+			\item 
+				\begin{tabular}{|c|c|c|c|c|}\hline
+				Valeur   & 0 & 20 & 2 & 5 \\ \hline
+				Effectif & 5 & 14 & 10 & 2  \\ \hline
+				\end{tabular}
+
+			\item 
+				\begin{tabular}{|c|c|c|c|}\hline
+				Valeur   & 0 & 20 & 10 \\ \hline
+				Effectif & 17 & 17 & 1 \\ \hline
+				\end{tabular}
+
+
+		\end{enumerate}
+		\end{multicols}
+}{exe:stats5}{
+	TODO
+}
+
+\nt{
+	Soit $X=(x_1 ; \dots ;x_N)$ une série statistique.
+	
+	En plus de la moyenne $\overline{X}$, il est aussi intéressant d'étudier la variance $\Var(X)$.
+	Elle mesure la distance moyenne des $x_1, \dots, x_N$ à $\overline{X}$.
+	Plus cette distance est petite, plus la valeur est proche de la moyenne.
+	Globalement, si toutes les distances sont petites, la série est concentrée autour de sa moyenne, au lieu d'être dispersée.
+	
+	Il est tentant de calculer les distances
+		\[ | x - \overline{X}| \]
+	pour chaque valeur $x$, mais il est préférable de considérer le carré de la distance, c'est-à-dire
+		\[ | x - \overline{X}|^2. \]
+	La raison profonde sera étudiée plus tard, dans le chapitre des fonctions.
+	Simplement, la valeur absolue n'est \emph{pas} lisse, alors que la fonction carré, elle, l'est.
+	Comme $|x|^2 = x^2$, la valeur absolue disparaît lorsque mise au carré, et la fonction devient lisse.
+}
+
+\dfn{Variance}{
+	Soit $X=(x_1 ; \dots ;x_N)$ une série statistique, $\overline{X}$ sa moyenne.
+	
+	On dénote par $\Var(X)$ la \emph{variance} de $X$, donnée par
+		\[ \Var(X) = \dfrac{\left(x_1 - \overline{X}\right)^2 + \dots + \left(x_N - \overline{X}\right)^2}N .\]
+	La variance est toujours positive.
+	
+	Si $X = \left\{ (x_1, n_1), (x_2, n_2), \dots, (x_p, n_p) \right\}$ est une série statistique donnée avec effectifs, on a alors 
+		\begin{align}
+			\Var(X) = \dfrac{n_1 \cdot \left(x_1 - \overline{X}\right)^2 + \dots + n_p \cdot \left(x_p - \overline{X}\right)^2}{n_1 + \dots + n_p}. \label{eq:var}
+		\end{align}
+	
+}{}
+
+\dfn{Écart type}{
+	Soit $X$ une série statistique.
+	L'\emph{écart type} $\sigma = \sigma(X)$  (lu \og sigma \fg)  est donné par
+		\[ \sigma(X) = \sqrt{\Var(X) }. \]
+}{}
+
+\nt{
+	Soit $X=(x_1 ; \dots ;x_N)$ une série statistique, $\overline{X}$ sa moyenne.
+	
+	Si on pose $Y = \left( \left(x_1 - \overline{X}\right)^2  ; \dots ; \left(x_N - \overline{X}\right)^2 \right)$, nouvelle série statistique, on a
+		\[ \overline{Y} = \Var(X). \]
+		
+	La variance est donc bien une moyenne des distances au carré à $\overline{X}$.
+}
+
+\exe{}{
+	Calculer et comparer les écart types des séries de l'exercice \ref{exe:stats5}.
+}{exe:stats6}{
+	TODO
+}
+
+\exe{}{
+	\begin{multicols}{2}
+	On considère la série ci-contre tirée de l'exercice \ref{exe:stats5}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	\end{multicols}
+		
+	Modifier l'effectif de la valeur $10$ en $10, 20, 50, 100$, et calculer la moyenne et l'écart type de la série obtenue.
+	Comment évolue $\sigma$ ? La série devient-elle plus ou moins concentrée autour de sa moyenne ?
+}{exe:stats7}{
+	TODO
+}
+
+\section{Quartiles}
+
+Dans ce qui suit, on considère $X = (x_1 ; \dots ; x_N)$ une série statistique qu'on \textbf{ordonne} : c'est-à-dire dont les valeurs sont rangées par ordre croissant.
+	\[ \underbrace{x_1 \leq x_2 \leq x_3 \leq \dots}_{\text{proportion } p} \leq \dots \leq x_{N-2} \leq x_{N-1} \leq x_N. \]
+La notion de quartile (et plus généralement de décile, centile, ...) permet de répondre aux questions du type : \og Quelle proportion $p$ de valeurs de $X$ sont inférieures à un seuil donné ? \fg, et \og Pour une proportion donnée $p$, quelle est le seuil qui lui correspond ? \fg.
+
+Dans cette section, on considère les proportions $p=0,5 ; \dfrac14 ; et \dfrac34$ qui correspondent à la médiane, au premier et au troisième quartile.
+
+\dfn{Médiane}{
+	La médiane d'une série $X = (x_1 ; \dots ; x_N)$ rangée par ordre croissant est donné par 
+		\begin{enumerate}
+			\item sa valeur centrale si $N$ est impair ; ou
+			\item la moyenne de ses valeurs centrales si $N$ est pair.
+		\end{enumerate}
+		
+	Ainsi $50\%$ des valeurs de $X$ sont inférieure à sa médiane.
+}{}
+
+\dfn{Quartiles}{
+	Le premier quartile $Q_1$ d'une série $X = (x_1 ; \dots ; x_N)$ rangée par ordre croissant est donné par la plus petite valeur de la série de rang supérieur ou égal à $\dfrac{N}4$.
+	
+	Ainsi $25\%$ des valeurs de $X$ sont inférieure à son premier quartile.
+	
+	Le troisième quartile $Q_3$ d'une série $X = (x_1 ; \dots ; x_N)$ rangée par ordre croissant est donné par la plus petite valeur de la série de rang supérieur ou égal à $\dfrac{3N}4$.
+	
+	Ainsi $75\%$ des valeurs de $X$ sont inférieure à son troisième quartile.
+}{}
+
+\dfn{Écart interquartile}{
+	L'écart interquartile d'une série statistique $X$ est donné par la distance entre ses deux quartiles $Q_1$ et $Q_3$, c'est-à-dire
+		\[ |Q_1 - Q_3|. \]
+	En supposant que $4|N$ pour faciliter les notations, on a la situation suivante.
+	\[ x_1 \leq \dots \leq \underbrace{ \overbrace{x_{N/4}}^{Q_1} \leq \dots \leq \overbrace{x_{3N/4}}^{Q_3}}_{\frac{N}2 \text{ valeurs centrales}} \leq \dots \leq x_N. \]
+	Les $\frac{N}2$ valeurs centrales sont à distance $|Q_1 - Q_3|$ les unes des autres.
+}{}
+
+\begin{figure}[t!]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \includegraphics[page=1]{figures/fig-statistiques.pdf}
+  \caption{Évaluation ``Droite réelle''.}
+  \label{fig:a}
+  \end{subfigure}
+  \hfill
+  % NOT LINE BREAK!!
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \includegraphics[page=2]{figures/fig-statistiques.pdf}
+  \caption{Évaluation ``Droite et plan''.}
+  \end{subfigure}
+    \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \includegraphics[page=3]{figures/fig-statistiques.pdf}
+  \caption{Automatismes 1 à 5.}
+  \end{subfigure}
+  
+  
+  \caption{Histogrammes de notes (min $0$, max $20$). Les classes sont de la forme $[k;k+1[, k\in\N$. La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.}
+  \label{fig:hist}
+\end{figure}
+
+\exe{}{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist}.
+	On assignera la valeur moyenne $k+\frac12$ à chaque élément d'une classe $[k; k+1[, k\in\N$.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $4$ notes de valeur $16,5$.
+	
+	Pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+}{exe:stats8}{
+	TODO
+}
+
+
+
+
+
+
+
+
+
+% j'aime pas les pie chart c'est inutile
+%\def\angle{0}
+%\def\radius{3}
+%\def\cyclelist{{"myg","gray","myr","myb"}}
+%\newcount\cyclecount \cyclecount=-1
+%\newcount\ind \ind=-1
+%\begin{figure}
+%  \begin{tikzpicture}
+%      \foreach \percent/\name in {
+%        75/{préoccupation mineure (LC)},
+%        6/{données insufficantes (DD)},
+%        14/{éteintes ou menacées (EX à VU)},
+%        5/{quasi menacées (NT)}
+%    } {
+%      \ifx\percent\empty\else               % If \percent is empty, do nothing
+%        \global\advance\cyclecount by 1     % Advance cyclecount
+%        \global\advance\ind by 1            % Advance list index
+%        \ifnum3<\cyclecount                 % If cyclecount is larger than list
+%          \global\cyclecount=0              %   reset cyclecount and
+%          \global\ind=0                     %   reset list index
+%        \fi
+%        \pgfmathparse{\cyclelist[\the\ind]} % Get color from cycle list
+%        \edef\color{\pgfmathresult}         %   and store as \color
+%        % Draw angle and set labels
+%        \draw[fill={\color!50},draw={\color}] (0,0) -- (\angle:\radius)
+%          arc (\angle:\angle+\percent*3.6:\radius) -- cycle;
+%        \node at (\angle+0.5*\percent*3.6:0.7*\radius) {\percent\,\%};
+%        \node[pin=\angle+0.5*\percent*3.6:\name]
+%          at (\angle+0.5*\percent*3.6:\radius) {};
+%        \pgfmathparse{\angle+\percent*3.6}  % Advance angle
+%        \xdef\angle{\pgfmathresult}         %   and store in \angle
+%      \fi
+%    };
+%  \end{tikzpicture}
+%  \label{fig:pie-chart}
+%  \caption{Répartition par niveau de menace des espèces présentes en France et évaluées dans la liste rouge mondiale de l'UICN ($15579$ espèces). Source : \href{naturefrance.fr}{naturefrance.fr}, $2023$.}
+%\end{figure}
+
