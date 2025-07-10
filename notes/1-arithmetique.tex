@@ -127,6 +127,50 @@
 	On pour tout $n\in\N$ et en utilisant une identité remarquable au choix, $(n+1)^2 - n^2 = (n+1+n)(n+1-n) = 2n+1$ est impair.
 }
 
+\exe{, difficulty=1}{
+	On cherche les solutions entières de l'équation diophantienne $3x - 2y = 1$ où $x, y\in\Z$.
+	\begin{enumerate}
+		\item Montrer que $x = 2(y-x) + 1$ et en déduire que $x$ est impair.
+		\item En écrivant $x = 2k+1$ pour un entier $k\in\Z$, montrer que $y=3k+1$.
+		\item Prendre $k=35$ puis $k=-40$ et trouver les solution de $3x-2y=1$ associées.
+	\end{enumerate}
+}{exe:dioph}{
+	Soient $x, y\in\Z$ une solution entière de l'équation $3x-2y=1$.
+	\begin{enumerate}
+		\item 
+			\[ 3x - 2y = 1 \iff 3x = 2y + 1 \iff x + 2x = 2y + 1 \iff x = 2y-2x+1 \iff x = 2(y-x)+1. \]
+		Comme $x$ et $y$ sont entiers, la différence $y-x$ l'est aussi.
+		$x = 2(y-x)+1$ est donc un nombre impair.
+		\item 
+		$x$ étant impair, on peut l'écrire $x = 2k+1$ pour un entier $k\in\Z$. D'où
+			\[ 3x - 2y = 1 \iff 3(2k+1) - 2y = 1 \iff 6k + 3 - 2y = 1 \iff 6k + 2 = 2y \iff y = 3k+1. \]
+		\item 
+		Pour $k=35$, $x=2k+1 = 71$ et $y=3k+1 = 106$. On vérifie que $3\times71 - 2\times106 = 1$.
+		
+		Pour $k=-40$, $x=2k+1 = -79$ et $y=3k+1 = -119$. On vérifie que $3\times(-79) - 2\times(-119) = 1$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	On cherche les solutions entières de l'équation diophantienne $5x - 12y = 1$ où $x, y\in\Z$.
+	Montrer que si $x_0, y_0 \in \Z$ sont une solution de l'équation, alors $x_0 + 12, y_0 + 5$ sont également solution.
+	À partir d'une première solution entière de $5x-12y=1$, en trouver $3$ autres, toutes distinctes.
+}{exe:dioph2}{
+	On a bien
+		\[ 5(x_0 + 12) - 12(y_0 + 5 ) = 5x_0 + 60 - 12y_0 - 60 = 5x_0 - 12y_0 = 1. \]
+	Pour trouver une première solution entier, considérons que $12y = 5x-1$, et donc que $12y$ est un multiple de $12$ se finissant par un 4 ou un 9 (c'est un multipe de 5 moins 1).
+	On trouve immédiatement $24$ ($y=2, x=5$) qui fonctionne.
+	
+	On en déduit les solutions $x=5+12=17$ et $y=2+5=7$, puis $x=29, y=12$, et $x=41, y=17$.
+}
+\exe{, difficulty=2}{
+	Pour $a, b \in\Z$ fixés, on cherche les solutions entières de l'équation diophantienne $ax - by = 1$ où $x, y\in\Z$.
+	Montrer que si $x_0, y_0 \in \Z$ sont une solution de l'équation, alors $x_0 + b, y_0 + a$ sont également solution.
+}{exe:dioph3}{
+	On a bien
+		\[ a(x_0 + b) - b(y_0 + a ) = ax_0 + ab - by_0 - ba = ax_0 - by_0 = 1. \]
+}
+
 \exe{, difficulty=2}{
 	Vérifier d'abord que $1 + 3 + 5 + 7 + 9 = 5^2,$
 	puis montrer à l'aide de l'exercice \ref{exe:diff-carrés} que la somme des $n+1$ premiers nombres impairs est un carré parfait. Plus précisément,
@@ -206,7 +250,7 @@
 
 \dfn{}{
 	Pour un $n\in\N$, on pose $\D_n$ l'ensemble des diviseurs de $n$.
-		\[ D_n = \bigset{ a \in \N \tq a \big| n }. \]
+		\[ \D_n = \bigset{ a \in \N \tq a \big| n }. \]
 }{dfn:ensemble-diviseurs}
 
 \nt{
