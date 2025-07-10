@@ -166,9 +166,34 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 
 \section{Calculs exacts}
 
-\subsection{Calculs exacts de $\cos(\theta), \sin(\theta), \tan(\theta)$}
+\subsection{Calculs exacts de $\cos(\theta), \sin(\theta), \tan(\theta)$ pour $\theta=30^\circ, 60^\circ$}
 
-Considérons le triangle remarquable suivant.
+Considérons le triangle équilatéral suivant.
+Par symétrie, tous les angles sont égaux à 60°.
+En prenant une hauteur quelconque, on obtient un triangle rectangle 30-60-90 comme suit.
+
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-geom.pdf}
+	\hspace{4cm}
+	\includegraphics[page=13]{figures/fig-geom.pdf}
+	\end{center}
+
+Le théorème de Pythagore donne la longueur $h$ de la hauteur : 
+	\[ 1^2 = \bigl(\dfrac12\bigr)^2 + h^2 \iff h^2 = \dfrac34 \iff h = \dfrac{\sqrt3}2. \]
+On peut donc connaître les valeurs de $\cos(\theta), \sin(\theta), \tan(\theta)$ pour $\theta\in\bigset{ 30^\circ ; 60^\circ}$.
+
+\mprop{}{
+	% moche de faire comme ça mais ça donne le meilleur rendu imo
+		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]
+	
+		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
+}{prop:données}
+
+\exe{}{
+	Vérifier qu'on a bien $\cos^2(\theta) + \sin^2(\theta) = 1$ pour $\theta = 30^\circ, 60^\circ$.
+}{exe:c2s2-vérif}{
+	TODO
+}
 
 \subsection{Calculs exacts de longueurs : manipulation des racines carrées}
 
@@ -207,7 +232,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	On écriture décimale est infinie est apériodique.
 }{cor:sqrt2-irrational}
 
-\pf{Démonstration du corrolaire \ref{cor:sqrt2-irrational}}{
+\pf{démonstration du corrolaire \ref{cor:sqrt2-irrational}}{
 	Par l'absurde, supposons que $\sqrt2 \in \Q$ soit rationnel.
 	
 	Par définition, $\sqrt2 = \dfrac{a}{b}$ avec $a, b \in \N$ deux entiers.
@@ -232,6 +257,29 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Ce premier apparaît à puissance paire dans $b^2$ et donc impaire dans $a^2$, ce qui est une contradiction. \Large\Lightning
 }
 
+\exe{, difficulty=2}{
+	Soit $x\in\R$ un nombre vérifiant $x^3 = 2$.
+	Montrer que $x$ n'est pas rationnel : $x\not\in\Q$.
+}{exe:cbrt2-irr}{
+	Supposons que $x = \dfrac{a}b$. En mettant au cube, on obtient $a^3 = 2b^3$, égalité d'entiers naturels. 
+	Par unicité de la décomposition de facteurs premiers, les deux nombres admettent la même décomposition.
+	À gauche, le nombre premier 2 apparaît à une puissance qui est un multiple de 3.
+	À droite, le premier 2 apparaît à une puissance qui est un multiple de 3 plus 1. \Large\Lightning
+}
+
+\exe{, difficulty=2}{
+	En musique, la gamme classique contient douze notes avec un rapport de fréquence de 2 sur l'octave.
+	La gamme est dite à tempérament égal si le rapport de fréquence entre deux notes consécutives est toujours le même.
+	Notons ce rapport $r\in\R$.
+	Justifier que $r^{12} = 2$ puis démontrer que $r$ est un nombre irrationnel : $r \not\in\Q$.
+}{exe:temp-égal}{
+	Le rapport de fréquence entre deux notes consécutives étant toujours $r$, on multiplie $r$ par lui-même 12 fois pour obtenir le rapport de fréquence entre deux notes de distance $12$, c'est-à-dire deux notes séparée par un octave.
+	Ainsi $r^{12} = 2$ car l'octave correspond à un rapport de fréquence de 2.
+	
+	Supposons désormais que $r$ soit rationnel. Alors $r^{6}$ est aussi rationnel.
+	Cependant, $(r^6)^2 = r^{12} = 2$, donc $r^{6} = \sqrt2$, qui n'est pas rationnel. \Large\Lightning
+}
+
 \exe{}{
 	Résoudre les équations suivantes pour $x\in\R$, $x\neq0$. Exprimer $x$ sous la forme $q \sqrt{b}$ avec $q\in\Q$ rationnel et $b\in\N$ le plus petit possible.
 	\begin{multicols}{2}
@@ -251,8 +299,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \exe{}{
-	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles suivants.
-
+	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles suivants à l'aide des valeurs exactes de la proposition \ref{prop:données}.
 
 	\begin{multicols}{2}
 	\includegraphics[page=4]{figures/fig-geom.pdf}
@@ -263,10 +310,6 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	
 	\includegraphics[page=7]{figures/fig-geom.pdf}
 	\end{multicols}
-	\emph{Données : }	
-		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]
-	
-		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
 }{exe:trigo}{
 	TODO
 }
