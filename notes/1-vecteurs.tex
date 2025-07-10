@@ -23,14 +23,14 @@
 	celui-ci se déplace systématiquement d'une certaine quantité $x_T$ en abscisse, et $y_T$ en ordonnée.
 	Ainsi, une fois déplacé, le point $A$ admet pour nouvelles coordonnées
 		\[ A + T = (x_A + x_T ; y_A + y_T). \]
-	Remarquons que c'est exactement comme cela qu'on a défini l'addition de deux points au chapitre \ref{chap:3}, section \ref{sec:geom-plane}, définition \ref{def:manip-points}.
-	On pose donc $T = (x_T ; y_T)$ en réutilisant les notations $(x ; y)$ des points du plan.
+	Remarquons que c'est exactement comme cela qu'on a défini l'addition de deux points, définition \ref{def:manip-points}.
+	On pose donc $T = (x_T ; y_T)$ en réutilisant la notation $(x ; y)$ des points du plan.
 	
-	Il n'y a en fait pas de différence mathématique entre une translation et un point : à chaque translation on peut associer un point, et vice versa.
+	Il n'y a en fait pas de différence mathématique entre une translation et un point : à chaque translation on peut associer un point, et vice versa (voir corollaire \ref{cor:OAisA}).
 }{}
 
 
-\dfn{Vecteur $\vec{AB}$}{
+\dfn{vecteur $\vec{AB}$}{
 	Soient $A, B$ deux points du plan.
 	On nomme 
 		\[ T = \vec{AB} \]
@@ -53,7 +53,7 @@
 	\end{center}
 }{ex:vec-1}
 
-\mprop{Calcul de $\vec{AB}$}{
+\mprop{calcul de $\vec{AB}$}{
 	Par définition, on a 
 		\[ A + \vec{AB} = B, \]
 	qui permet de calculer la translation $\vec{AB}$ à l'aide de la relation
@@ -67,8 +67,8 @@
 		\[ \vec{OA} = A. \]
 }{cor:OAisA}
 
-\dfn{Opérations sur les vecteurs}{
-	Les vecteurs héritent des opérations légales sur les points (chapitre \ref{chap:3}, définition \ref{def:manip-points}).
+\dfn{opérations sur les vecteurs}{
+	Les vecteurs héritent des opérations légales sur les points (définition \ref{def:manip-points}).
 	Soient $u = \pvec{x}{y}, v = \pvec{x'}{y'}$ deux vecteurs et $\kappa\in\R$ un réel. 
 	Alors
 	\begin{enumerate}
@@ -79,7 +79,7 @@
 
 \section{Composition de translations : somme de vecteurs}
 
-\thm{Relation de Chasles}{
+\thm{relation de Chasles}{
 	Soient $A, B, C$ trois points du plans. 
 	Alors
 		\[ \vec{AB} + \vec{BC} = \vec{AC}. \]
@@ -88,7 +88,8 @@
 		\end{center}
 }{thm:chasles}
 
-\pf{Démonstration du théorème \ref{thm:chasles}}{
+%\pf{Démonstration du théorème \ref{thm:chasles}}{
+\pf{}{
 	Par calcul direct à l'aide de la proposition \ref{prop:calcul-AB},
 	\begin{align*}
 		\vec{AB} + \vec{BC} &= \left(B-A\right) + \left(C - B\right), \\
@@ -99,9 +100,9 @@
 }{}
 
 \ex{Somme de vecteurs géométriquement}{
-	Soient ${\color{myr} u} = \pvec{2}{-1}$ et ${\color{myb} v}= \pvec{-3}{-2}$ deux vecteurs.
+	Soient ${\color{RED_E} u} = \pvec{2}{-1}$ et ${\color{RED_E} v}= \pvec{-3}{-2}$ deux vecteurs.
 	
-	Pour construire géométrique la somme ${\color{myr} u}+{\color{myb} v} =\pvec{2-3}{-1-2} = \pvec{-1}{-3}$, on colle bout à bout les vecteurs ${\color{myr} u}$ et ${\color{myb} v}$ comme ci-dessous.
+	Pour construire géométrique la somme ${\color{RED_E} u}+{\color{BLUE_E} v} =\pvec{2-3}{-1-2} = \pvec{-1}{-3}$, on colle bout à bout les vecteurs ${\color{RED_E} u}$ et ${\color{BLUE_E} v}$ comme ci-dessous.
 	
 	On démarre à l'origine $O$ pour pouvoir lire les coordonnées du vecteur, d'après le corollaire \ref{cor:OAisA}.
 	
@@ -112,13 +113,10 @@
 
 \section{Norme vectorielle}
 
-Considérons $\vec{AB}$ le vecteur translatant le point $A$ sur le point $B$.
-On considère la longueur $AB$ du segment $[AB]$, ce qui servira à définir la norme d'un vecteur, l'équivalent de la longueur pour les segments, et de la distance pour les nombres réels.
-
-La formule de la longueur d'un segment (voir théorème \ref{thm:long-segment}, chapitre \ref{chap:3}) permet calculer\footnote{Remarquons que l'ordre de $A$ et de $B$ n'importe pas dans la formule, et que $|x|^2 = (x)^2$, car le carré ignore le signe.}
-	\[ AB = \sqrt{ |x_B - x_A|^2 + |y_B - y_A|^2}. \]
-Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$, qui sont exactement les coordonnées du vecteur
-	\[ \vec{AB} = B-A. \]
+On souhaite désormais parler de « longueur » de translation.
+Pour cela, considérons $\vec{AB}$ le vecteur translatant le point $A$ sur le point $B$.
+Un définition naturelle de la « longueur » de $\vec{AB}$ est la distance entre les points $A$ et $B$, soit $\norm{A - B}$, comme décrit dans la définition \ref{dfn:norme-carré}.
+En mathématiques, on parlera alors de \emph{norme} vectorielle.
 
 \dfn{Norme d'un vecteur}{
 	Soit $u = \pvec{x}{y}$ un vecteur quelconque.
@@ -126,13 +124,7 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 		\[ \norm{u} = \sqrt{x^2 + y^2}. \]
 		
 	Il suit, par construction, que $\norm{\vec{AB}} = AB$.
-}{}
-
-\nt{
-	Remarquons qu'on a la relation, pour $\ell = AB$, la longueur du segment $[AB]$,
-		\[ \ell = \norm{\vec{AB}} = \norm{B-A} = \norm{A-B}. \]
-	Ceci devrait rappeler la distance entre les nombres réels $x, y\in\R$, notée $|x-y|$ à l'aide de la valeur absolue.
-}{}
+}{dfn:norme}
 
 \ex{}{
 	Soient $A(2,5; 3), B(1,5; -4)$ les deux points de l'exemple \ref{ex:vec-1}.
@@ -142,16 +134,61 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 	En comparant avec la longueur $AB = BA = \sqrt{(2,5 - 1,5)^2 + (3 - (-4))^2} = 5 \sqrt{2}$, on obtient bien le même résultat.
 	Notons qu'il y a moins de chance de faire une erreur avec la norme vectorielle car on calcule la longueur en deux étapes, avec d'abord les différences de coordonnées.
 	
-	\begin{center}
-	\includegraphics[page=3]{figures/fig-vecteurs.pdf}
-	\end{center}
+%	\begin{center}
+%	\includegraphics[page=3]{figures/fig-vecteurs.pdf}
+%	\end{center}
 }{}
+
+\exe{}{
+	Calculer la norme des vecteurs suivants. L'exprimer sous la forme $a \sqrt{b}$, où $a, b \in\N$ sont des entiers naturels et $b$ est le plus petit possible.
+	\begin{multicols}{2}
+	\begin{enumerate}	
+		\item $u = \pvec34$
+		\item $v = -\pvec34$
+		\item $w = \pvec{-1}2$
+		\item $u' = \pvec5{-7}$
+		\item $v' = \pvec20$
+		\item $w' = \pvec0{-5}$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:norme-vectorielle}{
+	TODO
+}
 
 \thm{Homogénéité de la norme}{
 	Soit $u$ un vecteur et $\kappa\in\R$ un nombre réel.
 	Alors
 		\[ \norm{\kappa\cdot u} = |\kappa| \cdot \norm{u}. \]
 }{}
+
+\pf{}{
+	Soit $u = \pvec{x}y$ et $\kappa\in\R$.
+	Alors
+	\begin{align*}
+		\norm{\kappa\cdot u}^2 &= \norm{\pvec{\kappa x}{\kappa y}}^2, \\
+								&= (\kappa x)^2 + (\kappa y)^2, \\
+								&= \kappa^2 (x^2 + y^2) = \kappa^2 \norm{\pvec{x}y}.
+	\end{align*}
+	La racine carré conclut en se remémorant que $\sqrt{\kappa^2} = |\kappa|$.
+}
+
+
+\exe{}{
+	Calculer la norme des vecteurs suivants. L'exprimer sous la forme $a \sqrt{b}$, où $a, b \in\N$ sont des entiers naturels et $b$ est le plus petit possible.
+	\begin{align*}
+		u = \pvec{-2}{4}, && v = 2u, && w = -\dfrac32u, && z = -\dfrac12u,
+	\end{align*}
+}{exe:norme-homogènre}{
+	TODO
+}
+
+\exe{}{
+	Pour quels réels $x\in\R$ a-t-on $\norm{x \cdot \pvec12} = 5$ ?
+}{exe:homogénéité}
+{
+	TODO
+}
+
 
 \section{Colinéarité, alignement, et déterminant}
 
@@ -167,29 +204,36 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 }{}
 
 
-\mprop{}{
-	Soit $A, B, C, D$ quatre points quelconques.
-	
-	Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires si et seulement si les droites $(AB)$ et $(CD)$ sont parallèles.
-}{prop:alignement-parallélisme}
-
-\cor{}{
-	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
-}{prop:alignement-colinéarité}
-
 \lem{}{
 	Soit $(d)$ une droite non verticale et $A, B \in (d)$ deux points distincts de celle-ci.
 	
 	Alors $\vec{AB}$ est colinéaire à un vecteur de la forme $\pvec{1}{a}$ où $a$ est le coefficient directeur de la fonction affine $f$ telle que $\C_f = (d)$.
 }{lem:vecteur-dir-coeff-dir}
 
-\pf{Preuve du lemme \ref{lem:vecteur-dir-coeff-dir}}{
+%\pf{Preuve du lemme \ref{lem:vecteur-dir-coeff-dir}}{
+\pf{}{
 	En écrivant $A(x_A;y_B)$ et $B(x_B;y_B)$ les coordonnées des points $A$ et $B$, on a $x_A \neq x_B$ car les points sont distincts et la droite est non verticale.
 	
 	Ainsi, $\vec{AB} = B-A$ est égal à
 		\[\vec{AB}= \pvec{x_B - x_A}{y_B-y_A} = \left(x_B - x_A\right) \pvec{1}{\frac{y_B-y_A}{x_B-x_A}}. \]
 	On reconnaît bien ici le coefficient directeur de la fonction affine associée à $(d)$.
 }{}
+
+\thm{}{
+	Soit $A, B, C, D$ quatre points quelconques.
+	
+	Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires si et seulement si les droites $(AB)$ et $(CD)$ sont parallèles.
+}{thm:alignement-parallélisme}
+
+\exe{,difficulty=2}{
+	Démontrer le théorème \ref{thm:alignement-parallélisme}.
+}{exe:alignement-parallélisme}{
+	TODO
+}
+
+\cor{}{
+	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+}{prop:alignement-colinéarité}
 
 \dfn{Vecteur directeur}{
 	Soit $(d)$ une droite quelconque.
@@ -227,13 +271,3 @@ Remarquons qu'on y voit apparaître les différences $x_B - x_A$ et $y_B - y_A$,
 	
 	Le déterminant détermine donc si deux vecteurs sont colinéaires ou non.
 }{}
-
-%\ex{}{
-%	Considérons les droites $(AB)$ et $(A'B')$ où
-%		\begin{align*}
-%			A(2; -4), && B(-3,4 ; 3,1), && \text{ et } && A'(2; -4), && B'(-3,4 ; 3,1).
-%		\end{align*}
-%	D'après la proposition \ref{prop:alignement-colinéarité}, les vecteurs $\vec{AB}$ et $\vec{A'B'}$ sont appelé \emph{vecteurs directeurs} des droites $(AB)$ et $(A'B')$ car ils donnent la direction (à multiple près) de celles-ci.
-%
-%	Si les vecteurs $\vec{AB}$ et $\vec{A'B'}$ sont colinéaires, les deux droites admettent la même direction et sont donc parallèles.
-%}{}

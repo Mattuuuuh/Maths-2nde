@@ -13,13 +13,13 @@ On appelle ce résultat la \og loi des grands nombres \fg.
 
 \subsection{Expérience, univers, événement}
 
-\dfn{Expérience aléatoire}{
+\dfn{expérience aléatoire}{
 	Une expérience aléatoire est une expérience renouvelable dont on connait les résulats possibles sans qu'on puisse savoir avec certitude lequel sera réalisé.
 }{dfn:exp-alea}
 
 On introduit ici le concept d'univers et d'événement à l'aide d'ensembles finis.
 
-\dfn{Univers $\Omega$}{
+\dfn{univers $\Omega$}{
 	L'universe $\Omega$ d'une expérience aléatoire est l'\textbf{ensemble} des issues possibles.
 }{dfn:univers}
 
@@ -78,7 +78,7 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 
 \subsection{Événement complémentaire}
 
-\dfn{Événement complémentaire}{
+\dfn{événement complémentaire}{
 	Soit $E \subseteq \Omega$ un événement.
 	On pose $\overline{E}$ l'événement complémentaire à $E$ dans $\Omega$ : c'est l'ensemble des issues de $\Omega$ qui n'appartiennent pas à $E$.
 	Autrement dit,
@@ -111,7 +111,7 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 
 \subsection{Union, intersection : diagrammes de Venn}
 
-\dfn{Intersection, union}{	
+\dfn{intersection, union}{	
 	Pour deux ensembles $A, B$ on définit les ensembles suivants.
 		\begin{enumerate}
 			\item $A \cap B$ : l'intersection des deux ensembles.
@@ -153,7 +153,7 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 Lorsqu'on considère une expérience aléatoire, on associe une probabilité à chaque issue possible (c'est-à-dire chaque élément de l'univers).
 C'est association est une loi de probabilité qu'on ne démontre jamais : c'est la base de la modélisation du hasard.
 
-\dfn{Loi de probabilité}{
+\dfn{loi de probabilité}{
 	Soit $\Omega = \{ \omega_1, \omega_2, \omega_3, \dots \}$ un univers fini.
 	Une loi de probabilité $P$ est une fonction associant à chaque issue $\omega$ une valeur de $[0;1]$ (sa probabilité d'être réalisée).
 	\begin{center}
@@ -176,7 +176,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	car la fonction $P$ prend uniquement des sous-ensembles de $\Omega$.
 }
 
-\thm{Inclusion-exclusion}{
+\thm{inclusion-exclusion}{
 	Soient $A, B \subseteq \Omega$ deux événements.
 	Alors
 		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
@@ -194,7 +194,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
 }
 
-\dfn{Événements disjoints}{
+\dfn{événements disjoints}{
 	Deux événements $A, B \subseteq \Omega$ sont dits disjoints dès que
 		\[ A \cap B = \emptyset, \]
 	l'ensemble vide.
@@ -202,7 +202,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 		\[ P(A \cup B) = P(A) + P(B). \]
 }{}
 
-\dfn{Équiprobabilité}{
+\dfn{équiprobabilité}{
 	On parle de situation \emph{équiprobable} si chaque issue $\omega$ de l'univers $\Omega$ admet la même probabilité.
 		\[ P(\omega_1) = P(\omega_2) =  P(\omega_3) = \dots, \]
 	La loi qui en découle s'appelle la \emph{loi uniforme}.

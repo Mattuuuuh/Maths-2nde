@@ -3,6 +3,18 @@
 
 \chapter{Droites et fonctions affines}
 
+
+%%%%%%%
+%%%%%%%
+
+% possibilité de faire comme suit : définir uniquement l'identité y=x et s'assurer que c'est une droite.
+% ensuite y = ax est une fonction parente, ce qui donne l'aspect selon le signe de a d'ailleurs
+% puis y = ax+b est un shift d'ordonnées. ce qui donne l'ordonnée à l'origine d'ailleurs
+
+%%%%%%%
+%%%%%%%
+%%%%%%%
+
 \section{Lecture graphique et définitions}\label{sec:aff-1}
 
 Soit $(d)$ une droite \emph{non verticale} qu'on plonge dans un repère orthonormé.
@@ -135,6 +147,24 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	\end{center}
 }{}
 
+\nt{
+
+	Soit $f$ une fonction quelconque sur $\R$.
+	Alors, par définition, nous avons
+		\[ \C_f = \bigset{ (x ; f(x) ) \text{ où $x$ parcourt $\R$} }. \]
+	Cet ensemble se réécrit également de la façon suivante.
+		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
+
+}{}
+
+% à mettre plus haut non ?
+\dfn{équation de droite}{
+	Sot $f(x) = ax+b$ une fonction affine sur $\R$. On a
+		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y =ax+b$} }, \]
+	et nomme alors abusivement l'équation \og $y = ax+b$ \fg, l'\emph{équation de la droite $\C_f$}.
+}{dfn:eq-droite}
+
+
 \nomen{
 	On dit d'un point $(x, y)$ du plan qu'il est à \emph{coordonnées entières} dès que $x, y \in \Z$ sont deux entiers relatifs.
 }
@@ -198,32 +228,15 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 
 \section{Identifications des paramètres}
 
-\ex{}{
-	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $f(x) = 2x + 1$
-		\item $f(x) = 1 + 2x$
-		\item $f(x) = - x$
-		\item $f(x) = -42$
-		\item $f(x) = 10x + 2$
-		\item $f(x) = 2 + 10x$
-		\item $f(x) = 1 - x$
-		\item $f(x) = 0$
-	\end{enumerate}
-	\end{multicols}
-}{}
+\subsection{Ordonnée à l'origine $b$}
 
-\lem{Ordonnée à l'origine}{
-	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
-		\begin{align*}
-			f(x) = a x + b && (x\in\R)
-		\end{align*}
+\lem{ordonnée à l'origine}{
+	Soit $f(x) = a x + b$ affine.
 	Alors
 		\[ f(0) = b, \]
 	et donc
 		\[ (0 ; b) \in \C_f. \]
-}{}
+}{lem:affine-b}
 
 \ex{}{
 	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
@@ -261,17 +274,13 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ f(x) = 5x + 3 \qquad \text{ pour tout } x\in\R. \]
 }{}
 
-\lem{Coefficient directeur}{
-	Soit $f$ une fonction affine où $a,b \in\R$ sont ses deux paramètres réels.
-		\begin{align*}
-			f(x) = a x + b && (x\in\R)
-		\end{align*}
+\subsection{Coefficient directeur $a$}
+
+\lem{coefficient directeur}{
+	Soit $f(x) = a x + b$ affine.
 	Alors, pour tout $x\in\R$ réel,
 		\[ f(x+1) - f(x) = a. \]
-	On interprète l'équation ainsi :
-		\begin{center}
-			\og lorsqu'on augmente l'abscisse $x$ de $1$, l'ordonnée $y$ augmente de $a$ \fg.
-		\end{center}
+	On lit : « lorsqu'on augmente l'abscisse $x$ de $1$, l'ordonnée $y$ augmente de $a$ ».
 }{lem:coeff-dir}
 
 %\pf{Preuve du lemme \ref{lem:coeff-dir}}{
@@ -285,6 +294,34 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\end{align*}
 }
 
+\cor{}{
+	Si $f(x) = ax+b$, alors
+		\[ a = f(1) - f(0). \]
+}{cor:affine-a}
+
+\exe{}{
+	Montrer le corollaire \ref{cor:affine-a}.
+}{exe:affine-a}{
+	TODO
+}
+
+\exe{}{
+	Pour chaque fonction affine sur $\R$ suivante, déterminer son coefficient directeur $a$ et son ordonnée à l'origine $b$ à l'aide du lemme \ref{lem:affine-b} et du corollaire \ref{cor:affine-a}.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x + 1$
+		\item $f(x) = 1 + 2x$
+		\item $f(x) = - x$
+		\item $f(x) = -42$
+		\item $f(x) = 10x + 2$
+		\item $f(x) = 2 + 10x$
+		\item $f(x) = 1 - x$
+		\item $f(x) = 0$
+	\end{enumerate}
+	\end{multicols}
+}{exe:paramètres-affines}{
+	TODO
+}
 
 \ex{}{
 	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
@@ -343,7 +380,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ b=2-a = 4.\]
 	On peut désormais s'assurer que $(a;b) = (-2;4)$ vérifie bien les deux équations du système simultanément.
 	On conclut donc que la fonction $f$ est donnée par
-		\[ f(x) = -2x + 4 \qquad \text{pour tout $x\in\R$.} \]
+		\[ f(x) = -2x + 4, \qquad \text{pour tout $x\in\R$.} \]
 }{ex:systeme-affine}
 
 \exe{}{
@@ -359,6 +396,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	TODO
 }
 
+% who is this?
 \exe{}{
 	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
 }{exe:}{
@@ -418,7 +456,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
 }
 
-\thm{Interpolation linéaire}{
+\thm{interpolation linéaire}{
 	Soit $f$ une fonction affine donnée par, pour tout $x\in\R$, et pour certains paramètres $a, b\in\R$,
 		\[ f(x) = ax+b. \]
 	
@@ -595,22 +633,6 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 		\end{enumerate}
 }{}
 
-\nt{
-
-	Soit $f$ une fonction quelconque sur $\R$.
-	Alors, par définition, nous avons
-		\[ \C_f = \bigset{ (x ; f(x) ) \text{ où $x$ parcourt $\R$} }. \]
-	Cet ensemble se réécrit également de la façon suivante.
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
-
-}{}
-
-% à mettre plus haut non ?
-\dfn{Équation de droite}{
-	Sot $f(x) = ax+b$ une fonction affine sur $\R$. On a
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y =ax+b$} }, \]
-	et nomme alors abusivement l'équation \og $y = ax+b$ \fg, l'\emph{équation de la droite $\C_f$}.
-}{dfn:eq-droite}
 
 
 \ex{}{

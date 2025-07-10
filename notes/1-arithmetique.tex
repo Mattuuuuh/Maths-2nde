@@ -355,11 +355,11 @@
 	Ainsi $ab$ divise aussi $uan$ et $vbn$ ainsi que leur somme, valant $n$.
 }
 
-\thm{Règle de divisibilité par 3 et 9}{
+\thm{critère de divisibilité par 3 et 9}{
 	Un nombre est divisible par 3 (respectivement 9) si et seulement si la somme de ses chiffres est divisible par 3 (resp. 9).
 }{thm:règle-divisibilité-3-9}
 
-\pf{Démonstration du théorème \ref{thm:règle-divisibilité-3-9} pour la divisibilité par 3}{
+\pf{théorème \ref{thm:règle-divisibilité-3-9} pour la divisibilité par 3}{
 	Considérons un nombre à deux chiffres pour commencer.
 		\begin{align*}
 			n = [ab] && \iff && n = 10a + b.
@@ -392,7 +392,7 @@
 	Soit $p \in\N$. On suppose $p\geq2$ pour des raisons techniques qui seront précisées plus tard.
 	
 	On appelle $p$ \emph{nombre premier} ou simplement \emph{premier} dès que
-		\[ \D_p = \{ 1 ; p \}. \]
+		\[ \D_p = \bigset{ 1 ; p }. \]
 	Autrement dit, les seuls diviseurs de $p$ sont $1$ et lui-même, et $p$ n'est pas 1.
 }{dfn:nombre-premier}
 
@@ -407,6 +407,14 @@
 	On énumère $\D_9 = \bigset{ 1 ; 9 ; 3 }$, $\D_{10} = \bigset{ 1 ; 10 ; 2 ; 5 }$, puis $\D_{11} = \bigset{ 1 ; 11 }$, ce qui nous donne le 5è premiers.
 	
 	\[ \P = \bigset{ 2 ; 3 ; 5 ; 7 ; 11 ; 13 ; 17 ; 19 ; 23 ; 29 ; 31 ; \dots }. \]
+}
+
+\exe{}{
+	Parmis les premiers de l'exercice \ref{exe:premiers}, lequels admettent un nombre premier de lettres lorsqu'écrits en toutes lettres ?
+}{exe:pair-pair}{
+	Parmis $\bigset{ 2 ; 3 ; 5 ; 7 ; 11 }$, seul « trois » s'écrit avec 5 lettres, le reste des éléments s'écrivant avec 4 lettres.
+	Les prochains sont dix-sept et dix-neuf, qui contiennent 7 lettres chacun.
+	Question ouverte : en existe-t-il une infinité ?
 }
 
 \exe{}{
@@ -453,7 +461,7 @@
 }
 
 \exe{}{
-	Donner la décomposition en facteurs premiers de tous les éléments de $\D_{24}$ excepté 1.
+	Donner la décomposition en facteurs premiers des éléments de $\D_{24}$ excepté 1.
 }{exe:décompositions-primaires}{
 	On a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 , 4 ; 6 }$, qui se décomposent comme suit.
 	\begin{multicols}{2}

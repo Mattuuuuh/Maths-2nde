@@ -37,6 +37,16 @@
 }{ex:perimètre}
 
 \exe{1}{
+	Un lynx prend la fuite : il court à 15 mètres par seconde.
+	\begin{enumerate}
+		\item La distance parcourue par le lynx est-elle une fonction du temps écoulé depuis son départ ?
+		\item Le temps écoulé depuis le départ du lynx est-il une fonction de la distance parcourue ?
+	\end{enumerate}
+}{exe:course}{
+	TODO
+}
+
+\exe{}{
 	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
 	Il note ses résultats dans le tableau ci-dessous.
 	\begin{center}
@@ -84,57 +94,18 @@
 }{}
 
 \ex{}{
-	Fonctions vues en cours jusqu'ici.
+	Une constante est en particulier une fonction d'une variable $x\in\R$ réelle.
+	Ainsi la fonction $g$ donnée par
+		\begin{align*}
+		g: \R & \longrightarrow \R \\
+		x& \longmapsto 42
+		\end{align*}
+	vaut constamment $42$, peut importe la valeur de $x$. 
+	
+	On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
+	$g$ est une fonction constante.
 
-	\begin{enumerate}
-%		\item 
-%		La valeur absolue $|x|$ peut être formulée sous forme de fonction notée $|\cdot|$ : elle associe à chaque nombre réel sa valeur absolue.
-%		\begin{align*}
-%			|\cdot|: \R & \longrightarrow \R \\
-%			x& \longmapsto |x|.
-%		\end{align*}	
-		
-		\item
-		Considérons la série statistiques $X$ suivante dépendant d'un entier naturel $k\in\N$.
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|}\hline
-				Valeur   & 0 & 20 & 10 \\ \hline
-				Effectif & 17 & 17 & k \\ \hline
-			\end{tabular}
-			\end{center}
-		La quantité $\Var(X)$ peut être vue comme une fonction qui à tout entier naturel $k\in\N$ associe la variance de la série $X$.
-		Nommons $f$ cette fonction pour ne pas utiliser surcharger la notation $\Var$.
-		\begin{align}
-		\begin{split}
-			f: \N & \longrightarrow \R \\
-			k& \longmapsto \Var(X)
-		\end{split}\label{func:vark}
-		\end{align}
-		Remarquons que le domaine de $f$ est l'ensemble des entiers naturels $\N$ car un effectif est forcément un nombre entier et positif.
-		
-%		\item
-%		Pour définir l'écart type, il a fallu utiliser la fonction racine carrée.
-%		Comme la racine carrée d'un nombre négatif n'existe pas, le domaine de cette fonction est $[0;\pinfty[$, et non $\R$ tout entier.
-%			\begin{align*}
-%			\sqrt{\cdot}: [0;\pinfty[ & \longrightarrow \R \\
-%			x& \longmapsto \sqrt{x}
-%			\end{align*}
-
-		\item 
-		Une constante est en particulier une fonction d'une variable $x\in\R$ réelle.
-		Ainsi la fonction $g$ donnée par
-			\begin{align*}
-			g: \R & \longrightarrow \R \\
-			x& \longmapsto 42
-			\end{align*}
-		vaut constamment $42$, peut importe la valeur de $x$. 
-		
-		On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
-		$g$ est une fonction constante.
-					
-	\end{enumerate}
-
-}{ex:fonctions-deja-vues}
+}{ex:fonction-constante}
 
 \dfn{Antécédent, image}{
 	Considérons une fonction $f$ et deux nombres réels $x,y\in\R$ vérifiants
