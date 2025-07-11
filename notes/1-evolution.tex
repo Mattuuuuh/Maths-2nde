@@ -9,7 +9,7 @@
 
 On considère dans cette section des populations qu'on représente par un ensemble fini non vide car l'ordre des individus n'importe pas.
 
-\ex{Ensemble d'élèves}{
+\ex{ensemble d'élèves}{
   On représente l'ensemble des $34$ élèves d'une classe par l'ensemble
   \[ E = \bigset{ 1 ; 2 ; 3 ; \dots ; 32 ; 33 ; 34 }. \]
   Chaque élève est associé à un nombre (par exemple sa place dans l'ordre alphabétique de la liste d'appel).
@@ -23,7 +23,7 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
 	C'est un entier naturel.
 }
 
-\ex{Ensembles d'élèves pairs}{
+\ex{ensembles d'élèves pairs}{
   Soit $E$ donné à l'exemple \ref{ex:pop-eleves}.
   L'ensemble
   \[ F = \{ 2 ; 4; 6 ; \dots ; 32 ; 34 \} \]
@@ -36,14 +36,14 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
   \end{align*}
 }{ex:pop-eleves2}
 
-\dfn{Proportion, pourcentage de sous-population}{
+\dfn{proportion, pourcentage de sous-population}{
   Considérons deux ensembles finis $F \subseteq E$ avec $E$ non vide.
   La proportion d'éléments de $E$ appartenant à $F$ est donnée par
   \[ p = \dfrac{|F|}{|E|}. \]
   Lorsqu'elle est exprimée sous la forme d'une fraction de $100$, on parle alors de \emph{pourcentage} d'éléments de $E$ appartenant à $F$.
 }{def:proportion}
 
-\ex{Proportion d'élèves pairs}{
+\ex{proportion d'élèves pairs}{
   En reprenant les notations de l'exemple \ref{ex:pop-eleves2}, on trouve
   \[ p = \dfrac{17}{34} = \dfrac12 = \dfrac{50}{100} = 50\%. \]
   Ainsi la proportion d'élèves de $E$ appartenant à $F$ est $\frac12 = 50\%$.
@@ -89,7 +89,7 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
   \vspace{3pt} % fractions goes out of bounds
 }
 
-\ex{Proportion de fourmis}{
+\ex{proportion de fourmis}{
   Au total sur Terre on dénombre actuellement 16 600 espèces de fourmis parmis les 1,3 millions d'espèces d'insectes déjà décrites.
 
   Ainsi, la proportion de fourmis parmis les insectes est la suivante.
@@ -126,7 +126,7 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
   \[ 16 600 \cdot \left(\dfrac{1,3}{100}\right)^{-1} = \dfrac{16 600 \cdot 100}{1,3} \approx 1~276~923. \]
 }{ex:fourmis-2}
 
-\ex{Proportions de populations imbriquées}{
+\ex{proportions de populations imbriquées}{
   En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
   Parmis celles-ci, $23\%$ sont en danger critique. \footnote{\href{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}}
 
@@ -327,7 +327,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
   Ceci correspond à un pourcentage supérieur à $100\%$.
 }
 
-\dfn{Augmentation, diminution}{
+\dfn{augmentation, diminution}{
   Une \emph{augmentation} d'une valeur $N$ d'une proportion $p\geq0$ correspond à la somme
   \[ N + p\cdot N = (1+p)\cdot N.\]
   Une \emph{diminution} d'une valeur $N$ d'une proportion $0\leq p \leq 1$ correspond à la différence
@@ -364,7 +364,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 
-\thm{Évolutions successives}{
+\thm{évolutions successives}{
 	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
 	
 	\begin{enumerate}
@@ -446,7 +446,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 
-\thm{Évolution réciproque}{
+\thm{évolution réciproque}{
 	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
 	D'après le théorème \ref{thm:ev-succ}, le coefficient multiplicateur de l'évolution réciproque est donc l'inverse de celui de l'évolution considérée.
 	
@@ -515,15 +515,15 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 \exe{, difficulty=2}{
-    Soit l'ensemble d'entiers $E=\bigset{n; n+1; \dots; m-1 ; m}$ dépendant de deux entiers relatifs $n<m$.
-    Calculer $|E|$ en fonction de $n$ et $m$.
-    Vérifier la formule avec $n=-1$ et $m=1$ en sachant que $\bigl|\bigset{-1 ; 0 ; 1 }\bigr| = 3$.
+    Soit l'ensemble d'entiers $E=\bigset{m; m+1; \dots; n-1 ; n}$ dépendant de deux entiers relatifs $m<n$.
+    Calculer $|E|$ en fonction de $m$ et $n$.
+    Vérifier la formule avec $m=-1$ et $n=1$ en sachant que $\bigl|\bigset{-1 ; 0 ; 1 }\bigr| = 3$.
 }{exe:evol13}{
-	On soustrait $n$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
-		\[ |E| = \bigset{ 0; 1 ; \dots ; m-n }. \]
-	Il y a $m-n$ entiers de $1$ à $m-n$, et donc $|E| = m-n+1$ éléments au total en n'oubliant pas $0$.
+	On soustrait $m$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
+		\[ |E| = \bigl| \bigset{ 0; 1 ; \dots ; n-m }\bigr|. \]
+	Il y a $n-m$ entiers de $1$ à $n-m$, et donc $|E| = n-m+1$ éléments au total en n'oubliant pas $0$.
 
-	Pour $n=-1, m=1$, on a bien $m-n+1 = (1) - (-1) + 1  = 3$.
+	Pour $m=-1, n=1$, on a bien $n-m+1 = (1) - (-1) + 1  = 3$.
 }
 
 

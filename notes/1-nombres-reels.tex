@@ -27,7 +27,7 @@
 	\end{multicols}
 }
 
-\dfn{Nombres entiers}{
+\dfn{nombres entiers}{
 	On pose les nombres entiers \emph{naturels}
 		\[ \N =  \bigset{ 0 ; 1 ; 2 ; \dots }, \]
 	et les nombres entiers \emph{relatifs}
@@ -57,7 +57,7 @@
 	\end{multicols}
 }
 
-\dfn{Nombres rationnels}{
+\dfn{nombres rationnels}{
 	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
 	
 	Alors le \emph{rationnel} $\dfrac{a}{b}$ est l'unique nombre tel que
@@ -131,16 +131,6 @@
 	\end{align*}
 }{thm:stabilité-Q}
 
-\nomen{
-	On appelle « corollaire » une proposition qui découle immédiatement d'un théorème mais qui mérite d'être énoncée seule.
-	Le corollaire couronne ainsi le théorème.
-}
-
-\cor{}{
-	Pour $a, b, c \in \Z$, non nuls lorsques dénominateurs, on a 
-		\[ \dfrac{a}{b} = \dfrac{ac}{bc}. \]
-}{cor:simplification-Q}
-
 \exe{, difficulty=2}{
 	Démontrer le théorème \ref{thm:stabilité-Q}.
 }{exe:stabilité-Q}{
@@ -159,6 +149,25 @@
 	Similairement, en multipliant les équations, on obtient $(br)(ds)=ac \iff (bd)(rs) = ac$, et donc $r \cdot s = \dfrac{ac}{bd} \in \Q$.
 }
 
+\nomen{
+	On appelle « corollaire » une proposition qui découle immédiatement d'un théorème mais qui mérite d'être énoncée seule.
+	Le corollaire couronne ainsi le théorème.
+}
+
+\cor{}{
+	Pour $a, b, c \in \Z$, non nuls lorsques dénominateurs, on a 
+		\[ \dfrac{a}{b} = \dfrac{ac}{bc}. \]
+}{cor:simplification-Q}
+
+\exe{, difficulty=2}{
+	Démontrer le corollaire \ref{cor:simplification-Q}.
+}{exe:simplification-Q}{
+	D'après l'exercice \ref{exe:a-div-a}, $1 = \dfrac{c}{c}$.
+	Comme multiplier par 1 n'a pas d'effet, on a
+		\[ \dfrac{a}b = \dfrac{a}b \times 1 = \dfrac{a}b \times \dfrac{c}c = \dfrac{ac}{bc}, \]
+	où on a utilisé le théorème \ref{thm:stabilité-Q} pour la dernière égalité.
+}
+
 \qs{}{
 	Est-il possible d'écrire le développement décimal de $\dfrac13$ sur un feuille de papier A4 ?
 	
@@ -167,12 +176,12 @@
 
 \section{Développements décimaux}
 
-\dfn{Nombres décimaux}{
+\dfn{nombres décimaux}{
 	On dit d'un nombre $x$ qu'il est \emph{décimal} si on peut écrire son développement décimal sur un feuille de papier A4 (possiblement en écrivant très petit).
 	Autrement dit, son développement décimal est fini.
 	
 	On note 
-		\[ \D = \bigset{ x \in \Q \tq \text{ le développement décimal de $x$ est fini} }. \]
+		\[ \DD = \bigset{ x \in \Q \tq \text{ le développement décimal de $x$ est fini} }. \]
 }{dfn:nombres-décimaux}
 
 \exe{}{
@@ -200,40 +209,39 @@
 	\end{multicols}
 }
 
-\thm{Caractérisation de $\D$}{
-	On a 
-		\[ \D = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
+\thm{caractérisation de $\DD$}{
+		\[ \DD = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
 }{thm:caractérisation-D}
 
 \pf{}{
 	Posons $E = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }$.
-	Pour montrer l'égalité d'ensembles $\D = E$, il faut toujours montrer la double inclusion $\D \subseteq E$ et $E \subseteq \D$.
+	Pour montrer l'égalité d'ensembles $\DD = E$, il faut toujours montrer la double inclusion $\DD \subseteq E$ et $E \subseteq \DD$.
 	Pour montrer une inclusion $\subseteq$ d'ensembles, il faut montrer que n'importe quel élément de l'ensemble de gauche (le plus petit) appartient à l'ensemble de droite (le plus grand).
 	
-	\begin{enumerate}[leftmargin=110pt]
-		\item[\underline{Inclusion $\D \subseteq E$ :}]
-		Un élément $x$ de $\D$ admet un développement décimal fini, posons $n\in\N$ sa longueur.
+	\begin{enumerate}[leftmargin=100pt]
+		\item[\underline{Inclusion $\DD \subseteq E$} :]
+		Un élément $x$ de $\DD$ admet un développement décimal fini, posons $n\in\N$ sa longueur.
 		Alors $10^n x = a$ est un entier relatif. Il suit que $x = \dfrac{a}{10^n} \in E$ comme requis.
 		
-		\item[\underline{Inclusion $E \subseteq \D$ :}]
+		\item[\underline{Inclusion $E \subseteq \DD$} :]
 		Un élément $x$ de $E$ est de la forme $x = \dfrac{a}{10^n}$. Comme $a$ est entier, le développement décimal de $x$ est de longueur au plus $n$, et est donc fini.
 	\end{enumerate} 
 }{}
 
 \cor{}{
 	On a l'inclusion d'ensembles
-		\[ \D \subseteq \Q. \]
+		\[ \DD \subseteq \Q. \]
 }{cor:D-in-Q}
 
 \exe{}{
 	Montrer le corollaire \ref{cor:D-in-Q}.
 }{exe:caractérisation-D}{
-	Tout élément de $\D$ a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
+	Tout élément de $\DD$ a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
 	Comme $10^n \in \N$, l'élément est bien un ratio de deux entiers et il appartient aux rationnels.
 }
 
 \thm{}{
-	Le nombre rationnel $\dfrac13$ n'est pas décimal : $\dfrac13 \not\in \D$.
+	Le nombre rationnel $\dfrac13$ n'est pas décimal : $\dfrac13 \not\in \DD$.
 }{}
 
 \pf{}{
@@ -269,7 +277,7 @@
 }{exe:nondecimal2}{
 	Si $k$ divise $10^n$, alors il existe un $a \in \Z$ tel que
 		\[ ak = 10^n. \]
-	Ainsi $\dfrac1k = \dfrac{a}{10^n} \in \D$.
+	Ainsi $\dfrac1k = \dfrac{a}{10^n} \in \DD$.
 }
 
 \mprop{}{
@@ -323,9 +331,60 @@
 	\end{enumerate}
 }
 
-\dfn{Développement périodique}{
-	On dit que le développement décimal d'un nombre est périodique dès qu'il se répète à partir d'un certain point.
+\dfn{développement périodique}{
+	On dit que le développement décimal d'un nombre est éventuellement périodique dès qu'il se répète à partir d'un certain point.
 }{dfn:périodique}
+
+\ex{}{
+	Le nombre $142,748210505050505\dots$ (les 05 se répètent indéfiniment) est périodique à partir de la sixième décimale.
+	La période est de 2 nombres décimaux (0 et 5).
+}{ex:période}
+
+\lem{}{
+	Le développement décimal de $\dfrac17$ est périodique.
+}{lem:17periode}
+
+\pf{}{
+	On décrit ici un algorithme permettant de calculer le développement décimal de $\dfrac17$.
+	Comme $\dfrac17 < 1$, écrivons 
+		\[ \dfrac17 = 0,n_1 n_2 n_3 \dots \]
+	le développement décimal de $\dfrac17$, où chaque $n_i$ est un chiffre.
+	En multipliant par 10, on trouve
+		\[ \dfrac{10}7 = n_1, n_2 n_3 n_4 \dots. \]
+	Or $\dfrac{10}7 = 1 + \dfrac37$, donc $n_1 = 1$ et
+		\[ \dfrac37 = 0,n_2 n_3 n_4 \dots. \]
+	On répète le processus pour connaître $n_2, n_3$, etc…
+		\[ \dfrac{30}7 = 4 + \dfrac27 = n_2,n_3n_4n_5\dots,\] 
+	et donc $n_2 = 4$ et
+		\[ \dfrac27 = 0,n_3n_4n_5\dots,\] 
+	
+	Remarquons que la partie décimale est toujours de la forme $\dfrac{r}7$, avec $0 \leq r \leq 6$.
+	De plus, elle détermine tout le développement décimal de $\dfrac17$ à partir d'un certain rang.
+	En $8$ étapes, deux parties décimales identiques sont rencontrées, et donc $\dfrac17$ est périodique.
+}
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\dfrac17$ sans calculatrice.
+}{exe:17-dec}{
+	On continue la preuve du lemme \ref{lem:17periode}, où on a déjà trouvé $n_1 = 1, n_2 = 4$, et $\dfrac27 = 0,n_3 n_4 n_5 \dots$.
+	En multipliant par $10$, on trouve $\dfrac{20}7 = 2 + \dfrac67$, et donc $n_3 = 2$ et $\dfrac67 = 0,n_4 n_5n_6 \dots$.
+	
+	Ensuite, on a $\dfrac{60}7 = 8 + \dfrac47$, et donc $n_4 = 8$.
+	Puis $\dfrac{40}7 = 5 + \dfrac57$, et $n_5 = 5$.
+	Enfin, $\dfrac{50}7 = 7 + \dfrac17$, et $n_6 = 7$.
+	
+	Il suit que $\dfrac17 = 0,n_7 n_8 n_9 \dots$.
+	Le développement de $\dfrac17$ se répète donc à partir de la septième décimale :
+		\[ \dfrac17 = 0,142857~142857~142857~\cdots. \]
+}
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\dfrac1{11}$ sans calculatrice.
+}{exe:111-dec}{
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $\dfrac{100}{11} = 9 + \dfrac1{11}$ et $n_2=9$.
+	D'où
+		\[ \dfrac1{11} = 0,09~09~09~09~\cdots. \]
+}
 
 \notations{
 	L'expression « si et seulement si » est notée $\iff$ et traduit l'équivalence de deux propositions.
@@ -337,17 +396,45 @@
 }
 
 \thm{}{
-	Soit $x$ un nombre. $x$ est rationnel si et seulement si $x$ admet un développement décimal périodique.
+	Soit $x$ un nombre. $x$ est rationnel si et seulement si $x$ admet un développement décimal éventuellement périodique.
 	Autrement dit :
-	\[
-		\text{Pour tout nombre $x$}, \bigl( \text{$x$ est rationnel} \bigr) \iff \big( \text{$x$ admet un développement décimal périodique}· \bigr)
-	\]
+	
+		Pour tout nombre $x$, 
+		$\Big($ $x$ est rationnel $\Big)$ 
+		$\iff$ 
+		$\Bigg($ \parbox{.4\textwidth}{
+			\centering	$x$ admet un développement décimal éventuellement périodique
+		} $\Bigg)$
 }{thm:décimal-périodique}
 
+\exe{, difficulty=2}{
+	Démontrer le théorème \ref{thm:décimal-périodique}.
+}{exe:décimal-périodique}{
+	On montre les deux implications séparément.
+	\begin{enumerate}
+		\item[\underline{$\implies$} :]
+		Si $x$ est rationnel, alors $x=\dfrac{a}b$ avec $a, b$ entiers ($b\neq0$).
+		L'algorithme décrit dans la preuve du lemme \ref{lem:17periode} implique le fait suivant :
+		il existe nécessairement $m < n\in\N$ tels que $10^m x$ et $10^n x$ admettent la même partie décimale, car c'est un nombre de la forme $\dfrac{r}{b}$ avec $0 \leq r \leq b$.
+		
+		Ainsi, le développement décimal de $x$ est périodique à partir du rang $m$ et de période $n-m$.
+		\item[\underline{$\impliedby$} :]
+		Soit $x$ admet un développement décimal éventuellement périodique.
+		Notons $n$ le début de la partie périodique, et $p$ la période.
+		Alors $10^n x$ et $10^{n+p}x$ admettent le même développement décimal.
+		La différence $10^{n+p} x - 10^n x = (10^{n+p} - 10^n)x$ est donc un entier.
+		Par division par $10^{n+p}-10^{n}$, $x$ est rationnel.
+	\end{enumerate}
+}
 
 \nt{
 	On a donc l'égalité d'ensembles
-		\[ \bigset{ \text{nombres $x$ tels que le développement décimal de $x$ est périodique} } = \Q. \]
+		\[ \Bigg\{ 
+			\parbox{.4\textwidth}{
+			\centering nombres $x$ tels que $x$ admet un développement décimal éventuellement périodique
+			}
+			\Bigg\}
+		= \Q. \]
 }
 
 \qs{}{
@@ -375,11 +462,11 @@
 	Il existe nécessairement une série de $2p$ zéros dans sa partie périodique.
 	Cette série contient une période entière, qui doit donc être entièrement nulle. 
 	Le développement décimal de $x$ est ainsi éventuellement nul ($x$ est décimal), ce qui n'est pas vrai.	
-	
+	\Large\Lightning
 	% un dessin serait bien ici mais je sais pas encore comment en faire un qui éclaire.
 }
 
-\dfn{Nombres réels}{
+\dfn{nombres réels}{
 	L'ensemble de tous les nombres est noté $\R$.
 	On les appelle \emph{les nombres réels}.
 	
@@ -388,7 +475,7 @@
 
 \nt{
 	On a ainsi le drapeau d'ensembles suivant.
-		\[ \N \subseteq \Z \subseteq \D \subseteq \Q \subseteq \R. \]
+		\[ \N \subseteq \Z \subseteq \DD \subseteq \Q \subseteq \R. \]
 }
 
 \thm{}{

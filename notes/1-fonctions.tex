@@ -42,7 +42,7 @@
 		\item La distance parcourue par le lynx est-elle une fonction du temps écoulé depuis son départ ?
 		\item Le temps écoulé depuis le départ du lynx est-il une fonction de la distance parcourue ?
 	\end{enumerate}
-}{exe:course}{
+}{exe:lynx}{
 	TODO
 }
 
@@ -104,8 +104,27 @@
 	
 	On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
 	$g$ est une fonction constante.
-
 }{ex:fonction-constante}
+
+\exe{}{
+	On considère la fonction $f$ qui à chaque triangle associe la somme de ses angles.
+	Que vaut $f(T)$ pour tout triangle $T$ ? Que dire de $f$ ?
+}{exe:somme-angles}{
+	Dans le plan, la somme des angles d'un triangle vaut toujours 180°.
+	Donc $f(T) = 180^\circ$ pour tout triangle $T$ : c'est une fonction constante.
+}
+
+\exe{, difficulty=2}{
+	On considère la fonction $f$ qui à chaque triangle associe l'angle le plus grand de $T$.
+	Montrer que $f(T) \leq 180^\circ$ pour n'importe quel triangle $T$.
+	Quel est minimum de $f$ ? Donner un triangle $T$ tel que $f(T)$ est minimal.
+}{exe:max-angles}{
+	L'angle d'un triangle $T$ est au plus l'angle plat, de valeur 180°. Son angle le plus grand, $f(T)$, est donc aussi borné supérieurement par 180°.
+	
+	Remarquons que $f(T) \geq 60^\circ$ pour tout triangle $T$, car si tous les angles d'un triangle sont inférieurs à 60°, alors leur somme ne peut pas être 180°.
+	Le triangle équilatéral vérifie $f(T) = 60^\circ$, le minimum de $f$.
+}
+	
 
 \dfn{Antécédent, image}{
 	Considérons une fonction $f$ et deux nombres réels $x,y\in\R$ vérifiants
@@ -124,40 +143,39 @@
 		\item 
 		Chaque $x\in\D$, élément du domaine, a \underline{exactement une} image par $f$ qui est $f(x)$.
 		\item
-		Un nombre $y\in\R$ peut avoir \underline{un, aucun, ou même plusieurs} antécédents. C'est le cas par exemple de $y=-1$ pour la fonction valeur absolue $f(x) = |x|$.
+		Un nombre $y\in\R$ peut avoir \underline{un, aucun, ou même plusieurs} antécédents. C'est le cas par exemple de $y=0, -1, 1$ pour la fonction carré $f(x) = x^2$.
 	\end{enumerate}
 }
 
 \ex{}{
-	Considérons la fonction valeur absolue.
-	On peut l'appeler $f$ en posant $f(x) = |x|$ pour tout $x\in\R$.
-	
+	Considérons la fonction carré.
+	On peut l'appeler $f$ en posant $f(x) = x^2$ pour tout $x\in\R$.
 	Calculons les images de $1; 4; -1; -0,31; \frac23 ; -\frac23;$ et $0$.
 		\begin{multicols}{2}
-		\begin{enumerate}
+		\begin{enumerate}%[leftmargin=50pt]
 			\item $f(1) = 1$
 			\item $f(-1) = 1$
-			\item $f( -0,31) = 0,31$
-			\item $f\left(\dfrac23\right) = \dfrac23$
-			\item $f\left( -\dfrac23\right) = \dfrac23$
+			\item $f( -0,31) = 0,0961$
+			\item $f\left(\dfrac23\right) = \dfrac49$
+			\item $f\left( -\dfrac23\right) = \dfrac49$
 			\item $f(0) = 0$
 		\end{enumerate}
 		\end{multicols}
-		
+	\noindent
 	On en déduit les propositions suivantes.
-		\begin{enumerate}[label=$\bullet$]
+		\begin{enumerate}[label=$\bullet$]%, leftmargin=50pt]
 			\item
 			L'image de $1$ par $f$ est $1$.
 			\item
 			L'image de $-1$ par $f$ est $1$.
 			\item
-			$1$ et $-1$ sont donc deux antécédents de $1$ par $f$.
+			$1$ et $-1$ sont deux antécédents de $1$ par $f$.
 			\item
-			Un antécédent de $0,31$ par $f$ est $-0,31$.
+			Un antécédent de $0,0961$ par $f$ est $-0,31$.
 			\item
-			Un antécédent de $\dfrac23$ par $f$ est $\dfrac23$.
+			Un antécédent de $\dfrac49$ par $f$ est $\dfrac23$.
 			\item
-			Un antécédent de $\dfrac23$ par $f$ est $-\dfrac23$.
+			Un antécédent de $\dfrac49$ par $f$ est $-\dfrac23$.
 			\item
 			$0$ est l'image et un antécédent de $0$ par $f$. C'est d'ailleurs le seul antécédent.
 		\end{enumerate}
@@ -173,7 +191,7 @@
 	
 	\begin{enumerate}
 		\item
-		Calculer l'image par $f$ de $0$, de $3,1$, de $\frac13$, de $-1$, de $-\frac23$.
+		Calculer l'image par $f$ de $0$ ; de $3,1$ ; de $\frac13$ ; de $-1$ ; de $-\frac23$.
 		\item
 		Donner un antécédent de $1$ par $f$.
 		\item
@@ -192,49 +210,55 @@
 	C'est une forme entièrement générale qui permet de déduire l'image $f(x)$ à partir de n'importe quel réel $x\in\D$ du domaine de $f$.
 }{}
 
-
-% exe -> ex car suppression des exercices et celui-ci est référencé
 \exe{}{
-	On reconsidère la fonction $f$ de l'exemple \ref{ex:fonctions-deja-vues} donnée en $\eqref{func:vark}$.
-	
-	\begin{enumerate}
-		\item
-		Montrer que la moyenne $\overline{X}$ de la série est constante et ne dépend pas de $k$.
-		\item
-		Utiliser la formule \eqref{eq:var} de la variance pour donner une expression algébrique de $f(k)$ dépendant de $k\in\N$, entier naturel.
-		\item
-		Calculer $f(10), f(20), f(50), f(100)$ et comparer les variances obtenues.
-	\end{enumerate}
-}{exe:vark}{
-	TODO
+	On reprend l'exercice \ref{exe:lynx}, dans lequel un lynx court à 15 mètres par seconde.
+	Donner la forme algébrique de la fonction $f$ donnant la distance parcourue (mètres) au temps $t$ (secondes).
+	Quel est le domaine de $f$ ?
+}{exe:lynx2}{
+	La distance est la vitesse par le temps : $f(t) = 15t$.
+	Comme $f$ prend un temps, son domaine est tous les nombres réels positifs ou nuls.
 }
 
 \nt{
-	Suite à l'exemple \ref{exe:vark} ci-dessus, on dira alors qu'on a écrit la variance \emph{en fonction de}  l'entier naturel $k\in\N$.
-	
-	L'expression algébrique permet de calculer facilement plusieurs images sans refaire le raisonnement à chaque fois.
+	Suite à l'exemple \ref{exe:lynx2} ci-dessus, on dira alors qu'on a écrit la distance \emph{en fonction} du temps $t$.
+	L'expression algébrique permet de calculer facilement plusieurs images sans refaire le raisonnement « distance = vitesse fois temps » à chaque fois.
 }
 
 \exe{}{
-	Un fonction $f$ admet le tableau de valeurs suivant.
+	Un fonction $f$ définie sur tout $\R$ admet le tableau de valeurs suivant.
 		\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}\hline
 			$x$ & 0 & -2 & 1 & -1 \\ \hline
 			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
 		\end{tabular}
 		\end{center}
-	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+	Parmis les expressions algébriques suivantes, lesquelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
 			\item $1+\dfrac{x}2$
 			\item $\dfrac{1-x}2$
 			\item $\dfrac{-x^2 - x + 2}2$
+			\item $\dfrac{x^3 - 3x + 2}2$
+			\item $\dfrac{-x^4 - 2x^3 + x + 2}2$
 		\end{enumerate}
 		\end{multicols}
 }{exe:fonctions-QCM}{
 	TODO
 }
+
+\exe{}{
+	Montrer que $g(x) = x(x+2)(x-1)(x+1)$ vérifie $g(0) = g(-2) = g(1) = g(-1) = 0$.
+	Conclure que $f(x)$ et $h(x) = f(x) + g(x)$ vérifient toutes les deux le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}.
+}{exe:fonctions-QCM2}{
+	Trivial.
+}
+
+\nt{
+	Lorsqu'on a un nombre fini d'images, on peut invalider un candidat d'expression algébrique mais jamais le valider pour tout $x\in\R$.
+}
+
+
 
 \exe{}{
 	Considérons la fonction $f$ donnée par
@@ -332,11 +356,11 @@
 
 \notations{
 	On définit les signes suivants correspondant à des inégalités \emph{strictes} et \emph{larges}.
-		\begin{enumerate}
-			\item[$<$] : strictement inférieur à
-			\item[$\leq$] : inférieur ou égal à
-			\item[$>$] : strictement supérieur à
-			\item[$\geq$] : supérieur ou égal à
+		\begin{enumerate}[leftmargin=50pt]
+			\item[$<$ :] strictement inférieur à
+			\item[$\leq$ :] inférieur ou égal à
+			\item[$>$ :] strictement supérieur à
+			\item[$\geq$ :] supérieur ou égal à
 		\end{enumerate}
 }
 
