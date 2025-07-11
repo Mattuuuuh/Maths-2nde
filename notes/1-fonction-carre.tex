@@ -12,7 +12,7 @@
 	On lit « $x$ au carré » ou « $x$ carré ».
 }
 
-\dfn{Fonction carré}{
+\dfn{fonction carré}{
 	La \emph{fonction carré} est la fonction qui prend un nombre $x$ et renvoie son carré, $x^2 = x \cdot x$ :
 		\[ f(x) = x^2 \qquad \pourtout x\in\R. \]
 }{dfn:fonction-carré}
@@ -72,7 +72,7 @@
 }{thm:prop-carré}
 
 
-\thm{Signe du produit}{
+\thm{signe du produit}{
 	Le signe d'un produit suit les règles suivantes, où la positivité et la négativité sont strictes :
 	\begin{itemize}
 		\item $\oplus \cdot \oplus = \oplus$
@@ -81,7 +81,7 @@
 	\end{itemize}
 }{thm:signe-produit}
 
-\thm{Positivité du carré}{
+\thm{positivité du carré}{
 	Pour n'importe quel $x\in\R$, $x^2 \geq 0$ avec égalité uniquement en $x=0$.
 }{thm:carré-positif}
 
@@ -94,7 +94,7 @@
 	\end{itemize}
 }
 
-\mprop{Symétrie du carré}{
+\mprop{symétrie du carré}{
 	La fonction $f(x) = x^2$ vérifie $f(-x)=f(x)$ pour tout $x\in\R$.
 	Graphiquement, la courbe représentative $\C_f$ est symétrie par rapport à l'axe des ordonnées.
 }{prop:sym-carré}
@@ -103,7 +103,7 @@
 	$f(-x) = (-x)^2 = \bigl( (-1)x \bigr)^2 = (-1)^2 x^2 = x^2 = f(x)$ pour tout $x\in\R$.
 }
 
-\dfn{Fonction paire}{
+\dfn{fonction paire}{
 	Une fonction quelconque $f$ définie sur $\R$ est dite \emph{paire} dès que $f(x) = f(-x)$ pour tout $x\in\R$.
 	Sa courbe représentative $\C_f$ est symétrie par rapport à l'axe des ordonnées.
 }{dfn:fonction-paire}
@@ -157,7 +157,7 @@
 
 \section{Identités remarquables}
 
-\ax{Distributivité}{
+\ax{distributivité}{
 	Pour $a,b,c\in\R$ nombres réels, on a
 		\[ c \cdot (a+b) = (a+b) \cdot c = a\cdot c + b \cdot c. \]
 }{ax:distr}
@@ -165,7 +165,7 @@
 Certaines expressions de fonctions sont donc plus agréables à étudier que d'autres.
 Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui permettront à la fois de développer une forme factorisée, et de factoriser une forme développée.
 
-\thm{Identités remarquables}{
+\thm{identités remarquables}{
 	Pour tous les $a,b\in\R$ réels, on a les identités
 		\begin{align*}
 			a^2 - b^2 &= (a+b)(a-b) \\
@@ -176,7 +176,8 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 	En lisant $2ab$, il faut comprendre \og 2 fois $a$ fois $b$ \fg, aussi noté $2\cdot a \cdot b$.
 }{thm:id-rem}
 
-\pf{Démonstration du théorème \ref{thm:id-rem}}{
+%\pf{Démonstration du théorème \ref{thm:id-rem}}{
+\pf{}{
 	Toutes les identités remarquables découlent de l'axiome de distributivité.
 	La première se déduit en développant le produit $(a+b)\cdot (a-b)$.
 		\begin{align*}
@@ -252,7 +253,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 \section{Fonction racine carrée}
 \label{sec:racine-carrée}
 
-\dfn{Racine carrée}{
+\dfn{racine carrée}{
 	Soit $a \in \R, a\geq0$ un réel positif ou nul.
 	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
 		\[ \sqrt{a}^2 = a. \]
@@ -327,7 +328,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 	On note également $\R_+ = [0 ; \pinfty[$ l'ensemble des réels positifs ou nuls.
 }
 
-\thm{Propriétés de la racine carrée}{
+\thm{propriétés de la racine carrée}{
 	Soient $a, b \in\R$ deux réels positifs, $b$ non nul lorsque dénominateur.
 	Alors
 		\begin{align*}
@@ -395,7 +396,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 
 \section{Fonction valeur absolue}
 
-\dfn{Valeur absolue}{
+\dfn{valeur absolue}{
 	On nomme la fonction $f(x) = \sqrt{x^2}$ la fonction \emph{valeur absolue}.
 	On note $|x|$ la valeur absolue de $x$, image de $x$ par $f$.
 }{dfn:valeur-absolue}
@@ -641,7 +642,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 \exe{, difficulty=2}{
 	Montrer que pour tout $x,y\in\R$, on a 
 		\begin{align*}
-			\min\{x,y\} = \dfrac{x+y}2 - \dfrac{|x-y|}2, && \text{ et } && \min\{x,y\} = \dfrac{x+y}2 + \dfrac{|x-y|}2.
+			\min\{x,y\} = \dfrac{x+y}2 - \dfrac{|x-y|}2, && \text{ et } && \max\{x,y\} = \dfrac{x+y}2 + \dfrac{|x-y|}2.
 		\end{align*}
 }{exe:valeur-absolue-minmax}{
 	Quels que soient $x, y\in\R$, le segment borné par $x$ et $y$ est de milieu $\dfrac{x+y}2$ et de longueur $|x-y|$.
@@ -676,7 +677,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 
 \nt{
 	En voyant $\dfrac{a+b}2$ comme $\dfrac12 a + \dfrac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
-	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient -- leur poids est alors $\dfrac12$.
+	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\dfrac12$.
 	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
 	
 	En changeant les poids, on peut créer d'autres points de l'intervalle. 
