@@ -26,6 +26,16 @@ dot/.default = black % size of the circle diameter
 \input{../colors}
 \input{../letterfonts}
 
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {clip=true, grid style = {opacity=.5}}
+}
+
 \begin{document}
 %
 	% page 1
@@ -80,9 +90,9 @@ dot/.default = black % size of the circle diameter
 				\addplot[black, mark=*, mark size = 1] (1.2,3) node[above, right] {$({\color{PURPLE}x};{\color{RED_E}y})$};
 				\addplot[black, mark=*, mark size = 1] (1.2,-.85) node[below, right] {$\bigl({\color{PURPLE}x};{\color{RED_E}f(x)}\bigr)$};
 				
-				\draw[PURPLE, dotted, very thick] (axis cs:1.2, -.85) -- (axis cs:1.2,3);
-				\addplot[RED_E, dotted, very thick, domain = 0:1.2, samples=2] {3};
-				\addplot[RED_E, dotted, very thick, domain = 0:1.2, samples=2] {-.85};
+				\draw[PURPLE, dashed, very thick] (axis cs:1.2, -.85) -- (axis cs:1.2,3);
+				\addplot[RED_E, dashed, very thick, domain = 0:1.2, samples=2] {3};
+				\addplot[RED_E, dashed, very thick, domain = 0:1.2, samples=2] {-.85};
 				
 				\addplot[PURPLE, very thick, mark=|, mark size = 4] (1.2,0); % x cross
 				\addplot[PURPLE] (1.5,0) node[above=2pt] {$x$}; % x label
@@ -124,6 +134,7 @@ dot/.default = black % size of the circle diameter
 			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2cm,
+			xtick={-3, -2, ..., 2},
 			]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}
 				node[pos=.55, above=5pt]{$\mathcal{C}_f$};
@@ -136,9 +147,9 @@ dot/.default = black % size of the circle diameter
 				\addplot[black, mark=*, mark size = 1] (0.52398, 2) node[above] {$B$};
 				\addplot[black, mark=*, mark size = 1] (2.1451, 2) node[above] {$C$};
 				
-				\draw[PURPLE, dotted, very thick] (axis cs:-2.6691, 0) -- (axis cs:-2.6691, 2);
-				\draw[PURPLE, dotted, very thick] (axis cs:0.52398, 0) -- (axis cs:0.52398, 2);
-				\draw[PURPLE, dotted, very thick] (axis cs:2.1451, 0) -- (axis cs:2.1451, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:-2.6691, 0) -- (axis cs:-2.6691, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:0.52398, 0) -- (axis cs:0.52398, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:2.1451, 0) -- (axis cs:2.1451, 2);
 				
 				\addplot[PURPLE] (-2.6691,0) node[below=15pt] {$-2,67$};					
 				\addplot[PURPLE] (0.52398,0) node[below=10pt] {$0,52$};					
@@ -155,6 +166,7 @@ dot/.default = black % size of the circle diameter
 			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2cm,
+			xtick={-3, -2, ..., 2},
 			]
 				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 				node[pos=.4, above=8pt]{$\mathcal{C}_f$};
@@ -164,8 +176,8 @@ dot/.default = black % size of the circle diameter
 				\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
 				\addplot[black, mark=*, mark size = 1] (1.2, 1.176) node[above] {$B$};
 				
-				\draw[PURPLE, dotted, very thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
-				\draw[PURPLE, dotted, very thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
+				\draw[PURPLE, dashed, very thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
+				\draw[PURPLE, dashed, very thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
 				
 				\addplot[PURPLE] (-.8,0) node[below=10pt] {$-0,8$};					
 				\addplot[PURPLE] (1.2,0) node[below=10pt] {$1,2$};
@@ -173,7 +185,7 @@ dot/.default = black % size of the circle diameter
 				
 				\addplot[PURPLE, mark=|, mark size = 1] (-1.4, 0);
 				\addplot[PURPLE] (-1.55, 0) node[above] {$x$};
-				\draw[PURPLE, dotted, very thick] (axis cs:-1.4, -.84) -- (axis cs:-1.4, 4.8853);
+				\draw[PURPLE, dashed, very thick] (axis cs:-1.4, -.84) -- (axis cs:-1.4, 4.8853);
 			\end{axis}
 		\end{tikzpicture}
 		
@@ -182,6 +194,7 @@ dot/.default = black % size of the circle diameter
 		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2cm,
+			xtick={-3, -2, ..., 2},
 			]
 			\addplot[no marks, BLUE_E, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 			node[pos=.4, above=8pt]{$\mathcal{C}_f$};
@@ -191,15 +204,15 @@ dot/.default = black % size of the circle diameter
 			\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
 			\addplot[black, mark=*, mark size = 1] (1.2, 1.176) node[above] {$B$};
 			
-			\draw[PURPLE, dotted, very thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
-			\draw[PURPLE, dotted, very thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
+			\draw[PURPLE, dashed, very thick] (axis cs:-.8, 0) -- (axis cs:-.8, 4.43);
+			\draw[PURPLE, dashed, very thick] (axis cs:1.2, 0) -- (axis cs:1.2, 1.176);
 			
 			\addplot[PURPLE] (-.8,0) node[below=10pt] {$-0,8$};					
 			\addplot[PURPLE] (1.2,0) node[below=10pt] {$1,2$};
 			
 			
 			\addplot[PURPLE, mark=|, mark size = 1] (.4, 0) node[below] {$x$};
-			\draw[PURPLE, dotted, very thick] (axis cs:.4, 0) -- (axis cs:.4, 6.36);
+			\draw[PURPLE, dashed, very thick] (axis cs:.4, 0) -- (axis cs:.4, 6.36);
 			
 			
 			\addplot[no marks, PURPLE, very thick, -] expression[domain=-.8:1.2, samples=2]{0};
@@ -211,9 +224,10 @@ dot/.default = black % size of the circle diameter
 			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2cm,
+			xtick={-3, -2, ..., 2},
 			]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
-				node[pos=.55, above=5pt]{$\mathcal{C}_f$};
+				node[pos=.52, above=5pt]{$\mathcal{C}_f$};
 				
 				\addplot[no marks, RED_E, thick, -] expression[domain=-5:3, samples=2]{2}
 				node[pos=.45, above]{$y=2$};
@@ -223,9 +237,9 @@ dot/.default = black % size of the circle diameter
 				\addplot[black, mark=*, mark size = 1] (0.52398, 2) node[above] {$B$};
 				\addplot[black, mark=*, mark size = 1] (2.1451, 2) node[above] {$C$};
 				
-				\draw[PURPLE, dotted, very thick] (axis cs:-2.6691, 0) -- (axis cs:-2.6691, 2);
-				\draw[PURPLE, dotted, very thick] (axis cs:0.52398, 0) -- (axis cs:0.52398, 2);
-				\draw[PURPLE, dotted, very thick] (axis cs:2.1451, 0) -- (axis cs:2.1451, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:-2.6691, 0) -- (axis cs:-2.6691, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:0.52398, 0) -- (axis cs:0.52398, 2);
+				\draw[PURPLE, dashed, very thick] (axis cs:2.1451, 0) -- (axis cs:2.1451, 2);
 				
 				\addplot[PURPLE] (-2.6691,0) node[below=15pt] {$-2,67$};					
 				\addplot[PURPLE] (0.52398,0) node[below=10pt] {$0,52$};					
@@ -238,8 +252,9 @@ dot/.default = black % size of the circle diameter
 			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2cm,
+			xtick={-3, -2, ..., 2},
 			]
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.5, right]{$\C_f$};
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
 			\end{axis}
 		\end{tikzpicture}
 		%page 10

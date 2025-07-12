@@ -29,6 +29,14 @@ dot/.default = black % size of the circle diameter
 \newcommand{\pinfty}{{+}\infty}
 \newcommand{\minfty}{{-}\infty}
 
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {grid style = {opacity=.5}}
+}
+
 \begin{document}
 %
 	% page 1
@@ -36,7 +44,7 @@ dot/.default = black % size of the circle diameter
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1 , $3x-4$ / 1, $2x+1$ / 1, $3-x$ / 1, $f(x)$ / 1}
-	       		{$\minfty$, $-\dfrac12$, $\dfrac43$, $3$, $\pinfty$}
+	       		{$\minfty$, $-\frac12$, $\frac43$, $3$, $\pinfty$}
 	       		
 		\tkzTabLine
 			{,-,t,-,z,+,t,+}
@@ -80,7 +88,7 @@ dot/.default = black % size of the circle diameter
 	
 	\begin{tikzpicture}
 		\tkzTabInit
-		 [lgt=5]
+		 [lgt=6]
 	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / 1}
 	       		{,,,,}
 	\end{tikzpicture}
@@ -89,7 +97,7 @@ dot/.default = black % size of the circle diameter
 		 %[lgt=3,espcl=1.5]
 		 [lgt=5]
 	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / 1}
-	       		{$\minfty$, $-3$ , $\dfrac{10}3$ ,$\pinfty$}
+	       		{$\minfty$, $-3$ , $\frac{10}3$ ,$\pinfty$}
 		
 		
 		\tkzTabLine
@@ -122,9 +130,9 @@ dot/.default = black % size of the circle diameter
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
+		 [lgt=6]
 	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / 1}
-	       		{ $\minfty$ , $-3$ ,  $0$ ,  $\dfrac{10}3$ , $\pinfty$ }
+	       		{ $\minfty$ , $-3$ ,  $0$ ,  $\frac{10}3$ , $\pinfty$ }
 	       		
 		
 		\tkzTabLine
@@ -164,19 +172,19 @@ dot/.default = black % size of the circle diameter
 	\begin{tikzpicture}
 		\tkzTabInit
 		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Signe de $f(x)$ / 1}
+	       		{$x$ / 1 , Signe de $f(x)$ / 2}
 	       		{,,,,,,}
 	\end{tikzpicture}
 	\begin{tikzpicture}
 		\tkzTabInit
-	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+	       		{$x$ / 1 , Signe de $g(x)$ / 2}
 	       		{,,,,}
 	       	
 	\end{tikzpicture}
 	\begin{tikzpicture}
 		\tkzTabInit
 		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Signe de $f(x)$ / 1}
+	       		{$x$ / 1 , Signe de $f(x)$ / 2}
 	       		{ $-11$ , $-10$ , {$-8,4$} , {$-6,5$} ,  {$-5,8$} ,  {$-5,3$} ,  {$-2,5$} }
 	       	
 	       	
@@ -207,7 +215,7 @@ dot/.default = black % size of the circle diameter
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1, $x-3$ / 1 , $7x+1$ / 1, $2x+1$ / 1 , $f(x)$ / 1}
-	       		{ $\minfty$ , $-\dfrac12$ ,  $-\dfrac17$ ,  $3$ , $\pinfty$ }
+	       		{ $\minfty$ , $-\frac12$ ,  $-\frac17$ ,  $3$ , $\pinfty$ }
 	       		
 		\tkzTabLine
 			{,-,,-,,-,z,+}
@@ -226,7 +234,7 @@ dot/.default = black % size of the circle diameter
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
 	       		{$x$ / 1, $4x-8$ / 1 , $x-3$ / 1, $x+\dfrac32$ / 1 , $x-4$ / 1, $-2$ / 1, $f(x)$ / 1}
-	       		{$\minfty$, $-\dfrac32$, $2$, $3$, $4$, $\pinfty$}
+	       		{$\minfty$, $-\frac32$, $2$, $3$, $4$, $\pinfty$}
 	       		
 		\tkzTabLine
 			{,-,,-,z,+,,+,,+,}

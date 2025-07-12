@@ -30,6 +30,11 @@ cross/.default={1pt}}
 \input{../colors}
 \input{../letterfonts}
 
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
 \begin{document}
 %
 	% page 1
@@ -158,8 +163,8 @@ cross/.default={1pt}}
 		
 		% E
 		\draw[rounded corners, fill = PURPLE, thick] (0,0) -- (.5,.5) -- (0,1) -- (1,1.5) -- (1.5,1) -- (2, .5) -- (1.5,.5) -- (1,1) -- (1,0) -- (0,-.5) -- (-.3,-.5) -- cycle;
-		\draw[PURPLE_E] (-1.8,-1) node {$E = \{1 ; 3 ; 5\}$};
-		\draw[GREEN_E!65!BLACK] (-1.8,-1.5) node {$\overline{E} = \{2 ; 4 ; 6\}$};
+		\draw[PURPLE_E] (-1.5,-1.1) node {$E = \{1 ; 3 ; 5\}$};
+		\draw[GREEN_E!65!BLACK] (-1.5,-1.6) node {$\overline{E} = \{2 ; 4 ; 6\}$};
 		% wish that GREEN_E would work but it's hard to read
 		
 		% e in E

@@ -37,43 +37,52 @@ cross/.default={1pt}}
 	\begin{pmatrix}#1 \\ #2 \end{pmatrix}
 }
 
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {grid style = {opacity=.5}}
+}
+
 \begin{document}
 %
 	% page 1
 	\begin{tikzpicture}[>=stealth, scale=1]
 	\begin{axis}[xmin = -0.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-4.9, ymax=3.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ytick = {-4, -3, ..., 2, 3}, grid=both, x=3cm]
 		
-		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right, font=\Large] {$A$};
-		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right, font=\Large] {$B$};
+		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right] {$A$};
+		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right] {$B$};
 	
-		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5, font=\Large] {$\overrightarrow{AB}$};
-		\draw[very thick, RED_E, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5, font=\Large] {$-1$};
-		\draw[very thick, BLUE_E, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5, font=\Large] {$-7$};
+		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5] {$\overrightarrow{AB}$};
+		\draw[very thick, RED_E, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5] {$-1$};
+		\draw[very thick, BLUE_E, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5] {$-7$};
 	\end{axis}
 	\end{tikzpicture}
 	%page 2
 	\begin{tikzpicture}[>=stealth, scale=1]
 	\begin{axis}[xmin = -1.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-3.9, ymax=0.9, ytick={-2}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, x=2cm]
 		
-		\addplot[black, mark=*, mark size = 1] (0,0) node[above right, font=\Large] {$O$};
+		\addplot[black, mark=*, mark size = 1] (0,0) node[above right] {$O$};
 	
-		\draw[very thick, RED_E, ->] (axis cs:0, 0) -- (axis cs:2, -1) node[above right, pos=.5, font=\Large] {$u$};
+		\draw[very thick, RED_E, ->] (axis cs:0, 0) -- (axis cs:2, -1) node[above right, pos=.5] {$u$};
 		
-		\draw[very thick, BLUE_E, ->] (axis cs:2, -1) -- (axis cs:-1, -3) node[below right, pos=.5, font=\Large] {$v$};
+		\draw[very thick, BLUE_E, ->] (axis cs:2, -1) -- (axis cs:-1, -3) node[below right, pos=.5] {$v$};
 		
-		\draw[very thick, black, ->] (axis cs:0, 0) -- (axis cs:-1, -3) node[left, pos=.5, font=\Large] {$u+v$};
+		\draw[very thick, black, ->] (axis cs:0, 0) -- (axis cs:-1, -3) node[left, pos=.5] {$u+v$};
 	\end{axis}
 	\end{tikzpicture}
 	% page 3
 	\begin{tikzpicture}[>=stealth, scale=1]
 	\begin{axis}[xmin = -0.9, xmax=2.9, xtick={ -3, ..., 5}, ymin=-4.9, ymax=3.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, ytick = {-4, -3, ..., 2, 3}, grid=both, x=3cm]
 		
-		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right, font=\Large] {$A$};
-		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right, font=\Large] {$B$};
+		\addplot[black, mark=*, mark size = 1] (2.5,3) node[above right] {$A$};
+		\addplot[black, mark=*, mark size = 1] (1.5,-4) node[right] {$B$};
 	
-		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5, font=\Large] {$\vec{AB}$};
-		\draw[very thick, RED_E, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5, font=\Large] {$-1$};
-		\draw[very thick, BLUE_E, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5, font=\Large] {$-7$};
+		\draw[very thick, black, ->] (axis cs:2.5,3) -- (axis cs:1.5,-4) node[below right, pos=.5] {$\vec{AB}$};
+		\draw[very thick, RED_E, ->] (axis cs:2.5,3) -- (axis cs:1.5,3) node[above, pos=.5] {$-1$};
+		\draw[very thick, BLUE_E, ->] (axis cs:1.5,3) -- (axis cs:1.5,-4) node[left, pos=.5] {$-7$};
 	\end{axis}
 	\end{tikzpicture}
 	
