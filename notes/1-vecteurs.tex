@@ -7,7 +7,7 @@
 
 \section{Introduction}
 
-\dfn{Translation du plan}{
+\dfn{translation du plan}{
 	Une \emph{translation} $T$ du plan est le déplacement de tous les points du plan selon la même direction, la même distance, et dans le même sens.
 	
 	Pour un point $A$ quelconque, on définit l'addition
@@ -29,6 +29,11 @@
 	Il n'y a en fait pas de différence mathématique entre une translation et un point : à chaque translation on peut associer un point, et vice versa (voir corollaire \ref{cor:OAisA}).
 }{}
 
+\begin{figure}
+	\centering
+	\includegraphics[page=4]{figures/fig-vecteurs.pdf}
+	\caption[argument for footnotemark]{Le canard Hilbert\footnotemark translaté de $x_T$ unités horizontalement puis $y_T$ unités verticalement.}
+\end{figure}
 
 \dfn{vecteur $\vec{AB}$}{
 	Soient $A, B$ deux points du plan.
@@ -53,6 +58,8 @@
 	\end{center}
 }{ex:vec-1}
 
+\footnotetext{David Hilbert (1862-1943), mathématicien allemand. \emph{ « Wir müssen wissen — wir werden wissen. »}}
+
 \mprop{calcul de $\vec{AB}$}{
 	Par définition, on a 
 		\[ A + \vec{AB} = B, \]
@@ -71,10 +78,12 @@
 	Les vecteurs héritent des opérations légales sur les points (définition \ref{def:manip-points}).
 	Soient $u = \pvec{x}{y}, v = \pvec{x'}{y'}$ deux vecteurs et $\kappa\in\R$ un réel. 
 	Alors
+	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $u+v = \pvec{x+x'}{y+y'}$ ; et
 		\item $\kappa \cdot u = \pvec{\kappa \cdot x}{\kappa\cdot y}$.
 	\end{enumerate}
+	\end{multicols}
 }{}
 
 \section{Composition de translations : somme de vecteurs}
@@ -118,7 +127,7 @@ Pour cela, considérons $\vec{AB}$ le vecteur translatant le point $A$ sur le po
 Un définition naturelle de la « longueur » de $\vec{AB}$ est la distance entre les points $A$ et $B$, soit $\norm{A - B}$, comme décrit dans la définition \ref{dfn:norme-carré}.
 En mathématiques, on parlera alors de \emph{norme} vectorielle.
 
-\dfn{Norme d'un vecteur}{
+\dfn{norme d'un vecteur}{
 	Soit $u = \pvec{x}{y}$ un vecteur quelconque.
 	On définit sa \emph{norme} $\norm{u}$ par
 		\[ \norm{u} = \sqrt{x^2 + y^2}. \]
@@ -155,7 +164,7 @@ En mathématiques, on parlera alors de \emph{norme} vectorielle.
 	TODO
 }
 
-\thm{Homogénéité de la norme}{
+\thm{homogénéité de la norme}{
 	Soit $u$ un vecteur et $\kappa\in\R$ un nombre réel.
 	Alors
 		\[ \norm{\kappa\cdot u} = |\kappa| \cdot \norm{u}. \]
@@ -192,7 +201,7 @@ En mathématiques, on parlera alors de \emph{norme} vectorielle.
 
 \section{Colinéarité, alignement, et déterminant}
 
-\dfn{Vecteurs colinéaires}{
+\dfn{vecteurs colinéaires}{
 	Soient $u$ et $v$ deux vecteurs.
 	On dit de $u$ et $v$ qu'ils sont \emph{colinéaires} dès qu'il existe un réel $\kappa\in\R$ tel que
 		\[ u = \kappa \cdot v. \]
@@ -235,7 +244,7 @@ En mathématiques, on parlera alors de \emph{norme} vectorielle.
 	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
 }{prop:alignement-colinéarité}
 
-\dfn{Vecteur directeur}{
+\dfn{vecteur directeur}{
 	Soit $(d)$ une droite quelconque.
 	On appelle $v$ \emph{vecteur directeur} de $(d)$ si $v$ et $(d)$ admettent la même direction.
 	
@@ -257,7 +266,7 @@ En mathématiques, on parlera alors de \emph{norme} vectorielle.
 		\[ (d) = \left\{ A + k \cdot v \text{ où $k$ parcourt $\R$} \right\}. \]
 }{}
 
-\dfn{Déterminant de deux vecteurs}{
+\dfn{déterminant de deux vecteurs}{
 	Soient $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$ deux vecteurs.
 	On définit le \emph{déterminant} $\det(u, v)$ par le nombre réel
 		\begin{align*}
