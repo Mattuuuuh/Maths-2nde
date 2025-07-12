@@ -12,6 +12,14 @@
 	On lit « $x$ au carré » ou « $x$ carré ».
 }
 
+\nt{
+	La notation $xx$ prévalait jusqu'au 18è siècle, comme on peut le lire dans les travaux d'Euler\footnotemark. 
+	Voir par exemple \emph{Constructio linearum isochronarum in medio quocunque resistente}, 1725 (\href{https://scholarlycommons.pacific.edu/euler-works/1/}{E1}).
+	En 1733, Euler utilise déjà la notation actuelle, comme on peut le lire dans \emph{Constructio aequationis differentialis $ax^n dx = dy + y^2dx$} (\href{https://scholarlycommons.pacific.edu/euler-works/31/}{E31}).
+}
+
+\footnotetext{Leonhard Euler (1707-1783), mathématicien et physicien suisse.}
+
 \dfn{fonction carré}{
 	La \emph{fonction carré} est la fonction qui prend un nombre $x$ et renvoie son carré, $x^2 = x \cdot x$ :
 		\[ f(x) = x^2 \qquad \pourtout x\in\R. \]
@@ -75,6 +83,8 @@
 \thm{signe du produit}{
 	Le signe d'un produit suit les règles suivantes, où la positivité et la négativité sont strictes :
 	\begin{itemize}
+		% j'aime pas ces signes plus et moins.
+		% je crois que je veux pas que le signe touche le cercle
 		\item $\oplus \cdot \oplus = \oplus$
 		\item $\ominus \cdot \ominus = \oplus$
 		\item $\oplus \cdot\ominus = \ominus$
@@ -442,8 +452,28 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 	Par conséquent, $\sqrt{x^2} = -x$ dans ce cas.
 }
 
+\nt{
+	La fonction de la proposition \ref{prop:caractérisation-valeur-absolue} est définie algébriquement \emph{par morceaux}.
+	Ce type de définition a été utilisé notamment par Dirichlet\footnotemark lors de l'étude générale de fonctions non lisses comme
+		\[ 1_{|\Q}(x) = \begin{cases*} 1 & si $x\in\Q$, \\ 0 & sinon. \end{cases*}. \]
+}
+
+\footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805 - 1859), mathématicien prussien né à Düren (allemagne de l'ouest actuelle).}
+
+\exe{, difficulty=2}{
+	Donner la courbe représentative de la fonction $1_{|\Q}$ de la remarque ci-dessus sur le domaine $\D=[0;1]$.
+}{exe:ind-Q}{
+	TODO
+}
+
 \exe{}{
-	Montrer que pour tout $x\in\R$, $|x| = |-x|$.
+	Montrer que, pour tout $x\in\R$, $\bigl| |x| \bigr| = |x|$.
+}{exe:abs-abs}{
+	todo
+}
+
+\exe{}{
+	Montrer que, pour tout $x\in\R$, $|x| = |-x|$.
 }{exe:moinsabs}{
 	Comme $x^2 = (-x)^2$, appliquer la racine carrée conclut.
 	
@@ -455,7 +485,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 }
 
 \exe{}{
-	Montrer que pour tout $x\in\R$, $|2x| = 2|x|$.
+	Montrer que, pour tout $x\in\R$, $|2x| = 2|x|$.
 }{exe:2abs}{
 	Comme $(2|x|)^2 = 4x^2 = (2x)^2$, appliquer la racine carrée conclut.
 	
@@ -467,7 +497,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 }
 
 \exe{}{
-	Montrer que pour tout $x\in\R$, $|x|^2 = x^2$.
+	Montrer que, pour tout $x\in\R$, $|x|^2 = x^2$.
 }{exe:abscarre}{
 	$|x| = x$ ou $-x$. Dans le premier cas, il n'y a rien à montrer, et dans le second, $(-x)^2 = (-1)^2 x^2 = x^2$.
 }
@@ -487,7 +517,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 }{thm:produit-valeur-absolue}
 
 \pf{}{
-	D'après l'exercice \ref{exe:abscarre}, on a $(|x|\cdot|y|)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
+	D'après l'exercice \ref{exe:abscarre}, on a $\bigl(|x|\cdot|y|\bigr)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
 	En appliquant la racine carrée, on trouve
 		\[ |x| \cdot |y| = \big| |x|\cdot|y| \big| = |xy|. \]
 }
@@ -497,6 +527,7 @@ Il sera donc utile de savoir quelques identités dites \emph{remarquables} qui p
 		\[ \text{distance}(x,y) = |x-y| = |y-x|. \]
 }{thm:valeurs-absolue-distance}
 
+% j'aime pas trop cette démo
 \pf{}{
 	Remarquons d'abord que $|x-y| = |y-x|$ d'après l'exercice \ref{exe:moinsabs} et car $x-y$ est l'opposé de $y-x$.	
 
