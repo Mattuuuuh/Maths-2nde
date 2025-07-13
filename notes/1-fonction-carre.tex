@@ -7,6 +7,8 @@
 
 \section{Fonction carré}
 
+\subsection{Définition et propriétés}
+
 \notations{
 	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
 	On lit « $x$ au carré » ou « $x$ carré ».
@@ -165,7 +167,7 @@
 }
 
 
-\section{Identités remarquables}
+\subsection{Identités remarquables}
 
 \ax{distributivité}{
 	Pour $a,b,c\in\R$ nombres réels, on a
@@ -228,6 +230,53 @@ Il sera donc utile de savoir quelques identités dites \emphindex{remarquables} 
 	Par exemple, $(-9)^2 = 9^2 = 81$.
 }
 
+\nomen{
+	On appelle \emphindex{polynôme} une expression de la forme
+		\[ a_d x^d + a_{d-1}x^{d-1} + \cdots + a_1 x + a_0, \]
+	où chaque $a_i\in\R$ est un coefficient fixé.
+	La plus haute puissance, $d$, est appelée le \emphindex{degré} du polynôme.
+}
+
+\ex{}{
+	La fonction $p(x) = x^3 - 2x^2 + 100x$ est un polynôme de degré 3.
+}{}
+\ex{}{
+	La fonction $q(x) = 2x^2 - 1$ est un \emphindex{polynôme du second degré}.
+}{}
+
+\exe{}{
+	Montrer que $x$ et $x^2$ sont non miscibles, c'est-à-dire montrer que l'identité
+		\[ x^2 = x \]
+	ne peut pas être vraie pour tout $x\in\R$.
+}{exe:x-x2-nonmiscibles}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que, pour $m, n\in\N$ non nuls, l'identité
+		\[ x^m = x^n \]
+	ne peut être vraie pour tout $x\in\R$ que lorsque $m=n$.
+}{exe:xm-xn-nonmiscibles}{
+	TODO
+}
+
+\nomen{
+	Soit $p$ un polynôme de degré 2.
+	La forme $p(x) = ax^2 + bx + c$ est la \emphindex{forme développée}.
+	La forme $p(x) = a(x-\lambda)(x-\gamma)$ est la \emphindex{forme factorisée}.
+	La forme $p(x) = a(x-\alpha)^2 + \beta$ est \emphindex{forme canonique} (hors programme).
+}
+
+\ex{}{
+	Par calcul littéral, on peut vérifier les trois égalités suivantes pour le polynôme $p(x) = 2x^2 - 18x + 90$.
+		\[ p(x) = 2x^2 - 18x + 90 = 2(x-9)(x-5) = 2(x-7)^2 - 8. \]
+}{}
+
+\notations{
+	On écrira l'identité $2(x-9)(x-5) = 2(x-7)^2 - 8$ sans préciser qu'elle est valable pour tout $x\in\R$.
+	Cette égalité n'est pas à résoudre : elle montre l'identité de deux expressions de formes différentes.
+}
+
 \exe{}{
 	Développer les expressions algébriques suivantes.
 		\begin{multicols}{2}
@@ -255,9 +304,35 @@ Il sera donc utile de savoir quelques identités dites \emphindex{remarquables} 
 	Créer quelques triplets en prenant des valeurs de $k \geq \ell$ et les vérifier à la calculatrice.
 	Par exemple, pour $k=4$ et $\ell=2$, on trouve le triplet $(12 ; 16 ; 20)$, qui vérifie bien
 		\[ 12^2 + 16^2 = 20^2. \] 
-}{}{}
+}{exe:triplet-pythagoricien}{
+	TODO
+}
 
+\mprop{}{
+	Deux polynômes en sont égaux sur $\R$ tout entier si et seulement s'il admettent la même expression développée.
+}{prop:eg-poly}
 
+\exe{, difficulty=2}{
+	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\lambda)(x-\gamma)$.
+	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $a = -\lambda - \gamma$, et enfin que $c = \lambda\cdot\gamma$.
+}{exe:déterminant-2nddeg}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
+	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $\alpha = \dfrac{-b}{2a}$, et enfin que $\beta = \dfrac{b^2 - 4ac}{4a}$.
+}{exe:déterminant-2nddeg}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Montrer la proposition \ref{prop:eg-poly}.
+}{exe:eg-poly}{
+	Je me demande quelle est la façon la plus simple.
+	Sans doute identifier les coefficients constants en prenant $x=0$, puis soustraire, diviser par $x$, et continuer.
+	Mais il faut le lemme $xf(x) = xg(x) \forall x \iff f(x) = g(x) \forall x$ qui n'est pas vrai en 0 sans hypothèse hors programme donc ça marche po.
+}
 
 
 \section{Fonction racine carrée}
