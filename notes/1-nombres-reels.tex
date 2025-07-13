@@ -267,15 +267,15 @@
 }
 
 \exe{}{
-	Montrer que $\dfrac1{k}$ n'est pas décimal dès que $k$ ne divise aucune puissance de 10.
+	Montrer que $\dfrac1{k}$ n'est pas décimal dès qu'aucune puissance de 10 n'est multiple entier de $k$.
 }{exe:nondecimal1}{
 	Si $\dfrac1k = \dfrac{a}{10^n}$, alors $10^n = ka$ et est multiple de $k$, une contradiction ! \Large\Lightning
 }
 
 \exe{}{
-	Montrer que si $k$ divise une certaine puissance de 10, alors $\dfrac1k$ est décimal.
+	Montrer que si une certaine puissance de 10 est multiple entier de $k$, alors $\dfrac1k$ est décimal.
 }{exe:nondecimal2}{
-	Si $k$ divise $10^n$, alors il existe un $a \in \Z$ tel que
+	Si $10^n$ est multiple entier de $k$, alors il existe un $a \in \Z$ tel que
 		\[ ak = 10^n. \]
 	Ainsi $\dfrac1k = \dfrac{a}{10^n} \in \DD$.
 }
@@ -406,6 +406,16 @@
 			\centering	$x$ admet un développement décimal éventuellement périodique
 		} $\Bigg)$
 }{thm:décimal-périodique}
+	
+\nt{
+	On a donc l'égalité d'ensembles
+		\[ \Bigg\{ 
+			\parbox{.4\textwidth}{
+			\centering nombres $x$ tels que $x$ admet un développement décimal éventuellement périodique
+			}
+			\Bigg\}
+		= \Q. \]
+}
 
 \exe{, difficulty=2}{
 	Démontrer le théorème \ref{thm:décimal-périodique}.
@@ -421,20 +431,23 @@
 		\item[\underline{$\impliedby$} :]
 		Soit $x$ admet un développement décimal éventuellement périodique.
 		Notons $n$ le début de la partie périodique, et $p$ la période.
-		Alors $10^n x$ et $10^{n+p}x$ admettent le même développement décimal.
-		La différence $10^{n+p} x - 10^n x = (10^{n+p} - 10^n)x$ est donc un entier.
-		Par division par $10^{n+p}-10^{n}$, $x$ est rationnel.
+		Alors $10^{n-1} x$ et $10^{n-1+p}x$ admettent le même développement décimal.
+		La différence $10^{n-1+p} x - 10^{n-1} x = \bigl(10^{n-1+p} - 10^{n-1}\bigr)x$ est donc un entier.
+		Par division par $10^{n-1+p}-10^{n-1}$, $x$ est rationnel.
 	\end{enumerate}
 }
 
-\nt{
-	On a donc l'égalité d'ensembles
-		\[ \Bigg\{ 
-			\parbox{.4\textwidth}{
-			\centering nombres $x$ tels que $x$ admet un développement décimal éventuellement périodique
-			}
-			\Bigg\}
-		= \Q. \]
+\exe{, difficulty=2}{
+	Montrer que si $\dfrac1k$ est périodique de période $p$ à partir de la $n$-ième décimale, alors $10^{(n-1)+p}-10^{n-1}$ est multiple entier de $k$.
+	
+	En déduire que $10^6 - 1 = 999~999$ fait partie de la table de multiplication de 7.
+}{exe:10np10n}{
+	Notons $x= \dfrac1k$. 
+	Par hypothèses, le développement décimal de $10^{n-1}x$ est périodique de période $p$.
+	Il suit que $10^p 10^{n-1}x - 10^{n-1}x = \bigl(10^{n-1+p}-10^{n-1}\bigr) x $ est un nombre entier, ce qui conclut.
+	
+	Pour $k=7$, l'exercice \ref{exe:17-dec} implique que $\dfrac17$ est périodique à partir de la première décimale de période 6.
+	En spécialisant le résultat démontré pour $n=1$ et $p=6$, on obtient bien que $10^6 - 1$ est un multiple de 7.
 }
 
 \qs{}{
