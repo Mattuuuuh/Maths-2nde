@@ -7,6 +7,8 @@
 
 
 \usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 
@@ -25,6 +27,14 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{caption, subcaption}
+
+%index
+\usepackage[texindy]{imakeidx}
+\makeindex[
+	columns=3, 
+	title=Index, 
+	options= -L french,
+]
 
 %virgules
 \usepackage{icomma}
@@ -79,6 +89,7 @@ dot/.default = black % size of the circle diameter
 
 \usepackage{titletoc}
 \contentsmargin{0cm}
+% chapter
 \titlecontents{chapter}[3.7pc]
 {\addvspace{30pt}%
 	\begin{tikzpicture}[remember picture, overlay]%
@@ -91,6 +102,19 @@ dot/.default = black % size of the circle diameter
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
 	\end{tikzpicture}}%
+% index
+\titlecontents{index}[3.7pc]
+{\addvspace{30pt}%
+	\begin{tikzpicture}[remember picture, overlay]%
+		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
+	\end{tikzpicture}\qquad\color{doc!60}\large\bfseries}%
+{Index}
+{}
+{\;\titlerule\;\large\sc\bfseries Page \pageref{index}%\thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
+	\end{tikzpicture}}%
+% section
 \titlecontents{section}[3.7pc]
 {\addvspace{2pt}}
 {\contentslabel[\thecontentslabel]{2pc}}
@@ -103,7 +127,7 @@ dot/.default = black % size of the circle diameter
 {}
 {\ --- \small\thecontentspage}
 [ \textbullet\ ][]
-
+% toc
 \makeatletter
 \renewcommand{\tableofcontents}{%
 	\chapter*{%

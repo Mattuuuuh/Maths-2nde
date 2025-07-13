@@ -15,10 +15,10 @@
 
 \section{Introduction}
 
-\dfn{Fonction, variable, constante}{
-	On dit qu'une quantité $y\in\R$ s'exprime en \emph{fonction} d'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une seule} valeur $y$.
-	On note alors $x \mapsto y$ et $x$ est appelé la \emph{variable}.
-	Si une quantité ne dépend pas de $x$, on l'appelle \emph{constante}, ou \emph{indépendante} de $x$.
+\dfn{fonction, variable, constante}{
+	On dit qu'une quantité $y\in\R$ s'exprime en \emphindex{fonction} d'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une seule} valeur $y$.
+	On note alors $x \mapsto y$ et $x$ est appelé la \emphindex{variable}.
+	Si une quantité ne dépend pas de $x$, on l'appelle \emphindex{constante}, ou \emphindex{indépendante} de $x$.
 }{}
 
 \nt{
@@ -77,8 +77,8 @@
 	TODO
 }
 
-\dfn{Fonction réelle, domaine}{
-	Soit $\D \subset \R$ un ensemble de nombres qu'on appelle \emph{domaine}.
+\dfn{fonction réelle, domaine}{
+	Soit $\D \subset \R$ un ensemble de nombres qu'on appelle \emphindex{domaine}.
 	
 	Une fonction $f$ de $\D$ dans $\R$ associe à chaque élément $x\in\D$ du domaine un nombre $f(x) \in \R$.
 	
@@ -126,15 +126,15 @@
 }
 	
 
-\dfn{Antécédent, image}{
+\dfn{antécédent, image}{
 	Considérons une fonction $f$ et deux nombres réels $x,y\in\R$ vérifiants
 		\[ y = f(x). \]
 	On lit \og $y$ égal $f$ de $x$ \fg, et on dit alors que
 		\begin{enumerate}
 			\item
-			$y$ est l'\emph{image} de $x$ par $f$ ; et
+			$y$ est l'\emphindex{image} de $x$ par $f$ ; et
 			\item
-			$x$ est \underline{un} \emph{antécédent} de $y$ par $f$.
+			$x$ est \underline{un} \emphindex{antécédent} de $y$ par $f$.
 		\end{enumerate}
 }{}
 
@@ -201,10 +201,10 @@
 	TODO
 }
 
-\dfn{Forme algébrique}{
+\dfn{forme algébrique}{
 	On appelle 
 		\[ f(x) = 3\cdot x+1 \]
-	la forme \emph{algébrique} de $f$.
+	la forme \emphindex{algébrique} de $f$.
 	On lit dans ce cas \og $f$ de $x$ égal trois $x$ plus 1 \fg.
 	
 	C'est une forme entièrement générale qui permet de déduire l'image $f(x)$ à partir de n'importe quel réel $x\in\D$ du domaine de $f$.
@@ -220,7 +220,7 @@
 }
 
 \nt{
-	Suite à l'exemple \ref{exe:lynx2} ci-dessus, on dira alors qu'on a écrit la distance \emph{en fonction} du temps $t$.
+	Suite à l'exemple \ref{exe:lynx2} ci-dessus, on dira alors qu'on a écrit la distance \emphindex{en fonction} du temps $t$.
 	L'expression algébrique permet de calculer facilement plusieurs images sans refaire le raisonnement « distance = vitesse fois temps » à chaque fois.
 }
 
@@ -306,9 +306,9 @@
 
 \section{Intervalles}
 
-\dfn{Intervalle borné}{
+\dfn{intervalle borné}{
 	Un intervalle borné est un segment de la droite réelle $\R$. C'est donc un ensemble de nombres.
-	Il est donné par une \emph{borne inférieure} $a \in \R$ et une \emph{borne supérieure} $b\in\R$ et peut contenir ou non ses bornes.
+	Il est donné par une \emphindex{borne inférieure} $a \in \R$ et une \emphindex{borne supérieure} $b\in\R$ et peut contenir ou non ses bornes.
 	
 	\begin{enumerate}
 		\item Si $a$ et $b$ sont contenues dans l'intervalle, on le note $[a ; b]$.
@@ -331,7 +331,7 @@
 
 }{}
 
-\dfn{Intervalle non borné}{
+\dfn{intervalle non borné}{
 	Un intervalle n'est pas forcément borné : une ou les deux bornes peuvent être infinies ($\pinfty$ ou $\minfty$). 
 	Dans ce cas, l'intervalle n'inclut jamais l'infini car ce n'est pas un nombre.
 }{}
@@ -355,7 +355,7 @@
 }
 
 \notations{
-	On définit les signes suivants correspondant à des inégalités \emph{strictes} et \emph{larges}.
+	On définit les signes suivants correspondant à des inégalités \emphindex{strictes} et \emphindex{larges}.
 		\begin{enumerate}[leftmargin=50pt]
 			\item[$<$ :] strictement inférieur à
 			\item[$\leq$ :] inférieur ou égal à
@@ -427,15 +427,15 @@ Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut donc pouvoir
 L'ensemble de ces points est la courbe représentative de $f$.
 Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'unique point de la courbe d'abscisse $x$.
 
-\dfn{Courbe représentative}{
+\dfn{courbe représentative}{
 	Considérons $f : \D \rightarrow \R$ une fonction.
 	
-	La \emph{courbe représentative} de $f$, notée $\C_f$, est donnée par l'ensemble de points
+	La \emphindex{courbe représentative} de $f$, notée $\C_f$, est donnée par l'ensemble de points
 		\[ \C_f = \Bigset{ \bigpar{x ; f(x)} \text{ où $x$ parcourt } \D }. \]
 	On lit \og la courbe représentative de $f$ est l'ensemble des points $(x,f(x))$ du plan où $x$ parcourt le domaine de $f$ \fg.
 }{}	
 
-\cor{Propriété fondamentale}{
+\cor{propriété fondamentale}{
 	On a donc la propriété fondamentale suivante valable pour tout $x,y\in\R$.
 		\begin{align*}
 			(x;y) \in \C_f && \iff && y = f(x).
@@ -597,8 +597,9 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	TODO
 }
 
+\subsection{Résolution graphique d'(in)équations}
 
-\subsection{Résoudre graphiquement $f(x) = k$}
+\subsection*{Résoudre graphiquement $f(x) = k$}
 
 
 On cherche à résoudre graphiquement une équation du type $f(x)=k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
@@ -626,7 +627,7 @@ En reformulant, il s'agit de trouver l'ensemble des antécédents de $k$ par $f$
 }{}
 
 
-\subsection{Résoudre graphiquement $f(x) < k$}
+\subsection*{Résoudre graphiquement $f(x) < k$}
 
 
 On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
@@ -650,7 +651,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un
 }{}
 
 
-\subsection{Résoudre graphiquement $f(x) = g(x)$}
+\subsection*{Résoudre graphiquement $f(x) = g(x)$}
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
 
@@ -678,7 +679,7 @@ On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-�
 }{}
 
 
-\subsection{Résoudre graphiquement $f(x) \leq g(x)$}
+\subsection*{Résoudre graphiquement $f(x) \leq g(x)$}
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
 

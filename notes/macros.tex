@@ -192,3 +192,6 @@
 % \smash avant \underline pour coller la ligne au mot
 \let\oldunderline\underline
 \renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
+
+% emph + index
+\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}

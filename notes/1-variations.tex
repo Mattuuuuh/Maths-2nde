@@ -9,11 +9,11 @@
 
 \subsection{Définitions}
 
-\dfn{Variations}{
+\dfn{variations}{
 	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
 	Alors
 		\begin{itemize}
-			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
+			\item On dit que $f$ est \emphindex{croissante} si, pour tous les $x,y\in I$ du domaine,
 				\begin{align*}
 					x < y && \implies && f(x) \leq f(y).
 				\end{align*}	
@@ -22,7 +22,7 @@
 				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
 			\end{center}
 				
-			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
+			\item On dit que $f$ est \emphindex{décroissante} si, pour tous les $x,y\in I$ du domaine,
 				\begin{align*}
 					x < y && \implies && f(x) \geq f(y).
 				\end{align*}
@@ -31,7 +31,7 @@
 				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
 			\end{center}
 				
-			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
+			\item On dit que $f$ est \emphindex{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
 				\begin{align*}
 					f(x) = K.
 				\end{align*}
@@ -39,7 +39,7 @@
 	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
 }{}
 
-\ex{Variation d'une fonction affine}{
+\ex{variation d'une fonction affine}{
 	On considère $f(x) = -3x + 8$, une fonction affine sur $\R$.
 	Comme $\C_f$ est une droite, on s'attend à ce que $f$ soit soit croissante, soit décroissante, soit constante.
 	
@@ -57,7 +57,7 @@
 	Graphiquement, la droite $\C_f$ doit nécessairement descendre pour aller de $(x, f(x))$ à $(y, f(y))$.
 	Par définition, $f$ est décroissante. 
 	
-	On synthétise les variations obtenues dans le tableau suivant qu'on appelle \emph{tableau de variations}.
+	On synthétise les variations obtenues dans le tableau suivant qu'on appelle \emphindex{tableau de variations}.
 	
 	\begin{center}
 	\includegraphics[page=1]{figures/fig-variations.pdf}
@@ -68,7 +68,7 @@
 
 \subsection{Cas particulier : fonctions affines}
 
-\thm{Variation d'une fonction affine}{
+\thm{variation d'une fonction affine}{
 	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
 		\begin{align*}
 			f(x) = a x + b && (x\in\R)
@@ -96,7 +96,7 @@
 	 Les autres cas sont similaires.
 }
 
-\ex{Variation et signe d'une fonction affine}{
+\ex{variation et signe d'une fonction affine}{
 	On considère $f(x) = \dfrac25x + 12$, une fonction affine sur $\R$.
 	Comme le coefficient directeur est $\dfrac25 > 0$, $f$ est croissante.
 	Par conséquent, on peut connaître son signe en connaissant là où elle s'annule (son unique racine existe tant que $f$ n'est pas constante).
@@ -218,7 +218,7 @@
 	\end{center}
 }{}
 
-\thm{Variations de fonctions parentes}{
+\thm{variations de fonctions parentes}{
 	Soit une fonction $f$ continue sur un domaine $\D$, et $c\in\R$ un nombre réel.
 		\begin{enumerate}
 			\item La fonction
@@ -258,15 +258,15 @@
 
 \section{Extrema}
 
-\dfn{Minimum, maximum d'une fonction sur un intervalle}{
+\dfn{minimum, maximum d'une fonction sur un intervalle}{
 	Soit $f : I \rightarrow \R$ une fonction réelle $f$ sur un intervalle $I$.
 	
-	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le minimum de $f$ sur $I$ dès que
+	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le \emphindex{minimum} de $f$ sur $I$ dès que
 		\[ f(x^\star) \leq f(x), \]
 	pour tout $x\in I$.
 	$x^\star$ est l'antécédent qui \emph{réalise} le minimum. Il n'est pas nécessairement unique.
 	
-	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le maximum de $f$ sur $I$ dès que
+	On dit que, pour $x^\star \in I$, $f(x^\star)$ est le \emphindex{maximum} de $f$ sur $I$ dès que
 		\[ f(x^\star) \geq f(x), \]
 	pour tout $x\in I$.
 	$x^\star$ est l'antécédent qui \emph{réalise} le maximum. Il n'est pas nécessairement unique.
@@ -280,7 +280,7 @@
 	C'est d'ailleurs \emph{le} minimum car seul $0$ vérifie $f(x) = 0$.
 }{}
 
-\ex{Forme canonique : du signe du carré à l'extremum}{
+\ex{forme canonique : du signe du carré à l'extremum}{
 	Considérons la fonction
 		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
 	On vérifiera que $\D_f = \R$ car aucune valeur n'est interdite à $f$.

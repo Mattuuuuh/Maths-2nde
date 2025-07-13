@@ -9,7 +9,13 @@ pdflatex -shell-escape 0-notes.tex
 ```
 
 Optionnel :
+Installer `xindy` pour l'index qui accepte les accents (éèà...).
+```
+sudo apt install xindy
+```
+
 Add parameter `-output-directory=out` after creating `/out/` folder to redirect out files (pdf included).
+
 
 # Fork
 

@@ -5,10 +5,10 @@
 \label{chap:statistiques}
 
 
-On considère dans cette section une \emph{série statistique}, c'est-à-dire une liste de valeurs d'une même nature qu'on souhaite étudier.
+On considère dans cette section une \emphindex{série statistique}, c'est-à-dire une liste de valeurs d'une même nature qu'on souhaite étudier.
 Les exemples de séries statistiques sont nombreux : une liste de notes à une évaluation, une liste de notes d'un élève unique à plusieurs évaluations, une liste de salaires bruts, une liste de températures dans un même lieu, etc…
 
-On parle ici de \emph{liste} et non d'\emph{ensemble} car une valeur peut se répéter plusieurs fois, ce qui change alors la nature de la série statistique.
+On parle ici de \emphindex{liste} et non d'\emph{ensemble} car une valeur peut se répéter plusieurs fois, ce qui change alors la nature de la série statistique.
 La moyenne de la liste $(8; 10; 12)$ est différente de la moyenne de $(8; 10; 12; 12)$.
 
 Dans toute la section suivante, $N, p \in \N$ sont deux entiers naturels non nuls qui désignent un cardinal (de liste ou d'ensemble). 
@@ -16,7 +16,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 
 \dfn{Étendue}{
 	Considérons $X$ une série statistique.
-	L'\emph{étendue} de la série $X$ est égale à la distance entre la plus petite et la plus grande valeur.
+	L'\emphindex{étendue} de la série $X$ est égale à la distance entre la plus petite et la plus grande valeur.
 		\[ \bigl|\min(X) - \max(X) \bigr|. \]
 }{}
 
@@ -68,7 +68,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 			\overline{X} &=  \dfrac{c_1 \cdot x_1 + \dots + c_N \cdot x_N}{c_1 + \cdots c_N} \nonumber\\
 						&= \dfrac{c_1}{c_1 + \cdots c_N} \cdot x_1 + \dfrac{c_2}{c_1 + \cdots c_N} \cdot x_2 + \dots + \dfrac{c_N}{c_1 + \cdots c_N} \cdot x_n \label{expr:poids}
 		\end{align}
-	En divisant par la somme des coefficients, on a \emph{normalisé} les coefficients en poids, qu'on multiplie à chaque valeur.
+	En divisant par la somme des coefficients, on a \emphindex{normalisé} les coefficients en poids, qu'on multiplie à chaque valeur.
 	
 	% to fix
 	Une discussion dans le cas de deux valeurs ($N=2$) est donnée dans la section \ref{sec:longueur-milieu} du chapitre \ref{chap:3}.
@@ -115,7 +115,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 		\begin{align*}
 			f_1 = \dfrac{n_1}n, && f_ 2 = \dfrac{n_2}n, && \dots && f_ p = \dfrac{n_p}n,
 		\end{align*}
-	désignent les \emph{fréquences d'apparition} de chaque valeur $x_1, x_2, \dots, x_p$.
+	désignent les \emphindex{fréquences d'apparition} de chaque valeur $x_1, x_2, \dots, x_p$.
 }
 {def:freq-app}
 
@@ -169,7 +169,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 \nt{
 	La remarque suivante est en dehors du champ d'application du cours.
 	
-	Du lemme \ref{lem:fréquences-normalisées}, on déduit qu'une moyenne est en fait une \emph{combinaison convexe} des valeurs d'une série statistique. On parle aussi de \emph{barycentre}. 
+	Du lemme \ref{lem:fréquences-normalisées}, on déduit qu'une moyenne est en fait une \emphindex{combinaison convexe} des valeurs d'une série statistique. On parle aussi de \emphindex{barycentre}. 
 	Un intervalle est donné par l'ensemble de telles combinaisons des bornes inférieure et supérieure : c'est l'enveloppe convexe de ses bornes.
 }
 
@@ -187,7 +187,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 	a pour moyenne $\overline{X} + b$.
 	Autrement dit, $\overline{X+b} = \overline{X} + b$.
 	
-	La combinaison des deux opérations dites \emph{linéaires} donne
+	La combinaison des deux opérations dites \emphindex{opérations linéaires} donne
 		\[ \overline{aX + b} = a\overline{X} + b \]
 	pour n'importe quel $a,b \in \R$.
 }{}
@@ -211,7 +211,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 
 La moyenne seule ne suffit pas à elle seule à caractériser une série statistique.
 L'exercice suivant considère plusieurs séries différentes ayant une même moyenne.
-Le but de la section est d'introduire l'\emph{écart type}, noté $\sigma$ et lu \og sigma \fg, qui permet d'indiquer la \emph{dispersion} d'une série : son caractère plus ou moins concentré autour de sa moyenne.
+Le but de la section est d'introduire l'\emphindex{écart type}, noté $\sigma$ et lu \og sigma \fg, qui permet d'indiquer la \emphindex{dispersion} d'une série : son caractère plus ou moins concentré autour de sa moyenne.
 
 \exe{}{
 	Pour chaque série statistique suivante, calculer la moyenne.
@@ -268,7 +268,7 @@ Le but de la section est d'introduire l'\emph{écart type}, noté $\sigma$ et lu
 \dfn{variance}{
 	Soit $X=(x_1 ; \dots ;x_N)$ une série statistique, $\overline{X}$ sa moyenne.
 	
-	On dénote par $\Var(X)$ la \emph{variance} de $X$, donnée par
+	On dénote par $\Var(X)$ la \emphindex{variance} de $X$, donnée par
 		\[ \Var(X) = \dfrac{\left(x_1 - \overline{X}\right)^2 + \dots + \left(x_N - \overline{X}\right)^2}N .\]
 	La variance est toujours positive.
 	
@@ -281,7 +281,7 @@ Le but de la section est d'introduire l'\emph{écart type}, noté $\sigma$ et lu
 
 \dfn{Écart type}{
 	Soit $X$ une série statistique.
-	L'\emph{écart type} $\sigma = \sigma(X)$  (lu \og sigma \fg)  est donné par
+	L'\emphindex{écart type} $\sigma = \sigma(X)$  (lu \og sigma \fg)  est donné par
 		\[ \sigma(X) = \sqrt{\Var(X) }. \]
 }{}
 

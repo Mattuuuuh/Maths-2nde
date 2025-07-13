@@ -8,23 +8,23 @@
 
 \subsection{Fonction affine}
 
-\dfn{Signe d'un nombre réel}{
+\dfn{signe d'un nombre réel}{
 	Soit $x\in\R$ un nombre réel quelconque.
 	On dit que
 		\begin{itemize}
-			\item $x$ est \emph{strictement positif} si $x>0$ ;
-			\item $x$ est \emph{strictement négatif} si $x<0$ ;
-			\item $x$ est \emph{nul} si $x=0$.
+			\item $x$ est \emphindex{strictement positif} si $x>0$ ;
+			\item $x$ est \emphindex{strictement négatif} si $x<0$ ;
+			\item $x$ est \emphindex{nul} si $x=0$.
 		\end{itemize}
 	En français, dire \og $x$ est positif \fg~signifie que $x$ est positif ou nul ($x\geq0$).
-	Il est préférable de dire \emph{positif ou nul} pour éviter toute ambiguïté.
+	Il est préférable de dire \emphindex{positif ou nul} pour éviter toute ambiguïté.
 }{}
 
 \nt{
 	Pour simplifier la notation, au lieu d'écrire \og $A >0$ et $B > 0$ \fg, on écrira juste \og$A, B > 0$\fg.
 }{}
 
-\thm{Signe du produit}{
+\thm{signe du produit}{
 	Soit $A, B \in \R$ deux réels.
 	On distingue trois cas sur le signe du produit $A \cdot B$.
 		\begin{enumerate}
@@ -43,7 +43,7 @@
 }{thm:signe-produit}
 
 
-\cor{Signe du quotient}{
+\cor{signe du quotient}{
 	Soit $A, B \in \R$ deux réels. On suppose que $B \neq 0$.
 	
 	Alors, le signe de $\dfrac1B$ est le même que celui de $B$, et donc le signe du quotient
@@ -143,7 +143,7 @@
 
 \subsection{Produits de fonctions affines}
 
-\ex{Problème de signe}{
+\ex{problème de signe}{
 	On souhaite connaître pour quels $x\in\D$ l'inégalité suivante est vérifée.
 		\[ f(x) = \dfrac{6x^2 - 5x - 4}{3-x} \geq 0. \]
 	En premier lieu, remarquons que certaines valeurs sont interdites : ce sont les valeurs pour lesquelles le dénominateur s'annule.
@@ -164,7 +164,7 @@
 			\iff\quad && \iff\quad && \iff\quad \\
 			x \geq \dfrac43 && x \geq -\dfrac12 && x \leq 3
 		\end{align*}
-	On synthétise les signes obtenus dans le tableau suivant qu'on appelle \emph{tableau de signes}.
+	On synthétise les signes obtenus dans le tableau suivant qu'on appelle \emphindex{tableau de signes}.
 	
 	\begin{center}
 	\includegraphics[page=1]{figures/fig-signes.pdf}
@@ -179,10 +179,10 @@
 }{}
 
 
-\ex{Problème de racines}{
+\ex{problème de racines}{
 	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
 		\[ 21 x^2 - 11 x - 2  = 0. \]
-	Ce problème est un large domaine d'étude en mathématiques, c'est le problème des \emph{racines} d'une fonction. Ici, la fonction est $f(x) = 21 x^2 - 11 x - 2 $, et ses racines sont les antécédents qui annulent $f$.
+	Ce problème est un large domaine d'étude en mathématiques, c'est le problème des \emphindex{racines} d'une fonction. Ici, la fonction est $f(x) = 21 x^2 - 11 x - 2 $, et ses racines sont les antécédents qui annulent $f$.
 	
 	Plusieurs stratégies s'offrent à nous pour résoudre $f(x)=0$ : 
 		\begin{itemize}
@@ -350,11 +350,11 @@ TODO
 
 \section{Domaine de définition}
 
-\dfn{Domaine de définition, valeurs interdites}{
+\dfn{domaine de définition, valeurs interdites}{
 	Soit $f$ une fonction quelconque. On souhaite connaître le domaine le plus grand possible sur lequel définir $f$.
-	On l'appelle le \emph{domaine de définition}, qu'on note $\D_f$.
+	On l'appelle le \emphindex{domaine de définition}, qu'on note $\D_f$.
 	
-	Pour cela, on étudie la fonction sur $\R$ dont on supprime les \emph{valeurs interdites}, c'est-à-dire les antécédents pour lesquels $f$ est mal définie.
+	Pour cela, on étudie la fonction sur $\R$ dont on supprime les \emphindex{valeurs interdites}, c'est-à-dire les antécédents pour lesquels $f$ est mal définie.
 	On étudiera dans ce chapitre deux conditions qui permettront d'identifier ces valeurs interdites :
 		\begin{enumerate}
 			\item l'expression sous une racine carrée doit toujours être positive ou nulle ; et
@@ -362,7 +362,7 @@ TODO
 		\end{enumerate}
 }{}
 
-\ex{Valeurs interdites}{
+\ex{valeurs interdites}{
 	Soit $f$ la fonction donnée par
 		\[ f(x) = \dfrac{\sqrt{7-2x}}{x}. \]
 	On identifie deux conditions qui doivent être vérifées pour que calculer $f(x)$ ait un sens :
