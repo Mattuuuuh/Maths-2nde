@@ -41,15 +41,15 @@ cross/.default={1pt}}
 	\begin{tikzpicture}[fill=gray, scale=1]
 		% left hand
 		\scope
-		\draw[pattern=north west lines, pattern color=RED_E] (-.5,0) circle (1);
+		\draw[pattern=north west lines, pattern color=RED_E] (-.5,0) circle (1.2);
 		\endscope
 		% right hand
 		\scope
-		\draw[pattern=north east lines, pattern color=BLUE_E] (.5,0) circle (1);
+		\draw[pattern=north east lines, pattern color=BLUE_E] (.5,0) circle (1.2);
 		\endscope
 		% outline
-		\draw[thick] (-.5,0) circle (1) (-.5,1)  node [text=black,above left, RED_E] {$A$}
-		      (.5,0) circle (1) (.5,1)  node [text=black,above right, BLUE_E] {$B$}
+		\draw[thick] (-.5,0) circle (1.2) (-.5,1)  node [text=black,above left=5pt, RED_E] {$A$}
+		      (.5,0) circle (1.2) (.5,1)  node [text=black,above right=5pt, BLUE_E] {$B$}
 		      (3,-2) rectangle (-3,2) node [text=black,below right] {$\Omega$};
 		%\draw (.5,0) node [text=black] {$A \cap B$};
 	\end{tikzpicture}
