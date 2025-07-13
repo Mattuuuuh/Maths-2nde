@@ -95,7 +95,7 @@ dot/.default = black % size of the circle diameter
 	\begin{tikzpicture}[remember picture, overlay]%
 		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
 		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapitre\ \thecontentslabel};%
-	\end{tikzpicture}\qquad\color{doc!60}\large\sc\bfseries}%
+	\end{tikzpicture}\qquad\color{doc!80}\large\sc\bfseries}%
 {}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \thecontentspage
@@ -107,7 +107,7 @@ dot/.default = black % size of the circle diameter
 {\addvspace{30pt}%
 	\begin{tikzpicture}[remember picture, overlay]%
 		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
-	\end{tikzpicture}\qquad\color{doc!60}\large\bfseries}%
+	\end{tikzpicture}\qquad\color{doc!80}\large\bfseries}%
 {Index}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \pageref{index}%\thecontentspage
@@ -121,12 +121,14 @@ dot/.default = black % size of the circle diameter
 {}
 {\hfill\small \thecontentspage}
 []
-\titlecontents*{subsection}[3.7pc]
-{\addvspace{-1pt}\small}
+% subsection
+\titlecontents{subsection}[3.7pc]
+{\addvspace{-1pt}\small\qquad}
+{\contentslabel[\thecontentslabel]{2pc}}
 {}
 {}
-{\ --- \small\thecontentspage}
-[ \textbullet\ ][]
+[]
+
 % toc
 \makeatletter
 \renewcommand{\tableofcontents}{%
