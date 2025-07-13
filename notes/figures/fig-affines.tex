@@ -1,5 +1,7 @@
 \documentclass[tikz]{standalone}
 
+\usepackage{icomma}
+
 % tikz
 \usepackage{tikz, pgfplots}
 % i wish external worked but idk it sucks
@@ -165,7 +167,7 @@ dot/.default = black % size of the circle diameter
 		\addplot[BLUE_E, very thick, dashed, domain =.9:1, samples=2] {-1+5*x};
 		
 		% 2 points
-		\addplot[black, mark=*, mark size = 1] (.5,1.5) node[right] {$(0,5 ; 1,5)$};
+		\addplot[black, mark=*, mark size = 1] (.5,1.5) node[below right] {$(0,5 ; 1,5)$};
 		\addplot[black, mark=*, mark size = 1] (-.5,-3.5);
 		\addplot[black] (-.8,-2.7) node{$(-0,5 ; -3,5)$};
 	\end{axis}

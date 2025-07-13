@@ -1,5 +1,7 @@
 \documentclass[tikz]{standalone}
 
+\usepackage{icomma}
+
 % tikz
 \usepackage{tikz, pgfplots}
 % i wish external worked but idk it sucks
@@ -194,7 +196,8 @@ dot/.default = black % size of the circle diameter
 	\end{tikzpicture}
 	\begin{tikzpicture}
 		\tkzTabInit
-	       		{$x$ / 1 , Signe de $g(x)$ / 1}
+		 [lgt=3]
+	       		{$x$ / 1 , Signe de $g(x)$ / 2}
 	       		{ $-11$ , $-9$ , $-6$ , $-3$ ,  {$-2,5$} }
 	       	
 		\tkzTabLine
