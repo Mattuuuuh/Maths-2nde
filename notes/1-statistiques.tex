@@ -5,7 +5,7 @@
 \label{chap:statistiques}
 
 
-On considère dans cette section une \emphindex{série statistique}, c'est-à-dire une liste de valeurs d'une même nature qu'on souhaite étudier.
+On considère dans ce chapitre une \emphindex{série statistique}, c'est-à-dire une liste de valeurs d'une même nature qu'on souhaite étudier.
 Les exemples de séries statistiques sont nombreux : une liste de notes à une évaluation, une liste de notes d'un élève unique à plusieurs évaluations, une liste de salaires bruts, une liste de températures dans un même lieu, etc…
 
 On parle ici de \emphindex{liste} et non d'\emph{ensemble} car une valeur peut se répéter plusieurs fois, ce qui change alors la nature de la série statistique.
@@ -14,7 +14,7 @@ La moyenne de la liste $(8; 10; 12)$ est différente de la moyenne de $(8; 10; 1
 Dans toute la section suivante, $N, p \in \N$ sont deux entiers naturels non nuls qui désignent un cardinal (de liste ou d'ensemble). 
 Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 
-\dfn{Étendue}{
+\dfn{étendue}{
 	Considérons $X$ une série statistique.
 	L'\emphindex{étendue} de la série $X$ est égale à la distance entre la plus petite et la plus grande valeur.
 		\[ \bigl|\min(X) - \max(X) \bigr|. \]
@@ -69,10 +69,6 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 						&= \dfrac{c_1}{c_1 + \cdots c_N} \cdot x_1 + \dfrac{c_2}{c_1 + \cdots c_N} \cdot x_2 + \dots + \dfrac{c_N}{c_1 + \cdots c_N} \cdot x_n \label{expr:poids}
 		\end{align}
 	En divisant par la somme des coefficients, on a \emphindex{normalisé} les coefficients en poids, qu'on multiplie à chaque valeur.
-	
-	% to fix
-	Une discussion dans le cas de deux valeurs ($N=2$) est donnée dans la section \ref{sec:longueur-milieu} du chapitre \ref{chap:3}.
-	Celle-ci lie la notion de milieu avec celle de moyenne, puis la notion d'intervalle avec celle de moyenne pondérée.
 }
 
 \lem{}{
@@ -107,7 +103,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 	où $f_1 = \dfrac{n_1}n$, $f_ 2 = \dfrac{n_2}n$, etc... sont les fréquences d'apparition des valeurs dans la série statistique.
 }
 
-\dfn{Fréquence d'apparition}{
+\dfn{fréquence d'apparition}{
 	Soit $X = \left\{ (x_1, n_1), (x_2, n_2), \dots, (x_p, n_p) \right\}$ une série statistique avec effectifs.
 
 	On pose $n = n_1 + \dots + n_p$. 
@@ -173,7 +169,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 	Un intervalle est donné par l'ensemble de telles combinaisons des bornes inférieure et supérieure : c'est l'enveloppe convexe de ses bornes.
 }
 
-\mprop{Linéarité de la moyenne}{
+\mprop{linéarité de la moyenne}{
 	Soit $X=(x_1 ; \dots ; x_N)$ une série statistique, et $\overline{X}$ sa moyenne.
 	On étudie deux opérations faites sur la série statistique entière : multiplier chaque valeur par un nombre $a\in\R$, et additionner un nombre $b\in\R$ à chaque valeur.	
 	
@@ -189,11 +185,11 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 	
 	La combinaison des deux opérations dites \emphindex{opérations linéaires} donne
 		\[ \overline{aX + b} = a\overline{X} + b \]
-	pour n'importe quel $a,b \in \R$.
+	pour n'importe quel $a, b \in \R$.
 }{}
 
 
-\exe{Inflation et euro fixe}{
+\exe{inflation et euro fixe}{
 	La moyenne des salaires mensuels d'une entreprise est de $1860$€.
 	L'inflation désigne une augmentation générale des prix. Ainsi, $6\%$ d'inflation signifie que, en moyenne, les prix augmentent de $6\%$.
 	Réciproquement et afin de pouvoir comparer les pouvoirs d'achats, on peut fixer les prix et voir l'inflation comme une diminution du salaire (en l'occurrence de $1-\frac{1}{1,06} \approx 5,6 \%$, d'après le théorème \ref{thm:ev-rec}).
@@ -209,7 +205,7 @@ Les valeurs $x_1, x_2, \dots$ sont toutes des nombres réels.
 
 \section{Écart type}
 
-La moyenne seule ne suffit pas à elle seule à caractériser une série statistique.
+La moyenne ne suffit pas à elle seule à caractériser une série statistique.
 L'exercice suivant considère plusieurs séries différentes ayant une même moyenne.
 Le but de la section est d'introduire l'\emphindex{écart type}, noté $\sigma$ et lu \og sigma \fg, qui permet d'indiquer la \emphindex{dispersion} d'une série : son caractère plus ou moins concentré autour de sa moyenne.
 
@@ -279,7 +275,7 @@ Le but de la section est d'introduire l'\emphindex{écart type}, noté $\sigma$ 
 	
 }{}
 
-\dfn{Écart type}{
+\dfn{écart type}{
 	Soit $X$ une série statistique.
 	L'\emphindex{écart type} $\sigma = \sigma(X)$  (lu \og sigma \fg)  est donné par
 		\[ \sigma(X) = \sqrt{\Var(X) }. \]
@@ -326,7 +322,7 @@ La notion de quartile (et plus généralement de décile, centile, ...) permet d
 
 Dans cette section, on considère les proportions $p=0,5 ; \dfrac14 ; et \dfrac34$ qui correspondent à la médiane, au premier et au troisième quartile.
 
-\dfn{Médiane}{
+\dfn{médiane}{
 	La médiane d'une série $X = (x_1 ; \dots ; x_N)$ rangée par ordre croissant est donné par 
 		\begin{enumerate}
 			\item sa valeur centrale si $N$ est impair ; ou
@@ -336,7 +332,7 @@ Dans cette section, on considère les proportions $p=0,5 ; \dfrac14 ; et \dfrac3
 	Ainsi $50\%$ des valeurs de $X$ sont inférieure à sa médiane.
 }{}
 
-\dfn{Quartiles}{
+\dfn{quartiles}{
 	Le premier quartile $Q_1$ d'une série $X = (x_1 ; \dots ; x_N)$ rangée par ordre croissant est donné par la plus petite valeur de la série de rang supérieur ou égal à $\dfrac{N}4$.
 	
 	Ainsi $25\%$ des valeurs de $X$ sont inférieure à son premier quartile.
@@ -346,7 +342,7 @@ Dans cette section, on considère les proportions $p=0,5 ; \dfrac14 ; et \dfrac3
 	Ainsi $75\%$ des valeurs de $X$ sont inférieure à son troisième quartile.
 }{}
 
-\dfn{Écart interquartile}{
+\dfn{écart interquartile}{
 	L'écart interquartile d'une série statistique $X$ est donné par la distance entre ses deux quartiles $Q_1$ et $Q_3$, c'est-à-dire
 		\[ |Q_1 - Q_3|. \]
 	En supposant que $4|N$ pour faciliter les notations, on a la situation suivante.

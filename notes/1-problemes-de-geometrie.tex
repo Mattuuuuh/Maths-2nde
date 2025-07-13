@@ -235,7 +235,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \cor{}{
 	La racine carrée de $2$ est irrationnelle : $\sqrt2 \notin \Q.$
-	On écriture décimale est infinie est apériodique.
+	Son écriture décimale est infinie est apériodique.
 }{cor:sqrt2-irrational}
 
 \pf{démonstration du corrolaire \ref{cor:sqrt2-irrational}}{
@@ -340,7 +340,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \nomen{
-	On appelle $a + b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a - b \sqrt{d}$.
+	On appelle $a - b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a + b \sqrt{d}$ (et vice versa).
 }
 
 \exe{, difficulty=2}{
@@ -384,14 +384,14 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \thm{de Dirichlet\footnotemark}{
-	Pour tout nombre $x \in \R$, il existe un nombre infini de $p, q\in\Z$ vérifiant
-		\[ \left|x - \dfrac{p}q \right| < \dfrac1{q}. \]
+	Pour tout nombre $x \in \R$, il existe une infinité de $p, q\in\Z$ vérifiant
+		\[ \left|x - \dfrac{p}q \right| < \dfrac1{q^2}. \]
 }{thm:Dirichlet}
 
 \footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805-1859), mathématicien allemand.}
 
 \exe{, difficulty=2}{
-	Soit $x\in\R-\Q$. Considérons $\{ 0, x, 2x, 3x, ..., qx \}$ les $q+1$ premiers multiples de $x$.
+	Soit $x\in\R-\Q$ et $N\in\N$. Considérons $\{ 0, x, 2x, 3x, ..., Nx \}$ les $q+1$ premiers multiples de $x$.
 	Montrer qu'il existe nécessairement deux entiers naturels $m<n$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1q$.
 	En déduire le théorème \ref{thm:Dirichlet}.
 }{exe:Dirichlet}{
@@ -400,6 +400,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \nt{
 	Adolf Hurwitz\footnotemark donna une version plus forte du théorème \ref{thm:Dirichlet}, avec un facteur $\dfrac1{\sqrt5}$ ajouté à droite.
+	Sa démonstration utilise la théorie des \emphindex{fractions continues} dont l'exercice \ref{exe:frac-continue-sqrt2} donne un aperçu.
 }
 
 \footnotetext{Adolf Hurwitz (1859-1919), mathématicien allemand.}
