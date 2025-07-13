@@ -179,12 +179,12 @@ En prenant une hauteur quelconque, on obtient un triangle rectangle 30-60-90 com
 	\end{center}
 
 Le théorème de Pythagore donne la longueur $h$ de la hauteur : 
-	\[ 1^2 = \bigl(\dfrac12\bigr)^2 + h^2 \iff h^2 = \dfrac34 \iff h = \dfrac{\sqrt3}2. \]
+	\[ 1^2 = \left(\dfrac12\right)^2 + h^2 \iff h^2 = \dfrac34 \iff h = \dfrac{\sqrt3}2. \]
 On peut donc connaître les valeurs de $\cos(\theta), \sin(\theta), \tan(\theta)$ pour $\theta\in\bigset{ 30^\circ ; 60^\circ}$.
 
 \mprop{}{
 	% moche de faire comme ça mais ça donne le meilleur rendu imo
-		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac1{\sqrt{3}}. \]
+		\[ \sin(30^\circ) = \dfrac12, \qquad \cos(30^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(30^\circ) = \dfrac{\sqrt{3}}3. \]
 	
 		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
 }{prop:données}
@@ -192,6 +192,12 @@ On peut donc connaître les valeurs de $\cos(\theta), \sin(\theta), \tan(\theta)
 \exe{}{
 	Vérifier qu'on a bien $\cos^2(\theta) + \sin^2(\theta) = 1$ pour $\theta = 30^\circ, 60^\circ$.
 }{exe:c2s2-vérif}{
+	TODO
+}
+
+\exe{}{
+	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)} = 1$ pour $\theta = 30^\circ, 60^\circ$.
+}{exe:tan-vérif}{
 	TODO
 }
 
@@ -324,12 +330,17 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Soit $d\in\R_+$, $d\neq1$. Alors
 		\[ \dfrac1{1+\sqrt{d}} = \dfrac{1-\sqrt{d}}{1-d}. \]
 }{prop:conjugué}
+
 \pf{}{
 	On utilise l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour supprimer la racine du dénominateur.
 	\begin{align*}
 		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}, \\
 							&= \dfrac{1-\sqrt{d}}{1-d}.
 	\end{align*}
+}
+
+\nomen{
+	On appelle $a + b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a - b \sqrt{d}$.
 }
 
 \exe{, difficulty=2}{
@@ -356,4 +367,39 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Le rationnel $\dfrac{41}{29}$ vérifie $\left| \sqrt2 - \dfrac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
 }
 
+\exe{, difficulty=2}{
+	Le but de l'exercice est de montrer que $\sqrt2$ est \emphindex{mal approximable} par les rationnels.	
+	À cette fin, pour $p, q$ deux entiers naturel non nuls, on étudie la quantité
+		\[ \left|\sqrt2 - \dfrac{p}{q}\right|, \]
+	distance entre $\sqrt2$ et la fraction $\dfrac{p}{q}$, lorsqu'elle est inférieure à 1.
+	\begin{enumerate}
+		\item Montrer que $\left|p + q \sqrt2 \right| \leq 3q$.
+		\item Montrer que
+			$ \left|p - q \sqrt2 \right| \cdot \left|p + q \sqrt2 \right| = \left| p^2 - 2q^2 \right| \geq 1. $
+		\item En déduire que
+			$  \left|\sqrt2 -  \dfrac{p}{q} \right| \geq \dfrac{1}{3q^2}. $
+	\end{enumerate}
+}{exe:qapprox-sqrt2}{
 
+}
+
+\thm{de Dirichlet\footnotemark}{
+	Pour tout nombre $x \in \R$, il existe un nombre infini de $p, q\in\Z$ vérifiant
+		\[ \left|x - \dfrac{p}q \right| < \dfrac1{q}. \]
+}{thm:Dirichlet}
+
+\footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805-1859), mathématicien allemand.}
+
+\exe{, difficulty=2}{
+	Soit $x\in\R-\Q$. Considérons $\{ 0, x, 2x, 3x, ..., qx \}$ les $q+1$ premiers multiples de $x$.
+	Montrer qu'il existe nécessairement deux entiers naturels $m<n$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1q$.
+	En déduire le théorème \ref{thm:Dirichlet}.
+}{exe:Dirichlet}{
+	TODO
+}
+
+\nt{
+	Adolf Hurwitz\footnotemark donna une version plus forte du théorème \ref{thm:Dirichlet}, avec un facteur $\dfrac1{\sqrt5}$ ajouté à droite.
+}
+
+\footnotetext{Adolf Hurwitz (1859-1919), mathématicien allemand.}
