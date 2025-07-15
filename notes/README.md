@@ -1,5 +1,5 @@
 Pour compiler tous les fichiers `.tex` du dossier `figures` :
-```
+
 Sous Linux
 ```
 cd figures
