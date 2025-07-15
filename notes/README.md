@@ -1,7 +1,13 @@
 Pour compiler tous les fichiers `.tex` du dossier `figures` :
+Sous Linux
 ```
 cd figures
 find . -name \*.tex -exec pdflatex \{\} \;
+```
+Sous Windows
+```
+cd figures
+for /r %x in (*.tex) do pdflatex "%x"
 ```
 Pour compiler les notes :
 ```
