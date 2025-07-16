@@ -8,7 +8,7 @@
 Considérons une expérience aléatoire et un événement, ensemble d'issues.
 Par exemple, on jette une pièce, et on prend $E$ : « obtenir pile. »
 À chaque lancer de la pièce, soit $E$ se réalise, soit $\overline{E}$, l'événement contraire à $E$ (ici, « obtenir face »).
-Appelons les lancers où $E$ arrive les \emph{succès}.
+Appelons les lancers où $E$ arrive les \emphindex{succès}.
 
 Il semble naturel que, si la pièce est bien équilibrée, et après un très grand nombre de lancers, environ la moitié des lancers devraient être pile, et l'autre moitié face.
 De façon équivalente, on s'attend à ce que la fréquence de succès soit environ $\dfrac12$.
@@ -16,10 +16,10 @@ Remarquons qu'elle ne peut être égale à $0,5$ exactement si on jette la pièc
 
 Supposons désormais qu'on ne sache pas que la pièce est équilibrée, et qu'on souhaite plutôt savoir si elle l'est ou pas.
 Ce genre de problème est classique en statistique : on formule l'hypothèse $\mathcal{H}_0 :$ « la probabilité d'obtenir face est $0,5$ », qu'on souhaite valider ou rejetter.
-Ce genre d'hypothèse appelle un \emph{test bilatéral} car les conclusions $p< 0,5$ et $p>0,5$ rejettent toutes les deux l'hypothèse.
+Ce genre d'hypothèse appelle un \emphindex{test bilatéral} car les conclusions $p< 0,5$ et $p>0,5$ rejettent toutes les deux l'hypothèse.
 
 Pour répondre à ce problème, une seule chose nous est accessible : lancer la pièce un très grand nombre de fois.
-C'est ce qu'on appelle l'\emph{échantillonnage}.
+C'est ce qu'on appelle l'\emphindex{échantillonnage}.
 On observe alors la fréquence de succès $f = \dfrac{\text{nombre de succès}}{\text{nombre d'expériences}}$.
 Plus $N$ est grand, plus on s'attend à ce que $f$ soit proche de $p$. À quel point proche ? Le but de la prochaine section est de quantifier cette distance.
 Mais au préalable, il nous faut d'abord supposer les choses suivantes, sans quoi rien ne peut être conclu :
@@ -31,6 +31,27 @@ La deuxième contrainte est la plus forte et n'est bien sûr jamais vérifée en
 Cependant, les mathématiques ne peuvent étudier certaines situations qu'en les simplifiant au maximum, malheureusement jusqu'à ce qu'elles deviennent irréalistes.
 Cela ne nous empêchera pas d'appliquer les résultats d'échantillonnage à divers contextes quand même !
 
+\exe{1}{
+	On effectue $N$ expériences aléatoires et on note $f$ la fréquence de succès.
+	Est-ce que $f$ peut prendre n'importe quelle valeur entre 0 et 1 ?
+	Donner le nombre de valeurs que $f$ peut prendre, la distance entre deux valeurs consécutives de $f$, et une valeur de $[0;1]$ que $f$ ne peut pas prendre.
+}{exe:pas-fréquence}{
+	La fréquence $f$ est de la forme $f=\dfrac{k}N$, avec $0 \leq k \leq N$.
+	Ainsi $f$ ne peut prendre que $N+1$ valeurs différentes entre 0 et 1.
+	Comme $f\in\Q$ est rationnelle, $f$ ne pourra jamais valoir $\dfrac1{\sqrt2} = \dfrac{\sqrt2}2$, par exemple.
+}
+
+\exe{}{
+	On effectue $N$ expériences aléatoires et on note $f$ la fréquence de succès.
+	On souhaite estimer la probabilité de succès à 0,5\% près.
+	Donner la distance entre deux valeurs consécutives possibles de $f$.
+	Quel $N$ choisir pour que cette distance soit inférieure à 0,5\% ?
+}{exe:pas-fréquence}{
+	La fréquence $f$ est de la forme $f=\dfrac{k}N$, avec $0 \leq k \leq N$.
+	La différence entre deux valeurs consécutives est toujours de $\dfrac{k+1}N - \dfrac{k}N = \dfrac1N$.
+	Pour que cette distance soit inférieure à 0,5\%, on doit imposer $\dfrac1N < \dfrac{0,5}{100} \iff N > \dfrac{100}{0,5} = 200$.
+	Il faut donc au moins 200 expériences pour estimer la probabilité de succès à 0,5\%.
+}
 
 \section{Intervalles de confiance}
 
@@ -41,8 +62,8 @@ Dans toute cette section, on suppose que
 		\item la fréquence observée de succès est notée $f\in[0;1]$.
 	\end{enumerate}
 
-\dfn{Intervalle de confiance}{
-	On appelle \emph{intervalle de confiance} pour $p$ un intervalle du type
+\dfn{intervalle de confiance}{
+	On appelle \emphindex{intervalle de confiance} pour $p$ un intervalle du type
 		\[ \bigl[ f - k ; f + k \bigr], \]
 	où $k>0$ est un nombre réel quelconque.
 	
@@ -51,7 +72,7 @@ Dans toute cette section, on suppose que
 		\[ f - k \leq p \leq  f + k. \]
 }{}
 
-\thm{Loi des grands nombres}{
+\thm{loi des grands nombres}{
 	Lorsque $N$ devient très grand, et en supposant que $p$ est relativement loin de $0$ et $1$, on a les probabilités suivantes.
 	\begin{align*}
 		P\left( \bigl| f - p \bigr| \leq \dfrac{1}{\sqrt{N}} \right) &> 0,95 \\
@@ -63,12 +84,55 @@ Dans toute cette section, on suppose que
 	
 	Autrement dit, $p$ appartient à l'intervalle de confiance
 		\[ \left[ f - \dfrac1{\sqrt{N}} ; f + \dfrac1{\sqrt{N}} \right], \]
-	avec probabilité $95\%$. On appelle ce pourcentage le \emph{niveau de confiance} de l'intervalle.
+	avec probabilité $95\%$. On appelle ce pourcentage le \emphindex{niveau de confiance} de l'intervalle.
 }{}
+
+\nomen{
+	Un \emphindex{sondage d'opinions} consiste à recueillir les réponses d'un échantillon supposé représentatif de la population à un questionnaire.
+}
+
+\ex{intentions de vote}{
+	Avant une éléction où deux choix ($A$ ou $B$) sont possibles, un institut de sondage sonde 2 500 personnes aléatoirement dans la population.
+	Parmis les sondés, 80\% se déclarent certains d'aller voter.
+	L'institut choisit de restreindre le sondage à ces personnes, contenant désormais 2 000 réponses.
+	Parmis ces personnes, 40\% déclarent vouloir voter pour $A$, et 60\% pour $B$.
+	
+	L'institut déclare que $B$ va gagner.
+	En effet, la probabilité $p_B$ qu'une personne, sûre d'aller voter et choisie au hasard, vote pour $B$, se situe dans l'intervalle
+		\begin{align*}
+			0,6 - \dfrac{1}{\sqrt{2000}}  \leq p_B \leq 0,6 + \dfrac{1}{\sqrt{2000}} && \iff && 0,577 \leq p_B \leq 0,622,
+		\end{align*}
+	avec probabilité 95\%.
+	Ainsi, avec niveau de confiance 95\%, on a $p_B \geq 57,7\%$.
+	Dans ce cas, la taille de l'encadrement est de $\dfrac2{\sqrt{2000}} \approx 4,5\%$.
+}{ex:sondage}
+
+\nt{
+	Dans l'exemple \ref{ex:sondage} précédent, remarquons que l'échantillon a été restreint aux personnes certaines d'aller voter.
+	Ainsi la probabilité $p_B$ ne parle pas d'une personne prise au hasard, mais d'une personne certaine d'aller voter prise au hasard.
+	L'échantillon n'est donc probablement plus représentatif des personnes allant voter.
+
+	Dans l'éventualité où toutes les personnes hésitantes à aller voter voteraient pour le choix $A$, alors 1 300 sondés auraient choisi $A$, contre 1 200 pour $B$.
+	Dans ce cas, on est plus hésitant à affirmer que $B$ gagnera !
+}
+
+\exe{1}{
+	Le 4 mai 2007, deux jours avant le second tour de l'éléction présidentielle en France, deux sondages sont effectués au sujet de l'intention de vote des sondés.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+			Votes pour S. Royal & Votes pour N. Sarkozy & Participants & Participants certains d'aller voter \\\hline
+			45\% & 55 \% & 1004 & 79\% \\\hline
+			47\% & 53 \% & 3200 & 65\% \\\hline
+		\end{tabular}
+		\end{center}
+	Interpréter les deux sondages séparément puis les comparer.
+}{exe:présidentielles2007}{
+	TODO
+}
 
 \section{Application : dénombrement}
 
-\ex{Nombre de chemins racine-feuille}{
+\ex{nombre de chemins racine-feuille}{
 	On jette une pièce 12 fois et on souhaite connaître le nombre $k$ de façons d'obtenir exactement 6 fois « pile ».
 	C'est le nombre de chemin racine-feuille passant par 6 « pile » et 6 « face » de l'arbre binaire de profondeur 12 correspondant à l'expérience.
 	Pour cela, on utilise le fait qu'on puisse estimer $p = P(\text{obtenir 6 piles en 12 lancers})$ par échantillonnage.
@@ -98,13 +162,13 @@ Dans toute cette section, on suppose que
 	De plus, la fréquence observée $f$ se stabilise très rapidement autour de $p$.
 }{}
 
-\ex{Nombre de mots sur alphabet}{
+\ex{nombre de mots sur alphabet}{
 	Un mot sur l'alphabet $\{P; F\}$ est une suite ordonnée de P et de F.
 	On souhaite compter le nombre de mots de 12 lettres contenant exactement 6 P et 6 F.
 	Sans surprise, ce nombre est égal au $k$ de l'exemple précédent : chaque mot donne lieu à un unique chemin racine-feuille, et vice-versa.
 }{}
 
-\ex{Nombre de façons de traverser un échiquier}{
+\ex{nombre de façons de traverser un échiquier}{
 	On se met sur un échiquier $7\times7$, c'est-à-dire un quadrillage de 7 carrés en longueur et 7 en largeur.
 	On pose une dame sur le carré tout en bas à gauche et on se restreint aux mouvements suivants : la dame ne peut que monter d'une case, ou avancer une case vers la droite.
 	Étant restreinte à l'échiquier, la dame atteint nécessairement la case tout en haut à droite en 12 mouvements (6 horizontaux, 6 verticaux).
@@ -113,7 +177,7 @@ Dans toute cette section, on suppose que
 	Sans surprise à nouveau, ce nombre est égal au $k$ de l'exemple précédent : chaque chemin est associé à un mot de longueur 12 sur l'alphabet \{ Haut ; Droite \} contenant exactement 6 « Haut » et 6 « Droite ».
 }{}
 
-\ex{Coefficient binomial}{
+\ex{coefficient binomial}{
 	On souhaite, sans développer l'expression, connaître le coefficient de $x^6$ du polynôme de degré 12
 		\[ f(x) = (1+x)^{12}. \]
 	Remarquons que les coefficients du produit
