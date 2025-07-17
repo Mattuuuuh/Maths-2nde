@@ -170,7 +170,7 @@ dot/.default = black % size of the circle diameter
 			x=2cm,
 			xtick={-3, -2, ..., 2},
 			]
-				\addplot[no marks, BLUE_E, thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 				node[pos=.4, above=8pt]{$\mathcal{C}_f$};
 				\addplot[no marks, RED_E, very thick, -] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
 				node[pos=.68, above=10pt]{$\mathcal{C}_g$};
@@ -198,9 +198,9 @@ dot/.default = black % size of the circle diameter
 			x=2cm,
 			xtick={-3, -2, ..., 2},
 			]
-			\addplot[no marks, BLUE_E, -, thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 			node[pos=.4, above=8pt]{$\mathcal{C}_f$};
-			\addplot[no marks, RED_E, -,  thick] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
+			\addplot[no marks, RED_E, -,  very thick] expression[domain=-4:3, samples=100]{-4*x^2 + 7}
 			node[pos=.68, above=10pt]{$\mathcal{C}_g$};
 		
 			\addplot[black, mark=*, mark size = 1] (-.8, 4.43) node[above] {$A$};
@@ -231,7 +231,7 @@ dot/.default = black % size of the circle diameter
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=100]{x^3 /3 - 2*x +3}
 				node[pos=.52, above=5pt]{$\mathcal{C}_f$};
 				
-				\addplot[no marks, RED_E, thick, -] expression[domain=-5:3, samples=2]{2}
+				\addplot[no marks, RED_E, very thick, -] expression[domain=-5:3, samples=2]{2}
 				node[pos=.45, above]{$y=2$};
 				
 				

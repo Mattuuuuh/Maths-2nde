@@ -345,7 +345,113 @@
 
 \section{Fonction inverse}
 
-TODO
+\dfn{fonction inverse}{
+	La \emphindex{fonction inverse} $f$ est donnée algébriquement par
+		\[ f(x) = \dfrac1x. \]
+}{dfn:fonction-inverse}
+
+\exe{}{
+	Montrer que pour n'importe quel nombre $M>0$ très grand, il existe un $x>0$ très petit tel que $\dfrac1x > M$.
+} {exe:inv-0+}{
+	On prend $x = \frac1{M+1}$ qui est très petit car inverse d'un nombre très grand.
+	Il vérifie $\dfrac1x = M+1 > M$.
+}
+
+\mprop{}{
+	La fonction inverse n'est pas bien définie en 0 : prendre l'inverse de 0 n'a pas de sens.
+}{prop:inv0}
+
+\pf{}{
+	Supposons que $\dfrac10 = x$ pour un certain nombre réel $x\in\R$.
+	Alors $1 = x\cdot0 = 0$, ce qui n'est pas vrai. \Large\Lightning
+}
+
+\exe{}{
+	À l'aide de l'exercice \ref{exe:inv-0+}, tracer le graphe de la fonction inverse sur le domaine $\D = ]0 ; 3]$.
+	Peut-on tracer le graphe dans son intégralité sur une feuille suffisamment grande ?
+}{exe:graph-inv-pos}{
+	D'après l'exercice \ref{ex:inv-0+}, $\dfrac1x$ prend des valeurs aussi grandes que souhaitées lorsque $x$ est très petit dans le domaine $\D$.
+	Ainsi il n'est pas possible de tracer sa courbe représentative sur une surface finie comme celle d'une feuille de papier !
+	
+	\begin{center}
+	\includegraphics[page=17]{figures/fig-signes.pdf}
+	\end{center}
+}
+
+\dfn{fonction impaire}{
+	Un fonction $f$ est dite \emphindex{fonction impaire} dès que
+		\[ f(-x) = -f(x) \qquad\qquad\text{ pour tout $x\in\R$.} \]
+	Le graphe de $f$ est alors symétrique par rapport à l'origine du repère.
+}{dfn:fonction-impaire}
+
+\exe{}{
+	En supposant que $f$ et $g$ soient impaires, continuer leur graphe sur tout le domaine.
+		TODO
+}{exe:draw-impaire}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que la fonction $f(x) = x^2 - x^3$ n'est pas impaire.
+}{exe:non-impaire}{
+	Supposons que $f$ soit impaire.
+	Par définition, $f(-x) = -f(x)$ pour tout $x\in\R$.
+	
+	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
+	Par conséquent, $f(x) = -f(-x) \iff x^2 - x^3 = -x^2 - x^3 \iff x^2 = 0$.
+	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
+	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas impaire.
+}
+
+\exe{, difficulty=2}{
+	Montrer que si $k$ est une fonction quelconque, alors la fonction $l(x) = k(x) - k(-x)$ est impaire.
+}{exe:assymétrisation}{
+	$l(-x) = k(-x) - k\bigl(-(-x)\bigr) = k(-x) - k(x) = -\bigl(k(x) - k(-x) = -l(x)$ pour tout $x\in\R$, donc $l$ est paire.
+}
+
+\exe{}{
+	Montrer que la fonction inverse est impaire.
+}{exe:inv-impaire}{
+	En multipliant le numérateur et le dénominateur par $-1$, on trouve $\dfrac1{-x} = \dfrac{-1}x = - \left(\dfrac1x\right)$, comme requis.
+}
+
+\exe{}{
+	À l'aide des exercices \ref{exe:graph-inv-pos} et \ref{exe:inv-impaire}, grapher la fonction inverse sur le domaine $\D = [-3 ; 0[ \cup ]0 ; 3]$.
+}{exe:graph-inv-all}{
+	\begin{center}
+	\includegraphics[page=18]{figures/fig-signes.pdf}
+	\end{center}
+}
+
+\notations{
+	On ajoute une \emphindex{étoile} en exposant d'un ensemble pour parler de cet ensemble hormis 0.
+	Ainsi, $E^* = E - \{ 0 \}$ et, en particulier,
+		\begin{align*}
+			\Q^* = \Q-\{0\} = \bigset{\dfrac{a}b \tq a, b\in\Z^*}, && \et && \R^* = \R-\{0\} = ]\minfty ; 0[ \cup ]0 ; \pinfty[.
+		\end{align*}
+}
+
+\exe{}{
+	Montrer que si $x\in\Q^*$ est rationnel non nul, alors $\dfrac1x$ aussi.
+}{exe:inv-Q-to-Q}{
+	Si $x = \dfrac{a}b$ avec $a, b \in\Z^*$, alors $\dfrac1x = \dfrac{b}a \in\Q^*$.
+}
+
+\exe{}{
+	Soit $f(x) = \dfrac1x$ la fonction inverse.
+	Montrer que $f\bigl(f(x)\bigr) = x$ pour tout $x\in\R^*$.
+}{exe:inv-involution}{
+	Pour tout $x\in\R^*$,
+		\[ f(f(x)) = f\left(\dfrac1x\right) = \dfrac1{\dfrac1x} = x. \]
+}
+
+\exe{, difficulty=2}{
+	Uniquement à l'aide des exercices \ref{exe:inv-Q-to-Q} et \ref{exe:inv-involution}, montrer que si $x\in\R^*-\Q$ est irrationnel non nul, alors $\dfrac1x$ aussi.
+}{exe:inv-R-to-R}{
+	Notons $f(x) = \dfrac1x$ la fonction inverse.
+	Si $f(x)$ est rationnel, alors $f(f(x))$ aussi, d'après l'exercice \ref{exe:inv-Q-to-Q}.
+	Or $f(f(x)) = x$ d'après l'exercice \ref{exe:inv-involution}, supposé irrationnel.\Large\Lightning
+}
 
 \section{Domaine de définition}
 
@@ -499,7 +605,7 @@ TODO
 
 
 	\begin{center}
-	\includegraphics[page=15]{figures/fig-signes.pdf}
+	\includegraphics[page=16]{figures/fig-signes.pdf}
 	\end{center}
 	
 	D'où 

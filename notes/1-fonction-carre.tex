@@ -73,7 +73,7 @@
 	Ainsi $x < 1 \implies x^2 < x$, et $x>1 \implies x^2 > x$ pour n'importe quel $x>0$.
 }
 
-\thm{Propriétés du carré}{
+\thm{propriétés du carré}{
 	Soient $a, b \in\R$ deux réels, $b$ non nul lorsque dénominateur.
 	Alors
 		\begin{align*}
@@ -116,9 +116,16 @@
 }
 
 \dfn{fonction paire}{
-	Une fonction quelconque $f$ définie sur $\R$ est dite \emphindex{paire} dès que $f(x) = f(-x)$ pour tout $x\in\R$.
-	Sa courbe représentative $\C_f$ est symétrie par rapport à l'axe des ordonnées.
+	Une fonction quelconque $f$ définie sur $\R$ est dite \emphindex{fonction paire} dès que $f(x) = f(-x)$ pour tout $x\in\R$.
+	Sa courbe représentative $\C_f$ est symétrique par rapport à l'axe des ordonnées.
 }{dfn:fonction-paire}
+
+\exe{}{
+	En supposant que $f$ et $g$ soient paires, continuer leur graphe sur tout le domaine.
+		TODO
+}{exe:draw-paire}{
+	TODO
+}
 
 \exe{}{
 	Montrer que les fonctions suivantes sont paires.
@@ -149,7 +156,7 @@
 	Par définition, $f(-x) = f(x)$ pour tout $x\in\R$.
 	
 	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
-	Par conséquence, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
+	Par conséquent, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
 	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
 	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas paire.
 }
@@ -163,7 +170,7 @@
 \exe{, difficulty=2}{
 	Montrer que si $k$ est une fonction quelconque, alors la fonction $l(x) = k(x) + k(-x)$ est paire.
 }{exe:symétrisation}{
-	$l(-x) = k(-x) + k(-(-x)) = k(-x) + k(x) = k(x) + k(-x) = l(x)$ pour tout $x\in\R$, donc $k$ est paire.
+	$l(-x) = k(-x) + k\bigl(-(-x)\bigr) = k(-x) + k(x) = k(x) + k(-x) = l(x)$ pour tout $x\in\R$, donc $l$ est paire.
 }
 
 
