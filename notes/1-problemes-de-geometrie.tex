@@ -355,6 +355,12 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \exe{}{
+	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\cos(15^\circ) = \dfrac{\sqrt6+\sqrt2}4$, étant donné que $\sin(15^\circ) =  \dfrac{\sqrt6-\sqrt2}4$.
+}{exe:sin36}{
+	TODO
+}
+
+\exe{}{
 	\begin{multicols}{2}
 	Dans la figure ci-contre, calculer $x$ en sachant que $\cos(36^\circ) = \dfrac{1+\sqrt5}4$.
 	
@@ -434,3 +440,27 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \footnotetext{Adolf Hurwitz (1859-1919), mathématicien allemand.}
+
+\exe{, difficulty=2}{
+	On pose $\Qsqrt{2} = \bigset{ r + s \sqrt2 \tq r, s \in \Q} \subseteq \R$ et on considère $x = r + s\sqrt2 \in \Qsqrt{2}$ avec $r, s \in\Q$.
+	\begin{enumerate}
+		\item
+		Montrer que $x=0 \iff r = s = 0$.
+		\item
+		Montrer que si $x\neq0$, alors $\dfrac1x \in \Qsqrt{2}$.
+		\item
+		Montrer que si $y \in \Qsqrt{2}$, alors $x\cdot y \in \Qsqrt{2}$.
+		\item
+		Montrer que $\Qsqrt{2} \neq \R$ en montrant que $\sqrt3 \not\in \Qsqrt{2}$.
+	\end{enumerate}
+} {exe:Qsqrt2}{
+	TODO
+}
+
+\nt{
+	L'exercice \ref{exe:Qsqrt2} fait l'étude du \emphindex{corps d'extension} des nombres rationnels auxquels on a ajouté la racine carrée de 2.
+	La théorie de Galois\footnotemark généralise cet exemple et permet notamment de répondre par la négative aux trois grands problèmes de l'Antiquité : la duplication du cube, la trisection de l'angle, et la quadrature du cercle.
+}
+
+\footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
+
