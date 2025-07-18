@@ -202,9 +202,11 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 \section{Colinéarité, alignement, et déterminant}
 
 \dfn{vecteurs colinéaires}{
-	Soient $u$ et $v$ deux vecteurs.
-	On dit de $u$ et $v$ qu'ils sont \emphindex{colinéaires} dès qu'il existe un réel $\kappa\in\R$ tel que
-		\[ u = \kappa \cdot v. \]
+	Un vecteur $u$ est  \emphindex{vecteur colinéaire} à un vecteur $v$ dès qu'il existe un réel $\kappa\in\R$ tel que
+		\begin{align*}
+			u = \kappa \cdot v, && \ou && v = 0.
+			%v = \kappa\cdot u.
+		\end{align*}
 	Deux vecteurs colinéaires admettent la même direction, mais pas forcément le même sens ni la même norme.
 }{}
 
@@ -212,6 +214,27 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	Tous les vecteurs sont colinéaires au vecteur nul (en prenant $\kappa = 0$ ci-dessus).
 }{}
 
+\exe{}{
+	Montrer que la relation de colinéarité est réflexive : $u$ est toujours colinéaire à lui-même.
+}{exe:col-reflex}{
+	TODO
+}
+
+\exe{}{
+	Montrer que la relation de colinéarité est symétrique : si $u$ est colinéaire à $v$, alors $v$ est colinéaire à $u$.
+}{exe:col-sym}{
+	TODO
+}
+
+\nomen{
+	Par symétrie, on parle alors de \emphindex{vecteurs colinéaires} sans spécifier quel vecteur est colinéaire à l'autre.
+}
+
+\exe{}{
+	Montrer que la relation de colinéarité est transitive : si $u$ est colinéaire à $v$, et $v$ est colinéaire à $w$, alors $u$ est colinéaire à $w$.
+}{exe:col-trans}{
+	TODO
+}
 
 \lem{}{
 	Soit $(d)$ une droite non verticale et $A, B \in (d)$ deux points distincts de celle-ci.
@@ -277,6 +300,30 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 \thm{}{
 	Soient $u, v$ deux vecteurs.
 	Alors $\det(u, v) = 0$ si et seulement si les vecteur $u$ et $v$ sont colinéaires.
-	
-	Le déterminant détermine donc si deux vecteurs sont colinéaires ou non.
 }{}
+
+\nt{	
+	Le déterminant \emph{détermine} donc si deux vecteurs sont colinéaires ou non.
+}
+
+% la démonstration est chiante en fait
+\pf{}{
+	Notons $u = \pvec{a}{b}$, $v=\pvec{c}{d}$. 
+	Si $u$ est nul, et donc colinéaire à tout vecteur $v$, il est facile de voir que $\det(u, v) = 0$.
+	Dans ce cas, les deux propositions sont vraies et donc équivalentes.
+	
+	Sinon, supposons que $u\neq0$. Sans perte de généralité (quitte à échanger les coordonées), on a donc $a\neq0$.
+	\begin{enumerate}[leftmargin=120pt]
+		\item[\underline{Direction $\implies$ :}] 
+		Si $\det(u, v) = ad - bc = 0$, alors $ad = bc$.
+		Posons $\kappa = \dfrac{c}a$.
+		Alors $d = \kappa b$ et $c = \kappa a$, donc $u = \kappa v$.
+		
+		\item[\underline{Direction $\impliedby$ :}] 
+		Notons $\kappa\in\R^*$ tel que $u = \kappa v$.
+		Alors $a = \kappa c$ et $b = \kappa d$.
+		Il suit que $ad -bc = (\kappa c)d - (\kappa d)c = 0$.
+	\end{enumerate}
+}
+
+
