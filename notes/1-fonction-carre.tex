@@ -403,25 +403,30 @@ Il sera donc utile de savoir quelques identités dites \emphindex{remarquables} 
 	Ce n'est pas possible car la fonction carré est toujours positive. \Large\Lightning
 }
 
-\dfn{Domaine de définition}{
-	Soit $f$ une fonction sur $\R$.
-	Le plus grand domaine de $\R$ sur lequel $f$ est bien définie est le \emphindex{domaine de définition} de $f$.
-}{}
-
-\notations{
-	Le domaine de définition de $f$ est noté $\D_f$.
-}
+% domaine de def sera mieux travaillé quand on aura la fonction inverse 
+%\dfn{Domaine de définition}{
+%	Soit $f$ une fonction sur $\R$.
+%	Le plus grand domaine de $\R$ sur lequel $f$ est bien définie est le \emphindex{domaine de définition} de $f$.
+%}{}
+%
+%\notations{
+%	Le domaine de définition de $f$ est noté $\D_f$.
+%}
+%
+%\mprop{}{
+%	Le domaine de définition de la fonction racine carrée est $[0 ; \pinfty[$.
+%}{prop:domaine-sqrt}
 
 \mprop{}{
-	Le domaine de définition de la fonction racine carrée est $[0 ; \pinfty[$.
+	La racine carrée $\sqrt{x}$ n'a de sens que pour $x\in[0; \pinfty[$.
 }{prop:domaine-sqrt}
 
 \notations{
-	On note également $\R_+ = [0 ; \pinfty[$ l'ensemble des réels positifs ou nuls.
+	On note $\R_+ = [0 ; \pinfty[$ l'ensemble des réels positifs ou nuls.
 }
 
 \thm{propriétés de la racine carrée}{
-	Soient $a, b \in\R$ deux réels positifs, $b$ non nul lorsque dénominateur.
+	Soient $a, b \in\R_+$ deux réels positifs, $b$ non nul lorsque dénominateur.
 	Alors
 		\begin{align*}
 			\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, && \et && \sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}.

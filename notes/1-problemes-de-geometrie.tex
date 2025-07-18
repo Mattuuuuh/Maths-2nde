@@ -159,10 +159,7 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 		\begin{gather*}
 			\cos^2(\theta) + \sin^2(\theta) = 1.
 		\end{gather*}
-}{}
-
-
-
+}{thm:c2-s2}
 
 \section{Calculs exacts}
 
@@ -179,7 +176,7 @@ En prenant une hauteur quelconque, on obtient un triangle rectangle 30-60-90 com
 	\end{center}
 
 Le théorème de Pythagore donne la longueur $h$ de la hauteur : 
-	\[ 1^2 = \left(\dfrac12\right)^2 + h^2 \iff h^2 = \dfrac34 \iff h = \dfrac{\sqrt3}2. \]
+	\[ 1^2 = \left(\dfrac12\right)^2 + h^2 \iff h^2 = \dfrac34 \iff h = \dfrac{\sqrt3}2, \]
 On peut donc connaître les valeurs de $\cos(\theta), \sin(\theta), \tan(\theta)$ pour $\theta\in\bigset{ 30^\circ ; 60^\circ}$.
 
 \mprop{}{
@@ -286,18 +283,37 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Cependant, $(r^6)^2 = r^{12} = 2$, donc $r^{6} = \sqrt2$, qui n'est pas rationnel. \Large\Lightning
 }
 
+\mprop{manipulation des racines carrées}{
+	Soit $d\in\R_+$ un nombre réel positif qui n'est pas un carré parfait.
+	Alors
+		\begin{align*}
+			\dfrac1{\sqrt{d}} = \dfrac{\sqrt{d}}d, && \et && \dfrac1{1+\sqrt{d}} = \dfrac{1-\sqrt{d}}{1-d}.
+		\end{align*}
+}{prop:conjugué}
+\pf{}{
+	On utilise l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour supprimer la racine du dénominateur.
+	\begin{align*}
+		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}, \\
+							&= \dfrac{1-\sqrt{d}}{1-d}.
+	\end{align*}
+}
+
+\nomen{
+	On appelle $a - b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a + b \sqrt{d}$ (et vice versa).
+}
+
 \exe{}{
-	Résoudre les équations suivantes pour $x\in\R$, $x\neq0$. Exprimer $x$ sous la forme $q \sqrt{b}$ avec $q\in\Q$ rationnel et $b\in\N$ le plus petit possible.
+	Résoudre les équations suivantes pour $x\in\R$, $x\neq0$. Exprimer $x$ sous la forme $q \sqrt{b}$ avec $q\in\Q$ rationnel et $b\in\N$ le plus petit possible à l'aide de la proposition \ref{prop:conjugué}.
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $\dfrac3x = \dfrac12.$
-		\item $ \dfrac7x  =\dfrac12$
+		\item $ \dfrac7{x+1}  =\dfrac12$
 		\item $\dfrac8x  =\dfrac{\sqrt{3}}2$
-		\item $\dfrac2x =\sqrt{3}$
+		\item $\dfrac2{x+1} =\sqrt{3}$
 		\item $\dfrac9x  =\dfrac{\sqrt{6}}5$
-		\item $-\dfrac3x =\sqrt{7}$
+		\item $-\dfrac3x =3+\sqrt{7}$
 		\item $-\dfrac7{2x}  =\dfrac{\sqrt{11}}3$
-		\item $\dfrac3{5x} =-\sqrt{5}$
+		\item $\dfrac3{5x+2} =3-\sqrt{5}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:équations-sqrt}{
@@ -320,30 +336,38 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	TODO
 }
 
-\ex{}{
-	Exemple sur expression conjuguée pour rationnalisation de dénominateur.
+\exe{}{
+	\begin{multicols}{2}
+	Dans la figure ci-contre, calculer $x$ à l'aide du théorème de Pythagore, puis $y$ à l'aide du théorème de Thalès.
 	
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-geom.pdf}
+	\end{center}
+	\end{multicols}
+}{exe:pyth-thalès}{
+	TODO $x = 3\sqrt2 - 1$ et $y=3 - \dfrac{\sqrt2}2$ je crois.
+}
+
+\exe{}{
+	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\sin(36^\circ) = \dfrac{\sqrt{10-2\sqrt2}}4$, étant donné que $\cos(36^\circ) = \dfrac{1+\sqrt5}4$.
+}{exe:sin36}{
 	TODO
-}{ex:conjugué}
-
-\mprop{}{
-	Soit $d\in\R_+$, $d\neq1$. Alors
-		\[ \dfrac1{1+\sqrt{d}} = \dfrac{1-\sqrt{d}}{1-d}. \]
-}{prop:conjugué}
-
-\pf{}{
-	On utilise l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour supprimer la racine du dénominateur.
-	\begin{align*}
-		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}, \\
-							&= \dfrac{1-\sqrt{d}}{1-d}.
-	\end{align*}
 }
 
-\nomen{
-	On appelle $a - b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a + b \sqrt{d}$ (et vice versa).
+\exe{}{
+	\begin{multicols}{2}
+	Dans la figure ci-contre, calculer $x$ en sachant que $\cos(36^\circ) = \dfrac{1+\sqrt5}4$.
+	
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-geom.pdf}
+	\end{center}
+	\end{multicols}
+}{exe:cos36}{
+	TODO
 }
 
-\exe{, difficulty=2}{
+
+\exe{, difficulty=1}{
 	Montrer que $\sqrt2 = 1 + \dfrac1{1+\sqrt2}$.
 	En déduire que $\sqrt2 = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ et que
 		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
@@ -390,9 +414,15 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805-1859), mathématicien allemand.}
 
+\exe{}{
+	Montrer le théorème \ref{thm:Dirichlet} dans le cas où $x\in\Q$ est un nombre rationnel.
+}{exe:DirichletQ}{
+	Si $x=\dfrac{a}b$, alors $p= k\cdot a$ et $q = k \cdot b$ pour $k=1, 2, 3, \dots$ sont une infinités de tels $p, q\in\Z$.
+}
+
 \exe{, difficulty=2}{
 	Soit $x\in\R-\Q$ et $N\in\N$. Considérons $\{ 0, x, 2x, 3x, ..., Nx \}$ les $q+1$ premiers multiples de $x$.
-	Montrer qu'il existe nécessairement deux entiers naturels $m<n$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1q$.
+	Montrer qu'il existe nécessairement deux entiers naturels $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1q$.
 	En déduire le théorème \ref{thm:Dirichlet}.
 }{exe:Dirichlet}{
 	TODO

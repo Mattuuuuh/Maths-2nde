@@ -300,5 +300,34 @@ dot/.default = black % size of the circle diameter
 	
 	\draw[-, thick] (.45,0) -- (.45, .05) -- (.5, .05);
 	\end{tikzpicture}
+	
+	% page 14
+	\begin{tikzpicture}[scale=1]
+	\draw[-, thick] 
+	(0,0) -- (3,0) node[midway, below] {$3$};
+	\draw[-, thick] 
+	(3,0) -- (3, 3) node[midway, right] {$3$};
+	\draw[-, thick] 
+	(0,0) -- (0.707, 0.707) node[midway, above left] {$1$};
+	\draw[-, thick] 
+	 (0.707, 0.707) -- (3,3) node[midway, above left] {$x$};
+	\draw[-, thick] 
+	 (0.707, 0.707) -- (3,.707) node[midway, above] {$y$};
+	
+	\draw[-, thick] (2.8,0) -- (2.8, .2) -- (3, .2);
+	\draw[-, thick] (2.8,0.707) -- (2.8, .907) -- (3, .907);
+	\end{tikzpicture}
+	
+	% page 15
+	\begin{tikzpicture}[scale=1]
+	\draw[-, thick] 
+	(0,0) coordinate (A) -- 
+	(2.179,0) coordinate (B) -- 
+	(2.179,3)  coordinate (C) node[midway, right] {$3$} -- 
+	cycle node[midway, above left] {$x$} 
+	pic ["36°", draw,-,BLUE_E,thick,angle radius=25pt, angle eccentricity=1.5] {angle = A--C--B};
+	
+	\draw[-, thick] (1.979,0) -- (1.979, .2) -- (2.179, .2);
+	\end{tikzpicture}
 %
 \end{document}
