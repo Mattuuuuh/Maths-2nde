@@ -1,4 +1,5 @@
-\input{../preamble.tex}
+\input{preamble.tex}
+\usepackage[answerdelayed]{exercise}
 \AdvanceDate[3]
 
 \begin{document}
@@ -17,38 +18,52 @@ Calculatrice interdite
 
 \subsection{Propriétés des puissances}
 
-\begin{frame}{1\vspace{-32pt}}
+\framedelayed{
 	Écrire le nombre suivant sous forme $a^b$, où $a, b \in \Z$ sont des entiers relatifs.
 	\boxAB{
 		$\dfrac{13^{15}}{13^{9}}$
 	}{
 		$\dfrac{11^{17}}{11^9}$.
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac{13^{15}}{13^{9}} = \pause 13^{15-9} = \pause 13^6.$
+	}{
+		$\dfrac{11^{17}}{11^9} = $
+	}
+}
 
-\begin{frame}{2\vspace{-32pt}}
+\framedelayed{
 	Écrire le nombre suivant sous forme $a^b$, où $a, b \in \Z$ sont des entiers relatifs.
 	\boxAB{
 		$\bigl(2^6\bigr)^{-5}$
 	}{
 		$\bigl(2^7\bigr)^{-4}$
 	}
-\end{frame}
+}{
 
-\subsection{Longueur d'intervalle}
+test
 
-\begin{frame}{3\vspace{-32pt}}
+}
+
+\subsection{Encadrement}
+
+\framedelayed{
 	Donner l'amplitude de l'encadrement suivant sous forme de puissance de $10$.
 	\boxAB{
 		$318,615  < 318,621702 < 318,625$
 	}{
 		$610,3075 < 610,3081702 <  610,3085$
 	}
-\end{frame}
+}{
 
-\subsection{Oracle}
+test
 
-\begin{frame}{4\vspace{-32pt}}	
+}
+
+\subsection{Diochotomie}
+
+\framedelayed{
 	On considère une fonction $f$ croissante sur $\R$, et $x_0$ l'unique nombre vérifiant $f(x_0) = 0$.
 	
 	On sait en outre que $x_0$ est encadré par
@@ -58,7 +73,19 @@ Calculatrice interdite
 	}{
 		Donner le signe de $f(6)$.
 	}
-	%Réponse attendue $\in$ \{ positif ; négatif ; nul \}.
+}{
+
+test
+
+}
+
+
+\section{Solutions}
+\begin{frame}
+\centering \huge
+Solutions
 \end{frame}
+
+\shipoutAnswer
 
 \end{document}
