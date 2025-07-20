@@ -103,7 +103,7 @@
 	vaut constamment $42$, peut importe la valeur de $x$. 
 	
 	On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
-	$g$ est une fonction constante.
+	$g$ est une \emphindex{fonction constante}.
 }{ex:fonction-constante}
 
 \exe{}{
@@ -127,7 +127,7 @@
 	
 
 \dfn{antécédent, image}{
-	Considérons une fonction $f$ et deux nombres réels $x,y\in\R$ vérifiants
+	Considérons une fonction $f$ et deux nombres réels $x, y\in\R$ vérifiants
 		\[ y = f(x). \]
 	On lit \og $y$ égal $f$ de $x$ \fg, et on dit alors que
 		\begin{enumerate}
@@ -143,67 +143,8 @@
 		\item 
 		Chaque $x\in\D$, élément du domaine, a \underline{exactement une} image par $f$ qui est $f(x)$.
 		\item
-		Un nombre $y\in\R$ peut avoir \underline{un, aucun, ou même plusieurs} antécédents. C'est le cas par exemple de $y=0, -1, 1$ pour la fonction carré $f(x) = x^2$.
+		Un nombre $y\in\R$ peut avoir \underline{un}, \underline{aucun}, ou même \underline{plusieurs} antécédents. C'est le cas par exemple de $y=0, -1, 1$ pour la fonction carré $f(x) = x^2$.
 	\end{enumerate}
-}
-
-\notations{
-	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
-	On lit « $x$ au carré » ou « $x$ carré ».
-}
-
-\ex{}{
-	Considérons la fonction carré.
-	On peut l'appeler $f$ en posant $f(x) = x^2$ pour tout $x\in\R$.
-	Calculons les images de $1; 4; -1; -0,31; \frac23 ; -\frac23;$ et $0$.
-		\begin{multicols}{2}
-		\begin{enumerate}%[leftmargin=50pt]
-			\item $f(1) = 1$
-			\item $f(-1) = 1$
-			\item $f( -0,31) = 0,0961$
-			\item $f\left(\dfrac23\right) = \dfrac49$
-			\item $f\left( -\dfrac23\right) = \dfrac49$
-			\item $f(0) = 0$
-		\end{enumerate}
-		\end{multicols}
-	\noindent
-	On en déduit les propositions suivantes.
-		\begin{enumerate}[label=$\bullet$]%, leftmargin=50pt]
-			\item
-			L'image de $1$ par $f$ est $1$.
-			\item
-			L'image de $-1$ par $f$ est $1$.
-			\item
-			$1$ et $-1$ sont deux antécédents de $1$ par $f$.
-			\item
-			Un antécédent de $0,0961$ par $f$ est $-0,31$.
-			\item
-			Un antécédent de $\dfrac49$ par $f$ est $\dfrac23$.
-			\item
-			Un antécédent de $\dfrac49$ par $f$ est $-\dfrac23$.
-			\item
-			$0$ est l'image et un antécédent de $0$ par $f$. C'est d'ailleurs le seul antécédent.
-		\end{enumerate}
-}{ex:v-abs}
-
-\exe{}{
-	Considérons la fonction $f$ donnée par
-	\begin{align*}
-		f: \R & \longrightarrow \R \\
-		x& \longmapsto 3\cdot x+1.
-	\end{align*}
-	Autrement dit, $f(x) = 3\cdot x + 1$ pour tout $x\in\R$.
-	
-	\begin{enumerate}
-		\item
-		Calculer l'image par $f$ de $0$ ; de $3,1$ ; de $\frac13$ ; de $-1$ ; de $-\frac23$.
-		\item
-		Donner un antécédent de $1$ par $f$.
-		\item
-		Déterminer tous les antécédents de $6$ par $f$.	
-	\end{enumerate}
-}{exe:images-antécédents}{
-	TODO
 }
 
 \dfn{forme algébrique}{
@@ -220,13 +161,68 @@
 	Donner la forme algébrique de la fonction $f$ donnant la distance parcourue (mètres) au temps $t$ (secondes).
 	Quel est le domaine de $f$ ?
 }{exe:lynx2}{
-	La distance est la vitesse par le temps : $f(t) = 15t$.
+	La distance est la vitesse multipliée par le temps : $f(t) = 15\cdot t = 15t$.
 	Comme $f$ prend un temps, son domaine est tous les nombres réels positifs ou nuls.
 }
 
 \nt{
-	Suite à l'exemple \ref{exe:lynx2} ci-dessus, on dira alors qu'on a écrit la distance \emphindex{en fonction} du temps $t$.
+	Suite à l'exercice \ref{exe:lynx2} ci-dessus, on dira alors qu'on a écrit la distance \emphindex{en fonction} du temps $t$.
 	L'expression algébrique permet de calculer facilement plusieurs images sans refaire le raisonnement « distance = vitesse fois temps » à chaque fois.
+}
+
+\notations{
+	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
+	On lit « $x$ au carré » ou « $x$ carré ».
+}
+
+\ex{}{
+	Considérons la \emphindex{fonction carré} $f(x) = x^2$ pour tout $x\in\R$.
+	Calculons les images de $1; 4; -1; -0,31; \frac23 ; -\frac23;$ et $0$ par $f$.
+		\begin{multicols}{3}
+		\begin{enumerate}%[leftmargin=50pt]
+			\item $f(1) = 1$
+			\item $f(-1) = 1$
+			\item $f( -0,31) = 0,0961$
+			\item $f\left(\dfrac23\right) = \dfrac49$
+			\item $f\left( -\dfrac23\right) = \dfrac49$
+			\item $f(0) = 0$
+		\end{enumerate}
+		\end{multicols}
+	\noindent
+	On en déduit les propositions suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=--]%, leftmargin=50pt]
+			\item
+			L'image de $1$ par $f$ est $1$.
+			\item
+			L'image de $-1$ par $f$ est $1$.
+			\item
+			$1$ et $-1$ sont deux antécédents de $1$ par $f$.
+			\item
+			Un antécédent de $0,0961$ par $f$ est $-0,31$.
+			\item
+			Un antécédent de $\dfrac49$ par $f$ est $\dfrac23$.
+			\item
+			Un antécédent de $\dfrac49$ par $f$ est $-\dfrac23$.
+			\item
+			$0$ est l'image et un antécédent de $0$ par $f$. %C'est d'ailleurs le seul antécédent.
+		\end{enumerate}
+		\end{multicols}
+}{ex:carré0}
+
+\exe{}{
+	Considérons la fonction $f(x) = 3\cdot x + 1$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$ ; de $3,1$ ; de $\frac13$ ; de $-1$ ; de $-\frac23$.
+		\item
+		Donner un antécédent de $1$ par $f$.
+		\item
+		Déterminer tous les antécédents de $6$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents}{
+	TODO
 }
 
 \exe{}{
@@ -237,8 +233,8 @@
 			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
 		\end{tabular}
 		\end{center}
-	Parmis les expressions algébriques suivantes, lesquelles ne peuvent pas correspondre à $f(x)$ ?
-		\begin{multicols}{2}
+	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
+		\begin{multicols}{3}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
 			\item $1+\dfrac{x}2$
@@ -256,26 +252,25 @@
 	Montrer que $g(x) = x(x+2)(x-1)(x+1)$ vérifie $g(0) = g(-2) = g(1) = g(-1) = 0$.
 	Conclure que $f(x)$ et $h(x) = f(x) + g(x)$ vérifient toutes les deux le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}.
 }{exe:fonctions-QCM2}{
-	Trivial.
+	Lors du calcul de chacune des images, au moins un facteur est nul : le produit vaut donc toujours zéro.
+}
+
+\exe{, difficulty=1}{
+	Montrer qu'il y a une infinité de fonctions $h$ différentes vérifiant le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}-
+}{exe:fonctions-QCM3}{
+	On prend par exemple $h(x) = f(x) + g(x), f(x) + 2g(x), f(x) + 3g(x), \dots$.
 }
 
 \nt{
 	Lorsqu'on a un nombre fini d'images, on peut invalider un candidat d'expression algébrique mais jamais le valider pour tout $x\in\R$.
 }
 
-
-
 \exe{}{
-	Considérons la fonction $f$ donnée par
-	\begin{align*}
-		f: \R & \longrightarrow \R \\
-		x& \longmapsto \dfrac15-x.
-	\end{align*}
-	Autrement dit, $f(x) = \frac15-x$ pour tout $x\in\R$.
+	Considérons la fonction $f(x) = \frac15-x$ pour tout $x\in\R$.
 	
 	\begin{enumerate}
 		\item
-		Calculer l'image par $f$ de $0$, de $-3,1$, de $-\frac47$, de $0,2$, de $-\frac23$.
+		Calculer l'image par $f$ de $0$ ; de $0,2$ ; de $\frac47$ ; de $-\frac23$.
 		\item
 		Donner un antécédent de $0$ par $f$.
 		\item
@@ -286,25 +281,21 @@
 }
 
 \exe{}{
-	Considérons les fonctions $f,g$ données par
-	\begin{align*}
-		f: \R & \longrightarrow \R &g: \R & \longrightarrow \R \\
-		x& \longmapsto x^2 -6\cdot x + 9,  &x& \longmapsto (x-3)^2. 
-	\end{align*}
-	Autrement dit, $f(x) =x^2 -6\cdot x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
-	
+	Considérons les fonctions $f(x) =x^2 -6\cdot x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+	%\begin{multicols}{2}
 	\begin{enumerate}
 		\item
-		Calculer les images par $f$ et $g$ de $0$, de $-1$, de $3$, de $-\frac12$, de $-\frac23$.
+		Calculer les images par $f$ et $g$ de $0$ ; de $6$ ; de $3$ ; de $-\frac23$ ; de $\frac{20}3$.
 		\item
 		Donner un antécédent de $9$ par $f$.
 		\item
 		Déterminer tous les antécédents de $9$ par $g$.	
 		\item
-		Montrer que $g(x) - 3^2 = x^2 - 6\cdot x$ pour tout $x\in\R$ réel, et en déduire que $f(x) = g(x)$ pour tout $x\in\R$ réel.
+		Montrer que $f(x) = g(x)$ pour tout $x\in\R$ réel.
 		\item 
-		Déterminer tous les antécédents de $16$ par $f$.
+		En déduire tous les antécédents de $9$ par $f$.
 	\end{enumerate}
+	%\end{multicols}
 }{exe:forme-canonique}{
 	TODO
 }
@@ -312,7 +303,7 @@
 \section{Intervalles}
 
 \dfn{intervalle borné}{
-	Un intervalle borné est un segment de la droite réelle $\R$. C'est donc un ensemble de nombres.
+	Un \emphindex{intervalle} borné est un segment de la droite réelle $\R$. C'est donc un ensemble de nombres.
 	Il est donné par une \emphindex{borne inférieure} $a \in \R$ et une \emphindex{borne supérieure} $b\in\R$ et peut contenir ou non ses bornes.
 	
 	\begin{enumerate}
@@ -361,15 +352,19 @@
 
 \notations{
 	On définit les signes suivants correspondant à des inégalités \emphindex{strictes} et \emphindex{larges}.
-		\begin{enumerate}[leftmargin=50pt]
-			\item[$<$ :] strictement inférieur à
-			\item[$\leq$ :] inférieur ou égal à
-			\item[$>$ :] strictement supérieur à
-			\item[$\geq$ :] supérieur ou égal à
-		\end{enumerate}
+	\begin{multicols}{2}
+	\begin{enumerate}[leftmargin=50pt]
+		\item[$<$ :] strictement inférieur à
+		\item[$\leq$ :] inférieur ou égal à
+		\item[$>$ :] strictement supérieur à
+		\item[$\geq$ :] supérieur ou égal à
+	\end{enumerate}
+	\end{multicols}
+	On attire l'attention sur le fait que le « ou » est inclusif : $x \leq x$ est toujours vrai. 
 }
 
 \ex{}{
+	Les inégalités suivantes sont vraies. 
 	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*)]
 		\item $1 \leq 2$
@@ -383,12 +378,12 @@
 }{}
 
 \nt{
-	Appartenir à un intervalle est donc équivalent à respecter certaines inégalités.
-	En particulier : être inférieur à la borne supérieure, et être supérieur à la borne inférieure.
-	
+	Appartenir à un intervalle est équivalent à être inférieur à la borne supérieure, et être supérieur à la borne inférieure.
 	On a donc l'équivalence suivante.
 		\[ x \in [a ; b] \qquad \iff \qquad x \in \R, x \geq a, \textbf{ et } x \leq b. \]
-		
+}
+
+\notations{
 	On peut noter deux inégalités sur la même lignes dès qu'elles vont dans le même sens.
 	Par exemple, les deux inégalités ci-dessus peuvent être condensées en une :
 		\[ x \in \R, \text{ et } a \leq x \leq b, \]
@@ -416,14 +411,14 @@
 
 \subsection{Courbe représentative}
 
-On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver plusieurs informations sur $f$.
+On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver toutes les images de $f$.
 Une bonne représentation graphique nous permet de lire
 	%\begin{multicols}{2}
 	\begin{enumerate}[label=$\bullet$]
 		\item les images $f(x)$;
 		\item les antécédents $x$ ;
-		\item les variations de $f$ (croissante, décroissante, constante) ;
-		\item le signe de $f(x)$ (positif, négatif, nul).
+		%\item les variations de $f$ (croissante, décroissante, constante) ;
+		%\item le signe de $f(x)$ (positif, négatif, nul).
 	\end{enumerate}
 	%\end{multicols}
 
@@ -440,8 +435,13 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	On lit \og la courbe représentative de $f$ est l'ensemble des points $\bigl(x,f(x)\bigr)$ du plan où $x$ parcourt le domaine de $f$ \fg.
 }{dfn:Cf}	
 
+\nt{
+	Connaître $f$ sur son domaine $\D$ c'est connaître $\C_f$, et vice versa.
+	Cependant, il n'est possible de dessiner $\C_f$ si le domaine $\D$ est infini, ou si $f$ prend des valeurs toujours plus grandes.
+}
+
 \cor{propriété fondamentale}{
-	On a donc la propriété fondamentale suivante valable pour tout $x,y\in\R$.
+	On a donc la propriété fondamentale suivante valable pour tout $x, y\in\R$.
 		\begin{align*}
 			(x;y) \in \C_f && \iff && y = f(x).
 		\end{align*}
@@ -605,6 +605,8 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	TODO
 }
 
+\newpage
+
 \subsection{Résolution graphique d'(in)équations}
 
 \subsection*{Résoudre graphiquement $f(x) = k$}
@@ -625,7 +627,7 @@ Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizonta
 		A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
 	\end{align*}
 L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
-	\[ \{ -2,67 \ ; 0,52 \ ; 2,14 \}. \]
+	\[ \bigset{ -2,67 ; 0,52 ; 2,14 }. \]
 
 \thm{}{
 	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
@@ -633,6 +635,16 @@ L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donn�
 }{}
 
 
+\exemulticols{}{
+	Donner l'ensemble des $x$ vérifiant $f(x) = -2$ à l'aide du graphe de $f$ ci-contre.
+}{
+	TODO graph
+}{exe:fx=k}{
+	TODO
+}
+
+
+\newpage
 \subsection*{Résoudre graphiquement $f(x) < k$}
 
 
@@ -654,7 +666,15 @@ C'est notre ensemble de solutions de l'équation $f(x) \leq 2$.
 	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x) \leq k$ sont les abscisses des points de $\C_f$ situés en dessous de la droite d'équation $y=k$.
 }{}
 
+\exemulticols{}{
+	Donner l'ensemble des $x$ vérifiant $f(x) < -2$ à l'aide du graphe de $f$ ci-contre.
+}{
+	TODO graph
+}{exe:fx=k}{
+	TODO
+}
 
+\newpage
 \subsection*{Résoudre graphiquement $f(x) = g(x)$}
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
@@ -679,7 +699,15 @@ Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc donné
 	Les solutions dans $\D$ de l'équation $f(x) = g(x)$ sont les abscisses des points d'intersection de $\C_f$ et $\C_g$.
 }{}
 
+\exemulticols{}{
+	Donner l'ensemble des $x$ vérifiant $f(x) = g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+}{
+	TODO graph
+}{exe:fx=k}{
+	TODO
+}
 
+\newpage
 \subsection*{Résoudre graphiquement $f(x) \leq g(x)$}
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
@@ -701,6 +729,17 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ sont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
 }{}
 
+
+\exemulticols{}{
+	Donner l'ensemble des $x$ vérifiant $f(x) \leq g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+}{
+	TODO graph
+}{exe:fx=k}{
+	TODO
+}
+
+
+\newpage
 \subsection{Fonctions parentes : transformations des ordonnées}
 
 À partir de la courbe d'une fonction qu'on connaît bien, on peut déduire les courbes de toute une famille de fonctions apparentées.
