@@ -14,7 +14,7 @@ Sur TeXworks, il faut aller dans Preferences, Typesetting, Tool Configuration (d
 
 Contenu par chapitre :
 1. [x] Nombres rationnels, nombres réels
-2. [x] Plan cartésien
+2. [ ] Plan cartésien
 3. [ ] Fonctions
 4. [ ] Évolution chiffrée
 5. [x] Fonctions carré, racine carrée, valeur absolue

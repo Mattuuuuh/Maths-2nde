@@ -9,7 +9,7 @@ Sur la droite réelle, on associe chaque point avec un nombre, appelé nombre r�
 Dans cette section, on augmente la notion de droite réelle en ajoutant une dimension ; la droite devient le plan.
 On associera alors à chaque point du plan \emph{deux}\footnote{Il s'avère qu'il est possible en théorie d'associer chaque point du plan à un unique nombre, mais la construction dépasse le champ d'application de ce cours.} nombres réel : le premier représentant sa position \og gauche/droite \fg et le deuxième sa position \og haut/bas \fg.
 
-Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels appelés respectivement l'abscisse et l'ordonnée du point.
+Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réels appelés respectivement l'abscisse et l'ordonnée du point.
 
 \section{Repère orthonormé}
 
@@ -19,10 +19,10 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 
 	Un repère est determiné par trois points $(O; I,J)$ comme ci-contre.
 	\begin{itemize}
-		\item Le point $O$ est appelé l'\textbf{origine}.
-		\item La droite $(OI)$ est appelée l'axe des \textbf{abscisses}.
-		\item La droite $(OJ)$ est appelée l'axe des \textbf{ordonées}.
-		\item[]
+		\item Le point $O$ est appelé l'\emphindex{origine du repère}.
+		\item La droite $(OI)$ est appelée l'\emphindex{axe des abscisses}.
+		\item La droite $(OJ)$ est appelée l'\emphindex{axe des ordonées}.
+		\item La graduation est \underline{toujours} régulière.
 		\item[]
 	\end{itemize}
 	
@@ -35,9 +35,9 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 \dfn{Repère orthonormé}{
 	Un repère $(O; I, J)$ est
 	\begin{enumerate}
-		\item \textbf{orthogonal} si ses axes $(OI)$ et $(OJ)$ sont perpendiculaires ;
-		\item \textbf{normé} si les segments $[OI]$ et $[OJ]$ sont de même longueur (fixée à $1$) ;
-		\item \textbf{orthonormé} s'il est orthogonal et normé.
+		\item \emphindex{orthogonal} si ses axes $(OI)$ et $(OJ)$ sont perpendiculaires ;
+		\item \emphindex{normé} si les segments $[OI]$ et $[OJ]$ sont de même longueur (fixée à $1$) ;
+		\item \emphindex{orthonormé} s'il est orthogonal et normé.
 	\end{enumerate}
 }{def:repere-orthonorme}
 
@@ -63,11 +63,7 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 	\end{center}
 }{}
 
-\nt{
-	On omettera parfois de préciser que le repère est orthonormé.
-}
-
-\dfn{Plan cartésien}{
+\dfn{plan cartésien}{
 	Le plan cartésien est l'ensemble des couples $(x,y)$ de réels :
 		\[ \bigset{ (x, y) \text{ tq. } x, y\in\R }. \]
 }{dfn:plan-cartésien}
@@ -76,8 +72,17 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 	On appelle un élément $(x;y)$ du plan un \emphindex{point} et $x, y$ ses \emph{coordonnées}.
 }
 
+\nt{
+	On appelle la plus petite graduation le \emphindex{pas de graduation}.
+	Lorsqu'on trace un repère, le pas en abscisse n'est pas forcément le même que le pas en ordonnée : pour représenter les points $(-1 ; 35), (2 ; 70),$ et $(-2 ; -40)$, mieux vaut choisir un pas de $20$ en ordonnées.
+	
+	En outre, l'intersection des axes n'est pas forcément l'origine du repère : un repère peut commencer en $x=4$ et finir en $y=-10$ pour faciliter la représentation des points.
+	
+	\textbf{\warning Il est cependant important que le pas soit régulier.}
+}
+
 \exe{1}{
-	Tracer un repère et y placer les points suivants. Il est recommandé de calculer les coordonnées des points à placer avant de tracer le repère.
+	Tracer un repère et y placer les points suivants. Il est recommandé de calculer les coordonnées des points à placer avant de tracer le repère afin de décider d'un pas adéquat.
 	\begin{multicols}{2}
 	\begin{enumerate}[leftmargin=50pt]
 		\item $\point{A}{2}{3}$
@@ -105,9 +110,9 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 
 \section{Opérations sur les points}\label{sec:longueur-milieu}
 
-\subsection{Milieu}
+\subsection{Segment et milieu}
 
-\dfn{Segment}{
+\dfn{segment}{
 	Soient $E, F$ deux points du plan. Le segment $[EF]$ est l'ensemble des points de la droite $(AB)$ situés entre $A$ et $B$ (tous les deux inclus).
 }{deg:segment}
 
@@ -123,18 +128,11 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 		\begin{align}\label{expr:milieu}
 			M\left(\dfrac{x_A+x_B}2, \dfrac{y_A + y_B}2\right).
 		\end{align}
-}{thm:milieu-segment}
-
-\pf
-%{Démonstration de la proposition \ref{prop:milieu-segment}}{
-{justification}{
-	Le point $M$ est au centre du rectangle dont les coins sont $A$ et $B$.
-	Ainsi ses coordonnées sont les moyennes des coordonnées et $A$ et de $B$.
-	
-	\centering
+		
+	\begin{center}
 	\includegraphics[page=3, scale=1.1]{figures/fig-plan.pdf}
-	
-}
+	\end{center}
+}{thm:milieu-segment}
 
 \nt{
 	La formule \eqref{expr:milieu} du milieu du segment $[AB]$ ressemble de près à celle de la moyenne $\dfrac{a+b}2$ de deux nombres.
@@ -244,14 +242,26 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 }{exe:C-on-AB}{
 	TODO
 }
-\subsection{Norme}
+
+\subsection{Distance, longueur, et norme}
+
+\notations{
+	Pour deux points $A$ et $B$ du plan, on note $[AB]$ le \emphindex{segment} entre $A$ et $B$, et $AB$ la \emphindex{longueur} du segment.
+}
+
+\nt{
+	La \emphindex{longueur mesurée} d'un segment n'est pas la même si le repère choisi n'est pas orthonormé.
+	Pour se convaincre, placer le point $(10 ; 10)$ dans un repère orthonormé et un repère de pas 10, et comparer sa distance à l'origine.
+	
+	En pratique, on choisit rarement des pas identiques valant 1 unité : on ne peut alors pas mesurer la longueur d'un segment à l'aide d'une règle !
+}
 
 \notations{
 	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
 	On lit « $x$ au carré » ou « $x$ carré ».
 }
 
-\thm{Longueur d'un segment}{
+\thm{longueur d'un segment}{
 	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan dans un repère orthonormé.
 	La longueur $\ell$ du segment $[AB]$ vérifie
 		\[ \ell^2 = (x_A - x_B)^2 + (y_A - y_B)^2. \]
@@ -282,12 +292,36 @@ Un point sera alors un couple $(x,y)$ où $x,y \in \R$ sont deux nombres réels 
 		\[ \norm{u}^2 = x^2 + y^2. \]
 }{dfn:norme-carré}
 
+\exe{}{
+	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
+}{exe:norme}{
+	TODO
+}
+
 \mprop{reformulation du théorème \ref{thm:long-segment}}{
 	La longueur du segment $[AB]$ vérifie
 		\[ AB^2 = \norm{A - B}^2 = \norm{B - A}^2. \]
 }{prop:long-segment}
 
+\nomen{
+	On parle de \emphindex{distance} entre les points $A$ et $B$ pour la longueur $AB$.
+}
 
+\exe{}{
+	Montrer que la distance d'un point à l'origine est sa norme.
+}{exe:distO-norm}{
+	TODO
+}
+
+\nomen{
+	On dit d'un point $(x, y)$ du plan qu'il est à \emphindex{coordonnées entières} dès que $x, y \in \Z$ sont deux entiers relatifs.
+}
+
+\exe{, difficulty=2}{
+	Combien de points à coordonnées entières du plan sont à distance $5$ de l'origine du repère ?
+}{exe:norm5}{
+	TODO
+}
 
 
 \exe{, difficulty=1}{
