@@ -108,42 +108,64 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 	\end{center}
 }
 
-\section{Opérations sur les points}\label{sec:longueur-milieu}
+\section{Opérations dans le plan}\label{sec:longueur-milieu}
 
-\subsection{Segment et milieu}
+\subsection{Distance et norme}
 
-\dfn{segment}{
-	Soient $E, F$ deux points du plan. Le segment $[EF]$ est l'ensemble des points de la droite $(AB)$ situés entre $A$ et $B$ (tous les deux inclus).
-}{deg:segment}
-
-%\nt{
-%	Un segment du plan est une généralisation d'un intervalle sur la droite.
-%	Tous les segments du plans qui seront considérés contiennent leur bornes (contrairement aux intervalles !).
-%}
-
-\thm{admis}{
-	Soient $A(x_A, y_B)$ et $B(x_A,y_B)$ deux points du plan.
-	
-	Alors le milieu du segment $[AB]$ est le point $M$ de coordonnées
-		\begin{align}\label{expr:milieu}
-			M\left(\dfrac{x_A+x_B}2, \dfrac{y_A + y_B}2\right).
-		\end{align}
-		
-	\begin{center}
-	\includegraphics[page=3, scale=1.1]{figures/fig-plan.pdf}
-	\end{center}
-}{thm:milieu-segment}
+\notations{
+	Pour deux points $A$ et $B$ du plan, on note $AB$ la \emphindex{distance} entre $A$ et $B$.
+}
 
 \nt{
-	La formule \eqref{expr:milieu} du milieu du segment $[AB]$ ressemble de près à celle de la moyenne $\dfrac{a+b}2$ de deux nombres.
-	Pour simplifier les expressions, il sera alors pratique d'écrire
-		\[ M = \dfrac{A+B}2 = \dfrac12 A + \dfrac12 B.\]
-	Pour cela, il faut pouvoir additionner les points du plans, et les multiplier par des nombres réels.
+	La \emphindex{distance mesurée} n'est pas la même si le repère choisi n'est pas orthonormé.
+	Pour se convaincre, placer le point $(10 ; 10)$ dans un repère orthonormé et un repère de pas 10, et comparer sa distance à l'origine.
+	En pratique, on choisit rarement des pas identiques valant 1 unité, et on ne peut alors rien mesurer à l'aide d'une règle !
+}
+
+\notations{
+	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
+	On lit « $x$ au carré » ou « $x$ carré ».
+}
+
+\thm{distance}{
+	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan dans un repère orthonormé.
+	La distance $AB$ entre $A$ et $B$ vérifie
+		\[ AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2. \]
+}{thm:long-segment}
+
+\pf%{Démonstration du théorème \ref{thm:long-segment}}{
+{}{
+	Comme le repère est normé, on peut lire les distances sur les coordonnées.
+	En particulier, la distance en la première coordonnée entre $A$ et $B$ est soit $(x_A - x_B)$, soit son opposé $(x_B - x_A)$..
+	De la même façon, la distance en la deuxième coordonnée est $(y_A - y_B)$ ou $(y_B - y_A)$.
+	On a donc le dessin suivant.
+	
+	\begin{center}
+	\includegraphics[page=4, scale=1.1]{figures/fig-plan.pdf}
+	\end{center}
+	
+	Comme le repère est orthogonal, les axes sont perpendiculaires et le triangle est donc rectangle.
+	Le théorème de Pythagore s'applique donc. 
+	Remarquons que le carré ignore le signe $\bigl((-E)^2 = E^2 \bigr)$, et donc que $(x_A-x_B)^2 = (x_B - x_A)^2$.
+	Il suit que
+		\[ AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2, \]
+	ce qui conclut.
+}
+
+\dfn{norme}{
+	Soit $u = (x ; y)$ un point quelconque.
+	On définit le carré de sa \emph{norme}, $\norm{u}^2$, par
+		\[ \norm{u}^2 = x^2 + y^2. \]
+}{dfn:norme-carré}
+
+\exe{}{
+	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
+}{exe:norme}{
+	TODO
 }
 
 \dfn{manipulations des points}{
 	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan et $\kappa \in \R$ un nombre réel quelconque.
-	
 	Les opérations suivantes sont légales.
 		\begin{enumerate}
 			\item L'addition de deux points : $A+B$, de coordonées $(x_A+x_B, y_A+y_B)$.
@@ -151,7 +173,6 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 		\end{enumerate}
 	\textbf{\warning On ne multiplie jamais les points ensemble ! Le produit $A$ par $B$ n'a pas de sens.}
 }{def:manip-points}
-
 
 \ex{}{
 	Considérons $A(1;3)$ et $B(-3;2)$ deux points du plan.
@@ -168,148 +189,33 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 		\end{multicols}
 }{}
 
-\mprop{reformulation du théorème \ref{thm:milieu-segment}}{
-	Le milieu $M$ du segment $[AB]$ est égal à
-		\[ M = \dfrac{A+B}{2}. \]
-}{}
-
-\exe{}{
-	Considérons les points
-		\begin{align*}
-			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
-		\end{align*}
-	Démontrer que le quadrilatère $BACD$ est un parallélogramme en comparant le milieu de ses deux diagonales.
-	
-	\emph{Rappel : un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu}.
-}{exe:parallélogramme}{
-	Le milieu du segment $[BC]$ est donné par
-		\[ M = \dfrac12 (B+C) = (-1;-1),\]
-	et le milieu du segment $[AD]$ est donné par
-		\[ M' = \dfrac12 (A+D) = (-1;-1) = M.\]
-	Le quadrilatère est donc bien un parallélogramme.
-
-	\centering
-	\includegraphics[page=6]{figures/fig-exe.pdf}
-}
-
-\exe{, difficulty=1}{
-	Soient $\point{A}12$ et $\point{M}3{-1}$ deux points du plan.
-	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
-}{exe:milieu2}{
-	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
-		\begin{align*}
-			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
-		\end{align*}
-	Par suite,
-		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
-	
-}
-
-\exe{, difficulty=1}{
-	Soient $\point{A}{-\dfrac32}{\dfrac53}$ et $\point{M}{-\dfrac53}{-1}$ deux points du plan.
-	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
-}{exe:milieu2}{
-	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
-		\begin{align*}
-			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
-		\end{align*}
-	Par suite,
-		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
-	
-}
-
-\exe{}{
-	Représenter les points $A(1;1)$ et $B(3;-1)$ dans un repère orthonormé.
-	Représenter le point
-		\[ \lambda A + (1-\lambda)B, \]
-	pour certaines valeurs de $\lambda \in [0;1]$.
-	
-	Quel $\lambda$ choisir pour obtenir 
-		\begin{multicols}{2}
-		\begin{itemize}
-			\item le point $A$ ?
-			\item le point $B$ ?
-			\item le milieu du segment $[AB]$ ?
-			\item le point $C\left(\dfrac32; \dfrac12\right)$ ?
-		\end{itemize}
-		\end{multicols}
-}{exe:milieu-segment}{
-	TODO
-}
-
-\exe{, difficulty=2}{
-	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(3;1)$ et $B(-4;-1)$ ?
-}{exe:C-on-AB}{
-	TODO
-}
-
-\subsection{Distance, longueur, et norme}
-
-\notations{
-	Pour deux points $A$ et $B$ du plan, on note $[AB]$ le \emphindex{segment} entre $A$ et $B$, et $AB$ la \emphindex{longueur} du segment.
-}
-
-\nt{
-	La \emphindex{longueur mesurée} d'un segment n'est pas la même si le repère choisi n'est pas orthonormé.
-	Pour se convaincre, placer le point $(10 ; 10)$ dans un repère orthonormé et un repère de pas 10, et comparer sa distance à l'origine.
-	
-	En pratique, on choisit rarement des pas identiques valant 1 unité : on ne peut alors pas mesurer la longueur d'un segment à l'aide d'une règle !
-}
-
-\notations{
-	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
-	On lit « $x$ au carré » ou « $x$ carré ».
-}
-
-\thm{longueur d'un segment}{
-	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan dans un repère orthonormé.
-	La longueur $\ell$ du segment $[AB]$ vérifie
-		\[ \ell^2 = (x_A - x_B)^2 + (y_A - y_B)^2. \]
-}{thm:long-segment}
-
-\pf%{Démonstration du théorème \ref{thm:long-segment}}{
-{}{
-	Comme le repère est normé, on peut lire les distances sur les coordonnées.
-	En particulier, la distance en la première coordonnée entre $A$ et $B$ est soit $(x_A - x_B)$, soit son opposé $(x_B - x_A)$..
-	De la même façon, la distance en la deuxième coordonnée est $(y_A - y_B)$ ou $(y_B - y_A)$.
-	On a donc le dessin suivant.
-	
-	\begin{center}
-	\includegraphics[page=4, scale=1.1]{figures/fig-plan.pdf}
-	\end{center}
-	
-	Comme le repère est orthogonal, les axes sont perpendiculaires et le triangle est donc rectangle.
-	Le théorème de Pythagore s'applique donc. 
-	Remarquons que le carré ignore le signe ($(-x)^2 = x^2$), et donc que $(x_A-x_B)^2 = (x_B - x_A)^2$.
-	Il suit que
-		\[ \ell^2 = (x_A - x_B)^2 + (y_A - y_B)^2, \]
-	ce qui conclut.
-}
-
-\dfn{norme}{
-	Soit $u = (x ; y)$ un point quelconque.
-	On définit le carré de sa \emph{norme}, $\norm{u}^2$, par
-		\[ \norm{u}^2 = x^2 + y^2. \]
-}{dfn:norme-carré}
-
-\exe{}{
-	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
-}{exe:norme}{
-	TODO
-}
-
 \mprop{reformulation du théorème \ref{thm:long-segment}}{
-	La longueur du segment $[AB]$ vérifie
+	La distance $AB$ entre $A$ et $B$ vérifie
 		\[ AB^2 = \norm{A - B}^2 = \norm{B - A}^2. \]
 }{prop:long-segment}
 
-\nomen{
-	On parle de \emphindex{distance} entre les points $A$ et $B$ pour la longueur $AB$.
+\exe{}{
+	On considère le triangle de sommets $A(1;2), B(-3 ; 5), C(-5 ; -6)$.
+	Calculer les carrés de chacun des côtés. Que dire du triangle ?
+}{exe:Trex}{
+	TODO
 }
 
 \exe{}{
 	Montrer que la distance d'un point à l'origine est sa norme.
 }{exe:distO-norm}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que $AB = 0$ si et seulement si $A=B$.
+}{exe:norm0}{
+	TODO
+}
+
+\exe{}{
+	Tracer dans un repère l'ensemble des points à distance 3 de l'origine.
+}{exe:C03}{
 	TODO
 }
 
@@ -396,3 +302,111 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 		\end{align*}
 		\end{multicols}
 }{}
+
+\subsection{Segment et milieu}
+
+\exe{}{
+	Représenter les points $A(1;1)$ et $B(3;-1)$ dans un repère orthonormé.
+	Représenter le point
+		\[ \lambda A + (1-\lambda)B, \]
+	pour certaines valeurs de $\lambda$ entre 0 et 1.
+	
+	Quel $\lambda$ choisir pour obtenir 
+		\begin{multicols}{2}
+		\begin{itemize}
+			\item le point $A$ ?
+			\item le point $B$ ?
+			%\item le milieu du segment $[AB]$ ?
+			\item le point $C\left(\dfrac32; \dfrac12\right)$ ?
+		\end{itemize}
+		\end{multicols}
+}{exe:milieu-segment}{
+	TODO
+}
+
+\dfn{segment}{
+	Soient $E, F$ deux points du plan. Le segment $[EF]$ est l'ensemble des points suivant.
+		\[ [EF] = \Bigset{ \lambda E + (1-\lambda)F \tq 0 \leq \lambda \leq 1 } \]
+}{deg:segment}
+
+\nt{
+	La définition prend son sens en voyant l'expression $\lambda E + (1-\lambda)F$ comme une moyenne pondérée de $E$ et de $F$.
+	La somme des poids vaut toujours 1 dans une moyenne et, lorsque les poids sont égaux, on obtient la moyenne classique du théorème suivant.
+}
+
+%\nt{
+%	Un segment du plan est une généralisation d'un intervalle sur la droite.
+%	Tous les segments du plans qui seront considérés contiennent leur bornes (contrairement aux intervalles !).
+%}
+
+\thm{}{
+	Soient $A(x_A, y_B)$ et $B(x_A,y_B)$ deux points du plan.
+	Alors le milieu $M$ du segment $[AB]$ est $M = \dfrac{A+B}{2}.$
+		
+	\begin{center}
+	\includegraphics[page=3, scale=1.1]{figures/fig-plan.pdf}
+	\end{center}
+}{thm:milieu-segment}
+
+\pf{}{
+	Le point $P = \dfrac12 A + \dfrac12 B$ appartient au segment $[AB]$ (en prenant $\lambda=\frac12$), et vérifie
+		\begin{align*}
+			\norm{P-A}^2 &= \norm{ \dfrac12 A + \dfrac12 B - A}^2, \\
+						&=  \norm{\dfrac12 B  -\dfrac12 A}^2, \\
+						&=  \norm{\dfrac12 A  -\dfrac12 B}^2
+						= \norm{P - B}^2,
+		\end{align*}
+	où on a utilisé que $\norm{E-F} = \norm{F-E}$ pour la troisième égalité.
+	Le point $P$ est donc à équidistance de $A$ et $B$ et c'est le milieu du segment : $M = P = \dfrac{A+B}2$.	
+}{}
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
+		\end{align*}
+	Démontrer que le quadrilatère $BACD$ est un parallélogramme en comparant le milieu de ses deux diagonales.
+	
+	\emph{Rappel : un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu}.
+}{exe:parallélogramme}{
+	Le milieu du segment $[BC]$ est donné par
+		\[ M = \dfrac12 (B+C) = (-1;-1),\]
+	et le milieu du segment $[AD]$ est donné par
+		\[ M' = \dfrac12 (A+D) = (-1;-1) = M.\]
+	Le quadrilatère est donc bien un parallélogramme.
+
+	\centering
+	\includegraphics[page=6]{figures/fig-exe.pdf}
+}
+
+\exe{, difficulty=1}{
+	Soient $\point{A}12$ et $\point{M}3{-1}$ deux points du plan.
+	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+		\end{align*}
+	Par suite,
+		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+	
+}
+
+\exe{, difficulty=1}{
+	Soient $\point{A}{-\dfrac32}{\dfrac53}$ et $\point{M}{-\dfrac53}{-1}$ deux points du plan.
+	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+		\end{align*}
+	Par suite,
+		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+	
+}
+
+\exe{, difficulty=2}{
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(3;1)$ et $B(-4;-1)$ ?
+}{exe:C-on-AB}{
+	TODO
+}
