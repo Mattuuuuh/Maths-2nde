@@ -29,6 +29,9 @@ dot/.default = black % size of the circle diameter
 \input{../letterfonts}
 
 
+\usetikzlibrary{calc} 
+\usetikzlibrary{patterns} 
+\usetikzlibrary{patterns.meta}
 
 \tikzset{
 	every node/.style = {font=\Large}
@@ -76,19 +79,20 @@ dot/.default = black % size of the circle diameter
 	
 	% page 2
 	\begin{tikzpicture}[scale=1]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {opposé};
-		\draw[-, thick, black] (3,0) -- (3,2);
+		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {adjacent};
+		\draw[-, thick, black] (3,0) -- (3,2) node[midway, below, rotate=90] {opposé};
 		\draw[-, thick, black] (3,2) -- (0,0) node[midway, rotate=33.69, above]{hypoténuse};
 		
 		\node[black, left] at  (0,0) {};
 		\node[black, below] at  (3,0) {};
 		\node[black, above] at  (3,2) {};
 		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3) -- (2.7,0);
+		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
 		
 		% angle
 		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)});
-		\node[black, right] at  (0.5,.2) {$\alpha$};
+		\node[black, right] at  (0.45,.2) {$\alpha$};
 		
 		% %
 		
@@ -329,5 +333,127 @@ dot/.default = black % size of the circle diameter
 	
 	\draw[-, thick] (1.979,0) -- (1.979, .2) -- (2.179, .2);
 	\end{tikzpicture}
+	
+	% page 16
+	\begin{tikzpicture}[scale=1]
+	
+	% triangle
+	\draw[-, very thick] (0,0) coordinate (A) node[left]{$A$}
+		-- (4, .5) coordinate (C) node[right]{$C$}
+		-- (1,2) coordinate (B) node[above]{$B$}
+		-- cycle;
+	
+	\draw[- , thick, decorate, decoration = {brace, mirror, raise=3pt}] (A) -- (C) node[midway,below=5pt,rotate=7]{104};
+	\draw[- , thick] (B)--(C) node[midway,above,rotate=-26]{\underline{96}};
+	
+	%hauteur
+	\draw[-, very thick, BLUE_E] (B) -- (80/65, 10/65) coordinate (H) node[above left] {$H$}; 
+	
+	% angles droits
+	\draw[-, thick, RED_E] ($(H)+.07*(C)$) -- ($(H)+.07*(C) + .15*(B)-.15*(H)$) -- ($(H) + .15*(B)-.15*(H)$) ;
+	
+	\draw[-, thick, RED_E] ($(B) + .08*(C) - .08*(B)$) -- ($(B) + .08*(C) - .08*(B) - .12*(B)$) -- ($(B) - .12*(B)$) ;
+	
+	\end{tikzpicture}
+	
+	% page 17
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
+		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
+	
+		\node[black] at (1, 3/8) {$\bullet$};
+		\node[black, above] at (1, 3/8) {$A$};
+		
+		\node[black] at (1.5, 24/9) {$\bullet$};
+		\node[black, above] at  (1.5, 24/9) {$B$};
+	\end{tikzpicture}
+	
+	% page 18
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 1) node[below]{$(d)$};
+		\draw[-, thick, black] (0,1) -- (8, -2) node[below]{$(d')$};
+	
+		\node[black] at (7, 7/8) {$\bullet$};
+		\node[black, above] at  (7, 7/8)  {$A$};
+	\end{tikzpicture}
+	
+	% page 19
+	\begin{tikzpicture}
+		\draw[-, thick, black] (0,0) node{$\bullet$} -- (2.8, -1.2) node{$\bullet$};
+		\draw[-, thick, black] (2.8,-1.2) node{$\bullet$} -- (4, 1.5) node{$\bullet$};
+		\draw[-, thick, black] (4, 1.5) node{$\bullet$} -- (1.95,3) node{$\bullet$};
+		\draw[-, thick, black] (1.95,3) node{$\bullet$} -- (.3,2.3)  node{$\bullet$};
+		\draw[-, thick, black] (.3,2.3) node{$\bullet$} -- (0,0) node{$\bullet$};
+		
+		\node[black, below] at  (0,0)  {$A$};
+		\node[black, right] at  (2.8,-1.2)  {$B$};
+		\node[black, right] at  (4, 1.5)  {$C$};
+		\node[black, above] at  (1.95,3)  {$D$};
+		\node[black, left] at (.3,2.3)  {$E$};
+		
+		
+		\node[black, above] at (1.2, 1) {$M$};
+		\node[black] at (1.2, 1) {$\times$};
+	
+	\end{tikzpicture}
+	
+	% page 20
+	\begin{tikzpicture}[scale=1]
+		\draw[-, thick, black] (0,0) node{$\bullet$} -- (1.5,0) node[midway, below] {$a_1$};
+		\draw[-, thick, black] (1.5,0) -- (4,0) node[midway, below] {$a_2$};
+		\draw[-, thick, black] (4, 0) node{$\bullet$} -- (1.5,3) node[midway, right] {$b$};
+		\draw[-, thick, black] (1.5,3) node{$\bullet$}-- (0,0) node[midway, left] {$c$};
+		
+		\node[black, left] at  (0,0) {$B$};
+		\node[black, right] at  (4,0) {$C$};
+		\node[black, above] at  (1.5,3) {$A$};
+		
+		\draw[-, thick, black] (1.5,0)-- (1.5,3) node[midway, right] {$h$};
+		
+		% angle droit
+		\draw[-, thick, black] (1.5,.3)-- (1.8,.3);
+		\draw[-, thick, black] (1.8,.3)-- (1.8,0);
+		
+		% angle
+		\draw [black,thick,domain=130:180] plot ({4+.5*cos(\x)}, {.5*sin(\x)})
+		node[left=5pt, above] {$\gamma$};
+	\end{tikzpicture}
+	
+	% page 21
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = 0, xmax=2.1, ymin=0, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		
+			\draw[draw=none, pattern={Lines[angle=-45,distance=8pt]}, pattern color=GREEN] (axis cs:0,0) rectangle ++(axis cs:1.25,1.561);
+		
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=0:2, samples=101]{sqrt(4-x^2)};
+			\addplot[black, mark=*, mark size = 1, thick] (1.25, 1.561) node[above right] {$P$};
+			
+			
+			\addplot[-, thick, dashed, RED_E] expression[domain=0:1.25, samples=2]{1.561/1.25*x};
+			
+			\addplot[RED_E, -, very thick, dashed] expression[domain=0.13:.2, samples=101]{sqrt(.04-x^2)}
+			node[right, pos=.2] {$\theta$};
+			
+			\addplot[black, -, thick] expression[domain=0:1.25, samples=2]{1.561};
+			\draw[black, thick] (axis cs:1.25, 0) -- (axis cs:1.25,1.561);
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 22
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = 0, xmax=2.1, ymin=0, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		
+			\draw[draw=none,pattern={Lines[angle=-45,distance=8pt]}, pattern color=GREEN] (axis cs:0,0) rectangle ++(axis cs:1.25,1.561);
+			
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=0:2, samples=101]{sqrt(4-x^2)};
+			\addplot[black, mark=*, mark size = 1, thick] (1.25, 1.561) node[above right] {$P({\color{PURPLE}x};{\color{RED_E}y})$};
+			
+			\addplot[RED_E, -, thick] expression[domain=0:1.25, samples=2]{1.561};
+			\draw[very thick, dashed, PURPLE] (axis cs:1.25, 0) -- (axis cs:1.25,1.561)
+			node[above right, pos=0] {$x$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 23
 %
 \end{document}

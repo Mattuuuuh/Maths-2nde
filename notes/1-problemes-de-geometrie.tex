@@ -9,15 +9,50 @@
 	Dans cette section, et en mathématiques en général, les adjectifs \og orthogonal \fg \, et \og perpendiculaire \fg \, sont synonymes.
 	On parlera alors de projeté orthogonal d'un point sur une droite lorsque les droites engendrées sont perpendiculaires.
 
-\dfn{Projeté orthogonal}{
+\dfn{projeté orthogonal}{
 	Le \emphindex{projeté orthogonal} d'un point $M$ sur une droite $(d)$ est l'\emph{unique} point $M'$ tel que les droites $(MM')$ et $(d)$ soient perpendiculaires.
 }{}
 
 	\begin{center}
 	\includegraphics[page=8]{figures/fig-geom.pdf}
 	\end{center}
+	
+	
+\exe{}{
+	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
+	À l'aide uniquement d'un compas, tracer le projeté orthogonal du point sur la droite.
+}{exe:proj-compas}{
+	TODO
+}
 
-\thm{Distance minimale}{
+\exemulticols{}{
+	\begin{center}
+	\includegraphics[page=17]{figures/fig-geom.pdf}
+	\end{center}
+}{	
+	Dans la figure ci-dessous, tracer un point $C$ tel que $A$ soit le projeté orthogonal de $C$ sur $(d)$ et que $B$ soit le projeté orthogonal de $C$ sur $(d')$.
+}{exe:proj-inv}{
+	TODO
+}
+
+
+\exe{}{
+	Dans la figure ci-dessous, tracer
+		\begin{enumerate}
+			\item le point $B$, projeté orthogonal de $A$ sur $(d')$ ;
+			\item le point $C$, projeté orthogonal de $B$ sur $(d)$ ; et
+			\item le point $D$, projeté orthogonal de $C$ sur $(d')$.
+		\end{enumerate}
+	Que dire des droites $(AB)$ et $(CD)$ ? Justifier.
+	\begin{center}
+	\includegraphics[page=18]{figures/fig-geom.pdf}
+	\end{center}
+}{exe:proj2}{
+	TODO
+}
+	
+
+\thm{distance minimale}{
 	Le point $M'$, projeté orthogonal de $M$ sur $(d)$, est l'\emph{unique} point de $(d)$ le plus proche de $M$.
 	
 	Autrement dit, $M'$ est l'\emph{unique} minimiseur de la distance à $M$ en restant sur $(d)$.
@@ -46,8 +81,31 @@
 	$M'$ est donc bien l'unique point de $(d)$ le plus proche de $M$.
 }
 
-\ex{Hauteur d'un triangle}{
-	Pour calculer l'aire d'un triangle on crée un rectangle grâce à sa hauteur et, par symétrie, on déduit que
+\exemulticols{}{
+	Un homme est dans une salle pentagonale comme schématisé ci-contre.
+	Celui-ci souhaite toucher les murs $[AB], [CD], [AE], [BC],$ et $[ED]$ dans cet ordre en effectuant le trajet le plus court à chaque déplacement.
+	Tracer ses déplacements sur la figure si son point de départ est le point $M$.
+}{
+	\begin{center}
+	\includegraphics[page=19]{figures/fig-geom.pdf}
+	\end{center}	
+}{exe:rayon-lumen}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	On considère une droite $(d)$ et les points $A$ et $B$ distincts n'appartenant pas à la droite $(d)$.
+	On note $A'$ et $B'$ les projetés orthogonaux respectifs des points $A$ et $B$ sur la droite $(d)$.
+	
+	Calculer la longueur $AB$ sachant que $AA' =1, BB' = 5$, et $A'B' = 4$. 
+	Distinguer deux cas selon que les points sont ou non du même côté de $(d)$.
+
+}{exe:proj-d}{
+	TODO
+}
+
+\ex{hauteur d'un triangle}{
+	Pour calculer l'aire d'un triangle on crée un rectangle grâce à \emph{une} de ses hauteurs et, par symétrie, on déduit que
 		\[ \text{Aire}(\text{triangle}) = \dfrac{\text{base} \cdot \text{hauteur}}2. \]
 	
 	\begin{center}
@@ -61,6 +119,21 @@
 	
 }{}
 
+\exemulticols{}{
+	Soit $ABC$ le  triangle rectangle ci-contre, avec $BH$ une de ses hauteurs.
+	\begin{enumerate}[label=\alph*.]
+		\item Calculer $AB$.
+		\item Calculer l'aire du triangle $ABC$.
+		\item En déduire $BH$.
+	\end{enumerate}
+}{
+	\begin{center}
+	\includegraphics[page=16, scale=1.1]{figures/fig-geom.pdf}
+	\end{center}
+}{exe:aire-hauteur}{
+	TODO
+}
+
 \section{Trigonométrie}
 
 Les angles sont généralement dénotés par des lettres grecques minuscules.
@@ -69,9 +142,15 @@ Les angles sont généralement dénotés par des lettres grecques minuscules.
 		\theta &: \text{\og theta \fg} &  \delta &: \text{\og delta \fg} & \omega &: \text{\og omega \fg}
 	\end{align*}
 
+
+
+\subsection{Théorème de Thalès}
+
 On rappelle les formules de trigonométrie uniquement applicables dans un triangle rectangle.
 \warning\textbf{Les côtés opposé et adjacent dépendent de l'angle choisi.}
 
+
+\dfn{}{
 	\begin{align*}
 		\text{sinus} = \dfrac{\text{côté opposé}}{\text{hypoténuse}}
 		&& 
@@ -79,16 +158,31 @@ On rappelle les formules de trigonométrie uniquement applicables dans un triang
 		&&
 		\text{tangente} = \dfrac{\text{côté opposé}}{\text{côté adjacent}}
 	\end{align*}
-	
+
 	\begin{center}
 	\includegraphics[page=10, scale=1]{figures/fig-geom.pdf}
-	\hspace{30pt}
+	\hspace{60pt}
 	\includegraphics[page=11, scale=1]{figures/fig-geom.pdf}
 	\end{center}
 Moyens mnémotechniques : 
 	\begin{center}
 	SOH CAH TOA ou CAH SOH TOA.
 	\end{center}
+
+}{dfn:sin-cos-tan}
+
+% à supprimer ? on a le quart de cercle trigonométrique de toute façon
+Ces formules sont en fait une conséquence du théorème de Thalès : en connaissant deux angles et un côté d'un triangle, on peut l'agrandir ou le rapetisser pour maintenir les proportions et les angles et se ramener à un triangle rectangle étalon d'hypoténuse de longueur $1$.
+
+	\begin{center}
+	\includegraphics[page=2, scale=1]{figures/fig-geom.pdf}
+	\end{center}
+
+En effet, les deux triangles ci-dessus sont semblables (on obtient l'un en (dé)zoomant l'autre), et en \emph{définissant} les longueur des côtés du deuxième par $\cos(\alpha)$ et $\sin(\alpha)$, le théorème de Thalès nous donne, par exemple,
+	\[ \dfrac{\cos(\alpha)}{1} = \dfrac{\text{adjacent}}{\text{hypoténuse}}. \]
+
+En conclusion, le cosinus, le sinus, et la tangente sont donc en fait une banque de données de longueurs de côtés d'un triangle particulier qu'on a mesuré à l'avance.
+Certaines formules mathématiques permettent de calculer exactement ces valeurs, mais en général elle sont approximatives (mais aussi précises qu'on le souhaite !) et il n'existe pas de formule compacte pour les exprimer.
 
 Remarquons immédiatement qu'on a la relation
 	\begin{align*}
@@ -105,19 +199,39 @@ Remarquons immédiatement qu'on a la relation
 		\[ \tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}. \]
 }{}
 
-\subsection{Théorème de Thalès}
-	
-Ces formules sont en fait une conséquence du théorème de Thalès : en connaissant deux angles et un côté d'un triangle, on peut l'agrandir ou le rapetisser pour maintenir les proportions et les angles et se ramener à un triangle rectangle étalon d'hypoténuse de longueur $1$.
-
+\exemulticols{, difficulty=1}{
+	Soit un triangle $ABC$ quelconque représenté ci-contre. On pose $a=a_1 + a_2 = BC$.
+	Monter que
+		$\text{Aire}(ABC) = \dfrac12 ab \sin(\gamma). $
+}{
 	\begin{center}
-	\includegraphics[page=2, scale=1]{figures/fig-geom.pdf}
+	\includegraphics[page=20]{figures/fig-geom.pdf}
 	\end{center}
+}{exe:formule-aire}{
+	TODO
+}
 
-En effet, les deux triangles ci-dessus sont semblables (on obtient l'un en (dé)zoomant l'autre), et en \emph{définissant} les longueur des côtés du deuxième par $\cos(\alpha)$ et $\sin(\alpha)$, le théorème de Thalès nous donne, par exemple,
-	\[ \dfrac{\cos(\alpha)}{1} = \dfrac{\text{opposé}}{\text{hypoténuse}}. \]
+\exe{, difficulty=2}{
+	On souhaite généraliser le théorème de Pythagore aux triangles non nécessairement rectangles.
+	Considérons donc le triangle $ABC$ de l'exercice \ref{exe:formule-aire}.
+	
+	\begin{enumerate}
+		\item Montrer d'abord que 
+			\begin{align*} h = b \sin(\gamma), && \text{ et } && a_2 = b \cos(\gamma). \end{align*}
+		\item
+		Utilise le théorème de Pythagore pour obtenir
+			\begin{align*}
+				c^2 &= h^2 + a_1^2, \\
+				b^2 &= h^2 + a_2^2. 
+			\end{align*}
+		\item
+		Utiliser $a_1 = a - a_2$ et les expressions obtenues pour conclure que
+			\[ c^2 = a^2 + b^2 - 2ab \cos(\gamma). \]
+	\end{enumerate}
+}{exe:al-kashi}{
+	TODO
+}
 
-En conclusion, le cosinus, le sinus, et la tangente sont donc en fait une banque de données de longueurs de côtés d'un triangle particulier qu'on a mesuré à l'avance.
-Certaines formules mathématiques permettent de calculer exactement ces valeurs, mais en général elle sont approximatives (mais aussi précises qu'on le souhaite !) et il n'existe pas de formule compacte pour les exprimer.
 
 \subsection{Quart de cercle trigonométrique}
 
@@ -160,6 +274,56 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 			\cos^2(\theta) + \sin^2(\theta) = 1.
 		\end{gather*}
 }{thm:c2-s2}
+
+\exe{}{
+	On considère un point $P$ sur un quart de cercle de rayon $2$ et de centre $O$, l'origine d'un repère.
+	On pose $\theta \in [0; 90\degree]$ l'angle entre la droite $(OP)$ et l'axe des abscisses.
+	Chaque choix de $\theta$ correspond donc à un point et aussi à un rectangle comme représentés ci-dessous.
+	
+	\begin{center}
+	\includegraphics[page=21]{figures/fig-geom.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item
+		Montrer que l'aire $f(\theta)$ du rectangle est donnée par 
+			\[ f(\theta) = 4 \cos(\theta) \sin(\theta). \]
+		\item
+		On souhaite choisir un angle $\theta \in [0; 90\degree]$ qui maximise l'aire $f(\theta)$.
+		Justifier qu'on puisse se restreindre à chercher $\theta$ dans $[0 ; 45\degree]$.
+		
+		\item
+		On admet que, pour tous les angles $\theta \in [0 ; 45\degree]$,
+			\[ \cos(\theta) \sin(\theta) = \dfrac12 \sin(2\theta). \]
+		Utiliser cette identité pour trouver le maximum de $f$ et l'angle $\theta$ qui le réalise.
+		
+		\item
+		En déduire les coordonnées du point $P$ sur l'arc de cercle pour lequel l'aire est maximale.
+	\end{enumerate}
+}{exe:cossin}{
+	TODO
+}
+
+\exe{}{
+	On considère exactement la même situation qu'à l'exercice précédent mais cette fois ci en prenant $x$ l'abscisse du point $P$ du quart de cercle comme paramètre.
+	On a donc $x \in [0; 2]$.
+	
+	\begin{center}
+	\includegraphics[page=22]{figures/fig-geom.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Montrer que l'aire du rectangle est donnée par
+			\[ g(x) = x \sqrt{4-x^2}. \]
+		\item
+			Estimer la valeur de $x$ qui maximise $g$.
+		\item
+			Déduire de l'exercice précédent que $f(x)$ est maximal en $x=\sqrt{2}$.
+	\end{enumerate}
+}{exe:cossin2}{
+	TODO
+}
+
 
 \section{Calculs exacts}
 
@@ -453,7 +617,34 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		Montrer que $\Qsqrt{2} \neq \R$ en montrant que $\sqrt3 \not\in \Qsqrt{2}$.
 	\end{enumerate}
 } {exe:Qsqrt2}{
-	TODO
+	\begin{enumerate}
+		\item
+		Si $r=s=0$, alors on a immédiatement $x=0$.
+		
+		Réciproquement, si $x=0$, alors $r+s\sqrt2 = 0$.
+		Si $s$ est non nul, on trouve $\sqrt2 = -\dfrac{r}s$, ratio de deux rationnels et donc rationnel.
+		Or $\sqrt2$ est un nombre irrationnel, donc c'est impossible.
+		Ainsi $s=0$ et $r=0$.
+		
+		\item
+		Si $x\neq0$, alors 
+			\[ \dfrac1x = \dfrac1{r+s\sqrt2} = \dfrac{r-s\sqrt2}{r^2 - 2s^2} = \dfrac{r}{r^2 - 2s^2} - \dfrac{s}{r^2 - 2s^2} \sqrt2 \in \Qsqrt{2}, \]
+		où on a utilisé que le produit et la somme de rationnels est rationnel.
+		
+		\item
+		Posons $y= a + b\sqrt2$ avec $a, b\in\Q$.
+		Alors $x\cdot y = (r+s\sqrt2)(a+b\sqrt2) = (ra + 2sb) + (rb + sa)\sqrt2 \in \Qsqrt{2}$.
+		
+		\item
+		Supposons par l'absurde que $\sqrt3\in\Qsqrt2$.
+		Alors pour certains $r, s\in\Q$, on a $\sqrt3 = r+s\sqrt2$.
+		Remarquons qu'on a $s\neq0$, car $\sqrt3$ n'est pas rationnel.
+		
+		En mettant au carré, on trouve $3 = r^2 + 2s^2 + 2rs\sqrt2$.
+		Si $r \neq 0$, on obtient $\sqrt2 = \dfrac{3-r^2 -2s^2}{2rs} \in \Q$, ce qui n'est pas possible.
+		Il suit donc que $r=0$, et donc que $\sqrt3 = s\sqrt2 \iff \sqrt6 = 2s$.
+		Ainsi $\sqrt6 \in\Q$, ce qui n'est pas vrai non plus. \Large\Lightning
+	\end{enumerate}
 }
 
 \nt{
