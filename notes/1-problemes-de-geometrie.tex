@@ -18,7 +18,7 @@
 	\end{center}
 	
 	
-\exe{}{
+\exe{1}{
 	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
 	À l'aide uniquement d'un compas, tracer le projeté orthogonal du point sur la droite.
 }{exe:proj-compas}{
@@ -201,11 +201,12 @@ Remarquons immédiatement qu'on a la relation
 
 \exemulticols{, difficulty=1}{
 	Soit un triangle $ABC$ quelconque représenté ci-contre. On pose $a=a_1 + a_2 = BC$.
+	
 	Monter que
 		$\text{Aire}(ABC) = \dfrac12 ab \sin(\gamma). $
 }{
 	\begin{center}
-	\includegraphics[page=20]{figures/fig-geom.pdf}
+	\includegraphics[page=20, scale=.7]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:formule-aire}{
 	TODO
@@ -216,24 +217,49 @@ Remarquons immédiatement qu'on a la relation
 	Considérons donc le triangle $ABC$ de l'exercice \ref{exe:formule-aire}.
 	
 	\begin{enumerate}
-		\item Montrer d'abord que 
-			\begin{align*} h = b \sin(\gamma), && \text{ et } && a_2 = b \cos(\gamma). \end{align*}
+		\item Montrer d'abord que $a_2 = b \cos(\gamma)$.
+			%\begin{align*} h = b \sin(\gamma), && \text{ et } && a_2 = b \cos(\gamma). \end{align*}
 		\item
-		Utilise le théorème de Pythagore pour obtenir
-			\begin{align*}
-				c^2 &= h^2 + a_1^2, \\
-				b^2 &= h^2 + a_2^2. 
-			\end{align*}
+		Donner les identités de Pythagore dans les deux triangles rectangles $HAC$ et $BAH$, où $H$ est le projeté orthogonal de $A$ sur $(BC)$.
 		\item
 		Utiliser $a_1 = a - a_2$ et les expressions obtenues pour conclure que
 			\[ c^2 = a^2 + b^2 - 2ab \cos(\gamma). \]
 	\end{enumerate}
 }{exe:al-kashi}{
+	Posons $H$ le projeté orthogonal de $A$ sur $(BC)$.
+	\begin{enumerate}
+		\item 
+			Le résultat est obtenu par trigonométrie dans le triangle rectangle $HAC$.
+		\item
+		On obtient
+			\begin{align*}
+				c^2 &= h^2 + a_1^2, \\
+				b^2 &= h^2 + a_2^2. 
+			\end{align*}
+		\item
+		En partant de la gauche on a 
+			\begin{align*}
+				c^2 &= h^2 + a_1^2, \\
+					&= h^2 + (a-a_2)^2, \\
+					&= h^2 + a_2^2 + a^2 - 2aa_2, \\
+					&= b^2 + a^2 - 2ab\cos(\gamma),
+			\end{align*}
+		comme requis.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Soit un triangle aux angles $\alpha, \beta, \gamma$ opposés au côtés de longueur $a, b, c$.
+	En considérant d'abord la hauteur $h$ partageant l'angle $\gamma$, montrer que $h = a\sin\beta = b\sin\alpha$.
+	
+	En déduire la \emphindex{loi des sinus} :
+		\[ \dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta} = \dfrac{c}{\sin\gamma}. \]
+}{exe:loi-sinus}{
 	TODO
 }
 
-
 \subsection{Quart de cercle trigonométrique}
+\label{sec:quart-trigo}
 
 Considérons, dans le quadrant supérieur-droit d'un repère d'origine $O$, un quart de cercle de rayon $1$.
 On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du quart de cercle tel que l'angle entre $(OP)$ et l'axe des abscisse soit $\theta$.
@@ -263,13 +289,14 @@ Dans ce contexte, on déduit naturellement le théorème suivant, après une int
 }{}
 
 \thm{}{
-	Soit $\theta \in [0; 90\degree]$ un angle aigu ou droit.
+	Soit $\theta \in [0\degree; 90\degree]$ un angle aigu ou droit.
 	Alors, 
 		\begin{align*}
 			0 \leq \cos(\theta) \leq 1, &&
 			0 \leq \sin(\theta) \leq 1,
 		\end{align*}
-	et
+	avec $\sin(0\degree) = 0, \sin(90\degree) = 1$ et $\cos(0\degree) = 1, \cos(90\degree) = 0$.
+	De plus,
 		\begin{gather*}
 			\cos^2(\theta) + \sin^2(\theta) = 1.
 		\end{gather*}
@@ -416,7 +443,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Concernant l'écriture décimale d'un nombre irrationnel, voir le théorème \ref{thm:décimal-périodique}.
 }
 
-\exe{1 , difficulty=2}{
+\exe{, difficulty=2}{
 	Démontrer le théorème \ref{thm:sqrt-irrational}.
 }{exe:sqrt-irrational}{
 	Si $\sqrt{d} = \dfrac{a}{b}$, alors $a^2 = d\cdot b^2$.
