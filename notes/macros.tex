@@ -173,6 +173,7 @@
 \newcommand{\et}{\text{ et }}
 \newcommand{\ou}{\text{ ou }}
 \newcommand{\pourtout}{\text{ pour tout }}
+\newcommand{\sct}{\text{ sachant }}
 
 % Lois
 \newcommand{\Bern}{\text{Bern}}
@@ -208,3 +209,14 @@
 
 % emph + index
 \newcommand{\emphindex}[1]{\emph{#1}\index{#1}}
+
+% tableau croisé
+\newcommand{\tableaucroise}[4]{
+\begin{tabular}{|c|c|c|c|}
+	\cline{2-4}
+	\multicolumn{1}{c|}{} & #1 \\ \hline
+	#2 \\ \hline
+	#3  \\ \hline
+	#4  \\ \hline
+\end{tabular}
+}

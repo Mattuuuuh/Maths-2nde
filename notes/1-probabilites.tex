@@ -52,6 +52,69 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 	TODO
 }
 
+\exe{}{
+	Donner l'univers $\Omega$ de chacune des expériences aléatoires suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=---]
+		\item Un lancer de dé équilibré à six faces.
+		\item Un lancer de dé pipé (truqué) à six faces.
+		\item Un lancer de pièce de monnaie.
+		\item Deux lancers de dés  à $6$ faces simultanés.
+		\item Deux lancers de dés à $6$ faces, l'un après l'autre.
+		\item Couleur d'une carte tirée au hasard parmis un jeu de $52$ cartes.
+	\end{enumerate}
+	\end{multicols}
+}{exe:univers1}{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\Omega = \{ 1 ; 2 ; 3 ;4 ;5 ;6\}$.
+		\item $\Omega = \{ 1 ; 2 ; 3 ;4 ;5 ;6\}$.
+		\item $\Omega = \{ \text{Pile} ; \text{Face} \}$.
+		\item $\Omega = \left\{ \{a ; b \} \text{ où } a, b \in \{ 1 ; 2 ; 3 ;4 ;5 ;6\} \right\}$.
+		\item $\Omega = \left\{ ( a ;b ) \text{ où } a, b \in \{ 1 ; 2 ; 3 ;4 ;5 ;6\} \right\}$.
+		\item $\Omega = \{ \text{Carreau} ; \text{Cœur} ; \text{Trèfle} ; \text{Pique} \}$.
+	\end{enumerate}
+	\end{multicols}
+
+
+}
+
+\exe{}{
+	On considère le lancer d'un D20, dé à 20 faces numérotées de $1$ à $20$.
+	On note le nombre de la face du dessus.
+	\begin{enumerate}
+		\item Donner l'univers des issues $\Omega$ ainsi que son cardinal $|\Omega|$.
+		\item Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
+		%\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+		\item A : \og le nombre est pair \fg
+		\item B : \og le nombre est multiple de $3$ \fg
+		\item C : \og le nombre est multiple de $5$ \fg
+		\item D : \og le nombre est pair ou multiple de $3$ \fg
+		\item E : \og le nombre est multiple de $6$ \fg
+		\item F : \og le nombre est multiple de 3 et pair \fg
+		\end{enumerate}
+		%\end{multicols}
+	\end{enumerate}
+}{exe:univers2}
+{	
+	\begin{enumerate}
+		\item $\Omega = \{ 1 ; 2 ; \dots ; 19 ; 20 \} = \left\{ i \in \N \text{ tq. } 1 \leq i \leq 20 \right\}$ de cardinal $|\Omega| = 20$.
+		\item 
+		%\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+		\item $A = \{ 2 ; 4 ; \dots ; 18 ; 20 \} = \left\{ i \in \N \text{ tq. } 1 \leq i \leq 20 \text{ et } 2|i \right\}$ de cardinal $|A| = 10$
+		\item $B = \{ 3 ; 6 ; \dots ; 15 ; 18 \} = \left\{ i \in \N \text{ tq. } 1 \leq i \leq 20 \text{ et } 3|i \right\}$ de cardinal $|B| = 6$
+		\item $C = \{ 5 ; 10 ; 15 ; 20 \} = \left\{ i \in \N \text{ tq. } 1 \leq i \leq 20 \text{ et } 5|i \right\}$ de cardinal $|C| = 4$
+		\item $D = \{ 2 ; 3 ; 4 ; 6 ; 8 ; 9 ; 10 ; 12 ; 14 ; 15 ; 16 ; 18 ; 20 \}$ de cardinal $|D| = 13$
+		\item $E = \{ 6 ; 12 ; 18 \}$ de cardinal $|E| = 3$.
+		\item $F = \{ 6 ; 12 ; 18 \}$ de cardinal $|F| = 3$.
+		\end{enumerate}
+		%\end{multicols}
+	\end{enumerate}
+}
+
 \dfn{Événement}{
 	Un \emphindex{événement} est un sous-ensemble de l'univers.
 	On peut le décrire avec un ensemble ou des mots, par abus de notation.
@@ -148,6 +211,18 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 }
 
 
+
+\exe{}{
+	Dessiner des diagrammes de Venn pour motiver les relations suivantes.
+		\begin{align*}
+			\overline{A\cup B} = \overline{A} \cap \overline{B}, && \text{et} && \overline{A \cap B} = \overline{A} \cup \overline{B}.
+		\end{align*}
+
+}{
+	TODO
+}
+
+
 \section{Lois de probabilité}
 
 Lorsqu'on considère une expérience aléatoire, on associe une probabilité à chaque issue possible (c'est-à-dire chaque élément de l'univers).
@@ -176,31 +251,137 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	car la fonction $P$ prend uniquement des sous-ensembles de $\Omega$.
 }
 
-\thm{inclusion-exclusion}{
-	Soient $A, B \subseteq \Omega$ deux événements.
-	Alors
-		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
-}{thm:incl-excl}
-
-%\pf{Preuve du théorème \ref{thm:incl-excl}}{
-\pf{}{
-	Considérons le diagramme de Venn suivant où on colorie $A$ et $B$ l'un après l'autre de la même couleur.
-	En passant deux fois sur l'intersection, sa couleur devient plus sombre.
+\exe{}{
+	Compléter le tableau de probabilités suivant, concernant le numéro de la face du dessus obtenue après un lancer d'un D6 pipé.
 	\begin{center}
-	\includegraphics[page=3, scale=1.5]{figures/fig-proba.pdf}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $0,1$ & $0,2$ & $0,1$ & $0,15$ & $0,25$ & \\ \hline
+	\end{tabular}
 	\end{center}
-	Lorsqu'on calcule $P(A) + P(B)$, remarquons donc qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
-	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
-		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+	
+	Calculer les probabilités suivantes.
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item P(\og obtenir un nombre pair \fg) 
+			\item P(\og obtenir un nombre impair \fg) 
+			\item P(\og obtenir un nombre pair \fg)   + P(\og obtenir un nombre impair \fg) 
+			\item P(\og obtenir $2$ ou $5$ \fg) 
+			\item P(\og obtenir ni $2$ ni $5$ \fg) 
+			\item P(\og obtenir $2$ ou $5$ \fg)  + P(\og obtenir ni $2$ ni $5$ \fg) 
+		\end{enumerate}
+		\end{multicols}
+}{exe:D6-pipé}{
+	On complète d'abord le tableau en sachant que l'univers de l'expérience est $\Omega = \{ 1 ; 2 ;3 ; 4 ; 5 ; 6 \}$ et que la somme des probabilités du tableau est donc nécessairement $1$.
+	En effet, $P(\Omega) = 1$, car $\Omega$ correspond à l'événement \og obtenir une des issues possibles \fg, qui est un événement sûr.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $0,1$ & $0,2$ & $0,1$ & $0,15$ & $0,25$ & $\color{RED_E} 0,2$ \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}[label=\roman*)]
+		\item P(\og obtenir un nombre pair \fg) $ = P(2) + P(4) + P(6) = 0,2 + 0,15 + 0,2 = 0,55$
+		\item P(\og obtenir un nombre impair \fg) $ = P(1) + P(3) + P(5) = 0,1 + 0,1 + 0,25 = 0,45$.
+		\item P(\og obtenir un nombre pair \fg)   + P(\og obtenir un nombre impair \fg) $ = 0,55 + 0,45 = 1$
+		\item P(\og obtenir $2$ ou $5$ \fg) $ = P(2) + P(5) = 0,2 + 0,25 = 0,45$
+		\item P(\og obtenir ni $2$ ni $5$ \fg) $ = P(1) + P(3) + P(4) + P(6) = 0,1 + 0,1 + 0,15 + 0,2 = 0,55$
+		\item P(\og obtenir $2$ ou $5$ \fg)  + P(\og obtenir ni $2$ ni $5$ \fg) $ = 0,45 + 0,55 = 1$
+	\end{enumerate}
+	
+	Le fait que la somme soit $1$ n'est pas suprenant : les événements comptent séparément toutes les issues possibles.
+	On appelle ces événements \emph{complémentaires} : ils sont disjoints (les deux événements ne peuvent pas arriver en même temps), et ensembles ils forment l'univers tout entier (chaque issue appartient à un événement ou à l'autre).
+	
+	Les derniers événements motivent la relation 
+		\[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
+	qui, avec des mots, dit
+		\begin{center}
+			\og non (A ou B) \fg $=$ \og ni A, ni B \fg $=$ \og (non A) et (non B) \fg.
+		\end{center}
 }
 
-\dfn{événements disjoints}{
-	Deux événements $A, B \subseteq \Omega$ sont dits \emphindex{événements disjoints} dès que
-		\[ A \cap B = \emptyset, \]
-	l'ensemble vide.
-	On a dans ce cas et d'après le théorème \ref{thm:incl-excl},
-		\[ P(A \cup B) = P(A) + P(B). \]
-}{}
+\exe{, difficulty=1}{
+	On lance un D6 pipé avant de noter le numéro de la face du dessus.
+	Les probabilités de chacunes des issues vérifient
+		\[ P(1) = 2 P(2) = P(3) = 2 P(4) = P(5) = 2P(6). \]
+	Calculer $P($\og le résultat est divisible par $3$ \fg$)$.
+}{exe:sP1}{
+	Posons $p=P(2) \in [0;1]$ et exprimons chaque probabilité en fonction de $p$.
+		\begin{align*}
+			P(1) = 2p && P(2) = p && P(3) = 2p && P(4) = p && P(5) = 2p && P(6) = p.
+		\end{align*}
+	La relation $P(\Omega) = 1$ nous donne l'équation suivante à résoudre pour $p$.
+		\begin{align*}
+			P(1) + P(2) + P(3) + P(4) + P(5) + P (6) &= 1 \\
+			2p + p + 2p + p + 2p + p &= 1 \\
+			9p &= 1 \\
+			p &= \dfrac19
+		\end{align*}
+	On en déduit le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Résultat & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Probabilité & $\dfrac29$ & $\dfrac19$ & $\dfrac29$ & $\dfrac19$ & $\dfrac29$ & $\dfrac19$ \\ \hline
+	\end{tabular}
+	\end{center}
+	Et on conclut que $P($\og le résultat est divisible par $3$ \fg$) = P(3) + P(6) = \dfrac29 + \dfrac19 = \dfrac13.$
+}
+
+\exe{, difficulty=1}{
+	L'univers associé à une expérience aléatoire est $\{ a, b, c\}$.
+	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \frac14$, pour un réel $t \in \R$.
+	
+	Développer le carré $\left(t-\frac12\right)^2$ et déterminer $t$.
+}{exe:t-neg}{
+	On développe le carré à l'aide de l'identité remarquable
+		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
+	où, ici, on a $a=t$ et $b=\frac12.$
+		\begin{align*}
+			\left(t-\dfrac12\right)^2 &= t^2 + \left(\dfrac12\right)^2 - 2 \cdot t \cdot \dfrac12 \\
+									&= t^2 + \dfrac14 - t
+		\end{align*}
+	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
+	Un loi vérifie les deux propriétés suivantes :
+		\begin{itemize}
+			\item $P(\omega) \in [0;1]$ pour chaque issue $\omega \in \Omega$ ; et
+			\item $P(\Omega) = 1$.
+		\end{itemize}
+	La deuxième identité donne donc
+		\begin{align*}
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - t + \dfrac14 = 1.
+		\end{align*}
+	Le carré développé nous permet d'écrire
+		\[ \left(t-\dfrac12\right)^2 = 1, \]
+	et donc
+		\[ \left|t-\dfrac12\right| = \sqrt{1} = 1, \]
+	en utilisant le fait que $\sqrt{x^2} = |x|.$
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
+		\begin{align*}
+			t-\dfrac12 = 1 && \text{ ou } && t - \dfrac12 = -1 \\
+			t = \dfrac32 && \text{ ou } && t = -\dfrac12.
+		\end{align*}
+	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
+	
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
+	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue & $a$ & $b$ & $c$ \\ \hline
+		Probabilité & $\frac14$ & $\frac12$ & $\frac14$ \\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+\exe{}{
+	Une joueuse de tennis a une probabilité $0,58$ de réussir son premier service et une probabilité de $0,06$ de faire une double faute.
+	Quelle est la probabilité qu'elle réussisse seulement son deuxième service ?
+}{exe:tennis}{
+ 	Les issues du service sont $\Omega = \{ \text{Premier service réussi} ; \text{Premier service raté, deuxième réussi} ; \text{Premier et deuxième services ratés} \}$.
+	 La somme des probabilité vaut $1$ ($P(\Omega) = 1$), et donc on a nécessairement
+	 	\[ P(\text{Premier service raté, deuxième réussi}) = 1 - 0,58 - 0,06 = 0,36. \]
+}
 
 \dfn{équiprobabilité}{
 	On parle de situation \emphindex{équiprobable} si chaque issue $\omega$ de l'univers $\Omega$ admet la même probabilité.
@@ -231,10 +412,196 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 		\end{align*}
 }{}
 
+\nomen{
+	On parle de \emphindex{dé bien équilibré} pour désigner un dé dont toutes les issues sont équiprobables.
+}
+
+
+\exe{}{
+	On suppose le D20 de l'exercice \ref{exe:univers2} bien équilibré.
+	\begin{enumerate}
+		\item Calculer la probabilité de chacun des événements de l'exercice \ref{ex:1}.
+		\item Vérifier que $D = A \cup B$.
+		\item Vérifier que $E = A \cap B$.
+		\item Vérifier l'identité
+			\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+	\end{enumerate}
+}{exe:D20}{
+	\begin{enumerate}
+		\item 
+		Comme le dé est bien équilibré, chaque issue admet la même probabilité, soit $\frac1{\Omega} = \frac1{20}$.
+		En outre, d'après le cours, pour un événement $V = \{ e_1 ; e_2 ; \dots \} \subset \Omega$, sa probabilité est la somme des probabilités des issues lui appartenant.
+		C'est donc 
+			\[ P(V) = \dfrac{|V|}{|\Omega|} = \dfrac{|V|}{20}, \]
+		résultat qu'on applique aux $6$ événements de l'exercice \ref{ex:1} pour trouver
+			\begin{align*}
+				P(A) = \dfrac{10}{20} = \dfrac12 && P(B) = \dfrac{6}{20} = \dfrac3{10} && P(C) = \dfrac15 \\
+				P(D) = \dfrac{13}{20} && P(E) = \dfrac{3}{20} && P(F) = \dfrac{3}{20}
+			\end{align*}
+		\item On vérifie que $D = A \cup B$ en considérant tous les éléments qui appartiennent à $A$ \textbf{ou} à $B$ (ou inclusif : un élément qui appartient aux deux ensembles appartient à l'union) et en vérifiant qu'on trouve bien $D$.
+		\item On vérifie que $E = A \cap B$ en considérant tous les éléments qui appartiennent à $A$ \textbf{et} à $B$ et en vérifiant qu'on trouve bien $E$.
+		\item 
+		Le membre de gauche de l'identité donne
+			\[ P (A \cup B) = P(D) = \dfrac{13}{20}, \]
+		d'après les questions précédentes.
+		Le membre de droite de l'identité est égal à 
+			\[ P(A) + P(B) - P(A\cap B) = \dfrac{10}{20} + \dfrac{6}{20}  - \dfrac{3}{20} = \dfrac{13}{20}.\]
+		L'identité est donc bien vérifée dans ce cas !
+	\end{enumerate}
+}
+
+\exe{, difficulty=2}{
+	On lance deux D$6$ équilibrés, dés à $6$ faces, au même moment. Les deux dés sont absolument identiques.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité d'obtenir deux résultats différents ?
+	\end{enumerate}
+}{exe:2D6-simul}{	
+	\begin{enumerate}
+		\item
+		L'ordre des résultats n'importe pas car les dés sont identiques et les jets effectués au même moment.		
+		On a donc 
+		\begin{align*}
+			\Omega &= \left\{ \{a ; b \} \text{ où } a, b \in \{ 1 ; 2 ; 3 ;4 ;5 ;6\} \right\} \\
+					&= \left\{
+						\begin{aligned}
+						&\{1 ; 1\}, \{1 ; 2\}, \{1 ; 3\}, \{1 ; 4\}, \{1 ; 5\}, \{1 ; 6\}, \\
+						&\{2 ; 2\}, \{2 ; 3\},\{2 ; 4\}, \{2 ; 5\}, \{2 ; 6\}, \\
+						& \{3 ; 3\}, \{3 ; 4\}, \{3 ; 5\}, \{3 ; 6\}, \\
+						& \{4 ; 4\}, \{4 ; 5\}, \{4 ; 6\}, \\
+						& \{5 ; 5\}, \{5 ; 6\}, \\
+						& \{6 ; 6\}
+						\end{aligned}
+						\right\}
+		\end{align*}
+		On compte $|\Omega| = 6 + 5 + 4 + 3 + 2 + 1 = 21$.
+		
+		Un autre façon de compter sans énumérer est la suivante : chaque paire de résultats distincts est comptée deux fois au lieu d'une. 
+		Il y a $6$ paires de résultats identiques, donc $36-6 = 30$ paires de résultats distincts.
+		Par conséquent, $|\Omega| = \dfrac{30}2 + 6 = 21$.
+		
+		Pour comprendre la probabilité de chaque événement, il est possible de différencier les deux dés (par exemple en leur assignant une couleur), et de regrouper les issues qui donnent le même résultat lorsque les dés sont identiques.
+		Par exemple, \og obtenir $5$ puis obtenir $6$\fg et \og obtenir $6$ puis obtenir $5$ \fg sont deux issues différentes équiprobables si les dés sont différentiables, mais pas si les dés sont identiques et les lancers simultanés.
+		La situation n'est donc pas une situation d'équiprobabilité car toutes les issues n'ont pas la même probabilité d'arriver.
+		Par exemple,
+			\[ P( \{2 ; 2\} ) = \dfrac1{36} \qquad \text{ et } \qquad P(\{5 ; 6\}) = \dfrac2{36} = \dfrac1{18}, \]
+		car il y a deux façons d'obtenir l'issue $\{5 ; 6\}$.
+		\item Il n'y a qu'une seule façon d'obtenir un double $6$ : que les deux dés résultent en un $6$.
+		Ainsi $P( \{6 ; 6\} ) = \dfrac16 \times \dfrac16 = \dfrac1{36}$.
+		\item 
+		On additionne 
+			\[ P( \{1 ; 1\} ) + P( \{2 ; 2\} )+ P( \{3 ; 3\} )+ P( \{4 ; 4\} )+ P( \{5 ; 5\} )+ P( \{6 ; 6\} ) = \dfrac{6}{36} = \dfrac16. \]
+	\end{enumerate}
+}
+
+\thm{inclusion-exclusion}{
+	Soient $A, B \subseteq \Omega$ deux événements.
+	Alors
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}{thm:incl-excl}
+
+%\pf{Preuve du théorème \ref{thm:incl-excl}}{
+\pf{}{
+	Considérons le diagramme de Venn suivant où on colorie $A$ et $B$ l'un après l'autre de la même couleur.
+	En passant deux fois sur l'intersection, sa couleur devient plus sombre.
+	\begin{center}
+	\includegraphics[page=3, scale=1.5]{figures/fig-proba.pdf}
+	\end{center}
+	Lorsqu'on calcule $P(A) + P(B)$, remarquons donc qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
+	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}
+
+
+
+\exe{}{
+	On considère un lancer d'un D$300$ bien équilibré, dé à $300$ faces numérotées de $1$ à $300$.
+	Après le lancer, on note le numéro de la face supérieure.
+	Posons $A$ : \og le résultat n'est pas multiple de $10$ \fg, et $B$ : \og le résultat n'est pas divisible par $7$ \fg.
+	
+	\begin{enumerate}
+		\item Exprimer avec des mots les événements suivants.
+			\begin{multicols}{2}
+			\begin{enumerate}[label=\roman*)]
+				\item $\overline{A}$
+				\item $\overline{B}$
+				\item $\overline{A} \cap \overline{B}$
+				\item $\overline{A} \cup \overline{B}$
+				%\item $\overline{A \cup B}$
+				%\item $\overline{A \cap B}$
+			\end{enumerate}
+			\end{multicols}
+		\item Calculer les probabilités $P\left( \overline{A} \right)$ et $P\left( \overline{B} \right)$.
+		\item Calculer les probabilités $P\left(\overline{A} \cap \overline{B}\right)$ puis $P\left(\overline{A} \cup \overline{B}\right)$.
+		\item Calculer la probabilité que le résultat obtenu soit supérieur ou égal à $10$.
+	\end{enumerate}
+	
+	\emph{Indication : un multiple à la fois de 7 et de 10 est un multiple de 70. (voir exercice \ref{ex:coprimalité2} avec $3\times7 - 2\times10 = 1$.)}
+}{exe:D300}{
+	\begin{enumerate}
+		\item 
+			\begin{enumerate}[label=\roman*)]
+				\item $\overline{A}$ : \og le résultat est multiple de $10$ \fg
+				\item $\overline{B}$ : \og le résultat est divisible par $7$ \fg
+				\item $\overline{A} \cap \overline{B}$  : \og le résultat est multiple de $10$ \textbf{et} divisible par $7$ \fg
+				\item $\overline{A} \cup \overline{B}$ : \og le résultat est multiple de $10$ \textbf{ou} divisible par $7$ \fg
+			\end{enumerate}
+		\item 
+		Le dé étant bien équilibré, nous sommes en situation d'équiprobabilité et 
+			\[ P(E) = \dfrac{|E|}{|\Omega|} = \dfrac{|E|}{300} \]
+		pour n'importe quel événement $E\subseteq\Omega$.
+		Il s'agit donc de calculer le cardinal de $ \overline{A}$ et de $ \overline{B}$, c'est-à-dire le nombre d'entiers entre $1$ et $300$ qui sont multiples de $10$ puis qui sont multiples de $7$.
+		
+		D'une part, les multiples de $10$ s'écrivent
+			\begin{align*}
+				10 \times 1 && 10 \times 2 && 10 \times 3 && \dots && 10 \times 30 = 300,
+			\end{align*}
+		et donc $|\overline{A}| = 30$, et $P\left( \overline{A} \right) = \dfrac{30}{300} = \dfrac1{10}$.
+		
+		D'autre part, les multiples de $7$ s'écrivent
+			\begin{align*}
+				7 \times 1 && 7\times 2 && 7 \times 3 && \dots
+			\end{align*}
+		Pour savoir jusqu'où aller, on calcule $\dfrac{300}{7} \approx 42,86$, donc la liste s'arrête à $7 \times 42 = 294$.
+		Par conséquent, $|\overline{B}| = 42$, et $P\left( \overline{B} \right) = \dfrac{42}{300} = \dfrac{7}{50}$.
+		
+		\item 
+		On calcule d'abord $P\left(\overline{A} \cap \overline{B}\right)$ en comptant les multiples de $10$ et de $7$ inférieurs à $300$.
+		Ceux-ci sont $\{ 70 ; 140 ; 210 ; 280 \}$ par énumération (et en fait car $7$ et $10$ sont premiers entre eux).
+		D'où $P\left(\overline{A} \cap \overline{B}\right) = \dfrac{4}{300} = \dfrac{1}{75}$.
+		
+		On utilise l'inclusion-exclusion pour conclure :
+			\begin{align*}
+				P\left(\overline{A} \cup \overline{B}\right) &= P\left( \overline{A} \right) + P\left( \overline{B} \right) - P\left(\overline{A} \cap \overline{B}\right) \\
+																&= \dfrac{30}{300} + \dfrac{42}{300} -  \dfrac{4}{300} \\
+																&= \dfrac{68}{300} = \dfrac{17}{75}.
+			\end{align*}
+	
+		Remarquons qu'on a ainsi compté le nombre d'entier entre $1$ et $300$ qui sont multiples de $7$ ou de $10$ : il y en a $68$.
+
+		\item 
+		L'événement correspond à l'ensemble 
+			\[ \{10 ; 11 ; 12 ; \dots ; 299 ; 300 \}, \]
+		de cardinal $300-10+1 = 291$ (pour se convaincre de la nécessité du $+1$, essayer de calculer le cardinal de $\{10 ; 11\}$, puis $\{10 ; 11 ; 12 \}$, etc...).
+		En conclusion,
+			\[ P(\text{\og résultat supérieur ou égal à $10$ \fg}) = \dfrac{291}{300} = \dfrac{97}{100}. \]
+	\end{enumerate}
+
+}
+
+\dfn{événements disjoints}{
+	Deux événements $A, B \subseteq \Omega$ sont dits \emphindex{événements disjoints} dès que
+		\[ A \cap B = \emptyset, \]
+	l'ensemble vide.
+	On a dans ce cas et d'après le théorème \ref{thm:incl-excl},
+		\[ P(A \cup B) = P(A) + P(B). \]
+}{}
+
 \cor{}{
 	Soient $E \subseteq \Omega$ un événement et $\overline{E}$ son complémentaire.
 	Alors
-		\[ P\left( \overline{E} \right) = 1 - P(E). \]
+		\[ P\bigl( \overline{E} \bigr) = 1 - P(E). \]
 }{cor:compl}
 
 %\pf{Démonstration du corollaire \ref{cor:compl}}{
@@ -248,6 +615,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 		\end{align*}
 	ce qui conclut.
 }{}
+
 
 \section{Arbres de probabilité}
 
@@ -293,9 +661,230 @@ On pourra donc connaître $|\Omega|$ en comptant les feuilles, et $P(\omega)$ en
 		\[ P(N) = \dfrac23 \cdot \dfrac35 + \dfrac13 \cdot \dfrac3{10} = \dfrac12. \]
 }{}
 
-% à reporter au chapitre d'échantillonnage peut-être ?
+\exe{}{
+	On lance $3$ fois de suite une pièce de monnaie bien équilibrée.
+	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
+	Donner $\Omega$, l'univers de l'expérience, et $|\Omega|$ son cardinal.
+	
+	Calculer la probabilité des événements suivants.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item Obtenir $3$ fois face.
+			\item Le deuxième lancer donne pile.
+			\item[]
+			\item Le troisième lancer est différent du premier.
+			\item On obtient au moins une fois pile.
+		\end{enumerate}
+		\end{multicols}
+}{exe:PF3}{
+	Comme les lancers sont distingués, il y a $8$ issues possibles.
+		\[ \Omega = \{ FFF ; FFP ; FPF ; FPP ; PFF ; PFP ; PPF ; PPP \} \]
+	Le cardinal de l'univers est $|\Omega| = 8$.
+	On aurait pû aussi noter les issues avec des parenthèses, p.ex. $(F;P;F)$, mais pas avec des accolades $\{ \cdot \}$.
+	\begin{enumerate}
+		\item
+		Les probabilités se multiplient, on a donc $P(FFF) = \dfrac12 \times \dfrac12 \times \dfrac12 = \left( \dfrac12 \right)^3 = \dfrac18$.
+		En fait, nous sommes en situation d'équiprobabilité, et $|\Omega| = 8$.
+		\item 
+		Les lancers sont indépendants (le résultat des précédents n'influe en rien celui des prochains), donc la probabilité que le deuxième donne pile est $\frac12$.
+		On aurait également pu sommer la probabilité des événements concernés :
+			\[ P(FPF) + P(PPF) +  P(FPP) + P(PPP) = \dfrac48 = \dfrac12. \]
+		\item
+		Il y a quatre issues qui correspondent à cet événement. 
+			\[ P(PFF) + P(PPF) + P(FFP) + P(FPP) = \dfrac48 = \dfrac12. \]
+		On aurait pû tout aussi bien supprimer le deuxième lancer, car il n'a aucune influence sur les autres --- cela donne le même résultat.
+		\item 
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og on obtient trois fois face \fg, dont la probabilité est $P(FFF) = \dfrac18.$
+		La probabilité recherché est donc $1-\dfrac18 = \dfrac78$.
+		
+		On aurait également pû énumérer les issues de l'événement et sommer leur probabilité. 
+		Seul l'événement $FFF$ n'apparaît alors pas dans cette somme qui vaut $\dfrac78$.
+	\end{enumerate}
+}
 
-%\section{Construction d'un modèle empirique}
-%done
+
+\exe{}{
+	On lance deux D$6$ équilibrés, dés à $6$ faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+	\end{enumerate}
+}{exe:2D6}{
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		L'univers est formé par tous les couples $(a ;b)$ de résultats.
+		On utilise des parenthèses ici car on distingue le premier du deuxième lancer.
+			\[ \Omega = \left\{ (a ; b) \text{ où } a, b \in \{ 1 ; 2 ; 3 ; 4 ;5 ; 6 \} \right\}, \]
+		de cardinal $|\Omega| = 6 \times 6 = 36$.
+		
+		La situation est bien d'équiprobabilité car il y a $36$ issues et chacune admet comme probabilité $\dfrac16 \times \dfrac16 = \dfrac1{36}$, car les dés sont bien équilibrés.
+		
+		\item 
+		La probabilité de l'issue $(6;6)$ est $\dfrac1{36}$ par équiprobabilité.
+		
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og obtenir aucun double $6$ \fg, dont la probabilité est
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		En effet, on peut construire un arbre réduit à deux événements  : \og double 6 \fg (probabilité $\frac1{36}$) et \og pas double 6 \fg (probabilité $\frac{35}{36}$), de profondeur $10$.
+		La feuille qui correspond à \og obtenir aucun double $6$ \fg est obtenue en obtenant \og pas double 6 \fg dix fois dans l'arbre.
+		
+		La probabilité de l'événement \og on obtient aucun double $6$ \fg est donc
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		On conclut en faisant $1-0,75 = 0,25 = \frac14$, probabilité approximative qu'au moins un des $10$ lancers donne un double $6$.
+	\end{enumerate}
+}
+
+\exe{}{
+	On tire un boule dans une urne contenant $2$ boules rouges et $4$ boules vertes.
+	\begin{enumerate}[label=--]
+		\item Si la boule tirée est verte, on la met de côté et on retire une nouvelle boule
+		\item Si la boule tirée est rouge, on la remet dans l'urne et on retire une nouvelle boule
+	\end{enumerate}
+	On distingue les quatre événements suivants :
+		\begin{multicols}{2}
+		\begin{enumerate}[label=]
+			\item v : \og la première boule tirée est verte \fg
+			\item r : \og la première boule tirée est rouge \fg
+			\item V : \og la deuxième boule tirée est verte \fg
+			\item R : \og la deuxième boule tirée est rouge \fg
+		\end{enumerate}
+		\end{multicols}
+	\begin{center}
+	\includegraphics[page=8]{figures/fig-proba.pdf}
+	\end{center}
+	Compléter l'arbre, et calculer $P(V)$ et $P(R)$.
+}{exe:arbre1}{
+	\, \\
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-proba.pdf}
+	\end{center}
+	La probabilité d'une issue est la somme des probabilités de chacun des chemins racine-feuille.
+	Pour obtenir la probabilité d'un chemin racine-feuille, on multiplie les probabilités rencontrées en le parcourant.
+	
+		\begin{align*}
+			P(V) &= \dfrac23 \times \dfrac35 + \dfrac13 \times \dfrac23 \\
+				&= \dfrac25 + \dfrac29 \\
+				&= \dfrac{18 + 10}{5 \times 9} = \dfrac{28}{45}
+		\end{align*}
+	
+		\begin{align*}
+			P(R) &= \dfrac23 \times \dfrac25 + \dfrac13 \times \dfrac13 \\
+				&= \dfrac4{15} + \dfrac19 \\
+				&= \dfrac{36 + 15}{15 \times 9} = \dfrac{51}{135} = \dfrac{17}{45}
+		\end{align*}
+		
+		On aurait aussi pû utiliser le fait que $P(R) = 1 - P(V)$ pour ne pas augmenter la probabilité de faire une erreur de calcul.
+}
+
+
+\exe{}{
+	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
+	\begin{center}
+	\includegraphics[page=10]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $P(D)$.
+		\item Calculer $P(B)$.
+		\item Calculer $P(D \cup B)$.
+		\item Calculer $P(A\cup C)$.
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:arbre2}{
+	La somme des probabilités de chaque sous-branche est toujours $1$. 
+	On complète donc l'arbre comme ci-dessous.
+	
+	\begin{center}
+	\includegraphics[page=11]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				P(D) &= 0,3 \times \dfrac16 \\ &= \dfrac{0,3}{6} \\ &= \dfrac{0,1}{2} = 0,05.
+			\end{align*}
+		\item 
+			\begin{align*}
+				P(B) &= 0,7 \times \dfrac29 + 0,3 \times \dfrac12 \approx 0,31.
+			\end{align*}
+		\item 
+			Comme $D$ et $B$ sont deux issues distinctes de l'univers, on a
+			\begin{align*}
+				P(D \cup B) &= P(D) + P(B) \\ &\approx 0,05 + 0,31 = 0,36.
+			\end{align*}
+		\item On peut soit procéder comme ci-dessus, ou alors utiliser le fait que
+			\[ P(A\cup C) = P(A) + P(C) = 1 - \left( P(D) + P(B) \right) = 1 - P(D \cup B), \]
+		et donc
+			\[ P(A\cup C) \approx 0,64. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	On tire un boule dans une urne contenant $3$ boules bleues et $4$ boules vertes.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si la boule tirée est verte, on jette un dé équilibré à $3$ faces
+		\item Si la boule tirée est bleue, on jette un dé équilibré à $6$ faces
+	\end{enumerate}
+
+	Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir un nombre pair ?
+		\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item Quelle est la probabilité d'obtenir un nombre pair \textbf{ou} un multiple de $3$ ?
+		\item Calculer la probabilité d'obtenir $6$ et vérifier la formule d'inclusion-exclusion.
+	\end{enumerate}
+
+}{exe:arbre3}{
+	On a l'arbre suivant.
+	
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item
+			\begin{align*}
+				P(\text{\og nombre pair \fg}) &= P(2) + P(4) + P(6) \\
+					&= \left( \dfrac47 \times \dfrac13 + \dfrac37\times\dfrac16 \right) + \left( \dfrac37 \times \dfrac16 \right) + \left( \dfrac37 \times \dfrac16 \right) \\
+					&= \dfrac4{21} + \dfrac1{14} + \dfrac1{14} + \dfrac1{14} \\
+					&= \dfrac{17}{42}.
+			\end{align*}
+		\item
+			\begin{align*}
+				P(\text{\og multiple de $3$ \fg}) &= P(3) + P(6) \\
+					&= \left( \dfrac47 \times \dfrac13 + \dfrac37\times\dfrac16 \right) + \left( \dfrac37 \times \dfrac16 \right) \\
+					&= \dfrac4{21} + \dfrac1{14} + \dfrac1{14} \\
+					&= \dfrac13.
+			\end{align*}
+		\item
+			\begin{align*}
+				P(\text{\og multiple de $3$ ou de $2$ \fg}) &= P(2) + P(3) + P(4) + P(6) \\
+					&= \left( \dfrac47 \times \dfrac13 + \dfrac37\times\dfrac16 \right) + \left( \dfrac47 \times \dfrac13 + \dfrac37\times\dfrac16 \right) + \left( \dfrac37 \times \dfrac16 \right) + \left( \dfrac37 \times \dfrac16 \right) \\
+					&= \dfrac4{21} + \dfrac1{14} + \dfrac4{21} + \dfrac1{14} + \dfrac1{14} + \dfrac1{14} \\
+					&= \dfrac23.
+			\end{align*}
+		\item 
+			\begin{align*}
+				P(6) &=\left( \dfrac37 \times \dfrac16 \right) \\
+					&= \dfrac1{14}.
+			\end{align*}
+			
+		On vérifie l'inclusion-exclusion en comparant $P(\text{\og multiple de $3$ ou de $2$ \fg})$ et $P(\text{\og multiple de $3$ \fg}) + P(\text{\og multiple de $2$ \fg}) - P(6)$.
+		D'une part,
+			\[ P(\text{\og multiple de $3$ ou de $2$ \fg}) = \dfrac23, \]
+		et d'autre part,
+			\begin{align*}
+				P(\text{\og multiple de $3$ \fg}) + P(\text{\og multiple de $2$ \fg}) - P(6) &= \dfrac13 + \dfrac{17}{42} - \dfrac1{14} \\
+				&= \dfrac{14 + 17 - 3}{42} \\
+				&= \dfrac{28}{42} = \dfrac23.
+			\end{align*}
+	\end{enumerate}
+}
+
 
 

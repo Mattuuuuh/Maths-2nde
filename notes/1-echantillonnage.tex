@@ -245,3 +245,126 @@ C'est de là que vient l'interprétation de la variance donnée dans le chapitre
 	Remarquons qu'un des modèles ci-dessus n'est pas plus ou moins motivé que l'autre.
 }{}
 
+
+\exe{}{
+	Dans une urne opaque se trouvent un nombre inconnu de boules rouges, bleues, et vertes.
+	On tire aléatoirement une boule de l'urne, on note sa couleur, et on la remet dans l'urne.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Couleur & Rouge & Bleu & Vert \\ \hline
+		Nombre de tirages & 3 223 & 4 909 & 1 638 \\ \hline
+		Fréquence &  &  &   \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Compléter le tableau, modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir deux boules rouges en deux tirages ?
+		\item Quelle est la probabilité d'obtenir deux boules vertes en trois tirages ?
+		\item Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
+	\end{enumerate}
+}{exe:freq-to-P}{
+	Les fréquences sont calculées à $10^{-2}$ près dans le tableau suivant.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Couleur & Rouge & Bleu & Vert \\ \hline
+		Nombre de tirages & 3 223 & 4 909 & 1 638 \\ \hline
+		Fréquence &  $0,33$   &  $0,50$  &  $0,16$  \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	On modélise la réalité en assignant les probabilités suivantes.
+		\begin{align*}
+			P(\text{Rouge}) = \dfrac13 && P(\text{Bleu}) = \dfrac12 && P(\text{Vert}) = \dfrac16
+		\end{align*}
+	On vérifie bien sûr que la somme fasse bien $1$ : $\dfrac13 + \dfrac12 + \dfrac16 = 1$.
+
+	\begin{enumerate}
+		\item 
+			On crée un arbre binaire de profondeur $2$ à deux événements : $E$ et $\overline{E}$ où
+				\begin{center}
+					E : \og tirer une boule rouge \fg.
+				\end{center}
+			On en déduit que
+			\[ P(\text{deux boules rouges en deux tirages}) = \dfrac13 \times \dfrac13 = \dfrac19. \]
+		\item 
+			On crée un arbre binaire de profondeur $3$ à deux événements : $F$ et $\overline{F}$ où
+				\begin{center}
+					F : \og tirer une boule verte \fg.
+				\end{center}
+			On lit trois issues possibles pour l'événement : $FF\overline{F}$, $F\overline{F}F$, et $\overline{F}FF$.
+			Chaque issue a probabilité $\dfrac16 \times \dfrac16 = \dfrac1{36}$, donc
+			\[ P(\text{deux boules vertes en trois tirages}) = 3\times \dfrac1{36} = \dfrac1{12}. \]
+		\item Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
+			On crée un arbre binaire de profondeur $4$ à deux événements : $G$ et $\overline{G}$ où
+				\begin{center}
+					G : \og tirer une boule bleue \fg.
+				\end{center}
+			On lit une seule issue pour l'événement complémentaire, et donc
+			\[ P(\text{aucune boule bleue en quatre tirages}) = \dfrac12\times\dfrac12\times\dfrac12\times\dfrac12= \dfrac{1}{16}. \]
+			Par conséquent, 
+			\[ P(\text{au moins une boule bleue en quatre tirages}) =1- \dfrac{1}{16} = \dfrac{15}{16} = 0,9375. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	On lance un grand nombre de fois un D$6$, dé à $6$ faces.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Nombre de tirages & 20 543 & 30 480& 10 048 & 15 338 & 20 223 & 5 082 \\ \hline
+		Fréquence & &  &  & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	Compléter le tableau, modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Quelle est la probabilité d'obtenir un nombre pair ?
+		\item Quelle est la probabilité d'obtenir deux $6$ en deux lancers consécutifs ?
+		\item Quelle est la probabilité d'obtenir au moins un $6$ après $4$ lancers ?
+	\end{enumerate}
+}{exe:freq-to-P2}{
+	Les fréquences sont calculées à $10^{-2}$ près dans le tableau suivant.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Nombre de tirages & 20 543 & 30 480& 10 048 & 15 338 & 20 223 & 5 082 \\ \hline
+		Fréquence & $ 0,2$ & $ 0,3$ & $ 0,1$ & $ 0,15$ & $ 0,2$ & $ 0,05$ \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	On modélise la réalité en assignant les probabilités suivantes.
+		\begin{align*}
+			P(1) = \dfrac15 && P(2) = \dfrac3{10} && P(3) = \dfrac1{10} && P(4) = \dfrac3{20} && P(5) = \dfrac15 && P(6) = \dfrac1{20}
+		\end{align*}
+	On s'assure bien que la somme soit $1$ : 
+		\[ \dfrac15 + \dfrac3{10} + \dfrac1{10} + \dfrac3{20} + \dfrac15 + \dfrac1{20} = \dfrac{4+6+2+3+4+1}{20} = 1. \]
+	
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				P(\text{\og obtenir un nombre pair \fg}) &= P(2) + P(4) + P(6) \\
+				&= 0,3 + 0,15 + 0,05 \\
+				&= 0,4 = \frac25.
+			\end{align*}
+		\item
+			On crée un arbre binaire de profondeur $2$ à deux événements : $E$ et $\overline{E}$ où
+				\begin{center}
+					E : \og obtenir $6$ \fg.
+				\end{center}
+			On en déduit que
+			\[ P(\text{deux $6$ en deux lancers}) = 0,05 \times 0,05 = \left(\dfrac1{20}\right)^2 = \dfrac1{400} = 0,0025. \]
+		\item
+			On complète l'arbre binaire de la question précédente pour qu'il atteigne une profondeur $4$.
+			L'événement complémentaire correspond à une unique issue, de probabilité
+				\[ P(\text{aucun $6$ en $4$ lancers}) = 0.95^4 = \left(\dfrac{19}{20}\right)^4 = \dfrac{19^4}{20^4} = \dfrac{130321}{160000} \approx 0,81. \]
+			On conclut donc que
+				\[ P(\text{au moins un $6$ en $4$ lancers}) = 1-0.95^4 \approx 0,19. \]
+				
+	\end{enumerate}
+}
+

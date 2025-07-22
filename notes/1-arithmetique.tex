@@ -296,7 +296,7 @@
 \thm{}{
 	Considérons $n\in\N$ un entier naturel tel que $2 | n$ et $3 | n$ : $n$ est pair et multiple de $3$.
 	Alors $6 | n$ : $n$ est multiple de $6$.
-}{}
+}{thm:2-3-6}
 
 \pf{}{
 	Par hypothèses, $n=2k$ et $n=3\ell$, pour certains $k, \ell\in\N$.
@@ -327,6 +327,22 @@
 	Autrement, on peut également citer $3 \big|  24$ et $6 \big| 24$ mais 18 ne divise pas 24.
 }
 
+\nt{
+	Le théorème \ref{thm:2-3-6} peut s'étendre de la façon suivante : s'il existe $u, v \in\Z$ tels que
+		\[ ua + vb = 1, \]
+	alors $\bigl( a\big|n \text{ et } b\big|n \bigr) \implies \bigl( (ab) \big| n \bigr)$.
+}
+
+\exe{, difficulty=2}{
+	Démontrer la remarque ci-dessus.
+}{ex:coprimalité2}{
+	Si $ua + vb = 1$ et que $a\big|n \text{ et } b\big|n$, alors
+		\[ u(an) + v(bn) = n, \]
+	avec $ab$ qui divise $bn$ et $an$ car $a$ divise $n$ et $b$ divise $n$ (voir exercice \ref{exe:aknk}).
+	
+	Ainsi $ab$ divise aussi $uan$ et $vbn$ ainsi que leur somme, valant $n$.
+}
+
 \thm{}{
 	Considérons $a \big| n$. Alors
 		\[ \bigl( m \text{ divisible par $a$} \bigr) \iff \bigl( m+n \text{ divisible par $a$} \bigr). \]
@@ -346,22 +362,6 @@
 		Si $a \big| (n+m)$, alors $n+m = a \cdot \ell$.
 		Il suit que $m = a \cdot \ell - n = a (\ell - k)$, qui est multiple de $a$ comme requis.
 	\end{enumerate}
-}
-
-\nt{
-	Le même argument peut s'étendre de la façon suivante : s'il existe $u, v \in\Z$ tels que
-		\[ ua + vb = 1, \]
-	alors $\bigl( a\big|n \text{ et } b\big|n \bigr) \implies \bigl( (ab) \big| n \bigr)$.
-}
-
-\exe{, difficulty=2}{
-	Démontrer la remarque ci-dessus.
-}{ex:coprimalité2}{
-	Si $ua + vb = 1$ et que $a\big|n \text{ et } b\big|n$, alors
-		\[ u(an) + v(bn) = n, \]
-	avec $ab$ qui divise $bn$ et $an$ car $a$ divise $n$ et $b$ divise $n$ (voir exercice \ref{exe:aknk}).
-	
-	Ainsi $ab$ divise aussi $uan$ et $vbn$ ainsi que leur somme, valant $n$.
 }
 
 \thm{critère de divisibilité par 3 et 9}{
