@@ -86,6 +86,40 @@
 	\end{multicols}
 }{}
 
+\exe{}{
+	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:axbyz2}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soient $a, b \in\R$ deux nombres.
+	Montrer, à l'aide du théorème de Pythagore, qu'un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
+		\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
+}{exe:parallélisme}{
+	On considère le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
+	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
+	
+	D'après le théorème de Pythagore (et sa réciproque), on a
+		\[ (OA) \perp (OX) \iff OA^2 + OX^2 = AB^2. \]
+	Or $OA^2 = a^2 + b^2$, $OB^2 = x^2 + y^2$, et $AB^2 = (a-x)^2 + (b-y)^2$.
+	L'égalité de Pythagore devient donc
+		\begin{align*}
+			(OA) \perp (OX) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
+				&\iff a^2 + b^2 + x^2 + y^2 = a^2 + x^2 - 2ax + b^2 + y^2 - 2by, \\
+				&\iff 0 = -2(ax + by), \\
+				&\iff ax + by = 0.
+		\end{align*}
+}
+
+\exe{}{
+	Tracer les droites d'équations $2x - y = 0$, $2x - y = -2$, et $2x - y = 3$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:parallélisme}{
+	TODO
+}
+
 \section{Composition de translations : somme de vecteurs}
 
 \thm{relation de Chasles}{

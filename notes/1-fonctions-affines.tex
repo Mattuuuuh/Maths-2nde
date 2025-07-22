@@ -655,80 +655,53 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 	\end{center}
 }{}
 
+% un peu beaucoup
+% mettre au chapitre vecteurs ? y'a beaucoup de contenu chez les vecteurs aussi...
+% jspo où le mettre
+\section{Systèmes linéaires $2\times2$}
 
-% postponed
-%\section{Variations et signe du coefficient directeur}
-%
-%
-%On distingue trois cas différents de droites parmis les exemples de la section \ref{sec:aff-1} : les deux premières sont croissantes, la suivante est constante, et la dernière est décroissante.
-%
-%\dfn{Variations}{
-%	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
-%	Alors
-%		\begin{itemize}
-%			\item On dit que $f$ est \emph{croissante} si, pour tous les $x,y\in I$ du domaine,
-%				\begin{align*}
-%					x < y && \implies && f(x) \leq f(y).
-%				\end{align*}	
-%			On interprète l'implication ainsi :
-%			\begin{center}
-%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
-%			\end{center}
-%				
-%			\item On dit que $f$ est \emph{décroissante} si, pour tous les $x,y\in I$ du domaine,
-%				\begin{align*}
-%					x < y && \implies && f(x) \geq f(y).
-%				\end{align*}
-%			On interprète l'implication ainsi :
-%			\begin{center}
-%				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ diminue \fg.
-%			\end{center}
-%				
-%			\item On dit que $f$ est \emph{constante} si, pour tous les $x\in I$ du domaine, et pour une certaine constante $K\in\R$,
-%				\begin{align*}
-%					f(x) = K.
-%				\end{align*}
-%		\end{itemize}
-%	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
-%}{}
-%
-%\thm{Variations}{
-%	Soit $f$ une fonction affine où $a, b \in\R$ sont ses deux paramètres réels.
-%		\begin{align*}
-%			f(x) = a x + b && (x\in\R)
-%		\end{align*}
-%	On distingue trois cas de figure.
-%		\begin{itemize}
-%			\item Si $a < 0$, alors $f$ est strictement décroissante.
-%			\item Si $a=0$, alors $f$ est constante.
-%			\item Si $a>0$, alors $f$ est strictement croissante.
-%		\end{itemize}
-%}{thm:affine-var}
-%
-%\pf{Démonstration du théorème \ref{thm:affine-var}}{
-%	Si $a=0$, $f$ est clairement constante car
-%		\begin{align*}
-%			f(x) = b \qquad \text{ pour tout $x\in\R$}.
-%		\end{align*}
-%	
-%	Sinon, on utilise les règles de manipulation des inégalités du théorème \ref{thm:ineg} vues au chapitre \ref{chap:3}.
-%	
-%	Si $a>0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
-%		\begin{align*}
-%			x &< y \\
-%			a \cdot x &< a \cdot y \\
-%			a \cdot x + b &< a \cdot y + b \\
-%			f(x) &< f(y),
-%		\end{align*}
-%	et $f$ est donc strictement croissante.
-%	
-%	Si $a<0$, alors, pour tous les $x,y \in \R$ tels que $x < y$, on a
-%		\begin{align*}
-%			x &< y \\
-%			a \cdot x &> a \cdot y \\
-%			a \cdot x + b &> a \cdot y + b \\
-%			f(x) &> f(y),
-%		\end{align*}
-%	et $f$ est donc strictement décroissante.
-%}{}
+\dfn{équation cartésienne de droite}{
+	Une \emphindex{équation cartésienne de droite} est une équation de la forme
+		\begin{align}
+			ax + by = c. \label{eq:cart}
+		\end{align}
+	L'ensemble des couples $(x ; y)$ vérifiant l'équation forme une droite :
+		\begin{align}
+			(d) = \bigset{ (x ; y) \tq ax + by = c }. \label{eq:droite}
+		\end{align}
+}{dfn:equation-cartesienne}
+
+\exe{}{
+	Tracer la droite d'équation $4x - y = 0$ dans un repère.
+}{exe:cart1}{
+	TODO
+}
+
+\exe{}{
+	Tracer la droite d'équation $y = 7$ dans un repère.
+}{exe:cart2}{
+	TODO
+}
+
+\exe{}{
+	Tracer la droite d'équation $x=-2$ dans un repère.
+}{exe:cart3}{
+	TODO
+}
+
+\exe{}{
+	Tracer les droites d'équations $2x - y = 0$, $2x - y = -2$, et $2x - y = 3$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:parallélisme}{
+	TODO
+}
+
+\exe{, difficulty = 1}{
+	Montrer que les équations $ax+by =0$ et $ax+by=c$ sont parallèles, quel que soit $c\in\R$.	
+}{exe:parallélisme2}{
+	Si $b=0$, les droites sont verticales et parallèles.
+	
+	Sinon, leur équations réduites sont $y = \dfrac{-a}{b}x$ et $y = \dfrac{-a}{b}x + \dfrac{c}b$, de même coefficient directeur.
+	Les droites sont donc parallèles dans ce cas aussi.
+}
 
