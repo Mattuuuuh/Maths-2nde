@@ -7,6 +7,8 @@
 
 \section{Introduction}
 
+\subsection{Translation du plan}
+
 \dfn{translation du plan}{
 	Une \emphindex{translation} $T$ du plan est le déplacement de tous les points du plan selon la même direction, la même distance, et dans le même sens.
 	
@@ -86,41 +88,7 @@
 	\end{multicols}
 }{}
 
-\exe{}{
-	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
-	Que remarque-t-on ?
-}{exe:axbyz2}{
-	TODO
-}
-
-\exe{, difficulty=2}{
-	Soient $a, b \in\R$ deux nombres.
-	Montrer, à l'aide du théorème de Pythagore, qu'un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
-		\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
-}{exe:parallélisme}{
-	On considère le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
-	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
-	
-	D'après le théorème de Pythagore (et sa réciproque), on a
-		\[ (OA) \perp (OX) \iff OA^2 + OX^2 = AB^2. \]
-	Or $OA^2 = a^2 + b^2$, $OB^2 = x^2 + y^2$, et $AB^2 = (a-x)^2 + (b-y)^2$.
-	L'égalité de Pythagore devient donc
-		\begin{align*}
-			(OA) \perp (OX) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
-				&\iff a^2 + b^2 + x^2 + y^2 = a^2 + x^2 - 2ax + b^2 + y^2 - 2by, \\
-				&\iff 0 = -2(ax + by), \\
-				&\iff ax + by = 0.
-		\end{align*}
-}
-
-\exe{}{
-	Tracer les droites d'équations $2x - y = 0$, $2x - y = -2$, et $2x - y = 3$ dans un même repère.
-	Que remarque-t-on ?
-}{exe:parallélisme}{
-	TODO
-}
-
-\section{Composition de translations : somme de vecteurs}
+\subsection{Composition de translations : somme de vecteurs}
 
 \thm{relation de Chasles}{
 	Soient $A, B, C$ trois points du plans. 
@@ -154,7 +122,44 @@
 	\end{center}
 }{}
 
-\section{Norme vectorielle}
+\exemulticols{}{
+	À l'aide des vecteurs $u, v, w$ donnés dans le plan ci-contre, construire les sommes
+		\begin{align*}
+			a &= u+v+w, \\
+			b &= -2u, \\
+			c &= 3u - \dfrac12v - \dfrac13w.
+		\end{align*}
+	\vfill
+}{
+	\begin{center}
+	\includegraphics[page=5]{figures/fig-vecteurs.pdf}
+	\end{center}
+}{exe:somme-geom}{
+	TODO
+}
+
+\exe{}{
+	À l'aide de la figure suivante et de la relation de Chasles, déterminer les sommes vectorielles suivantes en complétant les pointillés.
+
+	\begin{center}
+	\includegraphics[page=6]{figures/fig-vecteurs.pdf}
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{BC} = \vec{E \dots}$
+		\item $\vec{BE} = \vec{\dots F}$
+		\item $\vec{AB} + \vec{FA} = \vec{F \dots} + \vec{\dots B} = \vec{\vphantom{A} \dots\dots}$
+		\item $\vec{FD} + \vec{EB} = \vec{FD} + \vec{D\dots} = \vec{\vphantom{A}\dots\dots}$
+		\item $\vec{AE} + \vec{GB} + \vec{DH} = \vec{AE} + \vec{E\dots} + \vec{\vphantom{A}\dots\dots} = \vec{\vphantom{A}\dots\dots}$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:somme-sesamaths}{
+	TODO
+}
+
+\subsection{Norme vectorielle}
 
 On souhaite désormais parler de « longueur » de translation.
 Pour cela, considérons $\vec{AB}$ le vecteur translatant le point $A$ sur le point $B$.
@@ -233,7 +238,7 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 }
 
 
-\section{Colinéarité, alignement, et déterminant}
+\section{Colinéarité}
 
 \dfn{vecteurs colinéaires}{
 	Un vecteur $u$ est  \emphindex{vecteur colinéaire} à un vecteur $v$ dès qu'il existe un réel $\kappa\in\R$ tel que
@@ -285,6 +290,8 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	On reconnaît bien ici le coefficient directeur de la fonction affine associée à $(d)$.
 }{}
 
+\section{Alignement et vecteur directeur}
+
 \thm{}{
 	Soit $A, B, C, D$ quatre points quelconques.
 	
@@ -301,27 +308,53 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
 }{prop:alignement-colinéarité}
 
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Le point $C$ appartient-il à la droite $(AB)$ ?
+		\item Le point $D$ appartient-il à la droite $(CB)$ ?
+		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
+	\end{enumerate}
+}{exe:alignement}{
+	TODO
+}
+
 \dfn{vecteur directeur}{
 	Soit $(d)$ une droite quelconque.
 	On appelle $v$ \emphindex{vecteur directeur} de $(d)$ si $v$ et $(d)$ admettent la même direction.
 	
-	Si $(d)$ est non verticale, $v$ est colinéaire à $\pvec{1}{a}$, ce qui donne immediatement le coefficient directeur de la fonction affine associée.
+	Pour $A\in(d)$, on a alors
+		\[ (d) = \bigset{ A + k \cdot v, \text{ où $k$ parcourt $\R$} }. \]
+	La droite $(d)$ est égale à tous les translatés d'un de ses points $A$ par les multiples de $v$.
 }{}
 
+\nomen{
+	On dit que le vecteur $v$ \emph{dirige} la droite $(d)$.
+}
+
 \nt{
-	Soit $A$ un point, $v$ un vecteur, et $(d)$ la droite passant par $A$ et dirigée par $v$.
+	Pour deux points $A \neq B$ quelconques d'une droite $(d)$, le vecteur $\vec{AB}$ dirige $(d)$.
+}
+
+\exe{}{
+	On considère un point $A(-4;5)$ et un vecteur $v = \pvec{3}{-2}$.
+	Soit $(d)$ la droite passant par $A$ et dirigée par $v$.
 	
-	Alors pour $B$ un point quelconque de $(d)$, le vecteur $\vec{AB}$ est nécessairement colinéaire à $v$.
-	Par conséquent, il existe un nombre réel $k\in\R$ tel que $\vec{AB} = k \cdot v$.
-	
-	Or comme $\vec{AB} = B-A$, on a nécessairement
-		\[ B = A + k \cdot v. \]
-	Un choix arbitraire de $k$ donnera donc naissance à un nouveau point de la droite.
-	Par exemple, les points $A+v, A-v, A+2v, A-\frac5{13}v, A - \sqrt{5} \cdot v$, etc... sont tous des points de la droite $(d)$.
-	
-	On a en fait
-		\[ (d) = \left\{ A + k \cdot v \text{ où $k$ parcourt $\R$} \right\}. \]
-}{}
+	\begin{enumerate}
+		\item
+		Donner $4$ points distincts appartenant à $(d)$.
+		\item
+		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
+	\end{enumerate}
+}{exe:vec-dir-to-affine}{
+	TODO
+}
+
+\section{Déterminant}
 
 \dfn{déterminant de deux vecteurs}{
 	Soient $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$ deux vecteurs.
@@ -360,4 +393,86 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	\end{enumerate}
 }
 
+\exe{}{
+	On considère le point $A(-4; -2)$ et les deux vecteurs $u = \pvec{6}{2}$ et $v = \pvec{1}{-3}$.
+	On pose de plus les trois points
+		\begin{align*}
+			B = A + u, && C = B + v, && D = C - u.
+		\end{align*}	
+	\begin{enumerate}
+		\item 
+		Montrer que $B(2;0), C(3;-3)$, et $D(-3;-5)$ puis dessiner le quadrilatère $ABCD$ dans un repère.
+		
+		\item
+		\begin{enumerate}[label=(\alph*)]
+			\item Calculer les vecteurs $\vec{AB}$ et $\vec{DC}$, et montrer qu'ils sont colinéaires.
+			\item Calculer les vecteurs $\vec{AD}$ et $\vec{CB}$, et montrer qu'ils sont colinéaires.
+			\item Montrer qu'on a $\norm{\vec{AB}}= 2\sqrt{10}$, $\norm{\vec{AD}} = \sqrt{10}$, et $\norm{\vec{BD}} = 5\sqrt{2}$.
+			\item Vérifier qu'on ait bien $\det\Bigl(\vec{AB}, \vec{AD}\Bigr) = -20$.
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}[label=(\alph*)]
+			\item Montrer que le quadrilatère $ABCD$ est un parallélogramme à l'aide des questions 2(a-b).
+			\item Montrer que le triangle $ABD$ est rectangle en $A$ à l'aide de la réciproque du théorème de Pythagore et de la question 2(c).
+			\item En déduire que $ABCD$ est un rectangle et calculer son aire à l'aide de la question 2(c).
+			\item Comparer l'aire obtenue à $\left| \det\Bigl(\vec{AB}, \vec{AD}\Bigr) \right|$, la valeur absolue du déterminant calculé à la question 2(d).
+		\end{enumerate}
+		
+	\end{enumerate}
+}{exe:aire-det-particulier}{
+	TODO
+}
+
+\nomen{
+	On dit de deux vecteurs non nuls qu'ils sont \emphindex{vecteurs perpendiculaires} dès que les droites qu'ils dirigent sont perpendiculaires.
+}
+
+\nt{
+	L'exercice \ref{exe:det-aire} vise à montrer que, lorsque les vecteurs $u$ et $v$ sont perpendiculaires, la valeur absolue du déterminant $|\det(u, v)|$ est égal à l'aire du parallélogramme de sommets $O, O+u, O+u+v, O+v$.
+	
+	Il s'avère que ce résultat est vrai sans l'hypothèse de perpendicularité entre les vecteurs.
+}
+
+\exe{, difficulty=2}{
+	Soient $u = \pvec{a}{b}, v = \pvec{c}{d}$ deux vecteurs tels que le triangle de sommets $O(0;0), O+u, O+v$ est rectangle en $O$. 
+	\begin{enumerate}
+		\item Faire un dessin du triangle rectangle et donner les coordonnées de chacun de ses sommets.
+		\item Montrer à l'aide de la réciproque de Pythagore que 
+			\[ a\cdot c + b\cdot d = 0. \]
+		\item
+		Montrer à l'aide de la relation ci-dessus que
+			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
+	\end{enumerate}
+}{exe:det-aire}{
+	TODO
+}
+
+
+\exe{}{
+	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:axbyz2}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soient $a, b \in\R$ deux nombres.
+	Montrer, à l'aide du théorème de Pythagore, qu'un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
+		\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
+}{exe:parallélisme}{
+	On considère le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
+	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
+	
+	D'après le théorème de Pythagore (et sa réciproque), on a
+		\[ (OA) \perp (OX) \iff OA^2 + OX^2 = AB^2. \]
+	Or $OA^2 = a^2 + b^2$, $OB^2 = x^2 + y^2$, et $AB^2 = (a-x)^2 + (b-y)^2$.
+	L'égalité de Pythagore devient donc
+		\begin{align*}
+			(OA) \perp (OX) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
+				&\iff a^2 + b^2 + x^2 + y^2 = a^2 + x^2 - 2ax + b^2 + y^2 - 2by, \\
+				&\iff 0 = -2(ax + by), \\
+				&\iff ax + by = 0.
+		\end{align*}
+}
 

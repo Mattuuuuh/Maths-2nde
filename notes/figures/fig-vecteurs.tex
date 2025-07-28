@@ -151,5 +151,40 @@ cross/.default={1pt}}
 	};
 	
 	\end{tikzpicture}
+	
+	% page 5
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+		\draw[very thick, ->, myg] (axis cs:-1,-1) -- (axis cs: 1,-4) node[right] {$u$};
+		\draw[very thick, ->, myr] (axis cs: -2,8) -- (axis cs: -5,-1) node[left] {$v$};
+		\draw[very thick, ->, myb] (axis cs:0,1) -- (axis cs: 8,5) node[above] {$w$};
+	\end{axis}
+	\end{tikzpicture}
+	
+	% page 6
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\newcommand\len{.8cm}
+	\begin{axis}[xmin = 0, x=\len, y= \len, xmax=8, ymin=0, ymax=4, axis line style={ draw opacity=0 }, xlabel={}, ylabel={}, ticks = none, grid = both, enlargelimits={abs=0.8}, minor x tick num = 1, minor y tick num = 1]
+		\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 8,0);
+		\draw[very thick, -, myr] (axis cs:0,4) -- (axis cs: 8,4);
+		\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 0,4);
+		\draw[very thick, -, myr] (axis cs:8,0) -- (axis cs: 8,4);
+		\draw[very thick, -, myr] (axis cs:4,0) -- (axis cs: 4,4);
+		\draw[very thick, -, myr] (axis cs:0,0) -- (axis cs: 4,4);
+		\draw[very thick, -, myr] (axis cs:0,4) -- (axis cs: 4,0);
+		\draw[very thick, -, myr] (axis cs:4,0) -- (axis cs: 8,4);
+		\draw[very thick, -, myr] (axis cs:4,4) -- (axis cs: 8,0);
+		
+		\addplot[black] (0,0) node[below] {$A$};
+		\addplot[black] (4,0) node[below] {$B$};
+		\addplot[black] (8,0) node[below] {$C$};
+		\addplot[black] (8,4) node[above] {$D$};
+		\addplot[black] (4,4) node[above] {$E$};
+		\addplot[black] (0,4) node[above] {$F$};
+		\addplot[black] (2,2) node[below=2pt] {$G$};
+		\addplot[black] (6,2) node[below=2pt] {$H$};
+		
+	\end{axis}
+	\end{tikzpicture}
 %
 \end{document}
