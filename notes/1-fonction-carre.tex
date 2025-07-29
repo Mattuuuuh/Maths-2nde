@@ -39,8 +39,8 @@
 }{exe:courbe-carré}{
 	Les images $f(-4) = f(4) = 16, f(-3) = f(3) = 9, f(-2) = f(2) = 4, f(-1)=f(1) = 1$, et $f(0) =0$ permettent de tracer la courbe bleue suivante. La courbe verte est la version avec 101 points choisis uniformément.
 	\begin{center}
-	\includegraphics[page=1]{figures/fig-exe.pdf}
-	\includegraphics[page=2]{figures/fig-exe.pdf}
+	\includegraphics[page=1]{figures/fig-carre.pdf}
+	\includegraphics[page=2]{figures/fig-carre.pdf}
 	\end{center}
 }
 
@@ -51,7 +51,7 @@
 	On cherche donc les points de la courbe d'ordonnée $y=4$ et on lit leur abscisse $x$.
 	Le graphe ci-dessous donne $\bigset{ x\in\R \tq x^2 = 4} = \bigset{ -2 ; 2}$.
 	\begin{center}
-	\includegraphics[page=3]{figures/fig-exe.pdf}
+	\includegraphics[page=3]{figures/fig-carre.pdf}
 	\end{center}
 }
 
@@ -62,7 +62,7 @@
 	On cherche donc les points de la courbe d'ordonnée $y\leq4$ et on lit leur abscisse $x$.
 	Le graphe ci-dessous donne $\bigset{ x\in\R \tq x^2 = 4} = [-3 ; 3]$.
 	\begin{center}
-	\includegraphics[page=4]{figures/fig-exe.pdf}
+	\includegraphics[page=4]{figures/fig-carre.pdf}
 	\end{center}
 }
 
@@ -122,7 +122,9 @@
 
 \exe{}{
 	En supposant que $f$ et $g$ soient paires, continuer leur graphe sur tout le domaine.
-		TODO
+	\begin{center}
+	\includegraphics[page=5]{figures/fig-carre.pdf}
+	\end{center}
 }{exe:draw-paire}{
 	TODO
 }
@@ -509,6 +511,14 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	\end{multicols}
 }
 
+\exe{}{
+	Tracer la graphe de la fonction valeur absolue sur $[-5 ; 5]$.
+}{exe:graph-vabs}{
+	\begin{center}
+	\includegraphics[page=6]{figures/fig-carre.pdf}
+	\end{center}
+}
+
 \mprop{}{
 	La valeur absolue est toujours positive ou nulle.
 	
@@ -531,6 +541,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ 1_{|\Q}(x) = \begin{cases*} 1 & si $x\in\Q$, \\ 0 & sinon. \end{cases*}. \]
 }
 
+% WRONG PAGE :(((
 \footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805 - 1859), mathématicien prussien né à Düren (allemagne de l'ouest actuelle).}
 
 \exe{, difficulty=2}{
@@ -642,12 +653,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	L'exercice \ref{exe:vabs-9} permet de conclure que $\bigset{ x \in \R \tq x^2 \leq 81 } = [-9 ; 9]$.
 }
 
-\cor{Manipulation d'égalités, d'inégalités avec valeurs absolues}{
+\cor{manipulation d'(in)égalités avec valeur absolue}{
 	Soit $E\in\R$ une expression quelconque et $a\geq0$ un réel positif ou nul.
 	Alors 
 		\begin{align*}
 			| E | = a && \iff && E = a \text{ ou } E = -a, \\
-			|E| \leq a && \iff && E \in [-a ; a], \\
+			|E| \leq a && \iff && E \in [-a ; a]. \\
 			%|E| \geq a && \iff && E \in ]\minfty; -a] \text{ ou } E\in [a ; \pinfty[.
 		\end{align*}
 }{cor:manipulations-valeurs-absolues}

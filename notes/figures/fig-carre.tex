@@ -1,0 +1,100 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{icomma}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {clip=true, grid style = {opacity=.5}}
+}
+
+\begin{document}
+%
+	% exe:courbe-carré
+	% page 1
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1cm]
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-4:4, samples=9]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	% page 2
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1cm]
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}	
+	
+	% exe:carré-eg
+	% page 3
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1cm]
+			\addplot[no marks, PURPLE, -, very thick] expression[domain=-2:2, samples=2]{4};
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (-2,4) node[left] {$(-2;4)$};		
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (2,4) node[right] {$(2;4)$};		
+			\draw[PURPLE, very thick] (axis cs:-2,0) -- (axis cs:-2,4);	
+			\draw[PURPLE, very thick] (axis cs:2,0) -- (axis cs:2,4);
+			
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% exe:carré-ineg
+	% page 4
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-.1, ymax=16.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1cm]
+			\addplot[no marks, PURPLE, -, very thick] expression[domain=-3:3, samples=2]{9};
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (-3,9) node[above right] {$(-3;9)$};		
+			\addplot[mark=*, mark size = 1, PURPLE, thick] (3,9) node[above left] {$(3;9)$};		
+			\draw[PURPLE, very thick] (axis cs:-3,0) -- (axis cs:-3,9);	
+			\draw[PURPLE, very thick] (axis cs:3,0) -- (axis cs:3,9);
+			
+			\addplot[no marks, GREEN_E, -, very thick] expression[domain=-4:4, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 5
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-5.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-4:-.001, samples=300]{sin(180*x)/x} node[pos=.92, left]{$\C_f$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=.001:4, samples=300]{1+x*cos(180*x)} node[pos=.92, left]{$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 6
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -5.1, xmax=5.1, ymin=-5.1, ymax=5.1, ymin=-.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-5:5, samples=300]{abs(x)} node[pos=.8, below right]{$y=|x|$};
+		\end{axis}
+	\end{tikzpicture}
+%
+\end{document}
