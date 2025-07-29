@@ -299,6 +299,21 @@
 	Les diviseurs se regroupent par paires $(a ; b)$ où $a\cdot b = n$, sauf éventuellement si $a$ et $b$ sont égaux, auquel cas $n = a^2$.
 }
 
+\exe{, difficulty=1}{
+	Donner $\D_{48}$ et en déduire les entiers naturels $x\in\N$ vérifiant $x^2 - 8x + 16 = 64$.
+}{exe:2nd-degré-Z}{
+	$\D_{48} = \bigset{1 ; 48 ; 2 ; 24 ; 3 ; 16 ; 4 ; 12 ; 6 ; 8}$.
+
+	Soit $x\in\N$ vérifiant $x^2 - 8x + 16 = 64$.
+	En soustrayant $16$, on trouve $x^2 - 8x = 48 \iff x(x-8) = 48$.
+	Comme $x\in\N$ est entier, $x-8$ l'est aussi, et les deux nombres divisent 48.
+	
+	On cherche donc deux éléments de $\D_{48}$ dont le produit vaut 48 et qui sont séparés de $8$ unités.
+	Par inspection, seul $4\times12 = 48$ et donc $x=12$ fonctionne, et c'est la seule solution dans $\N$ de l'équation.
+	
+	Par symétrie, il existe une autre solution, $x = -4$, qui appartient à $\Z$ mais pas à $\N$.
+}
+
 \thm{}{
 	Considérons $n\in\N$ un entier naturel tel que $2 | n$ et $3 | n$ : $n$ est pair et multiple de $3$.
 	Alors $6 | n$ : $n$ est multiple de $6$.
