@@ -13,18 +13,18 @@
 	Soit $f : \D \rightarrow \R$ une fonction $f$ quelconque sur un intervalle $I\subseteq\R$.
 	Alors
 		\begin{itemize}
-			\item On dit que $f$ est \emphindex{croissante} si, pour tous les $x,y\in I$ du domaine,
+			\item On dit que $f$ est \emphindex{strictement croissante} si, pour tous les $x,y\in I$ du domaine,
 				\begin{align*}
-					x < y && \implies && f(x) \leq f(y).
+					x < y && \iff && f(x) < f(y).
 				\end{align*}	
 			On interprète l'implication ainsi :
 			\begin{center}
 				\og lorsqu'on augmente l'abscisse $x$, l'ordonnée $f(x)$ augmente \fg.
 			\end{center}
 				
-			\item On dit que $f$ est \emphindex{décroissante} si, pour tous les $x,y\in I$ du domaine,
+			\item On dit que $f$ est \emphindex{strictement décroissante} si, pour tous les $x,y\in I$ du domaine,
 				\begin{align*}
-					x < y && \implies && f(x) \geq f(y).
+					x < y && \iff && f(x) > f(y).
 				\end{align*}
 			On interprète l'implication ainsi :
 			\begin{center}
@@ -36,8 +36,18 @@
 					f(x) = K.
 				\end{align*}
 		\end{itemize}
-	On définiera de la même façon \og strictement croissante \fg ~ (respectivement décroissante) en remplaçant l'inégalité large $\leq$ (resp. $\geq$) par l'inégalité stricte $<$ (resp. $>$).
 }{}
+
+\nt{
+	On dira d'une fonction croissante qu'elle \emphindex{préserve l'ordre} car si $x$ est plus petit que $y$, alors $f(x)$ est plus petit que $f(y)$.
+	Similairement, une fonction décroissante \emphindex{inverse l'ordre}.
+}
+
+\exe{1}{
+	Donner un exemple de fonction $f$ vérifiant $x < y \implies f(x) \leq f(y)$, mais pas $x < y \iff f(x) \leq f(y)$.
+}{exe:croissante-large}{
+	TODO
+}
 
 \ex{variation d'une fonction affine}{
 	On considère $f(x) = -3x + 8$, une fonction affine sur $\R$.
@@ -66,7 +76,7 @@
 	Le tableau n'est pas très intéressant pour l'instant car les variations des fonctions affines ne le sont pas particulièrement...
 }{}
 
-\exe{1}{
+\exe{}{
 	Montrer que la fonction affine $f(x) = 2x - 10$ est croissante sur $\R$.
 }{exe:var-affine1}{
 	TODO
@@ -292,11 +302,18 @@
 }{}
 
 \ex{}{
-	La fonction carré $f(x)=x^2$ sur $\R$ tout entier n'admet pas de maximum (à démontrer rigoureusement !).
+	La fonction carré $f(x)=x^2$ sur $\R$ tout entier n'admet pas de maximum : si $x^\star$ vérifiait $(x^\star)^2 \geq x^2$ pour tout $x\in\R$, alors prendre $x = |x^\star|+1$ mène à une contradiction.
+	
 	Cependant, $f$ admet son minimum $0$ en $x^\star = 0$, car on a 
 		\[ f(x) = x^2 \geq 0 = f(0), \]
 	pour tout $x\in\R$.
 	C'est d'ailleurs \emph{le} minimum car seul $0$ vérifie $f(x) = 0$.
+}{}
+
+\ex{}{
+	La fonction carré $f(x) = x^2$ sur le domaine $[-9 ; 6]$ admet un minimum, car le minimum global 0 appartient au domaine.
+	
+	Elle admet aussi un maximum en $x^\star = -9$.
 }{}
 
 \ex{forme canonique : du signe du carré à l'extremum}{
