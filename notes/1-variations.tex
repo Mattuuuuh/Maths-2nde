@@ -95,7 +95,7 @@
 }
 
 \exe{}{
-	Expliquer avec des mots pourquoi la $\cos$ est décroissante et la fonction $\sin$ est croissante sur $[0\degree ; 90\degree]$
+	Expliquer avec des mots pourquoi la fonction $\cos$ est décroissante et la fonction $\sin$ est croissante sur $[0\degree ; 90\degree]$
 	(revoir la section \ref{sec:quart-trigo} du chapitre \ref{chap:pb-geom} pour leur définition).
 }{exe:var-sin-cos}{
 	TODO
@@ -167,10 +167,7 @@
 
 
 \exe{}{
-	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
-	\end{enumerate}
+	Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$ puis remplir le tableau de variations et de signes ci-dessous.
 	
 	\begin{center}
 	\includegraphics[page=9]{figures/fig-variations.pdf}
@@ -183,10 +180,7 @@
 
 
 \exe{}{
-	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
-	\end{enumerate}
+	Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$ puis remplir le tableau de variations et de signes ci-dessous.
 	
 	\begin{center}
 	\includegraphics[page=11]{figures/fig-variations.pdf}
@@ -199,10 +193,7 @@
 
 
 \exe{}{
-	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
-	\end{enumerate}
+	Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$ puis remplir le tableau de variations et de signes ci-dessous.
 	
 	\begin{center}
 	\includegraphics[page=13]{figures/fig-variations.pdf}
@@ -230,6 +221,61 @@
 	\includegraphics[page=18]{figures/fig-variations.pdf}
 	\includegraphics[page=19]{figures/fig-variations.pdf}
 	\end{center}
+}
+
+\subsection{Fonctions carré, racine carrée}
+
+\notations{
+	On pose $\R_-^* = ]\minfty ; 0[$ les nombres réels strictement négatifs, et $\R_+^* = ]0 ; \pinfty[$ les nombres réels strictement positifs.
+}
+
+\thm{}{
+	La fonction carré $f(x) = x^2$ est strictement décroissante sur $\R_-^*$, et strictement croissante sur $\R_+^*$.
+}{thm:var-sq}
+
+\pf{}{
+	Si $0 < x < y$, alors on multiplie par $x$ et $y$ pour obtenir
+		\begin{align*}
+			0 < x^2 < yx && \et && 0 < xy < y^2,
+		\end{align*}
+	et donc $0 < x^2 < yx = xy < y^2$, d'où $f(x) < f(y)$ : $f$ est croissante sur $\R_+^*$.
+	
+	Si $x < y < 0$, alors multiplier par $x$ ou $y$ change le sens des inégalités :
+		\begin{align*}
+			x^2 > yx > 0 && \et && xy > y^2 > 0,
+		\end{align*}
+	d'où $x^2 > y^2$, ce qui conclut.
+}{}
+
+\thm{}{
+	La fonction racine carrée $f(x) = \sqrt{x}$ est strictement croissante sur $\R_+$.
+}{thm:var-sqrt}
+
+\exe{, difficulty=1}{
+	Montrer que si $0\leq x<y$, alors 
+		\[ \sqrt{y} - \sqrt{x} = \dfrac{y - x}{\sqrt{y} + \sqrt{x}} > 0. \]
+	En déduire le théorème \ref{thm:var-sqrt}.
+}{exe:var-sqrt}{
+	Soient $0\leq x<y$. On souhaite montrer que $\sqrt{x} < \sqrt{y}$, c'est-à-dire que $\sqrt{y} - \sqrt{x} > 0$.
+	
+	Or, comme $\sqrt{x}+\sqrt{y}>0$ est non nul, on peut écrire 
+		\[ \sqrt{y} - \sqrt{x} = \dfrac{\bigl(\sqrt{y} - \sqrt{x}\bigr)\bigl(\sqrt{y} + \sqrt{x}\bigr)}{\sqrt{y} + \sqrt{x}} 
+						= \dfrac{y - x}{\sqrt{y} + \sqrt{x}}. \]
+	Le numérateur étant positif car $x<y$ et le dénominateur aussi, on conclut comme requis.
+}
+
+\exe{}{
+	Donner un encadrement des nombres à l'unité.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\sqrt{43}$
+			\item $\sqrt{70,8}$
+			\item $\sqrt{\dfrac{61}7}$
+			\item $\sqrt{101,204}$
+		\end{enumerate}
+		\end{multicols}
+}{exe:sqrt-interval}{
+	TODO
 }
 
 
@@ -321,6 +367,10 @@
 	
 	Elle admet aussi un maximum en $x^\star = -9$.
 }{}
+
+\mprop{}{
+	Les extrema d'une fonction sont atteints lorsqu'elle change de variations ou aux bornes de son domaine.
+}{prop:extrema}
 
 \ex{forme canonique : du signe du carré à l'extremum}{
 	Considérons la fonction
