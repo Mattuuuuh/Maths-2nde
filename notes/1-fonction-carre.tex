@@ -307,7 +307,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ a^2 + b^2 = c^2. \]
 	Nommons deux paramètres entiers $k, \ell\in\N$ avec $k\geq \ell$.
 	Vérifier que le triplet
-		\[ (k^2 - \ell^2 ; 2k\ell ; k^2 + \ell^2) \]
+		\[ \bigl(k^2 - \ell^2 ; 2k\ell ; k^2 + \ell^2\bigr) \]
 	est pythagoricien.
 	
 	Créer quelques triplets en prenant des valeurs de $k \geq \ell$ et les vérifier à la calculatrice.
@@ -348,21 +348,22 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \label{sec:racine-carrée}
 
 \dfn{racine carrée}{
-	Soit $a \in \R, a\geq0$ un réel positif ou nul.
-	La quantité $\sqrt{a}$ est l'unique nombre réel positif ou nul vérifiant
-		\[ \sqrt{a}^2 = a. \]
+	Soit $x \in \R, x\geq0$ un réel positif ou nul.
+	La quantité $\sqrt{x}$, lue « \emphindex{racine carrée} de $x$ », est l'unique nombre réel positif ou nul vérifiant
+		\[ \sqrt{x}^2 = x. \]
+	C'est donc l'opération inverse de la mise au carré.
 }{}
 
 \exe{}{
-	Compléter les pointillés.
+	Compléter les expressions.
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $\sqrt{25} = \dots$
-		\item $\sqrt{81} = \dots$
-		\item $\sqrt{121} = \dots$
-		\item $\sqrt{\quad\dots\quad} = 25$
-		\item $\sqrt{\quad\dots\quad} = 12$
-		\item $\sqrt{\quad\dots\quad} = 10^3$
+		\item $\sqrt{25} = $
+		\item $\sqrt{81} = $
+		\item $\sqrt{121} = $
+		\item $\sqrt{\phantom{xxx}} = 25$
+		\item $\sqrt{\phantom{xxx}} = 12$
+		\item $\sqrt{\phantom{xxx}} = 10^3$
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt1}{
@@ -385,18 +386,24 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	TODO
 }
 
-% pas hyper intéressant sans notion de croissance de sqrt je trouve
-%\exe{}{
-%	Donner un encadrement des nombres à l'unité.
-%		\begin{multicols}{2}
-%		\begin{enumerate}
-%			\item $\sqrt{43}$
-%			\item $\sqrt{70,8}$
-%			\item $\sqrt{\dfrac{61}7}$
-%			\item $\sqrt{101,204}$
-%		\end{enumerate}
-%		\end{multicols}
-%}{}
+\nt{
+	L'équation du graphe de la fonction racine carrée $y = \sqrt{x}$ implique $x = y^2$ lorsque mise au carré.
+	Son graphe est donc celui de la fonction carré lorsqu'on échange les axes des abscisses et des ordonnées.
+	% et $x$  est vu comme une fonction de $y$.
+	
+	Vu autrement, le point $(x ; x^2)$ du graphe de la fonction carré donne naissance au point $(x^2 ; x) = (y ; \sqrt{y})$ de la fonction racine carrée en échangeant ses coordonnées.
+	
+	Il s'avère que la symétrie par rapport à la droite $y=x$ échange les axes du plan et donc les coordonnées de chaque point.
+	On peut donc déduire le graphe de la fonction racine carrée de celui de la fonction carré par symétrie.
+}
+
+\exe{}{
+	Dans un même repère de domaine $[0 ; 2]$, grapher les fonctions $y=x^2, y=x,$ et $y=\sqrt{x}$.
+}{exe:graph-sqrt}{
+	\begin{center}
+	\includegraphics[page=7]{figures/fig-carre.pdf}
+	\end{center}
+}
 
 \exe{}{
 	Montrer que la notation $x = \sqrt{-1}$ n'a pas de sens pour $x\in\R$ réel.
@@ -411,6 +418,11 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \notations{
 	On note $\R_+ = [0 ; \pinfty[$ l'ensemble des réels positifs ou nuls.
+}
+
+\nomen{
+	Si $f$ et $g$ vérifient $f(g(x)) = x$, alors $g$ est la \emphindex{fonction inverse} de $f$.
+	C'est le cas de la fonction racine carrée, inverse de la fonction carré sur le domaine $\R_+$.
 }
 
 \thm{propriétés de la racine carrée}{

@@ -35,7 +35,7 @@ dot/.default = black % size of the circle diameter
 }
 
 \tikzset{
-	every axis/.style = {clip=true, grid style = {opacity=.5}}
+	every axis/.style = {clip=false, grid style = {opacity=.5}}
 }
 
 \begin{document}
@@ -92,8 +92,17 @@ dot/.default = black % size of the circle diameter
 	
 	% page 6
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -5.1, xmax=5.1, ymin=-5.1, ymax=5.1, ymin=-.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+		\begin{axis}[xmin = -5.1, xmax=5.1, ymax=5.1, ymin=-.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
 			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-5:5, samples=300]{abs(x)} node[pos=.8, below right]{$y=|x|$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 7
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -0.1, xmax=2.1, ymin=-.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=0:2, samples=300]{x^2} node[right]{$y=x^2$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=0:2, samples=300]{x} node[right]{$y=x$};
+			\addplot[no marks,RED_E, -, very thick] expression[domain=0:2, samples=300]{sqrt(x)} node[right]{$y=\sqrt{x}$};
 		\end{axis}
 	\end{tikzpicture}
 %
