@@ -58,7 +58,8 @@
 
 \thm{}{
 	Si $n\in\N$ est impair, alors
-		\[ n = 2\cdot k + 1 \]
+		%\[ n = 2\cdot k + 1 \]
+		\[ n = 2 k + 1 \]
 	pour un certain entier naturel $k\in\N$.
 }{thm:impair}
 
@@ -71,6 +72,7 @@
 		\end{enumerate}
 	Si le nombre est impair, la première situation ne peut pas advenir, et $n  = 2k+1$.
 }
+
 
 \notations{
 	Lorsque deux éléments $a, b$ appartiennent au même ensemble $E$, on notera « $a, b \in E$ » pour signifier « $a \in E, b \in E$ ».
@@ -106,6 +108,17 @@
 
 
 \exe{}{
+	Lorsqu'on ouvre un livre, on peut identifier deux pages : celle de gauche, et celle de droite.
+	Par exemple, la page 33 d'un livre est toujours une page de droite.
+	
+	Est-il possible que la page 330 soit également une page de droite ?
+	
+	Comment savoir si la page $n$ est de gauche ou de droite ?
+}{exe:parité-pages}{
+	todo
+}
+
+\exe{}{
 	Montrer que si $n$ est pair, alors $m \cdot n$ est également pair pour n'importe quel entier $m\in\N$.
 }{exe:mod2}{
 	Par hypothèse, $n=2k$ pour un $k\in\N$.
@@ -131,7 +144,7 @@
 	On cherche les solutions entières de l'équation diophantienne $3x - 2y = 1$ où $x, y\in\Z$.
 	\begin{enumerate}
 		\item Montrer que $x = 2(y-x) + 1$ et en déduire que $x$ est impair.
-		\item En écrivant $x = 2k+1$ pour un entier $k\in\Z$, montrer que $y=3k+1$.
+		\item En écrivant $x = 2k+1$ pour un entier $k\in\Z$, montrer que $y=3k+1$. Est-ce que $y$ est toujours entier ?
 		\item Prendre $k=35$ puis $k=-40$ et trouver les solution de $3x-2y=1$ associées.
 	\end{enumerate}
 }{exe:dioph}{
@@ -144,6 +157,7 @@
 		\item 
 		$x$ étant impair, on peut l'écrire $x = 2k+1$ pour un entier $k\in\Z$. D'où
 			\[ 3x - 2y = 1 \iff 3(2k+1) - 2y = 1 \iff 6k + 3 - 2y = 1 \iff 6k + 2 = 2y \iff y = 3k+1. \]
+		$y = 3k+1$ est toujours entier car $k\in\Z$ l'est, et donc son triple aussi.
 		\item 
 		Pour $k=35$, $x=2k+1 = 71$ et $y=3k+1 = 106$. On vérifie que $3\times71 - 2\times106 = 1$.
 		
@@ -473,13 +487,13 @@
 
 \exe{, difficulty=1}{
 	Montrer que la différence de deux carrés parfaits non consécutifs n'est jamais un premier.
-}{exe:diff-carrés}{
+}{exe:diff-carrés-nonprime}{
 	Pour $0\leq m<n$ deux entiers, l'identité remarquable $n^2 - m^2 = (n+m)(n-m)$ donne deux diviseurs, le plus petit étant $n-m$.
 	Comme $m$ et $n$ ne sont pas consécutifs, $n-m\neq1$ et $n^2 - m^2$ n'est pas premier.
 }
 
 \exe{, difficulty=2}{
-	Déduire de l'exercice \ref{exe:sum-odd} que n'importe quelle somme de plus de deux impairs consécutifs n'est jamais un nombre premier.
+	Déduire des exercices \ref{exe:sum-odd} et \ref{exe:diff-carrés-nonprime} que n'importe quelle somme de plus de deux impairs consécutifs n'est jamais un nombre premier.
 }{exe:odd-nonprime}{
 	N'importe quelle somme d'impairs consécutifs différence de deux somme d'impairs commençant à 0 et donc différence de deux carrés parfaits non consécutifs :
 		\begin{align*}
@@ -574,14 +588,14 @@
 
 \exe{}{
 	Vérifier le corollaire \ref{cor:divisibilité-avec-decomposition} pour $n=24$ à l'aide de l'exercice \ref{exe:décompositions-primaires}.
-}{exe:nombre-diviseurs-avec-decomposition}{
+}{exe:diviseurs-avec-decomposition}{
 	La décomposition de $24$ est $24 = 2^3 \times 3$.
 	Une inspection rapide des décompositions des diviseurs de $24$ montre bien qu'ils sont tous de la forme $2^a \times 3^b$ avec $0 \leq a \leq 3$ et $0 \leq b \leq 1$.
 }
 
 \exe{, difficulty=2}{
 	Démontrer le corollaire \ref{cor:divisibilité-avec-decomposition}.
-}{exe:nombre-diviseurs-avec-decomposition}{
+}{exe:divisibilité-avec-decomposition}{
 	Si $a$ est de la forme décrite par le théorème, alors $a$ divise $n$ : il suffit de compléter la décomposition de $a$ pour obtenir celle de $n$ en multipliant par un nombre adéquat.
 	Par exemple, $2^3 \times 5^2$ divise $2^6 \times 3^2 \times 5^2$ car
 		\[ 2^6 \times 3^2 \times 5^2 = (2^3 \times 5^2) \times (2^3 \times 3^2). \]
@@ -604,7 +618,7 @@
 
 \exe{}{
 	Vérifier le corollaire \ref{cor:nombre-diviseurs-avec-decomposition} pour $n=24$ et $n=28$.
-}{exe:nombre-diviseurs-avec-decomposition}{
+}{exe:nombre-diviseurs-avec-decomposition-24-28}{
 	D'abord pour $n=24$, on a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 ; 4 ; 6 }$, qui contient 8 éléments. 
 	Comme $24 = 2^3 \times 3^1$, le calcul $(3+1)\times(1+1) = 8$ donne bien le nombre de diviseurs de $24$.
 	
