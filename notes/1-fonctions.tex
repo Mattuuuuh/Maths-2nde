@@ -17,23 +17,20 @@
 
 \dfn{fonction, variable, constante}{
 	On dit qu'une quantité $y\in\R$ s'exprime en \emphindex{fonction} d'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une seule} valeur $y$.
-	On note alors $x \mapsto y$ et $x$ est appelé la \emphindex{variable}.
+	On note alors $y = y(x)$, lu \og $y$ de $x$ \fg, où $x$ est la \emphindex{variable}.
 	Si une quantité ne dépend pas de $x$, on l'appelle \emphindex{constante}, ou \emphindex{indépendante} de $x$.
 }{}
 
-\nt{
-	Pour faire signifier la dépendance de $y$ comme fonction de $x$, on utilise la notation fonctionnelle $y(x)$, lu \og $y$ de $x$ \fg.
-	Ainsi, lorsque $x$ vaut $2$, la valeur associée sera $y(2)$, lu \og $y$ de $2$ \fg.
+\nomen{
+	Lorsque $x$ vaut $2$, la valeur associée sera $y(2)$, lu \og $y$ de $2$ \fg.
 	Ceci permet de différencier les valeurs qui émanent de différents $x\in\R$ : $y(1), y(-3), y(\frac34), \dots$.
 	La notation $y(x)$ est remplacée par $f(x)$ ($f$ pour fonction) pour se libérer la lettre $y$.
 }
 
 \ex{}{
-	Le périmètre d'un cercle de rayon $R$ est donné par $2\pi \cdot R$.
+	Le périmètre $P$ d'un cercle de rayon $R$ est donné par $2\pi \cdot R$.
 	Un rayon détermine donc un unique périmètre, et la fonction périmètre, dépendant de la variable rayon, est donnée par
-		\[ R\mapsto 2\pi\cdot R. \]
-	En appelant $P$ cette fonction, on peut aussi noter 
-		\[ P(R) = 2\pi \cdot R. \]	
+		\[ P = P(R) = 2\pi\cdot R. \]
 }{ex:perimètre}
 
 \exe{1}{
@@ -50,10 +47,11 @@
 	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
 	Il note ses résultats dans le tableau ci-dessous.
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
-			Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
-			Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
-		\end{tabular}
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+		Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+		Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+	\end{tabular}
 	\end{center}
 	
 	\begin{enumerate}
@@ -77,45 +75,46 @@
 	TODO
 }
 
-\dfn{fonction réelle, domaine}{
-	Soit $\D \subset \R$ un ensemble de nombres qu'on appelle \emphindex{domaine}.
-	
-	Une fonction $f$ de $\D$ dans $\R$ associe à chaque élément $x\in\D$ du domaine un nombre $f(x) \in \R$.
-	
-	On note alors
-		\begin{align*}
-			f: \D & \longrightarrow \R \\
-			x& \longmapsto f(x).
-		\end{align*}
-	
-	\begin{center}
-	\includegraphics[page=1]{figures/fig-fonctions.pdf}
-	\end{center}
-}{}
+\notations{
+	Pour une fonction $f$ quelconque, 
+	on note $\D\subseteq\R$ un \emphindex{domaine} sur laquelle elle est bien définie et étudiée :
+	$f$ admet une image $f(x)$ pour chaque $x\in\D$ du domaine d'étude.
+}
+
+%\dfn{fonction réelle, domaine}{
+%	Soit $\D \subset \R$ un ensemble de nombres réels qu'on appelle \emphindex{domaine}.
+%	
+%	Une fonction $f$ de $\D$ dans $\R$ associe à chaque élément $x\in\D$ du domaine un nombre $f(x) \in \R$.
+%	
+%	On note alors
+%		\begin{align*}
+%			f: \D & \longrightarrow \R \\
+%			x& \longmapsto f(x).
+%		\end{align*}
+%	
+%	\begin{center}
+%	\includegraphics[page=1]{figures/fig-fonctions.pdf}
+%	\end{center}
+%}{}
 
 \ex{}{
 	Une constante est en particulier une fonction d'une variable $x\in\R$ réelle.
-	Ainsi la fonction $g$ donnée par
-		\begin{align*}
-		g: \R & \longrightarrow \R \\
-		x& \longmapsto 42
-		\end{align*}
+	Ainsi la fonction $g$ donnée par $g(x) = 42$ pour tout $x\in\R$ 
 	vaut constamment $42$, peut importe la valeur de $x$. 
-	
-	On voit dans l'expression $g(x) = 42$ que l'image de $x$ ne dépend aucunement de la valeur de $x$ :
-	$g$ est une \emphindex{fonction constante}.
+	$g$ est une \emphindex{fonction constante} sur le domaine $\D = \R$.
 }{ex:fonction-constante}
 
 \exe{}{
-	On considère la fonction $f$ qui à chaque triangle associe la somme de ses angles.
-	Que vaut $f(T)$ pour tout triangle $T$ ? Que dire de $f$ ?
+	On considère la fonction $f$ qui à chaque triangle du plan associe la somme de ses angles.
+	Quel est le domaine de $f$ ? Que vaut $f(T)$ pour tout triangle $T$ ? Que dire de $f$ ?
 }{exe:somme-angles}{
-	Dans le plan, la somme des angles d'un triangle vaut toujours 180°.
+	Le domaine de $f$ est l'ensemble des triangles du plan.
+	Or, dans le plan, la somme des angles d'un triangle vaut toujours 180°.
 	Donc $f(T) = 180^\circ$ pour tout triangle $T$ : c'est une fonction constante.
 }
 
 \exe{, difficulty=2}{
-	On considère la fonction $f$ qui à chaque triangle associe l'angle le plus grand de $T$.
+	On considère la fonction $f$ qui à chaque triangle du plan associe l'angle le plus grand de $T$.
 	Montrer que $f(T) \leq 180^\circ$ pour n'importe quel triangle $T$.
 	Quel est le minimum de $f$ ? Donner un triangle $T$ tel que $f(T)$ est minimal.
 }{exe:max-angles}{
@@ -228,6 +227,8 @@
 \exe{}{
 	Un fonction $f$ définie sur tout $\R$ admet le tableau de valeurs suivant.
 		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
 		\begin{tabular}{|c|c|c|c|c|}\hline
 			$x$ & 0 & -2 & 1 & -1 \\ \hline
 			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
@@ -249,6 +250,22 @@
 }
 
 \exe{}{
+	Remplir le tableau d'images suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 3 & 0 & \\ \hline
+			$g(x)$ & 1 & 0 &  & -2 \\ \hline
+			$f(x)+2g(x)$ &  & & 2 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:fonctions-QCM-trous}{
+	TODO
+}
+
+\exe{}{
 	Montrer que $g(x) = x(x+2)(x-1)(x+1)$ vérifie $g(0) = g(-2) = g(1) = g(-1) = 0$.
 	Conclure que $f(x)$ et $h(x) = f(x) + g(x)$ vérifient toutes les deux le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}.
 }{exe:fonctions-QCM2}{
@@ -256,7 +273,7 @@
 }
 
 \exe{, difficulty=1}{
-	Montrer qu'il y a une infinité de fonctions $h$ différentes vérifiant le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}-
+	À l'aide de l'exercice \ref{exe:fonctions-QCM2}, montrer qu'il y a une infinité de fonctions $h$ différentes vérifiant le tableau de valeurs de l'exercice \ref{exe:fonctions-QCM}-
 }{exe:fonctions-QCM3}{
 	On prend par exemple $h(x) = f(x) + g(x), f(x) + 2g(x), f(x) + 3g(x), \dots$.
 }
@@ -411,18 +428,7 @@
 
 \subsection{Courbe représentative}
 
-On souhaite représenter graphiquement une fonction $f$ afin de pouvoir rapidement trouver toutes les images de $f$.
-Une bonne représentation graphique nous permet de lire
-	%\begin{multicols}{2}
-	\begin{enumerate}[label=$\bullet$]
-		\item les images $f(x)$;
-		\item les antécédents $x$ ;
-		%\item les variations de $f$ (croissante, décroissante, constante) ;
-		%\item le signe de $f(x)$ (positif, négatif, nul).
-	\end{enumerate}
-	%\end{multicols}
-
-Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut donc pouvoir facilement lire son image $f(x)$ par $f$.
+Pour chaque $x\in\D\subset\R$, élément du domaine de $f$, il faut pouvoir facilement lire son image $f(x)$ par $f$.
 À cette fin et pour chaque $x\in\D$, on crée un point d'abscisse $x$ et d'ordonnée $f(x)$.
 L'ensemble de ces points est la courbe représentative de $f$.
 Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'unique point de la courbe d'abscisse $x$.
@@ -441,16 +447,20 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \cor{propriété fondamentale}{
-	On a donc la propriété fondamentale suivante valable pour tout $x, y\in\R$.
+	On a donc la \emphindex{propriété fondamentale} suivante valable pour tout $x, y\in\R$.
 		\begin{align*}
 			(x;y) \in \C_f && \iff && y = f(x).
 		\end{align*}
 		
-		\begin{center}
-		 \includegraphics[page=2, scale=1.5]{figures/fig-fonctions.pdf}
-		\end{center}
 	%\emph{Note : $f(x) = \dfrac1{200}(x+3,5)(x+2,5)(x-3,5)(x-4,5)(x-5,5) + 2$, polynôme de degré $5$ dans l'exemple ci-dessus.}
 }{cor:prop-fond}
+
+\begin{figure}
+	\begin{center}
+	 \includegraphics[page=2, scale=1.5]{figures/fig-fonctions.pdf}
+	\end{center}
+	\caption{Représentation de la propriété fondamentale du corollaire \ref{cor:prop-fond}.}
+\end{figure}
 
 \nomen{
 	On appelle \emphindex{graphe} la représentation graphique d'une fonction.
@@ -471,6 +481,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 			\item $f(-1) = -5 \neq 1$, donc $R \not\in\C_f$.
 			\item $f(2) = 19$, et donc $S\in\C_f$.
 		\end{enumerate}
+		\vfill
 		
 		\begin{center}
 		 \includegraphics[page=3, scale=1.1]{figures/fig-fonctions.pdf}
@@ -480,11 +491,11 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 
 \exe{}{
-	Considérons la fonction $f: \left]{-}\dfrac72 ; \dfrac{11}2 \right[ \rightarrow\R$ donnée algébriquement par
+	Considérons la fonction $f$ sur $\D = \left]{-}\dfrac72 ; \dfrac{11}2 \right[$ donnée algébriquement par
 		\[ f(x) = \dfrac17-x. \]
 	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
 	
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*)]
 		\item $\left(0; \dfrac17\right)$
 		\item $\left(\dfrac17 ; 0\right)$
@@ -500,7 +511,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Considérons deux fonctions $f, g: ]{-}3 ; 3[ \rightarrow\R$ données algébriquement par
+	Considérons deux fonctions $f, g$ sur $\D = ]{-}3 ; 3[$ données algébriquement par
 		\begin{align*}
 			f(x) = x^2 - 2\cdot x && g(x) = (x-1)^2
 		\end{align*}
@@ -515,7 +526,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[-2; 4]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[-2; 4]$ donnée algébriquement par
 		\[ f(x) = 3. \]
 	Que dire de $f$ et de $\C_f$ ?
 }{exe:graph-const}{
@@ -523,7 +534,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[-5;3]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
 		\[ f(x) = 1-x. \]
 	Que dire $\C_f$ ?
 }{exe:graph-droite}{
@@ -531,7 +542,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f:[3;10]\rightarrow\R$ donnée algébriquement par
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
 		\[ f(x) = \dfrac3x + 1. \]
 }{exe:graph-droite2}{
 	TODO
@@ -560,12 +571,9 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 
-\exe{}{
-	Un fonction $f$ admet une représentation graphique suivante.
-		\begin{center}
-		 \includegraphics[page=4]{figures/fig-fonctions.pdf}
-		\end{center}
-	Parmis les expressions algébriques suivantes, trouver celle qui correspond à $f(x)$.
+\exemulticols{}{
+	Un fonction $f$ admet une représentation graphique ci-contre.
+	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
@@ -574,6 +582,10 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 			\item $-2\cdot x - \dfrac23$
 		\end{enumerate}
 		\end{multicols}
+}{
+	\begin{center}
+	 \includegraphics[page=4]{figures/fig-fonctions.pdf}
+	\end{center}
 }{exe:expr-from-graph}{
 	TODO
 }
@@ -581,7 +593,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 \exe{}{
 	Comparer les représentations graphiques des fonctions suivantes données algébriquement.
 		\begin{align*}
-			f(x) = x^2 && g(x) = x^2 - 3 && h(x) = (x+4)^2.
+			f(x) = x^2, && g(x) = x^2 - 3, && h(x) = (x+4)^2.
 		\end{align*}
 }{exe:y-shift}{
 	TODO
@@ -589,12 +601,14 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 \exe{, difficulty=2}{
 	Donner une fonction réelle et un domaine telle qu'une de ses images admet
+		\begin{multicols}{2}
 		\begin{enumerate}
 			\item Exactement un antécédent
 			\item Exactement deux antécédents
 			\item Exactement trois antécédents
 			\item Une infinité d'antécédents
 		\end{enumerate}	
+		\end{multicols}
 }{exe:nb-antécédents}{
 	TODO
 }
@@ -609,81 +623,98 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 \subsection{Résolution graphique d'(in)équations}
 
-\subsection*{Résoudre graphiquement $f(x) = k$}
+%%%%%
+% en fait f = k et f < k sont des cas particuliers de f=g et f<g.
+% mais c'est peut-être pousser un peu trop loin ?
+%%%%%
 
-
-On cherche à résoudre graphiquement une équation du type $f(x)=k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
-En reformulant, il s'agit de trouver l'ensemble des antécédents de $k$ par $f$. 
-
-En reprenant la solution de l'exercice \ref{exe:deg3}, on peut généraliser la stratégie à employer.
-Supposons qu'on souhaite résoudre $f(x) = 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
-Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points de la forme $(x;2)$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
-Pour trouver tous les points d'ordonnée $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
-	\begin{center}
-	\includegraphics[page=8, scale=1.5]{figures/fig-fonctions.pdf}
-	\end{center}
-Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizontale avec $\C_f$ sont
-	\begin{align*}
-		A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
-	\end{align*}
-L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
-	\[ \bigset{ -2,67 ; 0,52 ; 2,14 }. \]
-
-\thm{}{
-	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
-	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x)=k$ sont les abscisses des points d'intersection de $\C_f$ et de la droite d'équation $y=k$.
-}{}
-
-
-\exemulticols{}{
-	Donner l'ensemble des $x$ vérifiant $f(x) = -2$ à l'aide du graphe de $f$ ci-contre.
-}{
-	TODO graph
-}{exe:fx=k}{
-	TODO
-}
-
-
-\newpage
-\subsection*{Résoudre graphiquement $f(x) < k$}
-
-
-On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
-
-On étudie à nouveau la courbe de l'exercice \ref{exe:deg3} pour généraliser la stratégie à employer.
-Supposons qu'on souhaite résoudre $f(x) \leq 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
-Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points d'ordonnée inférieure à $2$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
-Pour trouver tous les points d'ordonnée inférieure à $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
-	\begin{center}
-	 \includegraphics[page=5, scale=1.5]{figures/fig-fonctions.pdf}
-	\end{center}
-Les points de $\C_f$ d'ordonnée inférieure à $2$ ont leur abscisse appartenant à l'union d'intervalles
-	\[ ] {-}3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
-C'est notre ensemble de solutions de l'équation $f(x) \leq 2$.
-
-\thm{}{
-	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
-	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x) \leq k$ sont les abscisses des points de $\C_f$ situés en dessous de la droite d'équation $y=k$.
-}{}
-
-\exemulticols{}{
-	Donner l'ensemble des $x$ vérifiant $f(x) < -2$ à l'aide du graphe de $f$ ci-contre.
-}{
-	TODO graph
-}{exe:fx=k}{
-	TODO
-}
-
-\newpage
+%\subsection*{Résoudre graphiquement $f(x) = k$}
+%
+%
+%On cherche à résoudre graphiquement une équation du type $f(x)=k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+%En reformulant, il s'agit de trouver l'ensemble des antécédents de $k$ par $f$. 
+%
+%En reprenant la solution de l'exercice \ref{exe:deg3}, on peut généraliser la stratégie à employer.
+%Supposons qu'on souhaite résoudre $f(x) = 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
+%Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points de la forme $(x;2)$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
+%Pour trouver tous les points d'ordonnée $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
+%
+%\begin{figure}[h]
+%	\begin{center}
+%	\includegraphics[page=8, scale=1.25]{figures/fig-fonctions.pdf}
+%	\end{center}
+%	\caption{Résolution graphique de l'équation $f(x) = 2$}
+%\end{figure}
+%Les coordonnées des points $A,B,C$ trouvés en intersectant la droite horizontale avec $\C_f$ sont
+%	\begin{align*}
+%		A \approx (-2,67 ; 2) && B \approx (0,52 ; 2) && C \approx (2,14 ; 2)
+%	\end{align*}
+%L'ensemble de solutions de l'équation $f(x)=2$ est donc approximativement donné par 
+%	\[ \bigset{ -2,67 ; 0,52 ; 2,14 }. \]
+%
+%\thm{}{
+%	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
+%	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x)=k$ sont les abscisses des points d'intersection de $\C_f$ et de la droite d'équation $y=k$.
+%}{}
+%
+%
+%\exemulticols{}{
+%	Donner l'ensemble des $x$ vérifiant $f(x) = -2$ à l'aide du graphe de $f$ ci-contre.
+%}{
+%	TODO graph
+%}{exe:fx=k}{
+%	TODO
+%}
+%
+%
+%\newpage
+%\subsection*{Résoudre graphiquement $f(x) < k$}
+%
+%
+%On cherche à résoudre graphiquement une équation du type $f(x)\leq k$ pour un $k\in\R$ donné, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
+%
+%On étudie à nouveau la courbe de l'exercice \ref{exe:deg3} pour généraliser la stratégie à employer.
+%Supposons qu'on souhaite résoudre $f(x) \leq 2$ où $x\in]{-}3,4 ; 2,3[$ et $\C_f$ est donnée graphiquement.
+%Comme chaque point de $\C_f$ est de la forme $\bigl(x; f(x)\bigr)$, on souhaite trouver les points d'ordonnée inférieure à $2$ pour ensuite lire leur abscisse et enfin obtenir les différents $x$ du domaine.
+%Pour trouver tous les points d'ordonnée inférieure à $2$, on peut s'aider en créant une droite horizontale d'ordonnée $2$, comme ci-dessous.
+%
+%\begin{figure}[h]
+%	\begin{center}
+%	 \includegraphics[page=5, scale=1.25]{figures/fig-fonctions.pdf}
+%	\end{center}
+%	\caption{Résolution graphique de l'équation $f(x) \leq 2$}
+%\end{figure}
+%
+%Les points de $\C_f$ d'ordonnée inférieure à $2$ ont leur abscisse appartenant à l'union d'intervalles
+%	\[ ] {-}3,4 ; -2,67 ] \cup [0,52 ; 2,14]. \]
+%C'est notre ensemble de solutions de l'équation $f(x) \leq 2$.
+%
+%\thm{}{
+%	Soit $f:\D \rightarrow \R$ une fonction réelle définie sur son domaine $\D$.
+%	Pour tout réel $k$, les solutions dans $\D$ de l'équation $f(x) \leq k$ sont les abscisses des points de $\C_f$ situés en dessous de la droite d'équation $y=k$.
+%}{}
+%
+%\exemulticols{}{
+%	Donner l'ensemble des $x$ vérifiant $f(x) < -2$ à l'aide du graphe de $f$ ci-contre.
+%}{
+%	TODO graph
+%}{exe:fx=k}{
+%	TODO
+%}
+%
+%\newpage
 \subsection*{Résoudre graphiquement $f(x) = g(x)$}
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
 
-Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
+Soient $f, g$ sur $\D = ]{-}3,4 ; 2,3[$ deux fonctions réelles dont les courbes représentatives sont données ci-dessous.
 
+\begin{figure}[h]
 	\begin{center}
-	 \includegraphics[page=6, scale=1.5]{figures/fig-fonctions.pdf}
+	 \includegraphics[page=6, scale=1.25]{figures/fig-fonctions.pdf}
 	\end{center}
+	\caption{Résolution graphique de l'équation $f(x) = g(x)$}
+\end{figure}
 	
 Imaginons un nombre réel $x\in\R$ parcourant $]{-}3,4 ; 2,3[$ en partant de la gauche et allant vers la droite.
 Pour chaque $x$, le point de $\C_f$ d'abscisse $x$ est d'ordonnée $f(x)$, par définition.
@@ -712,11 +743,14 @@ Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc donné
 
 On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
 
-Soient $f,g : ]{-}3,4 ; 2,3[ \rightarrow \R$ deux fonctions réelles sur le domaine $]{-}3,4 ; 2,3[$ dont les courbes représentatives sont données ci-dessous.
+Soient $f, g$ sur $\D = ]{-}3,4 ; 2,3[$ deux fonctions réelles dont les courbes représentatives sont données ci-dessous.
 
-\begin{center}
-\includegraphics[page=7, scale=1.5]{figures/fig-fonctions.pdf}
-\end{center}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[page=7, scale=1.25]{figures/fig-fonctions.pdf}
+	\end{center}
+	\caption{Résolution graphique de l'équation $f(x) \leq g(x)$}
+\end{figure}
 
 Pour chaque $x$ parcourant $]{-}3,4 ; 2,3[$, la hauteur (l'ordonnée) du point de $\C_f$ d'abscisse $x$ est donnée par $f(x)$, et celle du point de $\C_g$ d'abscisse $x$ est donnée par $g(x)$.
 Ainsi, le premier point est en dessous du second dès que $f(x) \leq g(x)$.
@@ -729,6 +763,12 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ sont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
 }{}
 
+\notations{
+	Soient deux intervalles $I, J \subseteq \R$. On note $I \cup J$ l'\emphindex{union} des ensembles $I$ et $J$ : ce sont les nombres réels qui appartiennent à $I$ \underline{ou} à $J$.
+	\begin{center}
+	\includegraphics[page=12, scale=1.25]{figures/fig-fonctions.pdf}
+	\end{center}
+}
 
 \exemulticols{}{
 	Donner l'ensemble des $x$ vérifiant $f(x) \leq g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
@@ -753,11 +793,24 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	D'un point $\bigpar{x; f(x)}$ de la courbe $\C_f$, on peut donc en déduire le point $\bigpar{x ; g(x)} = \bigpar{ x ; f(x)+1 }$ de la courbe $\C_g$.
 	Graphiquement, la courbe $\C_f$ est translatée de $1$ unité vers le haut pour obtenir $\C_g$
 	
-	Pour $h(x) = f(x) - 2$, on obtient les graphes suivants.
+	Pour $h(x) = f(x) - 2$, on obtient similairement les graphes de la figure \ref{fig:parentes-plus}.
+}{ex:parentes-plus}
+
+\begin{figure}[h]
 	\begin{center}
-	\includegraphics[page=10, scale=1.5]{figures/fig-fonctions.pdf}
+	\includegraphics[page=10, scale=1.25]{figures/fig-fonctions.pdf}
 	\end{center}
-}{}
+	\caption{Fonctions parentes de l'exemple \ref{ex:parentes-plus}.}
+	\label{fig:parentes-plus}
+\end{figure}
+
+\exemulticols{}{
+	Tracer les graphes des fonctions $g(x) = f(x) + 2$ et $h(x) = f(x) - 1$ dans le repère contenant $\C_f$ ci-contre.
+}{
+	TODO
+}{exe:draw-plusc}{
+	TODO
+}
 
 \ex{multiplication par une constante}{
 	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
@@ -769,19 +822,25 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	C'est ce qu'on appelle une homothétie : on agrandit ou réduit l'ordonnée de chaque point d'un même facteur.
 	Si ce facteur est négatif, on fait en plus une symétrie par rapport à l'axe des abscisses.
 	
-	Pour $h(x) = -f(x)$, on obtient les graphes suivants.
-	\begin{center}
-	\includegraphics[page=11, scale=1.5]{figures/fig-fonctions.pdf}
-	\end{center}
-}{}
+	Pour $h(x) = -f(x)$, on obtient similairement les graphes de la figure \ref{fig:parentes-fois}.
+}{ex:parentes-fois}
 
-\exe{}{
-	Tracer les graphes des fonctions $g(x) = f(x) + 2$ et $h(x) = f(x) - 1$ dans le repère contenant $\C_f$ ci-dessous.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[page=11, scale=1.25]{figures/fig-fonctions.pdf}
+	\end{center}
+	\caption{Fonctions parentes de l'exemple \ref{ex:parentes-fois}.}
+	\label{fig:parentes-fois}
+\end{figure}
+
+
+\exemulticols{}{
+	Tracer les graphes des fonctions $g(x) = 2f(x)$ et $h(x) = -2f(x)$ dans le repère contenant $\C_f$ ci-contre.
+}{
 	TODO
-}{exe:draw-plusc}{
+}{exe:draw-timesc}{
 	TODO
 }
-
 
 
 %\section{Implémentation}
