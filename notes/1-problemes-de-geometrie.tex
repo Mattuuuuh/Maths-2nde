@@ -593,11 +593,11 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\[ \left|\sqrt2 - \dfrac{p}{q}\right|, \]
 	distance entre $\sqrt2$ et la fraction $\dfrac{p}{q}$, lorsqu'elle est inférieure à 1.
 	\begin{enumerate}
-		\item Montrer que $\left|p + q \sqrt2 \right| \leq 3q$.
+		\item Montrer que $\left|p + q \sqrt2 \right| \leq 4q$.
 		\item Montrer que
 			$ \left|p - q \sqrt2 \right| \cdot \left|p + q \sqrt2 \right| = \left| p^2 - 2q^2 \right| \geq 1. $
 		\item En déduire que
-			$  \left|\sqrt2 -  \dfrac{p}{q} \right| \geq \dfrac{1}{3q^2}. $
+			$  \left|\sqrt2 -  \dfrac{p}{q} \right| \geq \dfrac{1}{4q^2}. $
 	\end{enumerate}
 }{exe:qapprox-sqrt2}{
 	TODO
@@ -620,10 +620,25 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \exe{, difficulty=2}{
 	Soit $x\in\R-\Q$ et $N\in\N$. Considérons $\{ 0, x, 2x, 3x, ..., Nx \}$ les $N+1$ premiers multiples de $x$.
-	Montrer qu'il existe nécessairement deux entiers naturels $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1q$.
+	Montrer qu'il existe nécessairement deux entiers naturels $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1N$.
 	En déduire le théorème \ref{thm:Dirichlet}.
 }{exe:Dirichlet}{
-	TODO
+	On considère la partie décimale de chacun des $N+1$ multiples.
+	et on découpe l'intervalle $[0;1] = [0 ; 1/N] \bigcup [1/N ; 2/N] \bigcup \cdots \bigcup [(N-1)/N ; 1]$ en $N$ sous parties de tailles $1/N$.
+	
+	Comme il y a $N+1$ parties décimales, mais seulement $N$ sous-intervalles, deux parties décimales appartiennent nécessairement au même sous-intervalle.
+	On obtient bien $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1N$.
+	
+	En factorisant par $x$, on a donc $q = n-m \leq N$ vérifiant $|qx - p| \leq \dfrac1N \leq \dfrac1q$, où $p\in\Z$ est la partie entière de $qx$.
+	Voilà notre premier rationnel $p/q$ approximant $\sqrt2$ avec erreur inférieure à $1/q^2$.
+	
+	Remarquons désormais que $|qx-p| \neq 0$ car $x \not\in\Q$, et qu'on peut choisir un $N_2$ suffisamment grand vérifiant $\dfrac1{N_2} < |qx -p|$.
+	Répétons le raisonnement en remplaçant $N$ par $N_2$.
+	Les entiers $p_2$ et $q_2$ trouvés sont alors nécessairement distincts des premiers car ils approximent strictement mieux $\sqrt2$ : 
+		\[ |q_2 x - p_2 | \leq \dfrac1{N_2} < |qx - p|. \]
+	
+	On prendra ensuite $N_3$ vérifiant à son tour $\dfrac1{N_3} < |q_2x -p_2|$, etc...
+	En répétant le processus, on obtient bien une infinité de $p, q\in\Z$ vérifiant $|qx - p| < \dfrac1q$.
 }
 
 \nt{
