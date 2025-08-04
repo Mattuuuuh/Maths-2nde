@@ -32,6 +32,8 @@
 
 \usepackage{marginnote}
 
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
 %index
 \usepackage[texindy]{imakeidx}
 \makeindex[
@@ -51,6 +53,14 @@
 
 % tikz
 \usepackage{tikz}
+
+% package systeme pour les systèmes d'équations bien alignés
+\usepackage{systeme}
+\sysalign{r,r}
+\syseqspace{3pt}
+\syssignspace{3pt}
+
+\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
