@@ -310,9 +310,13 @@ dot/.default = black % size of the circle diameter
 	\draw[-, thick] 
 	(0,0) -- (3,0) node[midway, below] {$3$};
 	\draw[-, thick] 
-	(3,0) -- (3, 3) node[midway, right] {$3$};
+	(3,0) -- (3, 3);
+	\draw[-, thick, decorate, decoration={brace, raise=2pt, mirror}] 
+	(3,0) -- (3, 3) node[midway, right=4pt] {$3$};
 	\draw[-, thick] 
-	(0,0) -- (0.707, 0.707) node[midway, above left] {$1$};
+	(0,0) -- (0.707, 0.707);
+	\draw[-, thick, decorate, decoration={brace, raise=2pt}] 
+	(0,0) -- (0.707, 0.707) node[midway, above left=2pt] {$1$};
 	\draw[-, thick] 
 	 (0.707, 0.707) -- (3,3) node[midway, above left] {$x$};
 	\draw[-, thick] 
