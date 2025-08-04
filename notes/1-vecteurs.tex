@@ -476,3 +476,39 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		\end{align*}
 }
 
+
+
+
+\exe{, difficulty=1}{
+\def\arraystretch{1} % for pmatrix
+	On étudie le \emphindex{système homogène} suivant qu'on ne cherche pas à résoudre.
+		\[ \systeme{12x - 5y = 0{,}, -7x + 2y = 0.} \]
+	\begin{enumerate}
+		\item 
+		Montrer que le système est équivalent à l'égalité de vecteurs
+			\[ x \cdot u + y \cdot v = \pvec{0}{0}, \]
+		pour les deux vecteurs $u = \pvec{12}{-7}$ et $v = \pvec{-5}{2}$.
+	
+		\item
+		Montrer qu'une solution $(x ;y)$ non nulle existe si et seulement si $u$ et $v$ sont colinéaires, et donc si et seulement si $\det(u, v) = 0$.
+		
+		\item	
+		Déduire dans ce cas que l'unique solution du système est la solution nulle $(x ;y) = (0;0)$.
+	\end{enumerate}
+}{exe:systemes10}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	\begin{enumerate}
+		\item
+		Si $u$ et $v$ sont colinéaires, et $w$ un troisième vecteur quelconque, montrer que le système $x \cdot u + y \cdot v = w$ admet une solution si et seulement si $w$ est colinéaire à $u$ et $v$.
+
+		\item
+		À partir des vecteurs colinéaires $u = \pvec23$ et $v = \pvec{-6}{-9}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ n'ayant aucune solution.
+		\item
+		À partir des vecteurs colinéaires $u = \pvec1{-4}$ et $v = \pvec{-2}{8}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ ayant un nombre infini de solutions.
+	\end{enumerate}
+}{exe:systemes11}{
+	TODO
+}
