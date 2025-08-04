@@ -443,7 +443,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 \nt{
 	Connaître $f$ sur son domaine $\D$ c'est connaître $\C_f$, et vice versa.
-	Cependant, il n'est possible de dessiner $\C_f$ si le domaine $\D$ est infini, ou si $f$ prend des valeurs toujours plus grandes.
+	Cependant, il n'est pas toujours possible de dessiner $\C_f$ si le domaine $\D$ n'est pas borné, ou si $f$ prend des valeurs toujours plus grandes.
 }
 
 \cor{propriété fondamentale}{
@@ -491,7 +491,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 
 
 \exe{}{
-	Considérons la fonction $f$ sur $\D = \left]{-}\dfrac72 ; \dfrac{11}2 \right[$ donnée algébriquement par
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
 		\[ f(x) = \dfrac17-x. \]
 	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
 	
@@ -511,15 +511,14 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 }
 
 \exe{}{
-	Considérons deux fonctions $f, g$ sur $\D = ]{-}3 ; 3[$ données algébriquement par
+	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
 		\begin{align*}
 			f(x) = x^2 - 2\cdot x && g(x) = (x-1)^2
 		\end{align*}
 	
 	\begin{enumerate}
 		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
-		\item Démontrer que $g(x) - 1 = f(x)$ pour tout $x$ du domaine.
-		\item En déduire que $(x-1)^2 = x^2 - 2\cdot x + 1$ pour tout $x$ du domaine.
+		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
 	\end{enumerate}
 }{exe:id-rem-graph}{
 	TODO
@@ -603,10 +602,10 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	Donner une fonction réelle et un domaine telle qu'une de ses images admet
 		\begin{multicols}{2}
 		\begin{enumerate}
-			\item Exactement un antécédent
-			\item Exactement deux antécédents
-			\item Exactement trois antécédents
-			\item Une infinité d'antécédents
+			\item exactement un antécédent
+			\item exactement deux antécédents
+			\item exactement trois antécédents
+			\item une infinité d'antécédents
 		\end{enumerate}	
 		\end{multicols}
 }{exe:nb-antécédents}{
@@ -731,10 +730,12 @@ Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc donné
 }{}
 
 \exemulticols{}{
-	Donner l'ensemble des $x$ vérifiant $f(x) = g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+	Donner l'ensemble des \mbox{$x \in [-2,5 ; 2,3]$} vérifiant $f(x) = g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
 }{
-	TODO graph
-}{exe:fx=k}{
+	\begin{center}
+	\includegraphics[page=13]{figures/fig-fonctions.pdf}
+	\end{center}
+}{exe:f=g}{
 	TODO
 }
 
@@ -759,7 +760,7 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	\[ [{-}0,8 ; 1,2 ]. \]
 
 \thm{}{
-	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+	Soient $f, g$ deux fonctions réelles définies sur un même domaine $\D$.
 	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ sont les abscisses des points de $\C_f$ situés en dessous de $\C_g$.
 }{}
 
@@ -771,10 +772,13 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 }
 
 \exemulticols{}{
-	Donner l'ensemble des $x$ vérifiant $f(x) \leq g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+	Donner l'ensemble des \mbox{$x \in [-2,5 ; 2,3]$} vérifiant $f(x) \leq g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+	Une réponse sous forme d'union d'intervalles est attendue.
 }{
-	TODO graph
-}{exe:fx=k}{
+	\begin{center}
+	\includegraphics[page=13]{figures/fig-fonctions.pdf}
+	\end{center}
+}{exe:f<g}{
 	TODO
 }
 
@@ -807,10 +811,14 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 \exemulticols{}{
 	Tracer les graphes des fonctions $g(x) = f(x) + 2$ et $h(x) = f(x) - 1$ dans le repère contenant $\C_f$ ci-contre.
 }{
-	TODO
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-fonctions.pdf}
+	\end{center}
 }{exe:draw-plusc}{
 	TODO
 }
+
+\newpage
 
 \ex{multiplication par une constante}{
 	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
@@ -837,7 +845,9 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 \exemulticols{}{
 	Tracer les graphes des fonctions $g(x) = 2f(x)$ et $h(x) = -2f(x)$ dans le repère contenant $\C_f$ ci-contre.
 }{
-	TODO
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-fonctions.pdf}
+	\end{center}
 }{exe:draw-timesc}{
 	TODO
 }
