@@ -159,12 +159,12 @@ dot/.default = black % size of the circle diameter
 	\end{tikzpicture}
 	% page 10
 	\begin{tikzpicture}[>=stealth, scale=1.2]
-	\begin{axis}[xmin = -1.2, xmax=1, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, grid style = {opacity=.5}, clip=false]
+	\begin{axis}[xmin = -1.5, xmax=1.4, ymin=-3.9, ymax=2.2, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, grid style = {opacity=.5}, clip=false]
 		
 		% (d)
-		\addplot[BLUE_E, very thick, domain =-0.55:.9, samples=2] {-1+5*x}  node[pos = .4, right] {$y=ax+b$};
+		\addplot[BLUE_E, very thick, domain =-0.55:.6, samples=2] {-1+5*x}  node[pos = .5, right] {$y=ax+b$};
 		\addplot[BLUE_E, very thick, dashed, domain =-.6:-.55, samples=2] {-1+5*x} ;
-		\addplot[BLUE_E, very thick, dashed, domain =.9:1, samples=2] {-1+5*x};
+		\addplot[BLUE_E, very thick, dashed, domain =.6:.65, samples=2] {-1+5*x};
 		
 		% 2 points
 		\addplot[black, mark=*, mark size = 1] (.5,1.5) node[below right] {$(0,5 ; 1,5)$};
