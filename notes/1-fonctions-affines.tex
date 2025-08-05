@@ -80,6 +80,12 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	Une \emphindex{fonction linéaire} est une fonction affine avec $b=0$.
 }
 
+\exe{, difficulty=1}{
+	Montrer que deux fonctions affines sont égales si et seulement si les coefficients directeurs sont égaux et les ordonnées à l'origines sont égales.
+}{exe:f=g-affines}{
+	TODO
+}
+
 \mprop{}{
 	La courbe représentative d'une fonction affine est une droite non verticale.
 }{prop:Cf-affine}
@@ -434,12 +440,12 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 
 \begin{multicols}{2}
 \ex{}{
-	On considère la droite $y=ax+b$ ci-contre.
+	On considère la droite \mbox{$y=ax+b$} ci-contre.
 	Le théorème \ref{thm:param-affine} affirme que
 		\begin{align*}
 			a = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)}  = \dfrac{5}{1} = 5. 
 		\end{align*}
-	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} avec $x=-0,5$ : lorsque $x$ augmente de $1$ en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
+	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} : lorsque $x$ augmente de 1 en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
 }{}
 
 	\begin{center}
@@ -460,9 +466,27 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	TODO
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	Les points $(-3 ; -6)$, $(1 ;1)$, et $(3 ; 4)$ sont-ils alignés ?
 }{exe:affine-alignement}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Considérons une fonction quadratique 
+		\[ f(x) = ax^2 + bx + c, \]
+	où $a, b, c\in\R$ sont trois paramètres réels.
+	Supposons de surcroît qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g$ donnée par
+			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
+		est affine.
+		\item Montrer que $g$ admet deux zéros distincts.
+		\item En déduire, par interpolation linéaire, que $g$ est constamment nulle et donc que
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+	\end{enumerate}
+}{exe:thm-fond-alg-2}{
 	TODO
 }
 
@@ -481,22 +505,24 @@ Le deuxième cas correspond à la situation où les deux fonction sont égales :
 Deux fonctions affines sont égales si et seulement si leurs paramètres (coefficient directeur et ordonnée à l'origine) sont égaux.
 
 Nous étudions d'abord algébriquement le cas $1$ de l'intesection.
-Les techniques de résolution d'équations linéaires nous mèneront naturellement vers des situations pour lesquelles deux droites n'ont pas de point d'intersection : c'est troisième cas.
+Les techniques de résolution d'équations linéaires nous mèneront naturellement vers des situations pour lesquelles deux droites n'ont pas de point d'intersection.
+
+\notations{
+	Lorsque plusieurs équations sont valables simultanément, leur ensemble forme un \emphindex{système d'équations}, et on les regroupe à l'aide d'une accolade.
+	Par exemple, le système suivant contient deux inconnues ($a$ et $b$) et deux équations.
+		\[ \begin{cases*} a = 2b + 3, \\ 2a + b = -1. \end{cases*} \]
+}
 
 \ex{}{
-	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
+	Considérons deux droites
 		\begin{align*}
-			f(x) = 2x+3, &&
-			g(x) = -4x+8.
+			(d) : y = 2x+3, && \et &&
+			(e) : y = -4x+8.
 		\end{align*}
 	On souhaite trouver les points d'intersection des deux droites, c'est-à-dire décrire l'ensemble
-		\[ \C_f \cap \C_g. \]
-	Soit $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$.
-	On extrait deux informations distinctes afin de connaître $x_P$ et $y_P$ :
-		\begin{align*}
-			P \in \C_f && \text{et} && P \in \C_g
-		\end{align*}
-	La propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations qu'on met dans un système car elles sont valables simultanément.
+		\[ (d) \cap (e). \]
+	Soit $P(x_P;y_P)$ appartenant à l'intersection $(d) \cap (e)$.
+	Comme $P \in (d),$ et $P \in (e)$, la propriété fondamentale \ref{cor:prop-fond} nous donne donc deux équations qu'on met dans un système car elles sont valables simultanément.
 		\[ \begin{cases*} y_P = 2x_P + 3, \\ y_P = -4x_P + 8. \end{cases*} \]
 	Comme on a bien sûr $y_P = y_P$, on peut écrire
 		\begin{align*}
@@ -507,117 +533,245 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 		\end{align*}
 	Et par suite $y_P = 2\cdot\dfrac56 + 3 = \dfrac{14}3$.
 	
-	Nous avons donc obtenu que $P\left(\dfrac56 ; \dfrac{14}3\right)$ est l'unique point qui appartient à la fois à $\C_f$ et $\C_g$, et donc l'unique point d'intersection des droites.
+	Nous avons donc obtenu que $P\left(\frac56 ; \frac{14}3\right)$ est l'unique point qui appartient à la fois à $(d)$ et $(e)$, et donc l'unique point d'intersection des droites.
 	Autrement dit, 
-		\[ \C_f \cap \C_g = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
+		\[  (d) \cap (e) = \left\{ \left(\dfrac56 ; \dfrac{14}3\right) \right\}. \]
 }{}
 
 \nt{
 	On se rassurera sur le résultat trouvé en vérifiant que le point d'intersection appartient bien aux deux droites ci-dessus.
 		\begin{align*}
-			f(x_P) = 2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, \\
-			g(x_P) = -4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
+			2x_P + 3 = 2 \cdot \dfrac56 + 3 = \dfrac{14}3 = y_P, && \et &&
+			-4x_P + 8 = -4\cdot\dfrac56 + 8 = \dfrac{14}3 = y_P.
 		\end{align*}
 }
 
 \exe{}{
-	Considérons deux droites $\C_f$ et $\C_g$ où, pour tout $x\in\R$,
-		\begin{align*}
-			f(x) = 3-x , &&
-			g(x) = -2x +12.
-		\end{align*}
-	Déterminer $\C_f \cap \C_g$, l'ensemble des points appartenant à la fois à $\C_f$ et à $\C_g$.
+	Donner le point d'intersection des droites $(d) : y = 3-x ,$ et $(d') : y = -2x +12.$
 }{exe:intersection-droites}{
 	TODO
 }
 
+\notations{
+	On note $\emptyset$ l'\emphindex{ensemble vide}, l'ensemble ne contenant aucun élément.
+}
+
 \exe{}{
-	Considérons deux droites $(d)$ et $(d')$ données par
-		\begin{align*}
-			(d) &= \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+1 }, \\
-			(d') &= \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-2 }.
-		\end{align*}
-	Montrer que $(d) \cap (d') = \emptyset$, l'ensemble vide.
+	Montrer que $(d) \cap (d') = \emptyset$, où $(d) : y = 2x+1$, et $(d') : y = 2x-2$.
 }{exe:intersection-droites2}{
 	TODO
 }
 
+\exe{, difficulty=1}{
+	Montrer que le point d'intersection $P(x_P ; y_P)$ de
+		\begin{align*}
+			(d) : y = ax+b, && \et &&
+			(e) : y = a'x+b',
+		\end{align*}
+	vérifie $(a-a')x_P = b'-b$.
+}{exe:intersection-gen}{
+	TODO
+}
+
 \qs{}{
-	Considérons deux droites $\C_f$ et $\C_g$ données plus généralement par	
-		\begin{align*}
-			f(x) = ax+b, &&
-			g(x) = a'x+b',
-		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
+	Pour déduire $x_P$ de l'exercice \ref{exe:intersection-gen}, nous somme tentés de diviser par $a-a'$.
 	
-	On souhaite déterminer $P(x_P;y_P)$ appartenant à l'intersection $\C_f \cap \C_g$, ce qui se traduit par
-		\[ \begin{cases*} y_P = ax_P + b, \\ y_P = a'x_P + b'. \end{cases*} \]
-	et donc, en suivant le même raisonnement que précédemment,
-		\begin{align*}
-			ax_P + b &= a'x_P + b' \\
-			(a-a')x_P &= b'-b \\
-		\end{align*}
-	Ici il faut faire attention car il n'est pas toujours possible de diviser par $a-a'$ pour trouver $x_P$.
-	
+	Est-ce toujours possible ?
 	Quelles conditions sur $a$ et $a'$ faut-il poser pour s'assurer qu'il existe un unique point d'intersection ?
 }
 
 \exe{, difficulty=1}{
-	Considérons deux droites $(d)$ et $(d')$ données par
+	Considérons deux droites partageant le même coefficient directeur $a$.
 		\begin{align*}
-			(d) &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \}, \\
-			(d') &= \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = a'x+b' \},
+			(d) : y = ax+b, && \et &&
+			(d') : y = ax+b'.
 		\end{align*}
-	où $a, a', b, b' \in \R$ sont les paramètres des droites.
-	
-	Si $a=a'$ et $b\neq b'$, montrer que $(d)\cap(d')$ est l'ensemble vide.
-	
-	Si $a=a'$ et $b = b'$, montrer que $(d)\cap(d') = (d) = (d')$.
+	Montrer que 
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item
+			si $b\neq b'$, alors $(d)\cap(d') = \emptyset$ ; et
+			\item
+			si $b = b'$,  alors $(d)\cap(d') = (d) = (d')$.
+		\end{enumerate}
+		\end{multicols}
 }{exe:parallélisme}{
 	TODO
 }
 
 \thm{}{
-	Considérons deux droites $\C_f$ et $ \C_g$ avec
+	Considérons deux droites 
 		\begin{align*}
-			f(x)= ax+b, && \text{ et } && g(x) = a'x+b',
+			(d) : y = ax+b, && \et &&
+			(d') : y = a'x+b',
 		\end{align*}
 	où $a, a', b, b' \in \R$ sont les paramètres des droites.
 	
-	On distingue alors les cas suivants sur les points d'intersection entre les droites.
+	On distingue alors les cas suivants sur l'intersection $(d) \cap (d')$.
 		\begin{enumerate}
-			\item Si $a \neq a'$, les droites $\C_f$ et $\C_g$ sont sécantes en un unique point d'intersection.
-			\item Sinon $a = a'$, les droites $\C_f$ et $\C_g$ sont parallèles et on distingue deux sous-cas.
+			\item Si $a \neq a'$, les droites $(d)$ et $(d')$ sont sécantes en un unique point d'intersection.
+			\item Sinon $a = a'$, les droites $(d)$ et $(d')$ sont parallèles et on distingue deux sous-cas.
 				\begin{enumerate}[label=\roman*)]
-					\item Si $b\neq b'$, il n'existe aucun point d'intersection ($\C_f \cap \C_g = \emptyset$).
-					\item Si $b=b'$, alors $f=g$ et les droites sont confondues ($\C_f \cap \C_g = \C_f = \C_g$).
+					\item Si $b\neq b'$, il n'existe aucun point d'intersection ($(d) \cap (d') = \emptyset$).
+					\item Si $b=b'$, les droites sont confondues ($(d) \cap (d') = (d) = (d')$).
 				\end{enumerate}
 		\end{enumerate}
+}{thm:parallélisme-intersection}
+
+
+\exe{, difficulty=1}{
+    Soit $f(x) = ax+b$ et $g(x) = a'x + b'$ pour tout $x \in \R$ deux fonctions affines de paramètres $a,a',b,b' \in\R$.
+
+    Montrer que si $a\neq a'$, alors
+        \[ \C_f \cap \C_g = \left\{ \left(\ \dfrac{b-b'}{a-a'} ; \dfrac{ab' - ba'}{a-a'} \right) \right\}. \]
+}{exe:intersection-affine}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+    Soit $f(x) = ax + b$ une fonction affine sur $\R$ de paramètres $a, b\in\R$ et $P(x_P;y_P) \in \R^2$ un point du plan.
+
+    \begin{enumerate}
+        \item 
+        Montrer que la fonction affine $g$ donnée par
+            \[ g(x) = a(x-x_P) + y_P, \]
+        pour tout $x\in\R$ vérifie que $\C_f$ est parallèle à $\C_g$ et que $P \in \C_g$.
+        \item
+        Montrer que si $P\in\C_f$, alors $f=g$.
+    \end{enumerate}
+}{exe:parallélisme-affine}{
+	TODO
+}
+
+
+
+\begin{multicols}{2}
+\ex{}{
+	Soit $(d) : y = 2x+3$ une droite.
+	On souhaite déterminer une droite parallèle à $(d)$ et passant par le point $(2;1)$.
+	Posons $(d') : y=ax+b$ cette droite et trouvons $a$ et $b$.
+	
+	Premièrement, le parallélisme à $(d)$ se traduit par l'égalité des coefficients directeurs :
+		$ a = 2. $
+	On a donc $(d') = y = 2x + b$.
+	
+	Deuxièmement, l'appartenance du point $(2;1)$ donne
+		$ 1 = 4 + b,$
+	d'où $b= 1-4 = -3$.
+	
+	En conclusion, $(d') : y = 2x - 3$ est la droite recherchée (en violet ci-contre).		
 }{}
 
-
-
-\ex{}{
-	Soit $(d)$ une droite donnée par
-		\[ (d) = \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x+3 }. \]
-	On souhaite déterminer une droite parallèle à $(d)$ et passant par le point $(2;1)$.
-	
-	On s'assure au préalable qu'on ait bien deux informations distinctes, car il faut déterminer les deux paramètres de la fonction $f(x) = ax+b$ associée à la droite à trouver.
-	
-	Le parallélisme à $(d)$ se traduit par l'égalité des coefficients directeurs des fonctions associées :
-		\[ a = 2. \]
-	L'appartenance du point $(2;1)$ donne
-		\[ 1 = f(1) = 2a + b, \]
-	d'où $b= 1 -2a = 1-4 = -3$.
-	
-	En conclusion, $f(x) = 2x - 3$, et la droite recherchée est donnée par (en violet ci-dessous)
-		\[ \bigset{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = 2x-3 }. \]
-		
 	\begin{center}
 	\includegraphics[page=11]{figures/fig-affines.pdf}
 	\end{center}
-}{}
+\end{multicols}
 
+\exe{}{
+	Pour chacun des couples de point $P$ et fonction affine $f$ sur $\R$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $P=(1;2)$ et $f(x) = 2x+1$.
+		\item $P= (-2; 4)$ et $f(x) = 7-x$.
+		\item $P=(-4^{12};-1,7)$ et $f(x) = 1600$.
+		\item $P=(21;-50,5)$ et $f(x) = -3x + 5$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:parallélisme}{
+	On pose $a, b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	\begin{enumerate}
+		\item 
+			L'information de parallélisme donne immédiatement $a=2$.
+			D'où $g(x) = 2x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= 2\cdot1 + b \\
+					b &= 0
+				\end{align*}
+			D'où $g(x) = 2x$ ($x\in\R$) est la fonction affine recherchée.
+		
+		
+		\item 
+			L'information de parallélisme donne immédiatement $a=-1$.
+			D'où $g(x) = -x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -1 + b \\
+					b &= 3
+				\end{align*}
+			D'où $g(x) = -x+3$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=0$.
+			D'où $g(x) =b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &=  b
+				\end{align*}
+			D'où $g(x) = 2$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=-3$.
+			D'où $g(x) = -3x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -3\cdot1 + b \\
+					b &= 5
+				\end{align*}
+			D'où $g(x) = -3x+5$ ($x\in\R$) est la fonction affine recherchée.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=1}{
+    Soient $f(x) = 3x^2 + 17x - 11$ et $g(x) = 2x^2 + 17x - 10$ pour tout $x \in \R$ deux fonctions quadratiques.
+
+    Déterminer entièrement $\C_f \cap \C_g$.
+}{exe:f-cap-g-deg-2}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+    Soient $f(x) = x$ et $g(x) = x^3 - 3x^2 + 4x - 1$ pour tout $x \in \R$ deux fonctions polynomiales.
+
+    \begin{enumerate}
+        \item 
+        Montrer que $(x-1)^3 = x^3 - 3x^2 + 3x - 1$ pour tout $x\in\R$.
+        \item
+        Déterminer entièrement $\C_f \cap \C_g$.
+        \item
+        Créer une fonction polynomiale $h$ de degré $4$ telle que $\C_f \cap \C_h = \bigset{ (1;1) }.$
+    \end{enumerate}
+}{exe:f-cap-g-deg-3-5}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+    Soient $f(x) = -2x^2 + 7x + 2$ et $g(x) = -3x^2 + 2x +16$ pour tout $x \in \R$ deux fonctions quadratiques.
+    
+    \begin{enumerate}
+        \item 
+        Déterminer l'autre solution de $f(x)-g(x)=0$, sachant que $x=2$ en est une et donc que $f(x)-g(x) = (x-2)h(x)$, où $h$ est affine.
+        \item
+        Déterminer entièrement $\C_f \cap \C_g$.
+        \item
+        Créer une fonction polynomiale $F$ de degré $2$ telle que $\C_f \cap \C_F = \bigset{ (2;8), (-1; -7) }.$
+    \end{enumerate}
+}{exe:f-cap-g-deg-2bis}{
+	TODO
+}
 % un peu beaucoup
 % mettre au chapitre vecteurs ? y'a beaucoup de contenu chez les vecteurs aussi...
 % jspo où le mettre
