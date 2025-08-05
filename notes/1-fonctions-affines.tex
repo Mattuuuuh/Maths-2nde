@@ -15,8 +15,6 @@
 %%%%%%%
 %%%%%%%
 
-\section{Lecture graphique et définitions}\label{sec:aff-1}
-
 Soit $(d)$ une droite \emph{non verticale} qu'on plonge dans un repère orthonormé.
 On suppose $(d)$ non verticale pour qu'elle soit la courbe représentative d'une certaine fonction $f$ qu'on souhaite déterminer : \[(d) = \C_f. \]
 Posons en outre $\D = \R$ le domaine de $f$, soit la droite réelle toute entière.
@@ -58,19 +56,6 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ f(x) = a\cdot x + b, \]
 	où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $(d)$.
 
-\dfn{}{
-	Un fonction \emphindex{affine} est une fonction $f$ vérifiant pour tout $x\in\R$
-		\begin{align}
-			f(x) = ax + b, \label{eq:affine}
-		\end{align}
-	où $a$ et $b$ sont deux paramètres : le \emphindex{coefficient directeur} et l'\emphindex{ordonnée à l'origine}.
-	
-}{def:affine}
-
-\mprop{}{
-	La courbe représentative d'une fonction affine est une droite non verticale.
-}{prop:Cf-affine}
-
 
 \nt{
 	De la discussion ci-dessus, on en déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
@@ -81,6 +66,25 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	On verra dans la suite que le signe de $a$ correspond au caractère croissant ou décroissant de la fonction affine ; et que plus $|a|$ est grand, plus la pente est raide.
 }
 
+\section{Lecture graphique et définitions}\label{sec:aff-1}
+
+\dfn{}{
+	Un \emphindex{fonction affine} est une fonction $f$ vérifiant pour tout $x\in\R$
+		\begin{align}
+			f(x) = ax + b, \label{eq:affine}
+		\end{align}
+	où $a$ et $b$ sont deux paramètres : le \emphindex{coefficient directeur} et l'\emphindex{ordonnée à l'origine}.
+}{def:affine}
+
+\nomen{
+	Une \emphindex{fonction linéaire} est une fonction affine avec $b=0$.
+}
+
+\mprop{}{
+	La courbe représentative d'une fonction affine est une droite non verticale.
+}{prop:Cf-affine}
+
+
 \ex{}{
 	Considérons la fonction $id$, dite \emphindex{fonction identité}, donnée par
 		\[ id(x) = x \qquad \text{pour tout $x \in \R$.} \]
@@ -89,80 +93,85 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\begin{align*}
 			(x;y) \in (d) && \iff && y = x.
 		\end{align*}
+		
+	\begin{multicols}{2}
 	Un point appartient donc à $(d)$ si et seulement si sont abscisse est égale à son ordonnée.
 	
 	Ainsi, $(3;3) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}\bigr) \in (d)$, mais $(3;4) \notin (d)$.
-	La droite restreinte à $\D = [-4 ; 4]$ est donc l'ensemble des points en bleu ci-dessous.
+	La droite restreinte à \mbox{$\D = [-4 ; 4]$} est donc l'ensemble des points en bleu ci-contre.
 	
-		\begin{center}
+	\vfill
+	
+	\begin{center}
 	\includegraphics[page=4]{figures/fig-affines.pdf}
-		\end{center}
+	\end{center}
+	
+	\end{multicols}
 }{}
 
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = x+6.
-		\end{align*}
-	Ainsi, $(3;9) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}+6\bigr) \in (d)$, mais $(6;0) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-		\begin{center}
-	\includegraphics[page=5]{figures/fig-affines.pdf}
-	\end{center}
-}{ex:droite}
-
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = 2,2 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=0$ et $b=2,2$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = 2,2.
-		\end{align*}
-	Ainsi, $(3;2,2) \in (d)$ et $\bigl(-\sqrt{2}; 2,2\bigr) \in (d)$, mais $(0;0) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-	\begin{center}
-	\includegraphics[page=6]{figures/fig-affines.pdf}
-	\end{center}
-}{}
-
-\ex{}{
-	Considérons la fonction $f$ donnée par
-		\[ f(x) = -2x + 1 \qquad \text{pour tout $x \in \R$.} \]
-	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=-2$ et $b=1$.
-	La droite $(d) = \C_{f}$ vérifie donc
-		\begin{align*}
-			(x;y) \in (d) && \iff && y = -2x+1.
-		\end{align*}
-	Ainsi, $(-1;3) \in (d)$ et $(-\sqrt{2}; 2\sqrt{2}+1) \in (d)$, mais $(1;1) \notin (d)$.
-	La droite est donc l'ensemble des points en bleu ci-dessous.
-	
-	\begin{center}
-	\includegraphics[page=7]{figures/fig-affines.pdf}
-	\end{center}
-}{}
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = x+6 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=1$ et $b=6$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = x+6.
+%		\end{align*}
+%	Ainsi, $(3;9) \in (d)$ et $\bigl(-\sqrt{2}; -\sqrt{2}+6\bigr) \in (d)$, mais $(6;0) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%		\begin{center}
+%	\includegraphics[page=5]{figures/fig-affines.pdf}
+%	\end{center}
+%}{ex:droite}
+%
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = 2,2 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=0$ et $b=2,2$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = 2,2.
+%		\end{align*}
+%	Ainsi, $(3;2,2) \in (d)$ et $\bigl(-\sqrt{2}; 2,2\bigr) \in (d)$, mais $(0;0) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%	\begin{center}
+%	\includegraphics[page=6]{figures/fig-affines.pdf}
+%	\end{center}
+%}{}
+%
+%\ex{}{
+%	Considérons la fonction $f$ donnée par
+%		\[ f(x) = -2x + 1 \qquad \text{pour tout $x \in \R$.} \]
+%	Cette fonction est affine, car c'est un cas spécial de la forme \ref{eq:affine} où $a=-2$ et $b=1$.
+%	La droite $(d) = \C_{f}$ vérifie donc
+%		\begin{align*}
+%			(x;y) \in (d) && \iff && y = -2x+1.
+%		\end{align*}
+%	Ainsi, $(-1;3) \in (d)$ et $(-\sqrt{2}; 2\sqrt{2}+1) \in (d)$, mais $(1;1) \notin (d)$.
+%	La droite est donc l'ensemble des points en bleu ci-dessous.
+%	
+%	\begin{center}
+%	\includegraphics[page=7]{figures/fig-affines.pdf}
+%	\end{center}
+%}{}
 
 \nt{
-
-	Soit $f$ une fonction quelconque sur $\R$.
-	Alors, par définition, nous avons
-		\[ \C_f = \bigset{ (x ; f(x) ) \text{ où $x$ parcourt $\R$} }. \]
-	Cet ensemble se réécrit également de la façon suivante.
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
-
+	On peut réécrire la courbe représentative de $f$ de la façon suivante.
+		\[ \C_f = \bigset{ \bigl(x ; f(x) \bigr) \text{ où $x$ parcourt $\R$} }
+		= \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y = f(x)$} } \]
 }{}
 
 % à mettre plus haut non ?
 \dfn{équation de droite}{
-	Sot $f(x) = ax+b$ une fonction affine sur $\R$. On a
-		\[ \C_f = \bigset{ (x ; y ) \text{ où $x$ parcourt $\R$ et où $y =ax+b$} }, \]
-	et nomme alors abusivement l'équation \og $y = ax+b$ \fg, l'\emphindex{équation de droite} de $\C_f$.
+	Pour une fonction affine $f(x) = ax+b$, on parle de $\C_f$ comme la « \emphindex{droite d'équation $y=ax+b$} ».
 }{dfn:eq-droite}
+
+\notations{
+	Pour se défaire de la fonction $f$, on peut noter
+		\[ (d) : y = ax+b. \]
+}
 
 \exe{1}{
 	Donner deux points distincts appartenant à la droite d'équation $y = 2x-1$.
@@ -189,7 +198,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 }
 
 \exe{, difficulty=1}{
-	On considère la fonction affine $f(x) = \dfrac12 x$.
+	On considère la fonction affine $f(x) = \frac12 x$.
 	Donner tous les points $(x,y)$ à coordonnées entières de $\C_f$.
 }{exe:12x-integer}{
 	Tout d'abord, $(x,y) \in \C_f \iff y = \dfrac12  x \iff x = 2y$.
@@ -199,7 +208,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 }
 
 \exe{}{
-	On considère la fonction affine $f(x) = \dfrac13 -\dfrac23 x$.
+	On considère la fonction affine $f(x) = \frac13 -\frac23 x$.
 	Montrer que $(x,y) \in \C_f$ si et seulement si $2x + 3y = 1$.
 	Montrer ensuite que tous les points de la forme $(x, y) = (-3k -1 ; 2k+1)$ où $k\in\Z$ appartiennent à $\C_f$.
 }{exe:2x+3y=1-integer}{
@@ -209,9 +218,14 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ 2x+3y = 2(-3k-1) + 3(2k+1) = -2 + 3 = 1. \]
 }
 
+\nt{
+	L'équation $2x  - 3y= 3$ étant équivalente à $y = \frac23 x - 1$, c'est aussi une équation de droite.
+	La première forme est appelée \emphindex{équation cartésienne}, et la deuxième \emphindex{équation réduite}.
+}
+
 \exe{}{
 	On considère l'ensemble des points $(x,y)$ vérifiants $5x - 9y = 1$.
-	Exprimer cette ensemble comme la courbe représentative d'une fonction affine dont on explicitera l'expression algébrique.
+	Exprimer cet ensemble comme la courbe représentative d'une fonction affine dont on explicitera l'expression algébrique.
 	Donner un point de la droite à coordonnées entières.
 }{exe:isoler-y}{
 	$5x - 9y = 1 \iff 5x = 1 + 9y \iff 9y = 5x -1 \iff y = \dfrac59x - \dfrac19$.
@@ -287,7 +301,7 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	Soit $f(x) = a x + b$ affine.
 	Alors, pour tout $x\in\R$ réel,
 		\[ f(x+1) - f(x) = a. \]
-	On lit : « lorsqu'on augmente l'abscisse $x$ de $1$, l'ordonnée $y$ augmente de $a$ ».
+	Lorsqu'on augmente l'abscisse $x$ de 1, l'ordonnée $y$ augmente de $a$.
 }{lem:coeff-dir}
 
 %\pf{Preuve du lemme \ref{lem:coeff-dir}}{
@@ -302,8 +316,8 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 }
 
 \cor{}{
-	Si $f(x) = ax+b$, alors
-		\[ a = f(1) - f(0). \]
+	On a, en particulier,
+		$ a = f(1) - f(0).$
 }{cor:affine-a}
 
 \exe{}{
@@ -351,40 +365,8 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	La différence des ordonnées vaut bien $-2$, le coefficient directeur.	
 }{}
 
-
-\ex{}{
-	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite $\C_f$.
-	Notons $a, b \in\R$ les paramètres de la fonction affine $f$.
-		\[ f(x) = ax + b \qquad \text{pour tout $x\in\R$.} \]
-	On a les équivalences suivantes
-		\[ (1;2) \in \C_f \qquad\iff\qquad 2 = a\times1 + b, \]
-	et
-		\[ (4;-4) \in \C_f \qquad\iff\qquad -4 = a\times4 + b. \]
-	Ces deux égalités étant valides simultanément, on les met dans un système :
-		\[ \begin{cases*} a + b = 2, \\ 4a + b = -4. \end{cases*} \]
-	En l'état, il paraît difficile de trouver les valeurs de $a$ et $b$ vérifiant le système.
-	Il n'est d'ailleurs pas clair qu'il existe une solution, ou qu'il n'en existe pas une infinité.
-	
-	Cependant, remarquons qu'en soustrayant la deuxième équation à la première, on obtient
-		\begin{align*}
-			(4a + b) - (a+b) &= (-4) - (2) \\
-			4a+b-a-b & = -6 \\
-			3a &= -6 \\
-			a &= -2
-		\end{align*}
-	Soustraire une équation a une autre a permis de créer une nouvelle équation dans laquelle $b$ n'apparaît pas.
-	On la résoud alors tranquillement pour trouver $a=-2$.
-	
-	On remplace ensuite la valeur de $a$ dans une des deux équations du système pour trouver $b$ : 
-		\[ b=2-a = 4.\]
-	On peut désormais s'assurer que $(a;b) = (-2;4)$ vérifie bien les deux équations du système simultanément.
-	On conclut donc que la fonction $f$ est donnée par
-		\[ f(x) = -2x + 4, \qquad \text{pour tout $x\in\R$.} \]
-}{ex:systeme-affine}
-
 \exe{}{
-	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite 
-		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = -2x+4 \}.\]
+	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite d'équation $y = -2x+4$.
 }{exe:point-sur-droite}{
 	TODO
 }
@@ -395,12 +377,30 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	TODO
 }
 
-% who is this?
-\exe{}{
-	Vérifier que la fonction affine $f$ de l'exemple \ref{ex:ant-image}, en sachant que l'image de $-112$ par $f$ est $1013$, est bien donnée par $f(x) = -\frac12 x + 957$ pour tout $x\in\R$.
-}{exe:}{
-	TODO
+
+\nt{
+	Du lemme \ref{lem:coeff-dir}, on déduit que lorsqu'on augmente l'abscisse $x$ de 1, l'ordonnée $y$ augmente de $a$.
+	
+	Il suit naturellement que, lorsqu'on augmente $x$ de 2, alors $y$ augmente de $a+a = 2a$.
+	De plus, lorsqu'on augmente $x$ de $-1$, alors $y$ augmente de $-a$.
+	
+	Plus généralement, on montre facilement que $f(x+c) - f(x) = ca$ pour n'importe que $c\in\R$.
+	Si on note $x' = x+c$ on a donc, en supposant $c \neq 0$ non nul,
+		\[ a = \dfrac{f(x+c)-f(x)}{c} = \dfrac{f(x') - f(x)}{x' - x}. \]
+	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
 }
+
+\ex{}{
+	Soient $(1;2)$ et $(4;-4)$ deux points du plan qui appartiennent à une droite d'équation $y=ax+b$.
+	Le but est de connaître $a$ et $b$ afin de connaître entièrement la droite passant par ces deux points.
+	
+	En augmentant l'abscisse de 3 unités, l'ordonnée augmente de $-6$.
+	D'après la remarque ci-dessus, $a=\dfrac{-6}3 = -2$.
+	
+	L'équation de la droite est donc $y=-2x + b$.
+	Comme $(1 ; 2)$ lui appartient, la propriété fondamentale donne $2 = -2\cdot1 + b = -2 + b$.
+	On conclut que $b=4$.
+}{ex:systeme-affine}
 
 \exe{}{
 	Montrer qu'une droite ne peut pas contenir les trois points $(0;1), (1;0),$ et $(2;1)$ simultanément.
@@ -416,58 +416,14 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	TODO
 }
 
-%\str{
-%	La stratégie de l'exemple \ref{ex:systeme-affine} peut se généraliser.
-%	Considérons $(x_A, y_A)$ et $(x_B, y_B)$ deux points distincts appartenant à une droite non verticale
-%		\[ (d) = \{ (x,y) \text{ tq. } x,y\in\R \text{ et } y = ax+b \},\]
-%	où $a, b\in\R$ sont deux paramètres à déterminer.
-%	
-%	Les deux appartenances donnent les égalités suivantes, grâce à la propriété fondamentale \ref{cor:prop-fond}.
-%		\[ \begin{cases} y_A = ax_A + b, \\ y_B = ax_B + b. \end{cases} \]
-%	On rappelle ici que $(x_A,y_A)$ et $(x_B,y_B)$ sont des valeurs sues, et qu'il faut déterminer $a$ et $b$ en fonction de ces valeurs.
-%	
-%	On soustrait la deuxième équation à la première pour éliminer la variable $b$ et obtenir
-%	\begin{align*}
-%		y_A - y_B &= (ax_A + b) - (ax_B + b) \\
-%		y_A - y_B & = a(x_A - x_B) \\
-%		a & = \dfrac{y_A - y_B}{x_A - x_B},
-%	\end{align*}
-%	où on a pu diviser par $x_A - x_B$ car la droite est supposée non verticale et les points sont supposés distincts.
-%	
-%	On peut ensuite substituer pour exprimer $b$ de façon analogue mais la formule est moins facile à retenir.
-%		\[ b = y_A - \dfrac{y_A - y_B}{x_A - x_B}\cdot x_A = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. \]
-%}
-
-\nt{
-	Remarquons qu'on a aussi les relations suivantes, démontrables comme pour le lemme \ref{lem:coeff-dir}.
-		\begin{align*}
-			f(x+2) - f(x) &= 2a  &\iff &&  a &= \dfrac{f(x+2)-f(x)}2 \\
-			f(x+3) - f(x) &= 3a  &\iff && a &= \dfrac{f(x+3)-f(x)}3 \\
-			f\left(x+\frac12 \right) - f(x) &= \frac12 a  &\iff && a &= 2 \cdot \left(f\left(x+\frac12\right)-f(x)\right) \\
-			f\left(x+\frac13 \right) - f(x) &= \frac13 a  &\iff && a &= 3 \cdot \left(f\left(x+\frac13\right)-f(x)\right)
-		\end{align*}
-	Plus généralement, pour n'importe quel réel $\kappa \in\R$ non nul,
-		\begin{align*}
-			f\left(x+\kappa \right) - f(x) = \kappa \cdot a && \iff && a = \dfrac{f(x+\kappa) - f(x)}{\kappa}.
-		\end{align*}
-	Si on note $x' = x+\kappa$ on a donc
-		\[ a = \dfrac{f(x') - f(x)}{x' - x}. \]
-	Ceci démontre la première partie du théorème \ref{thm:param-affine}.
-}
-
 \thm{interpolation linéaire}{
-	Soit $f$ une fonction affine donnée par, pour tout $x\in\R$, et pour certains paramètres $a, b\in\R$,
-		\[ f(x) = ax+b. \]
-	
-	Si les deux points $(x_A, y_A)$ et $(x_B, y_B)$ vérifient $x_A\neq x_B$ et appartiennent à $\C_f$, alors
+	Si deux points $(x_A, y_A)$ et $(x_B, y_B)$ vérifient $x_A\neq x_B$ et appartiennent à la droite d'équation $y=ax+b$, alors
 		\begin{align*}
 			a = \dfrac{y_A - y_B}{x_A - x_B} && \text{et} && b = \dfrac{x_A y_B - x_B y_A}{x_A-x_B}. 
 		\end{align*}
 }{thm:param-affine}
 
 \nt{
-	%Le théorème \ref{thm:param-affine} étend le résultat du lemme \ref{lem:coeff-dir} à une différence d'abscisses qui n'est pas forcément $1$.
-
 	Un moyen mnémotechnique pour retenir la formule de $a$ est
 		\[ a = \dfrac{\text{différence des $y$}}{\text{différence des $x$}} = \dfrac{y-y'}{x-x'} = \dfrac{dy}{dx}. \]
 	L'ordre des différences ($A$ moins $B$ ou $B$ moins $A$) doit être le même au numérateur et au dénominateur mais, même s'il ne l'est pas, on aura seulement commis une erreur de signe.
@@ -476,13 +432,9 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	La formule pour $b$ n'a pas a être retenue car, une fois $a$ connu, une appartenance d'un point suffit à donner une équation pour trouver $b$.
 }
 
+\begin{multicols}{2}
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
-		\begin{center}
-		\includegraphics[page=10]{figures/fig-affines.pdf}
-		\end{center}
-		
+	On considère la droite $y=ax+b$ ci-contre.
 	Le théorème \ref{thm:param-affine} affirme que
 		\begin{align*}
 			a = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)}  = \dfrac{5}{1} = 5. 
@@ -490,16 +442,27 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 	On aurait aussi pû appliquer le lemme \ref{lem:coeff-dir} avec $x=-0,5$ : lorsque $x$ augmente de $1$ en passant de $-0,5$ à $+0,5$, l'ordonnée augmente de $5$ en passant de $-1,5$ à $3,5$.
 }{}
 
+	\begin{center}
+	\includegraphics[page=10]{figures/fig-affines.pdf}
+	\end{center}
+\end{multicols}
 
 \exe{}{
-	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide des formules ci-dessus et comparer avec les valeurs obtenues.
+	Calculer $a$ et $b$ de l'exemple \ref{ex:systeme-affine} à l'aide du théorème \ref{thm:param-affine} et comparer avec les valeurs obtenues.
 }{exe:a-b-affine}{
 	TODO
 }
 
 \exe{}{
-	Décrire entièrement la droite contenant les points $(-1;-10)$ et $(1;30)$.
+	Donner l'équation de la droite contenant les points $(-1;-10)$ et $(1;30)$.
+	Le point $(3 ;  60)$ appartient-il à la droite ?
 }{exe:a-b-affine2}{
+	TODO
+}
+
+\exe{}{
+	Les points $(-3 ; -6)$, $(1 ;1)$, et $(3 ; 4)$ sont-ils alignés ?
+}{exe:affine-alignement}{
 	TODO
 }
 
