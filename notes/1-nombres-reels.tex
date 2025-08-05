@@ -60,7 +60,7 @@
 \dfn{nombres rationnels}{
 	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
 	
-	Alors le \emphindex{rationnel} $\dfrac{a}{b}$ est l'unique nombre tel que
+	Alors le \emphindex{rationnel} $\frac{a}{b}$ est l'unique nombre tel que
 		\[ \dfrac{a}b \times b = a. \]
 	
 	On note l'ensemble de tous les rationnels
@@ -68,49 +68,49 @@
 }{dfn:nombres-rationnels}
 
 \ex{}{
-	Le nombre rationnel $\dfrac12$ est l'unique nombre vérifiant
+	Le nombre rationnel $\frac12$ est l'unique nombre vérifiant
 		\[ \dfrac12 \times 2 = 1. \]
-	Comme $0,5 \times 2 = 1$, on a $\dfrac12  = 0,5$. C'est le \emphindex{développement décimal} de $\dfrac12$.
+	Comme $0,5 \times 2 = 1$, on a $\frac12  = 0,5$. C'est le \emphindex{développement décimal} de $\frac12$.
 }{ex:nombres-rationnels1}
 
 \ex{}{
-	Le nombre rationnel $\dfrac13$ est l'unique nombre vérifiant
+	Le nombre rationnel $\frac13$ est l'unique nombre vérifiant
 		\[ \dfrac13 \times 3 = 1. \]
 }{ex:nombres-rationnels2}
 
 \exe{}{
-	Montrer que $\dfrac13 = \dfrac26$.
+	Montrer que $\frac13 = \frac26$.
 }{exe:reduction-fraction}{
-	Par définition, $\dfrac13$ est l'unique $x\in\Q$ vérifiant $3x = 1$.
+	Par définition, $\frac13$ est l'unique $x\in\Q$ vérifiant $3x = 1$.
 	Cependant, on a l'équivalence suivante :
 		\[ 3x = 1 \iff 6x = 2. \]
-	$x$ est donc égal à $\dfrac26$, par définition.
+	$x$ est donc égal à $\frac26$, par définition.
 }
 
 \exe{}{
-	Montrer que $\dfrac{a}{a} = 1$ pour n'importe que $a\in\Z$ non nul.
+	Montrer que $\frac{a}{a} = 1$ pour n'importe que $a\in\Z$ non nul.
 }{exe:a-div-a}{
-	Par définition, $\dfrac{a}{a}$ est l'unique $x\in\Q$ vérifiant $ax = a$.
+	Par définition, $\frac{a}{a}$ est l'unique $x\in\Q$ vérifiant $ax = a$.
 	Comme $x=1$ vérifie cette équation, l'unicité conclut.
 }
 
 \exe{, difficulty=1}{
-	Montrer que $\dfrac12 + \dfrac13 = \dfrac56$.
+	Montrer que $\frac12 + \frac13 = \frac56$.
 }{exe:somme-rationnels}{
-	Posons $x = \dfrac12 + \dfrac13$.
+	Posons $x = \frac12 + \frac13$.
 	On a alors
 		\begin{align*}
 			6x &= 6 \times \dfrac12 + 6 \times \dfrac13, \\
 				&= 3(2 \times \dfrac12) + 2(3 \times \dfrac13), \\
 				&= 3 + 2 = 5.
 		\end{align*}
-	On conclut que $x = \dfrac56$.
+	On conclut que $x = \frac56$.
 }
 
 \exe{, difficulty=1}{
-	Montrer que $\dfrac12 \times \dfrac23 = \dfrac26$.
+	Montrer que $\frac12 \times \frac23 = \frac26$.
 }{exe:produit-rationnels}{
-	Posons $x = \dfrac12 \times \dfrac23$.
+	Posons $x = \frac12 \times \frac23$.
 	On a alors, par associativité,
 		\begin{align*}
 			6x &= 6 \times \left(\dfrac12 \times \dfrac23\right), \\
@@ -118,7 +118,7 @@
 				&= \left(2\times\dfrac12\right)\times \left(3\times\dfrac23\right), \\
 				&= 1 \times 2 = 2.
 		\end{align*}
-	On conclut que $x = \dfrac26$.
+	On conclut que $x = \frac26$.
 }
 
 \thm{}{
@@ -169,7 +169,7 @@
 }
 
 \qs{}{
-	Est-il possible d'écrire le développement décimal de $\dfrac13$ sur un feuille de papier A4 ?
+	Est-il possible d'écrire le développement décimal de $\frac13$ sur un feuille de papier A4 ?
 	
 	Le but de la prochaine section est de répondre à cette question par la négative.
 }
@@ -214,17 +214,17 @@
 }{thm:caractérisation-D}
 
 \pf{}{
-	Posons $E = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }$.
+	Posons $E = \Bigset{ \frac{a}{10^n} \tq a \in \Z, n \in \N }$.
 	Pour montrer l'égalité d'ensembles $\DD = E$, il faut toujours montrer la double inclusion $\DD \subseteq E$ et $E \subseteq \DD$.
 	Pour montrer une inclusion $\subseteq$ d'ensembles, il faut montrer que n'importe quel élément de l'ensemble de gauche (le plus petit) appartient à l'ensemble de droite (le plus grand).
 	
 	\begin{enumerate}[leftmargin=100pt]
 		\item[\underline{Inclusion $\DD \subseteq E$} :]
 		Un élément $x$ de $\DD$ admet un développement décimal fini, posons $n\in\N$ sa longueur.
-		Alors $10^n x = a$ est un entier relatif. Il suit que $x = \dfrac{a}{10^n} \in E$ comme requis.
+		Alors $10^n x = a$ est un entier relatif. Il suit que $x = \frac{a}{10^n} \in E$ comme requis.
 		
 		\item[\underline{Inclusion $E \subseteq \DD$} :]
-		Un élément $x$ de $E$ est de la forme $x = \dfrac{a}{10^n}$. Comme $a$ est entier, le développement décimal de $x$ est de longueur au plus $n$, et est donc fini.
+		Un élément $x$ de $E$ est de la forme $x = \frac{a}{10^n}$. Comme $a$ est entier, le développement décimal de $x$ est de longueur au plus $n$, et est donc fini.
 	\end{enumerate} 
 }{}
 
@@ -241,11 +241,11 @@
 }
 
 \thm{}{
-	Le nombre rationnel $\dfrac13$ n'est pas décimal : $\dfrac13 \not\in \DD$.
+	Le nombre rationnel $\frac13$ n'est pas décimal : $\frac13 \not\in \DD$.
 }{}
 
 \pf{}{
-	Par l'absurde, supposons que $\dfrac13 = \dfrac{a}{10^n}$.
+	Par l'absurde, supposons que $\frac13 = \frac{a}{10^n}$.
 	Alors on a nécessairement 
 		\[ 10^n = 3a. \]
 	Comme le membre de droite est un multiple de $3$, le membre de gauche aussi.
@@ -258,39 +258,39 @@
 }
 
 \exe{}{
-	Montrer que $\dfrac19$ n'est pas décimal.
+	Montrer que $\frac19$ n'est pas décimal.
 }{exe:nondecimal0}{
-	Si $\dfrac19 = \dfrac{a}{10^n}$, alors $10^n = 9a$ et est multiple de $9$.
+	Si $\dfrac19 = \frac{a}{10^n}$, alors $10^n = 9a$ et est multiple de $9$.
 	Or l'entier d'avant est multiple de $9$ car
 		\[ 10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}} = 9 \times \underbrace{11{\dots}11}_{\text{n fois}} . \]
 	$10^n$ ne peut donc pas être multiple de $9$, une contradiction ! \Large\Lightning
 }
 
 \exe{}{
-	Montrer que $\dfrac1{k}$ n'est pas décimal dès qu'aucune puissance de 10 n'est multiple entier de $k$.
+	Montrer que $\frac1{k}$ n'est pas décimal dès qu'aucune puissance de 10 n'est multiple entier de $k$.
 }{exe:nondecimal1}{
-	Si $\dfrac1k = \dfrac{a}{10^n}$, alors $10^n = ka$ et est multiple de $k$, une contradiction ! \Large\Lightning
+	Si $\frac1k = \frac{a}{10^n}$, alors $10^n = ka$ et est multiple de $k$, une contradiction ! \Large\Lightning
 }
 
 \exe{}{
-	Montrer que si une certaine puissance de 10 est multiple entier de $k$, alors $\dfrac1k$ est décimal.
+	Montrer que si une certaine puissance de 10 est multiple entier de $k$, alors $\frac1k$ est décimal.
 }{exe:nondecimal2}{
 	Si $10^n$ est multiple entier de $k$, alors il existe un $a \in \Z$ tel que
 		\[ ak = 10^n. \]
-	Ainsi $\dfrac1k = \dfrac{a}{10^n} \in \DD$.
+	Ainsi $\frac1k = \frac{a}{10^n} \in \DD$.
 }
 
 \mprop{}{
-	Le développement décimal de $\dfrac13$ est donné par
+	Le développement décimal de $\frac13$ est donné par
 		\[ \dfrac13 = 0,333{\dots}.\]
 	Il est \emphindex{infini} et \emphindex{périodique}.
 }{}
 
 \pf{}{
-	Posons $x = 0,333\dots$ et montrons que $x=\dfrac13$.
+	Posons $x = 0,333\dots$ et montrons que $x=\frac13$.
 	On a 
 		\[ 10x = 3,333{\dots} = 3 + x. \]
-	Il suit donc que $9x = 3$, et donc que $x=\dfrac13$.
+	Il suit donc que $9x = 3$, et donc que $x=\frac13$.
 }{}
 
 \exe{}{
@@ -314,20 +314,20 @@
 }{exe:dev-to-fraction}{
 	\begin{enumerate}[label=\Alph*.]
 		\item 
-		La relation $10A = 6 + A$ donne $A = \dfrac23$.
+		La relation $10A = 6 + A$ donne $A = \frac23$.
 		\item
 		La relation $10B = 90 + B$ donne $A = 10$. Il s'avère donc que $10$ admet deux écritures décimales différentes.
 		Pour se convaincre encore que $B=10$, on peut remarquer la chose suivante : il n'existe pas de nombre entre $B$ et $10$ strictement différent des deux. Or il existe toujours un nombre situé entre deux nombres distincts (leur moyenne, par exemple).
 		\item
-		La relation $100C = 12 + C$ donne $C = \dfrac{12}{99} = \dfrac{4}{33}$.
+		La relation $100C = 12 + C$ donne $C = \frac{12}{99} = \frac{4}{33}$.
 		\item
-		La relation $10D = 15 + D$ donne $D = \dfrac{15}{9} = \dfrac53$.
+		La relation $10D = 15 + D$ donne $D = \frac{15}{9} = \frac53$.
 		\item
-		En posant $E' = 100E = 34,777{\dots}$, on obtient $10E' = 313 + E'$, d'où $E' = \dfrac{313}{9}$, et donc $E = \dfrac{1}{100}E' = \dfrac{313}{900}$.
+		En posant $E' = 100E = 34,777{\dots}$, on obtient $10E' = 313 + E'$, d'où $E' = \frac{313}{9}$, et donc $E = \frac{1}{100}E' = \frac{313}{900}$.
 		\item
-		La relation $1000F = 123 + F$ donne $F = \dfrac{123}{999} = \dfrac{41}{333}$.
+		La relation $1000F = 123 + F$ donne $F = \frac{123}{999} = \frac{41}{333}$.
 		\item 
-		La relation $10^9 G = 123456789 + G$ donne $G = \dfrac{123456789}{999999999}$.
+		La relation $10^9 G = 123456789 + G$ donne $G = \frac{123456789}{999999999}$.
 	\end{enumerate}
 }
 
@@ -341,45 +341,45 @@
 }{ex:période}
 
 \lem{}{
-	Le développement décimal de $\dfrac17$ est périodique.
+	Le développement décimal de $\frac17$ est périodique.
 }{lem:17periode}
 
 \pf{}{
-	On décrit ici un algorithme permettant de calculer le développement décimal de $\dfrac17$.
-	Comme $\dfrac17 < 1$, écrivons 
+	On décrit ici un algorithme permettant de calculer le développement décimal de $\frac17$.
+	Comme $\frac17 < 1$, écrivons 
 		\[ \dfrac17 = 0,n_1 n_2 n_3 \dots \]
-	le développement décimal de $\dfrac17$, où chaque $n_i$ est un chiffre.
+	le développement décimal de $\frac17$, où chaque $n_i$ est un chiffre.
 	En multipliant par 10, on trouve
 		\[ \dfrac{10}7 = n_1, n_2 n_3 n_4 \dots. \]
-	Or $\dfrac{10}7 = 1 + \dfrac37$, donc $n_1 = 1$ et
+	Or $\frac{10}7 = 1 + \frac37$, donc $n_1 = 1$ et
 		\[ \dfrac37 = 0,n_2 n_3 n_4 \dots. \]
 	On répète le processus pour connaître $n_2, n_3$, etc…
 		\[ \dfrac{30}7 = 4 + \dfrac27 = n_2,n_3n_4n_5\dots,\] 
 	et donc $n_2 = 4$ et
 		\[ \dfrac27 = 0,n_3n_4n_5\dots,\] 
 	
-	Remarquons que la partie décimale est toujours de la forme $\dfrac{r}7$, avec $0 \leq r \leq 6$.
-	De plus, elle détermine tout le développement décimal de $\dfrac17$ à partir d'un certain rang.
-	En $8$ étapes, deux parties décimales identiques sont rencontrées, et donc $\dfrac17$ est périodique.
+	Remarquons que la partie décimale est toujours de la forme $\frac{r}7$, avec $0 \leq r \leq 6$.
+	De plus, elle détermine tout le développement décimal de $\frac17$ à partir d'un certain rang.
+	En $8$ étapes, deux parties décimales identiques sont rencontrées, et donc $\frac17$ est périodique.
 }
 
 \exe{, difficulty=1}{
-	Déterminer le développement décimal de $\dfrac17$ sans calculatrice.
+	Déterminer le développement décimal de $\frac17$ sans calculatrice.
 }{exe:17-dec}{
-	On continue la preuve du lemme \ref{lem:17periode}, où on a déjà trouvé $n_1 = 1, n_2 = 4$, et $\dfrac27 = 0,n_3 n_4 n_5 \dots$.
-	En multipliant par $10$, on trouve $\dfrac{20}7 = 2 + \dfrac67$, et donc $n_3 = 2$ et $\dfrac67 = 0,n_4 n_5n_6 \dots$.
+	On continue la preuve du lemme \ref{lem:17periode}, où on a déjà trouvé $n_1 = 1, n_2 = 4$, et $\frac27 = 0,n_3 n_4 n_5 \dots$.
+	En multipliant par $10$, on trouve $\frac{20}7 = 2 + \frac67$, et donc $n_3 = 2$ et $\frac67 = 0,n_4 n_5n_6 \dots$.
 	
-	Ensuite, on a $\dfrac{60}7 = 8 + \dfrac47$, et donc $n_4 = 8$.
-	Puis $\dfrac{40}7 = 5 + \dfrac57$, et $n_5 = 5$.
-	Enfin, $\dfrac{50}7 = 7 + \dfrac17$, et $n_6 = 7$.
+	Ensuite, on a $\frac{60}7 = 8 + \frac47$, et donc $n_4 = 8$.
+	Puis $\frac{40}7 = 5 + \frac57$, et $n_5 = 5$.
+	Enfin, $\frac{50}7 = 7 + \frac17$, et $n_6 = 7$.
 	
-	Il suit que $\dfrac17 = 0,n_7 n_8 n_9 \dots$.
-	Le développement de $\dfrac17$ se répète donc à partir de la septième décimale :
+	Il suit que $\frac17 = 0,n_7 n_8 n_9 \dots$.
+	Le développement de $\frac17$ se répète donc à partir de la septième décimale :
 		\[ \dfrac17 = 0,142857~142857~142857~\cdots. \]
 }
 
 \exe{, difficulty=1}{
-	Déterminer le développement décimal de $\dfrac1{11}$ sans calculatrice.
+	Déterminer le développement décimal de $\frac1{11}$ sans calculatrice.
 }{exe:111-dec}{
 	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $\dfrac{100}{11} = 9 + \dfrac1{11}$ et $n_2=9$.
 	D'où
@@ -429,7 +429,7 @@
 		
 		Ainsi, le développement décimal de $x$ est périodique à partir du rang $m$ et de période $n-m$.
 		\item[\underline{$\impliedby$} :]
-		Soit $x$ admet un développement décimal éventuellement périodique.
+		Soit $x$ admettant un développement décimal éventuellement périodique.
 		Notons $n$ le début de la partie périodique, et $p$ la période.
 		Alors $10^{n-1} x$ et $10^{n-1+p}x$ admettent le même développement décimal.
 		La différence $10^{n-1+p} x - 10^{n-1} x = \bigl(10^{n-1+p} - 10^{n-1}\bigr)x$ est donc un entier.
@@ -438,15 +438,15 @@
 }
 
 \exe{, difficulty=2}{
-	Montrer que si $\dfrac1k$ est périodique de période $p$ à partir de la $n$-ième décimale, alors $10^{(n-1)+p}-10^{n-1}$ est multiple entier de $k$.
+	Montrer que si $\frac1k$ est périodique de période $p$ à partir de la $n$-ième décimale, alors $10^{(n-1)+p}-10^{n-1}$ est multiple entier de $k$.
 	
 	En déduire que $10^6 - 1 = 999~999$ fait partie de la table de multiplication de 7.
 }{exe:10np10n}{
-	Notons $x= \dfrac1k$. 
+	Notons $x= \frac1k$. 
 	Par hypothèses, le développement décimal de $10^{n-1}x$ est périodique de période $p$.
 	Il suit que $10^p 10^{n-1}x - 10^{n-1}x = \bigl(10^{n-1+p}-10^{n-1}\bigr) x $ est un nombre entier, ce qui conclut.
 	
-	Pour $k=7$, l'exercice \ref{exe:17-dec} implique que $\dfrac17$ est périodique à partir de la première décimale de période 6.
+	Pour $k=7$, l'exercice \ref{exe:17-dec} implique que $\frac17$ est périodique à partir de la première décimale de période 6.
 	En spécialisant le résultat démontré pour $n=1$ et $p=6$, on obtient bien que $10^6 - 1$ est un multiple de 7.
 }
 
