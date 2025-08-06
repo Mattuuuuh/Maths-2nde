@@ -314,7 +314,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \exe{}{
 	Développer les expressions algébriques suivantes.
-		\begin{multicols}{2}
+		\begin{multicols}{3}
 		\begin{enumerate}[label=$\bullet$]
 			\item $f(x) = (1+x)^2$
 			\item $g(x) = (x-3)^2$
@@ -476,7 +476,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
 
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $\sqrt{12}$
 		\item $\sqrt{150}$
@@ -484,6 +484,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\item $2\sqrt{300}$
 		\item $\dfrac{12}{\sqrt{3}}$
 		\item $\dfrac{18}{\sqrt{6}}$
+		\item $\sqrt{125}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt4}{
@@ -493,10 +494,11 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \exe{}{
 	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$.
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $3\sqrt{2}$
 		\item $50\sqrt{0,5}$
+		\item $\dfrac12 \sqrt{48}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt5}{
@@ -505,7 +507,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \exe{}{
 	Calculer les fractions suivantes.
-	\begin{multicols}{2}
+	\begin{multicols}{4}
 	\begin{enumerate}
 		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
 		\item $\sqrt{\dfrac{64}4}$
@@ -524,7 +526,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{}{
-	Montrer, sans calculatrice, que $\sqrt{7^{24}} =7^{12}$.
+	Montrer, sans calculatrice, que $\sqrt{7^{3782}} =7^{1891}$.
 }{exe:sqrt8}{
 	TODO
 }
@@ -607,48 +609,36 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{}{
-	Montrer que, pour tout $x\in\R$, $\bigl| |x| \bigr| = |x|$.
-}{exe:abs-abs}{
-	todo
-}
-
-\exe{}{
-	Montrer que, pour tout $x\in\R$, $|x| = |-x|$.
-}{exe:moinsabs}{
-	Comme $x^2 = (-x)^2$, appliquer la racine carrée conclut.
+	Montrer les identités suivantes pour tout $x\in\R$.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $\bigl| |x| \bigr| = |x|$.
+		\item $|x| = |-x|$
+		\item $|2x| = 2|x|$
+		\item $|x|^2 = x^2$
+	\end{enumerate}
+	\end{multicols}
+}{exe:identités-abs}{
+	\begin{enumerate}
+		\item 
+		TODO
+		\item 
+		Comme $x^2 = (-x)^2$, appliquer la racine carrée conclut.
 	
-	On aurait aussi pû étudier les cas $x\geq0$ et $x\leq0$ séparément :
-	\begin{itemize}
-		\item Si $x\geq0$, alors $-x\leq0$ et $|-x| = -(-x)= x = |x|$.
-		\item Si $x\leq0$, alors $-x\geq0$ et $|x| = -x= |-x|$.
-	\end{itemize}
-}
-
-\exe{}{
-	Montrer que, pour tout $x\in\R$, $|2x| = 2|x|$.
-}{exe:2abs}{
-	Comme $(2|x|)^2 = 4x^2 = (2x)^2$, appliquer la racine carrée conclut.
-	
-	On aurait aussi pû étudier les cas $x\geq0$ et $x\leq0$ séparément :
-	\begin{itemize}
-		\item Si $x\geq0$, $2x\geq0$ et $|2x| = 2x = 2|x|$.
-		\item Si $x\leq0$, alors $2x\leq0$ et $|2x| = -2x= 2(-x) = 2|x|$.
-	\end{itemize}
-}
-
-\exe{}{
-	Montrer que, pour tout $x\in\R$, $|x|^2 = x^2$.
-}{exe:abscarre}{
-	$|x| = x$ ou $-x$. Dans le premier cas, il n'y a rien à montrer, et dans le second, $(-x)^2 = (-1)^2 x^2 = x^2$.
+		On aurait aussi pû étudier les cas $x\geq0$ et $x\leq0$ séparément :
+		\begin{itemize}
+			\item Si $x\geq0$, alors $-x\leq0$ et $|-x| = -(-x)= x = |x|$.
+			\item Si $x\leq0$, alors $-x\geq0$ et $|x| = -x= |-x|$.
+		\end{itemize}
+		
+		\item
+		$|x| = x$ ou $-x$. Dans le premier cas, il n'y a rien à montrer, et dans le second, $(-x)^2 = (-1)^2 x^2 = x^2$.
+	\end{enumerate}
 }
 
 \exe{, difficulty=2}{
 	Trouver tous les réels $x\in\R$ vérifiant $|x-2| = |2 + 3x|$.
 }{exe:eq-vabs}{
-	On souhaite enlever les barres de valeur absolue afin de résoudre une équation linéaire simple. Comme $|E|$ vaut soit $E$ soit $-E$, on obtient quatre équations possibles.
-	Deux paires d'entre elles sont en fait équivalentes par multiplication par $-1$.
-	Les deux alternatives sont $x-2 = 2+3x \iff -4 = 2x \iff x = -2$ et $2-x = 2+3x \iff 0 = 4x \iff x=0$.
-	On vérifie bien que $x=0$ et $x=-2$ sont solutions : $|-2| = |2|$ et $|-4| = |-4|$.
 }
 
 \thm{}{
@@ -657,7 +647,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }{thm:produit-valeur-absolue}
 
 \pf{}{
-	D'après l'exercice \ref{exe:abscarre}, on a $\bigl(|x|\cdot|y|\bigr)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
+	D'après l'exercice \ref{exe:identités-abs}, on a $\bigl(|x|\cdot|y|\bigr)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
 	En appliquant la racine carrée, on trouve
 		\[ |x| \cdot |y| = \big| |x|\cdot|y| \big| = |xy|. \]
 }
@@ -733,38 +723,29 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ \bigset{ x \in \R \tq |x|\geq21 } = ]\minfty; -21] \cup [21 ; \pinfty[. \]
 }
 
+\notations{
+	L'égalité $f = g$ entre deux fonctions signifie que $f(x) = g(x)$ pour n'importe quel $x$ de leur domaine.
+}
 
 \ex{}{
-	Considérons les fonctions $f, g$ données par $f(x) =x^2 -8\cdot x + 16$ et $g(x)=(x-4)^2$ pour tout $x\in\R$.
+	Considérons les fonctions $f, g$ données par $f(x) =x^2 -8 x + 16$ et $g(x)=(x-4)^2$ pour tout $x\in\R$.
+	On souhaite montrer que $f=g$ afin de pouvoir résoudre $f(x) = 64$.
+	Pour cela, il faut toujours partir de la forme factorisée $g$ qu'on développe pour trouver $f$. 
 	
-	On se demande quels sont les antécédents d'une certaine valeur, mettons $64$ par exemple, par $f$.
-	En nommant un tel antécédent $x$, on a l'équation
+	En voyant l'un des $(x-4)$ comme un tout, et l'autre comme un somme de deux quantités, $x$ et $-4$, il
+	en découle que, par distributivité utilisée quatre fois,
 		\begin{align*}
-			f(x) &= 64, \\
-			x^2 - 8\cdot x + 16 &= 64,
+			(x-4)^2 &= (x-4) \cdot (x-4), \\
+					&= (x-4) \cdot x + (x-4) \cdot (-4), \\
+					&= x\cdot x + (-4) \cdot x + x \cdot(-4) + (-4) \cdot (-4), \\
+					&= x^2 - 8 x + 16.
 		\end{align*}
-	qui n'est pas simple du tout à résoudre car non linéaire.
-	Cependant, si on arrive à démontrer que
-		\begin{align*}
-			(x-4)^2 = x^2 - 8\cdot x + 16 && \text{c'est-à-dire} && g(x) = f(x),
-		\end{align*}
-	et ceci pour tout $x\in\R$ nombre réel, on pourra utiliser la forme plus agréable de $g$ afin d'obtenir les antécédents recherchés.
-	
-	Pour développer $(x-4)^2 = (x-4)\cdot(x-4)$, on utilise la distributivité qui est rappelée ci-après par l'axiome \ref{ax:distr}.
-	On voit l'un des $(x-4)$ comme un tout, et l'autre comme un somme de deux quantités, $x$ et $-4$.
-	En découle que, par distributivité utilisée quatre fois,
-		\begin{align*}
-			(x-4)^2 &= (x-4) \cdot (x-4) \\
-					&= (x-4) \cdot x + (x-4) \cdot (-4) \\
-					&= x\cdot x + (-4) \cdot x + x \cdot(-4) + (-4) \cdot (-4) \\
-					&= x^2 - 8 \cdot x + 16
-		\end{align*}
-	comme recherché.
+	Ainsi $f(x) = g(x)$ pour tout $x$.
 	
 	En revenant à notre situation, on se permet donc de résoudre
 		\begin{align*}
-			g(x) &= 64 \\
-			(x-4)^2 &= 64 \\
+			g(x) &= 64, \\
+			(x-4)^2 &= 64, \\
 			|x-4| &= 8,
 		\end{align*}
 	en appliquant la racine carrée. D'après le corollaire \ref{cor:manipulations-valeurs-absolues},	
@@ -773,8 +754,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 			x-4=8 \qquad&\text{ou}\qquad x-4 = -8 \\
 			x = 12  \qquad&\text{ou}\qquad  x=-4
 		\end{align*}
-	
-	La fonction $f(x) = x^2 -8\cdot x + 16$ admet donc exactement deux antécédents de $64$ : $-4$ et $12$.
+	La fonction $f(x) = x^2 -8 x + 16$ admet donc exactement deux antécédents de $64$ : $-4$ et $12$.
 	Il conviendra de vérifier ceci en calculant $f(-4)$ et $f(12)$.
 }{ex:id-rem1}
 
@@ -847,12 +827,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \nt{
-	En voyant $\dfrac{a+b}2$ comme $\dfrac12 a + \dfrac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
-	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\dfrac12$.
+	En voyant $\frac{a+b}2$ comme $\frac12 a + \frac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
+	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\frac12$.
 	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
 	
 	En changeant les poids, on peut créer d'autres points de l'intervalle. 
-	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\dfrac23$ et $\dfrac13$.
+	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\frac23$ et $\frac13$.
 	 La formule de la moyenne pondérée sera alors
 		\[ \dfrac23a + \dfrac13b, \]
 	qui est plus proche de $a$ que de $b$.
