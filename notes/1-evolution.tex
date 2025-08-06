@@ -538,4 +538,143 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	Pour $m=-1, n=1$, on a bien $n-m+1 = (1) - (-1) + 1  = 3$.
 }
 
+\section{Ordres de grandeur}
+
+\notations{
+	On note $\R_+^*$ l'ensemble des réels strictement positifs.
+	On note $\N^*$ les entiers naturels hormis 0.
+}
+
+Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appelle \emphindex{base}.
+
+\dfn{puissance sur $\N^*$}{
+	Soit $n \in \N^*$ un entier naturel non nul.
+	Alors \og $q$ puissance $n$ \fg~est égal à
+		\[ q^{n} = \underbrace{q \times q \times \cdots \times q}_{\text{$n$ fois}}. \]
+	En particulier,
+		\begin{align*}
+			q^1 = q && q^2 = q\times q && q^3 = q \times q \times q
+		\end{align*}
+}{dfn:puissance-N}
+
+\mprop{propriétés des puissances}{
+	Soient $a, b \in \Z$. Alors
+		\[ q^{a} \times q^{b} = q^{a+b}, \]
+	et 
+		\[ \bigl( q^{a}\bigr)^b = q^{a\times b}. \]
+	En particulier, on a 
+		\begin{align*}
+			q^0 = 1 && q^{-1} = \dfrac1q &&  q^{-a} = \dfrac1{q^a}
+		\end{align*}
+}{prop:propriétés-puissances}
+
+\exe{}{
+	Sans calculatrice, exprimer les nombres suivants sous la forme $q^n$, où $q \in \N$ et $n\in\Z$ sont des entiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^3 \times 10^5$
+		\item $\left(4^5\right)^2$
+		\item $\dfrac{5^3}{5^3}$
+		\item $1$
+		\item $\dfrac{2^4}{2^7}$
+		\item $\left(2^{-1}\right)^3$
+		\item $\left(2^{3}\right)^{-1}$
+		\item $\left(\dfrac{1}{7^2}\right)^6$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+		\item $\dfrac{10^{-5}}{10^{6}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:puissances}{
+	TODO
+}
+
+\exe{}{
+	On estime que, dans l'univers, il y a au moins
+		\begin{itemize}
+			\item $10^{11}$ galaxies ; que chacune contient
+			\item $10^{11}$ étoiles ; dont la masse moyenne est de
+			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
+			\item $10^{24}$ atomes.
+		\end{itemize}
+	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
+}{exe:atomes-univers}{
+	TODO
+}
+
+\dfn{ordre de grandeur}{
+	Un nombre a pour  \emphindex{ordre de grandeur} $10^n$, avec $n\in\Z$ entier relatif, sa puissance de $10$ la plus proche.
+}{dfn:ordre-grandeur}
+
+\ex{}{
+	On a $2^{40} \approx 1,09 \times 10^{12}$, et donc son ordre de grandeur est $10^{12}$.
+	Il faut $13$ chiffres pour écrire $2^{40}$.
+}{ex:ordre-grandeur}
+
+\exe{}{
+	Montrer qu'on a environ $2^{10} \approx 10^3$. 	
+	\begin{enumerate}
+		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{exe:grandeur-binaire}{
+	TODO
+}
+
+% redondant un peu
+\exe{}{
+	Montrer qu'on a environ $6^{8} \approx 10^6$ et $7^6 \approx 10^5$ : ce sont leur \emph{ordre de grandeur}.
+	
+	\begin{enumerate}
+		\item En déduire l'ordre de grandeur de $6^{16}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire l'ordre de grandeur de $7^{18}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{exe:grandeur-6-7}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
+	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique élémentaires (la puissance n'en est pas une !).
+	
+	\begin{enumerate}
+		\item Compléter la fonction \texttt{puissance(q,N)} figure \ref{fig:fast-exp} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:fast-exp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
+		\item[$(\star)$] Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
+	\end{enumerate}
+}{exe:fast-exp}{
+	TODO
+}
+
+	
+% fast exponentiation
+%\begin{figure}[h]
+%\begin{subfigure}{.5\textwidth}
+%\begin{mintedbox}{python}
+%def puissance(q, N):
+%	r = q
+%	for i in range(__,____):
+%		__________
+%	return r
+%\end{mintedbox}
+%\end{subfigure}
+%\begin{subfigure}{.5\textwidth}
+%\begin{mintedbox}{python}
+%def fastexp(q, n):
+%	r = q
+%	for i in range(1,n+1):
+%		r = r*r
+%	return r
+%\end{mintedbox}
+%\end{subfigure}
+%\caption{Fonctions d'exponentiation.}
+%\label{fig:fast-exp}
+%\end{figure}
+
+
+
+
 
