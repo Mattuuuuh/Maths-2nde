@@ -40,7 +40,9 @@
 	columns=2, 
 	title=Index, 
 	options= -L french,
+	%intoc,
 ]
+\indexsetup{level=\chapter}
 
 %virgules
 \usepackage{icomma}
@@ -90,18 +92,6 @@
 {}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \thecontentspage
-	\begin{tikzpicture}[remember picture, overlay]
-		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
-	\end{tikzpicture}}%
-% index
-\titlecontents{index}[3.7pc]
-{\addvspace{30pt}%
-	\begin{tikzpicture}[remember picture, overlay]%
-		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
-	\end{tikzpicture}\qquad\color{doc!80}\large\bfseries}%
-{Index}
-{}
-{\;\titlerule\;\large\sc\bfseries Page \pageref{index}%\thecontentspage
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
 	\end{tikzpicture}}%
