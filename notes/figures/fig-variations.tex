@@ -328,35 +328,18 @@ cross/.default={1pt}}
 	% page 25
 	\begin{tikzpicture}
 		\tkzTabInit
+		 [lgt=3]
 	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
 	       		{7,11,17,28,31}
 
 		\tkzTabVar
-			{+/,-/,+/,-/,+/}
-		\tkzTabIma
-			{1}{2}{1}{45}
-		\tkzTabIma
-			{1}{2}{2}{0}
-		\tkzTabIma
-			{3}{4}{3}{60}
-		\tkzTabIma
-			{3}{4}{4}{-10}
-		\tkzTabIma
-			{4}{5}{5}{30}
+			{+/45,-/0,+/60,-/-10,+/30}
 			
 		\tkzTabVar
-			{+/, +/,R/,-/,+/}
-		\tkzTabIma
-			{1}{2}{1}{60}
-		\tkzTabIma
-			{2}{4}{4}{25}
+			{+/60, +/,R/,-/25,+/}
 			
 		\tkzTabVar
-			{-/,+/,+/,R/,-/}
-		\tkzTabIma
-			{1}{2}{1}{10}
-		\tkzTabIma
-			{1}{2}{2}{40}
+			{-/10,+/40,+/,R/,-/}
 	\end{tikzpicture}
 	
 	% exe:extrema7
@@ -368,9 +351,7 @@ cross/.default={1pt}}
 	       		{7,$a$,11,$b$,$c$,28,$d$,31}
 			
 		\tkzTabVar
-			{-/, +/,-/$-45$,R/,R/,+/$20$, R/, -/$-30$}
-		\tkzTabIma
-			{1}{2}{1}{$30$}
+			{-/30, +/,-/$-45$,R/,R/,+/$20$, R/, -/$-30$}
 			
 	\end{tikzpicture}
 %
