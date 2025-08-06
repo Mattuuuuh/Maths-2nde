@@ -317,15 +317,16 @@ Dans ce contexte, on déduit naturellement le théorème suivant.
 		\end{gather*}
 }{thm:c2-s2}
 
-\exe{}{
+\exemulticols{}{
 	On considère un point $P$ sur un quart de cercle de rayon $2$ et de centre $O$, l'origine d'un repère.
 	On pose $\theta \in [0; 90\degree]$ l'angle entre la droite $(OP)$ et l'axe des abscisses.
 	Chaque choix de $\theta$ correspond donc à un point et aussi à un rectangle comme représentés ci-dessous.
 	
+	
 	\begin{center}
 	\includegraphics[page=21]{figures/fig-geom.pdf}
 	\end{center}
-	
+}{
 	\begin{enumerate}
 		\item
 		Montrer que l'aire $f(\theta)$ du rectangle est donnée par 
@@ -346,13 +347,9 @@ Dans ce contexte, on déduit naturellement le théorème suivant.
 	TODO
 }
 
-\exe{}{
+\exemulticols{}{
 	On considère exactement la même situation qu'à l'exercice précédent mais cette fois ci en prenant $x$ l'abscisse du point $P$ du quart de cercle comme paramètre.
 	On a donc $x \in [0; 2]$.
-	
-	\begin{center}
-	\includegraphics[page=22]{figures/fig-geom.pdf}
-	\end{center}
 	
 	\begin{enumerate}
 		\item Montrer que l'aire du rectangle est donnée par
@@ -362,6 +359,10 @@ Dans ce contexte, on déduit naturellement le théorème suivant.
 		\item
 			Déduire de l'exercice précédent que $f(x)$ est maximal en $x=\sqrt{2}$.
 	\end{enumerate}
+}{
+	\begin{center}
+	\includegraphics[page=22]{figures/fig-geom.pdf}
+	\end{center}
 }{exe:cossin2}{
 	TODO
 }
@@ -416,9 +417,9 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Pour ça, on multiplie par $x$ les deux membres de l'égalité pour trouver
 		\[ 8 = \dfrac{\sqrt{2}}2 x. \]
 	On multiplie ensuite par $2$ et par $\frac1{\sqrt{2}}$ pour obtenir ce qu'on voulait :
-		\[ 8 \cdot 2 \cdot \dfrac1{\sqrt{2}} = x. \]
-	Reste à simplifier le résultat obtenu : 
-		\[ x = \dfrac{16}{\sqrt{2}}. \]
+		\begin{align*}
+			8 \cdot 2 \cdot \dfrac1{\sqrt{2}} = x, && \iff && x = \dfrac{16}{\sqrt{2}}.
+		\end{align*}
 	On peut manipuler davantage l'expression en multipliant le numérateur et le dénominateur par $\sqrt{2}$ pour trouver
 		\[ x = \dfrac{16 \sqrt{2}}{\sqrt{2}^2} = 8 \sqrt{2}. \]
 	Les deux nombres $\frac{16}{\sqrt{2}}$ et $8 \sqrt{2}$ sont égaux, au même titre que $\frac36 = \frac12$.
@@ -663,7 +664,6 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 %\enlargethispage{\baselineskip} 
 
 \newpage
-
 \exe{, difficulty=2}{
 	On pose $\Qsqrt{2} = \bigset{ r + s \sqrt2 \tq r, s \in \Q} \subseteq \R$ et on considère $x = r + s\sqrt2 \in \Qsqrt{2}$ avec $r, s \in\Q$.
 	\begin{enumerate}

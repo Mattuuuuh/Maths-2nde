@@ -364,12 +364,10 @@ où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $
 	TODO
 }
 
+\begin{multicols}{2}
+		
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
-		\begin{center}
-		\includegraphics[page=9]{figures/fig-affines.pdf}
-		\end{center}
+	On considère la droite ci-contre, courbe représentative $\C_f$ d'une certaine fonction affine $f(x)=ax+b$.
 	
 	On regarde deux points de $\C_f$ dont les abscisses sont espacées de $1$ et on regarde comme leur ordonnée évolue.
 	Par exemple, $(1;0)$ et $(2,-2)$. 
@@ -384,6 +382,12 @@ où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $
 	Remarquons qu'on aurait pû prendre d'autres points, par exemple $(0;2)$ et $(1;0)$, ou $(2;-2)$ et $(3;-4)$.
 	La différence des ordonnées vaut bien $-2$, le coefficient directeur.	
 }{}
+	\vfill\null
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-affines.pdf}
+	\end{center}
+	\vfill\null
+\end{multicols}
 
 \exe{}{
 	Vérifier que les points $(1;2)$ et $(4;-4)$ appartiennent bien à la droite d'équation $y = -2x+4$.
@@ -415,7 +419,7 @@ où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $
 	Le but est de connaître $a$ et $b$ afin de connaître entièrement la droite passant par ces deux points.
 	
 	En augmentant l'abscisse de 3 unités, l'ordonnée augmente de $-6$.
-	D'après la remarque ci-dessus, $a=\dfrac{-6}3 = -2$.
+	D'après la remarque ci-dessus, $a=\frac{-6}3 = -2$.
 	
 	L'équation de la droite est donc $y=-2x + b$.
 	Comme $(1 ; 2)$ lui appartient, la propriété fondamentale donne $2 = -2\cdot1 + b = -2 + b$.
@@ -894,14 +898,14 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 \exe{}{
 	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients multipliant $x$ soient opposés (c'est-à-dire leur somme soit nulle).
 	\setlength{\columnsep}{1cm}
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{,}$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{,}$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{,}$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{,}$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{,}$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff\systeme{,}$
+		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.}$
+		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.}$
+		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.}$
+		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.}$
+		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.}$
+		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:systemes2}{
