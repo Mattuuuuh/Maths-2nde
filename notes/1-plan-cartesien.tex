@@ -340,8 +340,9 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 %}
 
 \thm{}{
-	Soient $A(x_A, y_B)$ et $B(x_A,y_B)$ deux points du plan.
-	Alors le milieu $M$ du segment $[AB]$ est $M = \dfrac{A+B}{2}.$
+	Soient $A$ et $B$ deux points du plan.
+	Alors le milieu $M$ du segment $[AB]$ est 
+		\[ M = \dfrac{A+B}{2}. \]
 		
 	\begin{center}
 	\includegraphics[page=3, scale=1.1]{figures/fig-plan.pdf}
@@ -349,7 +350,7 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 }{thm:milieu-segment}
 
 \pf{}{
-	Le point $P = \dfrac12 A + \dfrac12 B$ appartient au segment $[AB]$ (en prenant $\lambda=\frac12$), et vérifie
+	Le point $P = \frac12 A + \frac12 B$ appartient au segment $[AB]$ (en prenant $\lambda=\frac12$), et vérifie
 		\begin{align*}
 			\norm{P-A}^2 &= \norm{ \dfrac12 A + \dfrac12 B - A}^2, \\
 						&=  \norm{\dfrac12 B  -\dfrac12 A}^2, \\
@@ -357,7 +358,7 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 						= \norm{P - B}^2,
 		\end{align*}
 	où on a utilisé que $\norm{E-F} = \norm{F-E}$ pour la troisième égalité.
-	Le point $P$ est donc à équidistance de $A$ et $B$ et c'est le milieu du segment : $M = P = \dfrac{A+B}2$.	
+	Le point $P$ est donc à équidistance de $A$ et $B$ et c'est le milieu du segment : $M = P = \frac{A+B}2$.	
 }{}
 
 \exe{}{
@@ -393,7 +394,7 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 }
 
 \exe{, difficulty=1}{
-	Soient $\point{A}{-\dfrac32}{\dfrac53}$ et $\point{M}{-\dfrac53}{-1}$ deux points du plan.
+	Soient $\point{A}{-\frac32}{\frac53}$ et $\point{M}{-\frac53}{-1}$ deux points du plan.
 	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
 }{exe:milieu2}{
 	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
