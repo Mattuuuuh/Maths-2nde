@@ -127,12 +127,12 @@ dot/.default = black % size of the circle diameter
 	\end{tikzpicture}
 	% page 8
 	\begin{tikzpicture}[>=stealth, scale=1.2]
-	\begin{axis}[xmin = -4, xmax=4, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\begin{axis}[xmin = -4.4, xmax=4.4, ymin=-4.4, ymax=4.4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both,]
 		
 		% (d)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {2-.5*x}  node[above=3pt] {$\C_f$};
-		\addplot[BLUE_E, very thick, dashed, domain =-4:-3, samples=2] {2-.5*x} ;
-		\addplot[BLUE_E, very thick, dashed, domain =3:4, samples=2] {2-.5*x};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=2] {2-.5*x}  node[pos=.15, below=20pt] {$y=ax+b$};
+		\addplot[BLUE_E, very thick, dashed, domain =-4.5:-3, samples=2] {2-.5*x} ;
+		\addplot[BLUE_E, very thick, dashed, domain =3:4.5, samples=2] {2-.5*x};
 		
 		% (0,b)
 		\addplot[black, mark=*, mark size = 1] (0,2) node[above right] {$(0;2)$};
