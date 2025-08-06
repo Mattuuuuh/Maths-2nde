@@ -3,7 +3,7 @@
 
 \chapter{Nombres rationnels, nombres réels}
 
-\section{Ensembles de nombres}
+\section{Nombres rationnels}
 
 \notations{
 	Un collection \emphindex{non ordonnée} d'éléments est un \emphindex{ensemble}, noté avec des accolades et des points-virgules entre les éléments.
@@ -28,9 +28,9 @@
 }
 
 \dfn{nombres entiers}{
-	On pose les nombres entiers \emphindex{naturels}
+	On pose les nombres \emphindex{entiers naturels}
 		\[ \N =  \bigset{ 0 ; 1 ; 2 ; \dots }, \]
-	et les nombres entiers \emphindex{relatifs}
+	et les nombres \emphindex{entiers relatifs}
 		\[ \Z =  \bigset{ \dots ; -2 ; -1 ; 0 ; 1 ; 2 ; \dots }. \]
 }{dfn:nombres-entiers}
 	
@@ -60,7 +60,7 @@
 \dfn{nombres rationnels}{
 	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
 	
-	Alors le \emphindex{rationnel} $\frac{a}{b}$ est l'unique nombre tel que
+	Alors le \emphindex{rationnel} $\frac{a}{b}$ est l'\underline{unique} nombre tel que
 		\[ \dfrac{a}b \times b = a. \]
 	
 	On note l'ensemble de tous les rationnels
@@ -74,8 +74,8 @@
 }{ex:nombres-rationnels1}
 
 \ex{}{
-	Le nombre rationnel $\frac13$ est l'unique nombre vérifiant
-		\[ \dfrac13 \times 3 = 1. \]
+	Le nombre rationnel $\frac43$ est l'unique nombre vérifiant
+		\[ \dfrac43 \times 3 = 4. \]
 }{ex:nombres-rationnels2}
 
 \exe{}{
@@ -174,7 +174,7 @@
 	Le but de la prochaine section est de répondre à cette question par la négative.
 }
 
-\section{Développements décimaux}
+\section{Développements décimaux et écriture scientifique}
 
 \dfn{nombres décimaux}{
 	On dit d'un nombre $x$ qu'il est \emphindex{décimal} si on peut écrire son développement décimal sur un feuille de papier A4 (possiblement en écrivant très petit).
@@ -184,8 +184,30 @@
 		\[ \DD = \bigset{ x \in \Q \tq \text{ le développement décimal de $x$ est fini} }. \]
 }{dfn:nombres-décimaux}
 
+\mprop{puissances de 10}{
+	Soit $n\in\N$ un entier naturel. Comme
+		\begin{enumerate}[label=$\bullet$]
+			\item multiplier par $10$ décale la virgule d'une position vers la droite ; et
+			\item diviser par $10$ décale la virgule d'une position vers la gauche ;
+		\end{enumerate}
+	on a nécessairement
+		\begin{flalign*}
+			&&
+			10^n = 1\underbrace{00\dots00}_{ \text{$n$ fois} }
+			&&
+			\et
+			&&
+			10^{-n} = \dfrac1{10^n} = \underbrace{0,00\dots00}_{ \text{$n$ fois} }1.
+			&&
+		\end{flalign*}
+}{prop:puissances-10}
+
+\ex{}{
+	L'égalité $\frac{321}{5000} = \frac{642}{10000} = 0,0642$ donne le développement décimal de la fraction $\frac{321}{5000}$.
+}{ex:dev-decimal}
+
 \exe{}{
-	Sans calculatrice, donner la valeur numérique des fractions suivantes.
+	Sans calculatrice, donner le développement décimal des fractions suivantes.
 	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*), leftmargin=60pt]
 		\item $\dfrac1{10}$
@@ -238,6 +260,34 @@
 }{exe:caractérisation-D}{
 	Tout élément de $\DD$ a la forme $\dfrac{a}{10^n}$ où $a \in \Z$ et $n \in \N$.
 	Comme $10^n \in \N$, l'élément est bien un ratio de deux entiers et il appartient aux rationnels.
+}
+
+
+\dfn{notation scientifique}{
+	Pour $x\in\D$ décimal, en choisissant $1 \leq a < 10$, et en permettant $n\in\Z$ entier relatif, l'expression
+		\[ x = a \times 10^n, \]
+	est la \emphindex{notation scientifique} de $x$.
+}{dfn:notation-scientifique}
+
+\ex{}{
+	D'après l'exemple \ref{ex:dev-decimal}, on a $\frac{321}{5000} = 0,0642 = 6,42 \times 10^{-2}$.
+}{ex:notation-scientifique}
+
+\exe{}{
+	Sans calculatrice, écrire les nombres suivants en notation scientifique.
+		
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 201
+		\item 10
+		\item 123 400 000
+		\item 0,8
+		\item 0,000 327
+		\item 0,009 000 1
+	\end{enumerate}
+	\end{multicols}
+}{exe:notation-scientifique}{
+	TODO
 }
 
 \thm{}{
@@ -350,17 +400,17 @@
 		\[ \dfrac17 = 0,n_1 n_2 n_3 \dots \]
 	le développement décimal de $\frac17$, où chaque $n_i$ est un chiffre.
 	En multipliant par 10, on trouve
-		\[ \dfrac{10}7 = n_1, n_2 n_3 n_4 \dots. \]
-	Or $\frac{10}7 = 1 + \frac37$, donc $n_1 = 1$ et
+		\[ \dfrac{10}7 = n_1, n_2 n_3 n_4 \dots = 1 + \dfrac37, \]
+	donc $n_1 = 1$ et
 		\[ \dfrac37 = 0,n_2 n_3 n_4 \dots. \]
-	On répète le processus pour connaître $n_2, n_3$, etc…
-		\[ \dfrac{30}7 = 4 + \dfrac27 = n_2,n_3n_4n_5\dots,\] 
-	et donc $n_2 = 4$ et
+	On répète le raisonnement pour connaître $n_2$ :
+		\[ \dfrac{30}7 = n_2,n_3n_4n_5\dots  = 4 + \dfrac27,\] 
+	donc $n_2 = 4$ et
 		\[ \dfrac27 = 0,n_3n_4n_5\dots,\] 
 	
 	Remarquons que la partie décimale est toujours de la forme $\frac{r}7$, avec $0 \leq r \leq 6$.
 	De plus, elle détermine tout le développement décimal de $\frac17$ à partir d'un certain rang.
-	En $8$ étapes, deux parties décimales identiques sont rencontrées, et donc $\frac17$ est périodique.
+	En $8$ étapes, deux parties décimales identiques sont rencontrées, et donc le développement décimal de $\frac17$ est périodique.
 }
 
 \exe{, difficulty=1}{
@@ -483,7 +533,7 @@
 	L'ensemble de tous les nombres est noté $\R$.
 	On les appelle les \emphindex{nombres réels}.
 	
-	Ils sont continus dans le sens où il n'y pas de trous comme dans les rationnels
+	Ils sont continus et sont représentés par une droite qu'on appelle la \emphindex{droite réelle}.
 }{dfn:nombres-réels}
 
 \nt{
@@ -512,6 +562,47 @@
 	En divisant par $10^n$, on obtient l'encadrement
 		\[ \dfrac{a}{10^n} \leq x \leq \dfrac{a+1}{10^n}, \]
 	qui vérifie bien les propriétés souhaitées car $\dfrac{a+1}{10^n} - \dfrac{a}{10^n} = \dfrac{a+1-a}{10^n} = \dfrac{1}{10^n}$.
+}
+
+\exe{}{
+	L'encadrement 
+	
+	\def\arraystretch{2}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$2,6 < \sqrt{7} < 2,8$ est à $10^{-1}$ près & $\square$ & $\square$  \\
+		$3,14 < \pi < 3,15$ est à $10^{-2}$ près & $\square$ & $\square$  \\
+		$-4,473 < -2\sqrt5 < -4,472$ est à $10^{-3}$ près & $\square$ & $\square$  \\
+		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & $\square$ & $\square$  \\
+	\end{tabular}
+}{exe:v-f-encadrement}{
+	TODO
+}
+
+\exe{}{
+	Encadrer les nombres suivants à l'amplitude demandée.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $3,605 \times 10^{-2}$ à $10^{-4}$ près.
+		\item $9 854,698 \times 10^3$ à $10^4$ près.
+		\item $-31,45$ à $10^{-1}$ près.
+		\item $-0,0125$ à $10^{-4}$ près.
+	\end{enumerate}
+	\end{multicols}
+}{exe:encadrement}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	On donne l'encadrement du nombre d'or $\phi =  \frac{1+\sqrt5}2$ suivant.
+		\[ 1,61803 < \dfrac{1+\sqrt5}2 < 1,618035 \]
+	\begin{enumerate}
+		\item Donner l'amplitude de l'encadrement en notation scientifique.
+		\item Trouver un encadrement de $\sqrt{5}$ et donner son amplitude.
+	\end{enumerate}
+}{exe:encadrement-phi}{
+	TODO
 }
 
 \thm{de Cantor}{
