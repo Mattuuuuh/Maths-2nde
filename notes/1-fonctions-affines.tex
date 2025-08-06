@@ -15,16 +15,20 @@
 %%%%%%%
 %%%%%%%
 
+\section*{Préliminaire}
+
+\begin{multicols}{2}
+
 Soit $(d)$ une droite \emph{non verticale} qu'on plonge dans un repère orthonormé.
 On suppose $(d)$ non verticale pour qu'elle soit la courbe représentative d'une certaine fonction $f$ qu'on souhaite déterminer : \[(d) = \C_f. \]
-Posons en outre $\D = \R$ le domaine de $f$, soit la droite réelle toute entière.
-
-On a supposé $(d)$ non verticale car dans le cas contraire, un certain antécédent $x$ aurait plusieurs images, ce qui n'est pas possible d'après la définition d'une fonction.
-
+%Posons en outre $\D = \R$ le domaine de $f$, soit la droite réelle toute entière.
 
 	\begin{center}
-	\includegraphics[page=1]{figures/fig-affines.pdf}
+	%\includegraphics[page=1, scale=.9]{figures/fig-affines.pdf}
+	\includegraphics[page=2, scale=1]{figures/fig-affines.pdf}
 	\end{center}
+
+%On a supposé $(d)$ non verticale car dans le cas contraire, un certain antécédent $x$ aurait plusieurs images, ce qui n'est pas possible d'après la définition d'une fonction.
 
 Comme on a supposé $(d)$ non verticale, elle coupe nécessairement l'axe des ordonnées.
 Posons $(0; b)$ le point d'intersection, où $b\in\R$ est un réel désormais fixé.
@@ -36,29 +40,36 @@ On rappelle la propriété fondamentale (voir corollaire \ref{cor:prop-fond}) :
 	\end{align*}
 Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du point de $(d)$ d'abscisse $x$ afin d'obtenir $f(x)$.
 
+\vspace{30pt}
+
+On se restreint au triangle rectangle dont les sommets sont $(0;b), (x ; b)$, et $(x;y)$ pour appliquer les résultats de trigonométrie du chapitre \ref{chap:pb-geom}. %de géométrie.
+
 	\begin{center}
-	\includegraphics[page=2, scale=1.3]{figures/fig-affines.pdf}
-	\hfill
-	\includegraphics[page=3, scale=1.3]{figures/fig-affines.pdf}
+	\includegraphics[page=3, scale=1]{figures/fig-affines.pdf}
 	\end{center}
-	
-	L'angle $\alpha$ comme défini ci-dessus est constant et mesure la pente de la droite.
-	On se restreint au triangle rectangle dont les sommets sont $(0;b), (x ; b)$, et $(x;y)$ pour appliquer les résultats de trigonométrie du chapitre \ref{chap:pb-geom} de géométrie.
+
+L'angle $\alpha$ comme défini ci-dessus est constant et mesure la pente de la droite.
+
 	\begin{align*}
 		\tan(\alpha) = \dfrac{|y-b|}{|x|} && \iff && |y-b| = \tan(\alpha) \cdot |x|.
 	\end{align*}
-	Comme la valeur absolue ne fait que supprimer le signe, on en déduit que
+Comme la valeur absolue ne fait que supprimer le signe, on en déduit que
 	\begin{align*}
 		y - b = \pm \tan(\alpha) \cdot x && \iff && y = \pm \tan(\alpha) \cdot x + b,
 	\end{align*}
-	où $\pm$ signifie ``plus ou moins'', c'est-à-dire qu'on ne connait pas \emph{a priori} le signe et que cela n'importe pas pour l'instant.
-	En posant $a = \pm \tan(\alpha)$, on a trouvé la forme de la fonction $f$ telle que $(d) = \C_f$ :
-		\[ f(x) = a\cdot x + b, \]
-	où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $(d)$.
+où $\pm$ signifie ``plus ou moins'', c'est-à-dire qu'on ne connait pas \emph{a priori} le signe et que cela n'importe pas pour l'instant.
+En posant $a = \pm \tan(\alpha)$, on a trouvé la forme de la fonction $f$ telle que $(d) = \C_f$ :
+	\[ f(x) = a\cdot x + b, \]
+où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $(d)$.
 
+
+	
+\end{multicols}
+
+\newpage
 
 \nt{
-	De la discussion ci-dessus, on en déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
+	De la discussion précédente, on déduit des interprétations préliminaires pour les paramètres $a$ et $b$.
 		\begin{itemize}
 			\item Le réel $b$ est l'ordonnée du point d'intersection de la droite avec l'axe des ordonnées.
 			\item Le réel $a$ est associé à la tangente de l'angle $\alpha$ que forme la droite avec l'axe des abscisses : il mesure donc la pente de la droite. En effet, le pourcentage qu'on voit écrit sur les panneaux de signalisation de descente routière est égal la tangente de l'angle de l'inclinaison vis-à-vis de l'horizontale. Par exemple, un angle de $9$° correspond à une pente de $\tan(9) \approx 15,8\%$.
@@ -265,21 +276,24 @@ Prenons donc un $x \in \R$ non nul, et essayons de déterminer l'ordonnée du po
 		\[ (0 ; b) \in \C_f. \]
 }{lem:affine-b}
 
+\newpage
+\begin{multicols}{2}
 \ex{}{
-	On considère la droite suivante, courbe représentative $\C_f$ d'une certaine fonction affine $f$.
-
+	Considérons la droite $(d)$ ci-contre, d'équation $y=ax+b$.
+	
+	Le point de $(d)$ d'abscisse nulle admet pour coordonnées $(0 ; 2)$.
+	Ainsi
+		\begin{align*}
+			(0 ; 2) \in (d) && \iff && 2 = a\cdot0 + b,
+		\end{align*}
+	Et on en déduit que le paramètre $b$ vaut $2$.
+	\vfill
+}{}
 	\begin{center}
-	\includegraphics[page=8]{figures/fig-affines.pdf}
+	\includegraphics[page=8, scale=.9]{figures/fig-affines.pdf}
 	\end{center}
 	
-	On regarde le point de $\C_f$ d'abscisse nulle et on considère son ordonnée.
-		\begin{align*}
-			(0 ; 2) \in \C_f && \iff && 2 = f(0).
-		\end{align*}
-	Comme $f$ est affine, elle s'écrit $f(x) = ax + b$, pour certains paramètres $a,b\in\R$ réels, et donc
-		\[ 2 = f(0) = a \cdot 0 + b = b. \]
-	On en déduit que le paramètre $b$ vaut $2$.
-}{}
+\end{multicols}
 
 \ex{}{
 	Considérons une droite $(d)$ qui contient les points
@@ -955,10 +969,10 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 		\item $\sys{x+y = 2}{x+y=2}$
 		\item $\sys{8x-4y = 6+2x-y}{7x+12y=-5+y}$
 		\item $\sys{x-y = 1}{-x+y=10}$
-		\item $\sys{\dfrac12 x - \dfrac23 y= -1}{ ,\dfrac15 x + \dfrac72 y= 5}$
+		\item $\sys{\frac12 x - \frac23 y= -1}{ ,\frac15 x + \frac72 y= 5}$
 		\item $\sys{2x - 8y = 2}{-4x+16y=-1}$
 		\item $\sys{5x + y = -2x-1-y}{8x = -1+2y}$
-		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \dfrac32}$
+		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \frac32}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:systemes4}{\, \\
@@ -970,15 +984,15 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 		L'ensemble des solutions est
 			\[ \{ (x ; y) \text{ tq. } x+y=2, x, y \in \R \} = \{ (x ; y) \text{ tq. } y = -x + 2, \text{ où $x$ parcourt $\R$} \} = \C_f, \]
 		où $f(x) = -x+2$.
-		\item $(x ; y) = \left(\dfrac{17}{29} ; -\dfrac{24}{29}\right)$
+		\item $(x ; y) = \left(\frac{17}{29} ; -\frac{24}{29}\right)$
 		\item Les deux équations sont contradictoires et aucune solution n'existe.
-		\item $(x ; y) = \left(-\dfrac{10}{113} ; \dfrac{162}{113}\right)$
+		\item $(x ; y) = \left(-\frac{10}{113} ; \frac{162}{113}\right)$
 		\item Les deux équations sont contradictoires et aucune solution n'existe.
-		\item $(x ; y) = \left(-\dfrac{2}{15} ; -\dfrac{1}{30}\right)$
+		\item $(x ; y) = \left(-\frac{2}{15} ; -\frac{1}{30}\right)$
 		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
 		L'ensemble des solutions est
-			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \dfrac32, x, y \in \R \right\} = \left\{ (x ; y) \text{ tq. } y= -6x - \dfrac32 \text{ où $x$ parcourt $\R$} \right\} = \C_f, \]
-		où $f(x) =-6x - \dfrac32$.
+			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \dfrac32, x, y \in \R \right\} = \left\{ (x ; y) \tq y= -6x - \dfrac32 \text{ où $x$ parcourt $\R$} \right\} = \C_f, \]
+		où $f(x) =-6x - \frac32$.
 	\end{enumerate}
 }
 
@@ -1035,7 +1049,7 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 	Montrer que, pour tout $y\in\R$,
 		\[ (y+1)^2 + y^2 - 13 = 2(y-2)(y+3). \]
 
-	En combinant les équations, montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement trois solutions : $(x ;y) = (0; 2),$ et $(x ;y) = \left( \pm \dfrac12 \sqrt{10} ; -3\right)$.
+	En combinant les équations, montrer que le système suivant d'inconnues $x, y \in \R$ admet exactement trois solutions : $(x ;y) = (0; 2),$ et $(x ;y) = \left( \pm \frac12 \sqrt{10} ; -3\right)$.
 	\[ \begin{cases} 2x^2 + (y+1)^2 &= 9, \\ 2x^2 - y^2 &=-4. \end{cases} \]
 }{exe:systemes8}{
 	TODO
