@@ -5,9 +5,9 @@
 
 Le but de ce chapitre est d'étudier la notion de loi de probabilité sur un ensemble d'issues.
 Une loi de probabilité est une hypothèse de départ choisie pour modéliser la réalité.
-Celle-ci ne se démontre pas et peut résulter soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
+Celle-ci ne se démontre pas et peut naître soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
 Cette deuxième méthode s'appuie sur le fait que la fréquence d'un événement s'approche de sa probabilité lorsque le nombre d'expériences augmente.
-On appelle ce résultat la \og loi des grands nombres \fg.
+On appelle ce résultat la « loi des grands nombres » et fait l'objet de chapitre \ref{chap:échantillonage}.
 
 \section{Introduction}
 
@@ -86,8 +86,8 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 	\begin{enumerate}
 		\item Donner l'univers des issues $\Omega$ ainsi que son cardinal $|\Omega|$.
 		\item Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
-		%\begin{multicols}{2}
-		\begin{enumerate}[label=\roman*)]
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*), rightmargin=-30pt] % c'est magique ce rightmargin=-30pt
 		\item A : \og le nombre est pair \fg
 		\item B : \og le nombre est multiple de $3$ \fg
 		\item C : \og le nombre est multiple de $5$ \fg
@@ -95,7 +95,7 @@ On introduit ici le concept d'univers et d'événement à l'aide d'ensembles fin
 		\item E : \og le nombre est multiple de $6$ \fg
 		\item F : \og le nombre est multiple de 3 et pair \fg
 		\end{enumerate}
-		%\end{multicols}
+		\end{multicols}
 	\end{enumerate}
 }{exe:univers2}
 {	
@@ -420,7 +420,7 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 \exe{}{
 	On suppose le D20 de l'exercice \ref{exe:univers2} bien équilibré.
 	\begin{enumerate}
-		\item Calculer la probabilité de chacun des événements de l'exercice \ref{ex:1}.
+		\item Calculer la probabilité de chacun des événements de l'exercice \ref{exe:univers2}.
 		\item Vérifier que $D = A \cup B$.
 		\item Vérifier que $E = A \cap B$.
 		\item Vérifier l'identité
@@ -532,8 +532,8 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 				%\item $\overline{A \cap B}$
 			\end{enumerate}
 			\end{multicols}
-		\item Calculer les probabilités $P\left( \overline{A} \right)$ et $P\left( \overline{B} \right)$.
-		\item Calculer les probabilités $P\left(\overline{A} \cap \overline{B}\right)$ puis $P\left(\overline{A} \cup \overline{B}\right)$.
+		\item Calculer les probabilités $P\bigl( \overline{A} \bigr)$ et $P\bigl( \overline{B} \bigr)$.
+		\item Calculer les probabilités $P\bigl(\overline{A} \cap \overline{B}\bigl)$ puis $P\bigl(\overline{A} \cup \overline{B}\bigl)$.
 		\item Calculer la probabilité que le résultat obtenu soit supérieur ou égal à $10$.
 	\end{enumerate}
 	
@@ -608,10 +608,10 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 \pf{}{
 	En utilisant les propriétés de $P$, du complémentaire, et le principe d'inclusion-exclusion, on trouve
 		\begin{align*}
-		 1 = P(\Omega) &= P\left( E \cup \overline{E} \right), \\
-		 				&= P(E) + P\left(\overline{E}\right) - P\left( E \cap \overline{E}\right), \\
-		 				&= P(E) + P\left(\overline{E}\right) - P\left( \emptyset \right), \\
-		 				&= P(E) + P\left(\overline{E}\right),
+		 1 = P(\Omega) &= P\bigl( E \cup \overline{E} \bigr), \\
+		 				&= P(E) + P\bigl(\overline{E}\bigr) - P\bigl( E \cap \overline{E}\bigr), \\
+		 				&= P(E) + P\bigl(\overline{E}\bigr) - P( \emptyset), \\
+		 				&= P(E) + P\bigl(\overline{E}\bigr),
 		\end{align*}
 	ce qui conclut.
 }{}
@@ -668,10 +668,9 @@ On pourra donc connaître $|\Omega|$ en comptant les feuilles, et $P(\omega)$ en
 	
 	Calculer la probabilité des événements suivants.
 		\begin{multicols}{2}
-		\begin{enumerate}
+		\begin{enumerate}[rightmargin=-30pt]
 			\item Obtenir $3$ fois face.
 			\item Le deuxième lancer donne pile.
-			\item[]
 			\item Le troisième lancer est différent du premier.
 			\item On obtient au moins une fois pile.
 		\end{enumerate}
