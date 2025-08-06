@@ -29,28 +29,35 @@
 	\begin{center}
 	\includegraphics[page=17]{figures/fig-geom.pdf}
 	\end{center}
-}{	
-	Dans la figure ci-dessous, tracer un point $C$ tel que $A$ soit le projeté orthogonal de $C$ sur $(d)$ et que $B$ soit le projeté orthogonal de $C$ sur $(d')$.
+}{
+	\,\newline
+	Dans la figure ci-contre, tracer un point $C$ tel que
+		\begin{itemize}[rightmargin=-30pt]
+			\item $A$ soit le projeté orthogonal de $C$ sur $(d)$ ; et 
+			\item $B$ soit le projeté orthogonal de $C$ sur $(d')$.
+		\end{itemize}
 }{exe:proj-inv}{
 	TODO
 }
-
-
-\exe{}{
-	Dans la figure ci-dessous, tracer
-		\begin{enumerate}
+	
+	% ça ne marche pas DU TOUT
+	%\begin{vwcol}[widths={0.6,0.4},sep=.8cm, justify=flush,rule=10pt,indent=1em] 
+	 %\end{vwcol}
+\exemulticols{}{
+	Dans la figure ci-contre, tracer
+		\begin{enumerate}[rightmargin=-30pt]
 			\item le point $B$, projeté orthogonal de $A$ sur $(d')$ ;
 			\item le point $C$, projeté orthogonal de $B$ sur $(d)$ ; et
 			\item le point $D$, projeté orthogonal de $C$ sur $(d')$.
 		\end{enumerate}
 	Que dire des droites $(AB)$ et $(CD)$ ? Justifier.
+}{
 	\begin{center}
-	\includegraphics[page=18]{figures/fig-geom.pdf}
+	\includegraphics[page=18, scale=.8]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:proj2}{
 	TODO
 }
-	
 
 \thm{distance minimale}{
 	Le point $M'$, projeté orthogonal de $M$ sur $(d)$, est l'\emph{unique} point de $(d)$ le plus proche de $M$.
@@ -263,26 +270,32 @@ Remarquons immédiatement qu'on a la relation
 \subsection{Quart de cercle trigonométrique}
 \label{sec:quart-trigo}
 
-Considérons, dans le quadrant supérieur-droit d'un repère d'origine $O$, un quart de cercle de rayon $1$.
-On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du quart de cercle tel que l'angle entre $(OP)$ et l'axe des abscisse soit $\theta$.
+\begin{multicols}{2}
+Considérons, dans le quadrant supérieur-droit d'un repère, un quart de cercle de rayon $1$ centré en l'origine $O$.
 
-	\begin{center}
-	\includegraphics[page=3, scale=1.25]{figures/fig-geom.pdf}
-	\end{center}
+On choisit un angle $\theta \in [0, 90\degree]$, et on nomme le point $P$ du quart de cercle tel que l'angle entre $(OP)$ et l'axe des abscisse soit $\theta$.
 
 Le triangle rectangle ainsi créé est d'hypoténuse $1$ et vérifie donc les propriétés du triangle étalon considéré dans la section précédente.
 On a donc, par définition,
 	\begin{align*}
 		x = \cos(\theta), && \text{ et } && y = \sin(\theta).
 	\end{align*}
+
+	\begin{center}
+	\includegraphics[page=3, scale=1]{figures/fig-geom.pdf}
+	\end{center}
+	
+\end{multicols}
+
 Si on a pas peur des raisonnements circulaires, on peut revérifier les égalités avec les formules apprises.
-Par exemple,
-	\[
-		\cos(\theta) = \dfrac{\text{adjacent}}{\text{hypoténuse}} = \dfrac{x}{1}.
-	\]
+	\begin{align*}
+		\cos(\theta) = \dfrac{\text{adjacent}}{\text{hypoténuse}} = \dfrac{x}{1} = x, 
+		&& \et &&
+		\sin(\theta) = \dfrac{\text{côté opposé}}{\text{hypoténuse}} = \dfrac{y}1 = y.
+	\end{align*}
 En conclusion, les coordonnées du point $P$ sont exactement
-	\[ P = (x ; y) = \left( \cos(\theta) ; \sin(\theta) \right). \]
-Dans ce contexte, on déduit naturellement le théorème suivant, après une introductions aux notations.
+	\[ P = (x ; y) = \bigl( \cos(\theta) ; \sin(\theta) \bigr). \]
+Dans ce contexte, on déduit naturellement le théorème suivant.
 
 \notations{
 	Comme il est assez fastidieux d'écrire $ \bigl(\cos\left(\theta\right)\bigr)^2$,
@@ -402,13 +415,13 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	on souhaite ramener $x$ au numérateur afin d'obtenir quelque chose de la forme $x = \dots$.
 	Pour ça, on multiplie par $x$ les deux membres de l'égalité pour trouver
 		\[ 8 = \dfrac{\sqrt{2}}2 x. \]
-	On multiplie ensuite par $2$ et par $\dfrac1{\sqrt{2}}$ pour obtenir ce qu'on voulait :
+	On multiplie ensuite par $2$ et par $\frac1{\sqrt{2}}$ pour obtenir ce qu'on voulait :
 		\[ 8 \cdot 2 \cdot \dfrac1{\sqrt{2}} = x. \]
 	Reste à simplifier le résultat obtenu : 
 		\[ x = \dfrac{16}{\sqrt{2}}. \]
 	On peut manipuler davantage l'expression en multipliant le numérateur et le dénominateur par $\sqrt{2}$ pour trouver
 		\[ x = \dfrac{16 \sqrt{2}}{\sqrt{2}^2} = 8 \sqrt{2}. \]
-	Les deux nombres $\dfrac{16}{\sqrt{2}}$ et $8 \sqrt{2}$ sont égaux, au même titre que $\dfrac36 = \dfrac12$.
+	Les deux nombres $\frac{16}{\sqrt{2}}$ et $8 \sqrt{2}$ sont égaux, au même titre que $\frac36 = \frac12$.
 	La deuxième expression est cependant plus agréable à lire et à écrire.
 }{ex:eq-sqrt}
 
@@ -541,19 +554,19 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \exe{}{
-	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\sin(36^\circ) = \dfrac{\sqrt{10-2\sqrt2}}4$, étant donné que $\cos(36^\circ) = \dfrac{1+\sqrt5}4$.
+	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\sin(36^\circ) = \frac{\sqrt{10-2\sqrt2}}4$, étant donné que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
 }{exe:sin36}{
 	TODO
 }
 
 \exe{}{
-	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\cos(15^\circ) = \dfrac{\sqrt6+\sqrt2}4$, étant donné que $\sin(15^\circ) =  \dfrac{\sqrt6-\sqrt2}4$.
+	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\cos(15^\circ) = \frac{\sqrt6+\sqrt2}4$, étant donné que $\sin(15^\circ) =  \frac{\sqrt6-\sqrt2}4$.
 }{exe:sin36}{
 	TODO
 }
 
 \exemulticols{}{
-	Dans la figure ci-contre, calculer $x$ en sachant que $\cos(36^\circ) = \dfrac{1+\sqrt5}4$.
+	Dans la figure ci-contre, calculer $x$ en sachant que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
 }{
 	\begin{center}
 		\includegraphics[page=15]{figures/fig-geom.pdf}
@@ -564,11 +577,11 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 
 \exe{, difficulty=1}{
-	Montrer que $\sqrt2 = 1 + \dfrac1{1+\sqrt2}$.
-	En déduire que $\sqrt2 = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ et que
+	Montrer que $\sqrt2 = 1 + \frac1{1+\sqrt2}$.
+	En déduire que $\sqrt2 = 1 + \frac1{2 + \frac1{1+\sqrt2}}$ et que
 		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
-	Exprimer le rationnel $1 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}$ sous la form $\dfrac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \dfrac{p}q \right|$ au millième près.
-	Faire idem avec $1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}}$.
+	Exprimer le rationnel $1 + \frac1{2 + \frac1{2 + \frac12}}$ sous la form $\frac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \frac{p}q \right|$ au millième près.
+	Faire idem avec $1 + \frac1{2 + \frac1{2 + \frac1{2 + \frac12}}}$.
 }{exe:frac-continue-sqrt2}{
 	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \dfrac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
 	
@@ -591,13 +604,13 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	Le but de l'exercice est de montrer que $\sqrt2$ est \emphindex{mal approximable} par les rationnels.	
 	À cette fin, pour $p, q$ deux entiers naturels non nuls, on étudie la quantité
 		\[ \left|\sqrt2 - \dfrac{p}{q}\right|, \]
-	distance entre $\sqrt2$ et la fraction $\dfrac{p}{q}$, lorsqu'elle est inférieure à 1.
+	distance entre $\sqrt2$ et la fraction $\frac{p}{q}$, lorsqu'elle est inférieure à 1.
 	\begin{enumerate}
 		\item Montrer que $\left|p + q \sqrt2 \right| \leq 4q$.
 		\item Montrer que
 			$ \left|p - q \sqrt2 \right| \cdot \left|p + q \sqrt2 \right| = \left| p^2 - 2q^2 \right| \geq 1. $
 		\item En déduire que
-			$  \left|\sqrt2 -  \dfrac{p}{q} \right| \geq \dfrac{1}{4q^2}. $
+			$  \left|\sqrt2 -  \frac{p}{q} \right| \geq \frac{1}{4q^2}. $
 	\end{enumerate}
 }{exe:qapprox-sqrt2}{
 	TODO
@@ -615,12 +628,12 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 \exe{}{
 	Montrer le théorème \ref{thm:Dirichlet} dans le cas où $x\in\Q$ est un nombre rationnel.
 }{exe:DirichletQ}{
-	Si $x=\dfrac{a}b$, alors $p= k\cdot a$ et $q = k \cdot b$ pour $k=1, 2, 3, \dots$ sont une infinités de tels $p, q\in\Z$.
+	Si $x=\frac{a}b$, alors $p= k\cdot a$ et $q = k \cdot b$ pour $k=1, 2, 3, \dots$ sont une infinités de tels $p, q\in\Z$.
 }
 
 \exe{, difficulty=2}{
 	Soit $x\in\R-\Q$ et $N\in\N$. Considérons $\{ 0, x, 2x, 3x, ..., Nx \}$ les $N+1$ premiers multiples de $x$.
-	Montrer qu'il existe nécessairement deux entiers naturels $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\dfrac1N$.
+	Montrer qu'il existe nécessairement deux entiers naturels $0\leq m<n\leq N$ tels que $|nx - mx|$ ait une partie décimale comprise entre $0$ et $\frac1N$.
 	En déduire le théorème \ref{thm:Dirichlet}.
 }{exe:Dirichlet}{
 	On considère la partie décimale de chacun des $N+1$ multiples.
@@ -647,6 +660,9 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }
 
 \footnotetext{Adolf Hurwitz (1859-1919), mathématicien allemand.}
+%\enlargethispage{\baselineskip} 
+
+\newpage
 
 \exe{, difficulty=2}{
 	On pose $\Qsqrt{2} = \bigset{ r + s \sqrt2 \tq r, s \in \Q} \subseteq \R$ et on considère $x = r + s\sqrt2 \in \Qsqrt{2}$ avec $r, s \in\Q$.
@@ -654,7 +670,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\item
 		Montrer que $x=0 \iff r = s = 0$.
 		\item
-		Montrer que si $x\neq0$, alors $\dfrac1x \in \Qsqrt{2}$.
+		Montrer que si $x\neq0$, alors $\frac1x \in \Qsqrt{2}$.
 		\item
 		Montrer que si $y \in \Qsqrt{2}$, alors $x\cdot y \in \Qsqrt{2}$.
 		\item
