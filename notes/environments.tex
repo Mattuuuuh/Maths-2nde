@@ -113,7 +113,7 @@
 		\textbf{Exercices du chapitre \thechapter}\newline\newline
 		}
 	\fi
-
+	
 	\centerline{\textbf{
 	Exercice \ExerciseHeaderNB
 	}}
@@ -122,20 +122,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MINTED FOR PYTHON ALGORITHMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\newcommand{\python}[1]{
-\inputminted[
-		linenos,
-		gobble=0,
-		breaklines=false, % otherwise it breaks for no apparent reason?
-		breakafter=,,
-		fontsize=\small,
-		numbersep=8pt,
-		tabsize=4, % tab ident = 4 spaces
-		fontfamily=courier, %important pour les signes <, >
-]{python}{python/#1.py}
-}
 
 \usepackage{tcolorbox}
 \tcbuselibrary{minted,breakable,xparse,skins}

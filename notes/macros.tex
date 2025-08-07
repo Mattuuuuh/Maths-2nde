@@ -220,3 +220,17 @@
 	#4  \\ \hline
 \end{tabular}
 }
+
+% python minted
+\newcommand{\python}[1]{
+\inputminted[
+		linenos,
+		gobble=0,
+		breaklines=true, % otherwise it breaks for no apparent reason?
+		breakafter=,,
+		fontsize=\small,
+		numbersep=8pt,
+		tabsize=4, % tab ident = 4 spaces
+		fontfamily=courier, %important pour les signes <, >
+]{python}{python/#1.py}
+}
