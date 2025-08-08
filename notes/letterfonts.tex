@@ -24,7 +24,9 @@
 \newcommand{\DD}{\mathbb{D}}
 
 % order notations
-\renewcommand{\O}{\mathcal{O}}
+\DeclareRobustCommand{\O}{%
+  \text{\usefont{OMS}{cmsy}{m}{n}O}%
+}
 
 % japanese bracket
 \newcommand{\japb}[1]{\langle #1 \rangle}
@@ -53,5 +55,3 @@
 
 % Q(\sqrt(d)) field
 \newcommand{\Qsqrt}[1]{\Q\bigl(\mspace{-3mu}\sqrt{#1}\bigr)}
-
-
