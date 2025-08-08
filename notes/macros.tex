@@ -76,42 +76,9 @@
 
 \newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
 \newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
+\newcommand{\heur}[1]{\begin{heuristique}#1\end{heuristique}}
 
 %%
-
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
-\newcommand\getcurrentref[1]{%
-	\ifnumequal{\value{#1}}{0}
-	{??}
-	{\the\value{#1}}%
-}
-\newcommand{\getCurrentSectionNumber}{\getcurrentref{section}}
-\newenvironment{myproof}[1][\proofname]{%
-	\proof[\bfseries #1: ]%
-}{\endproof}
-
-\newcommand{\mclm}[2]{\begin{myclaim}[#1]#2\end{myclaim}}
-\newenvironment{myclaim}[1][\claimname]{\proof[\bfseries #1: ]}{}
-
-\newcounter{mylabelcounter}
-
-\makeatletter
-\newcommand{\setword}[2]{%
-	\phantomsection
-	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
-}
-\makeatother
-
-
-\tikzset{
-	symbol/.style={
-			draw=none,
-			every to/.append style={
-					edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-		}
-}
-
 
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}

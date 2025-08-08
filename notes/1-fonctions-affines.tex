@@ -803,6 +803,25 @@ Les techniques de résolution d'équations linéaires nous mèneront naturelleme
 	La droite $(d)$ peut être verticale.
 }{dfn:equation-cartesienne}
 
+\nomen{
+	Une \emphindex{heuristique} est une règle pragmatique qui fonctionne la plupart du temps.
+	Elle donne, par exemple, une idée de stratégie de recherche, ou d'aspect d'une solution, sans être toujours optimale, ou vraie.
+}
+
+\heur{
+	En voyant un système d'équations comme certaines contraintes imposées aux variables libres, on obtient l'heuristique
+		\begin{center}
+			( degrés de liberté ) = ( nombre de variables ) -- ( nombre de contraintes )
+		\end{center}
+	Le degré de liberté donne la forme des solutions : aucun degré de liberté correspond à une unique solution ; un degré de liberté correspond à une droite ; deux degrés à un plan ; etc...
+	
+	L'équation $y = x + 1$, à deux variables et une contrainte, représente une droite.
+	
+	Le système à deux variables et deux contraintes
+		\[ \begin{cases*} a = 2b + 3, \\ 2a + b = -1. \end{cases*} \]
+	n'a aucun degré de liberté : il n'y a \emph{probablement} qu'une seule solution.
+}
+
 \exe{}{
 	Tracer la droite d'équation $4x - y = 0$ dans un repère.
 }{exe:cart1}{
