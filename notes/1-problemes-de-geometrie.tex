@@ -4,21 +4,37 @@
 \chapter{Problèmes de géométrie}
 \label{chap:pb-geom}
 
+Dans ce chapitre, et en mathématiques en général, les adjectifs \og orthogonal \fg \, et \og perpendiculaire \fg \, sont synonymes.
+On parlera alors de projeté orthogonal d'un point sur une droite lorsque les droites engendrées sont perpendiculaires.
+
 \section{Projeté orthogonal}
 
-	Dans cette section, et en mathématiques en général, les adjectifs \og orthogonal \fg \, et \og perpendiculaire \fg \, sont synonymes.
-	On parlera alors de projeté orthogonal d'un point sur une droite lorsque les droites engendrées sont perpendiculaires.
-
-\dfn{projeté orthogonal}{
-	Le \emphindex{projeté orthogonal} d'un point $M$ sur une droite $(d)$ est l'\emph{unique} point $M'$ tel que les droites $(MM')$ et $(d)$ soient perpendiculaires.
-}{}
-
+\exemulticols{1}{
+	Un homme souhaite traverser une rivière en passant le moins de temps possible dans l'eau.
+	Celui-ci part du point vert et dois arriver au point rouge.
+	
+	En supposant qu'il avance à vitesse constante dans l'eau, quel est le chemin idéal qu'il doit prendre ?
+	\vfill\null
+}{
+	\null\vspace{-50pt}
 	\begin{center}
-	\includegraphics[page=8]{figures/fig-geom.pdf}
+	\includegraphics[page=23]{figures/fig-geom.pdf}
 	\end{center}
+}{exe:rivière}{
+	TODO
+}
+
+\begin{multicols}{2}
+	\begin{center}
+	\includegraphics[page=8, scale=.9]{figures/fig-geom.pdf}
+	\end{center}
+	\columnbreak
+	\dfn{projeté orthogonal}{
+		Le \emphindex{projeté orthogonal} d'un point $M$ sur une droite $(d)$ est l'\emph{unique} point $M'$ tel que les droites $(MM')$ et $(d)$ soient perpendiculaires.
+	}{}
+\end{multicols}
 	
-	
-\exe{1}{
+\exe{}{
 	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
 	À l'aide uniquement d'un compas, tracer le projeté orthogonal du point sur la droite.
 }{exe:proj-compas}{
@@ -86,6 +102,13 @@
 	
 	Pour l'unicité, remarquons que l'égalité $MP^2 = MM'^2$ n'est vraie que lorsque $M'P^2 = 0$, c'est-à-dire lorsque $P=M'$. 
 	$M'$ est donc bien l'unique point de $(d)$ le plus proche de $M$.
+}
+
+\exe{, difficulty=1}{
+	Soit un cercle de centre $O$ et une droite tangente au cercle, c'est-à-dire qui ne le touche qu'en un seul point $P$.
+	Montrer que la droite $(OP)$ est perpendiculaire à la tangente.
+}{exe:tangente-perp}{
+	TODO
 }
 
 \exemulticols{}{
@@ -346,6 +369,8 @@ Dans ce contexte, on déduit naturellement le théorème suivant.
 }{exe:cossin}{
 	TODO
 }
+
+\hrule
 
 \exemulticols{}{
 	On considère exactement la même situation qu'à l'exercice précédent mais cette fois ci en prenant $x$ l'abscisse du point $P$ du quart de cercle comme paramètre.
