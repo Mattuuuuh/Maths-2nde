@@ -1,0 +1,29 @@
+\newcommand{\seed}{62859}
+\newcommand{\hbeta}{13}
+\newcommand{\ha}{8}
+\newcommand{\hb}{-2}
+\newcommand{\gaI}{8}
+\newcommand{\gaII}{8}
+\newcommand{\gbI}{-2 + \sqrt{13}}
+\newcommand{\gbII}{-2 - \sqrt{13}}
+\newcommand{\fa}{64}
+\newcommand{\fb}{-32}
+\newcommand{\fc}{-9}
+\newcommand{\xstar}{\dfrac{1}{4}}
+\newcommand{\xzero}{\dfrac{2 - \sqrt{13}}{8}}
+\newcommand{\xone}{\dfrac{2 + \sqrt{13}}{8}}
+\newcommand{\aV}{15}
+\newcommand{\bV}{18}
+\newcommand{\cV}{10}
+\newcommand{\dV}{4}
+\newcommand{\eqIa}{-60}
+\newcommand{\eqIb}{222}
+\newcommand{\eqIc}{-180}
+\newcommand{\qI}{\dfrac{-4}{3}}
+\newcommand{\qII}{\dfrac{16}{3}}
+\newcommand{\mqI}{+\dfrac{4}{3}}
+\newcommand{\mqII}{-\dfrac{16}{3}}
+\newcommand{\sumIV}{-4}
+\newcommand{\bIV}{-4}
+\newcommand{\prodIV}{-\dfrac{64}{9}}
+\newcommand{\cIV}{\dfrac{-64}{9}}

@@ -1,0 +1,189 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}\input{adr/vars_44284.adr}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 3 -- \seed \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\begin{rpl}
+	Pour une fonction affine $f(x) = ax+b$, on parle de $\C_f$ comme la \og {droite d'équation} $y=ax+b$ \fg, et on note
+		\[ \C_f : y = ax+b. \]
+\end{rpl}
+
+\exe{
+	On considère trois droites, données par les équations suivantes.
+		\begin{align*}
+			(d) : y= \aI x  \bI, && (e) : y = \aII x  \bII, && (f) : y = \aIII x  \bIII.
+		\end{align*}
+	\begin{enumerate}
+		\item Tracer les droites $(d), (e),$ et $(f)$ dans un repère de domaine $\D = [\xmin; \xmax]$.
+		\item Calculer $(d)\cap (e)$, $(d) \cap (f)$, et $(e)\cap (f)$. Ces trois points d'intersection sont les sommets du triangle $T$.
+		\item Calculer la longueur de chacun des côtés de $T$. Que dire de $T$ ?
+	\end{enumerate}
+}{
+
+	 \begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.3]
+	\begin{axis}[xmin = \xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=none]
+	
+		\addplot[thick, myr, domain = \xmin:\xmax] {\aIfloat*x+\bIfloat} node[above, pos=.5] {$(d)$};
+		\addplot[thick, myb, domain = \xmin:\xmax] {\aIIfloat*x+\bIIfloat} node[above, pos=.5] {$(e)$};
+		\addplot[thick, myg, domain = \xmin:\xmax] {\aIIIfloat*x+\bIIIfloat} node[above, pos=.5] {$(f)$};
+		
+		\addplot[black, mark=*, mark size = 1, thick] (\xAfloat, \yAfloat) node[above] {$A$};
+		\addplot[black, mark=*, mark size = 1, thick] (\xBfloat, \yBfloat) node[above] {$B$};
+		\addplot[black, mark=*, mark size = 1, thick] (\xC, \yC) node[above] {$C$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item[2.] Pour trouver $(d) \cap (e)$, on prend un point $P(x_P, y_P) \in (d) \cap (e)$ et on calcule ses coordonnées.
+		$P \in (d)$ donne $y_P = \aI x_P \bI$, et $P \in (e)$ donne $y_P = \aII x_P \bII$.
+		Ensemble, et comme on a bien sûr $y_P = y_P$, on trouve
+			\begin{align*}
+				\aI x_P \bI = \aII x_P \bII && \iff && x_P = \xC.
+			\end{align*}
+		On substitue ensuite pour trouver $y_P = \aI x_P \bI = \yC$.
+		On conclut donc que
+			\[ (d) \cap (e) = \left\{ \left( \xC ; \yC \right) \right\}. \]
+			
+		De façon identique, on obtient
+			\begin{align*}
+				(d) \cap (f) = \left\{ \left( \xA ; \yA \right) \right\} && \text{ et } && (e) \cap (f) =  \left\{ \left( \xB ; \yB \right) \right\}.
+			\end{align*}
+			
+		\item[3.]
+			On utilise la formule de la longueur $AB = \Vert \vec{AB} \Vert = \sqrt{(x_A - x_B)^2 + (y_A -y_B)^2}$, qui donne
+			\begin{align*}
+				AB &\approx \AB, \\
+				AC &= \L, \\
+				BC &= \L.
+			\end{align*}
+		Le triangle est donc isocèle.
+	\end{enumerate}
+}
+
+
+\exe{\label{ex:2}
+	Considérons une fonction linéaire $f(x) = \slopeI x$.
+	On dit que $f$ est \emph{linéaire} car son ordonnée à l'origine $b$ est nulle — c'est donc un cas particulier de fonction affine.
+	
+	On définit la \emph{pente} de $f$ comme étant son coefficient directeur sous forme de pourcentage, soit $\slopeIpercent\%$.
+	C'est le pourcentage qu'on voit écrit sur les panneaux A16 de signalisation annonçant une descente dangeureuse.
+	
+	Pour chacune des questions suivantes, arrondir les valeurs à $10^{-2}$ près et les pourcentages au dixième le plus proche.
+	\begin{enumerate}
+		\item Montrer que $\C_f$ passe par l'origine $O(0;0)$ du repère.
+		\item Trouver le point $A$ d'abscisse $\Ax$ appartenant à $\C_f$ .
+		\item Dans un repère, tracer le triangle de sommets $O, A, B(\Ax;0)$ et calculer l'angle $\alpha = \widehat{AOB}$.
+		\item Un ingénieur détermine qu'une route ne doit pas dépasser une pente de $\slopeIIpercent\%$ pour qu'elle soit accessible pour les poids lourds.
+		Quelle est l'ordonnée maximale d'un point $C$ d'abscisse $\Ax$ si la pente de la fonction linéaire passant par $C$ ne peut pas dépasser $\slopeIIpercent\%$ ?
+		\item
+		Calculer l'angle $\beta = \widehat{COB}$ dans ce cas.
+		\item 
+		À quel angle $\gamma$ correspond une pente de $\slopepercent\%$ ?
+		\item 
+		À quel pourcentage de pente correspond un angle de $\angle$° ?
+	\end{enumerate}
+	
+}{
+
+	\begin{enumerate}
+		\item 
+		On a bien sûr $f(0) = 0$ car l'ordonnée à l'origine $b$ est nulle.
+		
+		\item
+		Par définition, $A = (\Ax; f(\Ax))$. 
+		On calcule donc $f(\Ax) \approx \Ayfloat$, et on a donc
+			\[ A(\Ax; \Ayfloat). \]
+		
+		
+		\item 
+		%On trace le triangle ci-dessous, et on sait que, par trigonométrie,
+		On sait que, par trigonométrie,
+			\[ \tan(\alpha) = \dfrac{AB}{OA} = \dfrac{f(\Ax)}{\Ax} = \slopeI. \]
+		Il suit, par l'arctangente, que $\alpha = \arctan(\slopeI) \approx \alphaI$°.
+		
+		\item 
+		Notons $y$ l'abscisse de $C$ recherchée.
+		Le coefficient directeur de la fonction linéaire passant par $C$ (et $O$) est donné par
+			\[ a = \dfrac{y_C-y_O}{x_C-x_O} = \dfrac{y}{\Ax}. \]
+		La condition imposée s'écrit
+			\[ a \leq \slopeIIpercent\% = \slopeII \]
+		et est équivalente à
+			\begin{align*}
+				a &\leq \slopeII \\
+				\dfrac{y}{\Ax} &\leq \slopeII \\
+				y &\leq \Ax \cdot \slopeII
+			\end{align*}
+		Le $y$ maximal vérifiant cette propriété est donc bien sûr $y=\Ax \cdot \slopeII \approx \Cy$.
+		
+		
+		
+		\item		
+		Le même raisonnement que pour $\alpha$ nous mène à $\tan(\beta) = \slopeII$, et donc à
+			\[ \beta = \arctan(\slopeII) \approx \betaI\degree. \]
+			
+		\item 
+		Idem, $\tan(\gamma) = \slopepercent\%$, qui donne
+			\[ \gamma \approx \gammaI\degree.\]
+			
+		\item 
+		La pente est donnée dans ce cas par $\tan(\angle\degree) \approx \penteIpercent\%$.
+	\end{enumerate}
+	
+% removed cause not super interesting and creates page 3.
+%	 \begin{center}
+%	 
+%	\begin{tikzpicture}[>=stealth, scale=1.3]
+%	\begin{axis}[xmin = 0, xmax=\Ax+\graphoffset, ymin=0, ymax=\Ay+\graphoffset, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, grid=none]
+%		
+%		\addplot[black, mark=*, mark size = 1, thick] (0, 0) node[above right] {$O$};
+%		\addplot[black, mark=*, mark size = 1, thick] (\Ax, \Ay) node[below] {$A$};
+%		\addplot[black, mark=*, mark size = 1, thick] (\Ax, 0) node[above] {$B$};
+%	\end{axis}
+%	\end{tikzpicture}
+%	\end{center}
+
+}
+
+\ifsolutions
+\else
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.65\textwidth}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1.3]
+	\begin{axis}[xmin = -.8, xmax=10, ymin=-.8, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={},ticks = none, grid=none]
+	
+		\draw[thick, black] (axis cs: 8, 0) -- (axis cs: 8,5);
+		\draw[thick, black] (axis cs: 0, 0) -- (axis cs: 8,5) node[pos = .5, above, sloped] {\huge\faTruck};
+		\draw (axis cs: 0, 0) node[above left] {$O$};
+		\draw (axis cs: 8, 0) node[below] {$B$};
+		\draw (axis cs: 8, 5) node[above left] {$A$};
+		\addplot[thick, myg, domain = .86:1] {sqrt(1-x^2) } node[right, pos=.6] {$\alpha$};
+		\addplot[dashed, thick, black, domain = -1:10] { 5*x/8 } node[above, pos=.95] {$\C_f$};
+		
+		
+		\draw (axis cs: 8, 3) node[right] {$C$};
+		\draw[thick, dotted, black] (axis cs: 0, 0) -- (axis cs: 8,3);
+		\addplot[thick, myr, domain = 1.75:2] {sqrt(1-(x-1)^2) } node[right, pos=.5] {$\beta$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Schéma simplifié, non à l'échelle, de l'exercice \ref{ex:2}.}
+	\end{subfigure}
+	%\hspace{2cm}
+	\begin{subfigure}{0.3\textwidth}
+	\centering
+	\includesvg[scale=.2]{France_road_sign_A16.svg}
+	\caption{Exemple de panneau A16.}
+	\end{subfigure}
+\end{figure}
+
+\fi
+
+\end{document}

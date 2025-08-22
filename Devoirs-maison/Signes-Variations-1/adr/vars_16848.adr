@@ -1,0 +1,29 @@
+\newcommand{\seed}{16848}
+\newcommand{\hbeta}{17}
+\newcommand{\ha}{9}
+\newcommand{\hb}{+6}
+\newcommand{\gaI}{9}
+\newcommand{\gaII}{9}
+\newcommand{\gbI}{+6 + \sqrt{17}}
+\newcommand{\gbII}{+6 - \sqrt{17}}
+\newcommand{\fa}{81}
+\newcommand{\fb}{+108}
+\newcommand{\fc}{+19}
+\newcommand{\xstar}{\dfrac{-2}{3}}
+\newcommand{\xzero}{\dfrac{-6 - \sqrt{17}}{9}}
+\newcommand{\xone}{\dfrac{-6 + \sqrt{17}}{9}}
+\newcommand{\aV}{5}
+\newcommand{\bV}{5}
+\newcommand{\cV}{5}
+\newcommand{\dV}{14}
+\newcommand{\eqIa}{-70}
+\newcommand{\eqIb}{95}
+\newcommand{\eqIc}{-25}
+\newcommand{\qI}{\dfrac{-17}{4}}
+\newcommand{\qII}{\dfrac{1}{4}}
+\newcommand{\mqI}{+\dfrac{17}{4}}
+\newcommand{\mqII}{-\dfrac{1}{4}}
+\newcommand{\sumIV}{+4}
+\newcommand{\bIV}{4}
+\newcommand{\prodIV}{-\dfrac{17}{16}}
+\newcommand{\cIV}{\dfrac{-17}{16}}

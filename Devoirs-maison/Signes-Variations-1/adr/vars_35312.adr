@@ -1,0 +1,29 @@
+\newcommand{\seed}{35312}
+\newcommand{\hbeta}{3}
+\newcommand{\ha}{5}
+\newcommand{\hb}{+4}
+\newcommand{\gaI}{5}
+\newcommand{\gaII}{5}
+\newcommand{\gbI}{+4 + \sqrt{3}}
+\newcommand{\gbII}{+4 - \sqrt{3}}
+\newcommand{\fa}{25}
+\newcommand{\fb}{+40}
+\newcommand{\fc}{+13}
+\newcommand{\xstar}{\dfrac{-4}{5}}
+\newcommand{\xzero}{\dfrac{-4 - \sqrt{3}}{5}}
+\newcommand{\xone}{\dfrac{-4 + \sqrt{3}}{5}}
+\newcommand{\aV}{13}
+\newcommand{\bV}{8}
+\newcommand{\cV}{12}
+\newcommand{\dV}{5}
+\newcommand{\eqIa}{-65}
+\newcommand{\eqIb}{196}
+\newcommand{\eqIc}{-96}
+\newcommand{\qI}{\dfrac{5}{11}}
+\newcommand{\qII}{-2}
+\newcommand{\mqI}{-\dfrac{5}{11}}
+\newcommand{\mqII}{+2}
+\newcommand{\sumIV}{+\dfrac{17}{11}}
+\newcommand{\bIV}{\dfrac{17}{11}}
+\newcommand{\prodIV}{-\dfrac{10}{11}}
+\newcommand{\cIV}{\dfrac{-10}{11}}

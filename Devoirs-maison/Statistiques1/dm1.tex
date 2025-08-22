@@ -1,0 +1,273 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}\input{adr/vars_45294.adr}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 1 -- \seed \ifsolutions \, -- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+
+\exe{	
+	La taxe sur la valeur ajoutée (TVA) est un impôt indirect sur la consommation.
+	On considère dans cet exercice une TVA fictive fixée à $\TVA\%$.
+	Tout objet est alors vendu $\TVA\%$ plus cher que son prix initial : c'est la différence entre un prix hors taxes (HT) et toutes taxes comprises (TTC).
+	
+	Un prix TTC comprend donc deux parts : l'une qui revient au vendeur, et l'autre versée à l'État.
+	
+	\begin{enumerate}
+		\item
+		Quel est le prix toutes taxes comprises d'un objet coûtant $\A$€ hors taxes ?
+		\item
+		Quel est le prix HT d'un objet coûtant $\B$€ TTC ?		
+		\item 
+		Pour les deux exemples ci-dessus, calculer la proportion \emph{exacte} du prix TTC qui revient à l'État. 
+		\item
+		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix.
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item
+			En arrondissant au centime près, on augmente le prix de $\TVA\%$ en calculant
+				\[ \left(1+\dfrac{\TVA}{100} \right) \cdot \A \approx \Asol. \]
+			Le prix avec TVA comprise est donc de $\Asol$€.
+		\item
+			Il s'agit d'appliquer l'évolution réciproque de $+\TVA\%$.
+			En arrondissant au centime près, on calcule
+				\[ \left(1+ \dfrac{\TVA}{100}\right)^{-1} \cdot \B \approx \Bsol. \]
+			Le prix sans TVA est donc de $\Bsol$€.
+		\item
+			Il s'agit ici de calculer la proportion 
+				\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+			Pour le premier objet, on calcule
+				\[ \dfrac{\dfrac{\TVA}{100} \cdot \A}{\left(1+\dfrac{\TVA}{100} \right) \cdot \A} = \dfrac{\rationum}{\ratiodenom} \]
+			Pour le deuxième object, on calcule
+				\[ \dfrac{\B - \left(1- \dfrac{\TVA}{100}\right) \cdot \B }{\B} = \dfrac{\rationum}{\ratiodenom}. \]
+		\item
+			Soit $P\geq0$ un prix hors taxe quelconque.
+			La part de TVA par rapport au prix TTC est égale à
+				\begin{align*}
+					& \dfrac{\dfrac{\TVA}{100} \cdot P}{\left(1 + \dfrac{\TVA}{100}\right) \cdot P} \\
+					=& \dfrac{\dfrac{\TVA}{100}}{\left(1 + \dfrac{\TVA}{100}\right)} \\
+					&= \dfrac{\TVA}{\left(100 + \TVA\right)} = \dfrac{\rationum}{\ratiodenom},
+				\end{align*}
+			qui ne dépend bien pas du prix $P$ choisi.
+	\end{enumerate}
+}
+
+\exe{
+	Une cordonnière vend des chaussures de différentes qualité. Chaque catégorie a son prix et sa quantité en vente indiqués dans le tableau suivant.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Prix TTC (€)  & \P & \PP & \PPP & \PPPP \\ \hline
+		Quantité & \Q & \QQ & \QQQ & \QQQQ \\ \hline
+		\end{tabular}
+		\end{center}
+
+	\begin{enumerate}
+		\item
+		Quel est le prix TTC moyen d'une chaussure en vente ? Arrondir au centime d'euro.
+	\end{enumerate}
+	
+	On admet que chaque prix comprend une TVA de $\TVA\%$.
+	Pour sa comptabilité, la cordonnière souhaite connaître les prix hors taxe (HT).
+	En outre, ces prix HT comprennent un coût fixe de $\PFIXE$€, coût des semelles qu'elle souhaite retirer pour qu'il ne reste que le vrai prix des chaussures.
+	\begin{enumerate}
+		\item[2.]
+		Donner le vrai prix moyen HT des chaussures en ventes de deux façons différentes :
+			\begin{enumerate}[a)]
+				\item en ajoutant une ligne \og Vrai prix HT (€)\fg \, au tableau et en calculant la moyenne ; et 
+				\item en utilisant la linéarité de la moyenne.
+			\end{enumerate}
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item
+		La moyenne est donnée par 
+			\[ \dfrac{\P\cdot\Q+\PP\cdot\QQ+\PPP\cdot\QQQ+\PPPP\cdot\QQQQ}{\Q+\QQ+\QQQ+\QQQQ} \approx \average.\]
+	
+		\item
+		Pour chaque prix, il s'agit d'abord de supprimer la TVA en le multipliant par $\dfrac{1}{1^+\dfrac{\TVA}{100}}$, puis de retirer $\PFIXE$€, coût des semelles.
+		On obtient donc le tableau suivant, en arrondissant au centime près.
+		
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}\hline
+			Vrai prix HC (€)  & \Psol & \PPsol & \PPPsol & \PPPPsol \\ \hline
+			Quantité & \Q & \QQ & \QQQ & \QQQQ \\ \hline
+			\end{tabular}
+			\end{center}
+	
+		La nouvelle moyenne est donnée par 
+			\[ \dfrac{\Psol\cdot\Q+\PPsol\cdot\QQ+\PPPsol\cdot\QQQ+\PPPPsol\cdot\QQQQ}{\Q+\QQ+\QQQ+\QQQQ} \approx \newaverage.\]
+			
+		Alternativement, d'après la linéarité de la moyenne et en appliquant les opérations directement à la moyenne calculée précédemment, on trouve
+			\[ \average \cdot \dfrac{1}{1+\dfrac{\TVA}{100}} - \PFIXE \approx \newaverage. \]
+	
+	\end{enumerate}
+}
+
+\exe{
+		Un magasin augmente ses prix avant d'appliquer une remise de $\REMISE\%$.
+		On compare les prix initiaux avant augmentation aux prix finaux après application des deux évolutions.
+		
+		\begin{enumerate}
+			\item 
+			Quelle augmentation faut-il effectuer pour que les prix ne changent pas, après et avant évolutions ?
+			\item
+			Quelle augmentation faut-il effectuer pour qu'au final, les prix aient augmenté de $\FINALaug\%$ ?
+			\item
+			Quelle augmentation faut-il effectuer pour qu'au final, les prix aient diminué de $\FINALdim\%$ ?
+		\end{enumerate}
+}{
+	\begin{enumerate}
+		\item
+		Une diminution de $\REMISE\%$ correspond à une multiplication par le coefficient
+			\[ 1 - \dfrac{\REMISE}{100}. \]
+		L'évolution réciproque est donc donnée par une multiplication par
+			\[ \dfrac{1}{1 - \dfrac{\REMISE}{100}} = \dfrac{100}{100-\REMISE} \approx \reciproque.\]
+		Ceci correspond à une augmentation arrondie de $\recsol \%$.
+		
+		\item
+		Le coefficient multiplicateur $x$ à trouver vérifie
+			\[ x \cdot \left(1-\dfrac{\REMISE}{100}\right) = 1+\dfrac{\FINALaug}{100}. \]
+		On résoud pour trouver $x \approx \evoldeux$, ce qui correspond à une augmentation arrondie de $\FINALaugsol\%$.
+	
+		 \item 
+		Le coefficient multiplicateur $x$ à trouver vérifie
+			\[ x \cdot \left(1-\dfrac{\REMISE}{100}\right) = 1-\dfrac{\FINALdim}{100}. \]
+		On résoud pour trouver $x \approx \evoltrois$, ce qui correspond à une augmentation arrondie de $\FINALdimsol\%$.
+	\end{enumerate}
+}
+
+\ifsolutions
+\else
+\newpage
+\fi
+
+\exe{
+	Écrire un tableau Valeur/Effectif pour chaque histogramme de la figure \ref{fig:hist}.
+	On assignera la valeur moyenne à chaque élément d'une classe.
+	Par exemple, de l'histogramme \ref{fig:a} on lit $\EFFCONCa$ notes de valeur $\CONCa,5$.
+	
+	Ensuite, pour chaque série obtenue, calculer
+		\begin{multicols}{2}
+		\begin{enumerate}[i)]
+			\item La moyenne ;
+			\item L'écart type ;
+			\item La médiane ;
+			\item Le premier quartile ;
+			\item Le troisième quartile ; et
+			\item L'écart interquartile.
+		\end{enumerate}
+		\end{multicols}
+		
+	Comparer les séries statistiques en s'appuyant sur les valeurs calculées.
+}{
+	Pour l'histogramme \ref{fig:a}, on lit le tableau Valeur/Effectif suivant.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}\hline
+			Note  & \vala & \valb & \valc & \vald \\ \hline
+			Effectif & \EFFCONCa & \EFFCONCb & \EFFCONCc & \EFFCONCd \\ \hline
+			\end{tabular}
+			\end{center}
+	
+	On en déduit les valeurs suivantes, arrondies au centième.
+	\begin{enumerate}[i)]
+		\item La moyenne est de $\overline{X} = \Concaverage$ ;
+		\item L'écart type est $\sigma(X) = \Concstd$ ;
+		\item La médiane est $\Concmedian$ ;
+		\item Le premier quartile est $Q_1 = \Concfirstquartile$ ;
+		\item Le troisième quartile est $Q_3 = \Concthirdquartile$ ; et
+		\item L'écart interquartile est $Q_3 - Q_1 = \Concecart$.
+	\end{enumerate}
+
+	Pour l'histogramme \ref{fig:b}, on lit le tableau Valeur/Effectif suivant.
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}\hline
+			Note  & \valA & \valB & \valC & \valD & \valE \\ \hline
+			Effectif & \EFFDISPa & \EFFDISPb & \EFFDISPc & \EFFDISPd  & \EFFDISPe \\ \hline
+			\end{tabular}
+			\end{center}
+	
+	On en déduit les valeurs suivantes, arrondies au centième.
+	\begin{enumerate}[i)]
+		\item La moyenne est de $\overline{X} = \Dispaverage$ ;
+		\item L'écart type est $\sigma(X) = \Dispstd$ ;
+		\item La médiane est $\Dispmedian$ ;
+		\item Le premier quartile est $Q_1 = \Dispfirstquartile$ ;
+		\item Le troisième quartile est $Q_3 = \Dispthirdquartile$ ; et
+		\item L'écart interquartile est $Q_3 - Q_1 = \Dispecart$.
+	\end{enumerate}
+
+
+	En conclusion, la première série statistique est bien plus concentrée autour de sa moyenne que la deuxième.
+	On le voit qualitativement en comparant les écarts types ou en comparant les écarts interquartiles.
+	L'écart $|Q_1 - Q_3|$ donne l'étendue que prend la moitié des valeurs centrales. 
+	Plus cet écart est grand, plus il existe des valeurs centrales espacées les unes des autres.
+	
+	Ce résultat n'est pas surprenant car on distingue un groupe uni de valeurs sur l'histogramme \ref{fig:a}, et deux groupes disjoints sur l'histogramme \ref{fig:b}.
+	Dans le contexte des notes, un écart type élevé indique une haute hétérogénéité de résultats dans une classe. 
+	L'histrogramme \ref{fig:b} permet dans ce cas de créer des groupes de niveau.
+}
+
+%\ifsolutions
+%\newpage
+%\fi
+
+\begin{figure}[t!]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myg, fill=myg!50] plot coordinates {
+        (\CONCa, \EFFCONCa) (\CONCb, \EFFCONCb) (\CONCc, \EFFCONCc) (\CONCd, \EFFCONCd) (\CONCd+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Première série.}
+  \label{fig:a}
+  \end{subfigure}
+  \hfill
+  % NOT LINE BREAK!!
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    	ymin=0,
+        %ymin=0, ymax=8,
+        %minor y tick num = 3,
+        xmin = 0, xmax=20,
+        xtick = {2, 4, ..., 18},
+        area style,
+        xlabel = {Note sur $20$},
+        ylabel = {Effectif}
+      ]
+      \addplot+[ybar interval,mark=no, draw=myb, fill=myb!50] plot coordinates {
+        (\DISPa, \EFFDISPa) (\DISPb, \EFFDISPb) (\DISPc, \EFFDISPc) (\DISPc+1, 0) (\DISPd, \EFFDISPd) (\DISPe, \EFFDISPe) (\DISPe+1, 0)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \caption{Deuxième série.}
+  \label{fig:b}
+  \end{subfigure}
+  
+  
+  \caption{Histogrammes de notes (min $0$, max $20$). Les classes sont de la forme $[k;k+1[$ où $k\in\N$ est un entier naturel. 
+  La colonne entre $\CONCa$ et $\CONCb$ compte donc toutes les notes appartenant à $[\CONCa;\CONCb[$.}
+  \label{fig:hist}
+\end{figure}
+
+
+\end{document}

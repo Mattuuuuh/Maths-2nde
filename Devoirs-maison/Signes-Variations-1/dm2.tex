@@ -1,0 +1,183 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT VARS_{i}.ADR
+%% THEN RUN THIS
+%\input{preamble.tex}
+%\input{adr/vars_44284.adr}
+%\newcommand{\seed}{TEST}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison 4 --- \seed \ifsolutions \, --- Solutions  \fi}}
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+\exe{
+	Considérons trois fonctions du deuxième degré définies sur $\R$.
+	\begin{align*}
+		f(x) = \fa x^2  \fb x \fc, && g(x) = \left(\gaI x \gbI\right)\left(\gaII x \gbII\right), && h(x) = -\hbeta + (\ha x \hb)^2.
+	\end{align*}
+	
+	\begin{enumerate}
+		\item Montrer que $g = f$ en développant $g(x)$.
+		\item Remplir le tableau de signes de $f$ à l'aide de l'expression de $g$.
+		\item Montrer que $h = f$ en développant $h(x)$.
+		%\item Remplir le tableau de variations de $f$ à l'aide de l'expression de $h$.
+		\item Donner le minimum de $f$ sur $\R$ et l'antécédent $x^\star \in \R$ qui le réalise.
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=4]
+	       		{$x$ / 1, \ifsolutions Signe de $\gaI x \gbI$ \fi /1, \ifsolutions Signe de $\gaII x \gbII$ \fi/1,  Signe de $f(x)$ / 1}
+			{$\minfty$,\ifsolutions $\xzero$ \fi,\ifsolutions $\xone$ \fi,$\pinfty$}
+		\ifsolutions
+                \tkzTabLine
+                        {,-,z,+,,+}
+                \tkzTabLine
+                        {,-,,-,z,+}
+                \tkzTabLine
+                        {,+,z,-,z,+,}
+                \fi
+	\end{tikzpicture}
+	\end{center}
+
+}{
+	L'axiome de distributivité
+		\[ a (b+c) = ab + ac \]
+	implique la propriété de double distributivité :
+		\[ (a+b)(c+d) = a(c+d) + b(c+d) = ac + ad + bc + bd. \]
+
+	\begin{enumerate}
+		\item
+		On peut soit utiliser l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour faire disparaître immédiatement la racine, ou alors on distribue comme suit.
+			\[ g(x) = (\gaI x) \cdot (\gaII x) + (\gaI x) \cdot (\gbII) +  (\gbI) \cdot (\gaII x) + (\gbI) \cdot (\gbII) \]
+		Les puissances de $x$ ne se mélangent pas, on les regroupe donc :
+			\[ g(x) = (\gaI\cdot\gaII)x^2 + \left[(\gaI)\cdot(\gbII)+(\gbI)\cdot(\gaII)\right]x + (\gbI) \cdot (\gbII). \]
+		On retrouve bien 
+			\[ g(x) = \fa x^2 \fb x \fc = f(x) \]
+		en développant le coefficient constant et car les racines carrées s'annulent agréablement.
+
+		\item
+		$f(x)$ est produit de deux fonctions affines : on étudie le signe de chacune pour en déduire le signe du produit.
+		En outre, les deux fonctions affines ont pour coefficient directeur $\gaI > 0$ et sont donc croissantes.
+		Un dessin rapide permet de se rappeler des règles de signes ; une fonction croissante est négative, puis nulle en sa racine, puis positive.
+		On calcule où chaque fonction s'annule en posant 
+			\begin{align*}
+				\gaI x \gbI = 0, && \text{ et } && \gaII x \gbII = 0. \\
+				x = \xzero, && && x=\xone.
+			\end{align*}
+		On complète le tableau en faisant bien attention à mettre les racines dans l'ordre croissant.
+
+		\item
+		L'identité remarquable $(a+b)^2 = a^2 + b^2 + 2ab$ découle bien sûr de l'axiome de distributivité :
+			\[ (a+b)^2 = (a+b)(a+b) = a(a+b) + b(a+b) = a^2 + ab + ba + b^2 = a^2 + b^2 + 2ab. \]
+		On l'utilise ici pour développer $(\ha x \hb)^2$ puis ajouter $-\hbeta$.
+			\begin{align*}
+				-\hbeta + (\ha x \hb)^2 &= -\hbeta + (\ha x)^2 + (\hb)^2 + 2(\ha x)(\hb) \\
+							&= \fa x^2 \fb x + (\hb)^2 - \hbeta \\
+							&= f(x)
+			\end{align*}
+
+		\item
+		On répète ce qui a été vu en cours : on part systématiquement du fait qu'un carré est toujours positif, et on crée $f(x)$ :
+			\begin{align*}
+				(\ha x \hb)^2 &\geq 0, \\
+				-\hbeta + (\ha x \hb)^2 &\geq \hbeta, \\
+				f(x) &\geq -\hbeta.
+			\end{align*}
+		On a donc $f(x) \geq -\hbeta$ pour tout $x\in\R$. 
+		Avec du recul, c'est assez logique : calculer $h(x)$ revient à prendre $-\hbeta$ et à ajouter quelque chose de positif.
+		De plus, $f(x^\star) = -\hbeta$ si et seulement si le carré ajouté est nul, donc si et seulement si
+			\[ \ha x^\star \hb = 0. \]
+		On résoud pour trouver $x^\star = \xstar$ qui réalise bien le minimum car $f(x) \geq f(x^\star)$ pour tout $x\in\R$.
+
+		Remarquons qu'on a utilisé $E^2 = 0 \iff E = 0$ ici. En effet, si le produit $E^2 = E \times E$ est nul, forcément $E$ ou $E$ est nul...
+		Soyons vigilant sur le fait qu'en général $E^2 = a$ n'implique pas $E = \sqrt{a}$ mais $|E| = \sqrt{a}$ (et donc $E = \sqrt{a}$ ou $-\sqrt{a}$).
+}
+
+\exe{
+	Construire, en posant des nombres réels $a, b, c\in\R$, une fonction de la forme
+			\[ f(x) = ax^2 + bx + c \]
+	telle que $-3$ soit le maximum de $f$ sur $\R$, atteint en $x^\star = -1$.
+}{
+	On souhaite une fonction $f$ dont le maximum est $-3$.
+	On considère donc une fonction $f(x)$ qui soustrait toujours quelque chose de positif à $-3$, par exemple
+		\[ F(x) = -3 - x^2. \]
+	Le problème est que le maximum est n'est pas atteint en $-1$ mais en $0$ ici, il faut donc mettre au carré une expression qui s'annule en $-1$.
+	Comme vu en cours, $x+1$ est une telle fonction, et 
+		\[ f(x) = -3 - (x+1)^2 = 3 - (x^2 + 2x + 1) = 3 - x^2 - 2x - 1 = -x^2 - 2x + 2 \]
+	fonctionne très bien !
+	Notons qu'on aurait pû aussi choisir
+		\begin{align*}
+			g(x) = -3 -2(x+1)^2,&& \text{ ou }&& h(x) = -3 - 160(x+1)^2.
+		\end{align*}
+	La plus simple étant $f(x) = -x^2 - 2x + 2$, on pose $a=-1, b=-2,$ et $c=2$.
+}
+
+\exe{
+	On souhaite connaître les solutions de l'équation quartique d'inconnue $x\in\R$ :
+		\begin{align}
+			\eqIa x^4 + \eqIb x^2 \eqIc = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $\eqIa x^4 + \eqIb x^2 \eqIc = (\aV x^2 - \bV)(\cV - \dV x^2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+		Exprimer ces solutions sous la forme $q \sqrt{n}$ où $q\in\Q$ est rationnel et $n\in\N$ est un entier naturel.
+		
+		\item Substituer les nombres réels obtenus dans l'équation \eqref{eq:1} pour vérifier qu'ils sont bien solutions.
+	\end{enumerate}
+}{
+	\begin{enumerate}
+		\item
+		Lorsqu'une identité comme celle-ci est à démontrer, on part systématiquement de la forme factorisée, ici à droite.
+		On développe donc calmement en se souvenant que $x^2 x^2 = xxxx = x^4$.
+			\begin{align*}
+				(\aV x^2 - \bV)(\cV - \dV x^2) &= (\aV x^2) \cdot (\cV) + (\aV x^2)\cdot(-\dV x^2) + (-\bV)\cdot(\cV) + (-\bV)\cdot(-\dV x^2) \\
+								&= (\aV \cdot \cV)x^2 - (\aV \cdot \dV)x^4 - \bV \cdot \cV + (\bV\cdot\dV)x^2 \\
+								&= \eqIa x^4 + (\aV\cdot\cV+\bV\cdot\dV)x^2 \eqIc \\
+								&= \eqIa x^4 + \eqIb x^2 \eqIc
+			\end{align*}
+
+		\item
+		On applique la propriété du produit nul vue en classe :
+			\begin{align*}
+				(\aV x^2 - \bV)(\cV - \dV x^2) = 0 && \iff (\aV x^2 - \bV) = 0 \qquad\text{ ou }\qquad (\cV - \dV x^2) = 0.
+			\end{align*}
+		On a donc
+			\begin{align*}
+				x^2 = \frac{\bV}{\aV} && \text{ ou } && x^2 = \dfrac{\cV}{\dV}.
+			\end{align*}
+		On fait bien attention au fait que $\sqrt{x^2} = |x| \neq x$, et donc au fait qu'il y ait toujours deux solutions à $x^2 = a$ : $\sqrt{a}$ et $-\sqrt{a}$.
+		On aura donc ici quatre solutions : 
+			\[ x \in \left\{  \sqrt{\frac{\bV}{\aV}} ; -\sqrt{\frac{\bV}{\aV}} ; \sqrt{\frac{\cV}{\dV}} ; -\sqrt{\frac{\cV}{\dV}} \right\}. \]
+		Pour exprimer les solutions sous la forme $q\sqrt{n}$ avec $n\in\N$ entier, on reprend les propriétés des racines vues en cours.
+		Par exemple, 
+			\[ \sqrt{\frac{\bV}{\aV}} = \sqrt{\frac{\bV \cdot \aV}{\aV^2}} = \dfrac{1}{\aV} \sqrt{\bV\cdot\aV}. \]
+		On peut ensuite, si voulu, réduire la racine carrée au maximum en extrayant les carrés parfaits comme vu en cours.
+
+		\item
+		Substituer signifie remplacer $x$ par chacune des valeurs solutions trouvées pour vérifier qu'elles vérifient bien l'équation \eqref{eq:1}.
+		C'est calculatoire mais cela permet de vérifier qu'on ait bien trouvé des solutions (et qu'on ait bien compris ce que $x^4$ signifie).
+	\end{enumerate}
+}
+
+\exe{
+	Construire, en posant des nombres réels $a, b, c\in\R$, une équation de la forme
+		\begin{align}
+			ax^2 + bx + c = 0 \label{eq:2}
+		\end{align}
+	telle que l'ensemble des $x\in\R$ solutions de l'équation \eqref{eq:2} soit $\left\{ \qI ; \qII \right\}$.
+	
+	Une fois $a, b$, et $c$ posés, substituer $\qI$ et $\qII$ dans l'équation obtenue pour vérifier qu'ils en sont bien solutions.
+}{
+	Comme vu en cours, la fonction 
+		\[ f(x) = \left(x \mqI\right)\left(x \mqII\right) \]
+	s'annule en $\qI$ est en $\qII$.
+	On développe l'expression pour obtenir
+		\[ f(x) = x^2 \sumIV x \prodIV. \]
+	On pose donc $a = 1, b=\bIV, c=\cIV$
+}
+
+\end{document}

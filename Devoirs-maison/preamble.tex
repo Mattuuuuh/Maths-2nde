@@ -1,0 +1,160 @@
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+]{geometry}
+
+\usepackage[utf8x]{inputenc}
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+
+%virgules
+\usepackage{icomma}
+
+% HEADER, ARRAY, ENUM, MULTIOCL
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{multicol, enumitem}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% theorems
+\theoremstyle{theorem}
+\newtheorem{thm}{Théorème}
+\theoremstyle{plain}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{dfn}{Définition}
+\newtheorem*{dfn*}{Définition}
+
+% exercices
+\usepackage[answerdelayed, lastexercise]{exercise}
+\renewcommand{\ExerciseHeader}{
+	\textbf{
+	\theExercise.
+	\theExerciseDifficulty
+	}
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	\textbf{
+	\theExercise.
+	}
+}
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+
+\usepackage[framemethod=tikz]{mdframed}
+% def
+\surroundwithmdframed[
+	hidealllines=true,
+	%leftline=true,
+	%bottomline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{Exercise}
+
+% fake sections with no title to move around the merged pdf
+\newcommand{\fakesection}[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+
+% corps
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% domain
+\newcommand{\D}{\mathcal{D}}
+% for calligraphic C
+\usepackage{calrsfs}
+\newcommand{\C}{\mathcal{C}}
+
+% date
+\usepackage{advdate}
+
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\left\{ x \in \R \text{ tq. } #1 \right\}$
+}
+
+% vabs
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+
+%pinfty minfty
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% plots
+\usepackage{pgfplots}
+
+%subfigures
+\usepackage{subcaption}
+
+%hyperlink footnote
+\usepackage{hyperref}
+
+%wider tabulars
+%\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
+
+% vecteur
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% tableaux var, signe
+\usepackage{tkz-tab}
+
+%wider tabulars
+\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+% package systeme pour les systèmes d'équations bien alignés
+\usepackage{systeme}
+\sysalign{r,r}
+\syseqspace{3pt}
+\syssignspace{3pt}
+
+\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}
+
+% for striked out implies sign (\centernot\implies)
+\usepackage{centernot}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison -- \seed}}
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
