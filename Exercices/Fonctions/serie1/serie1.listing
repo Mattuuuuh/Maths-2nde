@@ -1,0 +1,9 @@
+def f(x):
+    y = x*x + 1
+    z = -2*x
+    return y+z
+
+f1 = f(4)
+f2 = f(-2)
+
+print(f1, f2)

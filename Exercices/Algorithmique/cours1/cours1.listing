@@ -1,0 +1,22 @@
+# 'nomdefonction' est une fonction qui prend uniquement 'a' comme argument
+def nomdefonction(a):
+	return a+1
+
+a = 3
+b = nomdefonction(a)
+print(b) # imprime 4
+
+# fonction 'somme' qui prend deux arguments
+def somme(a,b):
+	return a+b
+
+print(somme(4,12)) # imprime 16
+
+def recursif(n):
+	if n<=0: # condition de sortie
+		return 0
+	
+	return 1 + recursif(n-1) # argument modifié qui se dirige vers la condition de sortie
+
+print(recursif(5)) # imprime 5
+print(recursif(12)) # imprime 12

@@ -1,0 +1,26 @@
+# module numpy pour jet de pièce
+import numpy as np
+# module pyplot pour l'histogramme
+import matplotlib.pyplot as plt
+
+# renvoie le nombre de pile après 12 jets de pièce
+def jet12():
+	return sum(np.random.rand(12)>.5)
+
+# jette 12 dés 1 000 fois et  crée un liste du nombre de pile obtenus
+N = 1000
+X = [jet12() for i in range(N)]
+
+# crée et affiche l'histogramme du nombre de pile
+plt.hist(X, bins=range(14))
+plt.show()
+
+# renvoie le nombre de 6 dans une liste X
+def num6(X):
+	nombre_de_6 = 0
+	# à compléter
+	return nombre_de_6
+
+f = num6(X) / N
+k = 2**12 * f
+print(k)

@@ -1,0 +1,4 @@
+def triangulaire(N):
+	if N<=0:
+		return 0
+	return N+triangulaire(N-1)

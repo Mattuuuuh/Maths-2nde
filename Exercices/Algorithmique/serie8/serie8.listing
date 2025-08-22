@@ -1,0 +1,29 @@
+x=1/6
+y=7*x
+
+VF = (y == 1+x)
+print(VF)
+
+def somme(x,y):
+	a, b=x
+	c, d=y
+	return (a*d+b*c, b*d)
+
+def produit(x,y):
+	a, b=x
+	c, d=y
+	return (a*c, b*d)
+	
+def egalite(x,y):
+	a, b=x
+	c, d=y
+	return a*d==b*c
+	
+x=(1,6)
+sept=(7,1)
+y=produit(sept,x)
+un=(1,1)
+
+VF = egalite(y, somme(x,un))
+
+print(VF)

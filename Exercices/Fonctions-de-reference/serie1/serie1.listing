@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# la fonction racine carrée
+def f(x):
+	return np.sqrt(x)
+
+# bornes inférieure et supérieure du domaine
+a = 0
+b = 10
+
+# nombre d'antécédents du domaine
+N = 1000
+
+# N antécédents entre a et b, linéairement répartis
+x = np.linspace(a,b,N)
+
+# images par f
+y = f(x)
+
+# graphe les couples (x ; y)
+plt.plot(x,y)
+# affiche un quadrillage
+plt.grid()
+# affiche le graphe
+plt.show()

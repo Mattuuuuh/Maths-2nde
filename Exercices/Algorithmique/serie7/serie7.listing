@@ -1,0 +1,14 @@
+def premiers(N):
+	rest=[1]
+	primes=[]
+	for i in range(1,N+1):
+	    if i in rest:
+	        continue
+	    primes+=[i]
+	    for k in range(2,N//i+1):
+	        multiple = k*i
+	        if not multiple in rest:
+	            rest+=[multiple]
+	return primes
+
+print(premiers(100))

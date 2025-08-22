@@ -1,0 +1,6 @@
+a = 2.5
+b = -1
+while (b < a or b < 5):
+	b = b + 1
+	if b > a:
+		print(b)
