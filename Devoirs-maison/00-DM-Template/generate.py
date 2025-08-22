@@ -19,7 +19,7 @@ def generate():
 dm = DM(
         FOLDER="00-DM-Template/",
         generating_function=generate,
-        double_compile=False,
+        double_compile=True,
         initial_seed=0,
     )
 
@@ -28,9 +28,9 @@ dm.write_adr()
 dm.compile_pdf()
 
 # for generating seeds
-dm.generate_seeds(15)
-dm.write_adrs()
-dm.compile_pdfs()
+#dm.generate_seeds(15)
+#dm.write_adrs()
+#dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 # TODO
