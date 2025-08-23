@@ -116,7 +116,7 @@ def renewcommand(command, value):
     return "\\renewcommand{\\"+command+"}{"+str(value)+"}\n"
 
 # generic \newcommand with dfrac
-def newcommand_dfrac(command, numerator, denominator):
+def newcommand_dfrac(command, numerator, denominator=1):
     # turn things integer
     numerator, denominator = int(numerator), int(denominator)
 
@@ -141,11 +141,12 @@ def newcommand_dfrac(command, numerator, denominator):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-def newcommand_mult(command, numerator, denominator):
+def newcommand_mult(command, numerator, denominator=1):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
     La constante numerator/denominator est supposée multiplicative :
         - si elle est 1, elle n'affiche rien
+        - si elle est -1, elle affiche le signe négatif
         - le signe positif n'est pas affiché
         - le signe négatif est uniquement au numérateur le cas échéant
 
@@ -165,6 +166,10 @@ def newcommand_mult(command, numerator, denominator):
     # case val = 1
     if (denominator == 1) and (numerator == 1):
         return newcommand(command, "")
+    
+    # case val = -1
+    if (denominator == 1) and (numerator == -1):
+        return newcommand(command, "-")
 
     # case val is integer
     if denominator == 1:
@@ -173,7 +178,7 @@ def newcommand_mult(command, numerator, denominator):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-def newcommand_add(command, numerator, denominator):
+def newcommand_add(command, numerator, denominator=1):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
     La constante numerator/denominator est supposée additive :
