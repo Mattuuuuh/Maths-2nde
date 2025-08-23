@@ -255,6 +255,23 @@
 }
 
 \exe{}{
+	Montrer que si $0 < n < a$, alors $a$ ne peut pas diviser $n$.
+}{exe:mod-a}{
+	Si $a$ divise $n$, alors $n$ est un multiple de $a$.
+	Or les multiples de $a$ sont $0, a, 2a, \cdots$, et $n$ appartient à cette liste.
+	Comme $0 < n < a$, $n$ n'est pas un multiple de $a$.
+}
+
+\exe{, difficulty=1}{
+	Montrer que si $a > \frac{n}2$ divise $n\neq0$, alors $a=n$.
+}{exe:diviseur-moitié}{
+	Si $a$ divise $n$, alors $n$ est un multiple de $a$.
+	Or les multiples de $a$ sont $0, a, 2a, \cdots$, et $n$ appartient à cette liste.
+	Comme $a > \frac{n}2$, on a $2a > n$.
+	La seule possibilité est donc $n=a$, car $n\neq0$.
+}
+
+\exe{}{
 	Montrer que 2 divise toujours le produit de deux entiers consécutifs.
 }{exe:2divcons}{
 	Parmis deux entiers consécutifs, au moins l'un deux est pair.
@@ -306,12 +323,6 @@
 	
 	$D_9 = \{ 1 ; 3 ; 9\}$
 	\end{multicols}
-}
-
-\exe{}{
-	Montrer que si $a > \frac{n}2$ divise $n$, alors $a=n$.
-}{exe:diviseur-moitié}{
-	TODO
 }
 
 \exe{}{
@@ -392,7 +403,7 @@
 }
 
 \thm{}{
-	Considérons $a \big| n$. Alors
+	Considérons $n$ divisible par $a$. Alors
 		\[ \bigl( m \text{ divisible par $a$} \bigr) \iff \bigl( m+n \text{ divisible par $a$} \bigr). \]
 	
 	Ajouter un multiple de $a$ ne change pas la divisibilité par $a$ d'un nombre : s'il l'était avant, il le sera alors, et s'il ne l'était pas, il ne le sera pas.
@@ -588,8 +599,22 @@
 }
 
 \thm{théorème fondamental de l'arithmétique}{
-	\emph{La} décomposition en facteurs premiers est unique à permutation des facteurs près.
+	\emph{La} \emphindex{décomposition en facteurs premiers} est \emphindex{unique} à permutation des facteurs près.
 }{thm:decomposition-primaire-strong}
+
+\exe{, difficulty=1}{
+	Sachant que $12^2 = 144$, est-ce que 7 divise 144 ?
+}{exe:7div144}{
+	Dans le cas où 7 divise 144, on aurait $144 = 7a$ pour un entier $a$.
+	Comme 7 est premier, il s'agit donc de savoir s'il appartient à la décomposition primaire 144, par unicité de la décomposition du théorème \ref{thm:decomposition-primaire-strong}.
+	Or, la décomposition de 12 est $12 = 2^2 \times 3$.
+	Ainsi, la décomposition de $12^2$ est $12^2 = \bigl(2^2 \times 3 \bigr)^2 = 2^4 \times 3^2$.
+	7 ne divise donc pas 144 car il n'appartient pas à sa décomposition.
+	
+	Une autre façon de faire est d'utiliser le théorème \ref{thm:divisibilité-combinaison-entière}.
+	Comme $140 = 7\times20$ est divisible par 7, alors 144 est divisible par 7 si et seulement si $144-140 = 4$ l'est.
+	Il ne l'est bien sûr pas.
+}
 
 \cor{}{
 	Soit $n\in\N$ dont la décomposition en facteurs premiers est donnée par
