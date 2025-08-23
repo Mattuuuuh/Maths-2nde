@@ -1,0 +1,197 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT .ADR
+%% THEN THIS
+%% THEN POSTAMBLE
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 13}
+\fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Équations diophantiennes}}
+
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\exe{, difficulty=2}{
+	On considère la série statistique $X$ suivante, dépendante de deux entiers naturels $a, b\in\N$.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & \A & \B & \C \\ \hline
+		Effectif & $a$ & $b$ & \cI \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\begin{enumerate}
+		\item
+		Monter que, pour le couple $(a;b) = (\sola;\solb)$, la moyenne de la série est $\overline{X} = \Xbar$.
+		\item
+		Montrer que la condition $\overline{X} = \Xbar$ est équivalente à la relation
+			\begin{align}
+				- \p a + \q b = 1. \label{eq:1}
+			\end{align}
+	\end{enumerate}
+	Dans les questions suivantes, on utilisera l'équation \eqref{eq:1}, dite \emph{diophantienne}\footnotemark, pour étudier la structure de ses solutions et simplifier les calculs.
+	\begin{enumerate}[resume*]
+		\item
+		Déduire de \eqref{eq:1} que $\p$ divise $\q b - 1$ et trouver le plus petit entier naturel $b_0\in\N$ vérifiant
+			\[ \p \quad\text{ divise }\quad \bigl(\q b_0 - 1\bigr). \]
+		\item
+		Posons 
+			\[ a_0 = \dfrac{\q b_0 - 1}\p. \]
+		Montrer que pour le couple d'entiers $(a;b) = (a_0 ; b_0)$, la série $X$ est de moyenne $\Xbar$.
+		\item
+		Montrer que pour tout $n\in\N$, la série $X$ associée au couple
+			\[ (a;b) = (a_0 ; b_0) + n \cdot (\q ; \p) \]
+		est de moyenne $\Xbar$. 
+		\item
+		Représenter ces points $(a;b)$ dans un repère pour $n = 0 ; 1 ; 2; 3$. 
+		Que dire sur les points ?
+	\end{enumerate}
+}{exe:1}
+{
+	\begin{enumerate}
+		\item
+		On remplace $a$ et $b$ par $\sola$ et $\solb$ respectivement et on trouve bien une moyenne égale à
+			\[ \dfrac{\A\cdot\sola \B\cdot\solb+\C\cdot\cI}{\sola+\solb+\cI} = \Xbar. \]
+		
+		\item 
+		On écrit la suite d'équations équivalentes à $\overline{X} = \Xbar$ suivante.
+			\begin{align*}
+				\dfrac{\A a \B b+\C\cdot\cI}{a + b+\cI} &= \Xbar \\
+				\A a \B b+\C\cdot\cI &= \Xbar  (a+b+\cI) \\
+				 - \p a + \q b &= 1.
+			\end{align*}
+		
+		\item
+		On réarrange les termes pour trouver que 
+			\[ \q b - 1 = \p a, \]
+		c'est-à-dire que $\q b - 1$ est un multiple de $\p$, car $a$ est un entier naturel.
+		
+		Comme $b$ est lui-même un entier naturel (c'est un effectif !), on peut essayer des valeurs $b=0, 1, 2, \dots$ jusqu'a ce que $\q b -1$ soit divisible par $\p$.
+		La valeur
+			\[ b_0 = \bzero \]
+		est la première qui fonctionne.
+		
+		\item
+		On a alors
+			\[ a_0 = \dfrac{9 \cdot \bzero - 1}{\p} = \azero. \]
+		Presque par construction on trouve bien que 
+			\[ -\p \cdot \azero  + \q \cdot \bzero = 1, \]
+		condition équivalente à ce que $\overline{X} = \Xbar$ d'après la deuxième question (on peut aussi revérifier en remplaçant dans le tableau comme à la question 1).
+		
+		\item
+		Chaque couple de la forme
+			\begin{align*}
+				(a;b) &= (\azero; \bzero) + n \cdot (\q ; \p) \\
+					&= (\azero+ \q n ; \bzero + \p n )
+			\end{align*}
+		vérifie bien
+			\begin{align*}
+				 - \p \cdot a +  \q \cdot b &= - \p (\azero + \q n ) + \q (\bzero + \p n ) \\
+				 							&= -\p \cdot \azero +  \q \cdot \bzero + n (- \p \cdot \q + \q \cdot \p) \\
+				 							&= 1 + n \cdot 0 \\
+				 							&= 1.
+			\end{align*}
+		En fait, le couple $(\q; \p)$ est une solution du problème dit \emph{homogène} car
+			\[ -\p \cdot \q + \q \cdot \p = 0, \]
+		et la somme d'une solution du problème initial avec une solution du problème homogène donne une autre solution du problème initial.
+		
+		\item
+		On voit les couples comme les coordonnées de points et on place les quatre premiers ainsi.
+			\begin{center}
+			\begin{tikzpicture}[>=stealth, scale=1]
+			\begin{axis}[xmin = -1, xmax=\athree+5, ymin=-1, ymax=\bthree+5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=false]
+				\addplot[black, mark=*, mark size = 1, thick] (\azero,\bzero) node[below right] {$(\azero;\bzero)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\sola,\solb) node[below right] {$(\sola;\solb)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\atwo,\btwo) node[below right] {$(\atwo;\btwo)$};
+				\addplot[black, mark=*, mark size = 1, thick] (\athree,\bthree) node[below right] {$(\athree;\bthree)$};
+				\addplot[dashed, red, -] expression[domain=-1:\athree+5] {(1+ \p* x)/ \q};
+			\end{axis}
+			\end{tikzpicture}
+			\end{center}
+		On remarque que tous les points sont alignés. 
+		Les points trouvés sont en fait tous les points à coordonnées entières de la droite $-\p x + \q y = 1$.
+		%Les points trouvés sont en fait tous les points à coordonnées entières d'une certaine droite.
+		%On étudiera les équations de droites dans un chapitre dédié plus tard. En attendant, on pourra écrire \texttt{$ -\p x + \q y = 1$} dans Geogebra pour voir la droite.
+	\end{enumerate}
+}
+
+\footnotetext{De Diophante d'Alexandrie (entre 0 et 400, dates exactes inconnues), mathématicien grec.}
+
+%\exe{, difficulty=2}{
+%	On considère la série statistique $X$ suivante, dépendante de deux entiers naturels $a, b\in\N$.
+%	
+%		\begin{center}
+%		\begin{tabular}{|c|c|c|c|}\hline
+%		Valeur   & \kmpB & \kpqB & \nvalB \\ \hline
+%		Effectif & $a$ & $b$ & \nB \\ \hline
+%		\end{tabular}
+%		\end{center}
+%		
+%	\begin{enumerate}
+%		\item
+%		Montrer que la condition $\overline{X} = \kB$ est équivalente à la relation
+%			\begin{align}
+%				- \pB a + \qB b = \dmnB. \label{eq:2}
+%			\end{align}
+%		\item
+%		Trouver le plus grand diviseur commun à $\pB$ et $\qB$ et montrer qu'il divise nécessairement 
+%			\[ - \pB a + \qB b.\]
+%		\item
+%		Conclure par contradiction qu'il n'existe pas d'entiers naturels $a, b\in\N$ tels que la série $X$ ait une moyenne égale à $\kB$.
+%		\item 
+%		Trouver un moyenne possible et deux couples $(a,b)$ distincts qui la réalisent.
+%		Y a-t-il une infinité de tels couples ?
+%	\end{enumerate}
+%}{exe:2}
+%{
+%	\begin{enumerate}
+%		\item
+%			Ceci se montre de façon équivalente à la première question de l'exercice 1.
+%		\item
+%			Le plus grand diviseur commun à $\pB$ et $\qB$ est donné par $\divisor$ :
+%				\begin{align*}
+%					\pB &= \divisor \cdot \psdB, \\
+%					\qB &= \divisor \cdot \qsdB.
+%				\end{align*}
+%			Ainsi, $\divisor$ divise la combinaison entière $ - \pB \cdot a + \qB \cdot b$ pour n'importe quels entiers $a$ et $b$ car on a bien
+%				\[ - \pB \cdot a + \qB \cdot b = \divisor \cdot ( - \psdB \cdot a + \qsdB \cdot b ), \]
+%			multiple de $\divisor$.
+%		\item
+%		Supposons qu'il existe un tel couple $(a;b)$ d'entiers naturels tels que la moyenne de la série soit $\kB$.
+%		Dans ce cas, la relation 
+%			\[ - \pB \cdot a + \qB \cdot b = \dmnB. \]
+%		doit être vérifiée.
+%		Or on a montré que le membre de gauche est une multiple de $\divisor$.
+%		Cependant, comme le membre de droite, $\dmnB$, n'est évidemment pas un multiple de $\divisor$, on arrive à une contradiction.
+%		\item 
+%		On peut choisir un couple arbitrairement et calculer la moyenne correspondante.
+%		Choisir $(a;b) = (0;0)$ par exemple donne une moyenne de $\overline{X} = \nvalB$.
+%		
+%		Au regard de l'exercice 1, il existe nécessairement une infinité de couples vérifiant $\overline{X} = \nvalB$, car on peut en créer en ajoutant autant de fois qu'on le souhaite la solution $(\qB ; \pB)$ du probème homogène à $(0;0)$.
+%	\end{enumerate}
+%
+%}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions -- {\seed} --  Équations diophantiennes}}
+\fakesection{Solution \seed}
+\shipoutAnswer
+
+\end{document}
+
+

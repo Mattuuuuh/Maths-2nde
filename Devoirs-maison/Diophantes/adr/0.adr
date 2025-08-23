@@ -1,0 +1,16 @@
+\newcommand{\seed}{0}
+\newcommand{\p}{15}
+\newcommand{\q}{11}
+\newcommand{\Xbar}{6}
+\newcommand{\cI}{3}
+\renewcommand{\A}{96}
+\newcommand{\B}{-60}
+\renewcommand{\C}{8}
+\newcommand{\sola}{19}
+\newcommand{\solb}{26}
+\newcommand{\azero}{8}
+\newcommand{\bzero}{11}
+\newcommand{\atwo}{30}
+\newcommand{\btwo}{41}
+\newcommand{\athree}{41}
+\newcommand{\bthree}{56}
