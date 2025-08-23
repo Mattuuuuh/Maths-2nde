@@ -141,15 +141,14 @@ def newcommand_dfrac(command, numerator, denominator=1):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-def newcommand_mult(command, numerator, denominator=1):
+def newcommand_mult(command, numerator, denominator=1, sign=False):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
     La constante numerator/denominator est supposée multiplicative :
         - si elle est 1, elle n'affiche rien
-        - si elle est -1, elle affiche le signe négatif
         - le signe positif n'est pas affiché
         - le signe négatif est uniquement au numérateur le cas échéant
-
+    
     INPUTS : numerator, denominator (signed ints)
     """
 
@@ -165,19 +164,21 @@ def newcommand_mult(command, numerator, denominator=1):
 
     # case val = 1
     if (denominator == 1) and (numerator == 1):
-        return newcommand(command, "")
+        return newcommand(command, "+" if sign else "")
     
     # case val = -1
     if (denominator == 1) and (numerator == -1):
         return newcommand(command, "-")
-
+    
     # case val is integer
     if denominator == 1:
-        return newcommand(command, numerator)
+        return newcommand(command, ("+" if sign and numerator>0 else "") + str(numerator))
 
     # else
-    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    if sign:
+        return newcommand(command, ("+" if numerator>0 else "-") + "\dfrac{"+str(np.abs(numerator))+"}{"+str(denominator)+"}")
 
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 def newcommand_add(command, numerator, denominator=1):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
@@ -185,7 +186,7 @@ def newcommand_add(command, numerator, denominator=1):
         - si elle est 0, elle n'affiche rien
         - le signe positif est affiché
         - le signe négatif est devant la fraction le cas échéant
-
+    
     INPUTS : numerator, denominator (signed ints)
     """
 
@@ -202,15 +203,16 @@ def newcommand_add(command, numerator, denominator=1):
     # case val = 0
     if numerator == 0:
         return newcommand(command, "")
-
-    # case val is integer
-    if denominator == 1:
-        return newcommand(command, numerator)
-
+    
     # else
     # sign is separated
     sign = "+" if numerator>=0 else "-"
     numerator = np.abs(numerator)
+    
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, sign+str(numerator))
+    
     return newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
 # write decimal separator with commas instead of dots
