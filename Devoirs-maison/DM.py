@@ -107,13 +107,13 @@ class DM:
 # inputs : command (string), value (string or castable to string)
 def newcommand(command, value):
     # idk append this list when encountering commands
-    if command in ["\\a", "\\angle"]:
+    if command in ["a", "angle"]:
         return renewcommand(command, value)
-    return "\\newcommand{"+command+"}{"+str(value)+"}\n"
+    return "\\newcommand{\\"+command+"}{"+str(value)+"}\n"
 
 # generic \renewcommand
 def renewcommand(command, value):
-    return "\\renewcommand{"+command+"}{"+str(value)+"}\n"
+    return "\\renewcommand{\\"+command+"}{"+str(value)+"}\n"
 
 # generic \newcommand with dfrac
 def newcommand_dfrac(command, numerator, denominator):

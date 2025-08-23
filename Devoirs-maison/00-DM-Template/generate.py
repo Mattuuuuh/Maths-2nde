@@ -10,7 +10,7 @@ import numpy as  np
 ###############################################
 
 def generate():
-    return newcommand("\HW", "Hello World! hiya")
+    return newcommand("HW", "Hello World! hiya")
 
 ###############################################
 ############## USING DM LIBRARY ###############
