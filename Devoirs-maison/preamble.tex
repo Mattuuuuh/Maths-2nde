@@ -90,20 +90,6 @@ margin=2cm,
 % date
 \usepackage{advdate}
 
-% ensembles tq. 
-\newcommand{\xRtq}[1]{
-	$\left\{ x \in \R \text{ tq. } #1 \right\}$
-}
-
-% vabs
-\newcommand{\vabs}[1]{
-	\left| #1 \right|
-}
-
-%pinfty minfty
-\newcommand{\pinfty}{{+}\infty}
-\newcommand{\minfty}{{-}\infty}
-
 % plots
 \usepackage{pgfplots}
 
@@ -117,7 +103,35 @@ margin=2cm,
 %\def\arraystretch{2}
 \setlength\tabcolsep{15pt}
 
-% vecteur
+% I prefer the slanted \leq
+\let\oldleq\leq % save them in case they're every wanted
+\let\oldgeq\geq
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% tel que
+\newcommand{\tqs}{\text{ tels que }}
+\newcommand{\tq}{\text{ tq. }}
+\newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\pourtout}{\text{ pour tout }}
+\newcommand{\sct}{\text{ sachant }}
+
+% Lois
+\newcommand{\Bern}{\text{Bern}}
+\newcommand{\Binom}{\text{Binom}}
+
+% ensemble avec bigl et bigr
+\newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
+\newcommand{\Bigset}[1]{\Bigl\{ #1 \Bigr\}}
+\newcommand{\bigpar}[1]{\bigl( #1 \bigr)}
+\newcommand{\Bigpar}[1]{\Bigl( #1 \Bigr)}
+
+% PLUS INFTY AND MINUS INFTY WITH NO SPACE
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% vecteur flèche
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
 
 % vecteur pmatrix
@@ -125,6 +139,18 @@ margin=2cm,
 
 % vecteur norme
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% point plan
+\newcommand{\point}[3]{
+	#1\left(#2 ; #3 \right)
+}
+
+% \smash avant \underline pour coller la ligne au mot
+\let\oldunderline\underline
+\renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
+
+% emph + index
+\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}
 
 % tableaux var, signe
 \usepackage{tkz-tab}
