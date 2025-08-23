@@ -76,7 +76,7 @@ class DM:
         INPUTS = (
             "\input{../preamble.tex} \input{"+
             FILE_NAME+
-            "} \input{main.tex} \input{../postamble.tex}"
+            "} \input{main.tex}"
             )
         PARAMETER1 = f"-output-directory=out"
         PARAMETER2 = f"-jobname=seed_{seed}"
