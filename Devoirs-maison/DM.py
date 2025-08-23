@@ -44,7 +44,7 @@ class DM:
     # default seed 0 is for testing
     def write_adr(self, seed=0):
         FILE_NAME = f"adr/{seed}.adr"
-        CONTENT = self.newcommand("\seed", seed)
+        CONTENT = newcommand("\seed", seed)
         
         np.random.seed(seed)
         
@@ -99,118 +99,118 @@ class DM:
             self.compile_pdf(seed)
         return 0
 
-    ###############################################
-    ########### NEWCOMMAND FUNCTIONS ##############
-    ###############################################
+###############################################
+########### NEWCOMMAND FUNCTIONS ##############
+###############################################
 
-    # generic \newcommand
-    # inputs : command (string), value (string or castable to string)
-    def newcommand(self, command, value):
-        # idk append this list when encountering commands
-        if command in ["\\a", "\\angle"]:
-            return self.renewcommand(command, value)
-        return "\\newcommand{"+command+"}{"+str(value)+"}\n"
+# generic \newcommand
+# inputs : command (string), value (string or castable to string)
+def newcommand(command, value):
+    # idk append this list when encountering commands
+    if command in ["\\a", "\\angle"]:
+        return renewcommand(command, value)
+    return "\\newcommand{"+command+"}{"+str(value)+"}\n"
 
-    # generic \renewcommand
-    def renewcommand(self, command, value):
-        return "\\renewcommand{"+command+"}{"+str(value)+"}\n"
+# generic \renewcommand
+def renewcommand(command, value):
+    return "\\renewcommand{"+command+"}{"+str(value)+"}\n"
 
-    # generic \newcommand with dfrac
-    def newcommand_dfrac(self, command, numerator, denominator):
-        # turn things integer
-        numerator, denominator = int(numerator), int(denominator)
-        
-        # zero case
-        if numerator == 0:
-            return self.newcommand(command, 0)
-        
-        # make coprime
-        gcd = np.gcd(numerator, denominator)
-        assert gcd != 0, "null GCD?"
-        numerator //= gcd
-        denominator //= gcd
-        # sign is always on top
-        if denominator < 0:
-            numerator *= -1
-            denominator *= -1
+# generic \newcommand with dfrac
+def newcommand_dfrac(command, numerator, denominator):
+    # turn things integer
+    numerator, denominator = int(numerator), int(denominator)
 
-        # integer case
-        if denominator == 1:
-            return self.newcommand(command, numerator)
-        
-        # else
-        return self.newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    # zero case
+    if numerator == 0:
+        return newcommand(command, 0)
 
-    def newcommand_mult(self, command, numerator, denominator):
-        """
-        Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
-        La constante numerator/denominator est supposée multiplicative :
-            - si elle est 1, elle n'affiche rien
-            - le signe positif n'est pas affiché
-            - le signe négatif est uniquement au numérateur le cas échéant
-        
-        INPUTS : numerator, denominator (signed ints)
-        """
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
 
-        # make coprime
-        gcd = np.gcd(numerator, denominator)
-        assert gcd != 0, "null GCD?"
-        numerator //= gcd
-        denominator //= gcd
-        # sign is always on top
-        if denominator < 0:
-            numerator *= -1
-            denominator *= -1
+    # integer case
+    if denominator == 1:
+        return newcommand(command, numerator)
 
-        # case val = 1
-        if (denominator == 1) and (numerator == 1):
-            return self.newcommand(command, "")
-        
-        # case val is integer
-        if denominator == 1:
-            return self.newcommand(command, numerator)
+    # else
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
-        # else
-        return self.newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+def newcommand_mult(command, numerator, denominator):
+    """
+    Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
+    La constante numerator/denominator est supposée multiplicative :
+        - si elle est 1, elle n'affiche rien
+        - le signe positif n'est pas affiché
+        - le signe négatif est uniquement au numérateur le cas échéant
 
-    def newcommand_add(self, command, numerator, denominator):
-        """
-        Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
-        La constante numerator/denominator est supposée additive :
-            - si elle est 0, elle n'affiche rien
-            - le signe positif est affiché
-            - le signe négatif est devant la fraction le cas échéant
-        
-        INPUTS : numerator, denominator (signed ints)
-        """
+    INPUTS : numerator, denominator (signed ints)
+    """
 
-        # make coprime
-        gcd = np.gcd(numerator, denominator)
-        assert gcd != 0, "null GCD?"
-        numerator //= gcd
-        denominator //= gcd
-        # sign is always on top
-        if denominator < 0:
-            numerator *= -1
-            denominator *= -1
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
 
-        # case val = 0
-        if numerator == 0:
-            return self.newcommand(command, "")
-        
-        # case val is integer
-        if denominator == 1:
-            return self.newcommand(command, numerator)
+    # case val = 1
+    if (denominator == 1) and (numerator == 1):
+        return newcommand(command, "")
 
-        # else
-        # sign is separated
-        sign = "+" if numerator>=0 else "-"
-        numerator = np.abs(numerator)
-        return self.newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, numerator)
 
-    # write decimal separator with commas instead of dots
-    def comma(self, num):
-        return f'{num}'.replace('.', ',')
+    # else
+    return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+
+def newcommand_add(command, numerator, denominator):
+    """
+    Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
+    La constante numerator/denominator est supposée additive :
+        - si elle est 0, elle n'affiche rien
+        - le signe positif est affiché
+        - le signe négatif est devant la fraction le cas échéant
+
+    INPUTS : numerator, denominator (signed ints)
+    """
+
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
+
+    # case val = 0
+    if numerator == 0:
+        return newcommand(command, "")
+
+    # case val is integer
+    if denominator == 1:
+        return newcommand(command, numerator)
+
+    # else
+    # sign is separated
+    sign = "+" if numerator>=0 else "-"
+    numerator = np.abs(numerator)
+    return newcommand(command, sign+"\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
+
+# write decimal separator with commas instead of dots
+def comma(num):
+    return f'{num}'.replace('.', ',')
 
 
 
