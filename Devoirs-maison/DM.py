@@ -44,7 +44,7 @@ class DM:
     # default seed 0 is for testing
     def write_adr(self, seed=0):
         FILE_NAME = f"adr/{seed}.adr"
-        CONTENT = newcommand("\seed", seed)
+        CONTENT = newcommand("seed", seed)
         
         np.random.seed(seed)
         
