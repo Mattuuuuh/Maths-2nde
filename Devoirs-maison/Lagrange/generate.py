@@ -65,7 +65,7 @@ def generate():
 ###############################################
 
 dm = DM(
-        FOLDER="Fonctions1/",
+        FOLDER="Lagrange/",
         generating_function=generate,
         double_compile=True,
         initial_seed=0,
