@@ -212,6 +212,17 @@ def newcommand_add(command, numerator, denominator):
 def comma(num):
     return f'{num}'.replace('.', ',')
 
+# gives an int n verifying a <= n <= b.
+# uniform random.
+def int_between(a,b):
+    assert a <= b, "a,b must verify a <= b."
+    n = np.random.rand()
+    n *= (b-a+1)
+    n = int(n)
+    n += a
+
+    return n
+
 
 
 

@@ -1,7 +1,7 @@
 # importing DM class one folder above 
 import sys
 sys.path.append("..")
-from DM import DM 
+from DM import *
 
 import numpy as  np
 
@@ -10,7 +10,7 @@ import numpy as  np
 ###############################################
 
 def generate():
-    return DM.newcommand(DM, "\HW", "Hello World!")
+    return newcommand("HW", "Hello World!")
 
 ###############################################
 ############## USING DM LIBRARY ###############
