@@ -4,178 +4,41 @@
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Seconde 13}
-\fancyhead[C]{\textbf{Systèmes d'équations linéaires }}
+\fancyhead[L]{Classe}
+\fancyhead[C]{\textbf{Title}}
 \fancyhead[R]{\today}
 
 \exe{, difficulty=1}{
-	Pour chaque paire d'équations, ajouter entre elles le symbole
-		\begin{enumerate}[itemindent=1.5cm]
-			\item[$\implies$] si la première équation implique la seconde ;
-			\item[$\impliedby$] si la deuxième équation implique la première ;
-			\item[$\iff$] si les deux équations sont équivalentes ;
-			\item[$\centernot\iff$] si les deux équations sont indépendantes.
-		\end{enumerate}
-	Spécifier l'opération appliquée pour obtenir la deuxième équation à partir de la première le cas échéant.
-	
-	Par abus de notation et pour gagner du temps, l'absence de symbole signifie en général que les équations sont équivalentes, mais il faut toujours faire attention à ce que cela soit bien le cas !
-	
-	\begin{center}
-	\begin{tabular}{ccc|c|c}
-		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
-		$3x + 2y = 1$ &  & $6x  + 4y = 2$ & &  \\ \hline
-		$-x + 2y = 1$ &  & $-x + 2y - 1 = 0$ & &  \\ \hline
-		$3x + 2y = 1$ & & $-3x - 5y = -3$ & &  \\ \hline
-		$x^2 = -3x$ &  & $x = -3$ & &  \\ \hline
-		$-10x - y = 3$ &  & $0=0$ & &  \\ \hline
-		$x-y= 3$ & & $-x + y = -3$ & &  \\ \hline
-		$x -y = 0$ & & $x=y$ & &  \\ \hline
-		$-x + 2y = 3$ & & $0=0$ & &  \\ \hline
-		$2x + 3y + 4 = 2x + 3y + 5$ & & $1=0$ & &  \\ \hline
-		$-x - y = 1$ & & $-x - y = 1$ & &  \\ \hline
-		$0=0$ & & $23x - 10y = 6$ & &  \\ \hline
-		$x + 2y = 3$ & & $x^2 + 2yx = 3x$ & &  \\ \hline
-		$x-3y  =0$ & & $-2x+6y = 0$ & &  \\ \hline
-		$-2x + 3y = -3$ & & $4x - 6y = -6$ & &  \\ \hline
-		$x^2 = x$ & & $x = 1$ & &  \\ \hline
-		$x = 3$ & & $x^2 = 9$ & &  \\ \hline
-	\end{tabular}
-	\end{center}
+	Exercice 1.
+	\begin{enumerate}[leftmargin=50pt]
+		\item Question 1
+		\item Question 2
+	\end{enumerate}
 }{exe:1}{
-
-	
-	\begin{center}
-	\begin{tabular}{ccc|c|c}
-		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
-		$3x + 2y = 1$ & {$\iff$} & $6x  + 4y = 2$ & {$\times2$} & {Oui} \\ \hline
-		$-x + 2y = 1$ & {$\iff$} & $-x + 2y - 1 = 0$ & {$-1$} & {Oui} \\ \hline
-		$3x + 2y = 1$ & {$\centernot\iff$} & $-3x - 5y = -3$ & & {Non} \\ \hline
-		$x^2 = -3x$ & {$\impliedby$} & $x = -3$ & & {Non} \\ \hline
-		$-10x - y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
-		$x-y= 3$ & {$\iff$} & $-x + y = -3$ & {$\times(-1)$} & {Oui} \\ \hline
-		$x -y = 0$ &{$\iff$} & $x=y$ & {$+y$} & {Oui} \\ \hline
-		$-x + 2y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
-		$2x + 3y + 4 = 2x + 3y + 5$ & {$\iff$} & $1=0$ & {$+(-2x-3y)$} & {Oui} \\ \hline
-		$-x - y = 1$ & {$\centernot\iff$} & $-x - y = 1$ & & {Non} \\ \hline
-		$0=0$ & {$\impliedby$} & $23x - 10y = 6$ & & {Non} \\ \hline
-		$x + 2y = 3$ & {$\implies$} & $x^2 + 2yx = 3x$ & {$\times x$} & {Non} \\ \hline
-		$x-3y  =0$ & {$\iff$} & $-2x+6y = 0$ & {$\times(-2)$} & {Oui} \\ \hline
-		$-2x + 3y = -3$ & {$\centernot\iff$} & $4x - 6y = -6$ & & {Non} \\ \hline
-		$x^2 = x$ & {$\impliedby$} & $x = 1$ & & {Non} \\ \hline
-		$x = 3$ & {$\implies$} & $x^2 = 9$ & {Mise au carré} & {Non} \\ \hline
-	\end{tabular}
-	\end{center}
-	
+	Solutions 1.
 }
 
-\newpage
-
 \exe{}{
-	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients multipliant $x$ soient opposés (c'est-à-dire leur somme soit nulle).
-	\setlength{\columnsep}{1cm}
-	\begin{multicols}{2}
-	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{,}$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{,}$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{,}$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{,}$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{,}$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff\systeme{,}$
-	\end{enumerate}
-	\end{multicols}
+	Exercice 2.
 }{exe:2}{
-	\setlength{\columnsep}{1cm}
-	\begin{multicols}{2}
-	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{2x+6y=6{,},-2x+2y=2.}$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{3x - 21y = 3{,}, -3x + 5y = 13.}$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{2x - y = 3{,}, -2x + 4y = -10.}$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{4x  - y = -4{,},  -4x - 20y = -8.}$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \systeme{35x - 5y = 50{,}, -35x - 14y = -7.}$
-	\end{enumerate}
-	\end{multicols}
+	Solutions 2.
+}
+
+\exemulticols{, difficulty=2}{
+	Exercice 3.
+}{
+	Image
+}{exe:3}{
+	Solutions 3.
 }
 
 \exe{}{
-	Pour chaque système de l'exercice \ref{exe:2}, 
-		\begin{enumerate}
-			\item combiner les équations pour trouver $y$ ; 
-			\item trouver $x$ ; 
-			\item vérifier que le couple $(x ;y)$ obtenu soit bien solution du système initial.
-		\end{enumerate}
-}{exe:3}{ \, \\
-	\begin{enumerate}[label=Système \roman*) :, itemsep=20pt, leftmargin=80pt]
-		\item La somme des deux équations donne
-			\[ 8y = 8 \iff y = 1. \]
-		En remplaçant $y$ par $1$ dans la première équation, on trouve $x + 3 = 3$, et donc $x =0$.
-			\[ (x ; y ) = (0; 1). \]
-		
-		\item La somme des deux équations donne
-			\[ -16y = 16 \iff y = -1. \]
-		En remplaçant $y$ par $-1$ dans la première équation, on trouve $x + 7 = 1$, et donc $x =-6$.
-			\[ (x ; y ) = (-6; -1). \]
-		
-		\item La somme des deux équations donne
-			\[ 3y = -7 \iff y = -\dfrac73. \]
-		En remplaçant $y$ par $-\dfrac73$ dans la première équation, on trouve $2x +\dfrac73 = 3$, et donc $x =\dfrac13$.
-			\[ (x ; y ) = \left(\dfrac13; -\dfrac73 \right). \]
-		
-		\item La somme des deux équations donne
-			\[ -21y = -12 \iff y = \dfrac{12}{21} = \dfrac47. \]
-		En remplaçant $y$ par $ \dfrac47$ dans la deuxième équation, on trouve $x +\dfrac{20}7 = 2$, et donc $x =-\dfrac67$.
-			\[ (x ; y ) = \left(-\dfrac67; \dfrac47 \right). \]
-		
-		\item La somme des deux équations donne
-			\[ 8y = 5 \iff y = \dfrac58. \]
-		En remplaçant $y$ par $\dfrac58$ dans la deuxième équation, on trouve $3x +\dfrac{35}8 = 10 \iff x =\dfrac{45}{24} = \dfrac{15}8$.
-			\[ (x ; y ) = \left(\dfrac{15}8; \dfrac58 \right). \]
-		
-		\item La somme des deux équations donne
-			\[ -19y = 43 \iff y = -\dfrac{43}{19}. \]
-		En remplaçant $y$ par $-\dfrac{43}{19}$ dans la première équation, on trouve $7x +\dfrac{43}{19}= 10 \iff x =\dfrac{147}{133} = \dfrac{21}{19}$.
-			\[ (x ; y ) = \left( \dfrac{21}{19};  -\dfrac{43}{19} \right). \]
-	\end{enumerate}
+	Exercice 4.
+}{exe:4}{
+	Solutions 4.
 }
 
-\exe{}{
-	Donner les solutions réelles $(x;y)$ des systèmes suivantes.
-	
-	\begin{multicols}{2}
-	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\sys{2x+4y=0}{-2x -2y = 2}$
-		\item $\sys{-6x+3y=-3}{x -3y = -2}$
-		\item $\sys{x+y = 2}{x+y=2}$
-		\item $\sys{8x-4y = 6+2x-y}{7x+12y=-5+y}$
-		\item $\sys{x-y = 1}{-x+y=10}$
-		\item $\sys{\dfrac12 x - \dfrac23 y= -1}{ ,\dfrac15 x + \dfrac72 y= 5}$
-		\item $\sys{2x - 8y = 2}{-4x+16y=-1}$
-		\item $\sys{5x + y = -2x-1-y}{8x = -1+2y}$
-		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \dfrac32}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:4}{\, \\
-	
-	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $(x ; y) = (-2 ; 1)$
-		\item $(x ; y) = (1;1)$
-		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
-		L'ensemble des solutions est
-			\[ \{ (x ; y) \text{ tq. } x+y=2, x, y \in \R \} = \{ (x ; y) \text{ tq. } y = -x + 2, \text{ où $x$ parcourt $\R$} \} = \C_f, \]
-		où $f(x) = -x+2$.
-		\item $(x ; y) = \left(\dfrac{17}{29} ; -\dfrac{24}{29}\right)$
-		\item Les deux équations sont contradictoires et aucune solution n'existe.
-		\item $(x ; y) = \left(-\dfrac{10}{113} ; \dfrac{162}{113}\right)$
-		\item Les deux équations sont contradictoires et aucune solution n'existe.
-		\item $(x ; y) = \left(-\dfrac{2}{15} ; -\dfrac{1}{30}\right)$
-		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
-		L'ensemble des solutions est
-			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \dfrac32, x, y \in \R \right\} = \left\{ (x ; y) \text{ tq. } y= -6x - \dfrac32 \text{ où $x$ parcourt $\R$} \right\} = \C_f, \]
-		où $f(x) =-6x - \dfrac32$.
-	\end{enumerate}
-}
-
-
+%%%%%%%%%%%%
 
 \newpage
 \fancyhead[C]{\textbf{Solutions}}
