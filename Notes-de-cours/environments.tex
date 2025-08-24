@@ -102,19 +102,19 @@
 \renewcommand{\ExerciseHeader}{
 	\textbf{
 	\theExercise.
-	\theExerciseDifficulty
 	}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
 }
 \renewcommand{\DifficultyMarker}{$\star$}
 \renewcommand{\AnswerHeader}{
 	% if exercise title is "1" then announce new chapter
 	\if\ExerciseTitle1
-		{ 
-		%\newpage
 		\hrule\vspace{1cm}
 		\LARGE
 		\textbf{Exercices du chapitre \thechapter}\newline\newline
-		}
 	\fi
 	
 	\centerline{\textbf{
