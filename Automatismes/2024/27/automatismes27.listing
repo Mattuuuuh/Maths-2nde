@@ -1,0 +1,2 @@
+def Marie(Lilou):
+	return Lilou+2

@@ -73,23 +73,3 @@
 
 %systèmes
 \usepackage{systeme}
-
-% trafficotage 
-\usepackage[answerdelayed, lastexercise]{exercise}
-\renewcommand{\ExerciseHeader}{
-}
-\renewcommand{\AnswerHeader}{
-}
-
-\newcommand{\framedelayed}[3][]{
-	\begin{Exercise}
-	\begin{frame}{\theExercise #1\vspace{-32pt}}
-		#2
-	\end{frame}
-	\end{Exercise}
-	\begin{Answer}
-	\begin{frame}{\theExercise #1\vspace{-32pt}}
-		#3
-	\end{frame}
-	\end{Answer}
-}
