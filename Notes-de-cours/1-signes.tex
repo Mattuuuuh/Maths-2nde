@@ -6,8 +6,6 @@
 
 \section{Étude de signes}
 
-\subsection{Fonctions affines}
-
 \dfn{signe d'un nombre réel}{
 	Soit $x\in\R$ un nombre réel quelconque.
 	On dit que
@@ -20,7 +18,7 @@
 	Il est préférable de dire \emphindex{positif ou nul} pour éviter toute ambiguïté.
 }{}
 
-\nt{
+\notations{
 	Pour simplifier la notation, au lieu d'écrire \og $A >0$ et $B > 0$ \fg, on écrira juste \og$A, B > 0$\fg.
 }{}
 
@@ -51,9 +49,132 @@
 	suit les mêmes règles que celui du produit $A \cdot B$.
 }{}
 
-\exe{1}{
+\cor{manipulation d'inégalités}{
+	Soient $E, F, a, b \in \R$ quatre réels. Alors
+	\begin{itemize}
+	\item
+	ajouter une constante ne change pas le sens de l'inégalité.
+		\begin{align*}
+			E \leq F && \iff && E+b \leq F+b
+		\end{align*}
+	\item
+	de plus, si $a>0$, on a l'équivalence
+		\begin{align*}
+			E \leq F && \iff && a E \leq a F.
+		\end{align*}
+	\item
+	mais, si $a<0$, la multiplication par $a$ change le sens de l'inégalité :
+		\begin{align*}
+			E \leq F && \iff && a E \geq a F.
+		\end{align*}
+	\end{itemize}
+}{cor:manip-ineg}
+
+\pf{cas $a<0$}{
+	Comme $E \leq F$ est équivalent à $F - E \geq 0$, c'est un nombre positif.
+	
+	Si $a < 0$, multiplier un négatif par un positif donne un négatif, et donc $a(F-E) \leq 0$.
+	D'où $aF \leq aE \iff aE \geq aF$.
+}
+
+\nt{
+	$E \leq F \iff F \geq E$.
+}
+
+\exemulticols{1}{
+	On considère les fonctions $f$ et $g$ données graphiquement ci-contre.
+	Posons $h(x) = f(x)g(x)$.
+	\begin{enumerate}[label=--]
+		\item Quel est le signe de $f(1)$ ? 
+		\item Et $g(1)$ ?
+		\item Quel est signe de $h(1)$ ?
+		\item Quel est le signe de $f(-1)$ ? 
+		\item Et $g(-1)$ ?
+		\item Quel est signe de $h(-1)$ ?
+	\end{enumerate}
+	\vfill\null
+}{
+	\begin{center}
+	\includegraphics[page=2]{figures/fig-signes.pdf}
+	\end{center}
+}{exe:signes0}{
+	On lit $f(1) > 0$ et $g(1) < 0$.
+	Il suit que $h(1) < 0$, comme produit d'un positif avec un négatif.
+	
+	On lit $f(-1) > 0$ et $g(-1) > 0$.
+	Il suit que $h(-1) > 0$, comme produit d'un positif avec un positif.
+}
+
+\exe{, difficulty=1}{
+	Pour $f, g$ les fonctions de l'exercice \ref{exe:signes0}, exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 }$
+			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \leq 0 }$
+			\item $\bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 }$
+			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x) \geq 0 }$
+		\end{enumerate}
+		\end{multicols}
+}{exe:signes2}{
+	L'ordonnée du point d'abscisse $x$ appartenant à $\C_f$ est $f(x)$.
+	On lit donc son signe en regardant s'il est au-dessus ou en-dessous de l'axe des abscisses.
+	
+	\begin{enumerate}
+		\item On a environ 
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 } \approx [-1,5 ; 1,5]. \]
+		\item On a environ 
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \leq 0 } \approx [-3; -1,5] \cup [1,5 ; 3]. \]
+		Remarquons que c'est le complémentaire de l'ensemble précédent, car $f(x)$ est soit positive ou nulle, soit négative ou nulle.
+		\item On a environ 
+			\[ \bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 } \approx [-3 ; -1,2] \cup [1,9 ; 3]. \]
+		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
+		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
+		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
+		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
+		Graphiquement, on lit que
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 \text{ et } g(x) \geq 0 } \approx [-1,2 ; 0,2], \]
+		et que (en faisant à nouveau une hypothèse de continuité)
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \leq 0 \text{ et } g(x) \leq 0 } \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+		On prend l'union des deux pour obtenir
+			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x)  \geq 0 } \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	Pour quels $x\in\R$ a-t-on $(x-12)(x+3)(x-1) = 0$ ?
+}{exe:lecture-racines}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Pour quels $x\in\R$ a-t-on $x(x-1)^2 = 0$ ?
+}{exe:lecture-racines2}{
+	TODO
+}
+
+\exe{}{
+	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $f$ s'annule en $1$.
+		\item $f$ s'annule en $-10$.
+		\item $f$ s'annule en $0$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:signes3}{
+	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
+		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
+		\item $f(x) = x$ ou $f(x) = 500x$.
+	\end{enumerate}
+}
+
+\subsection{Fonctions affines}
+
+\exe{}{
 	Pour chacune des fonctions affines $f$ suivantes, donner l'intervalle 
-		\[ \{ x \in \R \tq f(x) \geq 0 \}. \]
+		\[ \bigset{ x \in \R \tq f(x) \geq 0 }. \]
 	
 	\begin{multicols}{2}
 	\begin{enumerate}
@@ -89,57 +210,10 @@
 	\end{enumerate}
 }
 
-\exemulticols{}{
-	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
-		\begin{enumerate}
-			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 }$
-			\item $\bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 }$
-			\item $\bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x) \geq 0 }$
-		\end{enumerate}
-	\vfill
-}{
-	\begin{center}
-	\includegraphics[page=2]{figures/fig-signes.pdf}
-	\end{center}
-}{exe:signes2}{
-	L'ordonnée du point d'abscisse $x$ appartenant à $\C_f$ est $f(x)$.
-	On lit donc son signe en regardant s'il est au-dessus ou en-dessous de l'axe des abscisses.
-	
-	\begin{enumerate}
-		\item On a environ 
-			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 } \approx [-1,5 ; 1,5]. \]
-		\item On a environ 
-			\[ \bigset{ x \in [-3 ; 3] \tq g(x) \leq 0 } \approx [-3 ; -1,2] \cup [1,9 ; 3]. \]
-		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
-		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
-		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
-		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
-		Graphiquement, on lit que
-			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \geq 0 \text{ et } g(x) \geq 0 } \approx [-1,2 ; 0,2], \]
-		et que (en faisant à nouveau une hypothèse de continuité)
-			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \leq 0 \text{ et } g(x) \leq 0 } \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
-		On prend l'union des deux pour obtenir
-			\[ \bigset{ x \in [-3 ; 3] \tq f(x) \cdot g(x)  \geq 0 } \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
-	\end{enumerate}
-}
-
-\exe{}{
-	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
-	\begin{multicols}{3}
-	\begin{enumerate}
-		\item $f$ s'annule en $1$.
-		\item $f$ s'annule en $-10$.
-		\item $f$ s'annule en $0$.
-	\end{enumerate}
-	\end{multicols}
-}{exe:signes3}{
-	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
-	\begin{enumerate}
-		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
-		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
-		\item $f(x) = x$ ou $f(x) = 500x$.
-	\end{enumerate}
-
+\nt{
+	Si $f$ est affine de coefficient directeur $a\neq0$ ($f$ est non constante), on peut déterminer $f(x) \geq 0$ en considérant le nombre $x_0$ vérifiant $f(x_0)=0$.
+	Si $a>0$, $f$ est croissante, donc $f(x) \geq 0$ sur $[x_0 ; \pinfty[$.
+	Sinon, $a <0$, et $f$ est décroissante, donc $f(x) \geq 0$ sur $]\minfty ; x_0 ]$.
 }
 
 \subsection{Produits de fonctions affines}
