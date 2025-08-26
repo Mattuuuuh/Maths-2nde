@@ -5,7 +5,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv init Animations
 uv add manim
 cd Animations/
-manim init project Dichotomie --default
+manim init project dichotomie --default
 ```
 
 # Compile
@@ -20,11 +20,12 @@ manim render -pqh start.py
 
 - [x] Dichotomie (à adapter)
 - [ ] Plan cartésien
-- [ ] Courbe représentative
+- [x] Courbe représentative
 - [ ] Fonctions parentes
 - [ ] Signe affine
 - [ ] Signe du produit
 - [ ] Manipulation d'équation visuellement : évolutions, équations linéaires
+- [ ] Trigonométrie, quart de cercle unité
 - [ ] Inclusion-exclusion
 - [ ] Vecteurs directeurs
 - [ ] Statistiques descriptives : linéarité moyenne + quartiles
