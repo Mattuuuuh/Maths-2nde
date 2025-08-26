@@ -179,6 +179,7 @@ class Courbe(MovingCameraScene):
         lines = self.affine_interpolationf([-5,-3,0,3,5])
         self.play(lines.animate.set_opacity(.3))
         self.wait()
+        self.play(Uncreate(xtick))
 
         # third run
         xsamples=np.arange(-5,5.1,.5)
@@ -187,7 +188,7 @@ class Courbe(MovingCameraScene):
         lines = self.affine_interpolationf(np.arange(-5,5.1,.5))
         self.play(lines.animate.set_opacity(.3))
         
-        self.play(FadeOut(lines),Uncreate(xtick))
+        self.play(FadeOut(lines))
         self.wait(2)
         
         f_graph = axes.plot(
