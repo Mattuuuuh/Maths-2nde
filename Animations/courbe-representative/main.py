@@ -48,35 +48,50 @@ class Courbe(MovingCameraScene):
             yvalue = self.f(xvalue)
             p,q = self.rational_pointf(xvalue)
             if q==1:
-                image_label = MathTex(f"f({comma(xvalue)}) = {p}")
+                image_label = MathTex(f"f({comma(xvalue)}) = {p}",
+                        tex_to_color_map={f'{comma(xvalue)}':XCOLOR, f'{p}':YCOLOR})
+                dotlabel = MathTex(f"\\left({comma(xvalue)} ; {p} \\right)", 
+                        tex_to_color_map={f'{comma(xvalue)}':XCOLOR, f'{p}':YCOLOR})
             else:
-                image_label = MathTex(f"f({comma(xvalue)}) = \dfrac{{{p}}}{{{q}}}")
-            image_label.next_to(self.f_expr, direction=RIGHT*4)
+                image_label = MathTex(f"f({comma(xvalue)}) = \dfrac{{{p}}}{{{q}}}",
+                        tex_to_color_map={f'{comma(xvalue)}':XCOLOR, f'\dfrac{{{p}}}{{{q}}}':YCOLOR})
+                dotlabel = MathTex(f"\\left({comma(xvalue)} ; \dfrac{{{p}}}{{{q}}} \\right)", 
+                        tex_to_color_map={f'{comma(xvalue)}':XCOLOR, f'\dfrac{{{p}}}{{{q}}}':YCOLOR})
+            image_label.move_to(self.axes.c2p(2,-2), LEFT)
             if animate:
                 self.play(Create(image_label))
 
             # put point and lines, animate to (x,y)
-            dot = Dot(self.axes.c2p(xvalue,0), color=PCOLOR, radius=.05)
+            dot = Dot(self.axes.c2p(xvalue,0), color=PCOLOR, radius=.04)
             dots.add(dot)
             xline = self.axes.get_vertical_line(self.axes.c2p(xvalue,yvalue), color=PCOLOR)
             yline = self.axes.get_horizontal_line(self.axes.c2p(xvalue,0), color=PCOLOR)
             if animate:
-                self.play(Create(dot),Create(yline))
+                self.play(
+                        Create(dot),
+                        #Create(yline),
+                )
+                self.wait()
                 self.play(
                         dot.animate.shift(yvalue*UP),
+                        Create(yline),
                         yline.animate.shift(yvalue*UP),
                         Create(xline), 
+                
                 )
+                self.play(Write(dotlabel.next_to(dot, direction=UP)))
             else:
                 dot.shift(yvalue*UP)
                 self.play(Create(dot), run_time=.1)
             # cleanup
             if animate:
+                self.wait()
                 self.play(
                         Uncreate(xline),
                         Uncreate(yline),
                         Uncreate(image_label),
                         Unwrite(xlabel),
+                        Unwrite(dotlabel),
                 )
         return dots
     # interpolate from (x,y) points
@@ -112,11 +127,13 @@ class Courbe(MovingCameraScene):
                 },
                 x_axis_config={
                     "color":XCOLOR,
-                    "stroke_opacity":.8,
+                    "stroke_width": 2,
+                    "stroke_opacity":1,
                 },
                 y_axis_config={
                     "color":YCOLOR,
-                    "stroke_opacity":.8,
+                    "stroke_width": 2,
+                    "stroke_opacity":1,
                 },
         )
         self.play(Create(axes))
@@ -124,7 +141,7 @@ class Courbe(MovingCameraScene):
         self.wait()
         
         # x tick
-        tick_length = .2
+        tick_length = .1
         xtick = Line(start=axes.c2p(-5, tick_length), end=axes.c2p(-5,-tick_length), color=XCOLOR)
         xlabel = (MathTex('x', color=XCOLOR).next_to(xtick, direction=DOWN))
 
@@ -153,12 +170,12 @@ class Courbe(MovingCameraScene):
         self.play(FadeOut(ytick), Unwrite(ylabel))
 
         # function to graph
-        f_expr = Label(MathTex("f(x) = \dfrac{6}{x^2 + 3}"), color=FCOLOR)
+        f_expr = Label(MathTex("y = f(x) = \dfrac{6}{x^2 + 3}", tex_to_color_map={'x':XCOLOR, 'y':YCOLOR}), color=FCOLOR)
         f_expr.move_to(axes.c2p(-2,-2), RIGHT)
 
         self.play(Write(f_expr))
         self.wait()
-
+        
         # bookkeeping
         self.axes=axes
         self.x=x
@@ -173,10 +190,10 @@ class Courbe(MovingCameraScene):
         self.wait()
 
         # second run
-        xsamples = [-3, 3]
+        xsamples = [-3, 2]
         dots = self.add_pointsf(xsamples)
         self.play(FadeOut(lines))
-        lines = self.affine_interpolationf([-5,-3,0,3,5])
+        lines = self.affine_interpolationf([-5,-3,0,2,5])
         self.play(lines.animate.set_opacity(.3))
         self.wait()
         self.play(Uncreate(xtick))
@@ -185,7 +202,7 @@ class Courbe(MovingCameraScene):
         xsamples=np.arange(-5,5.1,.5)
         dots = self.add_pointsf(xsamples, animate=False)
         self.play(FadeOut(lines))
-        lines = self.affine_interpolationf(np.arange(-5,5.1,.5))
+        lines = self.affine_interpolationf(xsamples)
         self.play(lines.animate.set_opacity(.3))
         
         self.play(FadeOut(lines))
@@ -203,3 +220,4 @@ class Courbe(MovingCameraScene):
         self.wait(3)
 
 
+##
