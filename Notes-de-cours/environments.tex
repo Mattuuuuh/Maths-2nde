@@ -34,65 +34,132 @@
 % CLEAN SETUPS : MDFRAMED SURROUND
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\ifclean
 
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage[framemethod=pgf]{mdframed}
 % def
-\surroundwithmdframed[
+\mdfdefinestyle{definition}{
 	hidealllines=true,
 	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
+	innerrightmargin=0,
 	innertopmargin=-4pt,
-	nobreak=true,
+}
+\surroundwithmdframed[
+	style=definition,
 ]{definition}
-% thm
 \surroundwithmdframed[
-	%hidealllines=true,
-	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
-	innertopmargin=-4pt,
-	nobreak=true,
-]{theorem}
-% prop
-\surroundwithmdframed[
-	%hidealllines=true,
-	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
-	innertopmargin=-4pt,
-	nobreak=true,
-]{proposition}
-
-
-% def*
-\surroundwithmdframed[
-	hidealllines=true,
-	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
-	innertopmargin=-4pt,
-	nobreak=true,
+	style=definition,
 ]{definition*}
-% thm*
-\surroundwithmdframed[
-	%hidealllines=true,
+
+% thm
+\mdfdefinestyle{theorem}{
 	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
 	innertopmargin=-4pt,
 	nobreak=true,
+}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem}
+\surroundwithmdframed[
+	style=theorem,
 ]{theorem*}
-% prop*
-\surroundwithmdframed[
-	%hidealllines=true,
+
+% prop
+\mdfdefinestyle{proposition}{
 	leftline=true,
-	innerleftmargin=10pt,
-	innerrightmargin=10pt,
 	innertopmargin=-4pt,
 	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition}
+\surroundwithmdframed[
+	style=proposition,
 ]{proposition*}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLOURFUL SETUPS : MDFRAMED SURROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else
+
+\usepackage[framemethod=pgf]{mdframed}
+% def
+\mdfdefinestyle{definition}{
+	hidealllines=true,
+	leftline=true,
+	linecolor=BLUE_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	innerrightmargin=0,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=definition,
+]{definition}
+\surroundwithmdframed[
+	style=definition,
+]{definition*}
+
+% thm
+\mdfdefinestyle{theorem}{
+	linecolor=MAROON_C,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem*}
+
+% prop
+\mdfdefinestyle{proposition}{
+	linecolor=GREEN_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition*}
+
+% lemme
+\mdfdefinestyle{lemme}{
+	linecolor=TEAL_E,
+	linewidth=1pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme*}
+
+% corollaire
+\mdfdefinestyle{corollaire}{
+	linecolor=YELLOW_E,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire*}
+
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXERCISES 
@@ -170,377 +237,3 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TCOLORBOX SETUPS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\setlength{\parindent}{1cm}
-%================================
-% THEOREM BOX
-%================================
-
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{Theorem}{Théorème}
-{%
-	enhanced,
-	breakable,
-	colback = mytheorembg,
-	frame hidden,
-	boxrule = 0sp,
-	borderline west = {2pt}{0pt}{mytheoremfr},
-	sharp corners,
-	detach title,
-	before upper = \tcbtitle\par\smallskip,
-	coltitle = mytheoremfr,
-	fonttitle = \bfseries\sffamily,
-	description font = \mdseries,
-	separator sign none,
-	segmentation style={solid, mytheoremfr},
-}
-{th}
-
-
-\tcbuselibrary{theorems,skins,hooks}
-\newtcolorbox{Theoremcon}
-{%
-	enhanced
-	,breakable
-	,colback = mytheorembg
-	,frame hidden
-	,boxrule = 0sp
-	,borderline west = {2pt}{0pt}{mytheoremfr}
-	,sharp corners
-	,description font = \mdseries
-	,separator sign none
-}
-
-%================================
-% Corollary
-%================================
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Corollary}{Corollaire}
-{%
-	enhanced
-	,breakable
-	,colback = myp!10
-	,frame hidden
-	,boxrule = 0sp
-	,borderline west = {2pt}{0pt}{myp!85!black}
-	,sharp corners
-	,detach title
-	,before upper = \tcbtitle\par\smallskip
-	,coltitle = myp!85!black
-	,fonttitle = \bfseries\sffamily
-	,description font = \mdseries
-	,separator sign none
-	,segmentation style={solid, myp!85!black}
-}
-{th}
-
-%================================
-% LEMMA
-%================================
-
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Lemma}{Lemme}
-{%
-	enhanced,
-	breakable,
-	colback = mylenmabg,
-	frame hidden,
-	boxrule = 0sp,
-	borderline west = {2pt}{0pt}{mylenmafr},
-	sharp corners,
-	detach title,
-	before upper = \tcbtitle\par\smallskip,
-	coltitle = mylenmafr,
-	fonttitle = \bfseries\sffamily,
-	description font = \mdseries,
-	separator sign none,
-	segmentation style={solid, mylenmafr},
-}
-{th}
-
-
-%================================
-% PROPOSITION
-%================================
-
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Prop}{Proposition}
-{%
-	enhanced,
-	breakable,
-	colback = mypropbg,
-	frame hidden,
-	boxrule = 0sp,
-	borderline west = {2pt}{0pt}{mypropfr},
-	sharp corners,
-	detach title,
-	before upper = \tcbtitle\par\smallskip,
-	coltitle = mypropfr,
-	fonttitle = \bfseries\sffamily,
-	description font = \mdseries,
-	separator sign none,
-	segmentation style={solid, mypropfr},
-}
-{th}
-
-%================================
-% Exercise
-%================================
-
-\tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Exe}{Exercice}
-{%
-	enhanced,
-	breakable,
-	colback = myexercisebg,
-	frame hidden,
-	boxrule = 0sp,
-	borderline west = {2pt}{0pt}{myexercisefg},
-	sharp corners,
-	detach title,
-	before upper = \tcbtitle\par\smallskip,
-	coltitle = myexercisefg,
-	fonttitle = \bfseries\sffamily,
-	description font = \mdseries,
-	separator sign none,
-	segmentation style={solid, myexercisefg},
-}
-{th}
-
-%================================
-% EXAMPLE BOX
-%================================
-
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Example}{Exemple}
-{%
-	colback = myexamplebg
-	,breakable
-	,colframe = myexamplefr
-	,coltitle = myexampleti
-	,boxrule = 1pt
-	,sharp corners
-	,detach title
-	,before upper=\tcbtitle\par\smallskip
-	,fonttitle = \bfseries
-	,description font = \mdseries
-	,separator sign none
-	,description delimiters parenthesis
-}
-{ex}
-
-%================================
-% DEFINITION BOX
-%================================
-
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{Definition}{Définition}{enhanced,
-	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
-	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
-	boxed title style={frame code={
-					\path[fill=tcbcolback]
-					([yshift=-1mm,xshift=-1mm]frame.north west)
-					arc[start angle=0,end angle=180,radius=1mm]
-					([yshift=-1mm,xshift=1mm]frame.north east)
-					arc[start angle=180,end angle=0,radius=1mm];
-					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
-						middle color=tcbcolback!80!black]
-					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
-					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
-					-- (frame.south east) -- (frame.south west)
-					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
-					[sharp corners]-- cycle;
-				},interior engine=empty,
-		},
-	fonttitle=\bfseries,
-	title={#2},#1}{def}
-
-%================================
-% Question BOX
-%================================
-
-\makeatletter
-\newtcbtheorem[use counter=tcb@cnt@Theorem]{MyQuestion}{Question}{enhanced,
-	breakable,
-	colback=white,
-	colframe=myb!80!black,
-	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
-	fonttitle=\bfseries,
-	title={#2},
-	boxed title size=title,
-	boxed title style={%
-			sharp corners,
-			rounded corners=northwest,
-			colback=tcbcolframe,
-			boxrule=0pt,
-		},
-	underlay boxed title={%
-			\path[fill=tcbcolframe] (title.south west)--(title.south east)
-			to[out=0, in=180] ([xshift=5mm]title.east)--
-			(title.center-|frame.east)
-			[rounded corners=\kvtcb@arc] |-
-			(frame.north) -| cycle;
-		},
-	#1
-}{def}
-\makeatother
-
-
-
-
-%================================
-% NOTE BOX
-%================================
-
-\usetikzlibrary{arrows,calc,shadows.blur}
-\tcbuselibrary{skins}
-\newtcolorbox{Note}[1][]{%
-	enhanced jigsaw,
-	colback=gray!20!white,%
-	colframe=gray!80!black,
-	size=small,
-	boxrule=1pt,
-	title=\colorbox{white!100}{\textbf{ Remarque }},
-	halign title=flush center,
-	coltitle=black,
-	breakable,
-	drop shadow=black!50!white,
-	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
-	minipage boxed title=2.6cm,
-	boxed title style={%
-			colback=white,
-			size=fbox,
-			boxrule=1pt,
-			boxsep=2pt,
-			underlay={%
-					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
-					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
-					\begin{scope}
-						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
-						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
-					\end{scope}
-					\begin{scope}[gray!80!black]
-						\fill (dotA) circle (2pt);
-						\fill (dotB) circle (2pt);
-					\end{scope}
-				},
-		},
-	#1,
-}
-
-%================================
-% STRATÉGIE BOX
-%================================
-
-\usetikzlibrary{arrows,calc,shadows.blur}
-\tcbuselibrary{skins}
-\newtcolorbox{Strategy}[1][]{%
-	enhanced jigsaw,
-	colback=myb!20!white,%
-	colframe=gray!80!black,
-	size=small,
-	boxrule=1pt,
-	title=\colorbox{white!100}{\textbf{ Stratégie }},
-	halign title=flush center,
-	coltitle=black,
-	breakable,
-	drop shadow=black!50!white,
-	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
-	minipage boxed title=2.5cm,
-	boxed title style={%
-			colback=white,
-			size=fbox,
-			boxrule=1pt,
-			boxsep=2pt,
-			underlay={%
-					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
-					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
-					\begin{scope}
-						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
-						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
-					\end{scope}
-					\begin{scope}[gray!80!black]
-						\fill (dotA) circle (2pt);
-						\fill (dotB) circle (2pt);
-					\end{scope}
-				},
-		},
-	#1,
-}
-
-%================================
-% MÉTHODE BOX
-%================================
-
-\usetikzlibrary{arrows,calc,shadows.blur}
-\tcbuselibrary{skins}
-\newtcolorbox{Methode}[1][]{%
-	enhanced jigsaw,
-	colback=white,%
-	colframe=gray!80!black,
-	size=small,
-	boxrule=1pt,
-	title=\textbf{Méthode},
-	halign title=flush center,
-	coltitle=black,
-	breakable,
-	drop shadow=black!50!white,
-	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
-	minipage boxed title=2.5cm,
-	boxed title style={%
-			colback=white,
-			size=fbox,
-			boxrule=1pt,
-			boxsep=2pt,
-			underlay={%
-					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
-					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
-					\begin{scope}
-						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
-						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
-					\end{scope}
-					\begin{scope}[gray!80!black]
-						\fill (dotA) circle (2pt);
-						\fill (dotB) circle (2pt);
-					\end{scope}
-				},
-		},
-	#1,
-}  
-%================================
-% AXIOME BOX
-%================================
-
-\usetikzlibrary{arrows,calc,shadows.blur}
-\tcbuselibrary{skins}
-\newtcolorbox{Axiome}[1][]{%
-	enhanced jigsaw,
-	colback=white,%
-	colframe=gray!80!black,
-	size=small,
-	boxrule=1pt,
-	title=\textbf{Axiome},
-	halign title=flush center,
-	coltitle=black,
-	breakable,
-	drop shadow=black!50!white,
-	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
-	minipage boxed title=2.5cm,
-	boxed title style={%
-			colback=white,
-			size=fbox,
-			boxrule=1pt,
-			boxsep=2pt,
-			underlay={%
-					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
-					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
-					\begin{scope}
-						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
-						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
-					\end{scope}
-					\begin{scope}[gray!80!black]
-						\fill (dotA) circle (2pt);
-						\fill (dotB) circle (2pt);
-					\end{scope}
-				},
-		},
-	#1,
-}  

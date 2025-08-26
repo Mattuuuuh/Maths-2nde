@@ -10,14 +10,11 @@
 % tcolor environments VS clean environments
 %%
 
-\ifclean
-
 \newcommand{\thm}[3]{\begin{theorem}[#1]\label{#3}#2\end{theorem}}
 \newcommand{\cor}[3]{\begin{corollaire}[#1]\label{#3}#2\end{corollaire}}
 \newcommand{\lem}[3]{\begin{lemme}[#1]\label{#3}#2\end{lemme}}
 \newcommand{\mprop}[3]{\begin{proposition}[#1]\label{#3}#2\end{proposition}}
 \newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
-%\newcommand{\exe}[3]{\begin{exercice}[#1]\label{#3}#2\end{exercice}}
 \newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
 \newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
 \newcommand{\pf}[2]{\begin{preuve}[#1]#2\end{preuve}}
@@ -25,6 +22,9 @@
 \newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
 \newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
 \newcommand{\ax}[3]{\begin{axiome}[#1]\label{#3}#2\end{axiome}}
+\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
+\newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
+\newcommand{\heur}[1]{\begin{heuristique}#1\end{heuristique}}
 
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
@@ -49,35 +49,6 @@
 		#5
 	\end{Answer}
 }
-
-\else
-
-\newcommand{\thm}[3]{\begin{Theorem}[label=#3]{#1}{}#2\end{Theorem}}
-\newcommand{\cor}[3]{\begin{Corollary}[label=#3]{#1}{}#2\end{Corollary}}
-\newcommand{\lem}[3]{\begin{Lemma}[label=#3]{#1}{}#2\end{Lemma}}
-\newcommand{\mprop}[3]{\begin{Prop}[label=#3]{#1}{}#2\end{Prop}}
-\newcommand{\ex}[3]{\begin{Example}[label=#3]{#1}{}#2\end{Example}}
-%\newcommand{\exe}[3]{\begin{Exe}[label=#3]{#1}{}#2\end{Exe}}
-\newcommand{\dfn}[3]{\begin{Definition}[colbacktitle=red!75!black, label=#3]{#1}{}#2\end{Definition}}
-\newcommand{\qs}[2]{\begin{MyQuestion}{#1}{}#2\end{MyQuestion}}
-\newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
-\newcommand{\nt}[1]{\begin{Note}#1\end{Note}}
-\newcommand{\str}[1]{\begin{Strategy}#1\end{Strategy}}
-\newcommand{\mth}[1]{\begin{Methode}#1\end{Methode}}
-\newcommand{\axiome}[3]{\begin{Axiome}[label=#3]{#1}{}#2\end{Axiome}}
-
-\newcommand{\exe}[4]{
-	\begin{Exe}[label=#3]{}{}#2\end{Exe}
-	\begin{Answer}[ref=#3]
-		#4
-	\end{Answer}
-}
-
-\fi
-
-\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
-\newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
-\newcommand{\heur}[1]{\begin{heuristique}#1\end{heuristique}}
 
 %%
 
