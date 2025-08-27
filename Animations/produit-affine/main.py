@@ -22,7 +22,7 @@ def h(x):
 class ProduitAffine(MovingCameraScene):
     def construct(self):
         myTemplate = TexTemplate()
-        myTemplate.add_to_preamble(r"\usepackage{libertinus,libertinust1math,calrsfs}")
+        myTemplate.add_to_preamble(r"\usepackage{libertinus,libertinust1math,calrsfs, icomma}")
         MathTex.set_default(font_size=72)
         Tex.set_default(font_size=72)
         # axes
