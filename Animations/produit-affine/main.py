@@ -100,6 +100,7 @@ class ProduitAffine(MovingCameraScene):
         self.play(Create(x))
         self.play(x.animate.shift(8*RIGHT))
         self.play(x.animate.shift(8*LEFT))
+        self.play(Unwrite(xlabel))
 
         # sign of f, g at x
         fline = DashedLine(axes.c2p(-2,0), axes.c2p(-2, f(-2)), color=BLUE_E)
@@ -119,7 +120,7 @@ class ProduitAffine(MovingCameraScene):
         
         objects_in_frame.remove(fline,flabel,gline,glabel)
         self.play(self.camera.auto_zoom(objects_in_frame))
-        self.play(Uncreate(x))
+        self.play(Uncreate(xtick))
 
         # hsync line passing through
         # while f and g don't change sign
@@ -138,7 +139,7 @@ class ProduitAffine(MovingCameraScene):
         I1label = always_redraw(lambda: MathTex("[-2 ; "+comma(min(1,np.round(xtracker.get_value(),1)))+"]", color=GREEN).next_to(axes,RIGHT))
         objects_in_frame.add(I1label)
 
-        self.play(Create(hsync),Write(I1label), self.camera.auto_zoom(objects_in_frame))
+        self.play(FadeIn(hsync),Write(I1label), self.camera.auto_zoom(objects_in_frame))
         self.wait()
         self.play(
                 xtracker.animate.set_value(1), 
