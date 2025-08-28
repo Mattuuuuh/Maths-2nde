@@ -434,21 +434,6 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	Il s'avère que ce résultat est vrai sans l'hypothèse de perpendicularité entre les vecteurs.
 }
 
-\exe{, difficulty=2}{
-	Soient $u = \pvec{a}{b}, v = \pvec{c}{d}$ deux vecteurs tels que le triangle de sommets $O(0;0), O+u, O+v$ est rectangle en $O$. 
-	\begin{enumerate}
-		\item Faire un dessin du triangle rectangle et donner les coordonnées de chacun de ses sommets.
-		\item Montrer à l'aide de la réciproque de Pythagore que 
-			\[ a\cdot c + b\cdot d = 0. \]
-		\item
-		Montrer à l'aide de la relation ci-dessus que
-			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
-	\end{enumerate}
-}{exe:det-aire}{
-	TODO
-}
-
-
 \exe{}{
 	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
 	Que remarque-t-on ?
@@ -456,11 +441,11 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	TODO
 }
 
-\exe{, difficulty=2}{
+\exe{, difficulty=1}{
 	Soient $a, b \in\R$ deux nombres.
 	Montrer, à l'aide du théorème de Pythagore, qu'un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
 		\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
-}{exe:parallélisme}{
+}{exe:produit-scalaire}{
 	On considère le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
 	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
 	
@@ -476,6 +461,19 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		\end{align*}
 }
 
+\exe{, difficulty=2}{
+	Soient $u = \pvec{a}{b}, v = \pvec{c}{d}$ deux vecteurs tels que le triangle de sommets $O(0;0), O+u, O+v$ est rectangle en $O$. 
+	\begin{enumerate}
+		\item Faire un dessin du triangle rectangle et donner les coordonnées de chacun de ses sommets.
+		\item Utiliser l'exercice \ref{exe:produit-scalaire} pour montrer que
+			\[ ac + bd = 0. \]
+		\item
+		Montrer à l'aide de la relation ci-dessus que
+			\[ \norm{u}^2 \cdot \norm{v}^2 = \bigl( \det(u, v) \bigr)^2. \]
+	\end{enumerate}
+}{exe:det-aire}{
+	TODO
+}
 
 
 
