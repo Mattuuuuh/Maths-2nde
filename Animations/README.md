@@ -18,12 +18,12 @@ manim render -pqh start.py
 
 # Todo
 
-- [x] Dichotomie (à adapter)
-- [ ] Plan cartésien
-- [x] Courbe représentative
+- [x] Dichotomie (fonction à adapter)
+- [x] Plan cartésien
+- [x] Courbe représentative (revoir les zoom)
 - [ ] Fonctions parentes
 - [ ] Signe affine
-- [ ] Signe du produit
+- [x] Signe du produit
 - [ ] Manipulation d'équation visuellement : évolutions, équations linéaires
 - [ ] Trigonométrie, quart de cercle unité
 - [ ] Inclusion-exclusion
