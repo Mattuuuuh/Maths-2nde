@@ -14,7 +14,7 @@ def comma(num):
         return "0"
     return ("%.2f" % num).rstrip('.0') .replace('.', ',')
 
-class ProduitAffine(MovingCameraScene):
+class PlanCartesien(MovingCameraScene):
     def construct(self):
         myTemplate = TexTemplate()
         myTemplate.add_to_preamble(r'\usepackage{libertinus,libertinust1math,calrsfs, icomma}\mathcode`\;="303B')
