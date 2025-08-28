@@ -297,7 +297,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \nomen{
 	Soit $p$ un polynôme de degré 2.
-	La forme $p(x) = ax^2 + bx + c$ est la \emphindex{forme développée}.
+	La forme $p(x) = ax^2 + bx + c$ est la \emphindex{forme développée réduite}.
 	La forme $p(x) = a(x-\lambda)(x-\gamma)$ est la \emphindex{forme factorisée}.
 	La forme $p(x) = a(x-\alpha)^2 + \beta$ est \emphindex{forme canonique} (hors programme).
 }
@@ -344,7 +344,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \mprop{}{
-	Deux polynômes en sont égaux sur $\R$ tout entier si et seulement s'il admettent la même expression développée.
+	Deux polynômes sont égaux sur $\R$ tout entier si et seulement s'ils admettent la même expression développée réduite.
 }{prop:eg-poly}
 
 \exe{, difficulty=1}{
@@ -367,6 +367,22 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	Je me demande quelle est la façon la plus simple.
 	Sans doute identifier les coefficients constants en prenant $x=0$, puis soustraire, diviser par $x$, et continuer.
 	Mais il faut le lemme $xf(x) = xg(x) \forall x \iff f(x) = g(x) \forall x$ qui n'est pas vrai en 0 sans hypothèse hors programme donc ça marche po.
+}
+
+\exe{, difficulty=2}{
+	Montrer que l'équivalence 
+		\begin{align*}
+			xf(x) = xg(x) \text{ pour tout $x\in\R$} && 
+			\iff &&
+			f(x) = g(x) \text{ pour tout $x\in\R$}
+		\end{align*}
+	est vraie si $f, g$ sont des polynômes, mais fausse en général.
+}{exe:fx-gx}{
+	C'est l'implication $\implies$ qui pose problème en général, car si $x=0$, alors on ne peut pas conclure que $f(0) = g(0)$.
+	Les fonctions $f(x) = 0$ et $g(x) = \begin{cases*} 1 & si $x=0$, \\ 0 & sinon. \end{cases*}$ donnent un contre-exemple.
+	
+	Cependant, si $f$ et $g$ sont polynomiales, alors $xf(x)$ et $xg(x)$ le sont aussi, à coefficients décalés d'une puissance de $x$.
+	La proposition \ref{prop:eg-poly} implique que ces coefficients sont égaux, et donc que $f = g$.
 }
 
 
