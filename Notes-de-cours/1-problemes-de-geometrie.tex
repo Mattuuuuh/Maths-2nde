@@ -470,7 +470,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 \pf{démonstration du corrolaire \ref{cor:sqrt2-irrational}}{
 	Par l'absurde, supposons que $\sqrt2 \in \Q$ soit rationnel.
 	
-	Par définition, $\sqrt2 = \dfrac{a}{b}$ avec $a, b \in \N$ deux entiers.
+	Par définition, $\sqrt2 = \frac{a}{b}$ avec $a, b \in \N$ deux entiers.
 	Ainsi, par mise au carré,
 		\begin{align*}
 			2 = \left(\dfrac{a}b\right)^2 = \dfrac{a^2}{b^2} && \iff && a^2 = 2b^2.
@@ -479,10 +479,34 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	À gauche, $a^2$ est un carré parfait, et donc la puissance de $2$ dans sa décomposition en facteurs premiers est nécessairement paire.
 	À droite, la même chose tient pour $b^2$. Il suit que, dans la décomposition en facteurs premiers de $2b^2$, la puissance de $2$ est impaire.
 	
-	L'entier $a^2$ admet donc deux décompositions en facteurs premiers différentes, ce qui contredit le théorème fondamental de l'arithmétique. {\Large\Lightning}
+	L'entier $a^2$ admet donc deux décompositions en facteurs premiers différentes, ce qui contredit le théorème fondamental de l'arithmétique (théorème \ref{thm:decomposition-primaire-strong}). {\Large\Lightning}
 	
 	Concernant l'écriture décimale d'un nombre irrationnel, voir le théorème \ref{thm:décimal-périodique}.
 }
+
+\nt{
+	La démonstration ci-dessus s'appuie sur l'unicité de la décomposition primaire du théorème \ref{thm:decomposition-primaire-strong}.
+	Ce résultat étant assez difficile à prouver, la démonstration de l'irrationnalité de $\sqrt2$ est parfois donnée de la façon suivante, sans utiliser le théorème fondamental de l'arithmétique
+}
+
+\pf{démonstration du corrolaire \ref{cor:sqrt2-irrational} sans théorème fondamental de l'arithmétique}{
+	Reprenons la démonstration ci-dessus en supposant, de surcroît, que la fraction $\frac{a}b$ est irréductible.
+	
+	À partir de l'identité $a^2 = 2b^2$, on déduit que $a^2$ est pair.
+	Il suit que
+		\[ a^2 - 1 = (a+1)(a-1) \]
+	est impair.
+	Par conséquent, $a+1$ et $a-1$ sont tous les deux impairs, et donc $a$ est pair.
+	Nous avons donc montré
+		\begin{align*}
+			a^2 \text{ pair} && \implies && a \text{ pair}.
+		\end{align*}
+	Il suit que $a = 2k$ pour un entier $k\in\Z$, et donc que $(2k)^2 = 2b^2 \iff b^2 = 2k^2$.
+	
+	Les rôles sont à présents inversés : c'est $b^2$ qui est pair. 
+	Le même raisonnement mène à ce que $b$ soit pair, une contradiction car la fraction $\frac{a}b$ a été supposée irréductible. {\Large\Lightning}
+}
+
 
 \exe{, difficulty=2}{
 	Démontrer le théorème \ref{thm:sqrt-irrational}.
@@ -525,8 +549,8 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 \pf{}{
 	On utilise l'identité remarquable $(a+b)(a-b) = a^2 - b^2$ pour supprimer la racine du dénominateur.
 	\begin{align*}
-		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}, \\
-							&= \dfrac{1-\sqrt{d}}{1-d}.
+		\dfrac1{1+\sqrt{d}} &= \dfrac{1-\sqrt{d}}{(1+\sqrt{d})(1-\sqrt{d})}
+							= \dfrac{1-\sqrt{d}}{1-d}.
 	\end{align*}
 }
 
