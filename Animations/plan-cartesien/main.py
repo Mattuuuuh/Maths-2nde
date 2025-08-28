@@ -36,9 +36,9 @@ class PlanCartesien(MovingCameraScene):
         y1.next_to(UP, LEFT/2)
         
         self.play(Create(xaxis))
-        self.play(Create(xticks))
-        self.play(Write(x0))
-        self.play(Write(x1))
+        self.play(Write(x0), Create(xticks[6]))
+        self.play(Write(x1), Create(xticks[7]))
+        self.play(Create(xticks.remove(xticks[6], xticks[7])))
         self.camera.auto_zoom([xaxis, yaxis])
 
         self.wait()
@@ -59,8 +59,8 @@ class PlanCartesien(MovingCameraScene):
         
         # ytick way and back
         self.play(Uncreate(x0), Create(yaxis))
-        self.play(Create(yticks))
-        self.play(Write(y1))
+        self.play(Write(y1), Create(yticks[5]))
+        self.play(Create(yticks.remove(yticks[5])))
         ytick = Line(LEFT*tick_length, RIGHT*tick_length, color=YCOLOR)
         ytick.move_to(3*UP)
         ylabel = MathTex("y", color=YCOLOR)
@@ -85,14 +85,14 @@ class PlanCartesien(MovingCameraScene):
         # drawing (-4,2)
         p3 = self.draw_point(-4,2, color=PINK, point_name="R")
         self.wait()
+
+        self.wait(3)
         
         self.play(
                 Uncreate(p1),
                 Uncreate(p2),
                 Uncreate(p3),
                 )
-
-        self.wait(3)
 
     def draw_point(self, x,y, color=GREEN, point_name="P"):
         point_label = MathTex(point_name+f"({x} ; {y})", 
