@@ -10,7 +10,7 @@ nomarginpar,% We don't want any margin paragraphs
 \usepackage{array}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
+\usepackage{multicol}
 
 \usepackage{stackengine}
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
@@ -34,11 +34,13 @@ nomarginpar,% We don't want any margin paragraphs
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Seconde 13}
+\fancyhead[L]{Seconde 7}
 \fancyhead[C]{\textbf{ Automatismes }}
 \fancyhead[R]{\today}
 
 Nom :
+\hfill
+A / B
 
 \begin{center}
 \begin{tabular}{ | P{.25\linewidth} | P{.70\linewidth} |  } 
