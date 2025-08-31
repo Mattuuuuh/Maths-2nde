@@ -1,0 +1,210 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Ensembles de nombres}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	Donner l'ensemble $A$ des entiers supérieurs ou égaux à 0 et inférieurs ou égaux à 7.
+	
+	Donner l'ensemble $B$ des éléments de $A$ qui sont pairs.
+}{exe:set1}{
+	\begin{multicols}{2}
+		$A = \bigset{ 0 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7}$
+		
+		$B = \bigset{ 0 ; 2 ; 4 ; 6 }$
+	\end{multicols}
+}
+
+\exe{}{
+	Décrire l'ensemble $A$ de l'exercice \ref{exe:set1} sous les formes $\bigset{ n \in \N \tq \dots }$ et $\bigset{ n \in \Z \tq \dots }$.
+	
+	Décrire l'ensemble $B$ de l'exercice \ref{exe:set1} sous la forme $\bigset{ n \in A \tq \dots }$.
+}{exe:set2}{
+	\begin{multicols}{2}
+		$A = \bigset{ n \in \N \tq n \leq 7}$
+		
+		$A = \bigset{ n \in \Z \tq 0 \leq n \leq 7}$
+		
+		$B = \bigset{ n \in A \tq \text{$n$ est pair}}$
+	\end{multicols}
+}
+
+\exe{}{
+	Sans calculatrice, donner le développement décimal des fractions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac1{10}$
+		\item $\dfrac1{5}$
+		\item $\dfrac3{10^{5}}$
+		\item $\dfrac7{20}$
+		\item $\dfrac{395}{50}$
+		\item $\dfrac{11}{200}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimaux}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{10} = 0,1.$
+		\item $\dfrac1{5} = \dfrac2{10} = 0,2.$
+		\item $\dfrac3{10^{5}} = 0,00003.$
+		\item $\dfrac7{20} = \dfrac{3,5}{10} = 0,35.$
+		\item $\dfrac{395}{50} = \dfrac{790}{100} = 7,9.$
+		\item $\dfrac{11}{200} = \dfrac{5,5}{100} = 0,055.$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Sans calculatrice, écrire les nombres suivants en notation scientifique.
+		
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 201
+		\item 10
+		\item 123 400 000
+		\item 0,8
+		\item 0,000 327
+		\item 0,009 000 1
+	\end{enumerate}
+	\end{multicols}
+}{exe:notation-scientifique}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 201 = $2,01 \times10^{2}$
+		\item 10 = $1\times10^{1}$ (ou simplement 10...)
+		\item 123 400 000 = $1,234 \times 10^{8}$
+		\item 0,8 = $8\times10^{-1}$
+		\item 0,000 327 = $3,27 \times 10^{-4}$
+		\item 0,009 000 1 = $9,0001 \times 10^{-3}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{, difficulty=1}{
+	Montrer que $\frac19$ n'est pas décimal.
+}{exe:nondecimal0}{
+	Si $\dfrac19 = \frac{a}{10^n}$, alors $10^n = 9a$ et est multiple de $9$.
+	Or l'entier d'avant est multiple de $9$ car
+		\[ 10^n - 1 = \underbrace{99{\dots}99}_{\text{n fois}} = 9 \times \underbrace{11{\dots}11}_{\text{n fois}} . \]
+	$10^n$ ne peut donc pas être multiple de $9$, une contradiction ! \Large\Lightning
+}
+
+\exe{, difficulty=2}{
+	Montrer que si une certaine puissance de 10 est multiple entier de $k$, alors $\frac1k$ est décimal.
+}{exe:nondecimal2}{
+	Si $10^n$ est multiple entier de $k$, alors il existe un $a \in \Z$ tel que
+		\[ ak = 10^n. \]
+	Ainsi $\frac1k = \frac{a}{10^n} \in \DD$.
+}
+
+\exe{}{
+	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
+	\[
+	\begin{aligned}
+		A &= 0,666{\dots} \\
+		B &= 9,999{\dots} \\
+		C &= 0,121212{\dots} \\
+	\end{aligned}
+	\hspace{5cm}
+	\begin{aligned}
+		D &= 1,666{\dots} \\
+		E &= 0,34777{\dots} \\
+		F &= 0,123123123{\dots}
+	\end{aligned}
+	\]
+	\[
+	G = 0,123456789123456789123{\dots} \text{ (nombre d'Amandine) }
+	\]
+}{exe:dev-to-fraction}{
+	\begin{enumerate}[label=\Alph*.]
+		\item 
+		La relation $10A = 6 + A$ donne $A = \frac23$.
+		\item
+		La relation $10B = 90 + B$ donne $A = 10$. Il s'avère donc que $10$ admet deux écritures décimales différentes.
+		Pour se convaincre encore que $B=10$, on peut remarquer la chose suivante : il n'existe pas de nombre entre $B$ et $10$ strictement différent des deux. Or il existe toujours un nombre situé entre deux nombres distincts (leur moyenne, par exemple).
+		\item
+		La relation $100C = 12 + C$ donne $C = \frac{12}{99} = \frac{4}{33}$.
+		\item
+		La relation $10D = 15 + D$ donne $D = \frac{15}{9} = \frac53$.
+		\item
+		En posant $E' = 100E = 34,777{\dots}$, on obtient $10E' = 313 + E'$, d'où $E' = \frac{313}{9}$, et donc $E = \frac{1}{100}E' = \frac{313}{900}$.
+		\item
+		La relation $1000F = 123 + F$ donne $F = \frac{123}{999} = \frac{41}{333}$.
+		\item 
+		La relation $10^9 G = 123456789 + G$ donne $G = \frac{123456789}{999999999}$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\frac1{11}$ sans calculatrice.
+}{exe:111-dec}{
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $\dfrac{100}{11} = 9 + \dfrac1{11}$ et $n_2=9$.
+	D'où
+		\[ \dfrac1{11} = 0,09~09~09~09~\cdots. \]
+}
+
+\exe{, difficulty=2}{
+	Donner un nombre irrationnel.
+}{exe:nombre-R}{
+	Voir la démonstration du théorème 1.20 des notes de cours.
+}
+
+\exe{}{
+	Vrai ou faux ? L'encadrement 
+	
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$2,6 < 2,6457 < 2,8$ est à $10^{-1}$ près & $\square$ & $\square$  \\
+		$3,14 < 3,1415 < 3,15$ est à $10^{-2}$ près & $\square$ & $\square$  \\
+		$-4,474 < -4,4735 < -4,473$ est à $10^{-3}$ près & $\square$ & $\square$  \\
+		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & $\square$ & $\square$  \\
+	\end{tabular}
+}{exe:v-f-encadrement}{
+	L'amplitude d'un encadrement $a < x < b$ est donnée par $b-a$.
+	La première proposition est fausse car l'amplitude est de $0,2 = 2 \times 10^{-1}$.
+	Pour la quatrième proposition, on utilise que $0,1 \times 10^{-4} = 10^{-1} \times 10^{-4} = 10^{-5}$.
+
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$2,6 < 2,6457 < 2,8$ est à $10^{-1}$ près & $\times$ & \checkmark  \\
+		$3,14 < 3,1415 < 3,15$ est à $10^{-2}$ près & \checkmark & $\times$  \\
+		$-4,474 < -4,4735 < -4,473$ est à $10^{-3}$ près & \checkmark & $\times$  \\
+		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & \checkmark & $\times$  \\
+	\end{tabular}
+}
+
+\exe{}{
+	Encadrer les nombres suivants à l'amplitude demandée.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $3,605 \times 10^{-2}$ à $10^{-4}$ près.
+		\item $9~854,698 \times 10^3$ à $10^4$ près.
+		\item $-31,45$ à $10^{-1}$ près.
+		\item $-0,0125$ à $10^{-4}$ près.
+	\end{enumerate}
+	\end{multicols}
+}{exe:encadrement}{
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $3,600 \times 10^{-2} < 3,605 \times 10^{-2} < 3,61 \times 10^{-2}$
+		\item $9~850 \times 10^3 < 9~854,698 \times 10^3 < 9~860 \times 10^3$
+		\item $-31,5 < -31,45 < -31,4$
+		\item $-0,01255 < -0,0125 < -0,01245$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
