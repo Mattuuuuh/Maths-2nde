@@ -1,0 +1,119 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 7}
+\fancyhead[C]{\textbf{Évaluation — Ensembles de nombres}}
+\fancyhead[R]{\today}
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item 
+	Les exercices \ref{exe:1} et \ref{exe:2} peuvent être faits entièrement sur la feuille d'évaluation.
+\end{itemize}
+
+\hrule
+
+\exemulticols{}{
+	Compléter les pointillés en ajoutant un signe d'inclusion ($\subseteq$ ou $\supseteq$) entre les ensembles de nombres ci-contre.
+}{
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{10pt}
+	\begin{tabular}{ccc||ccc}
+		$\N$ & \dots & $\Z$ & $\Z$ & \dots & $\N$ \\
+		$\Z$ & \dots & $\Q$ & $\D$ & \dots & $\Q$
+	\end{tabular}
+	\end{center}
+}{exe:1}{
+	Solutions 1.
+}
+
+\exe{, difficulty=1}{
+	Donner deux ensembles $A$ et $B$ vérifiants $A \not\subseteq B$ et $B \not\subseteq A$ : $A$ n'est pas un sous-ensemble de $B$, et $B$ n'est pas un sous-ensemble de $A$.
+}{exe:1.1}{
+	Solution 1.1.
+}
+
+\exe{}{
+	Vrai ou faux ? Cocher la case correspondante.
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\dfrac12 = 0,5$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33333$ & $\square$ & $\square$  \\
+		$1$ est un nombre rationnel & $\square$ & $\square$  \\
+		Tous les nombres sont rationnels & $\square$ & $\square$  \\
+	\end{tabular}
+	\end{center}
+}{exe:2}{
+	Solutions 2.
+}
+
+\exe{}{
+	Donner les éléments de chaque ensemble suivant.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=]
+		\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
+		\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
+		\item $C = \bigset{n \in \Z \tq -1 \leq n \leq 1}$
+		\item $D = \bigset{c \in C \tq \text{$c$ est non nul}}$
+	\end{enumerate} 
+	\end{multicols}
+}{exe:3}{
+	Solutions 3.
+}
+
+\exe{, difficulty=1}{
+	Exprimer les nombres suivants sous forme de fraction d'entiers.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=]
+		\item $A = 0,666...$ ($6$ se répète à l'infini)
+		\item $B = 0,555...$ ($5$ se répète à l'infini)
+		\item $C = 0,020202...$ ($02$ se répète à l'infini)
+		\item $D = 0,1545454...$ ($54$ se répète à l'infini)
+	\end{enumerate} 
+	\end{multicols}
+}{exe:4}{
+	Solutions 4.
+}
+
+\exe{}{
+	Écrire les nombres suivants en notation scientifique.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 304
+		\item 100
+		\item 234 500 000
+		\item 0,4
+		\item 0,000 438
+		\item 0,003 000 2
+	\end{enumerate}
+	\end{multicols}
+}{exe:5}{
+	Solutions 5.
+	
+}
+
+\exe{, difficulty=2}{
+	Soit $k\in\N$ non nul. 
+	On suppose qu'aucune puissance de 10 n'est dans la table de multiplication de $k$.
+	Montrer que $\frac1k$ n'est pas décimal.
+	\\\\
+	\emph{Toute trace de recherche sera prise en compte.}
+}{exe:6}{
+	Solutions 6.
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
