@@ -13,12 +13,15 @@
 	Donner l'ensemble $A$ des entiers supérieurs ou égaux à 0 et inférieurs ou égaux à 7.
 	
 	Donner l'ensemble $B$ des éléments de $A$ qui sont pairs.
+	
+	A-t-on $A \subseteq B$ ? $B \subseteq A$ ?
 }{exe:set1}{
 	\begin{multicols}{2}
 		$A = \bigset{ 0 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7}$
 		
 		$B = \bigset{ 0 ; 2 ; 4 ; 6 }$
 	\end{multicols}
+	On a $B \subseteq A$ car tous les éléments de $B$ sont des éléments de $A$, et $A \not\subseteq B$ car l'inverse est faux (7 appartient à $A$ mais pas à $B$, par exemple).
 }
 
 \exe{}{
@@ -52,7 +55,7 @@
 	\begin{enumerate}[label=\roman*)]
 		\item $\dfrac1{10} = 0,1.$
 		\item $\dfrac1{5} = \dfrac2{10} = 0,2.$
-		\item $\dfrac3{10^{5}} = 0,00003.$
+		\item $\dfrac3{10^{5}} = 0,000~03.$
 		\item $\dfrac7{20} = \dfrac{3,5}{10} = 0,35.$
 		\item $\dfrac{395}{50} = \dfrac{790}{100} = 7,9.$
 		\item $\dfrac{11}{200} = \dfrac{5,5}{100} = 0,055.$
@@ -108,43 +111,39 @@
 	\[
 	\begin{aligned}
 		A &= 0,666{\dots} \\
-		B &= 9,999{\dots} \\
-		C &= 0,121212{\dots} \\
+		B &= 1,666{\dots} \\
 	\end{aligned}
 	\hspace{5cm}
 	\begin{aligned}
-		D &= 1,666{\dots} \\
-		E &= 0,34777{\dots} \\
-		F &= 0,123123123{\dots}
+		C &= 0,121212{\dots} \\
+		D &= 0,34777{\dots} \\
 	\end{aligned}
 	\]
 	\[
-	G = 0,123456789123456789123{\dots} \text{ (nombre d'Amandine) }
+	E = 0,123456789123456789123{\dots} \text{ (nombre d'Amandine) }
 	\]
 }{exe:dev-to-fraction}{
 	\begin{enumerate}[label=\Alph*.]
 		\item 
 		La relation $10A = 6 + A$ donne $A = \frac23$.
 		\item
-		La relation $10B = 90 + B$ donne $A = 10$. Il s'avère donc que $10$ admet deux écritures décimales différentes.
-		Pour se convaincre encore que $B=10$, on peut remarquer la chose suivante : il n'existe pas de nombre entre $B$ et $10$ strictement différent des deux. Or il existe toujours un nombre situé entre deux nombres distincts (leur moyenne, par exemple).
+		La relation $10B = 15 + B$ donne $B = \frac{15}{9} = \frac53$.
+		On aurait aussi pû utiliser que $B = 1+A$.
 		\item
 		La relation $100C = 12 + C$ donne $C = \frac{12}{99} = \frac{4}{33}$.
 		\item
-		La relation $10D = 15 + D$ donne $D = \frac{15}{9} = \frac53$.
-		\item
-		En posant $E' = 100E = 34,777{\dots}$, on obtient $10E' = 313 + E'$, d'où $E' = \frac{313}{9}$, et donc $E = \frac{1}{100}E' = \frac{313}{900}$.
-		\item
-		La relation $1000F = 123 + F$ donne $F = \frac{123}{999} = \frac{41}{333}$.
+		En posant $\tilde{E} = 100E = 34,777{\dots}$, on obtient $10\tilde{E} = 313 + \tilde{E}$, d'où $\tilde{E} = \frac{313}{9}$, et donc $E = \frac{1}{100}E' = \frac{313}{900}$.
 		\item 
-		La relation $10^9 G = 123456789 + G$ donne $G = \frac{123456789}{999999999}$.
+		La relation $10^9 E = 123~456~789 + E$ donne $E = \frac{123~456~789}{999~999~999}$.
 	\end{enumerate}
 }
 
 \exe{, difficulty=1}{
 	Déterminer le développement décimal de $\frac1{11}$ sans calculatrice.
 }{exe:111-dec}{
-	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $\dfrac{100}{11} = 9 + \dfrac1{11}$ et $n_2=9$.
+	Posons 
+		\[ \dfrac{1}{11} = 0,n_1 n_2 n_3 n_4 \dots. \]
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $n_2=9$, et $\frac1{11} = 0,n_3n_4n_5\dots$.
 	D'où
 		\[ \dfrac1{11} = 0,09~09~09~09~\cdots. \]
 }
@@ -200,6 +199,131 @@
 	\end{multicols}
 }
 
+\newpage
+\fancyhead[C]{\textbf{Exercices d'entraînement}}
+
+
+\exe{}{
+	Donner l'ensemble $A$ des entiers relatifs supérieurs ou égaux à -3 et inférieurs ou égaux à 2.
+	
+	Donner l'ensemble $B$ des éléments de $A$ qui sont positifs ou nuls.
+	
+	A-t-on $A \subseteq B$ ? $B \subseteq A$ ?
+}{exe:set1E}{
+	\begin{multicols}{2}
+		$A = \bigset{ -3 ; -2 ; -1 ; 0 ; 1 ; 2}$
+		
+		$B = \bigset{ 0 ; 1 ; 2 }$
+	\end{multicols}
+	On a $B \subseteq A$ car tous les éléments de $B$ sont des éléments de $A$, et $A \not\subseteq B$ car l'inverse est faux (7 appartient à $A$ mais pas à $B$, par exemple).
+}
+
+\exe{}{
+	Décrire l'ensemble $A$ de l'exercice \ref{exe:set1} sous les formes $\bigset{ n \in \Z \tq \dots }$.
+	
+	Décrire l'ensemble $B$ de l'exercice \ref{exe:set1} sous la forme $\bigset{ n \in A \tq \dots }$.
+}{exe:set2E}{
+	\begin{multicols}{2}
+		$A = \bigset{ n \in \Z \tq -3 \leq n \leq 2}$
+		
+		$B = \bigset{ n \in A \tq n\geq0 }$
+	\end{multicols}
+}
+
+\exe{}{
+	Sans calculatrice, donner le développement décimal des fractions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac1{100}$
+		\item $\dfrac3{5}$
+		\item $\dfrac2{10^{1}}$
+		\item $\dfrac7{2}$
+		\item $\dfrac{7}{20}$
+		\item $\dfrac{31}{200}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimauxE}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{100} = 0,01$
+		\item $\dfrac3{5} = 0,6$
+		\item $\dfrac2{10^{1}} = 0,2$
+		\item $\dfrac7{2} = 3,5$
+		\item $\dfrac{7}{20} = 0,35$
+		\item $\dfrac{31}{200} = 0,062$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Sans calculatrice, écrire les nombres suivants en notation scientifique.
+		
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 300
+		\item 14
+		\item 5 034 000
+		\item 0,801
+		\item 0,031 415
+		\item 70,000 03
+	\end{enumerate}
+	\end{multicols}
+}{exe:notation-scientifiqueE}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item $300 = 3 \times 10^2$
+		\item $14 = 1,4\times10^1$ 
+		\item $5~034~000 = 5,034 \times 10^6$
+		\item $0,801 = 8,01 \times 10^{-1}$
+		\item $0,031~415 = 3,1415\times10^{-2}$
+		\item $70,000~03 = 7,000~003\times10^1$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Montrer, à l'aide du cours, que $\frac1{30}$ n'est pas décimal.
+}{exe:nondecimal0E}{
+	Comme $\frac1{30} = \frac1{10} \times \frac13$, son développement décimal est celui de $\frac13$ décalé d'une décimale vers la droite.
+	D'après le cours, son développement décimal est infini.
+}
+
+\exe{, difficulty=2}{
+	Montrer que $\frac1{11}$ n'est pas décimal.
+}{exe:nondecimal2E}{
+	D'après l'exercice \ref{exe:nondecimal2}, il s'agit de montrer qu'aucune puissance de 10 n'est multiple entier de 11.
+	
+	Or, d'une part, 99, 9999, 999999, ... sont multiples de 11, donc l'entier avant les puissances paires de 10 sont multiples de 11.
+	Les puissances paires de 10 ne sont donc pas multiples de 11.
+	
+	Et d'autre part, 11, 1001, 100001, ... sont multiples de 11 (car 0, 990, 99990 le sont).
+	L'entier après chaque puissance impaire de 10 est donc multiple de 11, et celle-ci ne peut donc pas être multiple de 11.
+}
+
+\exe{}{
+	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
+	\begin{align*}
+		A = 0,123123123{\dots} &&
+		B = 0,9999{\dots}
+	\end{align*}
+}{exe:dev-to-fractionE}{
+	\begin{enumerate}[label=\Alph*.]
+		\item
+		La relation $1000A = 123 + A$ donne $A = \frac{123}{999} = \frac{41}{333}$.
+		\item 
+		La relation $10B = 9 + B$ donne $9B = 9$ et $B=1$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\frac{12}{22}$ sans calculatrice.
+}{exe:113-dec}{
+	Posons 
+		\[ \dfrac{12}{22} = 0,n_1 n_2 n_3 n_4 \dots. \]
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 5$, $n_2=4$, et $\frac{12}{22} = 0,n_3 n_4 n_5\dots$.
+	D'où
+		\[ \dfrac{12}{22} = 0,54~54~54~54~\cdots. \]
+}
 
 %%%%%%%%%%%%
 
