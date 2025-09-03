@@ -1,0 +1,94 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Représenter des points dans le plan en Python}}
+\fancyhead[R]{\today}
+
+Le but de ce document est d'automatiser l'exercice \ref{exe:milieu-segment} de la feuille « Plan cartésien ».
+Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (en ignorant les erreurs probables du programmeur débutant).
+
+\setcounter{Exercise}{11}
+\exe{}{
+	Représenter les points $A(1;1)$ et $B(3;-1)$ dans un repère orthonormé.
+	Représenter le point
+		\[ \lambda A + (1-\lambda)B, \]
+	pour certaines valeurs de $\lambda$ (lu « lambda ») entre 0 et 1.
+}{exe:milieu-segment}{}
+
+
+\subsection*{Stocker un nombre}
+
+Il faut utiliser le point à la place de la virgule pour séparer la partie décimale de la partie entière des nombres. C'est la notation utilisée notamment en Angleterre, aux États-Unis, en Inde, et en Chine\footnote{Voir la carte \href{https://en.wikipedia.org/wiki/Decimal_separator\#Conventions_worldwide}{https://en.wikipedia.org/wiki/Decimal\_separator\#Conventions\_worldwide}.}.
+	\[ \dfrac12 = 0.5 \] 
+Lorsqu'on écrit $x=0.5$, la valeur à droite du signe « = » est stocké dans la variable à gauche.
+
+\warning Le signe « = » a un sens différent qu'en mathématiques. Il sert uniquement à stocker la valeur de droite dans la variable de gauche.
+
+\subsection*{Définir et stocker une liste de nombres}
+
+Une liste de nombres est créée avec des crochets. Les éléments sont séparés par des virgules.
+
+Le signe « = » stocke la liste à droite dans la variable à gauche.
+
+\texttt{list = [0, 1, 0.1, 0.5, 0.6]}
+
+\subsection*{Parcourir une liste}
+
+Pour parcourir une liste, on utilise la boucle \emph{for}.
+
+Pour chaque élément de la liste, l'élément est stocké dans la variable, et tout le bloc est executé.
+
+L'indentation est importante en Python car elle définit quelles lignes appartiennent ou non au bloc.
+
+\subsection*{Multiplication est addition}
+
+\texttt{x = $\lambda$*1 + (1-$\lambda$)*3}
+
+\texttt{y = $\lambda$*1 + (1-$\lambda$)*(-1)}
+
+\subsection*{Représentation dans un repère}
+
+\texttt{import matplotlib.pyplot as plt}
+
+\texttt{plt.scatter(x,y)}
+
+\texttt{plt.show()}
+
+\subsection*{Programme final}
+
+\vspace{10cm}
+
+\subsection*{Améliorations possibles}
+
+Ajouter un quadrillage avec 
+\texttt{plt.grid()}.
+
+Remplacer la liste par \texttt{liste = [i/100 for i in range(101)]}.
+
+Mettre le point en couleur pour connaître la valeur de $\lambda$.
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+
+
+\begin{multicols}{2}
+	\python{segment}
+	\columnbreak
+	\centering
+	\includegraphics[scale=.7]{segment.png}
+\end{multicols}
+
+\begin{multicols}{2}
+	\python{segment-ameliore}
+	\columnbreak
+	\centering
+	\includegraphics[scale=.6]{segment-ameliore.png}
+\end{multicols}
+
+\end{document}
