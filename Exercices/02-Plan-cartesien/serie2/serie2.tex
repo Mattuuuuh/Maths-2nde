@@ -8,7 +8,7 @@
 \fancyhead[C]{\textbf{Représenter des points dans le plan en Python}}
 \fancyhead[R]{\today}
 
-Le but de ce document est d'automatiser l'exercice \ref{exe:milieu-segment} de la feuille « Plan cartésien ».
+Le but de ce document est d'automatiser l'exercice \ref{exe:milieu-segment} de la feuille « Plan cartésien » à l'aide de Python.
 Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (en ignorant les erreurs probables du programmeur débutant).
 
 \setcounter{Exercise}{11}
@@ -20,56 +20,114 @@ Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (e
 }{exe:milieu-segment}{}
 
 
-\subsection*{Stocker un nombre}
+\setlength\columnsep{30pt}
 
-Il faut utiliser le point à la place de la virgule pour séparer la partie décimale de la partie entière des nombres. C'est la notation utilisée notamment en Angleterre, aux États-Unis, en Inde, et en Chine\footnote{Voir la carte \href{https://en.wikipedia.org/wiki/Decimal_separator\#Conventions_worldwide}{https://en.wikipedia.org/wiki/Decimal\_separator\#Conventions\_worldwide}.}.
-	\[ \dfrac12 = 0.5 \] 
-Lorsqu'on écrit $x=0.5$, la valeur à droite du signe « = » est stocké dans la variable à gauche.
+\subsection*{Stocker et afficher un nombre}
+
+\begin{multicols}{3}
+	\noindent
+	Lorsqu'on écrit \texttt{x=0.5}, la valeur à droite du signe « = » est stockée dans la variable à gauche.
+	%\columnbreak
+	
+	\noindent
+	La fonction \texttt{print(x)} permet d'afficher la valeur de la variable \texttt{x}.
+
+	\columnbreak
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{print}
+	\end{minipage}
+\end{multicols}
+
+\warning Il faut utiliser le point à la place de la virgule pour séparer la partie décimale de la partie entière des nombres.
 
 \warning Le signe « = » a un sens différent qu'en mathématiques. Il sert uniquement à stocker la valeur de droite dans la variable de gauche.
 
+
 \subsection*{Définir et stocker une liste de nombres}
 
-Une liste de nombres est créée avec des crochets. Les éléments sont séparés par des virgules.
+\begin{multicols}{2}
+	Une liste de nombres est créée avec des crochets. Les éléments sont séparés par des virgules.
 
-Le signe « = » stocke la liste à droite dans la variable à gauche.
-
-\texttt{list = [0, 1, 0.1, 0.5, 0.6]}
+	%Le signe « = » stocke la liste à droite dans la variable à gauche.
+	\columnbreak
+	\centering
+	\begin{minipage}{.2\textwidth}
+	\python{list}
+	\end{minipage}
+\end{multicols}
 
 \subsection*{Parcourir une liste}
 
-Pour parcourir une liste, on utilise la boucle \emph{for}.
+\begin{multicols}{2}
+	Pour parcourir une liste, on utilise la boucle \texttt{for <variable> in <liste>}.
+	Pour chaque élément de la liste, l'élément est stocké dans la variable, et tout le bloc est executé.
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.3\textwidth}
+	\python{boucle}
+	\end{minipage}
+\end{multicols}
 
-Pour chaque élément de la liste, l'élément est stocké dans la variable, et tout le bloc est executé.
-
-L'indentation est importante en Python car elle définit quelles lignes appartiennent ou non au bloc.
+L'\textbf{indentation} (décalage par ajout d'espaces vides) est importante en Python car elle définit quelles lignes appartiennent ou non au bloc executé à chaque itération de la boucle.
+On utilise la touche de tabulation \textbf{Tab} à gauche du clavier pour ajouter ces espaces vides (ou on appuie 4 fois sur la touche espace).
 
 \subsection*{Multiplication est addition}
 
-\texttt{x = $\lambda$*1 + (1-$\lambda$)*3}
+\begin{multicols}{2}
+	Le signe \texttt{+} est utilisé pour l'addition.
+	Le signe \texttt{*} est utilisé pour la multiplication.
+	
+	L'ordre d'opérations et les parenthèses sont pareil qu'en mathématiques.
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{operations}
+	\end{minipage}
+\end{multicols}
 
-\texttt{y = $\lambda$*1 + (1-$\lambda$)*(-1)}
+\newpage
 
 \subsection*{Représentation dans un repère}
 
-\texttt{import matplotlib.pyplot as plt}
+La librairie \texttt{matplotlib} est utile pour grapher des courbes et des points.
 
-\texttt{plt.scatter(x,y)}
+\begin{multicols}{2}
+	La première ligne importe la librairie et la nomme \texttt{plt}.
+	La deuxième ligne ajoute le point $(3 ; 4)$.
+	La troisième ligne affiche le repère dans une nouvelle fenêtre.
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.3\textwidth}
+	\python{scatter}
+	\end{minipage}
+\end{multicols}
 
-\texttt{plt.show()}
-
-\subsection*{Programme final}
+\subsection*{Enregistrer le repère obtenu}
 
 \vspace{10cm}
 
 \subsection*{Améliorations possibles}
 
-Ajouter un quadrillage avec 
-\texttt{plt.grid()}.
-
-Remplacer la liste par \texttt{liste = [i/100 for i in range(101)]}.
-
-Mettre le point en couleur pour connaître la valeur de $\lambda$.
+Quelques améliorations possibles sont proposées avec des exemples d'implémentation.
+\begin{multicols}{2}
+	\begin{itemize}
+		\item Ajouter un quadrillage au repère.
+		\item Centrer les axes des abscisses et des ordonnées.
+		\item Ajuster la fenêtre en définissant les $x$ et $y$ affichés.
+		\item Changer la couleur du point en fonction de la valeur de $\lambda$.
+	\end{itemize}
+	\vfill\null
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.3\textwidth}
+	\python{ameliorations}
+	\end{minipage}
+\end{multicols}
 
 %%%%%%%%%%%
 
@@ -77,18 +135,20 @@ Mettre le point en couleur pour connaître la valeur de $\lambda$.
 \fancyhead[C]{\textbf{Solutions}}
 
 
+\setlength\columnsep{-100pt}
 \begin{multicols}{2}
 	\python{segment}
+	
 	\columnbreak
 	\centering
 	\includegraphics[scale=.7]{segment.png}
 \end{multicols}
-
+\hrule
 \begin{multicols}{2}
 	\python{segment-ameliore}
 	\columnbreak
 	\centering
-	\includegraphics[scale=.6]{segment-ameliore.png}
+	\includegraphics[scale=.7]{segment-ameliore.png}
 \end{multicols}
 
 \end{document}
