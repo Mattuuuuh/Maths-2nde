@@ -1,0 +1,331 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Plan cartésien}}
+\fancyhead[R]{\today}
+
+\exemulticols{}{
+	Donner approximativement les coordonnées de chaque point du repère ci-contre.
+	\begin{align*}
+		&A(\phantom{2} ; \phantom{3}) \\[10pt]
+		&B \\[10pt]
+		&C \\[10pt]
+		&D \\[10pt]
+		&E
+	\end{align*}
+	\vfill\null
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,2) node[above left] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (2.5,-1) node[below right] {$C$};
+			\addplot[PURPLE_E, mark=*, mark size = 1] (0,-2) node[right] {$D$};
+			\addplot[GOLD, mark=*, mark size = 1] (-2.5,0) node[above] {$E$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:lecture-coord}{
+	\begin{align*}
+		A(2 ; 3) && B(-1 ; 2) && C(2,5 ; -1) &&
+		D(0;-2) && E(-2,5 ; 0)
+	\end{align*}
+}
+
+
+\exe{}{
+	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
+}{exe:norme}{
+	\begin{align*}
+		&\norm{(0 ; 0)}^2 = 0^2 + 0^2 = 0, && \norm{(3 ; 4)}^2 = 3^2 + 4^2 = 9 + 16 = 25, \\
+		&\norm{(-3 ; -4)}^2 = (-3)^2 + (-4)^2 = 9 + 16 = 25, && \norm{(1 ; -1)}^2 = 1^2 + (-1)^2 = 2.
+	\end{align*}
+}
+
+\exe{}{
+	Tracer un repère et y placer les points suivants. Il est recommandé de calculer les coordonnées des points à placer avant de tracer le repère afin de décider d'un pas adéquat.
+	\begin{multicols}{3}
+	\begin{enumerate}[leftmargin=50pt]
+		\item $\point{A}{2}{3}$
+		\item $\point{B}{-1}{3}$
+		\item $C = A+B$
+		\item $D=A-B$
+		\item $E=\frac12A$
+		\item $F=-3B$
+	\end{enumerate}
+	\end{multicols}
+}{exe:points-à-placer}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1.5, xmax=3.5, ymin=-9.5, ymax=6.5, ytick = {-8, -6, ..., 6}, xtick = {-1, 0, ..., 3}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, x=2cm]
+						
+			\addplot[RED_E, mark=*, mark size = 1] (2,3) node[right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,3) node[left] {$B$};
+			\addplot[RED_E, mark=*, mark size = 1] (1,6) node[below] {$C$};
+			\addplot[RED_E, mark=*, mark size = 1] (3,0) node[above] {$D$};
+			\addplot[RED_E, mark=*, mark size = 1] (1,1.5) node[left] {$E$};
+			\addplot[RED_E, mark=*, mark size = 1] (3,-9) node[right] {$F$};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
+	On considère le triangle de sommets $A(1;2), B(-3 ; 5), C(-5 ; -6)$.
+	\begin{enumerate}
+		\item Tracer le triangle $ABC$ dans un repère.
+		\item Calculer le carré de chacun des côtés. 
+		\item Que dire du triangle ?
+	\end{enumerate}
+}{exe:Trex}{
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -5.1, xmax=1.1, ymin=-6.1, ymax=5.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=20pt, y=20pt]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (1,2) node[above right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-3,5) node[above left] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (-5,-6) node[below right] {$C$};
+			
+			\draw[-, thick] (axis cs:1,2) -- (axis cs:-3,5) -- (axis cs:-5,-6) -- (axis cs:1,2);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item[2.] 
+			\begin{align*}
+				AB^2 &= \norm{A-B}^2 = \norm{(4 ; -3)}^2 = 16 + 9 = 25, \\
+				AC^2 &= \norm{A-C}^2 = \norm{(6 ; 8)}^2 = 36 + 64 = 100, \\
+				BC^2 &= \norm{B-C}^2 = \norm{(2 ; 11)}^2 = 4 + 121 = 125.
+			\end{align*}
+		\item[3.] D'après la réciproque du théorème de Pythagore, le triangle est rectangle en $A$ car $BC^2 = AB^2 + AC^2$.
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Tracer dans un repère l'ensemble des points à distance 3 de l'origine.
+}{exe:C03}{
+	Cet ensemble forme un cercle de rayon 3 centré en l'origine.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-3.1, ymax=3.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=30pt, y=30pt]
+			\draw[BLUE_E, thick,radius=90pt] (axis cs:0,0) circle node[pos=0, above right] {$\Vert x \Vert = 3$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{, difficulty=2}{
+	Combien de points à coordonnées entières du plan sont à distance $5$ de l'origine du repère ?
+}{exe:norm5}{
+	L'exercice \ref{exe:norme} nous en donne déjà 2 : $(3 ; 4)$ et $(-3 ; -4)$, dont la norme vaut $25 = 5^2$.
+	On en déduit facilement que $(-3 ; 4)$ et $(3 ; -4)$ fonctionnent aussi, car le carré ignore le signe.
+	
+	En échangeant $x$ et $y$, on trouve aussi les points $(\pm4 ; \pm3)$, où $\pm$ signifie « plus ou moins ».
+	
+	Cherchons-en d'autres : $(x ; y)$ doit vérifier $x^2 + y^2 = 25$ avec $x, y$ entiers.
+	En testant des valeurs de $x=0 ; 1 ; 2 ; 5$, on trouve les points $(0 ; 5), (0 ; -5)$, et $(5 ; 0), (-5 ; 0)$.
+	
+	Il existe donc finalement 12 tels points.
+}
+
+
+\exe{, difficulty=1}{
+	Soient $\point{G}{-4}{-1}$ et $\point{D}{-1}{3}$ et $x\in\R$ un paramètre réel.
+	Pour quel(s) $x\in\R$ est-ce que la longueur du segment entre les points $xG$ et $xD$ est-elle égale à $5$ ?
+}{exe:milieu-x}{
+	La longueur du segment est donnée par
+		\[ 5 = \sqrt{(-4x + x)^2 + (-x - 3x)^2} = \sqrt{9x^2 + 16x^2} = \sqrt{25x^2}. \]
+	En mettant l'équation au carré, on trouve
+		\begin{align*}
+			25 = 25x^2 && \iff &&  x^2 = 1.
+		\end{align*}
+	D'où on trouve les solutions $x=1$ ou $x=-1$.
+}
+
+\begin{remarque}
+	On supposera l'existence d'un nombre positif noté $\sqrt3$ dont le carré vaut 3 pour résoudre les exercices suivants.
+	En d'autres termes, $\sqrt3 > 0$, et $\bigl(\sqrt3\bigr)^2 = 3$.
+\end{remarque}
+
+\exe{}{
+	Considérons les points $\point{A}{1}{1}, \point{B}{3}{1}, C\bigl(2 ; \sqrt{3}+1\bigr)$.
+	Démontrer que le triangle $ABC$ est équilatéral en calculant le carré de la longueur de chaque côté.
+	
+	\emph{Un triangle équilatéral est un triangle dont les trois côtés ont la même longueur}.
+}{exe:équilatéral}{
+	On calcule 
+		\begin{align*}
+			AB^2 = {2^2 + 0^2} = 4, && AC^2 = {1^2 + \sqrt{3}^2} = 4, && BC^2 = 4.
+		\end{align*}
+}
+
+\exe{}{
+	Montrer que $(-2)^2 = 4$ et en déduire qu'il n'existe pas qu'une seule solution réelle à l'équation $x^2 = 4$.
+}{exe:carre4}{
+	Par définition, $(-2)^2 = (-2) \cdot (-2) = 4$.
+	Comme $2^2 = 4$, il existe au moins deux solutions réelles à l'équation $x^2 = 4$ : 2 et $-2$.
+}
+
+\exe{, difficulty=2}{
+	Montrer que $x^2 - 4 = (x-2)(x+2)$ pour tout $x\in\R$ et en déduire les deux seules solutions réelles de l'équation $x^2 = 4$.
+}{exe:carre4-all}{
+	Par distributivité, $(x-2)(x+2) = x^2 - 4$.
+	Il suit que $x^2 = 4 \iff x^2 - 4 = 0 \iff (x-2)(x+2) = 0$.
+	Or le produit de deux nombre n'est nul que si l'un des deux est nul.
+	On a donc soit $x-2=0 \iff x=2$, soit $x+2=0 \iff x=-2$.
+}
+
+\exe{, difficulty=2}{
+	Soient $A(1;1), B(3;1)$ deux points du plan, et $C(2;x)$ un point dépendant d'un paramètre réel $x\in\R$.
+	Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ? 
+}{exe:équilatéral2}{
+	On souhaite que $AB = AC = BC$ soit vérifié, c'est-à-dire que
+		\[ 2 = \sqrt{1 + (1-x)^2} = \sqrt{1 + (1-x)^2}. \]
+	La deuxième égalité est redondante et, en mettant au carré, on trouve
+		\begin{align*}
+		4 = 1 + (1-x)^2 && \iff && (1-x)^2 = 3.
+		\end{align*}
+	En reprenant l'exercice \ref{exe:carre4-all}, on trouve deux solutions :
+	\vspace{-20pt}
+		\begin{multicols}{2}
+		\begin{align*}
+			1-x &= \sqrt{3}, \\
+			x &= 1-\sqrt{3}.
+		\end{align*}
+			
+		\begin{align*}
+			1-x &= -\sqrt{3}, \\
+			x &= 1 +\sqrt{3}.
+		\end{align*}
+		\end{multicols}
+}{}
+
+
+\exe{}{
+	Représenter les points $A(1;1)$ et $B(3;-1)$ dans un repère orthonormé.
+	Représenter le point
+		\[ \lambda A + (1-\lambda)B, \]
+	pour certaines valeurs de $\lambda$ (lu « lambda ») entre 0 et 1.
+	
+	Quel $\lambda$ choisir pour obtenir 
+		\begin{multicols}{2}
+		\begin{itemize}
+			\item le point $A$ ?
+			\item le point $B$ ?
+			%\item le milieu du segment $[AB]$ ?
+			\item le point $C\left(\dfrac32; \dfrac12\right)$ ?
+		\end{itemize}
+		\end{multicols}
+}{exe:milieu-segment}{
+	On part de $\lambda=0$ et on augment petit à petit vers 1.
+	\begin{itemize}
+		\item
+		En $\lambda = 0$, on trouve $B$.
+		\item
+		En $\lambda = 0,25$, on trouve $0,25A + 0,75B = (0,25 ; 0,25) + (2,25 ; -0,75) = (2,5 ; -0,5)$
+		\item
+		En $\lambda = 0,5$, on trouve $0,5 A + 0,5 B = (0,5 + 1,5 ; 0,5 - 0,5) = (2 ;0)$
+		\item
+		En $\lambda = 0,75$, on trouve $0,75A + 0,25B = (0,75 ; 0,75) + (0,75 ; -0,25) = (1,5 ; 0,5) = C$
+		\item
+		En $\lambda=1$, on trouve $A$.
+	\end{itemize}
+	On trace en fait le segment $[AB]$ en choisissant $\lambda$ entre 0 et 1.
+	
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -0.1, xmax=3.1, ymin=-1.1, ymax=1.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]
+			\addplot[BLUE_E, mark=*, mark size = 1] (1,1) node[left] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (3,-1) node[right] {$B$};
+			\draw[-, thick] (axis cs:1,1) -- (axis cs:3,-1);
+		\end{axis}
+	\end{tikzpicture}
+}
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
+		\end{align*}
+	Démontrer que le quadrilatère $BACD$ est un parallélogramme en comparant le milieu de ses deux diagonales.
+	
+	\emph{Un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu}.
+}{exe:parallélogramme}{
+	Le milieu du segment $[BC]$ est donné par
+		\[ M = \dfrac12 (B+C) = (-1;-1),\]
+	et le milieu du segment $[AD]$ est donné par
+		\[ M' = \dfrac12 (A+D) = (-1;-1) = M.\]
+	Le quadrilatère est donc bien un parallélogramme.
+
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -.1, xmax=2.1, xtick={ -3, ..., 5}, ymin=-.1, ymax=3.1, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false, x=5cm]
+			
+			\addplot[BLUE_E, mark=*, mark size = 1] (0,0) node[above left] {$A(0;0)$};
+			\addplot[RED_E, mark=*, mark size = 1] (0,3) node[above left] {$B(0;3)$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (1,2) node[below] {$C(1;2)$};
+			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$D(2;3)$};
+			\addplot[RED_E, mark=*, mark size = 1] (2,0) node[above right] {$E(2;0)$};
+			
+			\draw[-, thick,dashed] (axis cs:0,0) -- (axis cs:0,3);
+			\draw[-, thick, dashed] (axis cs:0,3) -- (axis cs:1,2);
+			\draw[-, thick,dashed] (axis cs:1,2) -- (axis cs:2,3);
+			\draw[-, thick,dashed] (axis cs:2,3) -- (axis cs:2,0);
+		\end{axis}
+	\end{tikzpicture}
+}
+
+\exe{, difficulty=1}{
+	Soient $\point{A}12$ et $\point{M}3{-1}$ deux points du plan.
+	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+		\end{align*}
+	Par suite,
+		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+	
+}
+
+\exe{, difficulty=1}{
+	Soient $\point{A}{-\frac32}{\frac53}$ et $\point{M}{-\frac53}{-1}$ deux points du plan.
+	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+		\end{align*}
+	Par suite,
+		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+	
+}
+
+\exe{, difficulty=2}{
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(3;1)$ et $B(-4;-1)$ ?
+}{exe:C-on-AB}{
+	On souhaite savoir si $O = \lambda A + (1-\lambda)B$ pour un certain $\lambda$ entre 0 et 1.
+	C'est-à-dire, si 
+		\[ (0 ; 0) = \lambda(3 ;1) + (1-\lambda)(-4;-1) = \bigl(3\lambda - 4(1-\lambda) ; \lambda - (1-\lambda) \bigr) = \bigl(7\lambda - 4 ; 2 \lambda - 1 \bigr). \]
+	
+	D'une part, en $x$, il faut que $7\lambda- 4 = 0 \iff \lambda = \frac47$.
+	D'autre part, en $y$, il faut que $2\lambda - 1 = 0 \iff \lambda = \frac12$.
+	
+	Comme ces deux valeurs ne sont pas les mêmes, un seul $\lambda$ ne peut pas fonctionner, et $O$ n'appartient pas au segment $[AB]$.
+}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
