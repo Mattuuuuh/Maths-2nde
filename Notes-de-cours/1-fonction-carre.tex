@@ -571,6 +571,30 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }{dfn:valeur-absolue}
 
 \exe{}{
+	Tracer le graphe de la fonction valeur absolue sur $[-5 ; 5]$.
+}{exe:graph-vabs}{
+	\begin{center}
+	\includegraphics[page=6]{figures/fig-carre.pdf}
+	\end{center}
+}
+
+\mprop{}{
+	La valeur absolue est toujours positive ou nulle.
+	
+	On a en fait
+		\[ |x| =  \begin{cases*} x & si $x \geq 0$, \\ -x  & si $x \leq 0$. \end{cases*}. \]
+}{prop:caractérisation-valeur-absolue}
+
+\pf{}{
+	Si $x\geq0$, alors $x$ est le nombre positif tel que, mis au carré, il vaut $x^2$.
+	C'est donc la racine carrée de $x^2$.
+
+	Si $x\leq0$, le même raisonnement ne tient pas, car la racine carrée de $x^2$ est le nombre \emphindex{positif} tel que, mis au carré, il vaut $x^2$.
+	Le nombre $-x$ fonctionne ici : il est positif, et $(-x)^2 = (-1)^2 x^2 = x^2$.
+	Par conséquent, $\sqrt{x^2} = -x$ dans ce cas.
+}
+
+\exe{}{
 	Écrire les nombres suivants sans les barres de valeur absolue.
 	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*)]
@@ -596,41 +620,10 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{}{
-	Tracer la graphe de la fonction valeur absolue sur $[-5 ; 5]$.
-}{exe:graph-vabs}{
-	\begin{center}
-	\includegraphics[page=6]{figures/fig-carre.pdf}
-	\end{center}
-}
-
-\mprop{}{
-	La valeur absolue est toujours positive ou nulle.
-	
-	On a en fait
-		\[ |x| =  \begin{cases*} x & si $x \geq 0$, \\ -x  & si $x \leq 0$. \end{cases*}. \]
-}{prop:caractérisation-valeur-absolue}
-
-\pf{}{
-	Si $x\geq0$, alors $x$ est le nombre positif tel que, mis au carré, il vaut $x^2$.
-	C'est donc la racine carrée de $x^2$.
-
-	Si $x\leq0$, le même raisonnement ne tient pas, car la racine carrée de $x^2$ est le nombre \emphindex{positif} tel que, mis au carré, il vaut $x^2$.
-	Le nombre $-x$ fonctionne ici : il est positif, et $(-x)^2 = (-1)^2 x^2 = x^2$.
-	Par conséquent, $\sqrt{x^2} = -x$ dans ce cas.
-}
-
-\nt{
-	La fonction de la proposition \ref{prop:caractérisation-valeur-absolue} est définie algébriquement \emphindex{par morceaux}.
-	Ce type de définition a été utilisé notamment par Dirichlet\footnotemark lors de l'étude générale de fonctions non lisses comme
-		\[ 1_{|\Q}(x) = \begin{cases*} 1 & si $x\in\Q$, \\ 0 & sinon. \end{cases*}. \]
-}
-
-% WRONG PAGE :(((
-\footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805 - 1859), mathématicien prussien né à Düren (allemagne de l'ouest actuelle).}
-
-\exe{, difficulty=2}{
-	Donner la courbe représentative de la fonction $1_{|\Q}$ de la remarque ci-dessus sur le domaine $\D=[0;1]$.
-}{exe:ind-Q}{
+	Montrer que la \emphindex{fonction signe} définie pour $x\neq0$ par
+		\[  \text{signe}(x) =  \begin{cases*} 1 & si $x > 0$, \\ -1  & si $x < 0$. \end{cases*} \]
+	vérifie $\text{signe}(x) = \frac{x}{|x|} = \frac{|x|}{x}$.
+}{exe:sign-function}{
 	TODO
 }
 
@@ -665,6 +658,23 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{, difficulty=2}{
 	Trouver tous les réels $x\in\R$ vérifiant $|x-2| = |2 + 3x|$.
 }{exe:eq-vabs}{
+	TODO
+}
+
+
+\nt{
+	La fonction de la proposition \ref{prop:caractérisation-valeur-absolue} est définie algébriquement \emphindex{par morceaux}.
+	Ce type de définition a été utilisé notamment par Dirichlet\footnotemark lors de l'étude générale de fonctions non lisses comme
+		\[ 1_{|\Q}(x) = \begin{cases*} 1 & si $x\in\Q$, \\ 0 & sinon. \end{cases*}. \]
+}
+
+% WRONG PAGE :(((
+\footnotetext{Johann Peter Gustav Lejeune Dirichlet (1805 - 1859), mathématicien prussien né à Düren (allemagne de l'ouest actuelle).}
+
+\exe{, difficulty=2}{
+	Donner la courbe représentative de la fonction $1_{|\Q}$ de la remarque ci-dessus sur le domaine $\D=[0;1]$.
+}{exe:ind-Q}{
+	TODO
 }
 
 \thm{}{
