@@ -555,6 +555,19 @@
 		\[ \N \subseteq \Z \subseteq \DD \subseteq \Q \subseteq \R. \]
 }
 
+\exe{, difficulty=2}{
+	On considère comme admis que le nombre $\pi$, périmètre d'un cercle de diamiètre 1, n'est pas rationnel.
+	Montrer que les nombres $2\pi, -\pi, \frac{3\pi}4, \pi+3$, et $\frac1{\pi}$ ne sont pas rationnels non plus.
+}{exe:irr-stable-pi}{
+	Les trois premiers nombres sont de la forme $\frac{a}{b}\pi$ avec $a, b$ entiers (et $b$ non nul).
+	À supposer qu'un tel nombre soit rationnel, on aurait $\frac{a}{b}\pi = \frac{p}{q}$, avec $p, q$ entiers.
+	Il suivrait alors que $\pi = \frac{pb}{aq} \in\Q$, chose qu'on sait fausse.
+	
+	En procédant idem, si $\pi+3 = \frac{a}b$ est rationnel, alors $\pi = \frac{a-3b}{b}$ doit l'être aussi.
+	
+	Finalement, si $\frac{1}{\pi} = \frac{a}b$ est rationnel, alors $a \neq 0$ et $\pi = \frac{b}{a}$ doit aussi l'être.
+}
+
 \thm{}{
 	Quelque soit $x\in\R$ réel et quelque soit $n\in\N$, il existe $r, s \in\Q$ rationnels tels que
 		\begin{align*}
