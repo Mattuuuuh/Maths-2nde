@@ -200,7 +200,7 @@
 }
 
 \newpage
-\fancyhead[C]{\textbf{Exercices d'entraînement}}
+\fancyhead[C]{\textbf{Exercices supplémentaires}}
 
 
 \exe{}{
@@ -323,6 +323,34 @@
 	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 5$, $n_2=4$, et $\frac{12}{22} = 0,n_3 n_4 n_5\dots$.
 	D'où
 		\[ \dfrac{12}{22} = 0,54~54~54~54~\cdots. \]
+}
+
+\exe{, difficulty=2}{
+	Donner quelques termes en plus de la somme infinie suivante. 
+		\[ \dfrac1{10} + \dfrac1{100} + \dfrac1{1 000} + \dfrac1{10 000} + \dots \]
+	Écrire le nombre en écriture décimale, puis l'exprimer sous forme de fraction de deux entiers comme à l'exercice \ref{exe:dev-to-fraction}.
+}{exe:20}{
+	La somme infinie vaut $0,1111{\dots} = \frac19$.
+}
+
+\exe{, difficulty=2}{
+	Donner quelques termes en plus de la somme infinie suivante.
+		\[ \dfrac12 + \dfrac14 + \dfrac18 + \dfrac1{16} + \dots \]
+	À quoi est-elle égale ? Un résultat entier est attendu.
+}{exe:21}{
+	Posons $S$ cette somme. 
+	En multipliant par $2$, on trouve $2S = 1 + S$, et donc $S=1$.
+}
+
+\exe{, difficulty=2}{
+	On considère la somme finie suivante
+		\[ S = 1 + 2 + 4 + 8 + 16 + \dots + 2^{n-1} +  2^n, \]
+	où $n\in\N$ est un entier naturel.
+	
+	Montrer que $2S = S - 1 + 2^{n+1}$, et en déduire la valeur de $S$ sous forme close (sans points de suspension).
+}{exe:22}{
+	En multpliant par 2, le premier terme (1) disparait, et un nouveau terme ($2^{n+1}$) apparaît.
+	On a donc bien $2S = S -1 + 2^{n+1}$, et donc $S = 2^{n-1} - 1$.
 }
 
 %%%%%%%%%%%%
