@@ -1,14 +1,5 @@
 \input{../preamble.tex}
 
-% SOLUTION SWITCH
-\newif\ifsolutions
-		
-				% ENABLE or DISABLE font change
-				% use XeLaTeX if true
-				\solutionstrue
-				\solutionsfalse
-
-
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
@@ -20,28 +11,6 @@
 
 \def\arraystretch{2}
 \setlength\tabcolsep{5pt}
-
-\ifsolutions
-
-
-\begin{center}
-\begin{tabular}{ | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} |  } 
-  \hline\xrowht{10pt}
-  $\in$ & $\N$ & $\Z$ & $\DD$ & $\Q$  \\ \hline \xrowht{20pt}
-  1 & \checkmark & \checkmark & \checkmark &  \checkmark \\ \hline\xrowht{20pt}
-  -1 & & \checkmark & \checkmark&\checkmark \\ \hline\xrowht{20pt}
-  6,3 & & &\checkmark &\checkmark \\ \hline\xrowht{20pt}
-  $-1,4 \times 10 ^{80}$ & & \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
-  $6,02 \times 10 ^{-23}$ & & & \checkmark&\checkmark \\ \hline\xrowht{20pt} 
-  1/3 & & & &  \checkmark\\  \hline\xrowht{20pt}
-  12/4 & \checkmark& \checkmark& \checkmark& \checkmark\\ \hline \xrowht{20pt}
-  $\sqrt{9}$ & \checkmark& \checkmark& \checkmark&\checkmark \\ \hline \xrowht{20pt}
-  %$\sqrt{2}+1$ & & & & \\ \hline\xrowht{20pt}
-  $2 \pi$ & & & & \\ \hline
-\end{tabular}
-\end{center}
-
-\else
 
 \begin{center}
 \begin{tabular}{ | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} |  } 
@@ -60,33 +29,9 @@
 \end{tabular}
 \end{center}
 
-\fi
-
 \section*{Inclusions d'ensembles}
 
 Un ensemble $A$ est inclus dans un ensemble $B$, noté $A \subseteq B$, dès que tous les éléments de $A$ appartiennent à $B$.
-
-\ifsolutions
-
-
-\begin{center}
-\begin{tabular}{ | P{.2\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} |  } 
-  \hline\xrowht{10pt}
-  $\subset $ & $\N$ & $\Z$ & $\D$ & $\Q$  \\ \hline \xrowht{20pt}
-  $\{ 1, -4 \}$ & & \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
-  $\{ 1 \}$ & \checkmark& \checkmark& \checkmark& \checkmark\\ \hline\xrowht{20pt}
-  $\{ -\frac12, 3 \}$ & & & \checkmark&\checkmark \\ \hline\xrowht{20pt}
-  $\{ 1, 2, \frac62, -\frac13 \}$ & & & &\checkmark \\ \hline\xrowht{20pt}
-  $ \Z$ & & \checkmark&\checkmark &\checkmark \\ \hline\xrowht{20pt}
-  $\{ 2 \pi+4 \} $ & & & & \\ \hline
-  
-\end{tabular}
-\end{center}
-
-\textbf{Conclusion : } $\N \subset \Z \subset \D \subset \Q$.
-
-
-\else
 
 \begin{center}
 \begin{tabular}{ | P{.2\linewidth} | P{.15\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} |  } 
@@ -102,7 +47,47 @@ Un ensemble $A$ est inclus dans un ensemble $B$, noté $A \subseteq B$, dès que
 \end{tabular}
 \end{center}
 
-\fi
 
+\newpage
+\fancyhead[C]{\textbf{Ensembles de nombres}}
+
+
+\def\arraystretch{2}
+\setlength\tabcolsep{5pt}
+
+\begin{center}
+\begin{tabular}{ | P{.15\linewidth} | P{.15\linewidth} | P{.15\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\in$ & $\{ 1 ; 3 ; -1\}$ & $\bigl\{ \frac13 ; \pi ; \pi + 2 \bigr\}$  & $\N$ & $\Z$ & $\DD$ & $\Q$ \\ \hline \xrowht{20pt}
+  1 & \checkmark & & \checkmark &  \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  -1 & \checkmark & & & \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  6,3 & & & & & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $-1,4 \times 10 ^{80}$ & & & & \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $6,02 \times 10 ^{-23}$ & & & & & \checkmark & \checkmark \\ \hline\xrowht{20pt} 
+  $\frac13$ & & \checkmark & & & & \checkmark \\  \hline\xrowht{20pt}
+  $\frac{12}4$ & \checkmark & & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline \xrowht{20pt}
+  $\sqrt{9}$ & \checkmark & & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline \xrowht{20pt}
+  %$\sqrt{2}+1$ & & & & \\ \hline\xrowht{20pt}
+  $\pi$ & & \checkmark & & & & \\ \hline
+\end{tabular}
+\end{center}
+
+\section*{Inclusions d'ensembles}
+
+Un ensemble $A$ est inclus dans un ensemble $B$, noté $A \subseteq B$, dès que tous les éléments de $A$ appartiennent à $B$.
+
+\begin{center}
+\begin{tabular}{ | P{.2\linewidth} | P{.15\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} | P{.1\linewidth} |  } 
+  \hline\xrowht{10pt}
+  $\subseteq $ & $\{ 1 ; \pi ; 3 ; 2\}$ & $\N$ & $\Z$ & $\DD$ & $\Q$  \\ \hline \xrowht{20pt}
+  $\{ 1 ; -4 \}$ & & & \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $\{ 1 \}$ & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $\bigl\{ -\frac12 ; 3 \bigr\}$ & & & & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $\bigl\{ 1, 2 ; \frac62 ; -\frac13 \bigr\}$ & & & & & \checkmark \\ \hline\xrowht{20pt}
+  $ \Z$ & & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline\xrowht{20pt}
+  $\{ \pi \} $ & \checkmark & & & & \\ \hline
+  
+\end{tabular}
+\end{center}
 
 \end{document}
