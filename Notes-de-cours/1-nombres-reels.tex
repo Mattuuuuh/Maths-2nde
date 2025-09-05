@@ -2,6 +2,7 @@
 %!TEX root =0-notes.tex
 
 \chapter{Ensembles de nombres}
+\label{chap:ensembles-nombres}
 
 \section{Nombres entiers, nombres rationnels}
 
@@ -287,7 +288,16 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:notation-scientifique}{
-	TODO
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\alph*)]
+		\item 201 = $2,01 \times10^{2}$
+		\item 10 = $1\times10^{1}$ (ou simplement 10...)
+		\item 123 400 000 = $1,234 \times 10^{8}$
+		\item 0,8 = $8\times10^{-1}$
+		\item 0,000 327 = $3,27 \times 10^{-4}$
+		\item 0,009 000 1 = $9,0001 \times 10^{-3}$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \thm{}{
@@ -604,7 +614,17 @@
 		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & $\square$ & $\square$  \\
 	\end{tabular}
 }{exe:v-f-encadrement}{
-	TODO
+	L'amplitude d'un encadrement $a < x < b$ est donnée par $b-a$.
+	La première proposition est fausse car l'amplitude est de $0,2 = 2 \times 10^{-1}$.
+	Pour la quatrième proposition, on utilise que $0,1 \times 10^{-4} = 10^{-1} \times 10^{-4} = 10^{-5}$.
+
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$2,6 < 2,6457 < 2,8$ est à $10^{-1}$ près & $\times$ & \checkmark  \\
+		$3,14 < 3,1415 < 3,15$ est à $10^{-2}$ près & \checkmark & $\times$  \\
+		$-4,474 < -4,4735 < -4,473$ est à $10^{-3}$ près & \checkmark & $\times$  \\
+		$3,3 \times 10^{-4} < 3,3931 \times 10^{-4} < 3,4 \times 10^{-4}$ est à $10^{-5}$ près & \checkmark & $\times$  \\
+	\end{tabular}
 }
 
 \exe{}{
@@ -618,7 +638,14 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:encadrement}{
-	TODO
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $3,600 \times 10^{-2} < 3,605 \times 10^{-2} < 3,61 \times 10^{-2}$
+		\item $9~850 \times 10^3 < 9~854,698 \times 10^3 < 9~860 \times 10^3$
+		\item $-31,5 < -31,45 < -31,4$
+		\item $-0,01255 < -0,0125 < -0,01245$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{, difficulty=1}{
@@ -629,7 +656,12 @@
 		\item Trouver un encadrement de $\sqrt{5}$ et donner son amplitude.
 	\end{enumerate}
 }{exe:encadrement-phi}{
-	TODO
+	\begin{enumerate}
+		\item L'amplitude est donnée par $0,000~005 = 5 \times 10^{-6}$.
+		\item On multiplie les bornes par 2 puis on soustrait 1, ce qui donne
+			\[ 2,23606 < \sqrt5 < 2,23607, \]
+		un encadrement d'amplitude $10^{-5}$.
+	\end{enumerate}
 }
 
 \thm{de Cantor}{
