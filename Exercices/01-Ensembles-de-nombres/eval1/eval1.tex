@@ -8,25 +8,28 @@
 \fancyhead[C]{\textbf{Évaluation — Ensembles de nombres}}
 \fancyhead[R]{\today}
 
+\null\vspace{-30pt}
 Consignes particulières : 
 \begin{itemize}[label=$\bullet$]
 	\item 
 	La calculatrice est {interdite}.
 	\item 
-	Les exercices \ref{exe:1} et \ref{exe:2} peuvent être faits entièrement sur la feuille d'évaluation.
+	Les exercices \ref{exe:1} et \ref{exe:2} peuvent être faits entièrement sur la feuille d'évaluation. Rendre le sujet avec son nom le cas échéant.
+	%\item 
+	%Toute trace de recherche est prise en compte.
 \end{itemize}
 
 \hrule
 
 \exemulticols{}{
-	Compléter les pointillés en ajoutant un signe d'inclusion ($\subseteq$ ou $\supseteq$) entre les ensembles de nombres ci-contre.
+	Compléter les pointillés en ajoutant un signe d'inclusion ou de non inclusion ($\subseteq$ ou $\not\subseteq$) entre les ensembles de nombres ci-contre.
 }{
 	\begin{center}
 	\def\arraystretch{1.5}
 	\setlength\tabcolsep{10pt}
 	\begin{tabular}{ccc||ccc}
-		$\N$ & \dots & $\Z$ & $\Z$ & \dots & $\N$ \\
-		$\Z$ & \dots & $\Q$ & $\D$ & \dots & $\Q$
+		$\N$ & \dots & $\Z$ & $\Q$ & \dots & $\Z$ \\
+		$\Z$ & \dots & $\R$ & $\DD$ & \dots & $\Q$
 	\end{tabular}
 	\end{center}
 }{exe:1}{
@@ -34,35 +37,82 @@ Consignes particulières :
 }
 
 \exe{, difficulty=1}{
-	Donner deux ensembles $A$ et $B$ vérifiants $A \not\subseteq B$ et $B \not\subseteq A$ : $A$ n'est pas un sous-ensemble de $B$, et $B$ n'est pas un sous-ensemble de $A$.
+	Donner deux ensembles, $A$ et $B$, vérifiant $A \not\subseteq B$ et $B \not\subseteq A$ : $A$ n'est pas inclus dans $B$, et $B$ n'est pas inclus dans $A$.
 }{exe:1.1}{
 	Solution 1.1.
 }
 
 \exe{}{
+	Donner le développement décimal des fractions suivantes.
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac7{100}$
+		\item $\dfrac6{10^{3}}$
+		\item $\dfrac{101}{50}$
+		\item $\dfrac{3}{20}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimaux}{
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac7{100} = 0,07$
+		\item $\dfrac6{10^{3}} = \dfrac6{1000} = 0,006$
+		\item $\dfrac{101}{50} = \dfrac{202}{100} = 2,02$
+		\item $\dfrac{3}{20} = \dfrac{15}{100} = 0,15$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
 	Vrai ou faux ? Cocher la case correspondante.
+	\vspace{-30pt}
 	\begin{center}
 	\begin{tabular}{c c c}
 		\hspace{10cm} & Vrai & Faux \\
 		$\dfrac12 = 0,5$ & $\square$ & $\square$  \\
 		$\dfrac13 = 0,33$ & $\square$ & $\square$  \\
-		$\dfrac13 = 0,33333$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33333$ & $\square$ & $\square$  \\ \vspace{-5pt}
 		$1$ est un nombre rationnel & $\square$ & $\square$  \\
-		Tous les nombres sont rationnels & $\square$ & $\square$  \\
+		Tous les nombres réels sont rationnels & $\square$ & $\square$ 
 	\end{tabular}
 	\end{center}
+	\vspace{-10pt}
 }{exe:2}{
 	Solutions 2.
 }
+
+\exe{, difficulty=2}{
+	On considère comme admis que le nombre $\pi$, périmètre d'un cercle de diamiètre 1, n'est pas rationnel.
+	Montrer que 
+		\begin{enumerate}
+			\item le nombre $\pi + 2$ n'est pas rationnel non plus ; et
+			\item le nombre $2\pi$ n'est pas rationnel non plus.
+		\end{enumerate}
+}{exe:irr-stable-pi}{
+	\begin{enumerate}
+		\item Si $\pi+2 = \frac{a}b$ est rationnel, alors $\pi = \frac{a-2b}{b}$ doit l'être aussi.
+		Ceci contredit l'énoncé.
+	
+		Alternativement, le développement décimal de $\pi=3,1415...$ est non périodique, d'après le cours et par hypothèse.
+		Ajouter 2 ne le change pas : $\pi+2=5,1415...$. Le développement décimal de $\pi+2$ est donc également apériodique, et c'est un nombre irrationnel.
+		
+		\item
+		Si $2\pi = \frac{a}b$ est rationnel, alors $\pi = \frac{a}{2b}$ doit l'être aussi.
+		Ceci contredit l'énoncé.
+		
+		Un argument avec le développement décimal fonctionne bien pour $\pi+2$, ou $100\pi$, mais difficilement pour $2\pi$.
+	\end{enumerate}
+}
+
 
 \exe{}{
 	Donner les éléments de chaque ensemble suivant.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=]
-		\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
-		\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
-		\item $C = \bigset{n \in \Z \tq -1 \leq n \leq 1}$
-		\item $D = \bigset{c \in C \tq \text{$c$ est non nul}}$
+		%\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
+		%\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
+		\item $A = \bigset{n \in \Z \tq -1 \leq n \leq 1}$,
+		\item $B = \bigset{a \in A \tq \text{$a$ non nul}}$.
 	\end{enumerate} 
 	\end{multicols}
 }{exe:3}{
@@ -73,10 +123,10 @@ Consignes particulières :
 	Exprimer les nombres suivants sous forme de fraction d'entiers.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=]
-		\item $A = 0,666...$ ($6$ se répète à l'infini)
+		%\item $A = 0,666...$ ($6$ se répète à l'infini)
 		\item $B = 0,555...$ ($5$ se répète à l'infini)
-		\item $C = 0,020202...$ ($02$ se répète à l'infini)
-		\item $D = 0,1545454...$ ($54$ se répète à l'infini)
+		%\item $C = 0,020202...$ ($02$ se répète à l'infini)
+		\item $A = 1,545454...$ ($54$ se répète à l'infini)
 	\end{enumerate} 
 	\end{multicols}
 }{exe:4}{
@@ -88,11 +138,11 @@ Consignes particulières :
 	\begin{multicols}{3}
 	\begin{enumerate}[label=\alph*)]
 		\item 304
-		\item 100
-		\item 234 500 000
-		\item 0,4
-		\item 0,000 438
-		\item 0,003 000 2
+		%\item 100
+		\item 937 000 500
+		%\item 0,4
+		%\item 0,000 438
+		\item 0,004 000 2
 	\end{enumerate}
 	\end{multicols}
 }{exe:5}{
@@ -104,10 +154,17 @@ Consignes particulières :
 	Soit $k\in\N$ non nul. 
 	On suppose qu'aucune puissance de 10 n'est dans la table de multiplication de $k$.
 	Montrer que $\frac1k$ n'est pas décimal.
-	\\\\
-	\emph{Toute trace de recherche sera prise en compte.}
+%	\\\\
+%	\emph{Toute trace de recherche sera prise en compte.}
 }{exe:6}{
 	Solutions 6.
+}
+
+\exe{, difficulty=3}{
+	Soit $n\in\N$ un entier naturel. Montrer que 
+		\[ 1 + 10 + 10^2 + 10^3 + \cdots + 10^n = \dfrac{10^{n+1} - 1}9. \]
+}{exe:10}{
+	Sol 10.
 }
 
 %%%%%%%%%%%%
