@@ -4,7 +4,7 @@
 
 \begin{document}
 \pagestyle{fancy}
-\fancyhead[L]{Seconde 7}
+\fancyhead[L]{Seconde 5}
 \fancyhead[C]{\textbf{Évaluation — Ensembles de nombres}}
 \fancyhead[R]{\today}
 
@@ -14,7 +14,7 @@ Consignes particulières :
 	\item 
 	La calculatrice est {interdite}.
 	\item 
-	Les exercices \ref{exe:1} et \ref{exe:2} peuvent être faits entièrement sur la feuille d'évaluation. Rendre le sujet avec son nom le cas échéant.
+	Les exercices \ref{exe:1} et \ref{exe:2} peuvent être faits entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
 	%\item 
 	%Toute trace de recherche est prise en compte.
 \end{itemize}
@@ -33,32 +33,44 @@ Consignes particulières :
 	\end{tabular}
 	\end{center}
 }{exe:1}{
-	Solutions 1.
+	On utilise le drapeau $\N \subseteq \Z \subseteq \DD \subseteq \Q \subseteq \R$ d'inclusions strictes vu en cours.
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{10pt}
+	\begin{tabular}{ccc||ccc}
+		$\N$ & $\subseteq$ & $\Z$ & $\Q$ & $\not\subseteq$ & $\Z$ \\
+		$\Z$ & $\subseteq$ & $\R$ & $\DD$ & $\subseteq$ & $\Q$
+	\end{tabular}
+	\end{center}
 }
 
 \exe{, difficulty=1}{
 	Donner deux ensembles, $A$ et $B$, vérifiant $A \not\subseteq B$ et $B \not\subseteq A$ : $A$ n'est pas inclus dans $B$, et $B$ n'est pas inclus dans $A$.
 }{exe:1.1}{
-	Solution 1.1.
+	Pour que $A \not\subseteq B$, il faut que $A$ contienne un élément qui n'appartient pas à $B$.
+	Inversement, $B$ doit contenir un élément qui n'appartient pas à $A$.
+	On peut donc prendre, par exemple, $A = \bigset{1 ; 2}$, et $B = \bigset{1 ; 3}$.
+	
+	Un exemple minimal serait $A = \bigset{1}$, et $B = \bigset{2}$.
 }
 
 \exe{}{
 	Donner le développement décimal des fractions suivantes.
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\roman*), leftmargin=60pt]
-		\item $\dfrac7{100}$
+		\item $\dfrac{12}{100}$
 		\item $\dfrac6{10^{3}}$
 		\item $\dfrac{101}{50}$
-		\item $\dfrac{3}{20}$
+		\item $\dfrac{7}{20}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:dev-decimaux}{
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*)]
-		\item $\dfrac7{100} = 0,07$
+		\item $\dfrac{12}{100} = 0,12$
 		\item $\dfrac6{10^{3}} = \dfrac6{1000} = 0,006$
 		\item $\dfrac{101}{50} = \dfrac{202}{100} = 2,02$
-		\item $\dfrac{3}{20} = \dfrac{15}{100} = 0,15$
+		\item $\dfrac{7}{20} = \dfrac{35}{100} = 0,35$
 	\end{enumerate}
 	\end{multicols}
 }
@@ -78,7 +90,16 @@ Consignes particulières :
 	\end{center}
 	\vspace{-10pt}
 }{exe:2}{
-	Solutions 2.
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\dfrac12 = 0,5$ & $\times$ &  \\
+		$\dfrac13 = 0,33$ & & $\times$  \\
+		$\dfrac13 = 0,33333$ & & $\times$  \\ \vspace{-5pt}
+		$1$ est un nombre rationnel & $\times$ &  \\
+		Tous les nombres réels sont rationnels & & $\times$  
+	\end{tabular}
+	\end{center}
 }
 
 \exe{, difficulty=2}{
@@ -100,8 +121,13 @@ Consignes particulières :
 		Si $2\pi = \frac{a}b$ est rationnel, alors $\pi = \frac{a}{2b}$ doit l'être aussi.
 		Ceci contredit l'énoncé.
 		
-		Un argument avec le développement décimal fonctionne bien pour $\pi+2$, ou $100\pi$, mais difficilement pour $2\pi$.
+		Un argument avec le développement décimal fonctionne bien pour $\pi+2$, ou $100\pi$ (car le développement ne change pas, ou est simplement décalé), mais plus difficilement pour $2\pi$.
+		Si un raisonnement élégant l'utilisant vous apparaît, veuillez me le signaler.
+		
 	\end{enumerate}
+	Remarque : il s'avère que développement de $\pi$ est apériodique dans toutes les bases. 
+	En particulier en base 10, qu'on utilise couramment, mais aussi en base 2.
+	Dans cette base (dite \emph{binaire}), multiplier par 2 a pour effet de décaler le développement du nombre.
 }
 
 
@@ -116,7 +142,7 @@ Consignes particulières :
 	\end{enumerate} 
 	\end{multicols}
 }{exe:3}{
-	Solutions 3.
+	$ A= \bigset{ -1 ; 0 ; 1}$, et $B = \bigset{ -1 ; 1}$.
 }
 
 \exe{, difficulty=1}{
@@ -124,13 +150,18 @@ Consignes particulières :
 	\begin{multicols}{2}
 	\begin{enumerate}[label=]
 		%\item $A = 0,666...$ ($6$ se répète à l'infini)
-		\item $B = 0,555...$ ($5$ se répète à l'infini)
+		\item $x = 0,555...$ ($5$ se répète à l'infini)
 		%\item $C = 0,020202...$ ($02$ se répète à l'infini)
-		\item $A = 1,545454...$ ($54$ se répète à l'infini)
+		\item $y = 1,545454...$ ($54$ se répète à l'infini)
 	\end{enumerate} 
 	\end{multicols}
 }{exe:4}{
-	Solutions 4.
+	\begin{enumerate}
+		\item L'équation $10x = 5 + x$ implique que $x=\frac59$.
+		\item L'équation 
+			\[ 100y = 154,545454... = 153 + 1,545454... = 153 + y \]
+		implique que $y = \frac{153}{99}$.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -146,8 +177,14 @@ Consignes particulières :
 	\end{enumerate}
 	\end{multicols}
 }{exe:5}{
-	Solutions 5.
-	
+	\begin{enumerate}[label=\alph*)]
+		\item $304 = 3,04 \times 10^2$.
+		%\item 100
+		\item $937~000~500 = 9,370005 \times 10^{8}$.
+		%\item 0,4
+		%\item 0,000 438
+		\item $0,004~000~2 = 4,0002 \times 10^{-3}$.
+	\end{enumerate}
 }
 
 \exe{, difficulty=2}{
@@ -157,14 +194,42 @@ Consignes particulières :
 %	\\\\
 %	\emph{Toute trace de recherche sera prise en compte.}
 }{exe:6}{
-	Solutions 6.
+	On démontre ce fait par l'absurde, en reprenant le début de la preuve du cours.
+	
+	Supposons, par contradiction, que $\frac1k$ est décimal : $\frac1k \in \DD$.
+	Alors, par définition de $\DD$, son développement décimal est fini, de longueur $n\in\N$.
+	
+	Il suit que $10^n \times \frac1k$ est un nombre entier. Notons-le $a \in \N$ : 
+		\[ 10^n \times \frac1k = a. \]
+	En multipliant par $k$, on obtient la relation d'entiers équivalente : 
+		\[ 10^n = k \times a. \]
+	$a$ étant entier, ceci implique que $10^n$ est un multiple entier de $k$.
+	Autrement dit, $10^n$ appartient à la table de multiplication de $k$.
+	
+	Ceci contredit l'hypothèse de l'énoncé. \Large\Lightning
 }
 
+\enlargethispage{20pt}
+\pagenumbering{gobble}
+
 \exe{, difficulty=3}{
-	Soit $n\in\N$ un entier naturel. Montrer que 
+	Soit $n\in\N$ un entier naturel. Montrer que
 		\[ 1 + 10 + 10^2 + 10^3 + \cdots + 10^n = \dfrac{10^{n+1} - 1}9. \]
+	La somme de gauche contient $n+1$ termes.
 }{exe:10}{
-	Sol 10.
+	Choisissons $n=0 ; 1 ; 2 ; ...$ et calculons les membres de gauche et de droite de l'égalité pour mettre en évidence une structure permettant de généraliser pour n'importe quel $n\in\N$.
+	
+	En $n=0$, la somme de gauche est 1, et l'expression à droite est $\frac{10 - 1}9 = \frac99 = 1$.
+	
+	En $n=1$, la somme de gauche est $1+10 = 11$, et l'expression à droite est $\frac{100-1}9 = \frac{99}9 = 11$.
+	
+	En $n=2$, la somme de gauche est $1+10+100 = 111$, et l'expression à droite est $\frac{1000-1}9 = \frac{999}9 = 111$.
+	
+	Remarquons que, plus généralement,
+		\[ 1 + 10 + 10^2 + 10^3 + \cdots + 10^n = \underbrace{111\cdots111}_{\text{$n+1$ fois}}. \]
+	Multiplier ce nombre par 9 puis ajouter 1 donne
+		\[ 9 \bigl(1 + 10 + 10^2 + 10^3 + \cdots + 10^n\bigr) + 1 = \underbrace{999\cdots999}_{\text{$n+1$ fois}} + 1 = 1\underbrace{000\cdots000}_{\text{$n+1$ fois}} = 10^{n+1}. \]
+	Soustraire 1 puis diviser par 9 conclut donc.
 }
 
 %%%%%%%%%%%%
