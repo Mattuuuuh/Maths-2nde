@@ -232,6 +232,26 @@
 	\end{multicols}
 }
 
+\exe{, difficulty=2}{
+	Soit $n\in\N$ un entier naturel. Montrer que
+		\[ 1 + 10 + 10^2 + 10^3 + \cdots + 10^n = \dfrac{10^{n+1} - 1}9. \]
+	La somme de gauche contient $n+1$ termes.
+}{exe:10}{
+	Choisissons $n=0 ; 1 ; 2 ; ...$ et calculons les membres de gauche et de droite de l'égalité pour mettre en évidence une structure permettant de généraliser pour n'importe quel $n\in\N$.
+	
+	En $n=0$, la somme de gauche est 1, et l'expression à droite est $\frac{10 - 1}9 = \frac99 = 1$.
+	
+	En $n=1$, la somme de gauche est $1+10 = 11$, et l'expression à droite est $\frac{100-1}9 = \frac{99}9 = 11$.
+	
+	En $n=2$, la somme de gauche est $1+10+100 = 111$, et l'expression à droite est $\frac{1000-1}9 = \frac{999}9 = 111$.
+	
+	Remarquons que, plus généralement,
+		\[ 1 + 10 + 10^2 + 10^3 + \cdots + 10^n = \underbrace{111\cdots111}_{\text{$n+1$ fois}}. \]
+	Multiplier ce nombre par 9 puis ajouter 1 donne
+		\[ 9 \bigl(1 + 10 + 10^2 + 10^3 + \cdots + 10^n\bigr) + 1 = \underbrace{999\cdots999}_{\text{$n+1$ fois}} + 1 = 1\underbrace{000\cdots000}_{\text{$n+1$ fois}} = 10^{n+1}. \]
+	Soustraire 1 puis diviser par 9 conclut donc.
+}
+
 \thm{caractérisation de $\DD$}{
 		\[ \DD = \Bigset{ \dfrac{a}{10^n} \tq a \in \Z, n \in \N }. \]
 }{thm:caractérisation-D}
