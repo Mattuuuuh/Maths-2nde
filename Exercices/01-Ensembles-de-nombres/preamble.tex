@@ -47,6 +47,11 @@ margin=2cm,
 }
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginpar{[Bonus]}
+		\else
+		\marginpar{\mbox{[\quad/\ExerciseTitle]}}
+		\fi
 		#2
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
@@ -56,6 +61,11 @@ margin=2cm,
 \newcommand{\exemulticols}[5]{
 	\begin{multicols}{2}
 	\begin{Exercise}[title=#1, label=#4]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginnote{[Bonus]}
+		\else
+		\marginnote{\mbox{[\quad/\ExerciseTitle]}}
+		\fi
 		#2
 	\end{Exercise}
 	\columnbreak
@@ -93,10 +103,11 @@ margin=2cm,
 \setlength\tabcolsep{15pt}
 \usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
 
-\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}
-
 % for striked out implies sign (\centernot\implies)
 \usepackage{centernot}
+
+% margins for points
+\usepackage{marginnote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
