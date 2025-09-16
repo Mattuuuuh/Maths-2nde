@@ -573,6 +573,22 @@
 	% un dessin serait bien ici mais je sais pas encore comment en faire un qui éclaire.
 }
 
+\exe{, difficulty=2}{
+	Démontrer le théorème de Raimon : le nombre 
+		\[ x = 0,12345678910111213... \]
+	est irrationnel.
+}{exe:raimon}{
+	Supposons que $x$ soit rationnel.
+	D'après le théorème \ref{thm:décimal-périodique}, le développement décimal de $x$ est éventuellement périodique.
+	Notons $p$ sa période.
+	
+	Or, par construction de $x$, son développement décimal comprend tous les entiers naturels.
+	En particulier, la partie périodique comprend au moins une très grande puissance de 10.
+	
+	En prenant une puissance de $10$ suffisamment grande, on peut déduire qu'une période entière est entièrement nulle, et donc que $x$ est décimal.
+	Ceci est est faux ; le développement décimal de $x$ est infini. \Large\Lightning
+}
+
 \dfn{nombres réels}{
 	L'ensemble de tous les nombres est noté $\R$.
 	On les appelle les \emphindex{nombres réels}.
