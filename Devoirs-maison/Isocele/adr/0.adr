@@ -3,5 +3,5 @@
 \newcommand{\yC}{\dfrac{1}{2}}
 \newcommand{\xA}{\dfrac{187}{6}}
 \newcommand{\yA}{\dfrac{33}{2}}
-\newcommand{\xB}{\dfrac{-89}{6}}
-\newcommand{\yB}{\dfrac{-59}{2}}
+\newcommand{\xB}{\dfrac{103}{6}}
+\newcommand{\yB}{\dfrac{61}{2}}

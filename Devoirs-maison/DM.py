@@ -3,7 +3,7 @@ import numpy as  np
 
 class DM:
 
-    def __init__(self, FOLDER="00-DM-Template/", generating_function=lambda:"\\newcommand{HW}{Hello World!}", double_compile = True, initial_seed = 0):
+    def __init__(self, FOLDER="00-DM-Template/", generating_function=lambda:"\\newcommand{HW}{Hello World!}", double_compile = True, initial_seed = 0, a5 = False):
         self.N=1
         self.seeds=[0]
         self.FOLDER=FOLDER
@@ -13,6 +13,7 @@ class DM:
         np.random.seed(initial_seed)
         
         self.double_compile = double_compile
+        self.a5 = a5
     
     ###############################################
     ############## UTILITY FUNCTIONS ##############
@@ -74,7 +75,9 @@ class DM:
         FILE_NAME = f"adr/{seed}.adr"
 
         INPUTS = (
-            "\input{../preamble.tex} \input{"+
+            "\input{../preamble"+
+            ("a5" if self.a5 else "")+
+            ".tex} \input{"+
             FILE_NAME+
             "} \input{main.tex}"
             )
