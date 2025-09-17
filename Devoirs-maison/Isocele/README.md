@@ -9,3 +9,8 @@ Pour fusionner :
 ```
 pdftk $(ls out/*.pdf) cat output merged.pdf
 ```
+
+Fusionner deux A5 en un A4
+```
+pdfjam seed_0.pdf --nul '1x2'
+```
