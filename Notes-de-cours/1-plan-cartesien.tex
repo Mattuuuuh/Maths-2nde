@@ -116,7 +116,7 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 	\end{center}
 }{exe:lecture-coord}{
 	\begin{align*}
-		A(2 ; 3) && B(-1 ; 2) && C(2,5 ; -1) &&
+		A(3 ; 0) && B(-1 ; 3) && C(3 ; 3) &&
 		D(0;-2) && E(-2,5 ; 0)
 	\end{align*}
 }
@@ -127,6 +127,23 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 
 \notations{
 	Pour deux points $A$ et $B$ du plan, on note $AB$ la \emphindex{distance} entre $A$ et $B$.
+	C'est aussi la longueur du \emphindex{segment} $[AB]$.
+}
+
+\exe{}{
+	En reprenant les points de l'exercice \ref{exe:lecture-coord}, donner
+		\begin{enumerate}
+			\item $BC$, la longueur du segment $[BC]$ ;
+			\item $AC$, la longueur du segment $[AC]$ ; et
+			\item $AB$, la longueur du segment $[AB]$.
+		\end{enumerate}
+}{exe:longueur-ex}{
+	\begin{enumerate}
+		\item Les points sont alignés horizontalement, et on lit que $BC=4$, différence des abscisses.
+		\item Les points sont alignés horizontalement, et on lit que $AC=3$, différence des ordonnées.
+		\item Le triangle $ABC$ est rectangle. On a donc $AB^2 = AC^2 + AC^2 = 25$ d'après le théorème de Pythagore. 
+		Il suit que $AB =5$.
+	\end{enumerate}
 }
 
 \nt{
@@ -139,6 +156,11 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 	Pour n'importe quel nombre $x$ on dénote $x^2 = x \cdot x$ le produit de $x$ par lui-même.
 	On lit « $x$ au carré » ou « $x$ carré ».
 }
+
+\nt{
+	Le carré d'un nombre est toujours positif : $x^2 \geq 0$ pour tout $x\in\R$.
+}
+
 
 \thm{distance}{
 	Soient $A(x_A, y_A)$, $B(x_B, y_B)$ deux points du plan dans un repère orthonormé.
@@ -166,13 +188,20 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 }
 
 \dfn{norme}{
-	Soit $u = (x ; y)$ un point quelconque.
+	Soit $u = (x ; y)$.
 	On définit le carré de sa \emph{norme}, $\norm{u}^2$, par
 		\[ \norm{u}^2 = x^2 + y^2. \]
 }{dfn:norme-carré}
 
+
 \exe{}{
-	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
+	Montrer que la distance d'un point à l'origine est sa norme.
+}{exe:distO-norm}{
+	L'identité $\norm{P - O} = \norm{P}$, où $O(0; 0)$ est l'origine, suffit à conclure.
+}
+
+\exe{}{
+	Donner le carré de la norme de $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
 }{exe:norme}{
 	\begin{align*}
 		&\norm{(0 ; 0)}^2 = 0^2 + 0^2 = 0, && \norm{(3 ; 4)}^2 = 3^2 + 4^2 = 9 + 16 = 25, \\
@@ -191,10 +220,8 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 }{def:manip-points}
 
 \nt{
-	La manipulation des points est considérée illégale par plusieurs mathématiciens du monde.
-	Il s'agira alors de leur demander : quelle est la différence entre un point et un vecteur ?
-	
-	En cas de doute, remplacez tous les points $A(x ;y)$ par un vecteur $a = \pvec{x}{y}$ dans la suite.
+	La manipulation des points est considérée illégale par une partie des mathématiciens.
+	Pour ne pas les vexer, remplacer tous les points $A(x ;y)$ par un vecteur $a = \pvec{x}{y}$ dans la suite.
 	Les vecteurs seront l'objet du chapitre \ref{chap:vecteurs}.
 }
 
@@ -259,12 +286,6 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 		\item[3.] D'après la réciproque du théorème de Pythagore, le triangle est rectangle en $A$ car $BC^2 = AB^2 + AC^2$.
 	\end{enumerate}
 	\end{multicols}
-}
-
-\exe{}{
-	Montrer que la distance d'un point à l'origine est sa norme.
-}{exe:distO-norm}{
-	L'identité $\norm{P - O} = \norm{P}$, où $O(0; 0)$ est l'origine, suffit à conclure.
 }
 
 \exe{, difficulty=1}{
@@ -505,4 +526,25 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 	D'autre part, en $y$, il faut que $2\lambda - 1 = 0 \iff \lambda = \frac12$.
 	
 	Comme ces deux valeurs ne sont pas les mêmes, un seul $\lambda$ ne peut pas fonctionner, et $O$ n'appartient pas au segment $[AB]$.
+}
+
+\exe{, difficulty=2}{
+	Considérons $A(-2;-1), B(-1;1)$, et $C(-3 ; 2)$ trois points.
+	Quel point $D$ poser de telle sorte que le quadrilatère $ABDC$ soit un parallélogramme ?
+	
+	\emph{Indication : calculer le milieu $M$ de $BC$. $M$ doit aussi être le milieu de $AD$.}
+}{exe:parall-constr}{
+
+	\begin{multicols}{2}
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-plan.pdf}
+	\end{center}
+	
+	Calculons d'abord 
+		\[ M = \dfrac{B+C}2 = \bigl(-2 ; \dfrac32 \bigr). \]
+	
+	Imposons ensuite $M  = \dfrac{A+D}2$, équivalent à $D = 2M - A$.
+	Il suit que 
+		\[ D = (-4 +2 ; 3 +1) = (-2 ; 4). \]
+	\end{multicols}
 }

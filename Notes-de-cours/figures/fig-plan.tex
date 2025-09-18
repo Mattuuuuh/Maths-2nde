@@ -161,9 +161,9 @@ dot/.default = black % size of the circle diameter
 	% page 7
 	\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]			
-			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$A$};
-			\addplot[RED_E, mark=*, mark size = 1] (-1,2) node[above left] {$B$};
-			\addplot[GREEN_E, mark=*, mark size = 1] (2.5,-1) node[below right] {$C$};
+			\addplot[BLUE_E, mark=*, mark size = 1] (3,0) node[above right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,3) node[above left] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (3,3) node[above right] {$C$};
 			\addplot[PURPLE_E, mark=*, mark size = 1] (0,-2) node[right] {$D$};
 			\addplot[GOLD, mark=*, mark size = 1] (-2.5,0) node[above] {$E$};
 		\end{axis}
@@ -202,6 +202,19 @@ dot/.default = black % size of the circle diameter
 	% page 11
 	\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[xmin = 4, xmax=10.0, ymin=-15.0, ymax=-10, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]
+		\end{axis}
+	\end{tikzpicture}
+	
+	%exe:parall-constr
+	%page 12
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=1.1, ymin=-3.1, ymax=4.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=20pt, y=20pt]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (-2,-1) node[below] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,1) node[right] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (-3,2) node[left] {$C$};
+			\addplot[YELLOW_E, mark=*, mark size = 1] (-2,4) node[above] {$D$};
+			
+			\draw[-, thick] (axis cs:-2,-1) -- (axis cs:-1,1) -- (axis cs:-2,4) -- (axis cs:-3,2) -- (axis cs:-2,-1);
 		\end{axis}
 	\end{tikzpicture}
 %
