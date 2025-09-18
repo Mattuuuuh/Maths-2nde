@@ -22,9 +22,9 @@
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.2]
 		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]			
-			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$A$};
-			\addplot[RED_E, mark=*, mark size = 1] (-1,2) node[above left] {$B$};
-			\addplot[GREEN_E, mark=*, mark size = 1] (2.5,-1) node[below right] {$C$};
+			\addplot[BLUE_E, mark=*, mark size = 1] (3,0) node[above right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,3) node[above left] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (3,3) node[above right] {$C$};
 			\addplot[PURPLE_E, mark=*, mark size = 1] (0,-2) node[right] {$D$};
 			\addplot[GOLD, mark=*, mark size = 1] (-2.5,0) node[above] {$E$};
 		\end{axis}
@@ -32,14 +32,29 @@
 	\end{center}
 }{exe:lecture-coord}{
 	\begin{align*}
-		A(2 ; 3) && B(-1 ; 2) && C(2,5 ; -1) &&
+		A(3 ; 0) && B(-1 ; 3) && C(3 ; 3) &&
 		D(0;-2) && E(-2,5 ; 0)
 	\end{align*}
 }
 
+\exe{, difficulty=1}{
+	En reprenant les points de l'exercice \ref{exe:lecture-coord}, donner
+		\begin{enumerate}
+			\item $BC$, la longueur du segment $[BC]$ ;
+			\item $AC$, la longueur du segment $[AC]$ ; et
+			\item $AB$, la longueur du segment $[AB]$.
+		\end{enumerate}
+}{exe:longueur-ex}{
+	\begin{enumerate}
+		\item Les points sont alignés horizontalement, et on lit que $BC=4$, différence des abscisses.
+		\item Les points sont alignés horizontalement, et on lit que $AC=3$, différence des ordonnées.
+		\item Le triangle $ABC$ est rectangle. On a donc $AB^2 = AC^2 + AC^2 = 25$ d'après le théorème de Pythagore. 
+		Il suit que $AB =5$.
+	\end{enumerate}
+}
 
 \exe{}{
-	Donner le carré de la norme des points $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, $(-1; -1)$.
+	Donner le carré de la norme de $(0 ; 0)$, $(3 ; 4)$, $(-3 ; 4)$, et $(-1; -1)$.
 }{exe:norme}{
 	\begin{align*}
 		&\norm{(0 ; 0)}^2 = 0^2 + 0^2 = 0, && \norm{(3 ; 4)}^2 = 3^2 + 4^2 = 9 + 16 = 25, \\
@@ -122,20 +137,6 @@
 	\end{center}
 }
 
-\exe{, difficulty=2}{
-	Combien de points à coordonnées entières du plan sont à distance $5$ de l'origine du repère ?
-}{exe:norm5}{
-	L'exercice \ref{exe:norme} nous en donne déjà 2 : $(3 ; 4)$ et $(-3 ; -4)$, dont la norme vaut $25 = 5^2$.
-	On en déduit facilement que $(-3 ; 4)$ et $(3 ; -4)$ fonctionnent aussi, car le carré ignore le signe.
-	
-	En échangeant $x$ et $y$, on trouve aussi les points $(\pm4 ; \pm3)$, où $\pm$ signifie « plus ou moins ».
-	
-	Cherchons-en d'autres : $(x ; y)$ doit vérifier $x^2 + y^2 = 25$ avec $x, y$ entiers.
-	En testant des valeurs de $x=0 ; 1 ; 2 ; 5$, on trouve les points $(0 ; 5), (0 ; -5)$, et $(5 ; 0), (-5 ; 0)$.
-	
-	Il existe donc finalement 12 tels points.
-}
-
 
 \exe{, difficulty=1}{
 	Soient $\point{G}{-4}{-1}$ et $\point{D}{-1}{3}$ et $x\in\R$ un paramètre réel.
@@ -167,25 +168,16 @@
 		\end{align*}
 }
 
-\exe{}{
-	Montrer que $(-2)^2 = 4$ et en déduire qu'il n'existe pas qu'une seule solution réelle à l'équation $x^2 = 4$.
-}{exe:carre4}{
-	Par définition, $(-2)^2 = (-2) \cdot (-2) = 4$.
-	Comme $2^2 = 4$, il existe au moins deux solutions réelles à l'équation $x^2 = 4$ : 2 et $-2$.
-}
-
-\exe{, difficulty=2}{
-	Montrer que $x^2 - 4 = (x-2)(x+2)$ pour tout $x\in\R$ et en déduire les deux seules solutions réelles de l'équation $x^2 = 4$.
-}{exe:carre4-all}{
-	Par distributivité, $(x-2)(x+2) = x^2 - 4$.
-	Il suit que $x^2 = 4 \iff x^2 - 4 = 0 \iff (x-2)(x+2) = 0$.
-	Or le produit de deux nombre n'est nul que si l'un des deux est nul.
-	On a donc soit $x-2=0 \iff x=2$, soit $x+2=0 \iff x=-2$.
-}
+\newpage
 
 \exe{, difficulty=2}{
 	Soient $A(1;1), B(3;1)$ deux points du plan, et $C(2;x)$ un point dépendant d'un paramètre réel $x\in\R$.
-	Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ? 
+	
+	\begin{enumerate}
+		\item Où se situe le point $C$ ? Tracer dans un repère les points $A, B$, ainsi que les positions possibles de $C$.
+		\item
+		Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ? 
+	\end{enumerate}
 }{exe:équilatéral2}{
 	On souhaite que $AB = AC = BC$ soit vérifié, c'est-à-dire que
 		\[ 2 = \sqrt{1 + (1-x)^2} = \sqrt{1 + (1-x)^2}. \]
@@ -267,19 +259,20 @@
 
 	\centering
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -.1, xmax=2.1, xtick={ -3, ..., 5}, ymin=-.1, ymax=3.1, ytick={-3, ..., 5}, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false, x=5cm]
-			
-			\addplot[BLUE_E, mark=*, mark size = 1] (0,0) node[above left] {$A(0;0)$};
-			\addplot[RED_E, mark=*, mark size = 1] (0,3) node[above left] {$B(0;3)$};
-			\addplot[GREEN_E, mark=*, mark size = 1] (1,2) node[below] {$C(1;2)$};
-			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$D(2;3)$};
-			\addplot[RED_E, mark=*, mark size = 1] (2,0) node[above right] {$E(2;0)$};
-			
-			\draw[-, thick,dashed] (axis cs:0,0) -- (axis cs:0,3);
-			\draw[-, thick, dashed] (axis cs:0,3) -- (axis cs:1,2);
-			\draw[-, thick,dashed] (axis cs:1,2) -- (axis cs:2,3);
-			\draw[-, thick,dashed] (axis cs:2,3) -- (axis cs:2,0);
-		\end{axis}
+	\begin{axis}[xmin = -3.9, xmax=1.9, ymin=-3.9, ymax=1.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, x=2cm, xtick = {-3, -2, ..., 1}]
+					
+		\addplot[RED_E, mark=*, mark size = 1] (0,1) node[above right] {$A$};
+		\addplot[RED_E, mark=*, mark size = 1] (-3,0) node[above left] {$B$};
+		\addplot[RED_E, mark=*, mark size = 1] (1,-2) node[below right] {$C$};
+		\addplot[RED_E, mark=*, mark size = 1] (-2,-3) node[below left] {$D$};
+		
+		\draw[dashed, thick] (axis cs:-3,0) -- (axis cs:1,-2);
+		\draw[dashed, thick] (axis cs:0,1) -- (axis cs:-2,-3);
+		
+		\addplot[black, mark=*, mark size = 1] (-1,-1) node[below] {$M$};
+		
+		\draw[thick] (axis cs:0,1) -- (axis cs:-3,0) -- (axis cs:-2,-3) -- (axis cs:1,-2) -- (axis cs:0,1);
+	\end{axis}
 	\end{tikzpicture}
 }
 
@@ -296,7 +289,25 @@
 	
 }
 
-\exe{, difficulty=1}{
+\subsection*{Exercices supplémentaires}
+
+\exe{, difficulty=2}{
+	L'exercice \ref{exe:norme} donne deux points à distance 5 de l'origine du repère et dont les coordonnées sont des entiers.
+	
+	Combien de points à coordonnées entières du plan sont à distance 5 de l'origine du repère ?
+}{exe:norm5}{
+	L'exercice \ref{exe:norme} nous en donne déjà 2 : $(3 ; 4)$ et $(-3 ; -4)$, dont la norme vaut $25 = 5^2$.
+	On en déduit facilement que $(-3 ; 4)$ et $(3 ; -4)$ fonctionnent aussi, car le carré ignore le signe.
+	
+	En échangeant $x$ et $y$, on trouve aussi les points $(\pm4 ; \pm3)$, où $\pm$ signifie « plus ou moins ».
+	
+	Cherchons-en d'autres : $(x ; y)$ doit vérifier $x^2 + y^2 = 25$ avec $x, y$ entiers.
+	En testant des valeurs de $x=0 ; 1 ; 2 ; 5$, on trouve les points $(0 ; 5), (0 ; -5)$, et $(5 ; 0), (-5 ; 0)$.
+	
+	Il existe donc finalement 12 tels points.
+}
+
+\exe{, difficulty=2}{
 	Soient $\point{A}{-\frac32}{\frac53}$ et $\point{M}{-\frac53}{-1}$ deux points du plan.
 	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
 }{exe:milieu2}{
@@ -320,6 +331,70 @@
 	D'autre part, en $y$, il faut que $2\lambda - 1 = 0 \iff \lambda = \frac12$.
 	
 	Comme ces deux valeurs ne sont pas les mêmes, un seul $\lambda$ ne peut pas fonctionner, et $O$ n'appartient pas au segment $[AB]$.
+}
+
+\exe{, difficulty=2}{
+	Considérons $A(-2;-1), B(-1;1)$, et $C(-3 ; 2)$ trois points.
+	Quel point $D$ poser de telle sorte que le quadrilatère $ABDC$ soit un parallélogramme ?
+	
+	\emph{Indication : calculer le milieu $M$ de $BC$. $M$ doit aussi être le milieu de $AD$.}
+}{exe:parall-constr}{
+
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=1.1, ymin=-3.1, ymax=4.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=20pt, y=20pt]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (-2,-1) node[below] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,1) node[right] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (-3,2) node[left] {$C$};
+			\addplot[YELLOW_E, mark=*, mark size = 1] (-2,4) node[above] {$D$};
+			
+			\draw[-, thick] (axis cs:-2,-1) -- (axis cs:-1,1) -- (axis cs:-2,4) -- (axis cs:-3,2) -- (axis cs:-2,-1);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	Calculons d'abord 
+		\[ M = \dfrac{B+C}2 = \bigl(-2 ; \dfrac32 \bigr). \]
+	
+	Imposons ensuite $M  = \dfrac{A+D}2$, équivalent à $D = 2M - A$.
+	Il suit que 
+		\[ D = (-4 +2 ; 3 +1) = (-2 ; 4). \]
+	\end{multicols}
+}
+
+
+\exe{, difficulty=2}{
+	Soient $p, q \in \Z$ deux entiers.
+	Montrer que le point $\bigl(p^2 - q^2 ; 2pq\bigr)$ est à distance $p^2 + q^2$ de l'origine.
+}{exe:norme-triplet-pythagoricien}{
+	On utilise que $(a+b)^2 = a^2 + b^2 + 2ab$ et que $(a-b)^2 = a^2 + b^2 - 2ab$ pour calculer la norme du point.
+		\begin{align*}
+			\bigl(p^2 - q^2\bigr)^2 + (2pq)^2 &= p^4 + q^4 - 2p^2q^2 + 4p^2q^2, \\
+												&= p^4 + q^4 + 2p^2q^2, \\
+												&= \bigl(p^2 + q^2\bigr)^2.
+		\end{align*}
+}
+
+
+
+\exe{}{
+	Trouver deux solutions réelles à l'équation $x^2 = 4$.
+}{exe:carre4}{
+	Par définition, $(-2)^2 = (-2) \cdot (-2) = 4$.
+	Comme $2^2 = 4$, il existe au moins deux solutions réelles à l'équation $x^2 = 4$ : 2 et $-2$.
+}
+
+\exe{, difficulty=2}{
+	Montrer que $x^2 - 4 = (x-2)(x+2)$ pour tout $x\in\R$ et en déduire les deux seules solutions réelles de l'équation $x^2 = 4$.
+	
+	Cet exercice se généralise de la façon suivante : une équation quadratique (en $x^2$ au plus) admet toujours au plus 2 solutions réelles.
+	Encore plus généralement, une équation en $1, x, x^2, \dots, x^n$ admet au plus $n$ solutions réelles.
+}{exe:carre4-all}{
+	Par distributivité, $(x-2)(x+2) = x^2 - 4$.
+	Il suit que $x^2 = 4 \iff x^2 - 4 = 0 \iff (x-2)(x+2) = 0$.
+	Or le produit de deux nombre n'est nul que si l'un des deux est nul.
+	On a donc soit $x-2=0 \iff x=2$, soit $x+2=0 \iff x=-2$.
 }
 
 %%%%%%%%%%%
