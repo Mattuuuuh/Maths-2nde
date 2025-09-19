@@ -1,0 +1,79 @@
+\documentclass[a4paper, 20pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=0cm,
+nomarginpar,% We don't want any margin paragraphs
+landscape,
+]{geometry}
+%virgules
+\usepackage{icomma}
+
+% HEADER, ARRAY, ENUM, MULTIOCL
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{multicol, enumitem}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+\usepackage{tabularx}
+\def\arraystretch{2.5}
+\setlength\tabcolsep{5pt}
+\usepackage[fontsize=25pt]{fontsize}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{center}
+	\begin{tabular}{|P{.35\textwidth}|}\hline
+		BUREAU \\ \hline
+	\end{tabular}
+	%\begin{tabular}{|P{.15\textwidth}|}\hline
+	%	\small La personne punie :( \\ \hline
+	%\end{tabular}
+\end{center}
+\vfill
+\begin{center}
+	\begin{tabular}{|P{.1\textwidth}|P{.15\textwidth}|}\hline
+	Léonie & Anna-Lyne  \\ \hline
+	Anaelle & Lena B. \\ \hline
+	Natalija & Giulia \\ \hline
+	Thibault & Sophia \\ \hline
+	Brayan & Jules  \\ \hline
+	\end{tabular}
+	%
+	\hfill
+	%
+	\begin{tabular}{|P{.12\textwidth}|P{.11\textwidth}|P{.11\textwidth}|}\hline
+	Wahil & Assil & Lina \\ \hline
+	Evan & Benjamin & Youen \\ \hline
+	Malak & Meryam & Lena D. \\ \hline
+	Meline & Rosa & Afnene \\ \hline
+	Liam & Riamon & Thomas \\ \hline
+	\end{tabular}
+	%
+	\hfill
+	%
+	\begin{tabular}{|P{.1\textwidth}|P{.1\textwidth}|}\hline
+	Meiraya & Loris \\ \hline
+	Lorenzo & Myriam \\ \hline
+	Basile & Lucile \\ \hline
+	Tasnime & Nahyla \\ \hline
+	Ruben & Cristian \\ \hline
+	\end{tabular}
+\end{center}
+
+\hfill
+\begin{tabular}{|P{.1\textwidth}|}\hline
+	PORTE \\ \hline
+\end{tabular}
+
+\end{document}
