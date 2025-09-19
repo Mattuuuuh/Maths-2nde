@@ -26,21 +26,13 @@ Consignes particulières :
 	Écrire les nombres suivants en notation scientifique.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\alph*)]
-		%\item 304
-		%\item 100
 		\item 937 000 500
-		%\item 0,4
-		%\item 0,000 438
 		\item 0,004 000 2
 	\end{enumerate}
 	\end{multicols}
 }{exe:5}{
 	\begin{enumerate}[label=\alph*)]
-		%\item $304 = 3,04 \times 10^2$.
-		%\item 100
 		\item $937~000~500 = 9,370005 \times 10^{8}$.
-		%\item 0,4
-		%\item 0,000 438
 		\item $0,004~000~2 = 4,0002 \times 10^{-3}$.
 	\end{enumerate}
 }
@@ -51,9 +43,7 @@ Consignes particulières :
 	Exprimer les nombres suivants sous forme de fraction d'entiers.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=]
-		%\item $A = 0,666...$ ($6$ se répète à l'infini)
 		\item $x = 0,555...$ ($5$ se répète à l'infini)
-		%\item $C = 0,020202...$ ($02$ se répète à l'infini)
 		\item $y = 1,545454...$ ($54$ se répète à l'infini)
 	\end{enumerate} 
 	\end{multicols}
@@ -71,8 +61,6 @@ Consignes particulières :
 	Donner les éléments de chaque ensemble suivant.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=]
-		%\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
-		%\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
 		\item $A = \bigset{n \in \Z \tq -1 \leq n \leq 1}$,
 		\item $B = \bigset{a \in A \tq \text{$a$ est non nul}}$.
 	\end{enumerate} 
@@ -112,34 +100,6 @@ Consignes particulières :
 	Un exemple minimal serait $A = \bigset{1}$, et $B = \bigset{2}$.
 }
 
-%\exe{, difficulty=2}{
-%	On considère comme admis que le nombre $\pi$, périmètre d'un cercle de diamiètre 1, n'est pas rationnel.
-%	Montrer que 
-%		\begin{enumerate}
-%			\item le nombre $\pi + 2$ n'est pas rationnel non plus ; et
-%			\item le nombre $2\pi$ n'est pas rationnel non plus.
-%		\end{enumerate}
-%}{exe:irr-stable-pi}{
-%	\begin{enumerate}
-%		\item Si $\pi+2 = \frac{a}b$ est rationnel, alors $\pi = \frac{a-2b}{b}$ doit l'être aussi.
-%		Ceci contredit l'énoncé.
-%	
-%		Alternativement, le développement décimal de $\pi=3,1415...$ est non périodique, d'après le cours et par hypothèse.
-%		Ajouter 2 ne le change pas : $\pi+2=5,1415...$. Le développement décimal de $\pi+2$ est donc également apériodique, et c'est un nombre irrationnel.
-%		
-%		\item
-%		Si $2\pi = \frac{a}b$ est rationnel, alors $\pi = \frac{a}{2b}$ doit l'être aussi.
-%		Ceci contredit l'énoncé.
-%		
-%		Un argument avec le développement décimal fonctionne bien pour $\pi+2$, ou $100\pi$ (car le développement ne change pas, ou est simplement décalé), mais plus difficilement pour $2\pi$.
-%		Si un raisonnement élégant l'utilisant vous apparaît, veuillez me le signaler.
-%		
-%	\end{enumerate}
-%	Remarque : il s'avère que développement de $\pi$ est apériodique dans toutes les bases. 
-%	En particulier en base 10, qu'on utilise couramment, mais aussi en base 2.
-%	Dans cette base (dite \emph{binaire}), multiplier par 2 a pour effet de décaler le développement du nombre.
-%}
-
 \exe{1, difficulty=1}{
 	On considère comme admis que le nombre $\pi$, périmètre d'un cercle de diamètre 1, n'est pas rationnel.
 	Montrer que  le nombre $\pi + 2$ n'est pas rationnel non plus.
@@ -174,8 +134,9 @@ Consignes particulières :
 	\end{center}
 }
 
-\exe{2, difficulty=1}{
+\exe{3, difficulty=1}{
 	Donner le développement décimal de $\frac16$.
+	En déduire un encadrement de $\frac16$ à $10^{-2}$ près.
 }{exe:dev-16}{
 	$\frac16 < 1$, donc $\frac16 = 0,...$.
 	Pour connaître la première décimale, on multiplie par 10, et on étudie l'unité.
