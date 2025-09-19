@@ -138,9 +138,11 @@
 }
 
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	Soient $\point{G}{-4}{-1}$ et $\point{D}{-1}{3}$ et $x\in\R$ un paramètre réel.
-	Pour quel(s) $x\in\R$ est-ce que la longueur du segment entre les points $xG$ et $xD$ est-elle égale à $5$ ?
+	Pour quel(s) $x\in\R$ la longueur du segment entre les points $xG$ et $xD$ est-elle égale à $5$ ?
+	
+	Tracer les points correspondant dans un repère.
 }{exe:milieu-x}{
 	La longueur du segment est donnée par
 		\[ 5 = \sqrt{(-4x + x)^2 + (-x - 3x)^2} = \sqrt{9x^2 + 16x^2} = \sqrt{25x^2}. \]
@@ -389,12 +391,20 @@
 	Montrer que $x^2 - 4 = (x-2)(x+2)$ pour tout $x\in\R$ et en déduire les deux seules solutions réelles de l'équation $x^2 = 4$.
 	
 	Cet exercice se généralise de la façon suivante : une équation quadratique (en $x^2$ au plus) admet toujours au plus 2 solutions réelles.
-	Encore plus généralement, une équation en $1, x, x^2, \dots, x^n$ admet au plus $n$ solutions réelles.
+	Encore plus généralement, une équation en $1, x, x^2, \dots, x^n$ admet au plus $n$ solutions réelles ($n\in\N$).
 }{exe:carre4-all}{
 	Par distributivité, $(x-2)(x+2) = x^2 - 4$.
 	Il suit que $x^2 = 4 \iff x^2 - 4 = 0 \iff (x-2)(x+2) = 0$.
 	Or le produit de deux nombre n'est nul que si l'un des deux est nul.
 	On a donc soit $x-2=0 \iff x=2$, soit $x+2=0 \iff x=-2$.
+	
+	Au sujet de la généralisation : 
+	ce résultat est normalement atteignable en fin de 2nde. Les chapitres sur les fonctions et les signes (3 et 11 actuellement) suffisent.
+	
+	La division euclidienne des entiers se généralise dans les expressions avec $1, x, x^2, \dots, x^n$.
+	On peut alors montrer que si $p(x)$ est une telle expression vérifiant que $p(r) = 0$, alors $p(x) = (x-r)g(x)$, avec $g$ expression en $1, x, x^2, \dots, x^{n-1}$.
+	En répétant le processus au plus $n$ fois, on conclut.
+	
 }
 
 %%%%%%%%%%%
