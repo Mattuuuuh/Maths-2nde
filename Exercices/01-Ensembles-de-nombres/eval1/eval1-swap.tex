@@ -22,27 +22,63 @@ Consignes particulières :
 
 \hrule
 
-\exemulticols{2}{
-	Compléter les pointillés en ajoutant un signe d'inclusion ou de non inclusion ($\subseteq$ ou $\not\subseteq$) entre les ensembles de nombres ci-contre.
-}{
-	\begin{center}
-	\def\arraystretch{1.5}
-	\setlength\tabcolsep{10pt}
-	\begin{tabular}{ccc||ccc}
-		$\N$ & \dots & $\Z$ & $\Q$ & \dots & $\Z$ \\
-		$\Z$ & \dots & $\R$ & $\DD$ & \dots & $\Q$
-	\end{tabular}
-	\end{center}
-}{exe:1}{
-	On utilise le drapeau $\N \subseteq \Z \subseteq \DD \subseteq \Q \subseteq \R$ d'inclusions strictes vues en cours.
-	\begin{center}
-	\def\arraystretch{1.5}
-	\setlength\tabcolsep{10pt}
-	\begin{tabular}{ccc||ccc}
-		$\N$ & $\subseteq$ & $\Z$ & $\Q$ & $\not\subseteq$ & $\Z$ \\
-		$\Z$ & $\subseteq$ & $\R$ & $\DD$ & $\subseteq$ & $\Q$
-	\end{tabular}
-	\end{center}
+\exe{2}{
+	Écrire les nombres suivants en notation scientifique.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		%\item 304
+		%\item 100
+		\item 937 000 500
+		%\item 0,4
+		%\item 0,000 438
+		\item 0,004 000 2
+	\end{enumerate}
+	\end{multicols}
+}{exe:5}{
+	\begin{enumerate}[label=\alph*)]
+		%\item $304 = 3,04 \times 10^2$.
+		%\item 100
+		\item $937~000~500 = 9,370005 \times 10^{8}$.
+		%\item 0,4
+		%\item 0,000 438
+		\item $0,004~000~2 = 4,0002 \times 10^{-3}$.
+	\end{enumerate}
+}
+
+
+
+\exe{2, difficulty=1}{
+	Exprimer les nombres suivants sous forme de fraction d'entiers.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=]
+		%\item $A = 0,666...$ ($6$ se répète à l'infini)
+		\item $x = 0,555...$ ($5$ se répète à l'infini)
+		%\item $C = 0,020202...$ ($02$ se répète à l'infini)
+		\item $y = 1,545454...$ ($54$ se répète à l'infini)
+	\end{enumerate} 
+	\end{multicols}
+}{exe:4}{
+	\begin{enumerate}
+		\item L'équation $10x = 5 + x$ implique que $x=\frac59$.
+		\item L'équation 
+			\[ 100y = 154,545454... = 153 + 1,545454... = 153 + y \]
+		implique que $y = \frac{153}{99}$.
+	\end{enumerate}
+}
+
+
+\exe{2}{
+	Donner les éléments de chaque ensemble suivant.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=]
+		%\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
+		%\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
+		\item $A = \bigset{n \in \Z \tq -1 \leq n \leq 1}$,
+		\item $B = \bigset{a \in A \tq \text{$a$ est non nul}}$.
+	\end{enumerate} 
+	\end{multicols}
+}{exe:3}{
+	$ A= \bigset{ -1 ; 0 ; 1}$, et $B = \bigset{ -1 ; 1}$.
 }
 
 \exe{2, difficulty=1}{
@@ -64,33 +100,6 @@ Consignes particulières :
 		\item $\dfrac{7}{20} = \dfrac{35}{100} = 0,35$
 	\end{enumerate}
 	\end{multicols}
-}
-
-\exe{{2,5}, difficulty=1}{
-	Vrai ou faux ? Cocher la case correspondante.
-	\vspace{-30pt}
-	\begin{center}
-	\begin{tabular}{c c c}
-		\hspace{10cm} & Vrai & Faux \\
-		$\dfrac12 = 0,5$ & $\square$ & $\square$  \\
-		$\dfrac13 = 0,33$ & $\square$ & $\square$  \\
-		$\dfrac13 = 0,33333$ & $\square$ & $\square$  \\ \vspace{-5pt}
-		$1$ est un nombre rationnel & $\square$ & $\square$  \\
-		Tous les nombres réels sont rationnels & $\square$ & $\square$ 
-	\end{tabular}
-	\end{center}
-	\vspace{-10pt}
-}{exe:2}{
-	\begin{center}
-	\begin{tabular}{c c c}
-		\hspace{10cm} & Vrai & Faux \\
-		$\dfrac12 = 0,5$ & $\times$ &  \\
-		$\dfrac13 = 0,33$ & & $\times$  \\
-		$\dfrac13 = 0,33333$ & & $\times$  \\ \vspace{-5pt}
-		$1$ est un nombre rationnel & $\times$ &  \\
-		Tous les nombres réels sont rationnels & & $\times$  
-	\end{tabular}
-	\end{center}
 }
 
 \exe{2, difficulty=0}{
@@ -142,61 +151,27 @@ Consignes particulières :
 	Ajouter 2 ne le change pas : $\pi+2=5,1415...$. Le développement décimal de $\pi+2$ est donc également apériodique, et c'est un nombre irrationnel.
 }
 
-
-\exe{2}{
-	Donner les éléments de chaque ensemble suivant.
-	\begin{multicols}{2}
-	\begin{enumerate}[label=]
-		%\item $A=\bigset{n \in \N \text{ tel que } 3 \leq n \leq 8 }$
-		%\item $B = \bigset{a \in A \tq \text{$a$ est pair}}$
-		\item $A = \bigset{n \in \Z \tq -1 \leq n \leq 1}$,
-		\item $B = \bigset{a \in A \tq \text{$a$ est non nul}}$.
-	\end{enumerate} 
-	\end{multicols}
-}{exe:3}{
-	$ A= \bigset{ -1 ; 0 ; 1}$, et $B = \bigset{ -1 ; 1}$.
-}
-
-\exe{2, difficulty=1}{
-	Exprimer les nombres suivants sous forme de fraction d'entiers.
-	\begin{multicols}{2}
-	\begin{enumerate}[label=]
-		%\item $A = 0,666...$ ($6$ se répète à l'infini)
-		\item $x = 0,555...$ ($5$ se répète à l'infini)
-		%\item $C = 0,020202...$ ($02$ se répète à l'infini)
-		\item $y = 1,545454...$ ($54$ se répète à l'infini)
-	\end{enumerate} 
-	\end{multicols}
-}{exe:4}{
-	\begin{enumerate}
-		\item L'équation $10x = 5 + x$ implique que $x=\frac59$.
-		\item L'équation 
-			\[ 100y = 154,545454... = 153 + 1,545454... = 153 + y \]
-		implique que $y = \frac{153}{99}$.
-	\end{enumerate}
-}
-
-\exe{2}{
-	Écrire les nombres suivants en notation scientifique.
-	\begin{multicols}{2}
-	\begin{enumerate}[label=\alph*)]
-		%\item 304
-		%\item 100
-		\item 937 000 500
-		%\item 0,4
-		%\item 0,000 438
-		\item 0,004 000 2
-	\end{enumerate}
-	\end{multicols}
-}{exe:5}{
-	\begin{enumerate}[label=\alph*)]
-		%\item $304 = 3,04 \times 10^2$.
-		%\item 100
-		\item $937~000~500 = 9,370005 \times 10^{8}$.
-		%\item 0,4
-		%\item 0,000 438
-		\item $0,004~000~2 = 4,0002 \times 10^{-3}$.
-	\end{enumerate}
+\exemulticols{2}{
+	Compléter les pointillés en ajoutant un signe d'inclusion ou de non inclusion ($\subseteq$ ou $\not\subseteq$) entre les ensembles de nombres ci-contre.
+}{
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{10pt}
+	\begin{tabular}{ccc||ccc}
+		$\N$ & \dots & $\Z$ & $\Q$ & \dots & $\Z$ \\
+		$\Z$ & \dots & $\R$ & $\DD$ & \dots & $\Q$
+	\end{tabular}
+	\end{center}
+}{exe:1}{
+	On utilise le drapeau $\N \subseteq \Z \subseteq \DD \subseteq \Q \subseteq \R$ d'inclusions strictes vues en cours.
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{10pt}
+	\begin{tabular}{ccc||ccc}
+		$\N$ & $\subseteq$ & $\Z$ & $\Q$ & $\not\subseteq$ & $\Z$ \\
+		$\Z$ & $\subseteq$ & $\R$ & $\DD$ & $\subseteq$ & $\Q$
+	\end{tabular}
+	\end{center}
 }
 
 \exe{2, difficulty=1}{
@@ -232,6 +207,34 @@ Consignes particulières :
 	Autrement dit, $10^n$ appartient à la table de multiplication de $k$.
 	
 	Ceci contredit l'hypothèse de l'énoncé. \Large\Lightning
+}
+
+
+\exe{{2,5}, difficulty=1}{
+	Vrai ou faux ? Cocher la case correspondante.
+	\vspace{-30pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\dfrac12 = 0,5$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33$ & $\square$ & $\square$  \\
+		$\dfrac13 = 0,33333$ & $\square$ & $\square$  \\ \vspace{-5pt}
+		$1$ est un nombre rationnel & $\square$ & $\square$  \\
+		Tous les nombres réels sont rationnels & $\square$ & $\square$ 
+	\end{tabular}
+	\end{center}
+	\vspace{-10pt}
+}{exe:2}{
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\dfrac12 = 0,5$ & $\times$ &  \\
+		$\dfrac13 = 0,33$ & & $\times$  \\
+		$\dfrac13 = 0,33333$ & & $\times$  \\ \vspace{-5pt}
+		$1$ est un nombre rationnel & $\times$ &  \\
+		Tous les nombres réels sont rationnels & & $\times$  
+	\end{tabular}
+	\end{center}
 }
 
 \enlargethispage{20pt}
