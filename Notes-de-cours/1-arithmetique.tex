@@ -292,6 +292,18 @@
 	En multipliant par $m$, on obtient $nm = (am)k$, ce qui conclut.
 }
 
+\exe{, difficulty=2}{
+	Montrer que si $a|b$ et $b|a$, alors $a=b$ ou $a=-b$.
+}{exe:div-implies-is}{
+	Il existe deux entiers $k$ et $\ell$ vérifiant $b = ak$ et $a = b\ell$.
+	Il suit que $b = b \ell k$, égalité d'entiers.
+	
+	Si $b=0$, alors $a = 0$, ce qui conclut.
+	Sinon, diviser par $b$ donne $\ell k = 1$.
+	Or, le produit de deux entiers ne peut valoir 1 que lorsqu'ils sont tous les deux égaux, à 1 ou -1.
+	Ces cas correspondent à $a=b$ et $a=-b$ respectivement.
+}
+
 \dfn{}{
 	Pour un $n\in\N$, on pose $\D_n$ l'ensemble des diviseurs de $n$.
 		\[ \D_n = \bigset{ a \in \N \tq a \big| n }. \]
@@ -421,6 +433,19 @@
 		Si $a \big| (n+m)$, alors $n+m = a \cdot \ell$.
 		Il suit que $m = a \cdot \ell - n = a (\ell - k)$, qui est multiple de $a$ comme requis.
 	\end{enumerate}
+}
+
+\exe{, difficulty=2}{
+	Considérons deux entiers tels que leur somme vaut leur produit.
+	Montrer qu'ils sont tous les deux égaux à 0 ou tous les deux égaux à 2.
+}{exe:sum-is-product}{
+	Nommons ces deux entiers $a, b \in \Z$.
+	La relation $a+b = ab$ implique que $a = b(a-1)$, et donc que $b$ divise $a$.
+	Symétriquement, $a$ divise $b$.
+	
+	Par conséquent, et d'après l'exercice \ref{exe:div-implies-is} $a=b$ ou $a=-b$, et la relation initiale devient $2a = a^2$ ou $0 = -a^2$. 
+	$a=0$ est bien sûr solution des deux équations (et la seule solution de la deuxième, d'ailleurs). 
+	Si $a\neq0$, on peut diviser par $a$ pour trouver $a = 2$, l'autre solution.
 }
 
 \thm{critère de divisibilité par 3 et 9}{
