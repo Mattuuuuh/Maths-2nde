@@ -131,7 +131,8 @@
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-3.1, ymax=3.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=30pt, y=30pt]
-			\draw[BLUE_E, thick,radius=90pt] (axis cs:0,0) circle node[pos=0, above right] {$\Vert x \Vert = 3$};
+			\draw[BLUE_E, thick,radius=90pt] (axis cs:0,0) circle;
+			\draw[BLUE_E] (axis cs:2.5,2.5) node {$\Vert x \Vert = 3$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
