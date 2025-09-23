@@ -5,7 +5,7 @@ import numpy as np
 ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII', 'XXIX', 'XXX']
 
 NUMBER_OF_EXERCISES = 11
-NUMBER_OF_EXAMS = 36
+NUMBER_OF_EXAMS = 40
 
 # shuffled range(NUMBER_OF_EXAMS), integers
 def exercise_commands(shuffled_list):
