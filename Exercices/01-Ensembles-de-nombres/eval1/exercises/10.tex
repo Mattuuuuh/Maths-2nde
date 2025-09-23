@@ -1,0 +1,23 @@
+%!TEX root = ../eval1.tex
+
+\exe{2, difficulty=2}{
+	Soit $k\in\N$ non nul. 
+	On suppose qu'aucune puissance de 10 n'est dans la table de multiplication de $k$.
+	Montrer que $\frac1k$ n'est pas décimal.
+%	\\\\
+%	\emph{Toute trace de recherche sera prise en compte.}
+}{exe:6}{
+	On démontre ce fait par l'absurde, en reprenant le début de la preuve du cours.
+	
+	Supposons, par contradiction, que $\frac1k$ est décimal : $\frac1k \in \DD$.
+	Alors, par définition de $\DD$, son développement décimal est fini, de longueur $n\in\N$.
+	
+	Il suit que $10^n \times \frac1k$ est un nombre entier. Notons-le $a \in \N$ : 
+		\[ 10^n \times \frac1k = a. \]
+	En multipliant par $k$, on obtient la relation d'entiers équivalente : 
+		\[ 10^n = k \times a. \]
+	$a$ étant entier, ceci implique que $10^n$ est un multiple entier de $k$.
+	Autrement dit, $10^n$ appartient à la table de multiplication de $k$.
+	
+	Ceci contredit l'hypothèse de l'énoncé. \Large\Lightning
+}
