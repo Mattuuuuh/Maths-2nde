@@ -31,8 +31,12 @@ def compile_exam(EXAM_NUMBER, INDICES):
 if __name__=='__main__':
     INDICES = [i for i in range(NUMBER_OF_EXERCISES)]
     for EXAM_NUMBER in range(NUMBER_OF_EXAMS):
-        np.random.shuffle(INDICES)
         # this is in-place
+        np.random.shuffle(INDICES)
+       
+        # first exercise cannot be in last place (space reasons)
+        while INDICES[-1] == 0:
+            np.random.shuffle(INDICES)
 
         compile_exam(EXAM_NUMBER, INDICES)
 
