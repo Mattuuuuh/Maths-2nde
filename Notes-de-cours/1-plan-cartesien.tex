@@ -548,3 +548,33 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 		\[ D = (-4 +2 ; 3 +1) = (-2 ; 4). \]
 	\end{multicols}
 }
+
+\exe{, difficulty=2}{
+	Soient $A, B, C$ trois points distincts du plan formant un triangle.
+	Posons
+		\[ G = \dfrac{A+B+C}3, \]
+	son \emphindex{barycentre}, aussi appelé \emphindex{centre de gravité}.
+	
+	Montrer que $G$ appartient à la médiane du triangle issue de $A$, c'est-à-dire au segment $[AM]$, où $M$ est le milieu du segment $[BC]$.
+	
+	Montrer que $G$ est le point d'intersection des trois médianes du triangle.
+}{exe:mediane-barycentre}{
+	On souhaite montrer que $G \in [AM]$, où $M = \frac{B+C}2$.
+	Par définition, il faut que $G$ s'exprime comme $\lambda A + (1-\lambda)M$ pour un certain $0\leq\lambda\leq1$.
+	
+	Or,
+		\[ \lambda A + (1-\lambda)M = \lambda A + \dfrac{1-\lambda}2B + \dfrac{1-\lambda}2C. \]
+	Pour obtenir $G = \frac13 A + \frac13 B + \frac13 C$, il est naturel de tester $\lambda=\frac13$, qui fonctionne, car
+		\[ \dfrac13 A + \dfrac{1-\frac13}2B + \dfrac{1-\frac13}2C = G. \]
+	On a donc obtenu légèrement plus fort grâce au poids $\lambda=\frac13$ : le barycentre $G$ est exactement deux fois plus proche de $M$ que de $A$.
+	
+	Finalement, tout le problème est entièrement symétrique par permutation des symboles $A, B, C$.
+	Il suit que $G$ appartient également à la médiane du triangle issue de $B$, et de $C$, ce qui conclut.
+}
+	
+	
+	
+	
+
+
+
