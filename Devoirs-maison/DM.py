@@ -8,7 +8,8 @@ class DM:
         self.seeds=[0]
         self.FOLDER=FOLDER
         self.generating_function=generating_function
-        
+       
+        # 0 by default
         self.initial_seed=initial_seed
         np.random.seed(initial_seed)
         
@@ -20,8 +21,9 @@ class DM:
     ###############################################
 
     # generates N seeds, i=0, ..., N-1...
-    # the last three decimal places are i itself...
-    # if i=5, last three digits are 005, for example.
+    # the last log_10(N)+1 decimal places are i itself...
+    # if N=5, last digits are 0, 1, 2, 3, 4, 5, for example.
+    # if N=20, last two digits are 00, 01, 02, ..., 19.
     # ! seed list is entirely determined by initial_seed !
     def generate_seeds(self, N):
         self.N = N
