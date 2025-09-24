@@ -52,6 +52,26 @@ def generate():
     CONTENT += newcommand_dfrac("xB", xO+B[0]*denominator, denominator)
     CONTENT += newcommand_dfrac("yB", yO+B[1]*denominator, denominator)
 
+    # SOLUTIONS
+
+    realxA = xO/denominator + A[0]
+    realyA = yO/denominator + A[1]
+    realxB = xO/denominator + B[0]
+    realyB = yO/denominator + B[1]
+    realxC = xO/denominator 
+    realyC = yO/denominator 
+
+    xmin = min(A[0], B[0],0) + xO/denominator - 1
+    ymin = min(A[1], B[1],0) + yO/denominator - 1
+    xmax = max(A[0], B[0],0) + xO/denominator + 1
+    ymax = max(A[1], B[1],0) + yO/denominator + 1
+
+    for var in ["realxC", "realyC", "realxA", "realxB", "realyA", "realyB", "xmin", "xmax", "ymin", "ymax"]:
+        CONTENT += newcommand(var, np.round(eval(var),3))
+
+    dx = a
+    dy = b
+
     return CONTENT
 
 ###############################################
@@ -67,14 +87,14 @@ dm = DM(
     )
 
 # for testing (seed 0)
-#dm.write_adr()
-#dm.compile_pdf()
+dm.write_adr()
+dm.compile_pdf()
 
 # for generating seeds
-N = 70
-dm.generate_seeds(N)
-dm.write_adrs()
-dm.compile_pdfs()
+#N = 70
+#dm.generate_seeds(N)
+#dm.write_adrs()
+#dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 # TODO

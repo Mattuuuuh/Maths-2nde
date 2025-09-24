@@ -2,7 +2,7 @@
 %% THEN INPUT .ADR
 %% THEN THIS
 
-
+\SetDate[30/09/2025]
 
 \begin{document}
 \pagestyle{fancy}
@@ -42,7 +42,29 @@
 	\end{enumerate}
 }{exe:1}
 {
-	Test solutions.
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmin=\xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]
+		\draw[thick] (axis cs:\realxA, \realyA) node[above, BLUE_E] {$A$} -- (axis cs:\realxB, \realyB)  node[right, GREEN_E] {$B$} -- (axis cs:\realxC, \realyC) node[below, RED_E] {$C$} -- (axis cs:\realxA, \realyA);
+	\end{axis}	
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}		
+		\item[2.]
+		Dans le triangle $ABC$, calculer
+		\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $AB^2$ ;
+			\item $AC^2 = $
+			\item $BC^2$.
+		\end{enumerate}
+		\end{multicols}
+		\item[3.]
+		Quelles longueurs sont entières ? quelles longueurs ne le sont pas ? Justifier.
+		\item[4.]
+		Que dire du triangle $ABC$ ?
+	\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%
