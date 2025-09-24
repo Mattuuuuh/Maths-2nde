@@ -9,35 +9,46 @@ import random
 ############# GENERATE FUNCTION ###############
 ###############################################
 
-def pythagoricien():
-    # returns (p²-q², 2pq, p²+q²)
-    p = int_between(3, 6)
-    q = int_between(1,p-1)
-    return [p**2-q**2, 2*p*q, p**2+q**2]
+def compose(primes, powers):
+    P = 1
+    for i in range(len(primes)):
+        P*=primes[i]**powers[i]
+    return P
+
+def ABO():
+    # return A, B st ABO is rectangle in O
+    # ie needs A·B = 0
+    primes = [2,3,5,7]
+    powers = [int_between(2,4),int_between(1,2),int_between(0,2), int_between(0,1)]
+    P = compose(primes, powers)
+
+    firstpowers = [int_between(2,powers[0]-1), int_between(1,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
+    a = compose(primes, firstpowers)
+    c = P//a
+    secondpowers = [int_between(1,powers[0]-2), int_between(0,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
+    b = compose(primes, secondpowers)
+    d = P//b
+
+    signa = -1 if np.random.rand()<.5 else 1
+    signb = -1 if np.random.rand()<.5 else 1
+    signc = -1 if np.random.rand()<.5 else 1
+    signd = -signa*signb*signc
+
+    return (signa*a,signb*b), (signc*c,signd*d)
 
 def generate():
 
     CONTENT = ""
 
     # EX 1
-
-    [a, b, R] = pythagoricien()
-    # a² + b² = R², integers
     
     # points A, B, O
     O = (0,0)
-    pool_of_points = zip([a,a,-a,-a,b,b,-b,-b],[b,-b,b,-b,a,-a,a,-a])
-    pool_of_points = [p for p in pool_of_points]
+    A, B = ABO()
 
-    num_points = 8
-    A, B = (0,0), (0,0)
-    while A==B or (A[0]==-B[0] and A[1] == -B[1]):
-        A = random.choice(pool_of_points)
-        B = random.choice(pool_of_points)
-    
     # shift everything now
     xO, yO = 0,0
-    while xO==0 and yO==0:
+    while xO==0 or yO==0:
         xO = int_between(-33, 33)
         yO = int_between(-33, 33)
     
@@ -69,8 +80,17 @@ def generate():
     for var in ["realxC", "realyC", "realxA", "realxB", "realyA", "realyB", "xmin", "xmax", "ymin", "ymax"]:
         CONTENT += newcommand(var, np.round(eval(var),3))
 
-    dx = a
-    dy = b
+    CONTENT += newcommand("ACx", A[0])
+    CONTENT += newcommand("ACy", A[1])
+    CONTENT += newcommand("BCx", B[0])
+    CONTENT += newcommand("BCy", B[1])
+    CONTENT += newcommand("ABx", B[0]-A[0])
+    CONTENT += newcommand("ABy", B[1]-A[1])
+    
+    CONTENT += newcommand("ACsq", A[0]**2 + A[1]**2)
+    CONTENT += newcommand("ABsq", (A[0]-B[0])**2 + (A[1]-B[1])**2)
+    CONTENT += newcommand("BCsq", B[0]**2 + B[1]**2)
+
 
     return CONTENT
 
