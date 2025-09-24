@@ -1,0 +1,7 @@
+\newcommand{\seed}{2064}
+\newcommand{\xC}{-7}
+\newcommand{\yC}{\dfrac{23}{4}}
+\newcommand{\xA}{-67}
+\newcommand{\yA}{\dfrac{-21}{4}}
+\newcommand{\xB}{4}
+\newcommand{\yB}{\dfrac{263}{4}}

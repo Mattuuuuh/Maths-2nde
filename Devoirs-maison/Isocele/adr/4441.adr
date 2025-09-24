@@ -1,0 +1,7 @@
+\newcommand{\seed}{4441}
+\newcommand{\xC}{\dfrac{21}{10}}
+\newcommand{\yC}{\dfrac{14}{5}}
+\newcommand{\xA}{\dfrac{141}{10}}
+\newcommand{\yA}{\dfrac{-11}{5}}
+\newcommand{\xB}{\dfrac{-29}{10}}
+\newcommand{\yB}{\dfrac{74}{5}}

@@ -1,0 +1,80 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT .ADR
+%% THEN THIS
+
+\SetDate[30/09/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Plan cartésien}}
+
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{, difficulty=0}{
+	Considérons les points 
+	\begin{align*}
+		A\left(\xA ; \yA\right), && B\left(\xB ; \yB\right), && \et && C\left(\xC ; \yC\right).
+	\end{align*}
+	\begin{enumerate}
+		\item 
+		Construire un repère et y placer les points $A, B$, et $C$.
+		
+		\item 
+		Dans le triangle $ABC$, calculer
+		\begin{multicols}{3}
+		\begin{enumerate}[label=\alph*)]
+			\item $AB^2$ ;
+			\item $AC^2$ ; et
+			\item $BC^2$.
+		\end{enumerate}
+		\end{multicols}
+		\item
+		Quelles longueurs sont entières ? quelles longueurs ne le sont pas ? Justifier.
+		\item 
+		Que dire du triangle $ABC$ ?
+	\end{enumerate}
+}{exe:1}
+{
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmin=\xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, unit vector ratio*=1 1]
+		\draw[thick] (axis cs:\realxA, \realyA) node[above, BLUE_E] {$A$} -- (axis cs:\realxB, \realyB)  node[left, GREEN_E] {$B$} -- (axis cs:\realxC, \realyC) node[below, RED_E] {$C$} -- (axis cs:\realxA, \realyA);
+	\end{axis}	
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}		
+		\item[2.]
+		Dans le triangle $ABC$, calculer
+		\begin{enumerate}[label=\alph*)]
+			\item $AB^2 = (\ABx)^2 + (\ABy)^2 = \ABsq$ ;
+			\item $AC^2 = (\ACx)^2 + (\ACy)^2 = \ACsq$
+			\item $BC^2 = (\BCx)^2 + (\BCy)^2 = \BCsq$.
+		\end{enumerate}
+		\item[4.]
+		Les longueurs $AC$ et $BC$ sont entières, de longueur $\AC$, car $\AC^2 = \ACsq = AC^2$. 
+		
+		La longueur $AB$ n'est pas entière, car les carrés sont croissants, et qu'on a l'encadrement
+			\[ \ABlow^2 < AB^2 < \ABhigh^2. \]
+	\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions -- {\seed} --  Plan cartésien}}
+\fakesection{Solution \seed}
+\shipoutAnswer
+
+\end{document}
+
+

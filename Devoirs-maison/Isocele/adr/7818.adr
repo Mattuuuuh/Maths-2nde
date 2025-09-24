@@ -1,0 +1,7 @@
+\newcommand{\seed}{7818}
+\newcommand{\xC}{24}
+\newcommand{\yC}{24}
+\newcommand{\xA}{0}
+\newcommand{\yA}{34}
+\newcommand{\xB}{14}
+\newcommand{\yB}{48}

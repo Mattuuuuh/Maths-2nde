@@ -1,0 +1,7 @@
+\newcommand{\seed}{1526}
+\newcommand{\xC}{1}
+\newcommand{\yC}{\dfrac{20}{11}}
+\newcommand{\xA}{-35}
+\newcommand{\yA}{\dfrac{317}{11}}
+\newcommand{\xB}{28}
+\newcommand{\yB}{\dfrac{-376}{11}}
