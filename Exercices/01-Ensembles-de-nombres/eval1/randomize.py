@@ -35,7 +35,8 @@ if __name__=='__main__':
         np.random.shuffle(INDICES)
        
         # first exercise cannot be in last place (space reasons)
-        while INDICES[-1] == 0:
+        # exercise 3 cannot be after exercise 1
+        while INDICES[-1] == 0 or ( (np.array(INDICES)==0).nonzero() > (np.array(INDICES)==2).nonzero() ):
             np.random.shuffle(INDICES)
 
         compile_exam(EXAM_NUMBER, INDICES)
