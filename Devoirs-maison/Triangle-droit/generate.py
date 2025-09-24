@@ -99,7 +99,7 @@ def generate():
 ###############################################
 
 dm = DM(
-        FOLDER="Isocele/",
+        FOLDER="Triangle-droit/",
         generating_function=generate,
         double_compile=True,
         initial_seed=0,
