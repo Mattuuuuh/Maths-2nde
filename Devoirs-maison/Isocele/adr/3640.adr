@@ -1,0 +1,7 @@
+\newcommand{\seed}{3640}
+\newcommand{\xC}{3}
+\newcommand{\yC}{-3}
+\newcommand{\xA}{-5}
+\newcommand{\yA}{3}
+\newcommand{\xB}{11}
+\newcommand{\yB}{3}

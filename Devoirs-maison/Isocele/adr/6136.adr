@@ -1,0 +1,7 @@
+\newcommand{\seed}{6136}
+\newcommand{\xC}{\dfrac{-25}{7}}
+\newcommand{\yC}{\dfrac{-4}{7}}
+\newcommand{\xA}{\dfrac{-277}{7}}
+\newcommand{\yA}{\dfrac{185}{7}}
+\newcommand{\xB}{\dfrac{-277}{7}}
+\newcommand{\yB}{\dfrac{-193}{7}}

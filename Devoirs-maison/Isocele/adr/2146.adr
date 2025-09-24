@@ -1,0 +1,7 @@
+\newcommand{\seed}{2146}
+\newcommand{\xC}{\dfrac{31}{5}}
+\newcommand{\yC}{\dfrac{21}{5}}
+\newcommand{\xA}{\dfrac{86}{5}}
+\newcommand{\yA}{\dfrac{-279}{5}}
+\newcommand{\xB}{\dfrac{331}{5}}
+\newcommand{\yB}{\dfrac{76}{5}}

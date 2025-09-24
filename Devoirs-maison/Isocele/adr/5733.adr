@@ -1,0 +1,7 @@
+\newcommand{\seed}{5733}
+\newcommand{\xC}{5}
+\newcommand{\yC}{\dfrac{4}{5}}
+\newcommand{\xA}{17}
+\newcommand{\yA}{\dfrac{-21}{5}}
+\newcommand{\xB}{0}
+\newcommand{\yB}{\dfrac{-56}{5}}

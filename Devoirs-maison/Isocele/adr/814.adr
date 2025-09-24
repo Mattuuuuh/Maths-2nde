@@ -1,0 +1,7 @@
+\newcommand{\seed}{814}
+\newcommand{\xC}{\dfrac{26}{9}}
+\newcommand{\yC}{\dfrac{-13}{9}}
+\newcommand{\xA}{\dfrac{-82}{9}}
+\newcommand{\yA}{\dfrac{32}{9}}
+\newcommand{\xB}{\dfrac{71}{9}}
+\newcommand{\yB}{\dfrac{95}{9}}

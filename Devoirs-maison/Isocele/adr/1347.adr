@@ -1,0 +1,7 @@
+\newcommand{\seed}{1347}
+\newcommand{\xC}{\dfrac{7}{10}}
+\newcommand{\yC}{\dfrac{-16}{5}}
+\newcommand{\xA}{\dfrac{-393}{10}}
+\newcommand{\yA}{\dfrac{29}{5}}
+\newcommand{\xB}{\dfrac{-393}{10}}
+\newcommand{\yB}{\dfrac{-61}{5}}

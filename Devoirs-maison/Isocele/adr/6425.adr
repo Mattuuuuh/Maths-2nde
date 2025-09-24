@@ -1,0 +1,7 @@
+\newcommand{\seed}{6425}
+\newcommand{\xC}{2}
+\newcommand{\yC}{\dfrac{-5}{9}}
+\newcommand{\xA}{-18}
+\newcommand{\yA}{\dfrac{-437}{9}}
+\newcommand{\xB}{-46}
+\newcommand{\yB}{\dfrac{-185}{9}}

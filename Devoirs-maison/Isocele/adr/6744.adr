@@ -1,0 +1,7 @@
+\newcommand{\seed}{6744}
+\newcommand{\xC}{\dfrac{28}{5}}
+\newcommand{\yC}{\dfrac{13}{5}}
+\newcommand{\xA}{\dfrac{58}{5}}
+\newcommand{\yA}{\dfrac{53}{5}}
+\newcommand{\xB}{\dfrac{58}{5}}
+\newcommand{\yB}{\dfrac{-27}{5}}

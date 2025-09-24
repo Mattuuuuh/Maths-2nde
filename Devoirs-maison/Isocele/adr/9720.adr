@@ -1,0 +1,7 @@
+\newcommand{\seed}{9720}
+\newcommand{\xC}{\dfrac{2}{3}}
+\newcommand{\yC}{-5}
+\newcommand{\xA}{\dfrac{-19}{3}}
+\newcommand{\yA}{19}
+\newcommand{\xB}{\dfrac{74}{3}}
+\newcommand{\yB}{-12}

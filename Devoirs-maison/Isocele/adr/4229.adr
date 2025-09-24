@@ -1,0 +1,7 @@
+\newcommand{\seed}{4229}
+\newcommand{\xC}{\dfrac{23}{3}}
+\newcommand{\yC}{\dfrac{28}{3}}
+\newcommand{\xA}{\dfrac{-4}{3}}
+\newcommand{\yA}{\dfrac{148}{3}}
+\newcommand{\xB}{\dfrac{143}{3}}
+\newcommand{\yB}{\dfrac{1}{3}}

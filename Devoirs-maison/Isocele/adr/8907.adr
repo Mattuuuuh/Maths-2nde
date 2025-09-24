@@ -1,0 +1,7 @@
+\newcommand{\seed}{8907}
+\newcommand{\xC}{\dfrac{23}{2}}
+\newcommand{\yC}{-16}
+\newcommand{\xA}{\dfrac{-9}{2}}
+\newcommand{\yA}{14}
+\newcommand{\xB}{\dfrac{83}{2}}
+\newcommand{\yB}{-32}

@@ -1,0 +1,7 @@
+\newcommand{\seed}{1224}
+\newcommand{\xC}{\dfrac{8}{3}}
+\newcommand{\yC}{\dfrac{-25}{3}}
+\newcommand{\xA}{\dfrac{128}{3}}
+\newcommand{\yA}{\dfrac{-52}{3}}
+\newcommand{\xB}{\dfrac{128}{3}}
+\newcommand{\yB}{\dfrac{2}{3}}

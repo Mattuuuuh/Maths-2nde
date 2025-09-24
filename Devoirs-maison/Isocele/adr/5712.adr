@@ -1,0 +1,7 @@
+\newcommand{\seed}{5712}
+\newcommand{\xC}{\dfrac{-5}{11}}
+\newcommand{\yC}{\dfrac{1}{11}}
+\newcommand{\xA}{\dfrac{-82}{11}}
+\newcommand{\yA}{\dfrac{-263}{11}}
+\newcommand{\xB}{\dfrac{72}{11}}
+\newcommand{\yB}{\dfrac{-263}{11}}

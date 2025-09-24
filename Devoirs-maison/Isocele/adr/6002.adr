@@ -1,0 +1,7 @@
+\newcommand{\seed}{6002}
+\newcommand{\xC}{4}
+\newcommand{\yC}{\dfrac{-1}{2}}
+\newcommand{\xA}{28}
+\newcommand{\yA}{\dfrac{63}{2}}
+\newcommand{\xB}{-20}
+\newcommand{\yB}{\dfrac{63}{2}}
