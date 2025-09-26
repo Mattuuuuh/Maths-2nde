@@ -1,6 +1,6 @@
 \input{../preamble.tex}
-\AdvanceDate[1]
-
+\SetDate[10/09/2025]
+\setbeamertemplate{page number in head/foot}{}
 \begin{document}
 
 \section{Automatismes}
@@ -17,7 +17,7 @@ Calculatrice interdite
 
 \subsection{Ensembles}
 
-\begin{frame}{1\vspace{-32pt}}
+\framedelayed{
 	Considérons les ensembles 
 		\begin{align*}
 			A &= \bigset{ 2 ; 3 ; 10 ; -2}, \\
@@ -28,27 +28,46 @@ Calculatrice interdite
 	}{
 		A-t-on $-10 \in B$ ou $-10 \not\in B$ ?
 	}
-\end{frame}
+}{
+	\boxAB{
+		$-2 \in A$
+	}{
+		$-10 \not\in B$
+	}
+}
 
-\begin{frame}{2\vspace{-32pt}}
+
+\framedelayed{
 	Énumérer les éléments des ensembles suivants.
 	\boxAB{
 		$A = \bigset{ n \in \N \tq n \leq 4 }$
 	}{
 		$B = \bigset{ n \in \Z \tq  -2 \leq n \leq 2 }$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$A = \bigset{0 ; 1 ; 2 ; 3 ;4}$
+	}{
+		$B = \bigset{-2 ; -1 ; 0 ; 1 ; 2}$
+	}
+}
 
-\begin{frame}{3\vspace{-32pt}}
+\framedelayed{
 	Énumérer les éléments des ensembles suivants.
 	\boxAB{
 		$A = \bigset{ n \in \Z \tq -3 \leq n \leq 0 }$
 	}{
 		$B = \bigset{ n \in \N \tq  n \leq 3 }$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$A = \bigset{-3 ; -2 ; -1 ; 0}$
+	}{
+		$B = \bigset{0 ; 1 ; 2 ; 3}$
+	}
+}
 
-\begin{frame}{4\vspace{-32pt}}
+\framedelayed{
 	Considérons les ensembles 
 		\begin{align*}
 			A &= \bigset{ 2 ; 3 ; 10 ; -2}, \\
@@ -61,6 +80,14 @@ Calculatrice interdite
 		A-t-on $B \subseteq C$ ou $B \not\subseteq C$ ?
 	}
 	\vspace{-10pt}
-\end{frame}
+}{
+	\boxAB{
+		$A \not\subseteq B$
+	}{
+		$B \subseteq C$
+	}
+}
+
+\shipoutAnswer
 
 \end{document}

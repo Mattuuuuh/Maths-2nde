@@ -1,5 +1,6 @@
 \input{../preamble.tex}
-\AdvanceDate[3]
+\SetDate[17/09/2025]
+\setbeamertemplate{page number in head/foot}{}
 
 \begin{document}
 
@@ -17,7 +18,7 @@ Calculatrice interdite
 
 \subsection{Ensembles}
 
-\begin{frame}{1\vspace{-32pt}}
+\framedelayed{
 	Considérons les ensembles 
 		\begin{align*}
 			E &= \bigset{ 2 ; 3 ; 10 ; -2}, \\
@@ -30,36 +31,63 @@ Calculatrice interdite
 		A-t-on $G \subseteq E$ ou $G \not\subseteq E$ ?
 	}
 	\vspace{-10pt}
-\end{frame}
+}{
+	\boxAB{
+		$E \not\subseteq F$
+	}{
+		$G \subseteq E$
+	}
+}
 
 \subsection{Nombres décimaux}
 
-\begin{frame}{2\vspace{-32pt}}
+\framedelayed{
 	Donner le développement décimal de la fraction suivante.
 	\boxAB{
 		$\dfrac{11}{5}$
 	}{
 		$\dfrac{3}{20}$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac{11}{5} = \dfrac{22}{10} = 2,2$
+	}{
+		$\dfrac{3}{20} = \dfrac{15}{100} = 0,15$
+	}
+}
 
-\begin{frame}{3\vspace{-32pt}}
+
+\framedelayed{
 	Écrire le nombre suivant en écriture scientifique.
 	\boxAB{
 		5 370 010
 	}{
 		0,023 008 1
 	}
-	\vspace{-10pt}
-\end{frame}
+}{
+	\boxAB{
+		$5 370 010 = 5,37001 \times 10^6$
+	}{
+		$0,023 008 1 = 2,30081 \times 10^{-2}$
+	}
+}
 
 
-\begin{frame}{4\vspace{-32pt}}
+\framedelayed{
 	Donner le développement décimal de la fraction suivante.
 	\boxAB{
 		$\dfrac{11}{20}$
 	}{
 		$\dfrac{21}{5}$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac{11}{20} = \dfrac{55}{100} = 0,55$
+	}{
+		$\dfrac{21}{5} = \dfrac{42}{10} = 4,2$
+	}
+}
+
+\shipoutAnswer
+
 \end{document}

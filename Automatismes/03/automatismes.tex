@@ -1,5 +1,6 @@
 \input{../preamble.tex}
-\AdvanceDate[2]
+\SetDate[23/09/2025]
+\setbeamertemplate{page number in head/foot}{}
 
 \begin{document}
 
@@ -17,53 +18,69 @@ Calculatrice interdite
 
 \subsection{Nombres décimaux}
 
-\begin{frame}{1\vspace{-32pt}}
+\framedelayed{
 	Écrire le nombre suivant en écriture scientifique.
 	\boxAB{
 		0,008 004 1
 	}{
 		26 280 700
 	}
-\end{frame}
+}{
+	\boxAB{
+		$0,008 004 1 = 8,0041\times10^{-3}$
+	}{
+		$26 280 700 = 2,62807 \times 10^{7}$
+	}
+}
 
 
 \subsection{Fractions}
 
-\begin{frame}{2\vspace{-32pt}}
+\framedelayed{
 	Exprimer le produit suivant sous forme de fraction d'entiers $\frac{a}{b}$.
 	\boxAB{
 		$1 + \dfrac56$
 	}{
 		$10 \times \dfrac{1}{7}$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac66 + \dfrac56 = \dfrac{11}6$
+	}{
+		$\dfrac{10}1 \times \dfrac{1}{7} = \dfrac{10}{7}$
+	}
+}
 
-\begin{frame}{3\vspace{-32pt}}
+\framedelayed{
 	Exprimer la somme suivante sous forme de fraction d'entiers $\frac{a}{b}$.
 	\boxAB{
 		$10 \times \dfrac{1}{6}$
 	}{
 		$1 + \dfrac23$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac{10}1 \times \dfrac{1}{6} = \dfrac{10}{6}$
+	}{
+		$\dfrac33 + \dfrac23 = \dfrac53$
+	}
+}
 
-\begin{frame}{4\vspace{-32pt}}
+\framedelayed{
 	Exprimer la somme suivante sous forme de fraction d'entiers $\frac{a}{b}$.
 	\boxAB{
 		$5 + \dfrac23$
 	}{
 		$3 + \dfrac56$
 	}
-\end{frame}
+}{
+	\boxAB{
+		$\dfrac{15}3 + \dfrac23 = \dfrac{17}3$
+	}{
+		$\dfrac{18}6 + \dfrac56 = \dfrac{23}6$
+	}
+}
 
-%plus tard. 04?
-%\begin{frame}{4\vspace{-32pt}}
-%	Exprimer la différence suivante sous forme de fraction d'entiers.
-%	\boxAB{
-%		$\dfrac14 - \dfrac15$
-%	}{
-%		$\dfrac15 - \dfrac16$
-%	}
-%\end{frame}
+\shipoutAnswer
 
 \end{document}
