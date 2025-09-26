@@ -1,0 +1,60 @@
+%!TEX root = ../eval1.tex
+
+\exemulticols{5}{
+	Considérons le triangle de sommets 
+		\[ A(2;6), \quad B(8 ; -3), \quad\et\quad C(-10 ; -2).\]
+	
+	Les questions 1, 2, et 3 peuvent être faites séparément.
+	\begin{enumerate}
+		\item Tracer le triangle $ABC$ dans un repère.
+		\item Montrer par le calcul que
+		\begin{enumerate}[label=\roman*)]
+			\item $AB^2 = 117$
+			\item $AC^2 = 208$
+			\item $BC^2 = 325$
+		\end{enumerate}
+		\item Que dire du triangle $ABC$ ?
+	\end{enumerate}
+}{
+	%\hfill
+	%Aide aux calculs
+	
+	\def\arraystretch{1.1}
+	\setlength\tabcolsep{15pt}
+	\hfill
+	\begin{tabular}{|c|c|}\hline
+		$n$ & $n^2$ \\ \hline
+		11 & 121 \\ \hline
+		12 & 144 \\ \hline
+		13 & 169 \\ \hline
+		14 & 196 \\ \hline
+		15 & 225 \\ \hline
+		16 & 256 \\ \hline
+		17 & 289 \\ \hline
+		18 & 324 \\ \hline
+		19 & 361 \\ \hline
+		20 & 400 \\ \hline
+	\end{tabular}
+}{exe:Trex}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -9.1, xmax=9.1, ymin=-5.1, ymax=5.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=20pt, y=20pt]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (2,6) node[above] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (8,-3) node[right] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (-10,-2) node[left] {$C$};
+			
+			\draw[-, thick] (axis cs:2,6) -- (axis cs:8,-3) -- (axis cs:-10,-2) -- (axis cs:2,6);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item[2.] 
+			\begin{align*}
+				AB^2 &= \norm{A-B}^2 = \norm{(-6 ; 9)}^2 = 36 + 81 = 117, \\
+				AC^2 &= \norm{A-C}^2 = \norm{(12 ; 8)}^2 = 144 + 64 = 208, \\
+				BC^2 &= \norm{B-C}^2 = \norm{(18 ; -1)}^2 = 324 + 1 = 325.
+			\end{align*}
+		\item[3.] D'après la réciproque du théorème de Pythagore, le triangle est rectangle en $A$ car $BC^2 = AB^2 + AC^2$.
+	\end{enumerate}
+}
