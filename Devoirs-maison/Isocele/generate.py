@@ -130,7 +130,7 @@ dm = DM(
 #dm.compile_pdf()
 
 # for generating seeds
-N = 70
+N = 80
 dm.generate_seeds(N)
 dm.write_adrs()
 dm.compile_pdfs()
