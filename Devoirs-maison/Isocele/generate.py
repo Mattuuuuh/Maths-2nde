@@ -9,6 +9,9 @@ import random
 ############# GENERATE FUNCTION ###############
 ###############################################
 
+
+# OLD, LESS INTERESTING (ALL POINTS OF TYPE (A,B) (B,A), TRIVIAL PYTHAGORAS)
+"""
 def pythagoricien():
     # returns (p²-q², 2pq, p²+q²)
     p = int_between(3, 6)
@@ -29,6 +32,44 @@ def ABO():
         B = random.choice(pool_of_points)
 
     return A, B
+"""
+
+def compose(primes, powers):
+    P = 1
+    for i in range(len(primes)):
+        P*=primes[i]**powers[i]
+    return P
+
+def ABO():
+    # return A, B st ABO is rectangle in O
+    # ie needs A·B = 0
+    primes = [2,3,5,7]
+    powers = [int_between(1,4),int_between(1,2),int_between(0,2), int_between(0,0)]
+    P = compose(primes, powers)
+    
+    a, b, c, d = 1,1,1,1
+    xA,yA,xB,yB = 1,1,1,1
+    while a==c or b==d or xA==xB or yA==yB:
+    
+        firstpowers = [int_between(1,powers[0]), int_between(0,powers[1]), int_between(0,powers[2]), int_between(0,powers[3])]
+        a = compose(primes, firstpowers)
+        c = P//a
+        secondpowers = [int_between(0,powers[0]-1), int_between(0,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
+        b = compose(primes, secondpowers)
+        d = P//b
+    
+        xA = a+c
+        yA = d-b
+        xB = b+d
+        yB = c-a
+        # P = a*c = b*d
+        # P = ((a+c)/2 + (c-a)/2)((a+c)/2 - (c-a)/2) = ((b+d)/2 - (d-b)/2)((b+d)/2 + (d-b)/2)
+        # ie. (a+c)² + (d-b)² = (b+d)² + (c-a)²
+
+    assert xA**2 + yA**2 == xB**2 + yB**2, "not isoceles, i messed up something, God help me."
+
+    return (xA,yA), (xB,yB)
+
 
 def generate():
 
@@ -50,10 +91,15 @@ def generate():
     baryx = (0+A[0]+B[0])/3
     baryy = (0+A[1]+B[1])/3
 
-    denominator = int_between(1,12)
+    denominator = int_between(1,14)
 
     xO -= int(baryx)*denominator
     yO -= int(baryy)*denominator
+    
+    # maybe for later? annoying right now
+    # scale everything to |.| <= 50
+    #scale = max(abs(A[0]), abs(A[1]), abs(B[0]), abs(B[1]))
+    #scale = int(50/scale)+1
 
     CONTENT += newcommand_dfrac("xC", xO, denominator)
     CONTENT += newcommand_dfrac("yC", yO, denominator)
