@@ -572,7 +572,52 @@ Un point sera alors un couple $(x, y)$ où $x, y \in \R$ sont deux nombres réel
 	Il suit que $G$ appartient également à la médiane du triangle issue de $B$, et de $C$, ce qui conclut.
 }
 	
-	
+\exe{, difficulty=2}{
+	Considérons un nombre $P$ se décomposant en produit d'entiers de deux manières différentes :
+		\[ P = a \times b = x \times y. \]
+	\begin{enumerate}
+		\item
+		Montrer que 
+			\begin{align*}
+				P &= \Bigl( \dfrac{a+b}2 + \dfrac{a-b}2\Bigr)\Bigl( \dfrac{a+b}2 - \dfrac{a-b}2\Bigr) \\
+				&= \Bigl( \dfrac{a+b}2 \Bigr)^2 - \Bigl( \dfrac{a-b}2 \Bigr)^2
+			\end{align*}
+		\item
+		En conclure que $4P = r^2 - s^2$ pour deux entiers $r, s \in \Z$.
+		\item
+		En procédant similairement, montrer que $4P = v^2 - w^2$ pour deux entiers $v, w \in \Z$, différents de $r$ et $s$ respectivement.
+		\item 
+		Conclure que le triangle $OAB$, de sommets	
+			\begin{align*}
+				O(0;0), && A(r ; w), && \et && B(s ; v)
+			\end{align*}
+		est isocèle.
+		\item
+		Ce triangle peut-il être équilatéral ?
+	\end{enumerate}
+}{exe:isocele-gen}{
+	\begin{enumerate}
+		\item
+		On exprime simplement $a$ et $b$ comme étant la valeur moyenne ($\frac{a+b}2$) plus ou moins la moitié de la distance entre $a$ et $b$ ($\frac{b-a}2$).
+		
+		On utilise ensuite l'identité remarquable $(\alpha+\beta)(\alpha-\beta) = \alpha^2 - \beta^2$.
+		\item
+		En posant $r =a+b$ et $s=a-b$, l'identité $P = \left(\frac{r}2\right)^2 -  \left(\frac{s}2\right)^2$ est équivalente à $4P = r^2 - s^2$.
+		\item
+		On répète le processus en remplaçant $a$ et $b$ par $x$ et $y$.
+		On a donc $v = x+y$ et $w = x-y$, différents de $r$ et $s$ car il existe un unique ensemble de nombres à somme et produit fixés.
+		En effet, en supposant que $P = a\times b = x \times y$ et que $S = a+b = x+y$, alors $a, b, x, y$ vérifient
+			\[ (t -a)(t-b) = (t-x)(t-y) \]
+		pour n'importe quel $t\in\R$.
+		En particulier, ce produit s'annule uniquement en $a$ et $b$ à gauche, et uniquement en $x$ et $y$ à droite, ce qui conclut.
+		\item 
+		Le triangle est isocèle en $O$ car
+			\[ \norm{A}^2 = r^2 + w^2 = s^2 + v^2  = \norm{B}^2 \]
+		parce que $r^2 - s^2 = v^2 - w^2$.
+		\item
+		Question laissée ouverte.
+	\end{enumerate}
+}
 	
 	
 
