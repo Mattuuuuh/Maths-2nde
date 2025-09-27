@@ -25,7 +25,7 @@ def ABO():
     firstpowers = [int_between(2,powers[0]-1), int_between(1,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
     a = compose(primes, firstpowers)
     c = P//a
-    secondpowers = [int_between(1,powers[0]-2), int_between(0,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
+    secondpowers = [int_between(0,powers[0]-2), int_between(0,powers[1]-1), int_between(0,powers[2]), int_between(0,powers[3])]
     b = compose(primes, secondpowers)
     d = P//b
 
