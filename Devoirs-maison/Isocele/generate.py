@@ -126,14 +126,14 @@ dm = DM(
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#N = 70
-#dm.generate_seeds(N)
-#dm.write_adrs()
-#dm.compile_pdfs()
+N = 70
+dm.generate_seeds(N)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 # TODO

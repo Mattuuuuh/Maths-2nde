@@ -44,7 +44,7 @@
 {
 	\begin{center}
 	\begin{tikzpicture}
-	\begin{axis}[xmin=\xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, unit vector ratio*=1 1]
+	\begin{axis}[xmin=\xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, unit vector ratio=*1 1, width=20cm, height=6cm]
 		\draw[thick] (axis cs:\realxA, \realyA) node[above, BLUE_E] {$A$} -- (axis cs:\realxB, \realyB)  node[left, GREEN_E] {$B$} -- (axis cs:\realxC, \realyC) node[below, RED_E] {$C$} -- (axis cs:\realxA, \realyA);
 	\end{axis}	
 	\end{tikzpicture}
