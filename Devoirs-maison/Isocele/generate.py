@@ -94,9 +94,23 @@ def generate():
     CONTENT += newcommand("BCsq", B[0]**2 + B[1]**2)
 
     CONTENT += newcommand("AC", int(np.sqrt(A[0]**2+A[1]**2)))
+    
+    AB = np.sqrt(ABsq)
+    ABlow = int(AB)
+    if AB == int(AB):
+        isSquare = 1
+    else:
+        isSquare = 0
+
+    # testing
+    #isSquare =1
+
+    CONTENT += newcommand("isSquare", isSquare)
     CONTENT += newcommand("ABlow", int(np.sqrt(ABsq)))
     CONTENT += newcommand("ABhigh", int(np.sqrt(ABsq))+1)
+
     
+
     return CONTENT
 
 ###############################################

@@ -60,9 +60,14 @@
 		\end{enumerate}
 		\item[4.]
 		Les longueurs $AC$ et $BC$ sont entières, de longueur $\AC$, car $\AC^2 = \ACsq = AC^2$. 
-		
-		La longueur $AB$ n'est pas entière, car les carrés sont croissants, et qu'on a l'encadrement
-			\[ \ABlow^2 < AB^2 < \ABhigh^2. \]
+
+			\ifnum\isSquare=0
+			La longueur $AB$ n'est pas entière car les carrés sont croissants et qu'on a l'encadrement
+				\[ \ABlow^2 < AB^2 < \ABhigh^2. \]
+			\else
+			La longueur $AB$ est entière, de longueur $\ABlow$, car $\ABlow^2 = \ABsq = AB^2$.
+			\fi
+
 	\end{enumerate}
 }
 
