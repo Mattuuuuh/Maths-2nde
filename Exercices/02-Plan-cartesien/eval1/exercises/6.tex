@@ -1,12 +1,11 @@
 %!TEX root = ../eval1.tex
 
-\exe{20, difficulty=3}{
-	Considérons les points $O(0;0)$ et $P(3 ; 1)$ et $(d)$ la médiatrice du segment $[OP]$ : ce sont tous les points $M(x;y)$ à équidistance de $O$ et $P$.
-	
-	Montrer que $x$ et $y$ sont liés par la relation 
-		\[ y = -3x + 5. \]
-		
-	\emph{Toute trace de recherche sera prise en compte.}
-}{exe:médiatrice}{
-	TODO
+\newcommand{\ordonnee}{\number\numexpr2+\exeVI\relax}
+
+\exe{1, difficulty=2}{
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\number\numexpr3-\exeVI\relax;\ordonnee)$ et $B(\number\numexpr-4+\exeVI\relax;\ordonnee)$ ? Justifier.
+}{exe:C-on-AB}{
+	Les deux points ont la même ordonnée : ils sont donc alignés horizontalement.
+	Tous les points de $[AB]$ sont d'ordonnée $\ordonnee$, et l'origine du repère ne peut donc pas appartenir au segment.
+	En effet, $\lambda A + (1-\lambda)B$ est d'ordonnée $\ordonnee\lambda + (1-\lambda)\ordonnee = \ordonnee$, peu importe la valeur de $\lambda\in\R·$.
 }
