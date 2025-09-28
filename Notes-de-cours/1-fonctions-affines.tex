@@ -264,6 +264,22 @@ où $a$ et $b$ sont des nombres réels déterminés entièrement par la droite $
 	On vérifiera que $20 \times 5 - 11 \times 9 = 100 - 99 = 1$ pour se rassurer.
 }
 
+\exe{, difficulty=2}{
+	Considérons les points $O(0;0)$ et $P(3 ; 1)$ et $(d)$ la médiatrice du segment $[OP]$ : ce sont tous les points $M(x;y)$ à équidistance de $O$ et $P$.
+	
+	Montrer que $x$ et $y$ sont liés par la relation 
+		\[ y = -3x + 5. \]
+}{exe:médiatrice}{
+	La contrainte d'équidistance s'exprime et est équivalente aux équations suivantes.
+		\begin{align*}
+			\norm{M-O}^2 &= \norm{M - P}^2 \\
+			x^2 + y^2 &= (x-3)^2 + (y-1)^2 \\
+			x^2 + y^2 &= x^2 - 6x + 9 + y^2 - 2y + 1 \\
+			2y &= -6x + 10 \\
+			y &= -3x + 5
+		\end{align*}
+}
+
 \section{Identifications des paramètres}
 
 \subsection{Ordonnée à l'origine $b$}
