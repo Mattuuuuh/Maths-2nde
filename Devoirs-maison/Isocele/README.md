@@ -18,7 +18,7 @@ pdftk $(ls out/*.pdf) cat output merged.pdf
 
 Fusionner deux A5 en un A4
 ```
-pdfjam seed_0.pdf --nup '1x2'
+pdfjam merged.pdf --nup '1x2' --suffix a4paper
 ```
 
 
