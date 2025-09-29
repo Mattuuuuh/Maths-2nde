@@ -1,4 +1,5 @@
 import subprocess
+import os
 import numpy as  np
 
 class DM:
@@ -67,9 +68,13 @@ class DM:
 
     # reads seeds from adr files inside FOLDER/adr/
     def read_adrs(self):
-        # TODO
-        self.N = 0
-        self.seeds = []
+        # read adr/
+        ADRs = os.listdir('adr/')
+        # remove suffix '.adr' and convert to in
+        SEEDS = [int(filename[:-4]) for filename in ADRs]
+
+        self.N = len(SEEDS)
+        self.seeds = SEEDS
         return 0
 
     def compile_pdf(self, seed=0):
