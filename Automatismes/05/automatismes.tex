@@ -1,0 +1,103 @@
+\input{../preamble.tex}
+\SetDate[08/10/2025]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Plan cartésien}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, ymin=-2.9, ymax=4.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1cm, y=.5cm]			
+			\addplot[GREEN_E, mark=*, mark size = 1] (2.5,0) node[above right] {$B$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,3) node[above left] {$A$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Donner les coordonnées du point $A$.
+	}{
+		Donner les coordonnées du point $B$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, ymin=-2.9, ymax=4.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1cm, y=.5cm]			
+			\addplot[GREEN_E, mark=*, mark size = 1] (2.5,0) node[above right] {$B$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,3) node[above left] {$A$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\pause
+	\boxAB{
+		$A(-1;3)$.
+	}{
+		$B(2,5;0)$.
+	}
+}
+
+\framedelayed{	
+	Soient $A(2 ;  5), B(1 ; 4)$, et $C(3 ; 3)$.
+	\boxAB{
+		Calculer $AC^2$.
+	}{
+		Calculer $BC^2$.
+	}
+}{
+	\boxAB{
+		$AC^2 = \norm{A-C}^2 = \norm{(-1 ; 2)}^2 = 1 + 4 = 5$.
+	}{
+		$BC^2 = \norm{B-C}^2 = \norm{(-2 ; 1)}^2 = 4 + 1 = 5$.
+	}
+}
+
+\framedelayed{
+	Soient $A(2 ;  5), B(1 ; 4)$, et $C(3 ; 3)$.
+	\boxAB{
+		Donner le milieu du segment $[AC]$.
+	}{
+		Donner le milieu du segment $[BC]$.
+	}
+}{
+	\boxAB{
+		$\dfrac{A+C}2 = \dfrac12 (5 ; 8) = (2,5 ; 4)$.
+	}{
+		$\dfrac{B+C}2 = \dfrac12 (4 ; 7) = \left(2 ; \dfrac72 \right)$.
+	}
+}
+
+\section{Fractions}
+
+\framedelayed{
+	Donner le résultat du calcul suivant.
+	\boxAB{
+		$2 - 3 \times \dfrac14$
+	}{
+		$3 - 2 \times \dfrac13$
+	}
+}{
+	\boxAB{
+		$2 - 3 \times \dfrac14 = 2 - \dfrac34 = \dfrac84 - \dfrac34 = \dfrac54$
+	}{
+		$3 - 2 \times \dfrac13 = 3 - \dfrac23 = \dfrac93 - \dfrac23 = \dfrac73$
+	}
+}
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
