@@ -134,26 +134,50 @@ def generate():
     CONTENT += newcommand("ABx", B[0]-A[0])
     CONTENT += newcommand("ABy", B[1]-A[1])
     
-    CONTENT += newcommand("ACsq", A[0]**2 + A[1]**2)
+    ACsq = A[0]**2 + A[1]**2
+    CONTENT += newcommand("ACsq", ACsq)
     ABsq = (A[0]-B[0])**2 + (A[1]-B[1])**2
     CONTENT += newcommand("ABsq", ABsq)
-    CONTENT += newcommand("BCsq", B[0]**2 + B[1]**2)
-
-    CONTENT += newcommand("AC", int(np.sqrt(A[0]**2+A[1]**2)))
+    BCsq = B[0]**2 + B[1]**2
+    CONTENT += newcommand("BCsq", BCsq)
     
+    # AB
     AB = np.sqrt(ABsq)
     ABlow = int(AB)
     if AB == int(AB):
-        isSquare = 1
+        isABSquare = 1
     else:
-        isSquare = 0
+        isABSquare = 0
 
-    # testing
-    #isSquare =1
-
-    CONTENT += newcommand("isSquare", isSquare)
+    CONTENT += newcommand("isABSquare", isABSquare)
     CONTENT += newcommand("ABlow", int(np.sqrt(ABsq)))
     CONTENT += newcommand("ABhigh", int(np.sqrt(ABsq))+1)
+    
+    # AC
+    AC = np.sqrt(ACsq)
+    AClow = int(AC)
+    if AC == int(AC):
+        isACSquare = 1
+    else:
+        isACSquare = 0
+
+    
+    CONTENT += newcommand("isACSquare", isACSquare)
+    CONTENT += newcommand("AClow", AClow)
+    CONTENT += newcommand("AChigh", AClow+1)
+
+    #BC
+    BC = np.sqrt(BCsq)
+    BClow = int(BC)
+    if BC == int(BC):
+        isBCSquare = 1
+    else:
+        isBCSquare = 0
+
+    CONTENT += newcommand("isBCSquare", isBCSquare)
+    CONTENT += newcommand("BClow", BClow)
+    CONTENT += newcommand("BChigh", BClow+1)
+
 
     
 
@@ -186,6 +210,8 @@ dm.read_adrs()
 # for testing
 #dm.seeds = [dm.seeds[0]]
 #dm.N = 1
+# rewrite 
+dm.write_adrs()
 # compile
 dm.compile_pdfs()
 

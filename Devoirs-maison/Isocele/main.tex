@@ -64,14 +64,25 @@
 	% [resume] doesn't work. Maybe because of different scope because of multicols?
 	\begin{enumerate}\addtocounter{enumi}{2}
 		\item
-		Les longueurs $AC$ et $BC$ sont entières, de longueur $\AC$, car $\AC^2 = \ACsq = AC^2 = BC^2$. 
-
-			\ifnum\isSquare=0
+			\ifnum\isABSquare=0
 			La longueur $AB$ n'est pas entière car les carrés sont croissants et qu'on a l'encadrement
 				\[ \ABlow^2 < AB^2 < \ABhigh^2. \]
 			\else
 			La longueur $AB$ est entière, de longueur $\ABlow$, car $\ABlow^2 = \ABsq = AB^2$.
 			\fi
+			\ifnum\isACSquare=0
+			Les longueurs $AC$ et $BC$ ne sont pas entières car les carrés sont croissants et qu'on a l'encadrement
+				\[ \AClow^2 < AC^2 = BC^2 < \AChigh^2. \]
+			\else
+			Les longueurs $AC$ et $BC$ sont entières, de longueur $\AClow$, car $\AClow^2 = \ACsq = AC^2 = BC^2$.
+			\fi
+			% isoceles so useless
+			%\ifnum\isBCSquare=0
+			%La longueur $BC$ n'est pas entière car les carrés sont croissants et qu'on a l'encadrement
+			%	\[ \BClow^2 < BC^2 < \BChigh^2. \]
+			%\else
+			%La longueur $BC$ est entière, de longueur $\BClow$, car $\BClow^2 = \BCsq = BC^2$.
+			%\fi
 		\item
 		Le triangle $ABC$ est isocèle en $C$ car $AC = BC = \AC \neq AB$.
 	\end{enumerate}

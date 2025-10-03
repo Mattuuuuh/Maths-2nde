@@ -24,7 +24,12 @@
 \newcommand{\ACsq}{92648}
 \newcommand{\ABsq}{170496}
 \newcommand{\BCsq}{92648}
-\newcommand{\AC}{304}
-\newcommand{\isSquare}{0}
+\newcommand{\isABSquare}{0}
 \newcommand{\ABlow}{412}
 \newcommand{\ABhigh}{413}
+\newcommand{\isACSquare}{0}
+\newcommand{\AClow}{304}
+\newcommand{\AChigh}{305}
+\newcommand{\isBCSquare}{0}
+\newcommand{\BClow}{304}
+\newcommand{\BChigh}{305}
