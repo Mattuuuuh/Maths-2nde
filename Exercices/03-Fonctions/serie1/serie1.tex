@@ -1,0 +1,467 @@
+\input{../preamble.tex}
+
+\SetDate[10/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Fonctions 1}}
+\fancyhead[R]{\today}
+
+\exe{, difficulty=1}{
+	Un lynx prend la fuite : il court à 15 mètres par seconde.
+	\begin{enumerate}
+		\item La distance parcourue par le lynx est-elle une fonction du temps écoulé depuis son départ ?
+		\item Le temps écoulé depuis le départ du lynx est-il une fonction de la distance parcourue ?
+	\end{enumerate}
+}{exe:lynx}{
+	\begin{enumerate}
+		\item 
+		Oui car à chaque temps est associé \textbf{une unique} distance.
+		\item 
+		Oui également, car à chaque distance est associé \textbf{un unique} temps.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
+	Il note ses résultats dans le tableau ci-dessous.
+	\begin{center}
+		\def\arraystretch{1.5}
+		%\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+			Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+			Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item La hauteur est-elle une fonction du temps ? Justifier.
+		\item Le temps est-il une fonction de la hauteur ? Justifier.
+	\end{enumerate}
+}{exe:f1}{
+	\begin{enumerate}
+		\item On peut associer \textbf{une seule} hauteur à chaque temps. La hauteur peut donc être vue comme fonction du temps.
+		\item On ne peut pas associer un unique temps à chaque hauteur. Par exemple, il y a deux temps distincts pour lesquels la hauteur est de $85$cm (0s et 1s).
+		Le temps ne peut donc pas être vu comme fonction de la hauteur.
+	\end{enumerate}
+}
+	
+	
+\exe{, difficulty=2}{
+	\begin{enumerate}
+		\item
+		Montrer que le rayon $R$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Rayon}(P)$ associée.
+		\item
+		Montrer que l'aire $A$ d'un cercle est fonction de son rayon $R$ et écrire la fonction $\text{Aire}(R)$ associée.
+		\item
+		En déduire que l'aire $A$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Aire}(P)$ associée.
+	\end{enumerate}
+}{exe:f2}{
+	\begin{enumerate}
+		\item
+		De la relation 
+			\[ P = 2\pi \cdot R, \]
+		on déduit que 
+			\[ R = \dfrac{1}{2\pi} \cdot P. \]
+		Remarquons qu'on a inversé le membre de gauche et le membre de droite pour extraire la forme d'une fonction : une valeur de $P$ donne une unique valeur de $R$.
+		
+		Ainsi on peut voir $R$ comme une fonction de $P$. On note alors $R=R(P)$, qui vérifie
+		\[ R(P) = \dfrac{1}{2\pi} \cdot P. \]
+		
+		\item 
+		La formule de l'aire
+			\[ A = \pi \cdot R^2 \]
+		exprime directement l'aire comme fonction du rayon : à chaque rayon possible, on peut calculer une unique aire.
+		On note alors
+			\[ A(R) =  \pi \cdot R^2. \]
+		\item
+		On souhaite exprimer l'aire $A$ comme fonction du périmètre $P$.
+		Or d'après les questions précédentes, l'aire $A$ est fonction du rayon $R$, et le rayon $R$ est lui-même fonction du périmètre $P$.
+		
+		Ainsi, une valeur de $P$ donne une unique valeur de $R$ qui donne une unique valeur de $A$.
+		En suivant le raisonnement, on peut composer les fonctions trouvées ci-dessus en considérant $A(R(P))$.
+		Pour ne pas surcharger les notations, appelons plutôt $\text{Aire}$ la fonction prenant un périmètre.
+			\begin{align*}
+			 \text{Aire}(P) &= A(R(P)) \\ &=A(\dfrac{1}{2\pi} \cdot P) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
+			 \end{align*}
+	\end{enumerate}
+}
+	
+	
+\exe{}{
+	Considérons la fonction $f$ donnée {algébriquement} par
+	\begin{align*}
+		f(x) = 3x + 1
+	\end{align*}
+	pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$ ; de $3,1$ ; de $\frac13$ ; de $-1$ ; de $-\frac23$.
+		\item
+		Donner un antécédent de $1$ par $f$.
+		\item
+		Déterminer tous les antécédents de $6$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents}{
+	\begin{enumerate}
+	\item
+	L'image de $x$ est donnée par $f(x)$. On calcule donc
+		\begin{align*}
+			f(0) &= 3\cdot0 + 1 = 1 \\
+			f(3,1) &= 3\cdot3,1 + 1 = 10,3 \\
+			f\left(\frac13\right) &= 3\cdot\frac13 + 1 = 1 + 1 = 2 \\
+			f(-1) &= 3\cdot(-1) + 1 = -2 \\
+			f\left(-\frac23\right) &= 3 \cdot \left(- \frac23\right) + 1 = -1.
+		\end{align*}
+	\item
+	La relation
+		\[ f(0) = 1 \]
+	implique que l'image de $0$ est $1$, et qu'un antécédent de $1$ est $0$.
+	On a donc trouvé $0$, antécédent de $1$ par $f$.
+	\item
+	Appelons $x$ un antécédent de $6$ par $f$.
+	Autrement dit, l'image de $x$ est $6$, et donc 
+		\[ f(x) = 6. \]
+	En utilisant l'expression algébrique de $f$, on trouve
+		\begin{align*}
+			f(x) &= 6, \\
+			3\cdot x + 1 &= 6, \\
+			3\cdot x &= 5, \\
+			x &= \dfrac53.
+		\end{align*}
+	Ainsi $x=\frac53$ est le seul antécédent de $6$ par $f$.
+	En général, certaines fonctions admettes plusieurs antécédents.
+	Voir par exemple l'exercice suivant.
+	\end{enumerate}
+
+
+}
+
+\exe{}{
+	Un fonction $f$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
+		\begin{multicols}{4}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{-x^2 - x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:f4}{
+	Il s'agit de discriminer les fonctions possibles en utilisant les images du tableau.
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$ vaut bien $1$ en $x=0$, mais l'expression vaut $3$ en $x=-2$, donc ce n'est pas l'expression de $f$.
+			\item  $1+\dfrac{x}2$ vaut bien $1$ en $x=0$ et $0$ en $x=-2$, mais elle vaut $1$ en $x=1$, ce n'est donc pas l'expression de $f$.
+			\item $\dfrac{1-x}2$ vaut $\frac12$ en $x=0$, ce n'est donc pas l'expression de $f$.
+			\item On déduit $f(x) = \dfrac{-x^2 - x + 2}2$ est la seule expression possible, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+		\end{enumerate}
+
+	Cette exercice deviendra vite évident après avoir terminé l'étude des fonctions affines. 
+	Comme les courbes représentatives des trois premières expressions sont des droites non constantes, toutes leurs images ont un unique antécédent.
+	Or ici $0$ et $1$ ont deux antécédents.
+}
+
+
+
+\exe{}{
+	Remplir le tableau d'images suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 3 & 0 & \\ \hline
+			$g(x)$ & 1 & 0 &  & -2 \\ \hline
+			$f(x)+2g(x)$ &  & & 2 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:fonctions-QCM-trous}{
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 3 & 0 & 5 \\ \hline
+			$g(x)$ & 1 & 0 & 1 & -2 \\ \hline
+			$f(x)+2g(x)$ & 3 & 3 & 2 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+}
+
+\newpage
+
+\exe{, difficulty=1}{
+	Posons $h(x) = (x+2)(x-1)$ pour tout $x\in\R$.
+	Remplir le tableau de valeurs ci-dessous.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{30pt}
+		\begin{tabular}{|c|c|c|}\hline
+			$x$ & -2 & 1 \\ \hline
+			$f(x)$ & -42 & 1729 \\ \hline
+			$h(x)$ &  &   \\ \hline
+			$f(x)+h(x)$ &  &   \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:fonctions-QCM2}{
+	Lors du calcul de chacune des images, au moins un facteur est nul : le produit vaut donc toujours zéro.
+}
+
+\exe{, difficulty=2}{
+	Montrer qu'il existe une infinité de fonctions, toutes différentes, vérifiant le même tableau de valeurs de l'exercice \ref{exe:fonctions-QCM2}.
+}{exe:fonctions-QCM3}{
+	On prend par exemple $f(x) + h(x), f(x) + 2h(x), f(x) + 3h(x), \dots$.
+}
+
+
+\exe{, difficulty=1}{
+	Soit $f(x) = (x-12)(x-13)$.
+	Développer l'expression pour vérifier que $f(x) = x^2 - 25x + 156$.
+	
+	Calculer les images de 0 ; 1 ; 11 ; 12 ; 13; et 14 par $f$ avec la forme adéquate et sans calculatrice.
+}{exe:image-selon-forme}{
+	Pour $f(0)$ et $f(1)$, on préférera la forme développée $f(x) = x^2 - 25x + 156$.
+	Ainsi, $f(0) = 156$ immédiatement, et $f(1) = 1 - 25 + 156 = 132$.
+	
+	Pour $f(11), f(12), f(13), f(14)$, la forme factorisée est préférable, car on calcule facilement que
+		\begin{align*}
+			f(11) &= (11-12)(11-13) = (-1)(-2) = 2 \\
+			f(12) &= (12-12)(12-13) = 0 \\
+			f(13) &= (13-12)(13-13) = 0 \\
+			f(14) &= (14-12)(14-13) = (2)(1) =2
+		\end{align*}
+}
+
+
+\exe{, difficulty=1}{
+	Considérons les fonctions $f(x) =x^2 -6x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+	\begin{enumerate}
+		\item
+		Calculer les images par $f$ et $g$ de $0$ ; de $6$ ; de $3$ ; de $-\frac23$.
+		\item
+		Donner deux antécédents de $9$ par $f$.
+		\item
+		Montrer que $f(x) = g(x)$ pour tout $x\in\R$ réel.
+	\end{enumerate}
+}{exe:forme-canonique}{
+	\begin{enumerate}
+		\item
+		Pour $f$, on calcule
+			\begin{align*}
+				f(0) &= 9, \\
+				f(6) &= 6^2 - 6^2 + 9 = 9, \\
+				f(3) &= 3^2 - 6\times3 + 9 = 0, \\
+				f\left(-\frac23\right) &= \left(-\frac23\right)^2 - 6\left(-\frac23\right) + 9 = \frac49 + 4 + 9 = \frac49 + \frac{117}9 = \frac{121}9.
+			\end{align*}
+		Pour $g$, on calcule
+			\begin{align*}
+				g(0) &= (-3)^2 = 9, \\
+				g(6) &= 3^2 = 9, \\
+				g(3) &= 0^2 = 0, \\
+				g\left(-\frac23\right) &= \left(-\frac23 - 3\right)^2= \left(-\dfrac{11}3\right)^2 = \frac{121}9.
+			\end{align*}
+		\item
+		0 et 6 sont deux antécédents de 9 par $f$.
+		\item
+		On part toujours de la forme factorisée ($g$ ici) pour arriver vers la forme développée réduite ($f$ ici).
+			\begin{align*}
+				g(x) &= (x-3)^2 \\
+					&= (x-3)(x-3) \\
+					&= x(x-3) - 3(x-3) \\
+					&= x^2 - 3x - 3x + 9 \\
+					&= x^2 - 6x + 9
+			\end{align*}
+		Le développement de carrés parfaits deviendront immédiates après l'étude des identités remarquables.
+	\end{enumerate}
+}
+
+\subsection*{Exercices supplémentaires}
+
+\exe{}{
+	Considérons la fonction $f(x) = \frac15-x$ pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$ ; de $0,2$ ; de $\frac47$ ; de $-\frac23$.
+		\item
+		Donner un antécédent de $0$ par $f$.
+		\item
+		Déterminer tous les antécédents de $5$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents2}{
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$ ; de $0,2$ ; de $\frac47$ ; de $-\frac23$.
+		\begin{align*}
+			f(0) &= \frac15 \\
+			f(0,2) &= \frac15 - 0,2 = 0 \\
+			f\left(\frac47\right) &= \frac15 - \frac47 = \frac{7}{35} - \frac{20}{35} = \frac{-13}{35} \\
+			f\left(-\frac23\right) &= \frac15 + \frac23 = \frac{3}{15} + \frac{10}{15} = \frac{13}{15}
+		\end{align*}
+		\item
+		0,2 en est un d'après la question précédente.
+		\item
+		On pose $f(x) = 5$ et on résoud pour $x$.
+			\begin{align*}
+				f(x) &= 5 \\
+				\frac15 -x &= 5 \\
+				-x &= 5-\frac15 = \frac{24}{5} \\
+				x &= -\frac{24}{5}
+			\end{align*}
+	\end{enumerate}
+}
+
+
+
+\exe{, difficulty=1}{
+	Un fonction $f$ définie sur tout $\R$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
+		\begin{multicols}{3}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{-x^2 - x + 2}2$
+			\item $\dfrac{x^3 - 3x + 2}2$
+			\item $\dfrac{-x^4 - 2x^3 + x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:fonctions-QCM}{
+	TODO
+}
+
+
+%%%%%
+%%%%% INTERVALLES
+%%%%% 
+
+
+
+
+%%%%%
+%%%%% REP GRAPHIQUE
+%%%%% 
+	
+
+%\exe{}{
+%	Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
+%	
+%		\begin{center}
+%		\begin{tikzpicture}[>=stealth]
+%			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true]
+%				\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3}
+%				node[pos=.3, right]{$\mathcal{C}_f$};
+%			\end{axis}
+%		\end{tikzpicture}
+%		\end{center}
+%	\begin{enumerate}
+%		\item Donner approximativement les images de $-1,5$ et de $-\frac{20}7$ par $f$.
+%		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+%		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+%		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+%	\end{enumerate}
+%	Supposons désormais que $f(x) = 3-2x +\frac13 x^3$ pour tout $x\in\D$ du domaine.
+%	\begin{enumerate}[resume]
+%		\item Vérifier à la calculatrice les réponses aux deux premières questions.
+%		\item Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+%	\end{enumerate}
+%}{exe:f5}{
+%	\begin{enumerate}
+%		\item On détermine approximativement
+%			\begin{align*}
+%			f(-1,5) \approx 4,5 && f\left(-\dfrac{20}7\right) \approx f(-2,86) \approx 2
+%			 \end{align*}
+%		\item On cherche d'abord les antécédents de $-2$, c'est-à-dire les nombres $x$ du domaine vérifiants
+%			\[ f(x) = -2. \]
+%		Pour ça, on se pose \og à hauteur -2 \fg : on tracer une droite horizontale d'ordonnée $-2$ et on regarde les points d'intersection.
+%			\begin{center}
+%			\begin{tikzpicture}[>=stealth]
+%				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true]
+%					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+%					
+%					\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{-2};
+%				\end{axis}
+%			\end{tikzpicture}
+%			\end{center}
+%		
+%		
+%		En l'occurrence, seul $x\approx -3,2$ fonctionne :
+%			\[ f(-3,2) \approx -2. \]
+%		Pour les antécédents de $2$, on fait idem en regardant les points de la courbe d'ordonnée $2$.
+%		On trouve trois valeurs approximatives : $-2,8 ; 0,5 ; $ et $2,1$.
+%		
+%			\begin{center}
+%			\begin{tikzpicture}[>=stealth]
+%				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true]
+%					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+%					
+%					\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{2};
+%				\end{axis}
+%			\end{tikzpicture}
+%			\end{center}
+%		
+%		\item 
+%		On a plusieurs choix ici. 
+%		Il faut placer une droite horizontale telle qu'elle s'intersecte exactement deux fois avec la courbe de $f$.
+%		Un choix clair est $4$ (en violet ci-dessous).
+%		Un choix moins clair est $1,1$, en faisant en sorte que la courbe frôle la droite horizontale qu'on place en ordonnée $1,1$ (en rouge ci-dessous).
+%		On dit alors que la droite est \emph{tangente} à la courbe.
+%		
+%			\begin{center}
+%			\begin{tikzpicture}[>=stealth]
+%				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-5.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true]
+%					\addplot[no marks, blue, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+%					
+%					\addplot[no marks, red, -] expression[domain=-5:3, samples=2]{1.1};
+%					\addplot[no marks, violet, -] expression[domain=-5:3, samples=2]{4};
+%				\end{axis}
+%			\end{tikzpicture}
+%			\end{center}
+%		
+%		\item L'image est unique et ne dépend pas du domaine (tant que celui-ci contient $-2$ !).
+%		On peut donc toujours connaître $f(-2)$, même sachant qu'on connaisse pas $f$ sur $\R$ tout entier mais que sur un domaine restreint.
+%		
+%		Les antécédents, eux, dépendent du domaine choisi.
+%		Comme on ne sait pas du tout à quoi ressemble $\C_f$ en dehors du domaine choisi, il est impossible de déterminer tous les réels $x\in\R$ antécédents de $-2$ par $f$.
+%		
+%		\item On calcule grâce à la calculatrice (ou sans...)
+%			\begin{align*}
+%				f(-1,5) = 4,875 && f\left(-\dfrac{20}7 \right) \approx 0,94.
+%			\end{align*}
+%		\item On calcule à la main que
+%			\begin{align*}
+%				f(-3) &= 3 - 2 \cdot (-3) + \dfrac13 \cdot (-3)^3, \\
+%					&= 3 + 6 - 9, \\
+%					&= 0.
+%			\end{align*}
+%		Pour l'image de $0$, remarquons que seul le terme ne dépendant pas de $x$ subsiste. 
+%		On l'appelle le terme \emph{constant}, et on trouve $f(0) = 3$, comme requis.
+%	\end{enumerate}
+%}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

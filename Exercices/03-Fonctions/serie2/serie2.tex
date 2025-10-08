@@ -1,0 +1,179 @@
+\input{../preamble.tex}
+
+\SetDate[10/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Fonctions 2}}
+\fancyhead[R]{\today}
+
+%%%%%
+%%%%% INTERVALLES
+%%%%% 
+
+
+
+
+%%%%%
+%%%%% REP GRAPHIQUE
+%%%%% 
+	
+
+\exe{}{
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \dfrac17\right)$
+		\item $\left(\dfrac17 ; 0\right)$
+		\item $\left(\dfrac27 ; \dfrac37\right)$
+		\item $\left(-\dfrac{13}7 ; 2\right)$
+		\item $\left(\dfrac67 ; 1\right)$
+		\item $\left(\dfrac27 ; -\dfrac17\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	TODO
+}
+
+\exe{}{
+	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
+		\begin{align*}
+			f(x) = x^2 - 2x && g(x) = (x-1)^2
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
+		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
+	\end{enumerate}
+}{exe:id-rem-graph}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f$ sur $\D=[-2; 4]$ donnée algébriquement par
+		\[ f(x) = 3. \]
+	Que dire de $f$ et de $\C_f$ ?
+}{exe:graph-const}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
+		\[ f(x) = 1-x. \]
+	Que dire de $\C_f$ ?
+}{exe:graph-droite}{
+	TODO
+}
+
+\exe{}{
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	TODO
+}
+
+\newpage
+
+\exe{}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2cm,
+			xtick={-3, -2, ..., 2},
+			y=20pt,
+			clip=true,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Donner approximativement les images de $-1,5$ et de $-\frac{20}7$ par $f$.
+		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+	\end{enumerate}
+	Supposons désormais que $f(x) = 3-2 x +\frac13 x^3$ pour tout $x\in\D$ du domaine.
+	\begin{enumerate}[resume]
+		\item Vérifier à la calculatrice les réponses aux deux premières questions.
+		\item Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+	\end{enumerate}
+}{exe:deg3}{
+	TODO
+}
+
+
+\exemulticols{}{
+	Un fonction $f$ admet une représentation graphique ci-contre.
+	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
+		\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $\dfrac{-1-x}3$
+			\item $\left(x+\dfrac13\right)^2$
+			\item $-2x - \dfrac23$
+		\end{enumerate}
+		\end{multicols}
+		\vfill\null
+}{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -3.1, xmax=1.1, ymin=-3.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			clip=true,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:2, samples=2]{-2/3 - 2*x}
+				node[pos=.3, right]{$\mathcal{C}_f$};
+			\end{axis}
+		
+		\end{tikzpicture}
+	\end{center}
+}{exe:expr-from-graph}{
+	TODO
+}
+
+\exe{}{
+	Comparer les représentations graphiques des fonctions suivantes données algébriquement.
+		\begin{align*}
+			f(x) = x^2, && g(x) = x^2 - 3, && h(x) = (x+4)^2.
+		\end{align*}
+}{exe:y-shift}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner une fonction réelle et un domaine telle qu'une de ses images admet
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item exactement un antécédent
+			\item exactement deux antécédents
+			\item exactement trois antécédents
+			\item une infinité d'antécédents
+		\end{enumerate}	
+		\end{multicols}
+}{exe:nb-antécédents}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images de $f$ admettent un nombre infini d'antécédents.
+}{exe:infinité-antécédents}{
+	TODO
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
