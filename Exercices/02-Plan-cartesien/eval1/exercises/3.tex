@@ -4,21 +4,21 @@
 \newcommand{\yA}{\number\numexpr6+\exeIII\relax}
 \newcommand{\xB}{\number\numexpr8-\exeIII\relax}
 \newcommand{\yB}{\number\numexpr-3+\exeIII\relax}
-\newcommand{\yC}{\number\numexpr-10-\exeIII\relax}
-\newcommand{\xC}{\number\numexpr-2+\exeIII\relax}
+\newcommand{\xC}{\number\numexpr-10-\exeIII\relax}
+\newcommand{\yC}{\number\numexpr-2+\exeIII\relax}
 
-\exemulticols{4}{
+\needspace{5cm}
+\exemulticols{4, difficulty=1}{
 	Considérons le triangle de sommets 
 		\[ A(\xA;\yA), \quad B(\xB ; \yB), \quad\et\quad C(\xC ; \yC).\]
 	
-	Les questions 1 et 2 peuvent être faites séparément.
 	\begin{enumerate}
 		%\item Tracer le triangle $ABC$ dans un repère.
-		\item Montrer par le calcul que
+		\item Calculer les valeurs suivantes.
 		\begin{enumerate}[label=\roman*)]
-			\item $AB^2 = 117$
-			\item $AC^2 = 208$
-			\item $BC^2 = 325$
+			\item $AB^2$
+			\item $AC^2$
+			\item $BC^2$
 		\end{enumerate}
 		\item Que dire du triangle $ABC$ ?
 	\end{enumerate}
@@ -46,12 +46,12 @@
 }{exe:Trex}{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -9.1, xmax=9.1, ymin=-5.1, ymax=5.1,axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=20pt, y=20pt]			
-			\addplot[BLUE_E, mark=*, mark size = 1] (2,6) node[above] {$A$};
-			\addplot[RED_E, mark=*, mark size = 1] (8,-3) node[right] {$B$};
-			\addplot[GREEN_E, mark=*, mark size = 1] (-10,-2) node[left] {$C$};
+		\begin{axis}[axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=.7cm, y=.7cm]			
+			\addplot[BLUE_E, mark=*, mark size = 1] (\xA,\yA) node[above] {$A$};
+			\addplot[RED_E, mark=*, mark size = 1] (\xB,\yB) node[right] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (\xC,\yC) node[left] {$C$};
 			
-			\draw[-, thick] (axis cs:2,6) -- (axis cs:8,-3) -- (axis cs:-10,-2) -- (axis cs:2,6);
+			\draw[-, thick] (axis cs:\xA,\yA) -- (axis cs:\xB,\yB) -- (axis cs:\xC,\yC) -- (axis cs:\xA,\yA);
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}

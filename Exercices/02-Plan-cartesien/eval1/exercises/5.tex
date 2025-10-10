@@ -1,10 +1,16 @@
 %!TEX root = ../eval1.tex
 
+%\renewcommand{\exeV}{0}
+\newcommand{\xAV}{\number\numexpr2+\exeV-3\relax}
+\newcommand{\yAV}{\number\numexpr1+\exeV-4\relax}
+\newcommand{\xBV}{\number\numexpr2+\exeV-3\relax}
+\newcommand{\yBV}{\number\numexpr5+\exeV-4\relax}
+\newcommand{\xCV}{\number\numexpr2+\exeV-3\relax}
+\newcommand{\yCV}{\number\numexpr3+\exeV-4\relax}
+
 \exe{3, difficulty=1}{
-	Considérons les points $\point{A}{2}{1}, \point{B}{2}{5}, C\bigl(\sqrt{12}+2 ; 3\bigr)$.
-	Montrer que le triangle $ABC$ est équilatéral en calculant le carré de la longueur de chaque côté.
-	
-	\emph{Un triangle équilatéral est un triangle dont les trois côtés ont la même longueur}.
+	Considérons les points $\point{A}{\xAV}{\yAV}, \point{B}{\xBV}{\yBV}, C\bigl(\sqrt{12}+\xCV ; \yCV\bigr)$.
+	Montrer, par le calcul, que le triangle $ABC$ est équilatéral.
 }{exe:equilateral}{
 	On calcule 
 		\begin{align*}

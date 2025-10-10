@@ -1,13 +1,24 @@
 %!TEX root = ../eval1.tex
 
-\exe{2, difficulty=1}{
-	Le but de cet exercice est de généraliser l'exercice \ref{exe:parallélogramme}.
-
-	Soient $A, B, C$ trois points du plan distincts quelconques.
-	Montrer que le quadrilatère $ABDC$, où $D = B+C-A$, est un parallélogramme.
+\needspace{2cm}
+\exe{3, difficulty=1}{
+	Soient $A(x_A; y_A), B(x_B ; y_B) , C(x_C; y_C)$ trois points du plan distincts.
+	Les questions 1 et 2 peuvent être faites séparément.
+	\begin{enumerate}
+		\item
+		Montrer que le quadrilatère $ABDC$, où $D(x_B + x_C - x_A ; y_B + y_C - y_A)$, est un parallélogramme. (autrement dit, $D = B+C-A$)
+		\item
+		Donner un exemple de parallélogramme à l'aide de la question précédente. Quatre points et leurs coordonnées sont attendus.
+	\end{enumerate}
 }{exe:parall-gen}{
-	On calcule le milieu des segments $[AD]$ et $[BC]$ et on compare.
-	
-	Le milieu du segment $[AD]$ est donné par $\frac12(A+D) = \frac12 (B+C)$. 
-	Celui du segment $[BC]$ est donné par $\frac12(B+C)$.
+	\begin{enumerate}
+		\item
+		On calcule le milieu des segments $[AD]$ et $[BC]$ et on compare.
+		Les opérations sur les couples permettent de nous défaire des coordonnées encombrantes.
+		
+		Le milieu du segment $[AD]$ est donné par $\frac12(A+D) = \frac12 (B+C)$. 
+		Celui du segment $[BC]$ est donné par $\frac12(B+C)$.
+		\item
+		On prend, par exemple, $A(0;0), B(1 ; 1), C(1 ; 0),$ et $D = B+C-A = (2 ; 1)$.
+	\end{enumerate}
 }

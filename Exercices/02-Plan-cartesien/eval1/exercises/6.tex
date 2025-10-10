@@ -1,11 +1,12 @@
 %!TEX root = ../eval1.tex
 
-\newcommand{\ordonnee}{\number\numexpr2+\exeVI\relax}
+\newcommand{\xAVI}{\number\numexpr-2-2*\exeVI\relax}
+\newcommand{\yAVI}{\number\numexpr-4+2*\exeVI\relax}
+\newcommand{\xBVI}{\number\numexpr1+\exeVI\relax}
+\newcommand{\yBVI}{\number\numexpr2-\exeVI\relax}
 
 \exe{2, difficulty=2}{
-	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\number\numexpr3-\exeVI\relax;\ordonnee)$ et $B(\number\numexpr-4+\exeVI\relax;\ordonnee)$ ? Justifier.
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\xAVI;\yAVI)$ et $B(\xBVI; \yBVI)$ ? Justifier par le calcul.
 }{exe:C-on-AB}{
-	Les deux points ont la même ordonnée : ils sont donc alignés horizontalement.
-	Tous les points de $[AB]$ sont d'ordonnée $\ordonnee$, et l'origine du repère ne peut donc pas appartenir au segment.
-	En effet, $\lambda A + (1-\lambda)B$ est d'ordonnée $\ordonnee\lambda + (1-\lambda)\ordonnee = \ordonnee$, peu importe la valeur de $\lambda\in\R·$.
+	On trouve $\frac13 A + \frac23 B = O$, donc l'origine est moyenne pondérée de $A$ et $B$ (poids $\lambda = \frac13$), et se situe donc sur $[AB]$.
 }
