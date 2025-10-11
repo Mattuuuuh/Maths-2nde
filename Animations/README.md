@@ -20,14 +20,15 @@ manim render -pqh start.py
 
 - [x] Dichotomie (fonction à adapter)
 - [x] Plan cartésien
+- [x] Combinaison convexe (segment dans le plan)
 - [x] Courbe représentative (revoir les zoom)
 - [ ] Fonctions parentes
 - [ ] Signe affine
 - [x] Signe du produit
-- [ ] Manipulation d'équation visuellement : évolutions, équations linéaires
+- [ ] Manipulation d'équation : évolutions, équations linéaires
 - [ ] Trigonométrie, quart de cercle unité
 - [ ] Inclusion-exclusion
 - [ ] Vecteurs directeurs
 - [ ] Statistiques descriptives : linéarité moyenne + quartiles
 - [ ] Échantillonnage ?
-- [ ] Variations : différents candidats de fonctions associées à un tableau de variations (concave, convexe, combinaisons, ..)
+- [ ] Variations : différents candidats de fonctions associées à un même tableau de variations (concave, convexe, combinaisons, ..)
