@@ -4,8 +4,8 @@ import numpy as np
 # from [roman.toRoman(i) for i in range(1,31)]
 ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII', 'XXIX', 'XXX']
 
-NUMBER_OF_EXERCISES = 11
-NUMBER_OF_EXAMS = 1
+NUMBER_OF_EXERCISES = 9
+NUMBER_OF_EXAMS = 70
 
 # shuffled range(NUMBER_OF_EXAMS), integers
 def exercise_commands(shuffled_list):
@@ -33,12 +33,6 @@ if __name__=='__main__':
     for EXAM_NUMBER in range(NUMBER_OF_EXAMS):
         # this is in-place
         np.random.shuffle(INDICES)
-       
-        # first exercise cannot be in last place (space reasons)
-        # exercise 3 cannot be after exercise 1
-        while 8 in INDICES[4:6] or 2 in INDICES[4:6] or ( (np.array(INDICES)==3).nonzero() > (np.array(INDICES)==6).nonzero() ):
-            np.random.shuffle(INDICES)
-
         compile_exam(EXAM_NUMBER, INDICES)
 
 

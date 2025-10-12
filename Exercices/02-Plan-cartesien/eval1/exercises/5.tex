@@ -1,19 +1,12 @@
 %!TEX root = ../eval1.tex
 
-%\renewcommand{\exeV}{0}
-\newcommand{\xAV}{\number\numexpr2+\exeV-3\relax}
-\newcommand{\yAV}{\number\numexpr1+\exeV-4\relax}
-\newcommand{\xBV}{\number\numexpr2+\exeV-3\relax}
-\newcommand{\yBV}{\number\numexpr5+\exeV-4\relax}
-\newcommand{\xCV}{\number\numexpr2+\exeV-3\relax}
-\newcommand{\yCV}{\number\numexpr3+\exeV-4\relax}
+\newcommand{\xAVI}{\number\numexpr-2-2*\exeVI\relax}
+\newcommand{\yAVI}{\number\numexpr-4+2*\exeVI\relax}
+\newcommand{\xBVI}{\number\numexpr1+\exeVI\relax}
+\newcommand{\yBVI}{\number\numexpr2-\exeVI\relax}
 
-\exe{3, difficulty=1}{
-	Considérons les points $\point{A}{\xAV}{\yAV}, \point{B}{\xBV}{\yBV}, C\bigl(\sqrt{12}+\xCV ; \yCV\bigr)$.
-	Montrer, par le calcul, que le triangle $ABC$ est équilatéral.
-}{exe:equilateral}{
-	On calcule 
-		\begin{align*}
-			AB^2 = {0^2 + 4^2} = 16, && AC^2 = {\sqrt{12}^2 + 2^2} = 16, && BC^2 = 16.
-		\end{align*}
+\exe{3, difficulty=2}{
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\xAVI;\yAVI)$ et $B(\xBVI; \yBVI)$ ? Justifier par le calcul.
+}{exe:C-on-AB}{
+	On trouve $\frac13 A + \frac23 B = O$, donc l'origine est moyenne pondérée de $A$ et $B$ (poids $\lambda = \frac13$), et se situe donc sur $[AB]$.
 }

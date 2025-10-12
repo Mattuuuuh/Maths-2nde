@@ -1,24 +1,18 @@
 %!TEX root = ../eval1.tex
 
-\needspace{2cm}
-\exe{3, difficulty=1}{
-	Soient $A(x_A; y_A), B(x_B ; y_B) , C(x_C; y_C)$ trois points du plan distincts.
-	Les questions 1 et 2 peuvent être faites séparément.
-	\begin{enumerate}
-		\item
-		Montrer que le quadrilatère $ABDC$, où $D(x_B + x_C - x_A ; y_B + y_C - y_A)$, est un parallélogramme. (autrement dit, $D = B+C-A$)
-		\item
-		Donner un exemple de parallélogramme à l'aide de la question précédente. Quatre points et leurs coordonnées sont attendus.
-	\end{enumerate}
-}{exe:parall-gen}{
-	\begin{enumerate}
-		\item
-		On calcule le milieu des segments $[AD]$ et $[BC]$ et on compare.
-		Les opérations sur les couples permettent de nous défaire des coordonnées encombrantes.
-		
-		Le milieu du segment $[AD]$ est donné par $\frac12(A+D) = \frac12 (B+C)$. 
-		Celui du segment $[BC]$ est donné par $\frac12(B+C)$.
-		\item
-		On prend, par exemple, $A(0;0), B(1 ; 1), C(1 ; 0),$ et $D = B+C-A = (2 ; 1)$.
-	\end{enumerate}
+\newcommand{\xAVII}{\number\numexpr3 + 2*\exeVII-8\relax}
+\newcommand{\yAVII}{\number\numexpr2+2*\exeVII-8\relax}
+\newcommand{\xMVII}{\number\numexpr-1+\exeVII-4\relax}
+\newcommand{\yMVII}{\number\numexpr3+\exeVII-4\relax}
+
+\exe{2, difficulty=1}{
+	Soient $\point{A}{\xAVII}{\yAVII}$ et $\point{M}{\xMVII}{\yMVII}$ deux points du plan.
+	Quel point $B$ faut-il choisir pour que $M$ soit le milieu du segment $[AB]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AB]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+B) && \iff && 2M = A+B && \iff && B = 2M-A
+		\end{align*}
+	Par suite,
+		\[ B= 2M-A = \left(-5;4\right). \]
 }

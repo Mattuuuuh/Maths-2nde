@@ -1,33 +1,18 @@
 %!TEX root = ../eval1.tex
 
-\exe{2}{
-	Considérons les points
-		\begin{align*}
-			\point{A}{\dfrac{10}3}{-\dfrac76}, && \point{B}{\dfrac{13}3}{\dfrac{11}6}, && \point{C}{\dfrac{-5}3}{\dfrac{17}6}, && \point{D}{-\dfrac23}{\dfrac{35}6}.
-		\end{align*}
-	Montrer que le quadrilatère $CDBA$ est un parallélogramme.
-}{exe:parallélogramme}{
-	Le milieu du segment $[BC]$ est donné par
-		\[ M = \dfrac12 (B+C) = (1;2,5),\]
-	et le milieu du segment $[AD]$ est donné par
-		\[ M' = \dfrac12 (A+D) = (1;2,5).\]
-	Comme $M' = M$, le quadrilatère est bien un parallélogramme.
+\newcommand{\xAV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yAV}{\number\numexpr1+\exeV\relax}
+\newcommand{\xBV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yBV}{\number\numexpr5+\exeV\relax}
+\newcommand{\xCV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yCV}{\number\numexpr3+\exeV\relax}
 
-	\centering
-	\begin{tikzpicture}[>=stealth, scale=1]
-	\begin{axis}[xmin = -2.1, xmax=4.1, ymin=-1.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, clip=false, ytick distance=1]
-					
-		\addplot[RED_E, mark=*, mark size = 1] (3,-1) node[right] {$A$};
-		\addplot[RED_E, mark=*, mark size = 1] (4,2) node[right] {$B$};
-		\addplot[RED_E, mark=*, mark size = 1] (-2,3) node[left] {$C$};
-		\addplot[RED_E, mark=*, mark size = 1] (-1,6) node[left] {$D$};
-		
-		\draw[dashed, thick] (axis cs:3,-1) -- (axis cs:-1,6);
-		\draw[dashed, thick] (axis cs:4,2) -- (axis cs:-2,3);
-		
-		\addplot[black, mark=*, mark size = 1] (1,2.5) node[above right] {$M$};
-		
-		\draw[thick] (axis cs:3,-1) -- (axis cs:4,2) -- (axis cs:-1,6) -- (axis cs:-2,3) -- (axis cs:3,-1);
-	\end{axis}
-	\end{tikzpicture}
+\exe{2, difficulty=1}{
+	Considérons les points $\point{A}{\xAV}{\yAV}, \point{B}{\xBV}{\yBV}, C\bigl(\sqrt{12}+\xCV ; \yCV\bigr)$.
+	Montrer par le calcul que $A$ et $B$ sont à équidistance de $C$.
+}{exe:equilateral}{
+	On calcule 
+		\begin{align*}
+			AC^2 = {\sqrt{12}^2 + 2^2} = 16, && BC^2 = 16.
+		\end{align*}
 }

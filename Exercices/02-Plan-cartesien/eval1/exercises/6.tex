@@ -1,12 +1,23 @@
 %!TEX root = ../eval1.tex
 
-\newcommand{\xAVI}{\number\numexpr-2-2*\exeVI\relax}
-\newcommand{\yAVI}{\number\numexpr-4+2*\exeVI\relax}
-\newcommand{\xBVI}{\number\numexpr1+\exeVI\relax}
-\newcommand{\yBVI}{\number\numexpr2-\exeVI\relax}
-
-\exe{2, difficulty=2}{
-	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\xAVI;\yAVI)$ et $B(\xBVI; \yBVI)$ ? Justifier par le calcul.
-}{exe:C-on-AB}{
-	On trouve $\frac13 A + \frac23 B = O$, donc l'origine est moyenne pondérée de $A$ et $B$ (poids $\lambda = \frac13$), et se situe donc sur $[AB]$.
+\exe{3, difficulty=1}{
+	Soient $A(x_A; y_A), B(x_B ; y_B) , C(x_C; y_C)$ trois points du plan distincts.
+	Les questions 1 et 2 peuvent être faites séparément.
+	\begin{enumerate}
+		\item
+		Montrer que le quadrilatère $ABDC$, où $D(x_B + x_C - x_A ; y_B + y_C - y_A)$, est un parallélogramme. (autrement dit, $D = B+C-A$)
+		\item
+		Donner un exemple de parallélogramme à l'aide de la question précédente. Quatre points et leurs coordonnées sont attendus.
+	\end{enumerate}
+}{exe:parall-gen}{
+	\begin{enumerate}
+		\item
+		On calcule le milieu des segments $[AD]$ et $[BC]$ et on compare.
+		Les opérations sur les couples permettent de nous défaire des coordonnées encombrantes.
+		
+		Le milieu du segment $[AD]$ est donné par $\frac12(A+D) = \frac12 (B+C)$. 
+		Celui du segment $[BC]$ est donné par $\frac12(B+C)$.
+		\item
+		On prend, par exemple, $A(0;0), B(1 ; 1), C(1 ; 0),$ et $D = B+C-A = (2 ; 1)$.
+	\end{enumerate}
 }
