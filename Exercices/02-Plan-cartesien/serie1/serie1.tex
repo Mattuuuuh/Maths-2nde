@@ -288,7 +288,7 @@
 			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
 		\end{align*}
 	Par suite,
-		\[ C= 2M-A = 2\cdot\left(-\dfrac53;-1\right) - \left(-\dfrac32;\dfrac53\right) = \left(-\dfrac{11}6; -\dfrac{11}3\right). \]
+		\[ C= 2M-A = 2\cdot\left(3;-1\right) - \left(1;2\right) = \left(5; -4\right). \]
 	
 }
 
@@ -313,7 +313,7 @@
 \exe{, difficulty=2}{
 	Soient $\point{A}{-\frac32}{\frac53}$ et $\point{M}{-\frac53}{-1}$ deux points du plan.
 	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
-}{exe:milieu2}{
+}{exe:milieu3}{
 	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
 		\begin{align*}
 			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
@@ -358,7 +358,7 @@
 	\end{center}
 	
 	Calculons d'abord 
-		\[ M = \dfrac{B+C}2 = \bigl(-2 ; \dfrac32 \bigr). \]
+		\[ M = \dfrac{B+C}2 = \left(-2 ; \dfrac32 \right). \]
 	
 	Imposons ensuite $M  = \dfrac{A+D}2$, équivalent à $D = 2M - A$.
 	Il suit que 
@@ -372,6 +372,8 @@
 	Montrer que le point $\bigl(p^2 - q^2 ; 2pq\bigr)$ est à distance $p^2 + q^2$ de l'origine.
 }{exe:norme-triplet-pythagoricien}{
 	On utilise que $(a+b)^2 = a^2 + b^2 + 2ab$ et que $(a-b)^2 = a^2 + b^2 - 2ab$ pour calculer la norme du point.
+	Ces deux identités, dites \emph{remarquables}, seront étudiées plus tard dans le cours.
+	Nonobstant, la double distributivité permet de les démontrer facilement.
 		\begin{align*}
 			\bigl(p^2 - q^2\bigr)^2 + (2pq)^2 &= p^4 + q^4 - 2p^2q^2 + 4p^2q^2, \\
 												&= p^4 + q^4 + 2p^2q^2, \\
