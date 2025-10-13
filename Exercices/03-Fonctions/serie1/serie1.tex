@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[10/10/2025]
+\SetDate[14/10/2025]
 
 \begin{document}
 \pagestyle{fancy}
@@ -83,7 +83,7 @@
 		En suivant le raisonnement, on peut composer les fonctions trouvées ci-dessus en considérant $A(R(P))$.
 		Pour ne pas surcharger les notations, appelons plutôt $\text{Aire}$ la fonction prenant un périmètre.
 			\begin{align*}
-			 \text{Aire}(P) &= A(R(P)) \\ &=A(\dfrac{1}{2\pi} \cdot P) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
+			 \text{Aire}(P) &= A\bigl(R(P)\bigr) \\ &=A\left(\dfrac{1}{2\pi} \cdot P\right) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
 			 \end{align*}
 	\end{enumerate}
 }
@@ -212,6 +212,7 @@
 			$f(x)$ & -42 & 1729 \\ \hline
 			$h(x)$ &  &   \\ \hline
 			$f(x)+h(x)$ &  &   \\ \hline
+			$f(x)+2h(x)$ &  &   \\ \hline
 		\end{tabular}
 		\end{center}
 }{exe:fonctions-QCM2}{
@@ -338,17 +339,54 @@
 		\begin{multicols}{3}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
+			\item $\dfrac{-x^2 - x + 2}2$
 			\item $1+\dfrac{x}2$
 			\item $\dfrac{1-x}2$
-			\item $\dfrac{-x^2 - x + 2}2$
 			\item $\dfrac{x^3 - 3x + 2}2$
 			\item $\dfrac{-x^4 - 2x^3 + x + 2}2$
 		\end{enumerate}
 		\end{multicols}
 }{exe:fonctions-QCM}{
-	TODO
+		\begin{enumerate}[label=\roman*)]
+			\item
+			Impossible car $f(-2) = 0$.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+			\item 
+			Impossible car $f(1) = 0$.
+			\item
+			Impossible car $f(-2) = 0$.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+		\end{enumerate}
 }
 
+\exe{, difficulty=2}{
+	Considérons $f(x) = x^2 - 6x + 16$ pour tout $x\in\R$.
+	\begin{enumerate}
+		\item Montrer que $f(x) = 7 + (x-3)^2$ pour tout $x\in\R$ réel.
+		\item Conclure que pour tout $x\in\R$ réel, $f(x)$ est supérieur à 7.
+		\item Trouver un $x^\star\in\R$ réel vérifiant $f(x^\star) = 7$.
+	\end{enumerate}
+	On dira alors que $f$ atteint son minimum en $x^\star$, car $f(x) \geq f(x^\star)$ pour tout $x\in\R$.
+}{exe:canonique0}{
+	\begin{enumerate}
+		\item 
+		On part toujours de la forme factorisée.
+		Par double distributivité,
+			\begin{align*}
+				7 + (x-3)^2 &= 7 + (x-3)(x-3) \\
+							&= 7 + x^2 - 3x - 3x + 9 \\
+							&= x^2 - 6x + 16 = f(x)
+			\end{align*}
+		\item
+		Le carré étant toujours positif, $(x-3)^2$ est toujours positif, et donc $f(x) = 7 + (x-3)^2$ est toujours plus grand que 7.
+		\item
+		En prenant $x^\star = 3$, on a bien $f(x^\star) = 7 + (3-3)^2 = 7$.
+	\end{enumerate}
+}
 
 %%%%%
 %%%%% INTERVALLES
