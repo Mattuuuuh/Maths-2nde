@@ -10,19 +10,20 @@ pdftk $(ls out/*.pdf) cat output merged.pdf
 ```
 
 TODO déjà réfléchis
-- [x] Lagrange
-- [x] Diophantes
-- [ ] Triangle équilatéral affine
+- [x] Triangle isocèle
+- [x] Triangle rectangle
 - [ ] Évolution
+- [ ] Triangle équilatéral affine
+- [ ] Pente affine
+- [x] Diophantes
 - [ ] Statistiques descriptives
 - [ ] Trigonométrie
-- [ ] Pente affine
 - [ ] Signes
+- [x] Lagrange
 - [ ] Systèmes
 
 TODO à réfléchir 
 - [ ] Nombres réels
-- [ ] Plan cartésien
 - [ ] Fonction carrée
 - [ ] Projeté orthogonal
 - [ ] Arithmétique
@@ -30,4 +31,7 @@ TODO à réfléchir
 - [ ] Vecteurs (systèmes ?)
 - [ ] Variations
 - [ ] Échantillonnage
-- [ ] 
+- [ ]
+
+
+
