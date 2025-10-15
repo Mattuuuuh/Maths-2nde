@@ -40,6 +40,8 @@ Le fichier `preamble.tex` est le préamble LaTeX, à changer si nécessaire (pac
 La repo contient les DM suivants.
 - [x] Lagrange
 - [x] Diophantes
+- [x] Triangle isocèle
+- [x] Triangle rectangle
 - [ ] Triangle équilatéral affine
 - [ ] Évolution
 - [ ] Statistiques descriptives
@@ -95,6 +97,7 @@ DM à réfléchir :
 - Échantillonnage
 
 Animations à créer :
+- [x] Moyenne pondérée, segment en 2d (revoir les zoom).
 - [x] Dichotomie (fonction à adapter)
 - [x] Plan cartésien
 - [x] Courbe représentative (revoir les zoom)
