@@ -2,7 +2,7 @@
 
 \usepackage{minted}
 
-\AdvanceDate[0]
+\SetDate[17/10/2025]
 
 \begin{document}
 \pagestyle{fancy}
@@ -10,8 +10,8 @@
 \fancyhead[C]{\textbf{Représenter des points dans le plan en Python}}
 \fancyhead[R]{\today}
 
-Le but de ce document est d'automatiser l'exercice \ref{exe:milieu-segment} de la feuille « Plan cartésien » à l'aide de Python.
-Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (en ignorant les erreurs probables du programmeur débutant).
+Le but de ce document est d'automatiser l'exercice \ref{exe:milieu-segment} de la feuille « Plan cartésien » à l'aide du langage de programmation Python.
+Automatiser permet d'accélérer la vitesse de calcul.
 
 \setcounter{Exercise}{9}
 \exe{}{
@@ -26,14 +26,14 @@ Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (e
 
 \subsection*{Stocker et afficher un nombre}
 
-\begin{multicols}{3}
-	\noindent
+\begin{multicols}{2}
+	\begin{itemize}
+		\item
 	Lorsqu'on écrit \texttt{x=0.5}, la valeur à droite du signe « = » est stockée dans la variable à gauche.
-	%\columnbreak
-	
-	\noindent
+		\item
 	La fonction \texttt{print(x)} permet d'afficher la valeur de la variable \texttt{x}.
-
+	\end{itemize}
+	
 	\columnbreak
 	\centering
 	\begin{minipage}{.1\textwidth}
@@ -41,10 +41,35 @@ Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (e
 	\end{minipage}
 \end{multicols}
 
-\warning Il faut utiliser le point à la place de la virgule pour séparer la partie décimale de la partie entière des nombres.
+\begin{enumerate}[label=\warning]
+	\item
+	Il faut utiliser le point à la place de la virgule pour séparer la partie décimale de la partie entière des nombres.
 
-\warning Le signe « = » a un sens différent qu'en mathématiques. Il sert uniquement à stocker la valeur de droite dans la variable de gauche.
+	\item
+	 Le signe « = » a un sens différent qu'en mathématiques. Il sert uniquement à stocker la valeur de droite dans la variable de gauche.
 
+	\item
+	 Certains noms de variables sont illégaux car déjà empruntés. Ils s'afficheront en couleur si c'est le cas (\texttt{lambda}, \texttt{for}, \texttt{while}, \dots).
+\end{enumerate}
+
+\subsection*{Multiplication est addition}
+
+\begin{multicols}{2}
+	\begin{enumerate}
+		\item[+] : addition
+		\item[-] : soustraction
+		\item[*] : multiplication
+		\item[/] : division
+	\end{enumerate}
+	
+	L'usage des parenthèses et l'ordre des opérations sont identiques à ceux en mathématiques.
+		
+	\columnbreak
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{operations}
+	\end{minipage}
+\end{multicols}
 
 \subsection*{Définir et stocker une liste de nombres}
 
@@ -75,26 +100,74 @@ Automatiser permet d'accélérer la vitesse de calcul en évitant les erreurs (e
 L'\textbf{indentation} (décalage par ajout d'espaces vides) est importante en Python car elle définit quelles lignes appartiennent ou non au bloc executé à chaque itération de la boucle.
 On utilise la touche de tabulation \textbf{Tab} à gauche du clavier pour ajouter ces espaces vides (ou on appuie 4 fois sur la touche espace).
 
-\subsection*{Multiplication est addition}
-
-\begin{multicols}{2}
-	Le signe \texttt{+} est utilisé pour l'addition.
-	Le signe \texttt{*} est utilisé pour la multiplication.
-	
-	L'ordre d'opérations et les parenthèses sont pareil qu'en mathématiques.
-	
-	\columnbreak
-	\centering
-	\begin{minipage}{.1\textwidth}
-	\python{operations}
-	\end{minipage}
-\end{multicols}
-
 \newpage
+
+\subsection*{Exemples}
+
+\def\arraystretch{1}
+\setlength\tabcolsep{5pt}
+\begin{figure}[h]
+\begin{subfigure}{.22\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{m} \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+\begin{subfigure}{.24\textwidth}
+\vspace{14pt}
+\python{exemple1}
+\end{subfigure}
+\hspace{10pt}
+\begin{subfigure}{.26\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{temp} \\ \hline
+		$1$ &&& \\ \hline
+		$2$ &&& \\ \hline
+		$3$ &&& \\ \hline
+		$4$ &&& \\ \hline
+		$5$ &&& \\ \hline
+		$6$ &&& \\ \hline
+		$7$ &&& \\ \hline
+		$8$ &&& \\ \hline
+	\end{tabular}
+\end{subfigure}
+%\hfill
+\begin{subfigure}{.24\textwidth}
+\vspace{15pt}
+\python{exemple2}
+\end{subfigure}
+
+%\begin{subfigure}{.5\textwidth}
+%\vspace{15pt}
+%\python{exemple3}
+%\end{subfigure}
+%\hfill
+%\begin{subfigure}{.45\textwidth}
+%	\begin{tabular}{|c|c|c|}\hline
+%		Ligne & \texttt{a} & \texttt{b} \\ \hline
+%		$1$ && \\ \hline
+%		$2$ && \\ \hline
+%		$3$ && \\ \hline
+%		$4$ && \\ \hline
+%		$5$ && \\ \hline
+%		$6$ && \\ \hline
+%		$7$ && \\ \hline
+%		$8$ && \\ \hline
+%	\end{tabular}
+%\end{subfigure}
+\end{figure}
+
 
 \subsection*{Représentation dans un repère}
 
-La librairie \texttt{matplotlib} est utile pour grapher des courbes et des points.
+La librairie \texttt{matplotlib} est utile pour placer des points dans un repère.
 
 \begin{multicols}{2}
 	La première ligne importe la librairie et la nomme \texttt{plt}.
@@ -108,19 +181,22 @@ La librairie \texttt{matplotlib} est utile pour grapher des courbes et des point
 	\end{minipage}
 \end{multicols}
 
-\subsection*{Enregistrer le repère obtenu}
+\subsection*{Améliorations et expérimentations possibles}
 
-\vspace{10cm}
-
-\subsection*{Améliorations possibles}
-
-Quelques améliorations possibles sont proposées avec des exemples d'implémentation.
+Quelques améliorations possibles sont proposées avec des exemples d'implémentation hors contexte.
 \begin{multicols}{2}
-	\begin{itemize}
+	\begin{itemize}[itemsep=9pt]
+		\item Prendre une centaine de valeurs de $\lambda$ entre 0 et 1.
+		\item Changer la couleur du point en fonction de la valeur de $\lambda$.
 		\item Ajouter un quadrillage au repère.
 		\item Centrer les axes des abscisses et des ordonnées.
-		\item Ajuster la fenêtre en définissant les $x$ et $y$ affichés.
-		\item Changer la couleur du point en fonction de la valeur de $\lambda$.
+		\item Ajuster la fenêtre en définissant les plages des abscisses et des ordonnées affichées.
+		\item Que se passe-t-il si on prend des valeurs de $\lambda$ non comprises entre 0 et 1 ?
+		\item Définir les variables $xM$ et $yM$ et implémenter le cacul de $\lambda$ en abscisse et en ordonnée vérifiant les équations
+			\begin{align*}
+				\lambda x_A + (1-\lambda) x_B = x_M, && \et && \lambda y_A + (1-\lambda) y_B = y_M.
+			\end{align*}
+		Imprimer les deux poids pour décider si $(2 ; 0), (1 ; 1), ( 1,5 ; 0,5), (2,5 ; -0,5)$ appartiennent à $[AB]$.
 	\end{itemize}
 	\vfill\null
 	
@@ -136,6 +212,49 @@ Quelques améliorations possibles sont proposées avec des exemples d'implément
 \newpage
 \fancyhead[C]{\textbf{Solutions}}
 
+\subsection*{Exemples}
+
+\def\arraystretch{1}
+\setlength\tabcolsep{5pt}
+\begin{figure}[h]
+\begin{subfigure}{.245\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{m} \\ \hline
+		$1$ &5&& \\ \hline
+		$2$ &5&15& \\ \hline
+		$3$ &5&15&10.0 \\ \hline
+		$4$ &5&15&10.0 \\ \hline
+		$5$ &5&15&10.0 \\ \hline
+		$6$ &15&15&10.0 \\ \hline
+		$7$ &15&15&10.0 \\ \hline
+		$8$ &15&15&10.0 \\ \hline
+	\end{tabular}
+\end{subfigure}
+\begin{subfigure}{.24\textwidth}
+\vspace{14pt}
+\python{exemple1}
+\end{subfigure}
+%\hspace{5pt}
+\begin{subfigure}{.26\textwidth}
+	\begin{tabular}{|c|c|c|c|}\hline
+		Ligne & \texttt{a} & \texttt{b} & \texttt{temp} \\ \hline
+		$1$ &-4&& \\ \hline
+		$2$ &-4&12& \\ \hline
+		$3$ &-4&12& \\ \hline
+		$4$ &-4&12& \\ \hline
+		$5$ &-4&12&-4 \\ \hline
+		$6$ &12&12&-4 \\ \hline
+		$7$ &12&-4&-4 \\ \hline
+		$8$ &12&-4&-4 \\ \hline
+	\end{tabular}
+\end{subfigure}
+\begin{subfigure}{.24\textwidth}
+\vspace{15pt}
+\python{exemple2}
+\end{subfigure}
+\end{figure}
+
+\subsection*{Améliorations et expérimentations possibles}
 
 \setlength\columnsep{-100pt}
 \begin{multicols}{2}
@@ -145,7 +264,7 @@ Quelques améliorations possibles sont proposées avec des exemples d'implément
 	\centering
 	\includegraphics[scale=.7]{segment.png}
 \end{multicols}
-\hrule
+\newpage
 \begin{multicols}{2}
 	\python{segment-ameliore}
 	\columnbreak
