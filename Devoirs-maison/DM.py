@@ -30,7 +30,7 @@ class DM:
         self.N = N
         seeds = []
         
-        assert N!=0, "N must be a positive integer."
+        assert N>0, "N must be a positive integer."
         scale = 10**int(np.log10(N)+1)
 
         for i in range(N):
