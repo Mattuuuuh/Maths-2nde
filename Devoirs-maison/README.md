@@ -1,3 +1,11 @@
+# Classe DM
+
+Voir `DM.py` pour la classe DM (attributs, fonctions).
+
+# Template
+
+Le dossier `00-DM-Template/` donne un exemple de devoir maison vierge.
+
 Pour compiler :
 ```
 mkdir out adr
