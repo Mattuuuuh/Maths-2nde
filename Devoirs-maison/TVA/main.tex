@@ -1,0 +1,117 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT .ADR
+%% THEN THIS
+
+\SetDate[03/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Évolution}}
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{}{
+	La taxe sur la valeur ajoutée (TVA) est un impôt indirect sur la consommation.
+	On considère dans cet exercice une TVA fictive fixée à $\TVA\%$.
+	Tout objet est alors vendu $\TVA\%$ plus cher que son prix initial : c'est la différence entre un prix « hors taxes » (HT) et « toutes taxes comprises » (TTC).
+	
+	Un prix TTC comprend donc deux parts : l'une qui revient au vendeur, et l'autre versée à l'État.
+	
+	\begin{enumerate}
+		\item
+		Quel est le prix TTC d'un objet coûtant $\A$€ HT ?
+		\item
+		Quel est le prix HT d'un objet coûtant $\B$€ TTC ?		
+		\item 
+		Pour les deux exemples ci-dessus, calculer la proportion \emph{exacte} du prix TTC qui revient à l'État. 
+		C'est-à-dire, calculer le rapport
+			\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+		\item
+		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix (si tant est qu'il soit non nul).
+		Est-ce un nombre réel ? rationnel ? décimal ? entier ?
+	\end{enumerate}
+}{exe:TVA}{
+	\begin{enumerate}
+		\item
+			En arrondissant au centime près, on augmente le prix de $\TVA\%$ en calculant
+				\[ \left(1+\dfrac{\TVA}{100} \right) \cdot \A \approx \Asol. \]
+			Le prix avec TVA comprise est donc de $\Asol$€.
+		\item
+			Il s'agit d'appliquer l'évolution réciproque de $+\TVA\%$.
+			En arrondissant au centime près, on calcule
+				\[ \left(1+ \dfrac{\TVA}{100}\right)^{-1} \cdot \B \approx \Bsol. \]
+			Le prix sans TVA est donc de $\Bsol$€.
+		\item
+			Il s'agit ici de calculer la proportion 
+				\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+			Pour le premier objet, on calcule
+				\[ \dfrac{\dfrac{\TVA}{100} \cdot \A}{\left(1+\dfrac{\TVA}{100} \right) \cdot \A} = \dfrac{\rationum}{\ratiodenom} \]
+			Pour le deuxième object, on calcule
+				\[ \dfrac{\B - \left(1- \dfrac{\TVA}{100}\right) \cdot \B }{\B} = \dfrac{\rationum}{\ratiodenom}. \]
+		\item
+			Soit $P>0$ un prix hors taxe quelconque.
+			La part de TVA par rapport au prix TTC est égale à
+				\begin{align*}
+					& \dfrac{\dfrac{\TVA}{100} \cdot P}{\left(1 + \dfrac{\TVA}{100}\right) \cdot P} \\
+					=& \dfrac{\dfrac{\TVA}{100}}{\left(1 + \dfrac{\TVA}{100}\right)} \\
+					&= \dfrac{\TVA}{\left(100 + \TVA\right)} = \dfrac{\rationum}{\ratiodenom},
+				\end{align*}
+			qui ne dépend bien pas du prix $P$ choisi.
+	\end{enumerate}
+}
+
+
+
+\exe{}{
+	Un magasin augmente frauduleusement ses prix avant d'appliquer une remise de $\REMISE\%$.
+	On compare les prix initiaux avant augmentation aux prix finaux après application des deux évolutions.
+	
+	Répondre aux questions suivantes en arrondissant les valeurs numériques à $10^{-2}$ et les pourcentages à l'unité.
+	\begin{enumerate}
+		\item 
+		Quelle augmentation faut-il effectuer pour que les prix ne changent pas, après et avant évolutions ?
+		\item
+		Quelle augmentation faut-il effectuer pour que, au final, les prix aient augmenté de $\FINALaug\%$ ?
+		\item
+		Quelle augmentation faut-il effectuer pour que, au final, les prix aient diminué de $\FINALdim\%$ ?
+	\end{enumerate}
+}{exe:magasin}{
+	\begin{enumerate}
+		\item
+		Une diminution de $\REMISE\%$ correspond à une multiplication par le coefficient
+			\[ 1 - \dfrac{\REMISE}{100}. \]
+		L'évolution réciproque est donc donnée par une multiplication par
+			\[ \dfrac{1}{1 - \dfrac{\REMISE}{100}} = \dfrac{100}{100-\REMISE} \approx \reciproque.\]
+		Ceci correspond à une augmentation arrondie de $\recsol \%$.
+		
+		\item
+		Le coefficient multiplicateur $x$ à trouver vérifie
+			\[ x \cdot \left(1-\dfrac{\REMISE}{100}\right) = 1+\dfrac{\FINALaug}{100}. \]
+		On résoud pour trouver $x \approx \evoldeux$, ce qui correspond à une augmentation arrondie de $\FINALaugsol\%$.
+	
+		 \item 
+		Le coefficient multiplicateur $x$ à trouver vérifie
+			\[ x \cdot \left(1-\dfrac{\REMISE}{100}\right) = 1-\dfrac{\FINALdim}{100}. \]
+		On résoud pour trouver $x \approx \evoltrois$, ce qui correspond à une augmentation arrondie de $\FINALdimsol\%$.
+	\end{enumerate}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions -- {\seed} -- Interpolation de Lagrange}}
+\fakesection{Solution \seed}
+\shipoutAnswer
+
+\end{document}
+
