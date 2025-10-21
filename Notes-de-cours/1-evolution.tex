@@ -512,7 +512,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }{exe:caution-matthieu-payup}{
 	TODO
 }
-·
+
 \exe{, difficulty=2}{
         On considère l'ensemble $E= \bigset{1; 2; \dots ; n-1 ; n}$ dépendant d'un entier naturel $n\geq1$.
         On pose $F = \bigset{k \in E \tq 2 | k}$, l'ensemble des éléments pairs de $E$.
@@ -662,21 +662,22 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 	TODO
 }
 
-\exe{, difficulty=2}{
-	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
-	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique élémentaires (la puissance n'en est pas une !).
-	
-	\begin{enumerate}
-		\item Compléter la fonction \texttt{puissance(q,N)} figure \ref{fig:fast-exp} qui renvoie $q^N$ en utilisant uniquement la multiplication.
-		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
-		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:fast-exp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
-		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
-		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
-		\item[$(\star)$] Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
-	\end{enumerate}
-}{exe:fast-exp}{
-	TODO
-}
+% rajouter du python
+%\exe{, difficulty=2}{
+%	Le but de l'exercice est de calculer la valeur de $q^N$ le plus vite possible, où $q\in\R$ est un nombre réel et $N\in\N$ un entier naturel.
+%	On se restreint aux opérations $+$ et $\times$ afin de pouvoir compter les opérations arithmétique élémentaires (la puissance n'en est pas une !).
+%	
+%	\begin{enumerate}
+%		\item Compléter la fonction \texttt{puissance(q,N)} figure \ref{fig:fast-exp} qui renvoie $q^N$ en utilisant uniquement la multiplication.
+%		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,N)} termine ?
+%		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:fast-exp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+%		\item En déduire que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+%		\item Comparer le nombre d'opérations arithmétiques nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
+%		\item[$(\star)$] Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
+%	\end{enumerate}
+%}{exe:fast-exp}{
+%	TODO
+%}
 
 	
 % fast exponentiation
