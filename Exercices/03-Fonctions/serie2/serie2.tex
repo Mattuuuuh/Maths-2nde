@@ -1,6 +1,7 @@
 \input{../preamble.tex}
 
 \SetDate[10/10/2025]
+\usepackage{minted}
 
 \begin{document}
 \pagestyle{fancy}
@@ -8,111 +9,216 @@
 \fancyhead[C]{\textbf{Fonctions 2}}
 \fancyhead[R]{\today}
 
+% idée originale : © Benjamin Clamme
+\exemulticols{}{
+	On considère le programme de calcul ci-contre.
+	\begin{enumerate}
+		\item
+		Que renvoie le programme lorsqu'on lui donne 1 ?
+		\item 
+		Compléter l'expression obtenue après chaque instruction du programme.
+		\item
+		Développer et réduire l'expression finale.
+		%\item
+		%Vérifier la réponse à la question \ref{q1} en calculant l'image de 1.
+		\item
+		Quel nombre renvoie 0 lorsque donné au programme de calcul ?
+	\end{enumerate}
+}{
+	\begin{center}
+\def\arraystretch{2}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{ |  c | c |  } \hline
+	 Instruction & Expression \\ \hline
+	 Choisir un nombre & $x$ \\ \hline 
+	 Ajouter 3  &  \\ \hline
+	 Diviser par 3 & \\ \hline 
+	 Ajouter 1  &  \\ \hline
+	\end{tabular}
+	\end{center}	
+}{exe:programme-calcul}{
+	\begin{center}
+	\begin{tabular}{ |  c | c |  } \hline
+	 Instruction & Expression \\ \hline
+	 Choisir un nombre & $x$ \\ \hline 
+	 Ajouter 3  & $x+3$ \\ \hline
+	 Diviser par 3 & $\frac13(x+3)$ \\ \hline 
+	 Ajouter 1  &  $\frac13(x+3) + 1$ \\ \hline
+	\end{tabular}
+	\end{center}	
+	À noter que les deux expressions suivantes sont égales :
+		\[ \dfrac{x+3}{3} = \dfrac13 (x+3). \]	
+	Posons $f(x) = \frac13(x+3) + 1$ dans la suite.
+	\begin{enumerate}
+		\item
+		$f(1) = \frac13 \times 4 + 1 = \frac73$.
+		\item[]
+		\item
+		\begin{align*}	
+			f(x) &= \dfrac13(x+3) + 1, \\
+				&= \dfrac13 x + \dfrac13 \times 3 + 1, \\
+				&= \dfrac13x + 2.
+		\end{align*}
+		À noter que distribuer $\frac13$ revient à écrire que
+			\[  \dfrac{x+3}{3} =  \dfrac{x}{3} +  \dfrac{3}{3}, \]
+		qui est une propriété classique des fractions.
+		\item
+		On se demande quel $x$ vérifie $f(x) = 0$.
+		On peut soit remonter le programme de calcul, soit résoudre l'équation algébriquement.
+		Il s'avère que ces deux méthodes sont strictement identiques si on garde la forme $f(x) = \frac13(x+3) + 1$.
+		
+		Avec la forme développée :
+			\begin{align*}
+				f(x) &= 0, \\
+				\dfrac13 x + 2 &= 0, \\
+				\dfrac13 x &= - 2, \\
+				x &= -2 \times 3 = -6.
+			\end{align*}
+		Avec la forme du tableau : 
+			\begin{align*}
+				f(x) &= 0, \\
+				\dfrac13 (x+3) + 1 &= 0, \\
+				\dfrac13 (x+3) &= - 1, \\
+				x+3 &= -3, \\
+				x &= - 6.
+			\end{align*}
+		Chaque opération faite permet de remonter un étape du programme de calcul : on soustrait 1, puis on multiplie par 3, et enfin on soustrait 3.
+	\end{enumerate}
+}
+
 %%%%%
 %%%%% INTERVALLES
 %%%%% 
 
-
-
-
+% volé à © Benjamin Clamme (goat)
+\exe{}{
+	Traduire l'appartenance de $x\in\R$ à chaque intervalle ci-dessous en termes d'inégalités :
+	\begin{multicols}{2}
+	\begin{enumerate}[label=(\alph*)]
+		\item $I_1 = ]-3;7[$
+		\item $I_2 = [4;12]$
+		\item $I_3 = ]-\infty;0]$
+		\item $I_4 = [-3;4[$
+	\end{enumerate}
+	\end{multicols}
+	Tracer la droite réelle avec les intervalles $I_1$ et $I_2$ coloriés.
+	Donner une condition pour que $x$ appartienne à l'intervalle $I_1$ \textbf{ET} à l'intervalle $I_2$.
+	Exprimer ce résultat sous forme d'intervalle.
+	%On note $I_1 \cap I_2$ l'\emph{intersection} des intervalles : ce sont les nombres qui appartiennent à la fois à $I_1$ et à $I_2$.
+}{exe:intervalles}{
+	\begin{enumerate}[label=(\alph*)]
+		\item 
+			\begin{align*}
+				x \in ]-3;7[ && \iff && -3 < x < 7
+			\end{align*}
+		\item 
+			\begin{align*}
+				x \in [4;12] && \iff && 4 \leq x  \leq 12
+			\end{align*}
+		\item 
+			\begin{align*}
+				x \in ]-\infty;0] && \iff && x \leq 0
+			\end{align*}
+		\item 
+			\begin{align*}
+				x \in [-3;4[ && \iff && -3 \leq x \leq 4
+			\end{align*}
+	\end{enumerate}
+	
+	Si $x$ appartient à $I_1$ et à $I_2$, alors il vérifie à la fois
+		\begin{align*}
+			 -3 < x < 7 && \et && 4 \leq x  \leq 12.
+		\end{align*}
+	$x$ est donc supérieur ou égal à 4, car c'est la borne inférieure la plus contraignante.
+	$x$ est strictement inférieur à 7, car c'est la borne supérieure la plus contraignante.
+	La condition est donc équivalente à 
+		\begin{align*}
+			 4 \leq x < 7 && \iff && x \in [4 ; 7[.
+		\end{align*}
+}
 %%%%%
 %%%%% REP GRAPHIQUE
 %%%%% 
 	
 
-\exe{}{
-	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
-		\[ f(x) = \dfrac17-x. \]
-	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
-	
-	\begin{multicols}{3}
-	\begin{enumerate}[label=\roman*)]
-		\item $\left(0; \dfrac17\right)$
-		\item $\left(\dfrac17 ; 0\right)$
-		\item $\left(\dfrac27 ; \dfrac37\right)$
-		\item $\left(-\dfrac{13}7 ; 2\right)$
-		\item $\left(\dfrac67 ; 1\right)$
-		\item $\left(\dfrac27 ; -\dfrac17\right)$
-	\end{enumerate}
-	\end{multicols}
 
-}{exe:Cf}{
-	On rappelle la propriété fondamentale
-		\begin{align*}
-			(x;y) \in \C_f && \iff && y = f(x)
-		\end{align*}
-	Pour savoir si un point $(x;y)$ appartient à $\C_f$, il s'agit de vérifier si l'égalité $y=f(x)$ tient.
-	
-	\begin{enumerate}[label=\roman*)]
-		\item On applique la propriété pour $x = 0, y= \dfrac17$.
-		D'une part, $f(x) = f(0) = \dfrac17 - 0 = \dfrac17$, et d'autre part $y=\dfrac17$.
-		On a donc bien $y=f(x)$ pour ce couple, et il appartient à $\C_f$.
-			\[ \left(0; \dfrac17\right) \in \C_f. \]
-		
-		\item On choisit $(x;y) = \left(\dfrac17 ; 0\right)$, et on compare $f(x) = f\left(\dfrac17\right) = 0$ à $y=0$. 
-		On a donc bien
-			\[ \left(\dfrac17 ; 0\right) \in \C_f. \]
-			
-		\item On choisit $(x;y) = \left(\dfrac27 ; \dfrac37\right)$, et on compare $f(x) = f\left(\dfrac27\right) = -\dfrac17$ à $y=\dfrac37$. 
-		D'où
-			\[ \left(\dfrac27 ; \dfrac37\right) \not\in \C_f. \]
-			
-		\item On choisit $(x;y) = \left(-\dfrac{13}7 ; 2\right)$, et on compare $f(x) = f\left(-\dfrac{13}7\right) = 2$ à $y=2$. 
-		On a donc bien
-			\[ \left(-\dfrac{13}7 ; 2\right) \in \C_f. \]
-		\item On choisit $(x;y) = \left(\dfrac67 ; 1\right)$, et on compare $f(x) = f\left(\dfrac67\right) = -\dfrac57$ à $y=1$. 
-		Par suite,
-			\[ \left(\dfrac67 ; 1\right) \not\in \C_f. \]
-		\item On choisit $(x;y) = \left(\dfrac27 ; -\dfrac17\right)$, et on compare $f(x) = f\left(\dfrac27\right) = \dfrac{-1}7$ à $y=-\dfrac17$. 
-		D'où
-			\[ \left(\dfrac27 ; -\dfrac17\right) \not\in \C_f. \]
-	\end{enumerate}
-}
+%\exe{}{
+%	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
+%		\begin{align*}
+%			f(x) = x^2 - 2x && g(x) = (x-1)^2
+%		\end{align*}
+%	
+%	\begin{enumerate}
+%		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
+%		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
+%	\end{enumerate}
+%}{exe:id-rem-graph}{
+%	
+%	\begin{enumerate}
+%		\item On choisit plusieurs valeurs de $x\in]{-}3 ; 3[$ et on représente les points
+%			\[ \bigl(x ; f(x) \bigr), \]
+%		qu'on relie pour esquisser $\C_f$.
+%		On fait idem pour $g$, ce qui donne le graphique ci-dessous.
+%		
+%		\begin{center}
+%		\begin{tikzpicture}[>=stealth]
+%			\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-1.1, ymax=15.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+%				\addplot[no marks, PURPLE_E, very thick, -] expression[domain=-3:3, samples=100]{x^2 -2*x}
+%				node[pos=.45, below=10pt]{$\mathcal{C}_f$};
+%				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:3, samples=100]{(x-1)^2}
+%				node[pos=.4, right]{$\mathcal{C}_g$};
+%			\end{axis}
+%		
+%		\end{tikzpicture}
+%		\end{center}
+%		
+%		
+%		\item 
+%		L'identité remarquable $a^2 - b^2 = (a+b)(a-b)$ donne en l'occurrence
+%			\begin{align*}
+%				(x-1)^2 - 1^2 &= (x-1+1) \cdot (x-1-1) \\
+%								&= x \cdot (x-2) \\
+%								&= x^2 - 2\cdot x = f(x).
+%			\end{align*}
+%			
+%		On déduit alors que 
+%			\[ (x-1)^2 = g(x) = f(x) + 1 = x^2 - 2\cdot x + 1 \]
+%		pour tout $x\in]{-}3;3[$.
+%	\end{enumerate}
+%	
+%}
+
+%\exe{}{
+%	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
+%		\[ f(x) = 1-x. \]
+%	Que dire de $\C_f$ ?
+%}{exe:graph-droite}{
+%	$\C_f$ est une droite et on dit que $f$ est \emph{affine}.
+%		\begin{center}
+%		\begin{tikzpicture}[>=stealth]
+%			\begin{axis}[xmin = -2.1, xmax=4.1, ymin=-3.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+%				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-2:4, samples=2]{1-x} 
+%				node[above, pos=.4] {$\C_f$};
+%			\end{axis}
+%		\end{tikzpicture}
+%		\end{center}
+%}
 
 \exe{}{
-	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
-		\begin{align*}
-			f(x) = x^2 - 2x && g(x) = (x-1)^2
-		\end{align*}
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
+	Attention, celle-ci n'est pas une droite !
 	
-	\begin{enumerate}
-		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
-		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
-	\end{enumerate}
-}{exe:id-rem-graph}{
-	
-	\begin{enumerate}
-		\item On choisit plusieurs valeurs de $x\in]{-}3 ; 3[$ et on représente les points
-			\[ \bigl(x ; f(x) \bigr), \]
-		qu'on relie pour esquisser $\C_f$.
-		On fait idem pour $g$, ce qui donne le graphique ci-dessous.
-		
 		\begin{center}
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-1.1, ymax=15.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, PURPLE_E, very thick, -] expression[domain=-3:3, samples=100]{x^2 -2*x}
-				node[pos=.45, below=10pt]{$\mathcal{C}_f$};
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:3, samples=100]{(x-1)^2}
-				node[pos=.4, right]{$\mathcal{C}_g$};
+			\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=3:10, samples=50]{3/x + 1} 
+				node[above, pos=.4] {$\C_f$};
 			\end{axis}
-		
 		\end{tikzpicture}
 		\end{center}
-		
-		
-		\item 
-		L'identité remarquable $a^2 - b^2 = (a+b)(a-b)$ donne en l'occurrence
-			\begin{align*}
-				(x-1)^2 - 1^2 &= (x-1+1) \cdot (x-1-1) \\
-								&= x \cdot (x-2) \\
-								&= x^2 - 2\cdot x = f(x).
-			\end{align*}
-			
-		On déduit alors que 
-			\[ (x-1)^2 = g(x) = f(x) + 1 = x^2 - 2\cdot x + 1 \]
-		pour tout $x\in]{-}3;3[$.
-	\end{enumerate}
-	
 }
 
 \exe{}{
@@ -136,38 +242,56 @@
 }
 
 \exe{}{
-	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
-		\[ f(x) = 1-x. \]
-	Que dire de $\C_f$ ?
-}{exe:graph-droite}{
-	$\C_f$ est une droite et on dit que $f$ est \emph{affine}.
-		\begin{center}
-		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -2.1, xmax=4.1, ymin=-3.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-2:4, samples=2]{1-x} 
-				node[above, pos=.4] {$\C_f$};
-			\end{axis}
-		\end{tikzpicture}
-		\end{center}
-}
-
-\exe{}{
-	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
-		\[ f(x) = \dfrac3x + 1. \]
-}{exe:graph-droite2}{
-	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
-	Attention, celle-ci n'est pas une droite !
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
 	
-		\begin{center}
-		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=3:10, samples=50]{3/x + 1} 
-				node[above, pos=.4] {$\C_f$};
-			\end{axis}
-		\end{tikzpicture}
-		\end{center}
-}
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \frac17\right)$
+		\item $\left(-\frac17 ; 0\right)$
+		%\item $\left(\dfrac27 ; \dfrac37\right)$
+		%\item $\left(-\dfrac{13}7 ; 2\right)$
+		%\item $\left(\dfrac67 ; 1\right)$
+		\item $\left(\frac27 ; -\frac17\right)$
+	\end{enumerate}
+	\end{multicols}
 
+}{exe:Cf}{
+	On rappelle la propriété fondamentale
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x)
+		\end{align*}
+	Pour savoir si un point $(x;y)$ appartient à $\C_f$, il s'agit de vérifier si l'égalité $y=f(x)$ tient.
+	
+	\begin{enumerate}[label=\roman*)]
+		\item On applique la propriété pour $x = 0, y= \frac17$.
+		D'une part, $f(x) = f(0) = \frac17 - 0 = \frac17$, et d'autre part $y=\frac17$.
+		On a donc bien $y=f(x)$ pour ce couple, et il appartient à $\C_f$.
+			\[ \left(0; \dfrac17\right) \in \C_f. \]
+		
+		\item On choisit $(x;y) = \left(-\frac17 ; 0\right)$, et on compare $f(x) = f\left(-\frac17\right) = \frac27$ à $y=0$. 
+		On a donc
+			\[ \left(-\dfrac17 ; 0\right) \not\in \C_f. \]
+		%\item On choisit $(x;y) = \left(\dfrac17 ; 0\right)$, et on compare $f(x) = f\left(\dfrac17\right) = 0$ à $y=0$. 
+		On a donc bien
+			\[ \left(\dfrac17 ; 0\right) \in \C_f. \]
+			
+		%\item On choisit $(x;y) = \left(\dfrac27 ; \dfrac37\right)$, et on compare $f(x) = f\left(\dfrac27\right) = -\dfrac17$ à $y=\dfrac37$. 
+		%D'où
+		%	\[ \left(\dfrac27 ; \dfrac37\right) \not\in \C_f. \]
+		%	
+		%\item On choisit $(x;y) = \left(-\dfrac{13}7 ; 2\right)$, et on compare $f(x) = f\left(-\dfrac{13}7\right) = 2$ à $y=2$. 
+		%On a donc bien
+		%	\[ \left(-\dfrac{13}7 ; 2\right) \in \C_f. \]
+		%\item On choisit $(x;y) = \left(\dfrac67 ; 1\right)$, et on compare $f(x) = f\left(\dfrac67\right) = -\dfrac57$ à $y=1$. 
+		%Par suite,
+		%	\[ \left(\dfrac67 ; 1\right) \not\in \C_f. \]
+		\item On choisit $(x;y) = \left(\frac27 ; -\frac17\right)$, et on compare $f(x) = f\left(\frac27\right) = \frac{-1}7$ à $y=-\frac17$. 
+		D'où
+			\[ \left(\dfrac27 ; -\dfrac17\right) \not\in \C_f. \]
+	\end{enumerate}
+}
 
 
 \exe{, difficulty=1}{
@@ -178,7 +302,9 @@
 		
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+		\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm,
+		%y=5pt,
+		]
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -209,7 +335,7 @@
 		\end{center}
 }
 
-\newpage
+%\newpage
 
 \exe{}{
 	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
@@ -218,9 +344,9 @@
 		\begin{tikzpicture}[>=stealth]
 			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
-			x=2cm,
+			x=2.1cm,
 			xtick={-3, -2, ..., 2},
-			y=20pt,
+			y=18pt,
 			clip=true,
 			]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
@@ -228,21 +354,23 @@
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
-		\item Donner approximativement les images de $-1,5$ et de $-\frac{20}7$ par $f$.
-		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+		\item\label{q1}
+		Donner approximativement les images de -1 et de 2 par $f$. 
+		\item Énumérer approximativement les antécédents de -2 et de 2 par $f$.
 		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
-		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de -2 ? Et tous les antécédents de -2 ?
 	\end{enumerate}
 	Supposons désormais que $f(x) = 3-2 x +\frac13 x^3$ pour tout $x\in\D$ du domaine.
 	\begin{enumerate}[resume]
-		\item Vérifier à la calculatrice les réponses aux deux premières questions.
-		\item Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+		\item Répondre à nouveau à la question \ref{q1} à l'aide de l'expression algébrique de $f$.
+		Des valeurs exactes sont attendues.
+		\item Montrer que l'image de $-3$ par $f$ est $0$ et que l'image de $0$ par $f$ est $3$.
 	\end{enumerate}
 }{exe:deg3}{
 	\begin{enumerate}
 		\item On détermine approximativement
 			\begin{align*}
-			f(-1,5) \approx 4,5 && f\left(-\dfrac{20}7\right) \approx f(-2,86) \approx 2
+			f(-1) \approx 4,5 && \et && f(2) \approx 1,5.
 			 \end{align*}
 		\item On cherche d'abord les antécédents de $-2$, c'est-à-dire les nombres $x$ du domaine vérifiants
 			\[ f(x) = -2. \]
@@ -310,15 +438,21 @@
 			\end{center}
 		
 		\item L'image est unique et ne dépend pas du domaine (tant que celui-ci contient $-2$ !).
-		On peut donc toujours connaître $f(-2)$, même sachant qu'on connaisse pas $f$ sur $\R$ tout entier mais que sur un domaine restreint.
+		On peut donc toujours connaître $f(-2)$, même sans connaître $f$ en dehors du domaine.
 		
 		Les antécédents, eux, dépendent du domaine choisi.
 		Comme on ne sait pas du tout à quoi ressemble $\C_f$ en dehors du domaine choisi, il est impossible de déterminer tous les réels $x\in\R$ antécédents de $-2$ par $f$.
 		
 		\item On calcule grâce à la calculatrice (ou sans...)
 			\begin{align*}
-				f(-1,5) = 4,875 && f\left(-\dfrac{20}7 \right) \approx 0,94.
+				f(-1) = \dfrac{14}3 && f(2) =  \dfrac53.
 			\end{align*}
+		On peut également utiliser le programme Python ci-après (la notation \texttt{x**3} signifiant $x^3$).
+	
+		\begin{center}
+		\python{images-f}
+		\end{center}
+		
 		\item On calcule à la main que
 			\begin{align*}
 				f(-3) &= 3 - 2 \cdot (-3) + \dfrac13 \cdot (-3)^3, \\
@@ -332,7 +466,7 @@
 
 
 \exemulticols{}{
-	Un fonction $f$ admet une représentation graphique ci-contre.
+	Un fonction $f$ est représentée graphiquement ci-contre.
 	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
@@ -361,12 +495,11 @@
 	L'expression de $f$ ne peut donc pas être la première ni la troisième.
 	
 	Ensuite, si l'expression de $f$ était la deuxième, on aurait $f(-1) = 0$, ce qui n'est clairement pas le cas.
-	Ainsi
-		\[ f(x) = -2\cdot x - \frac23. \]	
+	Ainsi $f(x) = -2x - \frac23$ est le seul choix possible.
 }
 
 \exe{, difficulty=2}{
-	Pour chaque propriété suivante, donner une fonction réelle la vérifiant.
+	Pour chaque propriété suivante, donner algébriquement une fonction la vérifiant.
 		%\begin{multicols}{1}
 		\begin{enumerate}
 			\item Une image admet exactement un antécédent.
@@ -401,5 +534,5 @@
 \newpage
 \fancyhead[C]{\textbf{Solutions}}
 \shipoutAnswer
-
+	
 \end{document}
