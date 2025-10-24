@@ -1,0 +1,13 @@
+%!TEX root = ../eval1.tex
+
+\newcommand{\first}{\number\numexpr1+2*\exeII\relax}
+\newcommand{\second}{\number\numexpr-2-\exeII\relax}
+
+\exe{1}{
+	Quelle est la différence entre $(\first;\second)$ et $\{\first ; \second\}$ ?
+}{exe:diff-par-brack}{
+	$(\first;\second)$ est un couple ordonné (\first~est le premier élément, \second~le deuxième).
+	Il est différent du couple $(\second;\first)$.
+	
+	$\{\first ; \second\}$ est un ensemble non ordonné, égal à l'ensemble $\{\second ; \first\}$
+}

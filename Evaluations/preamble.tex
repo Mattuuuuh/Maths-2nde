@@ -1,0 +1,132 @@
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a4paper,
+margin=2cm,
+]{geometry}
+
+\usepackage[utf8x]{inputenc}
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+
+%virgules
+\usepackage{icomma}
+
+% HEADER, ARRAY, ENUM, MULTIOCL
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{multicol, enumitem}
+
+% theorems
+\theoremstyle{theorem}
+\newtheorem{thm}{Théorème}
+\theoremstyle{plain}
+\newtheorem*{sol}{Solution}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercice}
+\newtheorem{dfn}{Définition}
+\newtheorem*{dfn*}{Définition}
+\newtheorem*{remarque}{Remarque}
+
+% counter for points (title of exercices)
+\usepackage{totcount}
+\newtotcounter{points}
+
+% exercices
+\usepackage[answerdelayed, lastexercise]{exercise}
+\usepackage{ifthen}
+\renewcommand{\ExerciseHeader}{
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+}
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginpar{[Bonus]}
+		\else
+		\marginpar{\mbox{[\ExerciseTitle]}}
+		\addtocounter{points}{\ExerciseTitle}
+		\fi
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+\newcommand{\exemulticols}[5]{
+	\begin{multicols}{2}
+	\begin{Exercise}[title=#1, label=#4]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginnote{[Bonus]}
+		\else
+		\marginnote{\mbox{[\ExerciseTitle]\qquad}}
+		\addtocounter{points}{\ExerciseTitle}
+		\fi
+		#2
+	\end{Exercise}
+	\columnbreak
+		#3
+	\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}
+
+% date
+\usepackage{advdate}
+
+% vabs
+\newcommand{\vabs}[1]{
+	\left| #1 \right|
+}
+% plots
+\usepackage{pgfplots}
+\tikzset{
+	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2}
+}
+
+%subfigures
+\usepackage{subcaption}
+
+%hyperlink footnote
+\usepackage{hyperref}
+
+% tableaux var, signe
+\usepackage{tkz-tab}
+
+%wider tabulars
+\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+% for striked out implies sign (\centernot\implies)
+\usepackage{centernot}
+
+% margins for points
+\usepackage{marginnote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SELF MADE COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../colors}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LETTERFONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../letterfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../macros}

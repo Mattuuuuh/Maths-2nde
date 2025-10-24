@@ -1,0 +1,12 @@
+%!TEX root = ../eval1.tex
+
+\newcommand{\xAVI}{\number\numexpr-2-2*\exeVI\relax}
+\newcommand{\yAVI}{\number\numexpr-4+2*\exeVI\relax}
+\newcommand{\xBVI}{\number\numexpr1+\exeVI\relax}
+\newcommand{\yBVI}{\number\numexpr2-\exeVI\relax}
+
+\exe{3, difficulty=2}{
+	L'origine $O(0 ; 0)$ appartient-elle au segment $[AB]$ où $A(\xAVI;\yAVI)$ et $B(\xBVI; \yBVI)$ ? Justifier par le calcul.
+}{exe:C-on-AB}{
+	On trouve $\frac13 A + \frac23 B = O$, donc l'origine est moyenne pondérée de $A$ et $B$ (poids $\lambda = \frac13$), et se situe donc sur $[AB]$.
+}

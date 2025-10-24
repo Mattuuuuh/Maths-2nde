@@ -1,0 +1,35 @@
+%!TEX root = ../eval1.tex
+
+\exe{2}{
+	\begin{enumerate}
+		\item Placer des points dans le repère ci-dessous et les relier afin qu'on puisse lire la première lettre de votre prénom.
+		\item Donner les coordonnées de chaque point placé.
+	\end{enumerate}
+}{exe:prénom}{
+	Le prénom du correcteur commençant par $M$, celui-ci propose les points $A(-4;0), B(-4;4), C(-2,5;2,5), D(-1;4), E(-1;0)$.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.8]
+		\begin{axis}[xmin = -5.1, xmax=1.1, ymin=-1.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false, xtick distance = 2, ytick distance=1, x=2cm, y=1cm]
+			\addplot[BLUE_E, mark=*, mark size = 1] (-4,0) node[above left] {$A(-4;0)$};
+			\addplot[RED_E, mark=*, mark size = 1] (-4,4) node[above left] {$B(-4;4)$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (-2.5,2.5) node[below] {$C(-2,5;2,5)$};
+			\addplot[BLUE_E, mark=*, mark size = 1] (-1,4) node[above right] {$D(-1;4)$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,0) node[above right] {$E(-1;0)$};
+			
+			\draw[-, thick,dashed] (axis cs:-4,0) -- (axis cs:-4,4);
+			\draw[-, thick, dashed] (axis cs:-4,4) -- (axis cs:-2.5,2.5);
+			\draw[-, thick,dashed] (axis cs:-2.5,2.5) -- (axis cs:-1,4);
+			\draw[-, thick,dashed] (axis cs:-1,4) -- (axis cs:-1,0);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.8]
+		\begin{axis}[xmin = -5.1, xmax=1.1, ymin=-1.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, clip=false, xtick distance = 2, ytick distance=1, x=2cm, y=1cm]
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	

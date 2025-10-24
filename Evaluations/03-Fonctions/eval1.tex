@@ -1,0 +1,142 @@
+\input{../preamble.tex}
+
+\SetDate[10/10/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation blanche — Fonctions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Les sujets d'évaluation sont individuels. Écrire son nom avant de rendre son sujet.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{5, difficulty=1}{
+	Considérons la courbe $\C_f$ graphiquement ci-dessous.
+	Dans cet exercice, on souhaite étudier la courbe représentative de $g(x) = f(x) + 2$.
+	
+	\begin{enumerate}
+		\item Remplir le tableau de valeurs de $f$ et de $g$ ci-dessous.
+		\item Grapher $\C_g$ dans le même repère que $\C_f$.
+		\item Que remarque-t-on ?
+	\end{enumerate}´
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1.1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+	    	]
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.68, below]{$\mathcal{C}_f$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:f-parentes-sum}{
+	todo
+}
+
+
+\exe{4}{
+	Un fonction $f$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, lesquelles ne peuvent pas correspondre à $f(x)$ ? lesquelles peuvent correspondre à $f(x)$ ?
+	Justifier.
+		\begin{multicols}{4}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{-x^2 - x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:f4}{
+	todo
+}
+
+
+\exe{5, difficulty=1}{
+	Soit $f(x) = (x-12)(x-13)$, une fonction sur $\R$.
+	\begin{enumerate}
+		\item Développer l'expression pour vérifier que $f(x) = x^2 - 25x + 156$.
+		\item Calculer les images de 0 ; 1 ; 11 ; 12 ; 13; et 14 par $f$ avec la forme adéquate.
+		\item Comment appelle-t-on les deux différentes formes de $f$ ?
+	\end{enumerate}
+}{exe:image-selon-forme}{
+	todo
+}
+
+\exe{3}{
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \dfrac17\right)$
+		\item $\left(-\dfrac17 ; 0\right)$
+		\item $\left(\dfrac27 ; -\dfrac17\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	todo
+}
+
+\newpage
+
+\exe{5, difficulty=1}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2.1cm,
+			xtick={-3, -2, ..., 2},
+			y=18pt,
+			clip=true,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item\label{q1}
+		Donner approximativement les images de -1 et de 2 par $f$. 
+		\item Énumérer approximativement les antécédents de 2 et de 4 par $f$.
+		\item Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \leq 4 \}$ sous forme d'union d'intervalles.
+		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de -2 ? Et tous les antécédents de -2 ?
+	\end{enumerate}
+}{exe:deg3}{
+	todo
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}

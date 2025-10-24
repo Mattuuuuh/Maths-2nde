@@ -1,0 +1,18 @@
+%!TEX root = ../eval1.tex
+
+\newcommand{\xAV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yAV}{\number\numexpr1+\exeV\relax}
+\newcommand{\xBV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yBV}{\number\numexpr5+\exeV\relax}
+\newcommand{\xCV}{\number\numexpr2+\exeV\relax}
+\newcommand{\yCV}{\number\numexpr3+\exeV\relax}
+
+\exe{2, difficulty=1}{
+	Considérons les points $\point{A}{\xAV}{\yAV}, \point{B}{\xBV}{\yBV}, C\bigl(\sqrt{12}+\xCV ; \yCV\bigr)$.
+	Montrer par le calcul que $A$ et $B$ sont à équidistance de $C$.
+}{exe:equilateral}{
+	On calcule 
+		\begin{align*}
+			AC^2 = {\sqrt{12}^2 + 2^2} = 16, && BC^2 = 16.
+		\end{align*}
+}

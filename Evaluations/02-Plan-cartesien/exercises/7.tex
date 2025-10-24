@@ -1,0 +1,18 @@
+%!TEX root = ../eval1.tex
+
+\newcommand{\xAVII}{\number\numexpr3 + 2*\exeVII-8\relax}
+\newcommand{\yAVII}{\number\numexpr2+2*\exeVII-8\relax}
+\newcommand{\xMVII}{\number\numexpr-1+\exeVII-4\relax}
+\newcommand{\yMVII}{\number\numexpr3+\exeVII-4\relax}
+
+\exe{2, difficulty=1}{
+	Soient $\point{A}{\xAVII}{\yAVII}$ et $\point{M}{\xMVII}{\yMVII}$ deux points du plan.
+	Quel point $B$ faut-il choisir pour que $M$ soit le milieu du segment $[AB]$ ? Donner ses coordonnées.
+}{exe:milieu4}{
+	La contrainte que $M$ soit le milieu de $[AB]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+B) && \iff && 2M = A+B && \iff && B = 2M-A
+		\end{align*}
+	Par suite,
+		\[ B= 2M-A = \left(-5;4\right). \]
+}
