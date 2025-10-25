@@ -18,36 +18,72 @@ Consignes particulières :
 	\item
 	Les sujets d'évaluation sont individuels. Écrire son nom avant de rendre son sujet.
 	\item
+	L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
 	L'évaluation fait 2 pages. La somme des points est \total{points}.
 \end{itemize}
 
 \marginpar{[pts]}
 \hrule
 
-\exe{5, difficulty=1}{
-	Considérons la courbe $\C_f$ graphiquement ci-dessous.
+\begin{thm}[propriété fondamentale]\label{thm:1}
+	Soit $f$ une fonction réelle sur un domaine $\D$ et $(x;y)$ un point du plan avec $x\in\D$.
+	Alors
+		\begin{align*}
+			(x ; y) \in \C_f && \iff && \underline{\qquad} = \underline{\qquad\qquad}.
+		\end{align*}
+\end{thm}
+
+\exe{2}{
+	Compléter le théorème \ref{thm:1} vu en cours.
+}{exe:prop-fond}{
+	\[ y = f(x). \]
+}
+
+\exe{4, difficulty=1}{
+	Considérons la courbe $\C_f$ graphiquement ci-dessous, figure \ref{fig:1}.
 	Dans cet exercice, on souhaite étudier la courbe représentative de $g(x) = f(x) + 2$.
 	
 	\begin{enumerate}
-		\item Remplir le tableau de valeurs de $f$ et de $g$ ci-dessous.
+		\item Remplir le tableau de valeurs de $f$ et de $g$ ci-dessous, figure \ref{fig:2}.
 		\item Grapher $\C_g$ dans le même repère que $\C_f$.
-		\item Que remarque-t-on ?
-	\end{enumerate}´
+	\end{enumerate}
 	
+}{exe:f-parentes-sum}{
+	todo
+}
+
+\begin{figure}[h!]
 	\begin{center}
 	\begin{tikzpicture}[scale=1.1]
 		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 		ytick={-4,-3,...,4},
+		x=20pt,
 	    	]
 		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=.68, below]{$\mathcal{C}_f$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}{exe:f-parentes-sum}{
-	todo
-}
+	\caption{Courbe représentative de l'exercice \ref{exe:f-parentes-sum}.}
+	\label{fig:1}
+\end{figure}
 
+\begin{figure}[h!]
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+		$x$ & -10 & -8 & &&&&& & 6 \\ \hline
+		$f(x)$ &  &  &  & &&&&& \\ \hline
+		$g(x)$ &  &  &  & &&&&& \\ \hline
+	\end{tabular} 
+	\end{center}
+	\caption{Tableau de valeurs de l'exercice \ref{exe:f-parentes-sum}.}
+	\label{fig:2}
+\end{figure}
+
+\newpage
 
 \exe{4}{
 	Un fonction $f$ admet le tableau de valeurs suivant.
@@ -59,7 +95,7 @@ Consignes particulières :
 			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
 		\end{tabular}
 		\end{center}
-	Parmis les expressions algébriques suivantes, lesquelles ne peuvent pas correspondre à $f(x)$ ? lesquelles peuvent correspondre à $f(x)$ ?
+	Parmis les expressions algébriques suivantes, lesquelles peuvent et lesquelles ne peuvent pas correspondre à $f(x)$ ?
 	Justifier.
 		\begin{multicols}{4}
 		\begin{enumerate}[label=\roman*)]
@@ -74,37 +110,46 @@ Consignes particulières :
 }
 
 
-\exe{5, difficulty=1}{
-	Soit $f(x) = (x-12)(x-13)$, une fonction sur $\R$.
+\exe{3, difficulty=1}{
+	Soit $f(x) = (x+10)(x-15)$, une fonction sur $\R$.
 	\begin{enumerate}
-		\item Développer l'expression pour vérifier que $f(x) = x^2 - 25x + 156$.
-		\item Calculer les images de 0 ; 1 ; 11 ; 12 ; 13; et 14 par $f$ avec la forme adéquate.
+		\item Développer l'expression pour vérifier que $f(x) = x^2 - 5x - 150$.
+		\item Calculer les images de 0 ; de -10 ; et de 16 par $f$ avec la forme adéquate.
 		\item Comment appelle-t-on les deux différentes formes de $f$ ?
 	\end{enumerate}
 }{exe:image-selon-forme}{
 	todo
 }
 
-\exe{3}{
-	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
-		\[ f(x) = \dfrac17-x. \]
+\exe{2}{
+	Considérons l'expression $f(x)$ suivante, définie lorsque $x$ est non nul.
+		\[ f(x) = \dfrac{2}{3x} \]
 	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
 	
-	\begin{multicols}{3}
+	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*)]
-		\item $\left(0; \dfrac17\right)$
-		\item $\left(-\dfrac17 ; 0\right)$
-		\item $\left(\dfrac27 ; -\dfrac17\right)$
+		%\item $\left(2; 1\right)$
+		\item $\left(-1 ;-\dfrac23\right)$
+		%\item $\left(\dfrac12 ; \dfrac13\right)$
+		\item $\left(-\dfrac23 ; -1\right)$
 	\end{enumerate}
 	\end{multicols}
 
 }{exe:Cf}{
-	todo
+
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		%\item $\left(2; 1\right) \not\in \C_f$.
+		\item $\left(-1 ;-\dfrac23\right) \in \C_f$
+		%\item $\left(\dfrac12 ; \dfrac13\right) \not\in \C_f$
+		\item $\left(-\dfrac23 ; -1\right) \in \C_f$
+	\end{enumerate}
+	\end{multicols}
+
+
 }
 
-\newpage
-
-\exe{5, difficulty=1}{
+\exe{4, difficulty=1}{
 	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
 	
 	\begin{center}
@@ -121,17 +166,25 @@ Consignes particulières :
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
-		\item\label{q1}
+		\item
 		Donner approximativement les images de -1 et de 2 par $f$. 
-		\item Énumérer approximativement les antécédents de 2 et de 4 par $f$.
-		\item Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \leq 4 \}$ sous forme d'union d'intervalles.
-		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
-		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de -2 ? Et tous les antécédents de -2 ?
+		\item
+		Énumérer approximativement les antécédents de 2 et de 4 par $f$.
+		\item 
+		Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \leq 4 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
 }{exe:deg3}{
 	todo
 }
 
+\exe{2}{
+	Quelle est la différence entre $(0 ; 1)$ et $[0 ; 1]$ ? 
+	Décrire, avec des mots, ce que les deux notations désignent.
+}{exe:diff-notations}{
+	Le couple de coordonnées $(0;1)$ correspond à un point dans le plan cartésien.
+	
+	L'intervalle $[0 ;1]$ correspond à l'ensembles des nombres entre 0 inclus et 1 inclus.
+}
 
 %%%%%%%%%%%
 
