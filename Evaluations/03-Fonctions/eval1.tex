@@ -76,7 +76,7 @@ Consignes particulières :
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
 		$x$ & -10 & -8 & &&&&& & 6 \\ \hline
 		$f(x)$ &  &  &  & &&&&& \\ \hline
-		$g(x)$ &  &  &  & &&&&& \\ \hline
+		$g(x)=f(x)+2$ &  &  &  & &&&&& \\ \hline
 	\end{tabular} 
 	\end{center}
 	\caption{Tableau de valeurs de l'exercice \ref{exe:f-parentes-sum}.}
@@ -177,13 +177,25 @@ Consignes particulières :
 	todo
 }
 
+%\exe{2}{
+%	Quelle est la différence entre $(0 ; 1)$ et $[0 ; 1]$ ? 
+%	Décrire, avec des mots, ce que les deux notations désignent.
+%}{exe:diff-notations}{
+%	Le couple de coordonnées $(0;1)$ correspond à un point dans le plan cartésien.
+%	
+%	L'intervalle $[0 ;1]$ correspond à l'ensembles des nombres entre 0 inclus et 1 inclus.
+%}
+
 \exe{2}{
-	Quelle est la différence entre $(0 ; 1)$ et $[0 ; 1]$ ? 
-	Décrire, avec des mots, ce que les deux notations désignent.
-}{exe:diff-notations}{
-	Le couple de coordonnées $(0;1)$ correspond à un point dans le plan cartésien.
+	Considérons $x, y$ deux nombres réels. Supposons, sans perte de généralité, que $x < y$.
 	
-	L'intervalle $[0 ;1]$ correspond à l'ensembles des nombres entre 0 inclus et 1 inclus.
+	Montrer le \emph{théorème de Léonie} : la moyenne de $x$ et de $y$ est égale à $x$ plus la moitié de la distance entre $x$ et $y$.
+}{exe:thm-Leonie}{
+	La distance entre $x$ et $y$ est égale à $y-x$, car $x$ est supposé plus petit que $y$.
+	En divisant par 2 et en ajoutant $x$, on trouve bien
+		\[ 
+		\dfrac{y-x}2 + x = \dfrac{y-x}2 + \dfrac{2x}2 = \dfrac{y-x+2x}2 = \dfrac{x+y}2. 
+		\]
 }
 
 %%%%%%%%%%%
