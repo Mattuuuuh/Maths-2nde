@@ -513,6 +513,33 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	TODO
 }
 
+\exe{, difficulty=1}{
+	Un magasin propose une remise de 15\% sur tous les articles à partir de deux articles achetés.
+	Un client ne souhaite acheter qu'un seul article à 80€.
+	
+	\begin{enumerate}
+		\item
+		Le client peut-il, en ajoutant un deuxième article, obtenir un panier à 75€ ?
+		Si oui, donner le prix du deuxième article au centime près.
+		
+		\item
+		Quel est le prix maximal du deuxième article qu'il peut se permettre d'ajouter à son panier pour que le prix final reste sous les 80€ ?
+		Arrondir au centime près.
+	\end{enumerate}
+}{exe:linvosges-matthieu}{
+	
+	\begin{enumerate}
+		\item
+		Soit $P$ le prix du deuxième article.
+		On souhaite que $P$ vérifie
+			\[ 0,85 (80+P) = 75. \]
+		En résolvant, on obtient $P \approx 8,23$€.
+		
+		\item
+		L'équation pour $P$ est, cette fois-ci, $0,85 (80+P) = 80$, qui donne $P \approx 14,12$€.
+	\end{enumerate}
+}
+
 \exe{, difficulty=2}{
         On considère l'ensemble $E= \bigset{1; 2; \dots ; n-1 ; n}$ dépendant d'un entier naturel $n\geq1$.
         On pose $F = \bigset{k \in E \tq 2 | k}$, l'ensemble des éléments pairs de $E$.
