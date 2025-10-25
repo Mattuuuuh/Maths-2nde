@@ -11,10 +11,10 @@ def comma(num):
     return f'{num}'.replace('.', ',')
 
 def f(x):
-    return x**3/3 - 2*x+3
+    return x**3/3 - 3*x+2 + np.exp(-x-2)
 
 def g(x):
-    return -4*x**2 + 7
+    return -np.arctan(x)+2
 
 class InegaliteGraphique(MovingCameraScene):
     def construct(self):
@@ -24,10 +24,10 @@ class InegaliteGraphique(MovingCameraScene):
         Tex.set_default(font_size=72)
         # axes
         axes = NumberPlane(
-                x_range=(-3.4, 2.1, 1),
-                y_range=(-2.1,7.1,2),
-                #x_length=8,
-                #y_length=4,
+                x_range=(-4.9, 3.9, 1),
+                y_range=(-5.5,7.5,1),
+                x_length=16,
+                y_length=9,
                 tips=True,
                 background_line_style={
                     "stroke_width": 1,
@@ -49,47 +49,145 @@ class InegaliteGraphique(MovingCameraScene):
 
         objects_in_frame = Group(axes)
 
-        self.play(Create(axes), self.camera.auto_zoom(objects_in_frame))
+        self.play(self.camera.auto_zoom(objects_in_frame))
+        self.play(Create(axes))
         
         self.wait()
        
         # graphs of f and g
         f_graph = axes.plot(
                 f,
-                x_range=[-4,8,1],
+                x_range=[-4.5,3.5,1],
                 color=BLUE_E,
                 stroke_width=4,
         )
         g_graph = axes.plot(
                 g,
-                x_range=[-4,8,1],
+                x_range=[-4.5,3.5,1],
                 color=RED_E,
                 stroke_width=4,
         )
         Cf = MathTex(r"\mathcal{C}_f", color=BLUE_E, tex_template=myTemplate)
         Cg = MathTex(r"\mathcal{C}_g", color=RED_E, tex_template=myTemplate)
-        Cf.next_to(f_graph, UP+RIGHT).shift(LEFT*2)
-        Cg.next_to(g_graph, DOWN+RIGHT).shift(LEFT*2)
+        Cf.move_to(axes.c2p(-1,4))
+        Cg.move_to(axes.c2p(-.5, -1))
 
-        objects_in_frame.add(f_graph,g_graph, Cf, Cg)
-        #self.play(self.camera.auto_zoom(objects_in_frame))
-        self.play(Create(f_graph), Write(Cf))
-        self.play(Create(g_graph), Write(Cg))
+        self.play(Create(f_graph), run_time=2)
+        self.play(Write(Cf))
+        self.play(Create(g_graph), run_time=2)
+        self.play(Write(Cg))
 
-        # x through domain
-        domain = Label(MathTex(r"\mathcal{D} = [-2 ; 6]", color=XCOLOR, tex_template=myTemplate), color=XCOLOR)
-        domain.next_to(axes, RIGHT).shift(UP*2)
-        objects_in_frame.add(domain)
-        #self.play(self.camera.auto_zoom(objects_in_frame))
-        self.play(Write(domain))
-    
+        # x through domain, from x=-4.5 to x=3.5 and back
         tick_length=.2
-        xtick = Line(axes.c2p(-2, -tick_length), axes.c2p(-2, +tick_length), color=XCOLOR)
-        xlabel = MathTex("x", color=XCOLOR).next_to(xtick, UP)
-        x = VGroup(xtick, xlabel)
-        
-        self.play(Create(x))
-        self.play(x.animate.shift(8*RIGHT))
-        self.play(x.animate.shift(8*LEFT))
-        self.play(Unwrite(xlabel))
+        x = ValueTracker(-4.5)
 
+        xtick = always_redraw(lambda:
+                Line(axes.c2p(x.get_value(), -tick_length), axes.c2p(x.get_value(), +tick_length), color=XCOLOR)
+        )
+        xlabel = always_redraw(lambda:
+            MathTex("x", color=XCOLOR).next_to(xtick, DOWN)
+        )
+        self.play(Create(xtick), Create(xlabel))
+        self.play(x.animate.set_value(3.5), run_time=2)
+        self.play(x.animate.set_value(-4.5), run_time=2)
+
+        # draw lines to f(x) and g(x)
+        fline = always_redraw(lambda:
+                axes.get_lines_to_point(axes.c2p(x.get_value(), f(x.get_value())), color=BLUE_E, stroke_width=2)
+        )
+        gline = always_redraw(lambda:
+                axes.get_lines_to_point(axes.c2p(x.get_value(), g(x.get_value())), color=RED_E, stroke_width=2)
+        )
+
+        # write f(x) < g(x) and rezoom
+        
+        flabel = MathTex("f(x)", color=BLUE_E, tex_template=myTemplate)
+        greater_symbol = MathTex(">", tex_template=myTemplate).next_to(flabel, RIGHT)
+        smaller_symbol = MathTex("<", tex_template=myTemplate).next_to(flabel, RIGHT)
+        equality_symbol = MathTex("=", tex_template=myTemplate).next_to(flabel, RIGHT)
+        glabel = MathTex("g(x)", color=RED_E, tex_template=myTemplate).next_to(smaller_symbol,RIGHT)
+
+        full_label = VGroup([flabel, smaller_symbol, greater_symbol, equality_symbol, glabel]).next_to(axes, 2*DOWN)
+        objects_in_frame.add(full_label)
+
+        self.play(self.camera.auto_zoom(objects_in_frame))
+
+        self.play(Create(fline))
+        self.play(Write(flabel))
+        self.wait(2)
+        self.play(Create(gline))
+        self.play(Write(glabel))
+        self.wait(2)
+        self.play(Write(smaller_symbol))
+        
+        self.wait(2)
+    
+        # change fonts to show big/small
+        self.play(
+                flabel.animate.set_font_size(54),
+                glabel.animate.set_font_size(90),
+        )
+
+        self.wait(2)
+
+        # move to -3.371 and change to f(x) = g(x)
+        self.play(x.animate.set_value(-3.371), run_time=5)
+    
+        self.play(
+                Transform(smaller_symbol, equality_symbol), 
+                flabel.animate.set_font_size(72), 
+                glabel.animate.set_font_size(72),
+        )
+
+        # move to -3.3 and change to f(x) > g(x)
+        self.play(x.animate.set_value(-3.3), run_time=2)
+    
+        self.play(
+                # TODO bug in Transform here (overlap)
+                Transform(equality_symbol, greater_symbol), 
+                flabel.animate.set_font_size(90), 
+                glabel.animate.set_font_size(54),
+        )
+
+        # move to .063 and change to f(x) = g(x)
+        self.play(x.animate.set_value(.06), run_time=5)
+    
+        self.play(
+                Transform(greater_symbol,equality_symbol), 
+                flabel.animate.set_font_size(72), 
+                glabel.animate.set_font_size(72),
+        )
+
+        # move to .1 and change to f(x) < g(x)
+        self.play(x.animate.set_value(.1), run_time=2)
+    
+        self.play(
+                Transform(equality_symbol, smaller_symbol), 
+                flabel.animate.set_font_size(54), 
+                glabel.animate.set_font_size(90),
+        )
+
+        # move to 2.768 and change to f(x) = g(x)
+        self.play(x.animate.set_value(2.768), run_time=5)
+    
+        self.play(
+                Transform(smaller_symbol, equality_symbol), 
+                flabel.animate.set_font_size(72), 
+                glabel.animate.set_font_size(72),
+        )
+
+        # move to 2.8 and change to f(x) > g(x)
+        self.play(x.animate.set_value(2.8), run_time=2)
+    
+        self.play(
+                Transform(equality_symbol, greater_symbol), 
+                flabel.animate.set_font_size(90), 
+                glabel.animate.set_font_size(54),
+        )
+
+        # move to 3.5 
+        self.play(x.animate.set_value(3.5), run_time=5)
+
+        self.wait(3)
+
+##
