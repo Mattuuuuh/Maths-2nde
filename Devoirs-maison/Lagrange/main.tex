@@ -25,7 +25,7 @@
 		&&
 		c(x) = \qIII(x-\xI)(x-\xII).
 		\end{align*}
-	\underline{Sans développer les expressions}, remplir les images de $a, b, c$ dans le tableau figure \ref{fig:1}.
+	Remplir les images de $a, b, c$ dans le tableau figure \ref{fig:1}.
 	Justifier par le calcul.
 }{exe:1}{
 	\begin{center}
@@ -43,7 +43,7 @@
 \exe{}{
 	En gardant les notations de la question \ref{exe:1}, posons désormais la fonction sur $\R$
 		\[ f(x) = \fI a(x) + \fII b(x) + \fIII c(x). \]
-	\underline{Sans développer l'expression}, remplir les images de $f$ dans le tableau figure \ref{fig:1}.
+	Remplir les images de $f$ dans le tableau figure \ref{fig:1}.
 	Justifier par le calcul.
 }{exe:2}{
 	\begin{center}
@@ -51,7 +51,7 @@
 	\setlength\tabcolsep{40pt}
 	\begin{tabular}{|c|c|c|c|}\hline
 		$x$ & \xI & \xII & \xIII \\ \hline
-		$f(x)$ & \fI & \fII & \fIII \\ \hline
+		$f(x) = \fI a(x) + \fII b(x) + \fIII c(x)$ & \fI & \fII & \fIII \\ \hline
 	\end{tabular}
 	\end{center}
 }
@@ -68,11 +68,15 @@
 \newcommand{\pxIIxIIIot}{\number\numexpr \xII * \xIII/2 \relax}
 
 \exe{, difficulty=1}{
-	Développer et réduire l'expression de $f$ de la question \ref{exe:2} en substituant les expressions de la question \ref{exe:1} pour trouver l'expression algébrique de $f$. 
-	
-	Vérifier que l'expression obtenue est bien cohérente en comparant avec les images de $f$ du tableau figure \ref{fig:1}.
-	Justifier par le calcul.
-	%que $f(x) = x \bI$.
+	En justifiant par le calcul, répondre aux questions suivantes.
+	\begin{enumerate}
+		\item
+		Développer et réduire les expressions $a(x)$ ; $b(x)$ ; et $c(x)$ de la question \ref{exe:1}.
+		\item
+		Substituer les expressions obtenues pour obtenir la forme développée réduite de $f(x)$.
+		\item
+		Vérifier que l'expression obtenue est bien cohérente en comparant avec les images de $f$ du tableau figure \ref{fig:1}.
+	\end{enumerate}
 }{exe:3}{
 	On développe $a, b, c$ séparément puis on combine les résultats pour trouver la forme développée réduite de $f$.
 	\[ a(x) = \dfrac12(x-\xII)(x-\xIII) = \dfrac12 (x^2 - \xI x - \xII x + \pxIIxIII) = \dfrac12 x^2 - \dfrac{\sxIIxIII}2 x +  \pxIIxIIIot. \]
@@ -99,7 +103,7 @@
 		$a(x)$ & && \\ \hline
 		$b(x)$ & && \\ \hline
 		$c(x)$ & && \\ \hline
-		$f(x)$ & && \\ \hline
+		$f(x) = \fI a(x) + \fII b(x) + \fIII c(x)$ & && \\ \hline
 	\end{tabular}
 	\end{center}
 	\caption{Tableau de valeurs de $a, b, c,$ et $f$.}
@@ -113,6 +117,7 @@
 \exe{, difficulty=1}{
 	Donner une fonction $g$ vérifiant $g(\xI) = \fI$, $g(\xII) =\fII,$ et $g(\xIII) = \fIV$.
 	Développer et réduire l'expression de $g$.
+	Vérifier l'expression obtenue en calculant les images de $\xI ; \xII ;$ et $\xIII$ par $g$.
 }{exe:4}{
 	Il s'agit ici de développer l'expression $f(x) = \fI a(x) +\fII b(x) + \fIV c(x)$, exercice laissé au lecteur ! (\emph{cf}. question \ref{exe:3})
 }
@@ -125,9 +130,11 @@
 }
 
 \exe{, difficulty=2}{
-	Démontrer qu'une infinité de fonctions différentes vérifient le tableau de valeurs de $f$, figure \ref{fig:1}.
+	Démontrer qu'une infinité de fonctions différentes vérifient le tableau de valeurs de $f$.
 	
-	Pour justifier que deux fonctions $F$ et $G$ sont différentes sur $\R$, il suffit de trouver un nombre où elles diffèrent, c'est-à-dire un $x\in\R$ où $F(x) \neq G(x)$.
+	\emph{
+	Pour justifier que deux fonctions $F$ et $G$ sont différentes, il suffit de trouver un antécédent où elles diffèrent, c'est-à-dire, ici, un $x\in\R$ tel que $F(x) \neq G(x)$.
+	}
 }{exe:6}{
 	Considérons toutes les fonctions de la forme
 		\[ f_c(x) = f(x) + c (x-\xI)(x-\xII)(x-\xIII), \]

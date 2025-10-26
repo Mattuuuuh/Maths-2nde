@@ -14,8 +14,7 @@ def generate():
 
     # EX 1
 
-    # 20 different choices
-    x1 = int_between(1,20)
+    x1 = int_between(6,24)
     x2 = x1+1
     x3 = x2+1
     
@@ -37,11 +36,8 @@ def generate():
     
     # EX 2
     
-    # 11 different choices
-    b = int_between(2, 9)
-    # 2 different choices
     sign = 1 if np.random.rand()<.5 else -1
-    b *= sign
+    b = int_between(1, 12) if sign==-1 else int_between(-x1+1, -1)
 
     f = lambda x: x+b
 
@@ -57,7 +53,6 @@ def generate():
 
     R += newcommand_add("bI", b)
 
-    # 20*11*2 = 440 different choices.
     return R
 
 ###############################################
@@ -72,17 +67,24 @@ dm = DM(
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#dm.generate_seeds(4)
-#dm.write_adrs()
-#dm.compile_pdfs()
+N=80
+dm.generate_seeds(N)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
-# TODO
-
+#dm.read_adrs()
+# for testing
+#dm.seeds = [dm.seeds[0]]
+#dm.N = 1
+# rewrite 
+#dm.write_adrs()
+# compile
+#dm.compile_pdfs()
 
 
 
