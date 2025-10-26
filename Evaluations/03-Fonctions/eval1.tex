@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[10/10/2025]
+\SetDate[03/11/2025]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -37,7 +37,9 @@ Consignes particulières :
 \exe{2}{
 	Compléter le théorème \ref{thm:1} vu en cours.
 }{exe:prop-fond}{
-	\[ y = f(x). \]
+		\begin{align*}
+			(x ; y) \in \C_f && \iff && y = f(x).
+		\end{align*}
 }
 
 \exe{4, difficulty=1}{
@@ -50,7 +52,26 @@ Consignes particulières :
 	\end{enumerate}
 	
 }{exe:f-parentes-sum}{
-	todo
+	\begin{center}
+	\begin{tikzpicture}[scale=1.1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+		x=20pt,
+	    	]
+		\addplot[no marks, BLUE_E, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=.68, below]{$\mathcal{C}_f$};
+		\addplot[no marks, RED_E, -, very thick] expression[domain=-10:6, samples=50]{.01*(x+6)*(x+3)*(x-5)+2}
+		node[pos=.68, above]{$\mathcal{C}_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{10pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+		$x$ & -10 & -8 & -6 & -4 &-2& 0 & 2& 4 & 6 \\ \hline
+		$f(x)$ & -4,1 & -1,2 & 0 & 0,2 & -0,4 & -0.9 & -1,2 & -0,6 & 1 \\ \hline
+		$g(x)=f(x)+2$ &  -2,1 & 0,8 & 2 & 2,2 & 1,6 & 1,1 & 0,8 & 1,4 & 3  \\ \hline
+	\end{tabular} 
+	\end{center}
 }
 
 \begin{figure}[h!]
@@ -91,22 +112,31 @@ Consignes particulières :
 		\def\arraystretch{1.2}
 		\setlength\tabcolsep{20pt}
 		\begin{tabular}{|c|c|c|c|c|}\hline
-			$x$ & 0 & -2 & 1 & -1 \\ \hline
-			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+			$x$ & 0 & -1 & 1 & 2 \\ \hline
+			$f(x)$ & 2 & 8 & 0 & 2\\ \hline
 		\end{tabular}
 		\end{center}
 	Parmis les expressions algébriques suivantes, lesquelles peuvent et lesquelles ne peuvent pas correspondre à $f(x)$ ?
 	Justifier.
 		\begin{multicols}{4}
 		\begin{enumerate}[label=\roman*)]
-			\item $1-x$
-			\item $1+\dfrac{x}2$
-			\item $\dfrac{1-x}2$
-			\item $\dfrac{-x^2 - x + 2}2$
+			\item $2(1-x)$
+			\item $2-6x$
+			\item $\dfrac{6-x}3$
+			\item $2(x^2 - 2x + 1)$
 		\end{enumerate}
 		\end{multicols}
 }{exe:f4}{
-	todo
+	\begin{enumerate}[label=\roman*)]
+		\item 
+		$2(1-x)$ est impossible car $f(-1) = 8$.
+		\item 
+		$2-6x$ est impossible car $f(1) = 0$.
+		\item
+		$\dfrac{6-x}3$ est impossible car $f(-1) = 8$.
+		\item 
+		$2(x^2 - 2x + 1)$ est possible car tous les images correspondent bien au tableau.
+	\end{enumerate}
 }
 
 
@@ -118,7 +148,23 @@ Consignes particulières :
 		\item Comment appelle-t-on les deux différentes formes de $f$ ?
 	\end{enumerate}
 }{exe:image-selon-forme}{
-	todo
+	\begin{enumerate}
+		\item
+		Par double distributivité :
+			\begin{align*}
+				f(x) &= (x+10)(x-15) \\
+					&= x^2 - 15x + 10x - 150 \\
+					&= x^2 - 5x - 150
+			\end{align*}
+		\item
+		$f(0) = -150$ avec l'une ou l'autre forme de façon immédiate.
+		
+		$f(-10) = 0$ grâce à la forme factorisée.
+		
+		$f(16) = (16+10)(16-15) = 26$, grâce à la forme factorisée.
+		\item
+		$f(x) = (x+10)(x-15)$ est la forme factorisée, et $f(x) = x^2 - 5x - 150$ la forme développée réduite.
+	\end{enumerate}
 }
 
 \exe{2}{
@@ -136,7 +182,7 @@ Consignes particulières :
 	\end{multicols}
 
 }{exe:Cf}{
-
+	On utilise le théorème \ref{thm:1} qui demande de vérifier si $y=f(x)$.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*)]
 		%\item $\left(2; 1\right) \not\in \C_f$.
@@ -150,16 +196,17 @@ Consignes particulières :
 }
 
 \exe{4, difficulty=1}{
-	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,2 ; 2,3[$}.
 	
 	\begin{center}
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			\begin{axis}[xmin = -3.2, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2.1cm,
 			xtick={-3, -2, ..., 2},
 			y=18pt,
 			clip=true,
+			ytick distance = 1,
 			]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
 			\end{axis}
@@ -174,7 +221,19 @@ Consignes particulières :
 		Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \leq 4 \}$ sous forme d'union d'intervalles.
 	\end{enumerate}
 }{exe:deg3}{
-	todo
+	\begin{enumerate}
+		\item
+		$f(-1) \approx 4,8$ et $f(2) \approx 1,7$.
+		\item
+		Les antécédents de 2 sont environ -2,8 ; 0,5 ; et 2,2.
+		En effet, $f(-2,8) \approx f(0,5) \approx f(2,2) \approx 2$
+		
+		Les antécédents de 2 sont environ -2,2 et -0,5.
+		En effet, $f(-2,2) \approx f(-0,5) \approx 4$.
+		\item 
+		
+		\[ \bigset{ x \in \D \tq f(x) \leq 4 } \approx [-3,2 ; -2,2 ] \cup [-0,5 ; 2,3]. \]
+	\end{enumerate}
 }
 
 %\exe{2}{
@@ -194,8 +253,9 @@ Consignes particulières :
 	La distance entre $x$ et $y$ est égale à $y-x$, car $x$ est supposé plus petit que $y$.
 	En divisant par 2 et en ajoutant $x$, on trouve bien
 		\[ 
-		\dfrac{y-x}2 + x = \dfrac{y-x}2 + \dfrac{2x}2 = \dfrac{y-x+2x}2 = \dfrac{x+y}2. 
+		\dfrac{y-x}2 + x = \dfrac{y-x}2 + \dfrac{2x}2 = \dfrac{y-x+2x}2 = \dfrac{x+y}2,
 		\]
+	la moyenne de $x$ et de $y$.
 }
 
 %%%%%%%%%%%
