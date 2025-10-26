@@ -1,0 +1,332 @@
+\input{../preamble.tex}
+
+\SetDate[04/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évolutions}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+        Une classe de Seconde comprend $25$ filles pour $9$ garçons.
+        Calculer le pourcentage de filles et de garçons dans la classe.
+}{exe:sous-pop1}{
+	Le nombre total d'élèves est de $25+9 = 34$.
+	
+	On calcule donc, pour les filles, la proportion $\dfrac{25}{34} \approx 0,73 = 73\%$.
+	
+	Idem pour les garçons, $\dfrac{9}{34} \approx 0,27 = 27\%$. 
+	Remarquons que la somme des pourcentages est de $100\%$ car $\dfrac{25}{34} + \dfrac{9}{34} = \dfrac{34}{34} = 1 = 100\%$.
+	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 73 = 27$.
+}
+
+\exe{}{
+   En sachant que les $16 600$ espèces de fourmis constituent environ $1{,}3\%$ du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
+}{exe:sous-pop2}{
+	On a $\dfrac{16 600}{\text{nombre d'espèces d'insectes}} = 1,3\% = 0,013$.
+	
+	Par conséquent, 
+		\[ \text{nombre d'espèces d'insectes} = \dfrac{16600}{0,013} \approx 1,3 \times 10^{6}, \]
+	soit environ $1,3$ millions.
+	
+	Remarquons que la fraction $\dfrac{16600}{0,013}$ ne donne pas un nombre entier, car le pourcentage a été approximé (\og \emph{environ} $1,3$\% \fg).
+}
+
+
+\exe{}{
+  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+  Parmis celles-ci, $23\%$ sont en danger critique.
+  
+  Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
+}{exe:sous-pop3}{
+	Notons $E$ l'ensemble des espèces indigènes à la France, $M$ la sous-population des espèces menacées, et $D$ la sous-population des espèces en danger critique.
+	On a donc la suite d'inclusions
+		\[ D \subset M \subset E. \]
+	
+	Le texte donne les informations
+		\begin{align*}
+			|M| = 0,13 \cdot |E| && \text{et} && |D| = 0,23 \cdot |M|
+		\end{align*}
+	Par conséquent, $|D| = 0,23 \times 0,13 \cdot |E| \approx 0,03 \cdot |E|$.
+	Donc les espèces en danger critique constituent $3\%$ des espèces.
+
+	Les proportions sont ainsi multiplicatives. Attention à ne pas naïvement multiplier les pourcentages, car $13\times 23 \approx 300$.
+}
+
+
+\exe{}{
+	Calculer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $75\%$ de $60$
+		\item $60\%$ de $75$
+		\item $72\%$ de $25$
+		\item $68\%$ de $20$
+		\item $125\%$ de $40$
+		\item $40\%$ de $125$
+	\end{enumerate}
+	\end{multicols}
+}{exe:1}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac34 \cdot 60 = 3 \cdot \dfrac{60}4 = 3 \cdot 15 = 45$
+		\item $45$
+		\item $\dfrac14 \cdot 72 = 18$
+		\item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
+		\item $40 + \dfrac14 \cdot 40 = 50$
+		\item $50$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Approximer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $33\%$ de $150$
+		\item $166\%$ de $180$
+		\item $11\%$ de $90$
+		\item $89\%$ de $81$
+		\item $16,6\%$ de $18$
+		\item $83,4\%$ de $36$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\approx \dfrac13 \cdot 150 = 50$
+		\item $\approx 180 + \dfrac23 \cdot 180 = 180 + 120 = 300$
+		\item $\approx \dfrac19 \cdot 90 = 10$
+		\item $\approx 81 - \dfrac19 \cdot 81 = 81 - 9 = 72$
+		\item $\approx \dfrac16 \cdot 18 = 3$
+		\item $\approx 36 - \dfrac16 \cdot 36 = 36 - 6 = 30$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+	Ceci serait égal à $20\%$ de la biomasse humaine.
+	
+	Estimer la biomasse totale des humains sur Terre en tonnes.
+}{exe:3}{
+	On a la relation
+		\[ \text{biomasse des fourmis} = 0,2 \times \text{biomasse humaine}. \]
+	D'où
+		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
+
+}
+
+\exe{}{
+	À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{exe:5}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
+
+\exe{, difficulty=1}{
+	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{exe:6}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $1,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
+	Ceci correspond à une diminution de $33,4\%$.
+}
+
+\exe{}{
+	Considérons deux écharpes, l'une à $250$€ et l'autre à $360$€.
+	\begin{enumerate}
+		\item Quelle augmentation de prix faut-il appliquer à la première écharpe pour qu'elle ait le prix de la deuxième ?
+		\item Quel rabais faut-il appliquer à la deuxième écharpe pour qu'elle ait le prix de la première ?
+	\end{enumerate}
+}{exe:tailleur}{
+	\begin{enumerate}
+		\item 
+		On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, la deuxième écharpe vaut $144\%$ du prix de la première : une augmentation de $44\%$ est nécessaire.
+		\item 
+		On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. La première écharpe vaut environ $70\%$ du prix de la deuxième : une diminution de $30\%$ est nécessaire.
+	\end{enumerate}
+}
+
+\exe{}{
+        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{exe:augm-dim-20}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+}
+
+\exe{}{
+	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{exe:reciproque}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $1,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
+	Ceci correspond à une diminution de $33,4\%$.
+}
+
+
+\exe{, difficulty=1}{
+	Lors d'un payement par carte bancaire, une commission valant 1\% du montant de la transaction est versée comme frais bancaire.
+	Ainsi, lorsqu'un débiteur paye 100€, le créditeur reçoit 99€, et 1€ est versé à la banque.
+	\begin{enumerate}
+		\item Pour un payement de 200€, quelle quantité est versée en frais bancaire ? quelle quantité le créditeur reçoit-il ?
+		\item Répondre à la même question pour un payement de 202€.
+		\item Obtient-on la quantité initiale après une augmentation de 1\% suivie d'une diminution de 1\% ?
+		\item Quelle quantité le débiteur doit-il verser pour que le créditeur reçoive exactement 200€ ? Est-ce un nombre réel ? rationnel ? décimal ? entier ?
+	\end{enumerate}
+}{exe:caution-matthieu-payup}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Un magasin propose une remise de 15\% sur tous les articles à partir de deux articles achetés.
+	Un client ne souhaite acheter qu'un seul article à 80€.
+	
+	\begin{enumerate}
+		\item
+		Le client peut-il, en ajoutant un deuxième article, obtenir un panier à 75€ ?
+		Si oui, donner le prix du deuxième article au centime près.
+		
+		\item
+		Quel est le prix maximal du deuxième article qu'il peut se permettre d'ajouter à son panier pour que le prix final reste sous les 80€ ?
+		Arrondir au centime près.
+	\end{enumerate}
+}{exe:linvosges-matthieu}{
+	
+	\begin{enumerate}
+		\item
+		Soit $P$ le prix du deuxième article.
+		On souhaite que $P$ vérifie
+			\[ 0,85 (80+P) = 75. \]
+		En résolvant, on obtient $P \approx 8,23$€.
+		
+		\item
+		L'équation pour $P$ est, cette fois-ci, $0,85 (80+P) = 80$, qui donne $P \approx 14,12$€.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=1}{
+	Sans calculatrice, exprimer les nombres suivants sous la forme $q^n$, où $q \in \N$ et $n\in\Z$ sont des entiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^3 \times 10^5$
+		\item $\left(4^5\right)^2$
+		\item $\dfrac{5^3}{5^3}$
+		\item $1$
+		\item $\dfrac{2^4}{2^7}$
+		\item $\left(2^{-1}\right)^3$
+		\item $\left(2^{3}\right)^{-1}$
+		\item $\left(\dfrac{1}{7^2}\right)^6$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+		\item $\dfrac{10^{-5}}{10^{6}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:puissances}{
+	TODO
+}
+
+\exe{}{
+	On estime que, dans l'univers, il y a au moins
+		\begin{itemize}
+			\item $10^{11}$ galaxies ; que chacune contient
+			\item $10^{11}$ étoiles ; dont la masse moyenne est de
+			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
+			\item $10^{24}$ atomes.
+		\end{itemize}
+	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
+}{exe:atomes-univers}{
+	TODO
+}
+
+
+\exe{, difficulty=1}{
+	Montrer qu'on a environ $2^{10} \approx 10^3$. 	
+	\begin{enumerate}
+		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{exe:grandeur-binaire}{
+	TODO
+}
+
+\exe{}{
+	Montrer que $10^{50} - 10^{30} = 10^{50} \bigl( 1 - 10^{-20} \bigr)$.
+	Décrire le développement décimal de $1-10^{-20}$. De quel entier est-il très proche ?
+	
+	En déduire l'ordre de grandeur de $10^{50} - 10^{30}$.
+}{exe:grandeur-soustraction}{
+	TODO
+}
+
+\exe{}{
+	Exprimer en écriture scientifique la valeur obtenue après une diminution de 60\% de $10^{60}$.
+	Quel est son ordre de grandeur ?
+}{exe:grandeur-évolution}{
+	TODO
+}
+
+
+\exe{, difficulty=2}{
+	Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
+	Ainsi, après la première année, il y aura $1,03 \times 10 = 10,3$€ sur son compte.
+	La deuxième année, il y aura $1,03 \times 10,35 = 10,609$€, etc...
+	
+	\begin{enumerate}
+		\item Combien d'argent aura-t-elle après $5$ ans ?
+		\item Combien d'argent aura-t-elle après $50$ ans ?
+		\item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+	\end{enumerate}
+	
+	%\hfill
+}{exe:evol4}{
+	\begin{enumerate}
+		\item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10\approx 11,59$€.
+		\item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10\approx 43,84$€.
+		\item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10\approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
+	\end{enumerate}
+}
+
+\exe{, difficulty=2}{
+    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
+    \begin{enumerate}
+    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $(100p)\%$ suivie d'une diminution de $(100p)\%$ ?
+    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
+    \end{enumerate}
+}{exe:sqrt-evol}{
+    \begin{enumerate}
+    \item Soit $N\geq0$ une quantité. Après une augmentation de $(100p)\%$ puis une diminution de $(100p)\%$,
+    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
+    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
+    		
+    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
+    \item On pose l'égalité suivante
+    		\[ 100p^2 = 16. \]
+    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
+    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
+	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
+	
+	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
+    \end{enumerate}
+
+}
+
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
