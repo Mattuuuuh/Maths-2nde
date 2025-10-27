@@ -91,7 +91,12 @@ dm.compile_pdf()
 #dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
-# TODO
-
-
+#dm.read_adrs()
+# for testing
+#dm.seeds = [dm.seeds[0]]
+#dm.N = 1
+# rewrite 
+#dm.write_adrs()
+# compile
+#dm.compile_pdfs()
 
