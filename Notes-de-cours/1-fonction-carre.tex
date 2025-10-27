@@ -265,6 +265,23 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	Par exemple, $(-9)^2 = 9^2 = 81$.
 }
 
+\exe{}{
+	Développer les expressions algébriques suivantes.
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3-x)^2$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:développement}{
+	TODO
+}
+
+
 \nomen{
 	On appelle \emphindex{polynôme} une expression de la forme
 		\[ a_d x^d + a_{d-1}x^{d-1} + \cdots + a_1 x + a_0, \]
@@ -311,21 +328,92 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	On écrira l'identité $2(x-9)(x-5) = 2(x-7)^2 - 8$ sans préciser qu'elle est valable pour tout $x\in\R$.
 	Cette égalité n'est pas à résoudre : elle montre l'identité de deux expressions de formes différentes.
 }
+\ex{forme canonique : du signe du carré à l'extremum}{
+	Considérons la fonction
+		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
+	Remarquons que la fonction carré est toujours positive : on a donc toujours $\left( x - \dfrac72 \right)^2 \geq 0$.
+	Multiplier par $-1$ rend la quantité négative et on obtient, en ajoutant $\dfrac{265}2$,
+		\begin{align*}
+			\left( x - \dfrac72 \right)^2 &\geq 0 \\
+			- \left( x - \dfrac72 \right)^2 & \leq 0 \\
+			\dfrac{265}2 - \left( x - \dfrac72 \right)^2 &\leq \dfrac{265}2 \\
+			f(x) &\leq \dfrac{265}2 
+		\end{align*}
+	En outre, $f\left(\dfrac72\right) = \dfrac{265}2 - 0^2 = \dfrac{265}2$. 
+	Il suit donc que $f$ atteint son maximum $\dfrac{265}2$ en $x^\star = \dfrac72$.
+}{}
 
-\exe{}{
-	Développer les expressions algébriques suivantes.
-		\begin{multicols}{3}
-		\begin{enumerate}[label=$\bullet$]
-			\item $f(x) = (1+x)^2$
-			\item $g(x) = (x-3)^2$
-			\item $h(x) = (3-x)^2$
-			\item $F(x) = (3 + 2x)^2$
-			\item $G(x) = (3x - 7)^2$
-			\item $H(x) = (-7x - 2)^2$
-		\end{enumerate}
-		\end{multicols}
-}{exe:développement}{
+\nt{
+	L'étude des variations et des extrema de fonctions fera l'objet du chapitre \ref{chap:variations}.
+}
+
+\exe{, difficulty=1}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -3 - (x+1)^2. \]
+	Montrer que $f$ atteint son maximum en $x^\star=-1$ et donner sa valeur.
+}{exe:extrema3-99}{
+	Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour enfin construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(x+1)^2 &\geq 0 \\
+			-(x+1)^2 &\leq 0 \\
+			-3 - (x+1)^2 &\leq -3 \\
+			f(x) &\leq -3
+		\end{align*}
+	On en déduit que $f(x)$ est borné supérieurement par $-3$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un maximum atteint en $-1$, on calcule $f(-1) = -3 - (-1+1)^2 = -3 + 0^2 = -3$.
+	En conclusion,
+		\[ f(x) \leq f(-1)=-3, \]
+	et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
+}
+
+\exe{, difficulty=1}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et donner sa valeur.
+}{exe:extrema4-99}{
+	Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(3x-1)^2 &\geq 0 \\
+			3(3x-1)^2 &\geq 0 \\
+			-10 + 3(3x-1)^2 &\geq -10 \\
+			f(x) &\geq -10
+		\end{align*}
+	On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+	En conclusion,
+		\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+	et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
+}
+
+\exe{, difficulty=2}{
+	Considérons la courbe représentative de la fonction $f(x) = x + 1$ et le point $A(2;1)$.
+	Nous cherchons le point de $\C_f$ le point proche de $A$.
+	\begin{enumerate}
+		\item
+		Grapher $\C_f$ sur le domaine $[0 ; 4]$, et placer le point $A$ dans le même repère.
+		Le point $A$ appartient-il à $\C_f$ ?
+		\item
+		Montrer qu'un point de $\C_f$ est de la forme $(x ; x+1)$, avec $x\in\R$.
+		\item
+		Montrer que la distance au carré de ce point à A est égale à
+			\[ 2(x-1)^2 + 2. \]
+		\item
+		Conclure que le point de $\C_f$ le plus proche de $A$ est $B(1 ; 2)$.
+		Placer $B$ dans le repère déjà construit.
+	\end{enumerate}
+}{exe:proj-xp1}{
 	TODO
+}
+
+\nt{
+	Il s'avère que, dans l'exercice \ref{exe:proj-xp1}, la droite $(AB)$ est perpendiculaire à la droite $\C_f$.
+	Attention ici à tracer un repère orthonormé : si les pas de graduation sont différents, la représentation des angles change.
+	
+	Le point le plus proche d'une droite correspond en fait au \emphindex{projeté orthogonal} de ce point sur la droite, notion étudiée au chapitre \ref{chap:pb-geom}.
 }
 
 \exe{, difficulty=1}{
@@ -682,11 +770,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ |x\cdot y| = |x|\cdot|y|. \]
 }{thm:produit-valeur-absolue}
 
-\pf{}{
-	D'après l'exercice \ref{exe:identités-abs}, on a $\bigl(|x|\cdot|y|\bigr)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
-	En appliquant la racine carrée, on trouve
-		\[ |x| \cdot |y| = \big| |x|\cdot|y| \big| = |xy|. \]
-}
+% pas intéressant ; presque évident
+%\pf{}{
+%	D'après l'exercice \ref{exe:identités-abs}, on a $\bigl(|x|\cdot|y|\bigr)^2 = |x|^2 |y|^2 = x^2 y^2 = (xy)^2$.
+%	En appliquant la racine carrée, on trouve
+%		\[ |x| \cdot |y| = \big| |x|\cdot|y| \big| = |xy|. \]
+%}
 
 \thm{}{
 	Soit $x, y \in \R$. Alors la distance entre $x$ et $y$ sur la droite réelle est donnée par 
@@ -694,14 +783,14 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }{thm:valeurs-absolue-distance}
 
 % j'aime pas trop cette démo
-\pf{}{
-	Remarquons d'abord que $|x-y| = |y-x|$ d'après l'exercice \ref{exe:moinsabs} et car $x-y$ est l'opposé de $y-x$.	
-
-	Si $x \leq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $y-x$ qui vaut $|y-x|$ par positivité.
-	Sinon, $x \geq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $x-y$ qui vaut $|x-y|$, à nouveau par positivité.
-
-	Dans tous les cas, la distance vaut donc bien $|x-y| = |y-x|$.
-}
+%\pf{}{
+%	Remarquons d'abord que $|x-y| = |y-x|$ d'après l'exercice \ref{exe:moinsabs} et car $x-y$ est l'opposé de $y-x$.	
+%
+%	Si $x \leq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $y-x$ qui vaut $|y-x|$ par positivité.
+%	Sinon, $x \geq y$, alors la distance entre $x$ et $y$ sur la droite réelle est donnée par $x-y$ qui vaut $|x-y|$, à nouveau par positivité.
+%
+%	Dans tous les cas, la distance vaut donc bien $|x-y| = |y-x|$.
+%}
 
 \exe{}{
 	Donner l'ensemble des $x\in\R$ vérifiant $|x| = 4$.
@@ -839,50 +928,51 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	On peut faire de même pour le maximum puis dans le cas $x>y$ (ou se convaincre que le cas $x>y$ n'est pas à faire par symétrie des expressions).
 }
 
-
-\mprop{}{
-	Soient $a, b \in \R$ deux nombres réels tels que $a < b$.
-	
-	Alors le milieu de l'intervalle $[a,b]$ est égal à $\dfrac{a+b}2$.
-}{prop:milieu-inter}
-
-\pf%{Démonstration de la proposition \ref{prop:milieu-inter}}{
-{}{
-	Notons $x\in\R$ le milieu de l'intervalle.
-	Celui-ci est à équidistance de $a$ et de $b$ et vérifie donc
-		\[ |x-a| = |x-b|. \]
-	Comme $x$ vérifie $a \leq x \leq b$, et par définition de la valeur absolue, on a
-		\begin{align*}
-			|x-a| &= x-a, \text{ et} \\
-			|x-b| &= -(x-b) = b-x.
-		\end{align*}
-	On peut alors résoudre pour $x\in\R$ :
-		\begin{align*}
-			x-a = b-x && \iff && 2x = a+b && \iff && x = \dfrac{a+b}2
-		\end{align*}
-}
-
-\nt{
-	En voyant $\frac{a+b}2$ comme $\frac12 a + \frac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
-	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\frac12$.
-	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
-	
-	En changeant les poids, on peut créer d'autres points de l'intervalle. 
-	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\frac23$ et $\frac13$.
-	 La formule de la moyenne pondérée sera alors
-		\[ \dfrac23a + \dfrac13b, \]
-	qui est plus proche de $a$ que de $b$.
-}
-
-\exe{, difficulty=2}{
-	Considérons l'intervalle $[15;20]$ qui correspond à deux notes : $15$ et $20$.
-	\begin{enumerate}
-		\item Si les deux notes ont le même coefficient fixé à $1$, quel est le poids de chaque note et quelle est la moyenne pondérée ? Comparer avec le milieu de l'intervalle.
-		\item Posons $\lambda \in [0;1]$ le poids de la première note, et $1-\lambda$ celui de la deuxième.
-			Calculer la moyenne pondérée $15\lambda + 20(1-\lambda)$ pour certaines valeurs de $\lambda$ dans son intervalle $[0;1]$. 
-			Vérifier que toutes les valeurs obtenues appartiennent bien à l'intervalle $[15;20]$.
-		\item Quel $\lambda \in [0;1]$ choisir pour avoir une moyenne de $18{,}5$ ?
-	\end{enumerate}
-}{exe:milieu-inter}{
-	TODO
-}
+% à mettre dans le chapitre 2 peut-être ?
+% c'est pas intéressant ici
+%\mprop{}{
+%	Soient $a, b \in \R$ deux nombres réels tels que $a < b$.
+%	
+%	Alors le milieu de l'intervalle $[a,b]$ est égal à $\dfrac{a+b}2$.
+%}{prop:milieu-inter}
+%
+%\pf
+%{}{
+%	Notons $x\in\R$ le milieu de l'intervalle.
+%	Celui-ci est à équidistance de $a$ et de $b$ et vérifie donc
+%		\[ |x-a| = |x-b|. \]
+%	Comme $x$ vérifie $a \leq x \leq b$, et par définition de la valeur absolue, on a
+%		\begin{align*}
+%			|x-a| &= x-a, \text{ et} \\
+%			|x-b| &= -(x-b) = b-x.
+%		\end{align*}
+%	On peut alors résoudre pour $x\in\R$ :
+%		\begin{align*}
+%			x-a = b-x && \iff && 2x = a+b && \iff && x = \dfrac{a+b}2
+%		\end{align*}
+%}
+%
+%\nt{
+%	En voyant $\frac{a+b}2$ comme $\frac12 a + \frac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
+%	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\frac12$.
+%	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
+%	
+%	En changeant les poids, on peut créer d'autres points de l'intervalle. 
+%	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\frac23$ et $\frac13$.
+%	 La formule de la moyenne pondérée sera alors
+%		\[ \dfrac23a + \dfrac13b, \]
+%	qui est plus proche de $a$ que de $b$.
+%}
+%
+%\exe{, difficulty=2}{
+%	Considérons l'intervalle $[15;20]$ qui correspond à deux notes : $15$ et $20$.
+%	\begin{enumerate}
+%		\item Si les deux notes ont le même coefficient fixé à $1$, quel est le poids de chaque note et quelle est la moyenne pondérée ? Comparer avec le milieu de l'intervalle.
+%		\item Posons $\lambda \in [0;1]$ le poids de la première note, et $1-\lambda$ celui de la deuxième.
+%			Calculer la moyenne pondérée $15\lambda + 20(1-\lambda)$ pour certaines valeurs de $\lambda$ dans son intervalle $[0;1]$. 
+%			Vérifier que toutes les valeurs obtenues appartiennent bien à l'intervalle $[15;20]$.
+%		\item Quel $\lambda \in [0;1]$ choisir pour avoir une moyenne de $18{,}5$ ?
+%	\end{enumerate}
+%}{exe:milieu-inter}{
+%	TODO
+%}
