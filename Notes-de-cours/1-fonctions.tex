@@ -16,21 +16,27 @@
 \section{Introduction}
 
 \dfn{fonction, variable, constante}{
-	On dit qu'une quantité $y\in\R$ s'exprime en \emphindex{fonction} d'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une seule} valeur $y$.
-	On note alors $y = y(x)$, lu \og $y$ de $x$ \fg, où $x$ est la \emphindex{variable}.
+	On dit qu'une quantité $y\in\R$ s'exprime \emphindex{en fonction d}'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une unique} valeur $y$.
+	
+	On note alors $y = f(x)$, lu  « $y$ égal $f$ de $x$ », où $x$ est la \emphindex{variable}, et $f$ la \emphindex{fonction}.
+	
 	Si une quantité ne dépend pas de $x$, on l'appelle \emphindex{constante}, ou \emphindex{indépendante} de $x$.
+	Cependant, une constante peut toujours être vue comme une fonction de $x$ !
+	
+	\begin{center}
+	\includegraphics[page=1]{figures/fig-fonctions.pdf}
+	\end{center}
 }{}
 
 \nomen{
-	Lorsque $x$ vaut $2$, la valeur associée sera $y(2)$, lu \og $y$ de $2$ \fg.
-	Ceci permet de différencier les valeurs qui émanent de différents $x\in\R$ : $y(1), y(-3), y(\frac34), \dots$.
-	La notation $y(x)$ est remplacée par $f(x)$ ($f$ pour fonction) pour se libérer la lettre $y$.
+	Lorsque $x$ vaut $2$, la valeur $y$ associée sera $f(2)$, lu « $f$ de $2$ ».
+	%Ceci permet de différencier les valeurs qui émanent de différents $x\in\R$ : $f(1), f(-3), f(\frac34), \dots$.
 }
 
 \ex{}{
 	Le périmètre $P$ d'un cercle de rayon $R$ est donné par $2\pi \cdot R$.
-	Un rayon détermine donc un unique périmètre, et la fonction périmètre, dépendant de la variable rayon, est donnée par
-		\[ P = P(R) = 2\pi\cdot R. \]
+	Un rayon détermine donc un unique périmètre, et la fonction Périmètre, dépendant de la variable $R$, est donnée par
+		\[ \text{Périmètre}(R) = 2\pi R. \]
 }{ex:perimètre}
 
 \exe{1}{
@@ -192,7 +198,7 @@
 
 \dfn{forme algébrique}{
 	On appelle 
-		\[ f(x) = 3\cdot x+1 \]
+		\[ f(x) = 3 x+1 \]
 	la forme \emphindex{algébrique} de $f$.
 	On lit dans ce cas \og $f$ de $x$ égal trois $x$ plus 1 \fg.
 	
@@ -404,7 +410,7 @@
 
 \nt{
 	Il est toujours facile de calculer $f(0)$ avec la forme développée.
-	La forme factorisée est parfois plus utile pour calculer certaines images.
+	La forme factorisée, elle, est parfois plus utile pour calculer certaines images, et est toujours plus utile pour étudier le signe de $f(x)$ (voir chapitre \ref{chap:signes}).
 }
 
 \exe{}{
@@ -621,7 +627,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	%\emph{Note : $f(x) = \dfrac1{200}(x+3,5)(x+2,5)(x-3,5)(x-4,5)(x-5,5) + 2$, polynôme de degré $5$ dans l'exemple ci-dessus.}
 }{cor:prop-fond}
 
-\begin{figure}
+\begin{figure}[h!]
 	\begin{center}
 	 \includegraphics[page=2, scale=1.5]{figures/fig-fonctions.pdf}
 	\end{center}
@@ -779,6 +785,7 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 		\end{center}
 }
 
+\newpage
 
 \exe{}{
 	Considérons la représentation graphique suivante d'une fonction $f$ définie sur $\D = ]{-}3,4 ; 2,3[$.
@@ -891,6 +898,8 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	Ensuite, si l'expression de $f$ était la deuxième, on aurait $f(-1) = 0$, ce qui n'est clairement pas le cas.
 	Ainsi $f(x) = -2x - \frac23$ est le seul choix possible.
 }
+
+\newpage
 
 \exe{, difficulty=1}{
 	Utiliser le repère ci-dessous pour comparer les représentations graphiques des trois fonctions suivantes données algébriquement.
