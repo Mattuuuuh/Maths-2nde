@@ -40,7 +40,12 @@
 		\item Le temps écoulé depuis le départ du lynx est-il une fonction de la distance parcourue ?
 	\end{enumerate}
 }{exe:lynx}{
-	TODO
+	\begin{enumerate}
+		\item 
+		Oui car à chaque temps est associé \textbf{une unique} distance.
+		\item 
+		Oui également, car à chaque distance est associé \textbf{un unique} temps.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -59,20 +64,52 @@
 		\item Le temps est-il une fonction de la hauteur ? Justifier.
 	\end{enumerate}
 }{exe:table}{
-	TODO
+	\begin{enumerate}
+		\item On peut associer \textbf{une seule} hauteur à chaque temps. La hauteur peut donc être vue comme fonction du temps.
+		\item On ne peut pas associer un unique temps à chaque hauteur. Par exemple, il y a deux temps distincts pour lesquels la hauteur est de $85$cm (0s et 1s).
+		Le temps ne peut donc pas être vu comme fonction de la hauteur.
+	\end{enumerate}
 }
 
-\exe{, difficulty=1}{
+	
+\exe{, difficulty=2}{
 	\begin{enumerate}
 		\item
-		Montrer que le rayon d'un cercle est fonction de son périmètre et écrire la fonction associée.
+		Montrer que le rayon $R$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Rayon}(P)$ associée.
 		\item
-		Montrer que l'aire d'un cercle est fonction de son rayon et écrire la fonction associée.
+		Montrer que l'aire $A$ d'un cercle est fonction de son rayon $R$ et écrire la fonction $\text{Aire}(R)$ associée.
 		\item
-		En déduire que l'aire d'un cercle est fonction de son périmètre et écrire la fonction associée.
+		En déduire que l'aire $A$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Aire}(P)$ associée.
 	\end{enumerate}
-}{exe:rayon-périmètre-aire}{
-	TODO
+}{exe:f2}{
+	\begin{enumerate}
+		\item
+		De la relation 
+			\[ P = 2\pi \cdot R, \]
+		on déduit que 
+			\[ R = \dfrac{1}{2\pi} \cdot P. \]
+		Remarquons qu'on a inversé le membre de gauche et le membre de droite pour extraire la forme d'une fonction : une valeur de $P$ donne une unique valeur de $R$.
+		
+		Ainsi on peut voir $R$ comme une fonction de $P$. On note alors $R=R(P)$, qui vérifie
+		\[ R(P) = \dfrac{1}{2\pi} \cdot P. \]
+		
+		\item 
+		La formule de l'aire
+			\[ A = \pi \cdot R^2 \]
+		exprime directement l'aire comme fonction du rayon : à chaque rayon possible, on peut calculer une unique aire.
+		On note alors
+			\[ A(R) =  \pi \cdot R^2. \]
+		\item
+		On souhaite exprimer l'aire $A$ comme fonction du périmètre $P$.
+		Or d'après les questions précédentes, l'aire $A$ est fonction du rayon $R$, et le rayon $R$ est lui-même fonction du périmètre $P$.
+		
+		Ainsi, une valeur de $P$ donne une unique valeur de $R$ qui donne une unique valeur de $A$.
+		En suivant le raisonnement, on peut composer les fonctions trouvées ci-dessus en considérant $A(R(P))$.
+		Pour ne pas surcharger les notations, appelons plutôt $\text{Aire}$ la fonction prenant un périmètre.
+			\begin{align*}
+			 \text{Aire}(P) &= A\bigl(R(P)\bigr) \\ &=A\left(\dfrac{1}{2\pi} \cdot P\right) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
+			 \end{align*}
+	\end{enumerate}
 }
 
 \notations{
@@ -216,8 +253,13 @@
 		\end{multicols}
 }{ex:carré0}
 
+	
 \exe{}{
-	Considérons la fonction $f(x) = 3\cdot x + 1$ pour tout $x\in\R$.
+	Considérons la fonction $f$ donnée {algébriquement} par
+	\begin{align*}
+		f(x) = 3x + 1
+	\end{align*}
+	pour tout $x\in\R$.
 	
 	\begin{enumerate}
 		\item
@@ -228,11 +270,42 @@
 		Déterminer tous les antécédents de $6$ par $f$.	
 	\end{enumerate}
 }{exe:images-antécédents}{
-	TODO
+	\begin{enumerate}
+	\item
+	L'image de $x$ est donnée par $f(x)$. On calcule donc
+		\begin{align*}
+			f(0) &= 3\cdot0 + 1 = 1 \\
+			f(3,1) &= 3\cdot3,1 + 1 = 10,3 \\
+			f\left(\frac13\right) &= 3\cdot\frac13 + 1 = 1 + 1 = 2 \\
+			f(-1) &= 3\cdot(-1) + 1 = -2 \\
+			f\left(-\frac23\right) &= 3 \cdot \left(- \frac23\right) + 1 = -1.
+		\end{align*}
+	\item
+	La relation
+		\[ f(0) = 1 \]
+	implique que l'image de $0$ est $1$, et qu'un antécédent de $1$ est $0$.
+	On a donc trouvé $0$, antécédent de $1$ par $f$.
+	\item
+	Appelons $x$ un antécédent de $6$ par $f$.
+	Autrement dit, l'image de $x$ est $6$, et donc 
+		\[ f(x) = 6. \]
+	En utilisant l'expression algébrique de $f$, on trouve
+		\begin{align*}
+			f(x) &= 6, \\
+			3\cdot x + 1 &= 6, \\
+			3\cdot x &= 5, \\
+			x &= \dfrac53.
+		\end{align*}
+	Ainsi $x=\frac53$ est le seul antécédent de $6$ par $f$.
+	En général, certaines fonctions admettes plusieurs antécédents.
+	Voir par exemple l'exercice suivant.
+	\end{enumerate}
+
+
 }
 
 \exe{}{
-	Un fonction $f$ définie sur tout $\R$ admet le tableau de valeurs suivant.
+	Un fonction $f$ admet le tableau de valeurs suivant.
 		\begin{center}
 		\def\arraystretch{1.2}
 		\setlength\tabcolsep{20pt}
@@ -242,18 +315,26 @@
 		\end{tabular}
 		\end{center}
 	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
-		\begin{multicols}{3}
+		\begin{multicols}{4}
 		\begin{enumerate}[label=\roman*)]
 			\item $1-x$
 			\item $1+\dfrac{x}2$
 			\item $\dfrac{1-x}2$
 			\item $\dfrac{-x^2 - x + 2}2$
-			\item $\dfrac{x^3 - 3x + 2}2$
-			\item $\dfrac{-x^4 - 2x^3 + x + 2}2$
 		\end{enumerate}
 		\end{multicols}
 }{exe:fonctions-QCM}{
-	TODO
+	Il s'agit de discriminer les fonctions possibles en utilisant les images du tableau.
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$ vaut bien $1$ en $x=0$, mais l'expression vaut $3$ en $x=-2$, donc ce n'est pas l'expression de $f$.
+			\item  $1+\dfrac{x}2$ vaut bien $1$ en $x=0$ et $0$ en $x=-2$, mais elle vaut $1$ en $x=1$, ce n'est donc pas l'expression de $f$.
+			\item $\dfrac{1-x}2$ vaut $\frac12$ en $x=0$, ce n'est donc pas l'expression de $f$.
+			\item On déduit $f(x) = \dfrac{-x^2 - x + 2}2$ est la seule expression possible, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+		\end{enumerate}
+
+	Cette exercice deviendra vite évident après avoir terminé l'étude des fonctions affines. 
+	Comme les courbes représentatives des trois premières expressions sont des droites non constantes, toutes leurs images ont un unique antécédent.
+	Or ici $0$ et $1$ ont deux antécédents.
 }
 
 \exe{}{
@@ -269,7 +350,16 @@
 		\end{tabular}
 		\end{center}
 }{exe:fonctions-QCM-trous}{
-	TODO
+	\begin{center}
+	\def\arraystretch{1.2}
+	\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		$x$ & 0 & -2 & 1 & -1 \\ \hline
+		$f(x)$ & 1 & 3 & 0 & 5 \\ \hline
+		$g(x)$ & 1 & 0 & 1 & -2 \\ \hline
+		$f(x)+2g(x)$ & 3 & 3 & 2 & 1 \\ \hline
+	\end{tabular}
+	\end{center}
 }
 
 \exe{}{
@@ -295,7 +385,16 @@
 	
 	Calculer les images de 0 ; 11 ; 12 ; 13; et 14 par $f$ avec la forme adéquate et sans calculatrice.
 }{exe:image-selon-forme}{
-	TODO
+	Pour $f(0)$ et $f(1)$, on préférera la forme développée $f(x) = x^2 - 25x + 156$.
+	Ainsi, $f(0) = 156$ immédiatement, et $f(1) = 1 - 25 + 156 = 132$.
+	
+	Pour $f(11), f(12), f(13), f(14)$, la forme factorisée est préférable, car on calcule facilement que
+		\begin{align*}
+			f(11) &= (11-12)(11-13) = (-1)(-2) = 2 \\
+			f(12) &= (12-12)(12-13) = 0 \\
+			f(13) &= (13-12)(13-13) = 0 \\
+			f(14) &= (14-12)(14-13) = (2)(1) =2
+		\end{align*}
 }
 
 \nomen{
@@ -320,27 +419,68 @@
 		Déterminer tous les antécédents de $5$ par $f$.	
 	\end{enumerate}
 }{exe:images-antécédents2}{
-	TODO
-}
-
-\exe{}{
-	Considérons les fonctions $f(x) =x^2 -6\cdot x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
-	%\begin{multicols}{2}
 	\begin{enumerate}
 		\item
-		Calculer les images par $f$ et $g$ de $0$ ; de $6$ ; de $3$ ; de $-\frac23$ ; de $\frac{20}3$.
+		Calculer l'image par $f$ de $0$ ; de $0,2$ ; de $\frac47$ ; de $-\frac23$.
+		\begin{align*}
+			f(0) &= \frac15 \\
+			f(0,2) &= \frac15 - 0,2 = 0 \\
+			f\left(\frac47\right) &= \frac15 - \frac47 = \frac{7}{35} - \frac{20}{35} = \frac{-13}{35} \\
+			f\left(-\frac23\right) &= \frac15 + \frac23 = \frac{3}{15} + \frac{10}{15} = \frac{13}{15}
+		\end{align*}
 		\item
-		Donner un antécédent de $9$ par $f$.
+		0,2 en est un d'après la question précédente.
 		\item
-		Déterminer tous les antécédents de $9$ par $g$.	
+		On pose $f(x) = 5$ et on résoud pour $x$.
+			\begin{align*}
+				f(x) &= 5 \\
+				\frac15 -x &= 5 \\
+				-x &= 5-\frac15 = \frac{24}{5} \\
+				x &= -\frac{24}{5}
+			\end{align*}
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Considérons les fonctions $f(x) =x^2 -6x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+	\begin{enumerate}
+		\item
+		Calculer les images par $f$ et $g$ de $0$ ; de $6$ ; de $3$ ; de $-\frac23$.
+		\item
+		Donner deux antécédents de $9$ par $f$.
 		\item
 		Montrer que $f(x) = g(x)$ pour tout $x\in\R$ réel.
-		\item 
-		En déduire tous les antécédents de $9$ par $f$.
 	\end{enumerate}
-	%\end{multicols}
 }{exe:forme-canonique}{
-	TODO
+	\begin{enumerate}
+		\item
+		Pour $f$, on calcule
+			\begin{align*}
+				f(0) &= 9, \\
+				f(6) &= 6^2 - 6^2 + 9 = 9, \\
+				f(3) &= 3^2 - 6\times3 + 9 = 0, \\
+				f\left(-\frac23\right) &= \left(-\frac23\right)^2 - 6\left(-\frac23\right) + 9 = \frac49 + 4 + 9 = \frac49 + \frac{117}9 = \frac{121}9.
+			\end{align*}
+		Pour $g$, on calcule
+			\begin{align*}
+				g(0) &= (-3)^2 = 9, \\
+				g(6) &= 3^2 = 9, \\
+				g(3) &= 0^2 = 0, \\
+				g\left(-\frac23\right) &= \left(-\frac23 - 3\right)^2= \left(-\dfrac{11}3\right)^2 = \frac{121}9.
+			\end{align*}
+		\item
+		0 et 6 sont deux antécédents de 9 par $f$.
+		\item
+		On part toujours de la forme factorisée ($g$ ici) pour arriver vers la forme développée réduite ($f$ ici).
+			\begin{align*}
+				g(x) &= (x-3)^2 \\
+					&= (x-3)(x-3) \\
+					&= x(x-3) - 3(x-3) \\
+					&= x^2 - 3x - 3x + 9 \\
+					&= x^2 - 6x + 9
+			\end{align*}
+		Le développement de carrés parfaits deviendront immédiates après l'étude des identités remarquables.
+	\end{enumerate}
 }
 
 \section{Intervalles}
@@ -523,54 +663,120 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	
 	\begin{multicols}{3}
 	\begin{enumerate}[label=\roman*)]
-		\item $\left(0; \dfrac17\right)$
-		\item $\left(\dfrac17 ; 0\right)$
-		\item $\left(\dfrac27 ; \dfrac37\right)$
-		\item $\left(-\dfrac{13}7 ; 2\right)$
-		\item $\left(\dfrac67 ; 1\right)$
-		\item $\left(\dfrac27 ; -\dfrac17\right)$
+		\item $\left(0; \frac17\right)$
+		\item $\left(-\frac17 ; 0\right)$
+		\item $\left(\frac27 ; -\frac17\right)$
 	\end{enumerate}
 	\end{multicols}
 
 }{exe:Cf}{
-	TODO
+	On rappelle la propriété fondamentale
+		\begin{align*}
+			(x;y) \in \C_f && \iff && y = f(x)
+		\end{align*}
+	Pour savoir si un point $(x;y)$ appartient à $\C_f$, il s'agit de vérifier si l'égalité $y=f(x)$ tient.
+	
+	\begin{enumerate}[label=\roman*)]
+		\item On applique la propriété pour $x = 0, y= \frac17$.
+		D'une part, $f(x) = f(0) = \frac17 - 0 = \frac17$, et d'autre part $y=\frac17$.
+		On a donc bien $y=f(x)$ pour ce couple, et il appartient à $\C_f$.
+			\[ \left(0; \dfrac17\right) \in \C_f. \]
+		
+		\item On choisit $(x;y) = \left(-\frac17 ; 0\right)$, et on compare $f(x) = f\left(-\frac17\right) = \frac27$ à $y=0$. 
+		On a donc
+			\[ \left(-\dfrac17 ; 0\right) \not\in \C_f. \]
+		On a donc bien
+			\[ \left(\dfrac17 ; 0\right) \in \C_f. \]
+		\item On choisit $(x;y) = \left(\frac27 ; -\frac17\right)$, et on compare $f(x) = f\left(\frac27\right) = \frac{-1}7$ à $y=-\frac17$. 
+		D'où
+			\[ \left(\dfrac27 ; -\dfrac17\right) \not\in \C_f. \]
+	\end{enumerate}
 }
 
-\exe{}{
-	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
-		\begin{align*}
-			f(x) = x^2 - 2x && g(x) = (x-1)^2
-		\end{align*}
-	
-	\begin{enumerate}
-		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
-		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
-	\end{enumerate}
-}{exe:id-rem-graph}{
-	TODO
-}
+% for later maybe :)
+%\exe{}{
+%	Considérons deux fonctions $f, g$ sur $\D = ]-3 ; 3[$ données algébriquement par
+%		\begin{align*}
+%			f(x) = x^2 - 2x && g(x) = (x-1)^2
+%		\end{align*}
+%	
+%	\begin{enumerate}
+%		\item Esquisser les représentations graphiques de $f$ et de $g$ dans un même repère.
+%		\item Démontrer que $g(x) = f(x) + 1$ pour tout $x$ du domaine.
+%	\end{enumerate}
+%}{exe:id-rem-graph}{
+%	
+%	\begin{enumerate}
+%		\item On choisit plusieurs valeurs de $x\in]{-}3 ; 3[$ et on représente les points
+%			\[ \bigl(x ; f(x) \bigr), \]
+%		qu'on relie pour esquisser $\C_f$.
+%		On fait idem pour $g$, ce qui donne le graphique ci-dessous.
+%		
+%		\begin{center}
+%		\begin{tikzpicture}[>=stealth]
+%			\begin{axis}[xmin = -3.1, xmax=3.1, ymin=-1.1, ymax=15.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+%				\addplot[no marks, PURPLE_E, very thick, -] expression[domain=-3:3, samples=100]{x^2 -2*x}
+%				node[pos=.45, below=10pt]{$\mathcal{C}_f$};
+%				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:3, samples=100]{(x-1)^2}
+%				node[pos=.4, right]{$\mathcal{C}_g$};
+%			\end{axis}
+%		
+%		\end{tikzpicture}
+%		\end{center}
+%		
+%		
+%		\item 
+%		L'identité remarquable $a^2 - b^2 = (a+b)(a-b)$ donne en l'occurrence
+%			\begin{align*}
+%				(x-1)^2 - 1^2 &= (x-1+1) \cdot (x-1-1) \\
+%								&= x \cdot (x-2) \\
+%								&= x^2 - 2\cdot x = f(x).
+%			\end{align*}
+%			
+%		On déduit alors que 
+%			\[ (x-1)^2 = g(x) = f(x) + 1 = x^2 - 2\cdot x + 1 \]
+%		pour tout $x\in]{-}3;3[$.
+%	\end{enumerate}
+%	
+%}
 
 \exe{}{
 	Esquisser la courbe de la fonction $f$ sur $\D=[-2; 4]$ donnée algébriquement par
 		\[ f(x) = 3. \]
 	Que dire de $f$ et de $\C_f$ ?
 }{exe:graph-const}{
-	TODO
+	Pour tracer $\C_f$, on choisit des valeurs de $x$ du domaine $[{-2};4]$, on calcule $f(x)$, et on place les points $(x ; f(x))$ obtenus.
+	
+		\begin{center}
+		\includegraphics[page=15]{figures/fig-fonctions.pdf}
+		\end{center}
+	
+	On dit ici que $f$ est \emph{constante} car elle ne dépend pas de $x$.
+	$\C_f$ est donc une droite horizontale.
 }
 
 \exe{}{
 	Esquisser la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
 		\[ f(x) = 1-x. \]
 	Que dire de $\C_f$ ?
-}{exe:graph-droite}{
-	TODO
+}{exe:graph-droite}{		
+	$\C_f$ est une droite.
+	\begin{center}
+	\includegraphics[page=16]{figures/fig-fonctions.pdf}
+	\end{center}
+		
 }
 
 \exe{}{
 	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
 		\[ f(x) = \dfrac3x + 1. \]
 }{exe:graph-droite2}{
-	TODO
+	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
+	Attention, celle-ci n'est pas une droite !
+	
+		\begin{center}
+		\includegraphics[page=17]{figures/fig-fonctions.pdf}
+		\end{center}
 }
 
 
@@ -581,23 +787,89 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 	\includegraphics[page=9]{figures/fig-fonctions.pdf}
 	\end{center}
 	\begin{enumerate}
-		\item Donner approximativement les images de $-1,5$ et de $-\frac{20}7$ par $f$.
-		\item Énumérer approximativement les antécédents de $-2$ et de $2$ par $f$.
+		\item\label{q1}
+		Donner approximativement les images de -1 et de 2 par $f$. 
+		\item Énumérer approximativement les antécédents de 2 et de 4 par $f$.
+		\item Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \geq 4 \}$ sous forme d'intervalle.
 		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
-		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de $-2$ ? Et tous les antécédents de $-2$ ?
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de -2 ? Et tous les antécédents de -2 ?
 	\end{enumerate}
 	Supposons désormais que $f(x) = 3-2 x +\frac13 x^3$ pour tout $x\in\D$ du domaine.
-	\begin{enumerate}
-		\item[5.] Vérifier à la calculatrice les réponses aux deux premières questions.
-		\item[6.] Montrer sans calculatrice que l'image par $f$ de $-3$ est $0$ et que l'image par $f$ de $0$ est $3$.
+	\begin{enumerate}[resume]
+		\item Répondre à nouveau à la question \ref{q1} à l'aide de l'expression algébrique de $f$.
+		Des valeurs exactes sont attendues.
+		\item Montrer que l'image de $-3$ par $f$ est $0$ et que l'image de $0$ par $f$ est $3$.
 	\end{enumerate}
 }{exe:deg3}{
-	TODO
+	\begin{enumerate}
+		\item On détermine approximativement
+			\begin{align*}
+			f(-1) \approx 4,5 && \et && f(2) \approx 1,5.
+			 \end{align*}
+		\item On cherche d'abord les antécédents de 2, c'est-à-dire les nombres $x$ du domaine vérifiants
+			\[ f(x) = -2. \]
+		Pour ça, on se pose \og à hauteur 2 \fg : on tracer une droite horizontale d'ordonnée 2 et on regarde les points d'intersection.
+			\begin{center}
+			\includegraphics[page=18]{figures/fig-fonctions.pdf}
+			\end{center}
+		
+		
+		En l'occurrence, seuls $x\approx -2,8 ; 0,5 ;  \et 2,1$ fonctionnent.
+			
+		Pour les antécédents de 4, on fait idem en regardant les points de la droite d'ordonnée 4.
+			\begin{center}
+			\includegraphics[page=19]{figures/fig-fonctions.pdf}
+			\end{center}
+		On trouve trois valeurs approximatives : $x \approx -2,2$ et $x \approx 0,5$.
+		
+		\item
+		On regarde quels antécédents $x \in \D$ du domaine d'étude ont une image supérieure ou égale à 4.
+		En reprenant le graphe de la résolution de $f(x) = 4$, on remarque que \textbf{tous} les $x$ entre -2,2 et 0,5 ont une image supérieure à 4.
+		Ainsi, 
+			\[ \bigset{ x \in \D \tq f(x) \geq 4 } \approx [-2,2 ; 0,5], \]
+		les bornes étant incluses car l'inégalité est large.
+		
+		\item 
+		On a plusieurs choix ici. 
+		Il faut placer une droite horizontale telle qu'elle s'intersecte exactement deux fois avec la courbe de $f$.
+		Un choix clair est $4$ (en violet ci-dessous).
+		Un choix moins clair est $1,1$, en faisant en sorte que la courbe frôle la droite horizontale qu'on place en ordonnée $1,1$ (en rouge ci-dessous).
+		On dit alors que la droite est \emph{tangente} à la courbe.
+		
+			\begin{center}
+			\includegraphics[page=20]{figures/fig-fonctions.pdf}
+			\end{center}
+		
+		\item L'image est unique et ne dépend pas du domaine (tant que celui-ci contient $-2$ !).
+		On peut donc toujours connaître $f(-2)$, même sans connaître $f$ en dehors du domaine.
+		
+		Les antécédents, eux, dépendent du domaine choisi.
+		Comme on ne sait pas du tout à quoi ressemble $\C_f$ en dehors du domaine choisi, il est impossible de déterminer tous les réels $x\in\R$ antécédents de $-2$ par $f$.
+		
+		\item On calcule grâce à la calculatrice (ou sans...)
+			\begin{align*}
+				f(-1) = \dfrac{14}3 && f(2) =  \dfrac53.
+			\end{align*}
+		On peut également utiliser le programme Python ci-après (la notation \texttt{x**3} signifiant $x^3$).
+	
+		\begin{center}
+		\python{images-f}
+		\end{center}
+		
+		\item On calcule à la main que
+			\begin{align*}
+				f(-3) &= 3 - 2 \cdot (-3) + \dfrac13 \cdot (-3)^3, \\
+					&= 3 + 6 - 9, \\
+					&= 0.
+			\end{align*}
+		Pour l'image de $0$, remarquons que seul le terme ne dépendant pas de $x$ subsiste. 
+		On l'appelle le terme \emph{constant}, et on trouve $f(0) = 3$, comme requis.
+	\end{enumerate}
 }
 
 
 \exemulticols{}{
-	Un fonction $f$ admet une représentation graphique ci-contre.
+	Un fonction $f$ est représentée graphiquement ci-contre.
 	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
@@ -610,19 +882,48 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 		\vfill\null
 }{
 	\begin{center}
-	 \includegraphics[page=4]{figures/fig-fonctions.pdf}
+	\includegraphics[page=21]{figures/fig-fonctions.pdf}
 	\end{center}
 }{exe:expr-from-graph}{
-	TODO
+	Clairement $f(0) < 0$ est strictement négatif.
+	L'expression de $f$ ne peut donc pas être la première ni la troisième.
+	
+	Ensuite, si l'expression de $f$ était la deuxième, on aurait $f(-1) = 0$, ce qui n'est clairement pas le cas.
+	Ainsi $f(x) = -2x - \frac23$ est le seul choix possible.
 }
 
-\exe{}{
-	Comparer les représentations graphiques des fonctions suivantes données algébriquement.
+\exe{, difficulty=1}{
+	Utiliser le repère ci-dessous pour comparer les représentations graphiques des trois fonctions suivantes données algébriquement.
 		\begin{align*}
 			f(x) = x^2, && g(x) = x^2 - 3, && h(x) = (x+4)^2.
 		\end{align*}
+		
+	\begin{center}
+	\includegraphics[page=22]{figures/fig-fonctions.pdf}
+	\end{center}
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item
+		Estimer, grâces aux courbes, les solutions $x\in\R$ des équations $f(x) = h(x)$ et $h(x) =g(x)$.
+		\item
+		Estimer, grâces aux courbes, à quel intervalle appartiennent les $x\in\R$ vérifiant $h(x) \leq f(x)$.
+	\end{enumerate}
 }{exe:y-shift}{
-	TODO
+	On graphe les fonctions ci-dessous. 
+	On remarque que $\C_g$ est juste en dessous de $\C_f$. C'est logique car
+		\[ g(x) = f(x) - 3, \]
+	donc quand on place les points pour $\C_f$ et $\C_g$, ceux de $\C_g$ sont $3$ en dessous de ceux de $\C_f$.
+	
+	On remarque aussi que $\C_h$ est la courbe de $\C_f$ décalée vers la gauche.
+	C'est également cohérent car
+		\[ h(x) = f(x+4). \]
+	Pour connaître l'image de $x$ par $h$, on prend l'image de $x+4$ par $f$.
+	On a donc par exemple $h(-4) = f(0), h(3,9) = f(0,1),$ etc... 
+	On comprend bien pourquoi $\C_h$ est la $\C_f$ décalée de $4$ vers la gauche.
+	
+		\begin{center}
+		\includegraphics[page=23]{figures/fig-fonctions.pdf}
+		\end{center}
 }
 
 \exe{, difficulty=2}{
@@ -636,13 +937,23 @@ Pour lire l'image de $x$ par $f$, il suffit alors de trouver l'ordonnée de l'un
 		\end{enumerate}	
 		\end{multicols}
 }{exe:nb-antécédents}{
-	TODO
+	\begin{enumerate}
+		\item La fonction affine $f(x) = x$ donne une droite dont chaque image admet un unique antécédent.
+		\item La fonction affine $f(x) = x^2$ donne une parabole. En résolvant $f(x) =1$, on peut démontrer que seuls $1$ et $-1$ sont les antécédents de $1$.
+		\item Considérons $f(x) = (x-1)\cdot(x-2)\cdot(x-3)$. Résoudre $f(x)=0$ pour montrer que seuls $1 ; 2 ;$ et $3$ sont antécédents de $0$.
+		\item Une fonction constante fonctionne bien. Par exemple $f(x) = 0$.
+	\end{enumerate}
 }
 
 \exe{, difficulty=2}{
 	Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images de $f$ admettent un nombre infini d'antécédents.
 }{exe:infinité-antécédents}{
-	TODO
+	On peut définir par exemple la fonction \emph{signe} en incluant 0 dans les positifs (traditionnellement, $\text{signe}(0) = 0$).
+		\[ \text{signe}(x) = \begin{cases*} +1 & si $x \geq 0$, \\
+								-1 & si $x<0$.
+				\end{cases*}. \]
+	Pour une fonction plus intéressante, on pourrait prendre une fonction en vague.
+	La fonction sinus fonctionne bien : entrer par exemple \texttt{y=sin(x)} sur Geogebra.
 }
 
 \newpage
@@ -763,7 +1074,7 @@ Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc donné
 	\includegraphics[page=13]{figures/fig-fonctions.pdf}
 	\end{center}
 }{exe:f=g}{
-	TODO
+	On trouve approximativement $x\approx-2,2$ ; $x\approx0,5$ et $x \approx 2,1$.
 }
 
 \newpage
@@ -806,11 +1117,60 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	\includegraphics[page=13]{figures/fig-fonctions.pdf}
 	\end{center}
 }{exe:f<g}{
-	TODO
+	On obtient approximativement $[-2,5 ; -2,2] \cup [0,5 ; 2,1]$.
+	Les bornes des intervalles correspondent aux antécédents vérifiant $f(x) = g(x)$, trouvés à l'exercice \ref{exe:f=g}.
 }
 
 
-\newpage
+\exemulticols{, difficulty=1}{
+	Considérons deux fonctions, $g$ et $h$, données graphiquement sur $\D = ]{-}3,4 ; 2,3[$ ci-contre.
+	
+	Donner approximativement l'ensemble des nombres $x$ du domaine vérifiant les (in)équations suivantes.
+	\begin{enumerate}
+		\itemsep1em 
+		\item $g(x) = h(x)$
+		\item $g(x) \leq h(x)$
+		\item $h(x) \leq g(x)$
+	\end{enumerate}	
+}{
+	\begin{center}
+	\includegraphics[page=24]{figures/fig-fonctions.pdf}
+	\end{center}
+}{exe:eq-ineq}{
+	\begin{enumerate}
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \text{ tels que } g(x) = h(x) }. \]
+		On lit (approximativement) les abscisses des points de $\C_g \cap \C_h$, l'intersection des deux courbes :
+			\[ \bigset{ x \in \D \tq g(x) = h(x) } \approx \bigset{ {-0,8}, {1,2} } \]
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) }. \]
+		On lit (approximativement) les abscisses lorsque les la courbe $\C_g$ est sous $\C_h$ :
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [ {-0,8} ; {1,2} ]. \]
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \tq h(x) \leq g(x) }. \]
+		On lit (approximativement) les abscisses lorsque les la courbe $\C_h$ est sous $\C_g$.
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [{-3,4} ; {-0,8} ] \cup [ {1,2} ; {2,3} ]. \]
+	\end{enumerate}
+	
+	Remarquons en outre les relations suivantes :
+		\[ \bigset{ x \in \D \tq h(x) \leq g(x) } \cup \bigset{ x \in \D \tq h(x) \geq g(x) } = \D, \]
+	ce qui n'est pas  surprenant car pour tout $x\in\D$, on a forcément $g(x) \leq h(x)$ \textbf{ou} $g(x) \geq h(x)$. 
+	Ainsi, 
+		\[ \bigset{ x \in \D \tq h(x) \leq g(x) \ou  h(x) \geq g(x) }  = \bigset{ x \in \D } = \D. \]
+	C'est donc pour cela que les ensembles sont complémentaires par rapport à $\D$ : leur union est $\D$ tout entier.
+	
+	En outre, les points appartenant aux deux ensembles à la fois sont
+		\begin{align*}
+		 \bigset{ x \in \D \tq h(x) \leq g(x) \et h(x) \geq g(x) } \bigset{ x \in \D \tq h(x) = g(x) },
+		 \end{align*}
+	car $h(x) \leq g(x)$ \textbf{et} $h(x) \geq g(x)$ est équivalent à $g(x) = h(x)$ pour tout $x\in\D$.
+	
+	C'est donc pour ça que les bornes des intervalles étudiés sont les abscisses des points d'intersection.
+	Ces points sont exactement les moments où une courbe passe au-dessus d'une autre.
+}
+
+
+%\newpage
 \subsection{Fonctions parentes : transformations des ordonnées}
 
 À partir de la courbe d'une fonction qu'on connaît bien, on peut déduire les courbes de toute une famille de fonctions apparentées.
@@ -842,10 +1202,12 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	\includegraphics[page=14]{figures/fig-fonctions.pdf}
 	\end{center}
 }{exe:draw-plusc}{
-	TODO
+	\begin{center}
+	\includegraphics[page=25]{figures/fig-fonctions.pdf}
+	\end{center}
 }
 
-\newpage
+%\newpage
 
 \ex{multiplication par une constante}{
 	Considérons $f$ une fonction quelconque sur $\R$ et $g$ définie par
@@ -876,7 +1238,9 @@ L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné appro
 	\includegraphics[page=14]{figures/fig-fonctions.pdf}
 	\end{center}
 }{exe:draw-timesc}{
-	TODO
+	\begin{center}
+	\includegraphics[page=26]{figures/fig-fonctions.pdf}
+	\end{center}
 }
 
 

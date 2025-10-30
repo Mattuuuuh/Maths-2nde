@@ -330,5 +330,156 @@ dot/.default = black % size of the circle diameter
 		\addplot[domain=-3:3, samples=100, BLUE_E, very thick] {atan(x*2)/40} node[pos=.8, above] {$\C_f$};
 		\end{axis}
 	\end{tikzpicture}
+	
+	%page 15
+	% exe:graph-const
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2.1, xmax=4.1, ymin=2, ymax=4, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-2:4, samples=2]{3} 
+			node[above, pos=.5] {$\C_f$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 16
+	% exe:graph-droite
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -5.5, xmax=3.5, ymin=7.5, ymax=-3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:3, samples=2]{1-x} 
+			node[above, pos=.4] {$\C_f$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 17
+	% exe:graph-droite2
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=3:10, samples=50]{3/x + 1} 
+			node[above, pos=.4] {$\C_f$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 18
+	% exe:deg3
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		grid style = {opacity=.5},
+		x=2cm,
+		xtick={-3, -2, ..., 2},
+		y=20pt,
+		clip=true,
+		]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+			
+			\addplot[no marks, RED_E, very thick, -] expression[domain=-5:3, samples=2]{2};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 19
+	% exe:deg3
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		grid style = {opacity=.5},
+		x=2cm,
+		xtick={-3, -2, ..., 2},
+		y=20pt,
+		clip=true,
+		]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+			
+			\addplot[no marks, RED_E, very thick, -] expression[domain=-5:3, samples=2]{4};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 20
+	% exe:deg3
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		grid style = {opacity=.5},
+		x=2cm,
+		xtick={-3, -2, ..., 2},
+		y=20pt,
+		clip=true,
+		]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:3, samples=50]{x^3 /3 - 2*x +3};
+			
+			\addplot[no marks, RED_E, very thick,-] expression[domain=-5:3, samples=2]{1.1};
+			\addplot[no marks, PURPLE_E, very thick, -] expression[domain=-5:3, samples=2]{4};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 21
+	% exe:expr-from-graph
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -3.1, xmax=1.1, ymin=-3.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		grid style = {opacity=.5},
+		clip=true,
+		]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:2, samples=2]{-2/3 - 2*x}
+			node[pos=.3, right]{$\mathcal{C}_f$};
+		\end{axis}
+	
+	\end{tikzpicture}
+	
+	% page 22
+	% exe:y-shift
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 23
+	% exe:y-shift
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-8:5, samples=50]{x^2}
+			node[pos=.6, right]{$\mathcal{C}_f$};
+			\addplot[no marks, RED_E, very thick, -] expression[domain=-8:5, samples=50]{x^2-3}
+			node[pos=.8, right]{$\mathcal{C}_g$};
+			\addplot[no marks, PURPLE_E, very thick, -] expression[domain=-8:5, samples=50]{(x+4)^2}
+			node[pos=.1, right]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 24
+	% exe:eq-ineq
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-4, ymax=8.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true]
+		\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3.4:2.3, samples=100]{x^3 /3 - 2*x +3}
+		node[pos=.4, above=15pt]{$\mathcal{C}_g$};
+		\addplot[no marks, RED_E, very thick, -] expression[domain=-1.5:1.5, samples=50]{-4*x^2 + 7}
+		node[pos=.68, above=15pt]{$\mathcal{C}_h$};
+		
+		\addplot[no marks, RED_E, very thick, -] expression[domain=-3.4:-1.5, samples=50]{x-.5-.1*cos(5*x*180)};
+		\addplot[no marks, RED_E, very thick, -] expression[domain=1.5:2.3, samples=50]{-2*x+1-.5*cos(5*x*180)};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 25
+	% exe:draw-plusc
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2.5, xmax=2.5, ymin=-4.5, ymax=4.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=1.5cm,
+			y=15pt,
+			]
+		\addplot[domain=-3:3, samples=100, BLUE_E, very thick] {atan(x*2)/40} node[pos=.8, above] {$\C_f$};
+		\addplot[domain=-3:3, samples=100, RED_E, very thick] {atan(x*2)/40+2} node[pos=.2, above] {$\C_g$};
+		\addplot[domain=-3:3, samples=100, GREEN_E, very thick] {atan(x*2)/40-1} node[pos=.2, below] {$\C_h$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 26
+	% exe:draw-timesc
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2.5, xmax=2.5, ymin=-4.5, ymax=4.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=1.5cm,
+			y=15pt,
+			]
+		\addplot[domain=-3:3, samples=100, BLUE_E, very thick] {atan(x*2)/40} node[pos=.8, above] {$\C_f$};
+		\addplot[domain=-3:3, samples=100, RED_E, very thick] {2*atan(x*2)/40} node[pos=.8, above] {$\C_g$};
+		\addplot[domain=-3:3, samples=100, GREEN_E, very thick] {-2*atan(x*2)/40} node[pos=.8, above] {$\C_h$};
+		\end{axis}
+	\end{tikzpicture}
 %
 \end{document}
