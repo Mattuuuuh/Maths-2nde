@@ -1,0 +1,206 @@
+\input{../preamble.tex}
+
+\usepackage{minted}
+
+\SetDate[17/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Fonctions, balayages, et comparaisons en Python}}
+\fancyhead[R]{\today}
+
+\subsection*{Définir une fonction}
+
+\begin{multicols}{3}
+	Pour définir une fonction, on utilise \texttt{def}.
+	L'indentation délimite les bornes de la fonction.
+	L'instruction \texttt{return} définit la valeur retournée.
+	
+	Un fonction peut prendre plusieurs arguments.
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{fonction}
+	\end{minipage}	
+	
+	\columnbreak
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{fonction2}
+	\end{minipage}
+\end{multicols}
+
+\exe{}{
+	Considérons la fonction $f(x) = 2 - x$. 
+	
+	Que valent $f(-1)$ et $f(2)$ ? Vérifier les réponses à l'aide de Python.
+}{exe:first-example}{
+	td
+}
+
+\subsection*{Balayer un intervalle}
+
+\begin{multicols}{2}
+	Pour parcourir l'intervalle $[a ; b]$ en prenant $N+1$ valeurs espacées uniformément,
+	on calcule
+		\begin{align*} 
+			x = a + \dfrac{k}N (b-a), && \text{pour} && k = 0, 1, 2, 3, \dots, N.
+		\end{align*}
+	L'expression \texttt{range(N+1)} correspond à l'ensemble ${\bigset{ 0 ; 1 ; 2 ; \dots ; N }}$.
+
+	\columnbreak
+	\centering
+	\begin{minipage}{.2\textwidth}
+	\python{balayage}
+	\end{minipage}
+\end{multicols}
+
+
+\exe{}{
+	Considérons la fonction inverse $f(x) = \frac1x$. 
+	
+	Calculer les images par $f$ de 101 antécédents entre -1 et 1.
+	Que remarque-t-on ?
+}{exe:inv}{
+	\begin{multicols}{2}
+	\python{inverse}
+	\end{multicols}
+}
+
+\subsection*{Comparer deux valeurs}
+
+
+\begin{multicols}{2}
+	L'instruction \texttt{if x == y:} permet d'exécuter des instructions dès que l'égalité $x=y$ est vraie.
+	
+	\begin{enumerate}[label=\warning]
+		\item deux signes \texttt{=} sont nécessaires pour distinguer la comparaison de l'affectation.
+	\end{enumerate}
+	\centering
+	\begin{minipage}{.1\textwidth}
+	\python{condition}
+	\end{minipage}
+\end{multicols}
+
+\exe{}{
+	Écarter le cas $x=0$ de la fonction inverse de l'exercice \ref{exe:inv} afin de pouvoir calculer ses images sans erreur.
+}{exe:inv-with-cond}{
+	\begin{multicols}{2}
+	\python{inverse-condition}
+	\end{multicols}
+}
+
+\subsection*{Précision}
+
+\begin{multicols}{2}
+	La précision étant finie, la comparaison peut renvoyer \texttt{False} alors que les valeurs comparées sont théoriquement égales.
+	
+	Pour éviter ces problèmes, il peut être pertinent de vérifier que deux valeurs sont proches plutôt qu'égales.
+	On vérifiera alors, par exemple, que la distance entre $x$ et $y$ est plus petite que $0,001$ au lieu que $x = y$.
+	
+	L'appel \texttt{abs(x-y)} permet de calculer la distance entre $x$ et $y$.
+	
+	\centering
+	\begin{minipage}{.2\textwidth}
+	\python{precision}
+	\end{minipage}
+\end{multicols}
+
+\subsection*{Exercices : longueurs}
+
+\exe{}{
+	Considérons la fonction \texttt{carre(x)} qui renvoie le carré de $x$.
+	
+	Que valent \texttt{carre(3)} et \texttt{carre(-3)} ? Vérifier les réponses à l'aide de Python.
+}{exe:carre}{
+	td
+}
+
+\exe{, difficulty=1}{
+	Définir la fonction \texttt{carre\_longueur(xA, yA, xB, yB)} qui renvoient la longueur $AB^2$, où \texttt{xA, yA, xB, yB} sont les coordonées de $A$ et de $B$.
+	On pourra utiliser la fonction \texttt{carre} de l'exercice \ref{exe:carre}.
+	
+	Que vaut \texttt{carre\_longueur(2,1,-1,-3)} ? Vérifier la réponse à l'aide de Python, en 
+}{exe:carre-longueur}{
+	td
+}
+
+\exe{, difficulty=2}{
+	Définir la fonction \texttt{is\_isosceles(xA, xB, yA, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est isocèle en $O$, et \texttt{False} sinon.
+	On pourra utiliser la fonction \texttt{carre\_longueur} de l'exercice \ref{exe:carre-longueur}.
+	
+	Que vaut \texttt{is\_isosceles(-1, -3, 3, -1)} ? Vérifier la réponse à l'aide de Python.
+}{exe:is-isosceles}{
+	td
+}
+
+\exe{, difficulty=2}{
+	Définir la fonction \texttt{is\_rightangled(xA, xB, yA, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est rectangle en $O$, et \texttt{False} sinon.
+	On pourra utiliser la fonction \texttt{carre\_longueur} de l'exercice \ref{exe:carre-longueur}.
+	
+	Que vaut \texttt{is\_rightangled(-1, 3, 6, 2)} ? Vérifier la réponse à l'aide de Python.
+}{exe:is-rightangled}{
+	td
+}
+
+
+\subsection*{Exercices : moyennes}
+
+
+\exe{, difficulty=0}{
+	Définir la fonction $\texttt{moyenne(x,y)}$ qui renvoie la moyenne de $x$ et de $y$.
+	
+	Que valent \texttt{moyenne(10,7)} et \texttt{moyenne(7,10)} ? Vérifier les réponses à l'aide de Python.
+}{exe:moyenne}{
+	td
+}
+
+\exe{, difficulty=1}{
+	Définir la fonction $\texttt{moyenne\_ponderee(x,y, p)}$ qui renvoie la moyenne pondérée $p x + (1-p)y$.
+	
+	Que valent \texttt{moyenne\_ponderee(7, 10, 0.5)}, \texttt{moyenne\_ponderee(7, 10, 1/3)}, et \texttt{moyenne\_ponderee(7, 10, 2/3)} ? Vérifier les réponses à l'aide de Python.
+}{exe:moyenne-ponderee}{
+	td
+}
+
+\exe{, difficulty=2}{
+	Définir la fonction $\texttt{moyenne\_coeff(x,y, c1, c2)}$ qui renvoie la moyenne pondérée par les coefficients $c_1, c_2$ suivante.
+		\[ \dfrac{c_1 x + c_2 y}{c_1 + c_2}. \]
+	
+	Que valent \texttt{moyenne\_coeff(7, 10, 1, 1)}, \texttt{moyenne\_coeff(7, 10, 1, 2)}, et \texttt{moyenne\_coeff(7, 10, 2, 1)} ? Vérifier les réponses à l'aide de Python.
+}{exe:moyenne-coeff}{
+	td
+}
+
+\subsection*{Exercices : comparaisons}
+
+\exe{, difficulty=1}{
+	Balayer l'intervalle $[1 ; 2]$ et afficher tous les $x$ vérifiant $x^2 < 2$.
+	
+	En affinant le baylage, trouver un encadrement de $\sqrt2$ à $10^{-3}$ près.
+}{exe:sqrt2}{
+	td
+}
+
+\exe{, difficulty=1}{
+	Considérons $F(x) = x^2$ et $G(x) = -100x^2 + 1$.
+	
+	Parcourir 1001 antécédents $x$ de l'intervalle $[-1 ; 1]$ et afficher tous les $x$ vérifiant $F(x) < G(x)$.
+	
+	En dédure, approximativement, l'ensemble $\bigset{x \in [-1 ; 1] \tq F(x) < G(x)}$ sous forme d'intervalle.
+}{exe:sqrt.5}{
+	\begin{multicols}{2}
+	\python{sqrt.5}
+	\end{multicols}
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
