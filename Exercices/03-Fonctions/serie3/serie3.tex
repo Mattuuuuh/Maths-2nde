@@ -17,7 +17,7 @@
 	L'indentation délimite les bornes de la fonction.
 	L'instruction \texttt{return} définit la valeur retournée.
 	
-	Un fonction peut prendre plusieurs arguments.
+	%Un fonction peut prendre plusieurs arguments.
 	
 	\columnbreak
 	\centering
@@ -35,7 +35,7 @@
 \exe{}{
 	Considérons la fonction $f(x) = 2 - x$. 
 	
-	Que valent $f(-1)$ et $f(2)$ ? Vérifier les réponses à l'aide de Python.
+	Que valent $f(2)$ et $f(-1)$ ? Vérifier les réponses à l'aide de Python.
 }{exe:first-example}{
 	td
 }
@@ -73,11 +73,15 @@
 
 
 \begin{multicols}{2}
-	L'instruction \texttt{if x == y:} permet d'exécuter des instructions dès que l'égalité $x=y$ est vraie.
+	La comparaison \texttt{x==y} renvoie \texttt{True} si $x=y$, et \texttt{False} sinon.
+	
+	L'instruction \texttt{if x == y:} permet d'exécuter un bloc d'instructions dès que l'égalité $x=y$ est vraie.
 	
 	\begin{enumerate}[label=\warning]
 		\item deux signes \texttt{=} sont nécessaires pour distinguer la comparaison de l'affectation.
 	\end{enumerate}
+	
+	\columnbreak
 	\centering
 	\begin{minipage}{.1\textwidth}
 	\python{condition}
@@ -98,39 +102,51 @@
 	La précision étant finie, la comparaison peut renvoyer \texttt{False} alors que les valeurs comparées sont théoriquement égales.
 	
 	Pour éviter ces problèmes, il peut être pertinent de vérifier que deux valeurs sont proches plutôt qu'égales.
-	On vérifiera alors, par exemple, que la distance entre $x$ et $y$ est plus petite que $0,001$ au lieu que $x = y$.
+	On vérifiera alors que la distance entre $x$ et $y$ est plus petite que $0,001$ (par exemple) au lieu que $x = y$.
 	
 	L'appel \texttt{abs(x-y)} permet de calculer la distance entre $x$ et $y$.
 	
+	\columnbreak
 	\centering
 	\begin{minipage}{.2\textwidth}
 	\python{precision}
 	\end{minipage}
 \end{multicols}
 
-\subsection*{Exercices : longueurs}
+
+%\subsection*{Exercices : fonctions}
 
 \exe{}{
-	Considérons la fonction \texttt{carre(x)} qui renvoie le carré de $x$.
+	Implémenter la fonction \texttt{carre(x)} qui renvoie le carré de \texttt{x}.
 	
-	Que valent \texttt{carre(3)} et \texttt{carre(-3)} ? Vérifier les réponses à l'aide de Python.
+	Vérifier que la fonction est bien correcte en affichant les valeurs de \texttt{carre(5)} et \texttt{carre(-3)}.
 }{exe:carre}{
 	td
 }
 
+\exe{}{
+	Considérons la fonction $f(x) = \dfrac{-x^2 - x + 2}2$ sur $\R$.
+	Calculer $f(-2)$ et $f(-1)$ puis vérifier ses réponses à l'aide de Python.
+}{exe:tabval-serie1}{
+	td
+}
+
+\subsection*{Exercices : longueurs}
+
+
 \exe{, difficulty=1}{
-	Définir la fonction \texttt{carre\_longueur(xA, yA, xB, yB)} qui renvoient la longueur $AB^2$.
+	Implémenter la fonction \texttt{carre\_longueur(xA, yA, xB, yB)} qui renvoient la longueur $AB^2$.
 	%, où \texttt{xA, yA, xB, yB} sont les coordonées de $A$ et de $B$.
 	On pourra utiliser la fonction \texttt{carre} de l'exercice \ref{exe:carre}.
 	
-	Que vaut \texttt{carre\_longueur(2,1,-1,-3)} ? Vérifier la réponse à l'aide de Python, en 
+	Calculer \texttt{carre\_longueur(2,1,-1,-3)} à la main puis vérifier la réponse à l'aide de Python.
 }{exe:carre-longueur}{
 	td
 }
 
 \exe{, difficulty=2}{
-	Définir la fonction \texttt{is\_isosceles(xA, xB, yA, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est isocèle en $O$, et \texttt{False} sinon.
-	On pourra utiliser la fonction \texttt{carre\_longueur} de l'exercice \ref{exe:carre-longueur}.
+	Implémenter la fonction \texttt{is\_isosceles(xA, yA, xB, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est isocèle en $O$, et \texttt{False} sinon.
+	On pourra utiliser la fonction \texttt{carre\_longueur} de l'exercice \nolinebreak\ref{exe:carre-longueur}.
 	
 	Que vaut \texttt{is\_isosceles(-1, -3, 3, -1)} ? Vérifier la réponse à l'aide de Python.
 }{exe:is-isosceles}{
@@ -138,10 +154,10 @@
 }
 
 \exe{, difficulty=2}{
-	Définir la fonction \texttt{is\_rightangled(xA, xB, yA, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est rectangle en $O$, et \texttt{False} sinon.
+	Implémenter la fonction \texttt{is\_rightangled(xA, yA, xB, yB)} qui renvoie \texttt{True} si le triangle $ABO$ est rectangle en $O$, et \texttt{False} sinon.
 	On pourra utiliser la fonction \texttt{carre\_longueur} de l'exercice \ref{exe:carre-longueur}.
 	
-	Que vaut \texttt{is\_rightangled(-1, 3, 6, 2)} ? Vérifier la réponse à l'aide de Python.
+	Vérifier que \texttt{is\_rightangled(-1, 3, 6, 2)} renvoie \texttt{True} à la main puis avec Python.
 }{exe:is-rightangled}{
 	td
 }
@@ -151,7 +167,7 @@
 
 
 \exe{, difficulty=0}{
-	Définir la fonction $\texttt{moyenne(x,y)}$ qui renvoie la moyenne de $x$ et de $y$.
+	Implémenter la fonction $\texttt{moyenne(x,y)}$ qui renvoie la moyenne de \texttt{x} et de \texttt{y}.
 	
 	Que valent \texttt{moyenne(10,7)} et \texttt{moyenne(7,10)} ? Vérifier les réponses à l'aide de Python.
 }{exe:moyenne}{
@@ -159,9 +175,10 @@
 }
 
 \exe{, difficulty=1}{
-	Définir la fonction $\texttt{moyenne\_ponderee(x,y, p)}$ qui renvoie la moyenne pondérée $p x + (1-p)y$.
+	Définir la fonction $\texttt{moyenne\_ponderee(x, y, p)}$ qui renvoie la moyenne pondérée $p x + (1-p)y$.
 	
-	Que valent \texttt{moyenne\_ponderee(7, 10, 0.5)}, \texttt{moyenne\_ponderee(7, 10, 1/3)}, et \texttt{moyenne\_ponderee(7, 10, 2/3)} ? Vérifier les réponses à l'aide de Python.
+	Calculer \texttt{moyenne\_ponderee(7, 10, 0.5)}, \texttt{moyenne\_ponderee(7, 10, 1/3)}, et \\
+	\texttt{moyenne\_ponderee(7, 10, 2/3)} à la main puis vérifier les réponses à l'aide de Python.
 }{exe:moyenne-ponderee}{
 	td
 }
@@ -170,7 +187,7 @@
 	Définir la fonction $\texttt{moyenne\_coeff(x,y, c1, c2)}$ qui renvoie la moyenne pondérée par les coefficients $c_1, c_2$ suivante.
 		\[ \dfrac{c_1 x + c_2 y}{c_1 + c_2} \]
 	
-	Que valent \texttt{moyenne\_coeff(7, 10, 1, 1)}, \texttt{moyenne\_coeff(7, 10, 1, 2)}, et \texttt{moyenne\_coeff(7, 10, 2, 1)} ? Vérifier les réponses à l'aide de Python.
+	Calculer \texttt{moyenne\_coeff(7, 10, 1, 1)}, \texttt{moyenne\_coeff(7, 10, 1, 2)}, et \texttt{moyenne\_coeff(7, 10, 2, 1)} à la main puis vérifier les réponses à l'aide de Python.
 }{exe:moyenne-coeff}{
 	td
 }
@@ -178,9 +195,9 @@
 \subsection*{Exercices : comparaisons}
 
 \exe{, difficulty=1}{
-	Balayer l'intervalle $[1 ; 2]$ et afficher tous les $x$ vérifiant $x^2 < 2$.
+	Balayer l'intervalle $[1 ; 2]$ et afficher tous les $x\in[1;2]$ vérifiant $x^2 < 2$.
 	
-	En affinant le baylage, trouver un encadrement de $\sqrt2$ à $10^{-3}$ près.
+	En affinant le balayage, trouver un encadrement de $\sqrt2$ à $10^{-3}$ près.
 }{exe:sqrt2}{
 	td
 }
@@ -190,7 +207,7 @@
 	
 	Parcourir 1001 antécédents $x$ de l'intervalle $[-1 ; 1]$ et afficher tous les $x$ vérifiant $F(x) < G(x)$.
 	
-	En déduire, approximativement, l'ensemble $\bigset{x \in [-1 ; 1] \tq F(x) < G(x)}$ sous forme d'intervalle.
+	En déduire approximativement l'ensemble $\bigset{x \in [-1 ; 1] \tq F(x) < G(x)}$ sous forme d'intervalle.
 }{exe:sqrt.5}{
 	\begin{multicols}{2}
 	\python{sqrt.5}
