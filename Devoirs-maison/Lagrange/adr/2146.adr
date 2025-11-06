@@ -1,0 +1,11 @@
+\newcommand{\seed}{2146}
+\newcommand{\xI}{20}
+\newcommand{\xII}{21}
+\newcommand{\xIII}{22}
+\newcommand{\qI}{\dfrac{1}{2}}
+\newcommand{\qII}{-}
+\newcommand{\qIII}{\dfrac{1}{2}}
+\newcommand{\fI}{32}
+\newcommand{\fII}{33}
+\newcommand{\fIII}{34}
+\newcommand{\bI}{+12}

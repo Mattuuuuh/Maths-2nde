@@ -1,0 +1,11 @@
+\newcommand{\seed}{8021}
+\newcommand{\xI}{18}
+\newcommand{\xII}{19}
+\newcommand{\xIII}{20}
+\newcommand{\qI}{\dfrac{1}{2}}
+\newcommand{\qII}{-}
+\newcommand{\qIII}{\dfrac{1}{2}}
+\newcommand{\fI}{7}
+\newcommand{\fII}{8}
+\newcommand{\fIII}{9}
+\newcommand{\bI}{-11}

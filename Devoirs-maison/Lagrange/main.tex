@@ -2,13 +2,14 @@
 %% THEN INPUT .ADR
 %% THEN THIS
 
-\SetDate[05/11/2025]
+\SetDate[07/11/2025]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
 \fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Interpolation de Lagrange}}
 \fancyhead[R]{\today}
+\pagenumbering{gobble}
 
 \fakesection{Devoir \seed}
 
@@ -17,7 +18,7 @@
 %%%%%%%%%%%%%%%%%%%
 
 \exe{}{
-	On définit algébriquement les fonctions $a, b,$ et $c$ sur tout $\R$ de la façon suivante.
+	On définit algébriquement les fonctions $a, b,$ et $c$ sur $\R$ de la façon suivante.
 		\begin{align*}
 		a(x) = \qI(x-\xII)(x-\xIII),
 		&&
@@ -25,7 +26,7 @@
 		&&
 		c(x) = \qIII(x-\xI)(x-\xII).
 		\end{align*}
-	Remplir les images de $a, b, c$ dans le tableau figure \ref{fig:1}.
+	Remplir les images de $a, b, c$ dans le tableau ci-dessous.
 	Justifier par le calcul.
 }{exe:1}{
 	\begin{center}
@@ -41,9 +42,9 @@
 }
 
 \exe{}{
-	En gardant les notations de la question \ref{exe:1}, posons désormais la fonction sur $\R$
+	En gardant les notations de la question \ref{exe:1}, définissons désormais la fonction $f$ sur $\R$ par 
 		\[ f(x) = \fI a(x) + \fII b(x) + \fIII c(x). \]
-	Remplir les images de $f$ dans le tableau figure \ref{fig:1}.
+	Remplir les images de $f$ dans le tableau ci-dessous.
 	Justifier par le calcul.
 }{exe:2}{
 	\begin{center}
@@ -75,7 +76,7 @@
 		\item
 		Substituer les expressions obtenues pour obtenir la forme développée réduite de $f(x)$.
 		\item
-		Vérifier que l'expression obtenue est bien cohérente en comparant avec les images de $f$ du tableau figure \ref{fig:1}.
+		Vérifier que l'expression obtenue est bien cohérente en comparant avec les images de $f$ du tableau ci-dessous.
 	\end{enumerate}
 }{exe:3}{
 	On développe $a, b, c$ séparément puis on combine les résultats pour trouver la forme développée réduite de $f$.
@@ -94,10 +95,26 @@
 	Finalement, on vérifie que l'expression de $f$ est cohérentes avec les images du tableau en calculant $f(\xI) = \xI \bI = \fI ; f(\xII)  = \fII ; f(\xIII) = \fIII$.
 }
 
-\begin{figure}[h!]
+%\begin{figure}[h!]
+%	\begin{center}
+%	\def\arraystretch{1}
+%	\setlength\tabcolsep{10pt}
+%	\begin{tabular}{|c|c|c|c|}\hline
+%		$x$ & \xI & \xII & \xIII \\ \hline
+%		$a(x)$ & && \\ \hline
+%		$b(x)$ & && \\ \hline
+%		$c(x)$ & && \\ \hline
+%		$f(x) = \fI a(x) + \fII b(x) + \fIII c(x)$ & && \\ \hline
+%	\end{tabular}
+%	\end{center}
+%	\caption{Tableau de valeurs de $a, b, c,$ et $f$.}
+%	\label{fig:1}
+%\end{figure}
+
+\enlargethispage{1cm}
 	\begin{center}
-	\def\arraystretch{2}
-	\setlength\tabcolsep{40pt}
+	\def\arraystretch{1.25}
+	\setlength\tabcolsep{20pt}
 	\begin{tabular}{|c|c|c|c|}\hline
 		$x$ & \xI & \xII & \xIII \\ \hline
 		$a(x)$ & && \\ \hline
@@ -106,66 +123,64 @@
 		$f(x) = \fI a(x) + \fII b(x) + \fIII c(x)$ & && \\ \hline
 	\end{tabular}
 	\end{center}
-	\caption{Tableau de valeurs de $a, b, c,$ et $f$.}
-	\label{fig:1}
-\end{figure}
+	\vfill\,
 
-\subsection*{Questions d'approfondissement (non notées)}
-
-\newcommand{\fIV}{\number\numexpr \fIII+1 \relax}
-
-\exe{, difficulty=1}{
-	Donner une fonction $g$ vérifiant $g(\xI) = \fI$, $g(\xII) =\fII,$ et $g(\xIII) = \fIV$.
-	Développer et réduire l'expression de $g$.
-	Vérifier l'expression obtenue en calculant les images de $\xI ; \xII ;$ et $\xIII$ par $g$.
-}{exe:4}{
-	Il s'agit ici de développer l'expression $f(x) = \fI a(x) +\fII b(x) + \fIV c(x)$, exercice laissé au lecteur ! (\emph{cf}. question \ref{exe:3})
-}
-
-
-\exe{, difficulty=1}{
-	Existe-t-il une fonction $h$ vérifiant $h(\xI) = y_1$, $h(\xII) =y_2,$ et $h(\xIII) = y_3$ pour n'importe quels $y_1, y_2, y_3$ ?
-}{exe:5}{
-	$f(x) = y_1 a(x) + y_2 b(x) + y_3 c(x)$ fait l'affaire, mais il y en a d'autres...
-}
-
-\exe{, difficulty=2}{
-	Démontrer qu'une infinité de fonctions différentes vérifient le tableau de valeurs de $f$.
-	
-	\emph{
-	Pour justifier que deux fonctions $F$ et $G$ sont différentes, il suffit de trouver un antécédent où elles diffèrent, c'est-à-dire, ici, un $x\in\R$ tel que $F(x) \neq G(x)$.
-	}
-}{exe:6}{
-	Considérons toutes les fonctions de la forme
-		\[ f_c(x) = f(x) + c (x-\xI)(x-\xII)(x-\xIII), \]
-	où $c\in\R$ est un nombre au choix.
-	
-	Ainsi, $f_1 (x) =  f(x) + (x-\xI)(x-\xII)(x-\xIII), f_0(x) = f(x), f_{-1}(x) =  f(x) - (x-\xI)(x-\xII)(x-\xIII)$, etc...
-	Le paramètre $c$ n'est bien sûr pas restreint aux entiers relatifs.
-	
-	$f_c$ admet les mêmes valeurs que $f$ en $x=\xI ; \xII ; \xIII$ car la partie ajoutée s'annule en chacuns de ces antécédents, par construction.
-	
-	De plus, pour $c \neq \tilde{c}$, deux valeurs différentes, les fonctions engendrées sont différentes : $f_c \neq f_{\tilde{c}}$.
-	Pour montrer cela, il suffit de comparer deux images lorsque la partie ajoutée ne s'annule pas.
-	Par exemple, en $x=-1$, on a
-		\begin{align*}
-			f_c(-1) = f(-1) + c(-1-\xI)(-1-\xII)(-1-\xIII) && \et && f_{\tilde{c}}(-1) = f(-1) + \tilde{c}(-1-\xI)(-1-\xII)(-1-\xIII).
-		\end{align*}
-	Inutile de calculer les valeurs ici : seul le fait que le produit soit non nul importe.
-	En effet, si on avait $f_c(-1) = f_{\tilde{c}}(-1)$, alors, en simplifiant l'équation, on aurait $c = \tilde{c}$, ce qui est faux.
-	(et vice versa, si $c = \tilde{c}$, alors $f_c = f_{\tilde{c}}$ ; c'est donc une équivalence !)
-	
-	Il suit donc que les fonctions sont distinctes et en nombre infini : chaque $c\in\R$ donne naissance à une nouvelle fonction $f_c$ qui admet le même tableau de valeurs que $f$ en $x=\xI ; \xII ; \xIII$.
-}
-
-\exe{, difficulty=1}{
-	Existe-t-il une fonction $H$ vérifiant $H(x_1) = y_1$, $H(x_2) =y_2,$ et $H(x_3) = y_3$ pour n'importe quels $x_1, x_2, x_3, y_1, y_2, y_3$ ?
-}{exe:7}{
-	Non, il suffit de prendre deux $x$ identiques aux images distinctes.
-	Par exemple, $x_1=x_2 = 0$, et $y_1 = 0 \neq 1 = y_2$.
-	
-	Aucun fonction $H$ ne vérifie $H(0) = 0$, et $H(0) =1$, et ce par définition d'une fonction (unicité de l'image).
-}
+%\subsection*{Questions d'approfondissement (non notées)}
+%
+%\newcommand{\fIV}{\number\numexpr \fIII+1 \relax}
+%
+%\exe{, difficulty=1}{
+%	Donner une fonction $g$ vérifiant $g(\xI) = \fI$, $g(\xII) =\fII,$ et $g(\xIII) = \fIV$.
+%	Développer et réduire l'expression de $g$.
+%	Vérifier l'expression obtenue en calculant les images de $\xI ; \xII ;$ et $\xIII$ par $g$.
+%}{exe:4}{
+%	Il s'agit ici de développer l'expression $f(x) = \fI a(x) +\fII b(x) + \fIV c(x)$, exercice laissé au lecteur ! (\emph{cf}. question \ref{exe:3})
+%}
+%
+%
+%\exe{, difficulty=1}{
+%	Existe-t-il une fonction $h$ vérifiant $h(\xI) = y_1$, $h(\xII) =y_2,$ et $h(\xIII) = y_3$ pour n'importe quels $y_1, y_2, y_3$ ?
+%}{exe:5}{
+%	$f(x) = y_1 a(x) + y_2 b(x) + y_3 c(x)$ fait l'affaire, mais il y en a d'autres...
+%}
+%
+%\exe{, difficulty=2}{
+%	Démontrer qu'une infinité de fonctions différentes vérifient le tableau de valeurs de $f$.
+%	
+%	\emph{
+%	Pour justifier que deux fonctions $F$ et $G$ sont différentes, il suffit de trouver un antécédent où elles diffèrent, c'est-à-dire, ici, un $x\in\R$ tel que $F(x) \neq G(x)$.
+%	}
+%}{exe:6}{
+%	Considérons toutes les fonctions de la forme
+%		\[ f_c(x) = f(x) + c (x-\xI)(x-\xII)(x-\xIII), \]
+%	où $c\in\R$ est un nombre au choix.
+%	
+%	Ainsi, $f_1 (x) =  f(x) + (x-\xI)(x-\xII)(x-\xIII), f_0(x) = f(x), f_{-1}(x) =  f(x) - (x-\xI)(x-\xII)(x-\xIII)$, etc...
+%	Le paramètre $c$ n'est bien sûr pas restreint aux entiers relatifs.
+%	
+%	$f_c$ admet les mêmes valeurs que $f$ en $x=\xI ; \xII ; \xIII$ car la partie ajoutée s'annule en chacuns de ces antécédents, par construction.
+%	
+%	De plus, pour $c \neq \tilde{c}$, deux valeurs différentes, les fonctions engendrées sont différentes : $f_c \neq f_{\tilde{c}}$.
+%	Pour montrer cela, il suffit de comparer deux images lorsque la partie ajoutée ne s'annule pas.
+%	Par exemple, en $x=-1$, on a
+%		\begin{align*}
+%			f_c(-1) = f(-1) + c(-1-\xI)(-1-\xII)(-1-\xIII) && \et && f_{\tilde{c}}(-1) = f(-1) + \tilde{c}(-1-\xI)(-1-\xII)(-1-\xIII).
+%		\end{align*}
+%	Inutile de calculer les valeurs ici : seul le fait que le produit soit non nul importe.
+%	En effet, si on avait $f_c(-1) = f_{\tilde{c}}(-1)$, alors, en simplifiant l'équation, on aurait $c = \tilde{c}$, ce qui est faux.
+%	(et vice versa, si $c = \tilde{c}$, alors $f_c = f_{\tilde{c}}$ ; c'est donc une équivalence !)
+%	
+%	Il suit donc que les fonctions sont distinctes et en nombre infini : chaque $c\in\R$ donne naissance à une nouvelle fonction $f_c$ qui admet le même tableau de valeurs que $f$ en $x=\xI ; \xII ; \xIII$.
+%}
+%
+%\exe{, difficulty=1}{
+%	Existe-t-il une fonction $H$ vérifiant $H(x_1) = y_1$, $H(x_2) =y_2,$ et $H(x_3) = y_3$ pour n'importe quels $x_1, x_2, x_3, y_1, y_2, y_3$ ?
+%}{exe:7}{
+%	Non, il suffit de prendre deux $x$ identiques aux images distinctes.
+%	Par exemple, $x_1=x_2 = 0$, et $y_1 = 0 \neq 1 = y_2$.
+%	
+%	Aucun fonction $H$ ne vérifie $H(0) = 0$, et $H(0) =1$, et ce par définition d'une fonction (unicité de l'image).
+%}
 
 
 

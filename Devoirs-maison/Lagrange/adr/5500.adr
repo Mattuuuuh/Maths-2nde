@@ -1,0 +1,11 @@
+\newcommand{\seed}{5500}
+\newcommand{\xI}{24}
+\newcommand{\xII}{25}
+\newcommand{\xIII}{26}
+\newcommand{\qI}{\dfrac{1}{2}}
+\newcommand{\qII}{-}
+\newcommand{\qIII}{\dfrac{1}{2}}
+\newcommand{\fI}{27}
+\newcommand{\fII}{28}
+\newcommand{\fIII}{29}
+\newcommand{\bI}{+3}
