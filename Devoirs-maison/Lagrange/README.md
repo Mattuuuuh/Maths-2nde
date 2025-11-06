@@ -7,5 +7,12 @@ Sur TeXworks, il est possible de modifier l'action de Ctrl+T : Edit -> Preferenc
 
 Pour fusionner :
 ```
-pdftk $(ls out/*.pdf) cat output merged.pdf
+cd out/
+pdftk $(ls *pdf) cat output ../DM_sols.pdf
+find *pdf -exec pdftk \{\} cat 1 output \{\}_1st.pdf
+pdftk $(ls *1st.pdf) cat output ../DM.pdf
+
+cd ../
+pdfjam DM.pdf --nup '1x2' --suffix a4
+pdfjam DM_sols.pdf --nup '1x2' --suffix a4
 ```
