@@ -1,0 +1,98 @@
+\input{../preamble.tex}
+
+\SetDate[07/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison --- Interpolation de Lagrange \\ Questions d'approfondissement}}
+\fancyhead[R]{\today}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{, difficulty=1}{
+	Donner l'expression algébrique d'une fonction $g$ sur $\R$ vérifiant 
+		\[ g(1) = 1, g(2) =2, \et g(3) = 4. \]
+	Développer et réduire l'expression de $g$.
+	
+	Vérifier la forme développée réduite obtenue en calculant les images de $1 ; 2 ;$ et $3$ par $g$.
+}{exe:4}{
+	
+}
+
+
+\exe{, difficulty=1}{
+	Existe-t-il une expression algébrique $h(x)$ vérifiant 
+		\[ h(1) = y_1, h(2) =y_2, \et h(3) = y_3 \]
+	pour n'importe quels $y_1, y_2, y_3 \in \R$ ?
+}{exe:5}{
+}
+
+\exe{, difficulty=1}{
+	Montrer que la fonction $y(x)$ donnée par
+		\[ y(x) = (x-1)(x-2)(x-3) \]
+	vérifie 
+		\[ y(1) = y(2) = y(3) = 0. \]
+	Développer et réduire l'expression de $y(x)$ pour obtenir $x^3 - 6x^2 + 11x - 6$.
+}{exe:5.5}{
+	
+}
+
+\exe{, difficulty=2}{
+	À l'aide de l'exercice \ref{exe:5.5}, démontrer qu'une infinité de fonctions $F$ différentes vérifient que 
+		\[ F(1) = 1, F(2) =2, \et F(3) = 4. \]
+	Construire explicitement chaque fonction $F$ en donnant son expression algébrique sur $\R$, et vérifier ses images.
+}{exe:6}{
+	
+}
+
+\begin{nt}
+	Pour justifier que deux fonctions $F$ et $G$ sont différentes, il suffit de trouver un antécédent de leur domaine où elles diffèrent.
+	C'est-à-dire, ici, un $x\in\R$ tel que $F(x) \neq G(x)$.
+\end{nt}
+
+\exe{, difficulty=1}{
+	Existe-t-il une fonction $H$ vérifiant 
+		\[ H(x_1) = y_1, H(x_2) =y_2, \et H(x_3) = y_3 \]
+	pour n'importe quels $x_1, x_2, x_3, y_1, y_2, y_3 \in \R$ ?
+}{exe:7}{
+	Non, il suffit de prendre deux $x$ identiques aux images distinctes.
+	Par exemple, $x_1=x_2 = 0$, et $y_1 = 0 \neq 1 = y_2$.
+	
+	Aucun fonction $H$ ne vérifie $H(0) = 0$, et $H(0) =1$, et ce par définition d'une fonction (unicité de l'image).
+}
+
+\exe{, difficulty=1}{
+	On reprend la fonction $y$ de l'exercice \ref{exe:5.5}.
+	Montrer que $y(4) \neq 0$, puis montrer que la fonction définie par 
+		\[ g(x) = \dfrac1{y(4)} y(x) \]
+	vérifie 
+		\[ g(1)=g(2)=g(3) = 0, \et g(4) = 1.\]
+	Donner la forme développée réduite de $g(x)$.
+}{exe:8}{
+
+}
+
+\exe{, difficulty=2}{
+	Montrer que si une fonction $f$ sur $\R$ est de la forme $f(x) = ax+b$, où $a, b \in\R$ sont deux paramètres réels, alors il n'est pas possible que $f$ vérifie
+		\[ f(0) = f(1) = 0, \et f(2) = 1. \]
+}{exe:9}{
+	
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions -- {\seed} -- Interpolation de Lagrange}}
+%\fakesection{Solution \seed}
+%\shipoutAnswer
+
+\end{document}
+
