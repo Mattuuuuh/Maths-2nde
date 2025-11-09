@@ -164,7 +164,11 @@
 			\item $1-x$ vaut bien $1$ en $x=0$, mais l'expression vaut $3$ en $x=-2$, donc ce n'est pas l'expression de $f$.
 			\item  $1+\dfrac{x}2$ vaut bien $1$ en $x=0$ et $0$ en $x=-2$, mais elle vaut $1$ en $x=1$, ce n'est donc pas l'expression de $f$.
 			\item $\dfrac{1-x}2$ vaut $\frac12$ en $x=0$, ce n'est donc pas l'expression de $f$.
-			\item On déduit $f(x) = \dfrac{-x^2 - x + 2}2$ est la seule expression possible, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+			\item $f(x) = \dfrac{-x^2 - x + 2}2$ est la seule expression possible, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+			
+			Attention aux parenthèses lors de la substitution d'une valeur négative ainsi qu'à l'ordre des opérations.
+			Par exemple, en $x=-2$,
+				\[ \dfrac{-x^2 - x + 2}2 = \dfrac{-(-2)^2 - (-2) + 2}2 = \dfrac{-(4)+2+2}2 = 0. \]
 		\end{enumerate}
 
 	Cette exercice deviendra vite évident après avoir terminé l'étude des fonctions affines. 
@@ -217,6 +221,17 @@
 		\end{center}
 }{exe:fonctions-QCM2}{
 	Lors du calcul de chacune des images, au moins un facteur est nul : le produit vaut donc toujours zéro.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{30pt}
+		\begin{tabular}{|c|c|c|}\hline
+			$x$ & -2 & 1 \\ \hline
+			$f(x)$ & -42 & 1729 \\ \hline
+			$h(x)$ & 0 & 0   \\ \hline
+			$f(x)+h(x)$ & -42 & 1729  \\ \hline
+			$f(x)+2h(x)$ & -42 & 1729  \\ \hline
+		\end{tabular}
+		\end{center}
 }
 
 \exe{, difficulty=2}{
@@ -283,7 +298,7 @@
 					&= x^2 - 3x - 3x + 9 \\
 					&= x^2 - 6x + 9
 			\end{align*}
-		Le développement de carrés parfaits deviendront immédiates après l'étude des identités remarquables.
+		Le développement de carré sera travaillé pendant l'étude des identités remarquables.
 	\end{enumerate}
 }
 
