@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[10/10/2025]
+\SetDate[12/11/2025]
 \usepackage{minted}
 
 \begin{document}
@@ -207,23 +207,6 @@
 %}
 
 \exe{}{
-	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
-		\[ f(x) = \dfrac3x + 1. \]
-}{exe:graph-droite2}{
-	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
-	Attention, celle-ci n'est pas une droite !
-	
-		\begin{center}
-		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=3:10, samples=50]{3/x + 1} 
-				node[above, pos=.4] {$\C_f$};
-			\end{axis}
-		\end{tikzpicture}
-		\end{center}
-}
-
-\exe{}{
 	Esquisser la courbe de la fonction $f$ sur $\D=[-2; 4]$ donnée algébriquement par
 		\[ f(x) = 3. \]
 	Que dire de $f$ et de $\C_f$ ?
@@ -241,6 +224,23 @@
 	
 	On dit ici que $f$ est \emph{constante} car elle ne dépend pas de $x$.
 	$\C_f$ est donc une droite horizontale.
+}
+
+\exe{, difficulty=1}{
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
+	Attention, celle-ci n'est pas une droite !
+	
+		\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = 3, xmax=10, ymin=1, ymax=2.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=3:10, samples=50]{3/x + 1} 
+				node[above, pos=.4] {$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
 }
 
 \exe{}{
@@ -281,7 +281,7 @@
 }
 
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	Utiliser le repère ci-dessous pour comparer les représentations graphiques des trois fonctions suivantes données algébriquement.
 		\begin{align*}
 			f(x) = x^2, && g(x) = x^2 - 3, && h(x) = (x+4)^2.
@@ -289,16 +289,19 @@
 		
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+		\begin{axis}[xmin = -8, xmax=5, ymin=-5.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
 	
 	\begin{enumerate}[label=(\alph*)]
 		\item
-		Estimer, grâces aux courbes, les solutions $x\in\R$ des équations $f(x) = h(x)$ et $h(x) =g(x)$.
+		Estimer, grâces aux courbes, les solutions $x\in[-8;5]$ de l'équation $f(x) = h(x)$.
+		Vérifier l'exactitude des solutions en calculant et en comparant $f(x)$ et $g(x)$.
 		\item
-		Estimer, grâces aux courbes, à quel intervalle appartiennent les $x\in\R$ vérifiant $h(x) \leq f(x)$.
+		Faire de même pour les solutions $x\in[-8;5]$ de $g(x) = h(x)$.
+		\item
+		Estimer, grâces aux courbes, à quel intervalle appartiennent les $x\in[-8;5]$ vérifiant $h(x) \leq f(x)$.
 	\end{enumerate}
 }{exe:y-shift}{
 	On graphe les fonctions ci-dessous. 
@@ -315,7 +318,7 @@
 	
 		\begin{center}
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -8, xmax=5, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+			\begin{axis}[xmin = -8, xmax=5, ymin=-5.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-8:5, samples=50]{x^2}
 				node[pos=.6, right]{$\mathcal{C}_f$};
 				\addplot[no marks, RED_E, very thick, -] expression[domain=-8:5, samples=50]{x^2-3}
@@ -325,11 +328,26 @@
 			\end{axis}
 		\end{tikzpicture}
 		\end{center}
+
+	\begin{enumerate}[label=(\alph*)]
+		\item
+		Les $x\in[-8;5]$ vérifiant $f(x)=h(x)$ sont les abscisses des points d'intersection de $\C_f$ et $\C_h$.
+		Ici, seul $x\approx -2$ fonctionne.
+		On calclue $f(-2) = 4$ et $h(-2) = 4$, et on en déduite que $x=-2$ exactement.
+		
+		\item
+		Les $x\in[-8;5]$ vérifiant $h(x)=g(x)$ sont les abscisses des points d'intersection de $\C_h$ et $\C_g$.
+		Ici, seul $x\approx -2,5$ fonctionne.
+		On calcule $h(-2,5) = 1,5^2 = \frac94$ et $g(-2,5) = 2,5^2 - 3 = \frac{25}4 - 3 = \frac{13}4$ et donc que la solution trouvée n'est pas exacte.
+		\item
+		Les $x\in[-8;5]$ vérifiant $h(x) \leq f(x)$ sont les abscisses pour lesquelles la courbe $\C_h$ est sous la courbe $\C_f$.
+		Ici, on trouve approximativement $[-8 ; -2]$.
+	\end{enumerate}
 }
 
 \newpage
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
 	
 	\begin{center}
@@ -464,7 +482,7 @@
 }
 
 
-\exemulticols{}{
+\exemulticols{, difficulty=1}{
 	Un fonction $f$ est représentée graphiquement ci-contre.
 	Parmis les expressions algébriques suivantes, lequelles ne peuvent pas correspondre à $f(x)$ ?
 		\begin{multicols}{2}
@@ -482,6 +500,7 @@
 			\begin{axis}[xmin = -3.1, xmax=1.1, ymin=-3.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			clip=true,
+			ytick distance = 1,
 			]
 				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:2, samples=2]{-2/3 - 2*x}
 				node[pos=.3, right]{$\mathcal{C}_f$};
