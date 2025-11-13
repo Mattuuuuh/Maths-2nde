@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[03/11/2025]
+\SetDate[13/11/2025]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -183,24 +183,25 @@ Consignes particulières :
 
 }{exe:Cf}{
 	On utilise le théorème \ref{thm:1} qui demande de vérifier si $y=f(x)$.
-	\begin{multicols}{2}
+	%\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*)]
 		%\item $\left(2; 1\right) \not\in \C_f$.
-		\item $\left(-1 ;-\dfrac23\right) \in \C_f$
+		\item $\left(-1 ;-\dfrac23\right) \in \C_f$ car $f(-1) = \dfrac{2}{3 \times (-1)} = - \dfrac23$.
 		%\item $\left(\dfrac12 ; \dfrac13\right) \not\in \C_f$
-		\item $\left(-\dfrac23 ; -1\right) \in \C_f$
+		\item $\left(-\dfrac23 ; -1\right) \in \C_f$ car $f(\frac{-2}3) = \dfrac{2}{3 \times \frac{-2}3} = \dfrac{2}{-2} = -1$.
+		Comme diviser par $x$ est équivalent à multiplier par son inverse, on peut aussi calculer que $f(\frac{-2}3) = \dfrac23 \times \dfrac{3}{-2} = -1$.
 	\end{enumerate}
-	\end{multicols}
+	%\end{multicols}
 
 
 }
 
 \exe{4, difficulty=1}{
-	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,2 ; 2,3[$}.
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3 ; 2,3[$}.
 	
 	\begin{center}
 		\begin{tikzpicture}[>=stealth]
-			\begin{axis}[xmin = -3.2, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			\begin{axis}[xmin = -3, xmax=2.3, ymin=-2.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
 			x=2.1cm,
 			xtick={-3, -2, ..., 2},
@@ -208,31 +209,31 @@ Consignes particulières :
 			clip=true,
 			ytick distance = 1,
 			]
-				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +3}node[pos=.52, above=5pt]{$\C_f$};
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-4:3, samples=200]{x^3 /3 - 2*x +1}node[pos=.52, above=5pt]{$\C_f$};
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
 		\item
-		Donner approximativement les images de -1 et de 2 par $f$. 
+		Donner approximativement les images de -1,5 et de 2,1 par $f$. 
 		\item
-		Énumérer approximativement les antécédents de 2 et de 4 par $f$.
+		Énumérer approximativement les antécédents de 0 et de 1 par $f$.
 		\item 
-		Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \leq 4 \}$ sous forme d'union d'intervalles.
+		Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \geq 1 \}$ sous forme d'intervalles.
 	\end{enumerate}
 }{exe:deg3}{
 	\begin{enumerate}
 		\item
-		$f(-1) \approx 4,8$ et $f(2) \approx 1,7$.
+		$f(-1,5) \approx 2,9$ et $f(2,1) \approx 0$.
 		\item
-		Les antécédents de 2 sont environ -2,8 ; 0,5 ; et 2,2.
-		En effet, $f(-2,8) \approx f(0,5) \approx f(2,2) \approx 2$
+		Les antécédents de 0 sont environ -2,8 ; 0,5 ; et 2,1.
+		En effet, $f(-2,8) \approx f(0,5) \approx f(2,1) \approx 0$
 		
 		Les antécédents de 2 sont environ -2,2 et -0,5.
-		En effet, $f(-2,2) \approx f(-0,5) \approx 4$.
+		En effet, $f(-2,2) \approx f(-0,5) \approx 2$.
 		\item 
 		
-		\[ \bigset{ x \in \D \tq f(x) \leq 4 } \approx [-3,2 ; -2,2 ] \cup [-0,5 ; 2,3]. \]
+		\[ \bigset{ x \in \D \tq f(x) \geq 1 } \approx [-2,5 ; 0 ]. \]
 	\end{enumerate}
 }
 
@@ -246,9 +247,9 @@ Consignes particulières :
 %}
 
 \exe{2, difficulty=1}{
-	Considérons $x, y$ deux nombres réels. Supposons, sans perte de généralité, que $x < y$.
+	Montrer, par le calcul littéral, le \emph{théorème de Léonie} ci-dessous.
 	
-	Montrer le \emph{théorème de Léonie} : la moyenne de $x$ et de $y$ est égale à $x$ plus la moitié de la distance entre $x$ et $y$.
+	\emph{Indication : faire un dessin.}
 }{exe:thm-Leonie}{
 	La distance entre $x$ et $y$ est égale à $y-x$, car $x$ est supposé plus petit que $y$.
 	En divisant par 2 et en ajoutant $x$, on trouve bien
@@ -257,6 +258,12 @@ Consignes particulières :
 		\]
 	la moyenne de $x$ et de $y$.
 }
+
+\begin{thm}[de Léonie] \label{thm:leonie}
+	Soient $x < y$ deux réels.
+	Alors la moyenne de $x$ et de $y$ est égale à $x$ plus la moitié de la distance entre $x$ et $y$.
+\end{thm}
+
 
 %%%%%%%%%%%
 
