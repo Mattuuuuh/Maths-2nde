@@ -115,7 +115,7 @@ class InegaliteGraphique(MovingCameraScene):
 
         # prewrite {x st. f(x) > g(x)}
         setlabel = MathTex(
-                r"\Bigl\{ x \in [-3,5 ; 4,5] \text{ tq. } f(x) \leq g(x) \Bigr\} =",
+                r"\Bigl\{ x \in [-4,5 ; 3,5] \text{ tq. } f(x) \leq g(x) \Bigr\} =",
                 tex_template=myTemplate,
                 tex_to_color_map={'f(x)':BLUE_E, 'g(x)':RED_E, ' x ':XCOLOR},
         )
