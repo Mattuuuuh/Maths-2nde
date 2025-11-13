@@ -333,7 +333,7 @@
 		\item
 		Les $x\in[-8;5]$ vérifiant $f(x)=h(x)$ sont les abscisses des points d'intersection de $\C_f$ et $\C_h$.
 		Ici, seul $x\approx -2$ fonctionne.
-		On calclue $f(-2) = 4$ et $h(-2) = 4$, et on en déduite que $x=-2$ exactement.
+		On calclue $f(-2) = 4$ et $h(-2) = 4$, et on en déduit que $x=-2$ exactement.
 		
 		\item
 		Les $x\in[-8;5]$ vérifiant $h(x)=g(x)$ sont les abscisses des points d'intersection de $\C_h$ et $\C_g$.
@@ -385,7 +385,7 @@
 			 \end{align*}
 		\item On cherche d'abord les antécédents de 2, c'est-à-dire les nombres $x$ du domaine vérifiants
 			\[ f(x) = -2. \]
-		Pour ça, on se pose \og à hauteur 2 \fg : on tracer une droite horizontale d'ordonnée 2 et on regarde les points d'intersection.
+		Pour ça, on se pose \og à hauteur 2 \fg : on trace une droite horizontale d'ordonnée 2 et on regarde les points d'intersection.
 			\begin{center}
 			\begin{tikzpicture}[>=stealth]
 				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -405,7 +405,7 @@
 		
 		En l'occurrence, seuls $x\approx -2,8 ; 0,5 ;  \et 2,1$ fonctionnent.
 			
-		Pour les antécédents de 4, on fait idem en regardant les points de la droite d'ordonnée 4.
+		Pour les antécédents de 4, on fait idem en regardant les points d'intersection avec la droite d'ordonnée 4.
 			\begin{center}
 			\begin{tikzpicture}[>=stealth]
 				\begin{axis}[xmin = -3.4, xmax=2.3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -545,28 +545,28 @@
 	\begin{enumerate}
 		\item On cherche ici l'ensemble
 			\[ \bigset{ x \in \D \text{ tels que } g(x) = h(x) }. \]
-		On lit (approximativement) les abscisses des points de $\C_g \cap \C_h$, l'intersection des deux courbes :
+		On lit (approximativement) les abscisses des points de l'intersection des deux courbes :
 			\[ \bigset{ x \in \D \tq g(x) = h(x) } \approx \bigset{ {-0,8}, {1,2} } \]
 		\item On cherche ici l'ensemble
 			\[ \bigset{ x \in \D \tq g(x) \leq h(x) }. \]
-		On lit (approximativement) les abscisses lorsque les la courbe $\C_g$ est sous $\C_h$ :
+		On lit (approximativement) les abscisses lorsque la courbe $\C_g$ est sous $\C_h$ :
 			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [ {-0,8} ; {1,2} ]. \]
 		\item On cherche ici l'ensemble
 			\[ \bigset{ x \in \D \tq h(x) \leq g(x) }. \]
-		On lit (approximativement) les abscisses lorsque les la courbe $\C_h$ est sous $\C_g$.
+		On lit (approximativement) les abscisses lorsque la courbe $\C_h$ est sous $\C_g$.
 			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [{-3,4} ; {-0,8} ] \cup [ {1,2} ; {2,3} ]. \]
 	\end{enumerate}
 	
 	Remarquons en outre les relations suivantes :
 		\[ \bigset{ x \in \D \tq h(x) \leq g(x) } \cup \bigset{ x \in \D \tq h(x) \geq g(x) } = \D, \]
-	ce qui n'est pas  surprenant car pour tout $x\in\D$, on a forcément $g(x) \leq h(x)$ \textbf{ou} $g(x) \geq h(x)$. 
+	ce qui n'est pas surprenant car pour tout $x\in\D$, on a forcément $g(x) \leq h(x)$ \textbf{ou} $g(x) \geq h(x)$. 
 	Ainsi, 
 		\[ \bigset{ x \in \D \tq h(x) \leq g(x) \ou  h(x) \geq g(x) }  = \bigset{ x \in \D } = \D. \]
 	C'est donc pour cela que les ensembles sont complémentaires par rapport à $\D$ : leur union est $\D$ tout entier.
 	
 	En outre, les points appartenant aux deux ensembles à la fois sont
 		\begin{align*}
-		 \bigset{ x \in \D \tq h(x) \leq g(x) \et h(x) \geq g(x) } \bigset{ x \in \D \tq h(x) = g(x) },
+		 \bigset{ x \in \D \tq h(x) \leq g(x) \et h(x) \geq g(x) } = \bigset{ x \in \D \tq h(x) = g(x) },
 		 \end{align*}
 	car $h(x) \leq g(x)$ \textbf{et} $h(x) \geq g(x)$ est équivalent à $g(x) = h(x)$ pour tout $x\in\D$.
 	

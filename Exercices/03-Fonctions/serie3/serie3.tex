@@ -15,7 +15,7 @@
 \begin{multicols}{3}
 	L'instruction \texttt{def} permet de définir une fonction.
 	L'indentation délimite les bornes de la fonction.
-	L'instruction \texttt{return} définit la valeur retournée.
+	L'instruction \texttt{return} permet de renvoyer une valeur.
 	
 	%Un fonction peut prendre plusieurs arguments.
 	
@@ -48,7 +48,7 @@
 	Pour parcourir l'intervalle $[a ; b]$ en prenant $N+1$ valeurs espacées uniformément,
 	on calcule
 		\begin{align*} 
-			x = a + \dfrac{k}N (b-a), && \text{pour} && k = 0, 1, 2, 3, \dots, N.
+			x = a + \dfrac{k}N (b-a), && \text{pour} && k = 0 ; 1 ; 2 ; 3 ; \dots, N.
 		\end{align*}
 	L'expression \texttt{range(N+1)} correspond à l'ensemble ${\bigset{ 0 ; 1 ; 2 ; \dots ; N }}$.
 
@@ -101,10 +101,10 @@
 \subsection*{Précision}
 
 \begin{multicols}{2}
-	La précision étant finie, la comparaison peut renvoyer \texttt{False} alors que les valeurs comparées sont théoriquement égales.
+	La précision étant finie, la comparaison peut renvoyer \texttt{False} par erreur d'approximation.
 	
-	Pour éviter ces problèmes, il peut être pertinent de vérifier que deux valeurs sont proches plutôt qu'égales.
-	On vérifiera alors que la distance entre $x$ et $y$ est plus petite que $0,001$ (par exemple) au lieu que $x = y$.
+	Pour éviter ce problème, il peut être pertinent de vérifier que deux valeurs sont proches plutôt qu'égales.
+	Par exemple, on peut vérifier que la distance entre $x$ et $y$ est plus petite que $0,001$ au lieu que $x = y$.
 	
 	L'appel \texttt{abs(x-y)} permet de calculer la distance entre $x$ et $y$.
 	
