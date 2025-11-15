@@ -28,13 +28,13 @@
 		Quel est le prix TTC d'un objet coûtant $\A$€ HT ?
 		\item
 		Quel est le prix HT d'un objet coûtant $\B$€ TTC ?		
-		\item 
-		Pour les deux exemples ci-dessus, calculer la proportion \emph{exacte} du prix TTC qui revient à l'État. 
-		C'est-à-dire, calculer le rapport
-			\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
-		\item
-		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix (si tant est qu'il soit non nul).
-		Est-ce un nombre réel ? rationnel ? décimal ? entier ?
+%		\item 
+%		Pour les deux exemples ci-dessus, calculer la proportion \emph{exacte} du prix TTC qui revient à l'État. 
+%		C'est-à-dire, calculer le rapport
+%			\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+%		\item
+%		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix (si tant est qu'il soit non nul).
+%		Est-ce un nombre réel ? rationnel ? décimal ? entier ?
 	\end{enumerate}
 }{exe:TVA}{
 	\begin{enumerate}
@@ -47,35 +47,36 @@
 			En arrondissant au centime près, on calcule
 				\[ \left(1+ \dfrac{\TVA}{100}\right)^{-1} \cdot \B \approx \Bsol. \]
 			Le prix sans TVA est donc de $\Bsol$€.
-		\item
-			Il s'agit ici de calculer la proportion 
-				\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
-			Pour le premier objet, on calcule
-				\[ \dfrac{\dfrac{\TVA}{100} \cdot \A}{\left(1+\dfrac{\TVA}{100} \right) \cdot \A} = \dfrac{\rationum}{\ratiodenom} \]
-			Pour le deuxième object, on calcule
-				\[ \dfrac{\B - \left(1- \dfrac{\TVA}{100}\right) \cdot \B }{\B} = \dfrac{\rationum}{\ratiodenom}. \]
-		\item
-			Soit $P>0$ un prix hors taxe quelconque.
-			La part de TVA par rapport au prix TTC est égale à
-				\begin{align*}
-					& \dfrac{\dfrac{\TVA}{100} \cdot P}{\left(1 + \dfrac{\TVA}{100}\right) \cdot P} \\
-					=& \dfrac{\dfrac{\TVA}{100}}{\left(1 + \dfrac{\TVA}{100}\right)} \\
-					&= \dfrac{\TVA}{\left(100 + \TVA\right)} = \dfrac{\rationum}{\ratiodenom},
-				\end{align*}
-			qui ne dépend bien pas du prix $P$ choisi.
+%		\item
+%			Il s'agit ici de calculer la proportion 
+%				\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+%			Pour le premier objet, on calcule
+%				\[ \dfrac{\dfrac{\TVA}{100} \cdot \A}{\left(1+\dfrac{\TVA}{100} \right) \cdot \A} = \dfrac{\rationum}{\ratiodenom} \]
+%			Pour le deuxième objet, on calcule
+%				\[ \dfrac{\B - \left(1- \dfrac{\TVA}{100}\right) \cdot \B }{\B} = \dfrac{\rationum}{\ratiodenom}. \]
+%		\item
+%			Soit $P>0$ un prix hors taxe quelconque.
+%			La part de TVA par rapport au prix TTC est égale à
+%				\begin{align*}
+%					& \dfrac{\dfrac{\TVA}{100} \cdot P}{\left(1 + \dfrac{\TVA}{100}\right) \cdot P} \\
+%					=& \dfrac{\dfrac{\TVA}{100}}{\left(1 + \dfrac{\TVA}{100}\right)} \\
+%					&= \dfrac{\TVA}{\left(100 + \TVA\right)} = \dfrac{\rationum}{\ratiodenom},
+%				\end{align*}
+%			qui ne dépend bien pas du prix $P$ choisi.
 	\end{enumerate}
 }
 
 
 
 \exe{}{
-	Un magasin augmente frauduleusement ses prix avant d'appliquer une remise de $\REMISE\%$.
+	En vue des soldes, un magasin augmente frauduleusement ses prix avant d'appliquer une remise de $\REMISE\%$.
 	On compare les prix initiaux avant augmentation aux prix finaux après application des deux évolutions.
 	
-	Répondre aux questions suivantes en arrondissant les valeurs numériques à $10^{-2}$ et les pourcentages à l'unité.
+	Répondre aux questions suivantes en arrondissant les pourcentages à l'unité.
 	\begin{enumerate}
 		\item 
-		Quelle augmentation faut-il effectuer pour que les prix ne changent pas, après et avant évolutions ?
+		Quelle augmentation faut-il effectuer pour que les prix ne changent pas, avant et après évolutions ?
+		%Quelle augmentation faut-il effectuer pour retrouver le prix initial ?
 		\item
 		Quelle augmentation faut-il effectuer pour que, au final, les prix aient augmenté de $\FINALaug\%$ ?
 		\item

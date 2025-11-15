@@ -79,6 +79,7 @@ dm = DM(
         generating_function=generate,
         double_compile=True,
         initial_seed=0,
+        a5=True,
     )
 
 # for testing (seed 0)
