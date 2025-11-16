@@ -7,16 +7,19 @@
 
 \section{Sous-populations}
 
-On considère dans cette section des populations qu'on représente par un ensemble fini non vide car l'ordre des individus n'importe pas.
+\subsection{Calcul de proportion}
+
+On considère dans cette section des populations qu'on représente par des ensembles finis non vides.
+L'ordre des individus dans la population n'importe pas ici : on ne s'intéresse qu'à la taille des ensembles.
 
 \ex{ensemble d'élèves}{
-  On représente l'ensemble des $34$ élèves d'une classe par l'ensemble
-  \[ E = \bigset{ 1 ; 2 ; 3 ; \dots ; 32 ; 33 ; 34 }. \]
-  Chaque élève est associé à un nombre (par exemple sa place dans l'ordre alphabétique de la liste d'appel).
+	On représente l'ensemble des $34$ élèves d'une classe par l'ensemble
+	\[ E = \bigset{ 1 ; 2 ; 3 ; \dots ; 32 ; 33 ; 34 }. \]
+	Chaque élève est associé à un nombre (par exemple sa place dans l'ordre alphabétique de la liste d'appel).
 }{ex:pop-eleves}
 
 Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un ensemble $F$ inclus dans $E$.
-\[ F \subseteq E. \]
+	\[ F \subseteq E. \]
 
 \notations{
 	On note $|E| \in \N$ le cardinal d'un ensemble\footnote{Il existe d'autres notations : $\text{Card}(E)$ ou $\#E$ par exemple.}, c'est-à-dire le nombre d'éléments distincts qu'il contient.
@@ -24,133 +27,35 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
 }
 
 \ex{ensembles d'élèves pairs}{
-  Soit $E$ donné à l'exemple \ref{ex:pop-eleves}.
-  L'ensemble
-  \[ F = \{ 2 ; 4; 6 ; \dots ; 32 ; 34 \} \]
-  vérifie $F\subseteq E$ et peut donc être compris comme une sous-population des élèves de l'exemple \ref{ex:pop-eleves}.
-  Ce sont en fait tous les élèves ayant une position paire dans le classement utilisé.
+	Soit $E$ donné à l'exemple \ref{ex:pop-eleves}.
+	L'ensemble
+	\[ F = \bigset{ 2 ; 4; 6 ; \dots ; 32 ; 34 } \]
+	vérifie $F\subseteq E$ et peut donc être compris comme une sous-population des élèves de l'exemple \ref{ex:pop-eleves}.
+	Ce sont tous les élèves ayant une position paire dans le classement utilisé.
 
-  Les cardinaux des ensembles sont donnés pas
-  \begin{align*}
-    |E| = 34 && \text{et} && |F| = 17.
-  \end{align*}
+	Les cardinaux des ensembles sont donnés pas
+	\begin{align*}
+		|E| = 34 && \text{et} && |F| = 17.
+	\end{align*}
 }{ex:pop-eleves2}
 
 \dfn{proportion, pourcentage de sous-population}{
-  Considérons deux ensembles finis $F \subseteq E$ avec $E$ non vide.
-  La proportion d'éléments de $E$ appartenant à $F$ est donnée par
-  \[ p = \dfrac{|F|}{|E|}. \]
-  Lorsqu'elle est exprimée sous la forme d'une fraction de $100$, on parle alors de \emphindex{pourcentage} d'éléments de $E$ appartenant à $F$.
+	Considérons deux ensembles finis $F \subseteq E$ avec $E$ non vide.
+	La proportion d'éléments de $E$ appartenant à $F$ est donnée par
+	\[ p = \dfrac{|F|}{|E|}. \]
+	Lorsqu'elle est exprimée sous la forme d'une fraction de $100$, on parle alors de \emphindex{pourcentage} d'éléments de $E$ appartenant à $F$.
 }{def:proportion}
 
 \ex{proportion d'élèves pairs}{
-  En reprenant les notations de l'exemple \ref{ex:pop-eleves2}, on trouve
-  \[ p = \dfrac{17}{34} = \dfrac12 = \dfrac{50}{100} = 50\%. \]
-  Ainsi la proportion d'élèves de $E$ appartenant à $F$ est $\frac12 = 50\%$.
+	En reprenant les notations de l'exemple \ref{ex:pop-eleves2}, on trouve
+	\[ p = \dfrac{17}{34} = \dfrac12 = \dfrac{50}{100} = 50\%. \]
+	Ainsi la proportion d'élèves de $E$ appartenant à $F$ est $\frac12 = 50\%$.
 }{}
 
-\nt{
-  Soient $F \subseteq E$ deux ensembles finis avec $E$ non vide.
-  On a alors forcément
-  \[ 0 \leq |F| \leq |E|, \]
-  et donc
-  \begin{align*}
-    0 \leq p \leq 1 && \iff && p \in [0 ; 1] && \iff 100\cdot p \in [0 ; 100].
-  \end{align*}
-  La proportion d'une sous-population est forcément inférieure à $1$ (et le pourcentage inférieur à $100$).
-}
-
-\nt{
-  On convertit une proportion $p \in [0;1]$ en un pourcentage en la multipliant par $100$.
-  Ainsi, un pourcentage peut s'approximer simplement à l'aide des deux premières décimales de $p$.
-  \begin{multicols}{2}
-  \begin{enumerate}
-  \item $1 = 100\%$
-  \item $\dfrac12 =0,5 = 50\%$
-  \item $\dfrac14 = 0,25 = 25\%$
-  \item $\dfrac15 = 0,2 = 20\%$
-  \item $\dfrac1{10}=0,1 = 10\%$
-  \item $\dfrac1{100} = 0,01 = 1\%$
-  \item $\dfrac1{50} = 0,02 = 2\%$
-  \item $0 = 0\%$
-  \end{enumerate}
-  \end{multicols}
-
-  Les valeurs suivantes sont approximatives mais très utiles lorsqu'on souhaite estimer des pourcentages.
-
-  \begin{multicols}{2}
-  \begin{enumerate}
-  \item $\dfrac13 \approx 33\%$
-  \item $\dfrac23 \approx 66\%$
-  \item $\dfrac17 \approx 14\%$
-  \item $\dfrac19 \approx 11\%$
-  \end{enumerate}
-  \end{multicols}
-  \vspace{3pt} % fractions goes out of bounds
-}
-
-\ex{proportion de fourmis}{
-  Au total sur Terre on dénombre actuellement 16 600 espèces de fourmis parmis les 1,3 millions d'espèces d'insectes déjà décrites.
-
-  Ainsi, la proportion de fourmis parmis les insectes est la suivante.
-  \[ \dfrac{16 600}{1,3\times10^{6}} \approx 0,013 = \dfrac{1,3}{100} = 1,3 \%. \]
-}{ex:fourmis}
-
-
-\nt{
-	Considérons $F \subseteq E$ deux ensembles finis avec $E$ non vide.
-	Supposons qu'on connaisse la proportion $p = \dfrac{|F|}{|E|}$.
-	Alors
-	\begin{align*}
-		|F| = p \cdot |E| && \text{et} && |E| = p^{-1} |F| = \dfrac1p |F|
-	\end{align*}  
-	En connaissant la proportion de $F$ dans $E$, on peut donc déduire la taille de $F$ à partir de celle de $E$ ou vice-versa.
-
-	\textbf{\warning On ne peut pas déduire l'ensemble en lui-même, uniquement son cardinal !}
-}
-
-\ex{}{
-  En reprenant les notations de l'exemple \ref{ex:pop-eleves2}, extraire $50\%$ de l'ensemble $E$ donne un ensemble de taille $\dfrac12 \cdot 34 = 17$.
-  Cependant, il n'est pas possible de connaître ce sous-ensemble, car l'ensemble $F$ des élèves pairs et l'ensemble
-  \[ G = \{ 1 ; 3 ; 5 ; \dots ; 29 ; 31 ; 33 \} \]
-  des élèves impairs sont disjoints et tous les deux de cardinal $17$.
-}{}
-
-\ex{}{
-  On continue l'exemple \ref{ex:fourmis}.
-  En extrayant $1,3\%$ d'une population de $1,3$ millions d'individus, on obtient $16900$ individus.
-  \[ \dfrac{1,3}{100} \cdot 1,3\times10^{6} = 0,013 \cdot 1,3\times10^{6} = 16~900. \]
-  L'approximation ($\approx$) de l'exemple \ref{ex:fourmis} explique la différence entre les valeurs trouvées.
-
-  Réciproquement, en sachant que $16600$ espèces constituent $1,3\%$ du total sur Terre, on calcule
-  \[ 16 600 \cdot \left(\dfrac{1,3}{100}\right)^{-1} = \dfrac{16 600 \cdot 100}{1,3} \approx 1~276~923. \]
-}{ex:fourmis-2}
-
-\ex{proportions de populations imbriquées}{
-  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
-  Parmis celles-ci, $23\%$ sont en danger critique. \footnote{\href{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}}
-
-  On cherche à calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
-  Notons $N$ le nombre total d'espèces. Le nombre d'espèces menacées et donc donné par
-  \[ 0,13 \cdot N. \]
-  Parmis ces espèces, le nombre en danger critique est donné par
-  \[ 0,23 \cdot \left(0,13 \cdot N \right) = ( 0,23 \cdot 0,13 ) \cdot N \approx 0,03 \cdot N. \]
-  Ainsi, $3\%$ des espèces sont en danger critique.
-}{}
-
-\nt{
-  Les proportions sont multiplicatives.
-  Au même titre que prendre la moitié de la moitié revient à prendre un quart,
-  prendre $50\%$ de $50\%$ revient à multiplier par $0,5 \cdot 0,5 = \left(\dfrac12\right)^2 = \dfrac14$.
-
-  Lorsqu'on prend la moitié du tiers d'une quantité, on en prend en fait $\dfrac12 \cdot \dfrac13 = \dfrac16$.
-  On peut estimer la fraction $\dfrac16$ en prenant la moitié de celle de $\dfrac13 \approx 0,33$.
-  D'où $\dfrac16 \approx 16,6\%$.
-}
 
 \exe{1}{
-        Une classe de Seconde comprend $25$ filles pour $9$ garçons.
-        Calculer le pourcentage de filles et de garçons dans la classe.
+	Une classe de Seconde comprend $25$ filles pour $9$ garçons.
+	Calculer le pourcentage de filles et de garçons dans la classe.
 }{exe:pop1}{
 	Le nombre total d'élèves est de $25+9 = 34$.
 	
@@ -161,8 +66,52 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
 	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 73 = 27$.
 }
 
+%\nt{
+%	Soient $F \subseteq E$ deux ensembles finis avec $E$ non vide.
+%	On a alors forcément
+%	\[ 0 \leq |F| \leq |E|, \]
+%	et donc
+%	\begin{align*}
+%		0 \leq p \leq 1 && \iff && p \in [0 ; 1] && \iff 100\cdot p \in [0 ; 100].
+%	\end{align*}
+%	La proportion d'une sous-population est forcément inférieure à $1$ (et le pourcentage inférieur à $100$).
+%}
+
+\nt{
+	On convertit une proportion $p \in [0;1]$ en un pourcentage en la multipliant par $100$.
+	Ainsi, un pourcentage peut s'approximer simplement à l'aide des deux premières décimales de $p$.
+	\begin{align*}
+		 100\% &= 1 && &
+		 50\% &= \dfrac12 =0,5 \\[10pt]
+		 25\% &= \dfrac14 = 0,25  && &
+		 20\% &= \dfrac15 = 0,2 \\[10pt]
+		 10\% &= \dfrac1{10}=0,1  && &
+		 1\%  &= \dfrac1{100} = 0,01 \\[10pt]
+		 2\% &= \dfrac1{50} = 0,02 && &
+		 0\% &= 0
+	 \end{align*}
+
+	Les valeurs suivantes sont approximatives mais très utiles lorsqu'on souhaite estimer des pourcentages.
+
+	\begin{align*}
+	\dfrac13 &\approx 33\% && &
+	\dfrac23 &\approx 66\% && &
+	\dfrac17 &\approx 14\% && &
+	\dfrac19 &\approx 11\%
+	\end{align*}
+	\vspace{3pt} % fractions goes out of bounds
+}
+
+\ex{proportion de fourmis}{
+	Au total sur Terre on dénombre actuellement 16 600 espèces de fourmis parmis les 1,3 millions d'espèces d'insectes déjà décrites.
+
+	Ainsi, la proportion de fourmis parmis les insectes est
+	\[ \dfrac{16~600}{1,3\times10^{6}} \approx 0,013 = \dfrac{1,3}{100} = 1,3 \%. \]
+}{ex:fourmis}
+
+
 \exe{}{
-   En sachant que les 16 600 espèces de fourmis constituent environ 1,3\% du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
+	 En sachant que les 16 600 espèces de fourmis constituent environ 1,3\% du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
 }{exe:pop2}{
 	On a $\dfrac{16 600}{\text{nombre d'espèces d'insectes}} = 1,3\% = 0,013$.
 	
@@ -173,12 +122,52 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
 	Remarquons que la fraction $\dfrac{16600}{0,013}$ ne donne pas un nombre entier, car le pourcentage a été approximé (\og \emph{environ} $1,3$\% \fg).
 }
 
+\nt{
+	Considérons $F \subseteq E$ deux ensembles finis avec $E$ non vide.
+	Supposons qu'on connaisse la proportion $p = \dfrac{|F|}{|E|}$.
+	Alors
+	\begin{align*}
+		|F| = p \cdot |E| && \text{et} && |E| = p^{-1} |F| = \dfrac1p |F|
+	\end{align*}	
+	En connaissant la proportion de $F$ dans $E$, on peut donc déduire la taille de $F$ à partir de celle de $E$ ou vice-versa.
+
+	\textbf{\warning On ne peut pas déduire l'ensemble en lui-même, uniquement son cardinal !}
+}
+
+\ex{}{
+	En reprenant les notations de l'exemple \ref{ex:pop-eleves2}, extraire $50\%$ de l'ensemble $E$ donne un ensemble de taille $\frac12 \cdot 34 = 17$.
+	Cependant, il n'est pas possible de connaître ce sous-ensemble, car l'ensemble $F$ des élèves pairs et l'ensemble
+	\[ G = \bigset{ 1 ; 3 ; 5 ; \dots ; 29 ; 31 ; 33 } \]
+	des élèves impairs sont disjoints et tous les deux de cardinal $17$.
+}{}
+
+%\ex{}{
+%	On continue l'exemple \ref{ex:fourmis}.
+%	En extrayant $1,3\%$ d'une population de $1,3$ millions d'individus, on obtient $16900$ individus.
+%	\[ \dfrac{1,3}{100} \cdot 1,3\times10^{6} = 0,013 \cdot 1,3\times10^{6} = 16~900. \]
+%	L'approximation ($\approx$) de l'exemple \ref{ex:fourmis} explique la différence entre les valeurs trouvées.
+%
+%	Réciproquement, en sachant que $16600$ espèces constituent $1,3\%$ du total sur Terre, on calcule
+%	\[ 16 600 \cdot \left(\dfrac{1,3}{100}\right)^{-1} = \dfrac{16 600 \cdot 100}{1,3} \approx 1~276~923. \]
+%}{ex:fourmis-2}
+
+%\ex{proportions de populations imbriquées}{
+%	En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+%	Parmis celles-ci, $23\%$ sont en danger critique. \footnote{\href{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}{https://naturefrance.fr/indicateurs/proportion-en-france-despeces-menacees-lechelle-mondiale}}
+%
+%	On cherche à calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
+%	Notons $N$ le nombre total d'espèces. Le nombre d'espèces menacées et donc donné par
+%	\[ 0,13 \cdot N. \]
+%	Parmis ces espèces, le nombre en danger critique est donné par
+%	\[ 0,23 \cdot \left(0,13 \cdot N \right) = ( 0,23 \cdot 0,13 ) \cdot N \approx 0,03 \cdot N. \]
+%	Ainsi, $3\%$ des espèces sont en danger critique.
+%}{}
 
 \exe{}{
-  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
-  Parmis celles-ci, $23\%$ sont en danger critique.
-  
-  Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
+	En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+	Parmis celles-ci, $23\%$ sont en danger critique.
+	
+	Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
 }{exe:pop3}{
 	Notons $E$ l'ensemble des espèces indigènes à la France, $M$ la sous-population des espèces menacées, et $D$ la sous-population des espèces en danger critique.
 	On a donc la suite d'inclusions
@@ -194,33 +183,73 @@ Une sous-population de l'ensemble $E$ est une partie de l'ensemble : c'est un en
 	Les proportions sont ainsi multiplicatives. Attention à ne pas naïvement multiplier les pourcentages, car $13\times 23 \approx 300$.
 }
 
+\nt{
+	Les proportions sont multiplicatives.
+	Au même titre que prendre la moitié de la moitié revient à prendre un quart,
+	prendre $50\%$ de $50\%$ revient à multiplier par $0,5 \cdot 0,5 = \left(\frac12\right)^2 = \frac14$.
 
-\section{Évolution relative}
+	Lorsqu'on prend la moitié du tiers d'une quantité, on en prend en fait $\frac12 \cdot \frac13 = \frac16$.
+	On peut estimer la fraction $\frac16$ en prenant la moitié de celle de $\frac13 \approx 0,33$.
+	D'où $\frac16 \approx 16,6\%$.
+}
 
-On généralise d'abord la notion de pourcentage de valeur à tous les nombres réels et pourcentages positifs ou nuls (en permettant les pourcentages supérieurs à $100\%$).
+
+
+\exe{, difficulty=2}{
+				On considère l'ensemble $E= \bigset{1; 2; \dots ; n-1 ; n}$ dépendant d'un entier naturel $n\geq1$.
+				On pose $F = \bigset{k \in E \tq 2 | k}$, l'ensemble des éléments pairs de $E$.
+
+				A-t-on toujours $\dfrac{|F|}{|E|} = \dfrac12$ ? Donner l'ensemble des entiers $n\geq1$ pour lesquels l'égalité est vraie.
+}{exe:evol8}{
+	En prenant $n=1; 2; 3; 4$, on conjecture que l'égalité est vraie si et seulement si $n$ est lui-même pair.
+	
+	D'une part, pour avoir $\dfrac{|F|}{|E|} = \dfrac12$, on doit nécessairement avoir $n = |E| = 2 \cdot |F|$, et donc $n$ pair.
+	
+	Réciproquement, si $n$ est pair, alors $n=2k$ et $F = \bigset{ 2\times1; 2\times2; 2\times3; \cdot ; 2\times(k-1) ; 2 \times k}$.
+	Ainsi $|F| = k = \dfrac{n}2$ et l'égalité est vérifiée. 
+}
+
+\exe{, difficulty=2}{
+		Soit l'ensemble d'entiers $E=\bigset{m; m+1; \dots; n-1 ; n}$ dépendant de deux entiers relatifs $m<n$.
+		Calculer $|E|$ en fonction de $m$ et $n$.
+		Vérifier la formule avec $m=-1$ et $n=1$ en sachant que $\bigl|\bigset{-1 ; 0 ; 1 }\bigr| = 3$.
+}{exe:evol13}{
+	On soustrait $m$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
+		\[ |E| = \bigl| \bigset{ 0; 1 ; \dots ; n-m }\bigr|. \]
+	Il y a $n-m$ entiers de $1$ à $n-m$, et donc $|E| = n-m+1$ éléments au total en n'oubliant pas $0$.
+
+	Pour $m=-1, n=1$, on a bien $n-m+1 = (1) - (-1) + 1	= 3$.
+}
+
+
+\subsection{Calcul de cardinal}
+
+Pour $F \subseteq E$, le calcul de la proportion $p = \dfrac{|F|}{|E|}$ se réécrit
+	\[ |F| = p \cdot |E|. \]
+Pour prendre une proportion $p$ d'un nombre, on multiplie donc ce nombre par la proportion.
+La définition suivante se spécialise dans le cas d'un pourcentage $P\%$ qui correspond à une proportion $p = \dfrac{P}{100}$.
 
 \dfn{}{
-  Soit $x, p\in\R$ une valeur et une proportion positives ou nulles.
-  On rappelle que $100p \% = p$.
+	Soit $x, P\in\R$ deux valeurs positives ou nulles.
 
-  On dira \og $\bigl(100p\bigr) \%$ de $x$ \fg pour parler de la valeur $p \cdot x$.
+	On dira \og $P \%$ de $x$ \fg pour parler de la valeur $\dfrac{P}{100} \cdot x$.
 }
 {}
 
 
 
 \ex{}{
-  Un manteau est mis en vente à un prix initial de $150$€ auquel une remise de $45\%$ est appliquée.
-  Celui coûte donc $55\%$ de $150$ euros, ce qui vaut
-  \[ 0,55 \cdot 150 = 82,5.\]
+	Un manteau est mis en vente à un prix initial de $150$€ auquel une remise de $45\%$ est appliquée.
+	Celui coûte donc $55\%$ de $150$ euros, ce qui vaut
+		\[ 0,55 \cdot 150 = 82,5.\]
 }{}
 
 
 \exe{, difficulty=1}{
-  On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
-  Ceci serait égal à $20\%$ de la biomasse humaine.
+	On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+	Ceci serait égal à $20\%$ de la biomasse humaine.
 
-  Estimer la biomasse totale des humains sur Terre en tonnes.
+	Estimer la biomasse totale des humains sur Terre en tonnes.
 }{exe:evol3}{
 	On a la relation
 		\[ \dfrac{\text{biomasse des fourmis}}{\text{biomasse humaine}} = 0,2. \]
@@ -230,134 +259,168 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 \mprop{}{
-  Soient $A$ et $B$ deux nombres réels positifs ou nuls.
-  Les quantités \og $A\%$ de $B$ \fg et \og $B\%$ de $A$ \fg sont égales.
+	Soient $A$ et $B$ deux nombres réels positifs ou nuls.
+	Les quantités \og $A\%$ de $B$ \fg et \og $B\%$ de $A$ \fg sont égales.
 }{}
 
 
 \exe{}{
-  Calculer sans calculatrice les valeurs suivantes.
-  \begin{multicols}{3}
-    \begin{enumerate}
-    \item $75\%$ de $60$
-    \item $60\%$ de $75$
-    \item $72\%$ de $25$
-    \item $68\%$ de $20$
-    \item $125\%$ de $40$
-    \item $40\%$ de $125$
-    \end{enumerate}
-  \end{multicols}
+	Calculer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{3}
+		\begin{enumerate}
+		\item $75\%$ de $60$
+		\item $60\%$ de $75$
+		\item $72\%$ de $25$
+		\item $68\%$ de $20$
+		\item $125\%$ de $40$
+		\item $40\%$ de $125$
+		\end{enumerate}
+	\end{multicols}
 }{exe:evol1}{
-  \begin{multicols}{2}
-    \begin{enumerate}
-    \item $\dfrac34 \cdot 60 = 3 \cdot \dfrac{60}4 = 3 \cdot 15 = 45$
-    \item $45$
-    \item $\dfrac14 \cdot 72 = 18$
-    \item $\dfrac15 \cdot 68 = \dfrac{136}{10} = 13,6$
-    \item $40 + \dfrac14 \cdot 40 = 50$
-    \item $50$
-    \end{enumerate}
-  \end{multicols}
+	\begin{multicols}{2}
+		\begin{enumerate}
+		\item $\frac34 \cdot 60 = 3 \cdot \frac{60}4 = 3 \cdot 15 = 45$
+		\item $45$
+		\item $\frac14 \cdot 72 = 18$
+		\item $\frac15 \cdot 68 = \frac{136}{10} = 13,6$
+		\item $40 + \frac14 \cdot 40 = 50$
+		\item $50$
+		\end{enumerate}
+	\end{multicols}
 }
 
 \exe{}{
-  Approximer sans calculatrice les valeurs suivantes.
-  \begin{multicols}{3}
-    \begin{enumerate}
-    \item $33\%$ de $150$
-    \item $166\%$ de $180$
-    \item $11\%$ de $90$
-    \item $89\%$ de $81$
-    \item $16,6\%$ de $18$
-    \item $83,4\%$ de $36$
-    \end{enumerate}
-  \end{multicols}
+	Approximer sans calculatrice les valeurs suivantes.
+	\begin{multicols}{3}
+		\begin{enumerate}
+		\item $33\%$ de $150$
+		\item $166\%$ de $180$
+		\item $11\%$ de $90$
+		\item $89\%$ de $81$
+		\item $16,6\%$ de $18$
+		\item $83,4\%$ de $36$
+		\end{enumerate}
+	\end{multicols}
 }{exe:evol2}{
-  \begin{multicols}{2}
-    \begin{enumerate}
-    \item $\approx \dfrac13 \cdot 150 = 50$
-    \item $\approx 180 + \dfrac23 \cdot 180 = 180 + 120 = 300$
-    \item $\approx \dfrac19 \cdot 90 = 10$
-    \item $\approx 81 - \dfrac19 \cdot 81 = 81 - 9 = 72$
-    \item $\approx \dfrac16 \cdot 18 = 3$
-    \item $\approx 36 - \dfrac16 \cdot 36 = 36 - 6 = 30$
-    \end{enumerate}
-  \end{multicols}
+	\begin{multicols}{2}
+		\begin{enumerate}
+		\item $\approx \frac13 \cdot 150 = 50$
+		\item $\approx 180 + \frac23 \cdot 180 = 180 + 120 = 300$
+		\item $\approx \frac19 \cdot 90 = 10$
+		\item $\approx 81 - \frac19 \cdot 81 = 81 - 9 = 72$
+		\item $\approx \frac16 \cdot 18 = 3$
+		\item $\approx 36 - \frac16 \cdot 36 = 36 - 6 = 30$
+		\end{enumerate}
+	\end{multicols}
 }
 
 
 \exe{}{
-  Calculer sans calculatrice les pourcentages suivants.
-  \begin{multicols}{2}
-    \begin{enumerate}
-    \item $50\%$ de $60$
-    \item $60\%$ de $50$
-    \item $68\%$ de $25$
-    \item $77\%$ de $20$
-    \end{enumerate}
-  \end{multicols}
+	Calculer sans calculatrice les pourcentages suivants.
+	\begin{multicols}{2}
+		\begin{enumerate}
+		\item $50\%$ de $60$
+		\item $60\%$ de $50$
+		\item $68\%$ de $25$
+		\item $77\%$ de $20$
+		\end{enumerate}
+	\end{multicols}
 }{exe:pourcentages}{
-	TODO
+	\begin{multicols}{2}
+		\begin{enumerate}
+		\item $\frac12 \times 60 = 30$
+		\item 30 par symétrie $A\% B = B\% A$
+		\item $\frac14 \times 68 = \frac12 34 = 17$
+		\item $\frac15 \times 77 = \frac{154}{10} = 15,4$
+		\end{enumerate}
+	\end{multicols}
 }
 
-\nt{
-	Le pourcentage peut être également marqueur d'une évolution \emphindex{relative}
-	\footnote{L'évolution \emphindex{absolue} correspond à la simple différence ``valeur finale -- valeur initiale''. Par exemple et selon le GIEC, la température moyenne mondiale a augmenté d'environ 1,1°C depuis le début de l'industrialisation ($19^{\text{è}}$ siècle).}
- d'une même quantité au fil du temps.
-	On calculera alors généralement une proportion $p$ donnant l'évolution entre deux valeurs.
 
+\section{Évolution relative}
+
+Le pourcentage peut être également marqueur d'une \emphindex{évolution relative}
+\footnote{L'\emphindex{évolution absolue}, elle, correspond à la différence ``valeur finale -- valeur initiale''. Par exemple et selon le GIEC, la température moyenne mondiale a augmenté d'environ 1,1°C depuis le début de l'industrialisation ($19^{\text{è}}$ siècle).}
+d'une même quantité au fil du temps.
+On parlera alors d'augmentation ou de diminution d'un certain pourcentage.
+
+Il sera alors utile de voir la proportion donnant l'évolution entre deux valeurs comme un \emphindex{coefficient multiplicateur}, noté $CM$.
 	\begin{align}\label{eq:evolution}
-		p = \dfrac{\text{valeur initiale}}{\text{valeur finale}}.
+		CM = \dfrac{\text{valeur finale}}{\text{valeur initial}} && \iff && (\text{valeur finale}) = CM \times (\text{valeur initial}).
 	\end{align}
-}
 
-\mprop{}{
-  Soient $a, b$ deux réels strictement positifs et $p = \dfrac{a}b$ leur rapport.
-  On distingue trois cas.
-  \begin{enumerate}
-    \item si $a=b$, alors $p=1$ ;
-    \item si $a >b$, alors $p>1$ ; et
-    \item si $a < b$, alors $p<1$.
-  \end{enumerate}
-}{}
+% very important but goes over their heads
+%\mprop{}{
+%	Soient $a, b$ deux réels strictement positifs et $p = \dfrac{a}b$ leur rapport.
+%	On distingue trois cas.
+%	\begin{enumerate}
+%		\item si $a=b$, alors $p=1$ ;
+%		\item si $a >b$, alors $p>1$ ; et
+%		\item si $a < b$, alors $p<1$.
+%	\end{enumerate}
+%}{}
 
 
 \nt{
-  La proportion $p$ calculée en \eqref{eq:evolution} peut donc être supérieure à $1$ si la valeur initiale est plus petite que la valeur finale.
-  Ceci correspond à un pourcentage supérieur à $100\%$.
+	Chaque évolution (augmentation ou diminution) est associée à un coefficient multiplicateur, et vice versa.
 }
 
-\dfn{augmentation, diminution}{
-  Une \emphindex{augmentation} d'une valeur $N$ d'une proportion $p\geq0$ correspond à la somme
-  \[ N + p\cdot N = (1+p)\cdot N.\]
-  Une \emphindex{diminution} d'une valeur $N$ d'une proportion $0\leq p \leq 1$ correspond à la différence
-  \[ N - p\cdot N = (1-p)\cdot N.\]
+
+\subsection{Coefficient multiplicateur à partir d'évolution}
+
+\dfn{augmentation, diminution}{\,
+
+	\begin{enumerate}
+		\item
+		Une \emphindex{augmentation} d'une valeur $V$ de $P\%$ correspond à la somme
+			\[ V + \dfrac{P}{100}\cdot V = \left(1+\dfrac{P}{100}\right)\cdot V.\]
+		Le coefficient multiplicateur associé est $1 + \frac{P}{100}$.
+	
+		\item
+		Une \emphindex{diminution} d'une valeur $V$ de $P\%$ correspond à la différence
+			\[ V - \dfrac{P}{100}\cdot V =  \left(1-\dfrac{P}{100}\right)\cdot V.\]
+		Le coefficient multiplicateur associé est $1 - \frac{P}{100}$.
+	\end{enumerate}
 }{}
+
+
+\subsection{Évolution à partir de coefficient multiplicateur}
+
+\thm{}{
+	Soit $CM$ le coefficient multiplicateur associé à une évolution.
+	Alors
+		\begin{enumerate}
+			\item
+			Si $CM - 1 > 0$, alors l'évolution est une augmentation de $100(CM-1) \%$.
+			\item
+			Si $CM - 1 < 0$, alors l'évolution est une diminution de $100(1-CM) \%$.
+		\end{enumerate}
+}{thm:prct-to-coeff}
 
 \ex{}{
-  En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).\footnote{\href{https://www.statistiques.developpement-durable.gouv.fr/media/7469}{https://www.statistiques.developpement-durable.gouv.fr/media/7469}}
-  En $2022$, le prix était de $96$€.
+	En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).\footnote{\href{https://www.statistiques.developpement-durable.gouv.fr/media/7469}{https://www.statistiques.developpement-durable.gouv.fr/media/7469}}
+	En $2022$, le prix était de $96$€.
 
-  On calcule $\dfrac{115}{96} \approx 1,2$.
-  Le prix de $2023$ est donc $120\%$ celui de $2022$, ce qui correspond à une augmentation de $20\%$.
+	On calcule $\dfrac{115}{96} \approx 1,2$.
+	Le prix de $2023$ est donc $120\%$ celui de $2022$, ce qui correspond à une augmentation de $20\%$.
 }{}
 
 
 \exe{}{
-  En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
-  En $2022$, le prix était de $96$€.
+	En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
+	En $2022$, le prix était de $96$€.
 
-  Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
+	Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
 }{exe:evol9}{
 	On calcule la proportion $\dfrac{115}{96} \approx 1,20 = 120\%$.
 	Celle-ci correspond à une augmentation de $20\%$.
 }
 
 \exe{}{
-  En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
-  En $2021$, celle-ci s'élevait plutôt à $475,85$ TWh.
+	En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
+	En $2021$, celle-ci s'élevait plutôt à $475,85$ TWh.
 
-  Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
+	Calculer le pourcentage de diminution de la consommation entre l'année $2021$ et l'année $2022$.
 }{exe:evol10}{
 	On calcule la proportion $\dfrac{463}{475,85} \approx 0,973 = 97,3\%$.
 	Celle-ci correspond à une diminution de $2,7\%$.
@@ -371,10 +434,27 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire augmente de 10\% ?
 	\end{enumerate}
 }{exe:prix-psychologique}{
-	TODO
+	\begin{enumerate}
+		\item
+		Le coefficient multiplicateur correspondant à l'évolution du prix est donné par 
+			\[ \dfrac{999}{1~000} = 0,999, \]
+		ce qui implique une diminution de $0,1\%$.
+		
+		Une évolution réciproque des ventes annulera la diminution du prix.
+		Le coefficient multiplicateur réciproque étant 
+			\[ \dfrac1{0,999} = \dfrac{1~000}{999} \approx 1,001, \]
+		une augmentation de $\approx0,1\%$
+		\item De quel pourcentage les ventes doivent-elles augmenter pour que le chiffre d'affaire augmente de 10\% ?
+		Le coefficient multiplicateur $CM$ recherché vérifie
+			\begin{align*}
+				0,999 \times CM = 1,1 && \iff && CM = \dfrac{1,1}{0,999} \approx 1,1011.
+			\end{align*}
+		Ceci correspond à une augmentation de $\approx 10,11\%$.
+	\end{enumerate}
 }
 
 
+\subsection{Évolutions successives}
 
 \thm{évolutions successives}{
 	L'évolution d'une valeur correspond à sa multiplication par un coefficient multiplicateur $m$.
@@ -403,7 +483,7 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }{}
 
 \exe{}{
-        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+				À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
 }{exe:evol5}{
 	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
 	Une diminution, elle, multiplie par $0,8$.
@@ -414,49 +494,50 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 }
 
 \exe{, difficulty=1}{
-  Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
-  Ainsi, après la première année, il y aura $1,03 \cdot 10 = 10,3$€ sur son compte.
-  La deuxième année, il y aura $1,03 \cdot 10,35 = 10,609$€, etc...
+	Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
+	Ainsi, après la première année, il y aura $1,03 \cdot 10 = 10,3$€ sur son compte.
+	La deuxième année, il y aura $1,03 \cdot 10,35 = 10,609$€, etc...
 
-  À l'aide de la calculatrice, répondre aux questions suivantes.
-  \begin{enumerate}
-  \item Combien d'argent aura-t-elle après $5$ ans ?
-  \item Combien d'argent aura-t-elle après $50$ ans ?
-  \item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
-  \end{enumerate}
+	À l'aide de la calculatrice, répondre aux questions suivantes.
+	\begin{enumerate}
+	\item Combien d'argent aura-t-elle après $5$ ans ?
+	\item Combien d'argent aura-t-elle après $50$ ans ?
+	\item Combien d'argent y aura-t-il sur son compte après $1000$ ans ?
+	\end{enumerate}
 }{exe:evol4}{
-  \begin{enumerate}
-  \item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10  \approx 11,59$€.
-  \item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10  \approx 43,84$€.
-  \item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10  \approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
-  \end{enumerate}
+	\begin{enumerate}
+	\item On multiplie $5$ fois par $1,03$, ce qui donne $1,03^5 \times 10	\approx 11,59$€.
+	\item On multiplie $50$ fois par $1,03$, ce qui donne $1,03^{50} \times 10	\approx 43,84$€.
+	\item On multiplie $1000$ fois par $1,03$, ce qui donne $1,03^{1000} \times 10	\approx 6,87 \times 10^{13}$€, c'est-à-dire environ $68$ billions d'euros ($1$ billion = $1000$ milliards).
+	\end{enumerate}
 }
 
 \exe{, difficulty=2}{
-    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
-    \begin{enumerate}
-    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $100p\%$ suivie d'une diminution de $100p\%$ ?
-    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
-    \end{enumerate}
+		Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
+		\begin{enumerate}
+		\item À quelle évolution, en fonction de $p$, correspond une augmentation de $100p\%$ suivie d'une diminution de $100p\%$ ?
+		\item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
+		\end{enumerate}
 }{exe:evol12}{
 
-    \begin{enumerate}
-    \item Soit $N\geq0$ une quantité. Après une augmentation de $100p\%$ puis une diminution de $100p\%$,
-    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
-    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
-    		
-    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
-    \item On pose l'égalité suivante
-    		\[ 100p^2 = 16. \]
-    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
-    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
+		\begin{enumerate}
+		\item Soit $N\geq0$ une quantité. Après une augmentation de $100p\%$ puis une diminution de $100p\%$,
+				la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
+				Ceci correspond à une diminution de $100\left(p^2\right) \%$.
+				
+				On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
+		\item On pose l'égalité suivante
+				\[ 100p^2 = 16. \]
+			Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
+				\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
 	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
 	
 	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
-    \end{enumerate}
+		\end{enumerate}
 
 }
 
+\subsection{Évolution réciproque}
 
 \thm{évolution réciproque}{
 	L'évolution réciproque est l'évolution qui permet de revenir à une valeur initale.
@@ -470,15 +551,15 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 
 
 \ex{}{
-  Une augmentation de 50\% revient à multiplier une valeur initiale $a$ par 1,5 pour obtenir une valeur finale $b$.
-  \[b = 1,5\cdot a.\]
-  En changeant de référentiel, on peut se demander quel pourcentage de diminution doit-on appliquer à la valeur finale $b$ pour obtenir la valeur initiale $a$ ?
-  \[ a = \dfrac{1}{1,5} \cdot b = \dfrac23 b \approx 0,66 \cdot b. \]
-  Pour obtenir $a$, il faut donc réduire $b$ d'environ 34\%.
+	Une augmentation de 50\% revient à multiplier une valeur initiale $a$ par 1,5 pour obtenir une valeur finale $b$.
+	\[b = 1,5\cdot a.\]
+	En changeant de référentiel, on peut se demander quel pourcentage de diminution doit-on appliquer à la valeur finale $b$ pour obtenir la valeur initiale $a$ ?
+	\[ a = \dfrac{1}{1,5} \cdot b = \dfrac23 b \approx 0,66 \cdot b. \]
+	Pour obtenir $a$, il faut donc réduire $b$ d'environ 34\%.
 }{}
 
 \exe{}{
-  Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
 }{exe:evol6}{
 	Notons $P$ le prix initial de l'objet.
 	Le prix augmenté vaut donc $1,5 \cdot P$.
@@ -488,29 +569,54 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 
 
 \exe{}{
-  Considérons deux tailleurs, l'un à 250€ et l'autre à 360€.
-  \begin{enumerate}
-  \item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
-  \item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
-  \end{enumerate}
+	Considérons deux tailleurs, l'un à 250€ et l'autre à 360€.
+	\begin{enumerate}
+	\item Quelle augmentation de prix faut-il appliquer au premier tailleur pour qu'il ait le prix du second ?
+	\item Quel rabais faut-il appliquer au second tailleur pour qu'il ait le prix du premier ?
+	\end{enumerate}
 }{exe:evol7}{
-  \begin{enumerate}
-  \item On calcule l'évolution $\frac{360}{250}  = 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut 144\% du prix du premier : une augmentation de 44\% est nécessaire.
-  \item On calcule l'évolution $\frac{250}{360}  \approx 0,7 = 70\%$. Le premier tailleur vaut environ 70\% du prix du second : une diminution de 30\% est nécessaire.
-  \end{enumerate}
+	\begin{enumerate}
+	\item On calcule l'évolution $\frac{360}{250}	= 1,44 = 144\%$. Ainsi, le deuxième tailleur vaut 144\% du prix du premier : une augmentation de 44\% est nécessaire.
+	\item On calcule l'évolution $\frac{250}{360}	\approx 0,7 = 70\%$. Le premier tailleur vaut environ 70\% du prix du second : une diminution de 30\% est nécessaire.
+	\end{enumerate}
 }
 
 \exe{}{
-	Lors d'un payement par carte bancaire, une commission valant 1\% du montant de la transaction est versée comme frais bancaire.
+	Lors d'un payement par carte bancaire, une commission valant 1\% du montant de la transaction est versée comme frais bancaires.
 	Ainsi, lorsqu'un débiteur paye 100€, le créditeur reçoit 99€, et 1€ est versé à la banque.
 	\begin{enumerate}
-		\item Pour un payement de 200€, quelle quantité est versée en frais bancaire ? quelle quantité le créditeur reçoit-il ?
+		\item Pour un payement de 200€, quelle quantité est versée en frais bancaires ? quelle quantité le créditeur reçoit-il ?
 		\item Répondre à la même question pour un payement de 202€.
 		\item Obtient-on la quantité initiale après une augmentation de 1\% suivie d'une diminution de 1\% ?
 		\item Quelle quantité le débiteur doit-il verser pour que le créditeur reçoive exactement 200€ ? Est-ce un nombre réel ? rationnel ? décimal ? entier ?
 	\end{enumerate}
 }{exe:caution-matthieu-payup}{
-	TODO
+	\begin{enumerate}
+		\item
+		Lorsque le débiteur paye 200€, 1\% de cette quantité est versée en frais bancaires, soit 2€.
+		Le créditeur reçoit donc 198€.
+		
+		\item 
+		Lorsque le débiteur paye 202€, 1\% de cette quantité est versée en frais bancaires, soit 2,02€.
+		Le créditeur reçoit donc 199,98€.
+		
+		\item 
+		La réponse est non et les deux questions précédentes donnent un exemple : augmenter 200€ de 1\% donne 202€, et diminuer 202€ de 1\% donne 199,98€.
+		
+		\item 
+		Nommons $P$ le prix payé par le débiteur.
+		Après diminution de 1\%, $0,99\times P$ est reçu par le créditeur.
+		Or, 
+			\begin{align*}
+				0,99 \times P = 200 && \iff && P = \dfrac{200}{0,99} \approx 202,02.
+			\end{align*}
+		Bien sûr, $P$ est réel et non entier.
+		Pour reconnaître les ensembles dans lesquels $P$ appartient, il faut garder une forme exacte :
+			\[ P = \dfrac{200}{0,99} = \dfrac{20~000}{99}. \]
+		Il suit que $P$ est un nombre rationnel.
+		
+		Le chapitre d'arithmétique permettra de conclure immédiatement que $P$ n'est pas décimal, car la fraction est irréductible et que le dénominateur n'admet pas que 2 et 5 comme facteurs premiers ($99 = 11 \times 3^2$).
+	\end{enumerate}
 }
 
 \exe{, difficulty=1}{
@@ -540,23 +646,10 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	\end{enumerate}
 }
 
-\exe{, difficulty=2}{
-        On considère l'ensemble $E= \bigset{1; 2; \dots ; n-1 ; n}$ dépendant d'un entier naturel $n\geq1$.
-        On pose $F = \bigset{k \in E \tq 2 | k}$, l'ensemble des éléments pairs de $E$.
-
-        A-t-on toujours $\dfrac{|F|}{|E|} = \dfrac12$ ? Donner l'ensemble des entiers $n\geq1$ pour lesquels l'égalité est vraie.
-}{exe:evol8}{
-	En prenant $n=1; 2; 3; 4$, on conjecture que l'égalité est vraie si et seulement si $n$ est lui-même pair.
-	
-	D'une part, pour avoir $\dfrac{|F|}{|E|} = \dfrac12$, on doit nécessairement avoir $n = |E| = 2 \cdot |F|$, et donc $n$ pair.
-	
-	Réciproquement, si $n$ est pair, alors $n=2k$ et $F = \bigset{ 2\times1; 2\times2; 2\times3; \cdot ; 2\times(k-1) ; 2 \times k}$.
-	Ainsi $|F| = k = \dfrac{n}2$ et l'égalité est vérifiée. 
-}
 
 
 \exe{, difficulty=1}{
-  Si on augmente le prix d'un objet de $100p\%$ ($p\geq0$ réel), quel rabais faut-il appliquer (en fonction de $p$) pour retrouver le prix initial de l'objet ?
+	Si on augmente le prix d'un objet de $100p\%$ ($p\geq0$ réel), quel rabais faut-il appliquer (en fonction de $p$) pour retrouver le prix initial de l'objet ?
 }{exe:evol11}{
 	Soit $N\geq0$ un prix quelconque, et $(1+p)\cdot N$ le prix augmenté de $100p\%$.
 	
@@ -564,18 +657,6 @@ On généralise d'abord la notion de pourcentage de valeur à tous les nombres r
 	La diminution correspondante est donnée par
 		\[ 1 - \dfrac{1}{1+p} = \dfrac{p}{1+p}. \]
 	On comparera avec l'exercice 10, où $p=0,5$, et $\dfrac{p}{1+p} = \dfrac{0,5}{1,5} = \dfrac13 \approx 33,3 \%$.
-}
-
-\exe{, difficulty=2}{
-    Soit l'ensemble d'entiers $E=\bigset{m; m+1; \dots; n-1 ; n}$ dépendant de deux entiers relatifs $m<n$.
-    Calculer $|E|$ en fonction de $m$ et $n$.
-    Vérifier la formule avec $m=-1$ et $n=1$ en sachant que $\bigl|\bigset{-1 ; 0 ; 1 }\bigr| = 3$.
-}{exe:evol13}{
-	On soustrait $m$ à chaque élément de $E$, ce qui ne change pas le cardinal mais a l'avantage de simplifier l'ensemble.
-		\[ |E| = \bigl| \bigset{ 0; 1 ; \dots ; n-m }\bigr|. \]
-	Il y a $n-m$ entiers de $1$ à $n-m$, et donc $|E| = n-m+1$ éléments au total en n'oubliant pas $0$.
-
-	Pour $m=-1, n=1$, on a bien $n-m+1 = (1) - (-1) + 1  = 3$.
 }
 
 \section{Ordres de grandeur}
@@ -604,7 +685,7 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 		\[ \bigl( q^{a}\bigr)^b = q^{a\times b}. \]
 	En particulier, on a 
 		\begin{align*}
-			q^0 = 1 && q^{-1} = \dfrac1q &&  q^{-a} = \dfrac1{q^a}
+			q^0 = 1 && q^{-1} = \dfrac1q &&	q^{-a} = \dfrac1{q^a}
 		\end{align*}
 }{prop:propriétés-puissances}
 
@@ -625,7 +706,20 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 	\end{enumerate}
 	\end{multicols}
 }{exe:puissances}{
-	TODO
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^8$
+		\item $4^{10}$
+		\item $5^0 = 1^1 = 4^0 = \dots$
+		\item $1^1 = 2^0 = 100^0 = \dots$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $7^{-12}$
+		\item $10^{24}$
+		\item $10^{-11}$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{}{
@@ -638,11 +732,13 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 		\end{itemize}
 	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
 }{exe:atomes-univers}{
-	TODO
+	Le nombre d'étoiles est de donné par $10^{11} \times 10^{11} = 10^{22}$.
+	Par conséquent, la masse totale est de $10^{22} \times10^{32} = 10^{54}$ kilogrammes, ce qui est égal à $10^{54} \times 10^3 = 10^{57}$ grammes.
+	Finalement, le nombre d'atomes peut être estimé à $10^{57} \times10^{24} = 10^{81}$.
 }
 
 \dfn{ordre de grandeur}{
-	Un nombre a pour  \emphindex{ordre de grandeur} $10^n$, avec $n\in\Z$ entier relatif, sa puissance de $10$ la plus proche.
+	Un nombre a pour	\emphindex{ordre de grandeur} $10^n$, avec $n\in\Z$ entier relatif, sa puissance de $10$ la plus proche.
 }{dfn:ordre-grandeur}
 
 \ex{}{
@@ -657,7 +753,15 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
 	\end{enumerate}
 }{exe:grandeur-binaire}{
-	TODO
+	D'abord, $2^{10} = 1024 \approx 10^3$, comme requis.
+	\begin{enumerate}
+		\item
+		Il suit que $2^{20} = \left( 2^{10} \right)^2 \approx \left(10^3\right)^2 = 10^6$.
+		Il faut donc 7 chiffres pour écrire $2^{20}$ en base 10 (et il en faut 21 pour l'écrire en base 2).
+		\item 
+		Similairement, $2^{35} = 2^5 \times \left( 2^{10} \right)^3 \approx 32 \times \left(10^3\right)^3 = 32 \times 10^9 = 3,2 \times 10^{10}$.
+		Il faut donc 11 chiffres pour écrire $2^{35}$ en base 10.
+	\end{enumerate}
 }
 
 % redondant un peu
@@ -670,7 +774,19 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 		\item En déduire l'ordre de grandeur de $6^{24} \times 7^{12}$ et le nombre de chiffres nécessaires pour l'écrire.
 	\end{enumerate}
 }{exe:grandeur-6-7}{
-	TODO
+	D'abord, $6^{8} = 1679616 \approx 10^6$ et $7^6 = 117649 \approx 10^{5}$, comme requis.
+	\begin{enumerate}
+		\item
+		Comme $6^{16} = \left( 6^8 \right)^2$, cette valeur peut être approximée par $\left(10^6\right)^2 = 10^{12}$.
+		Il faut donc 13 chiffres pour écrire ce nombre en base 10.
+		\item
+		Similairement, $7^{18} \approx \left( 10^{5} \right)^3 \approx 10^{15}$.
+		Il faut donc 16 chiffres pour écrire $7^{18}$ en base 10.
+		\item
+		Similairement,
+			\[ 6^{24} \times 7^{12} \approx \left( 10^6\right)^3 \times \left(10^5\right)^2 = 10^{28}. \]
+		Il faut donc 29 chiffres pour écrire ce nombre en base 10.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -679,14 +795,25 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 	
 	En déduire l'ordre de grandeur de $10^{50} - 10^{30}$.
 }{exe:grandeur-soustraction}{
-	TODO
+	Par distributivité,
+		\[ 10^{50} \bigl( 1 - 10^{-20} \bigr) = 10^{50} \times 1 + 10^{50} \times 10^{-20} = 10^{50} + 10^{30}. \]
+	Comme $10^{-20} = \underbrace{0,00\cdots00}_{\text{20 zéros}}1$, on en déduit que
+		\[ 1-10^{-20} = 0,\underbrace{99\cdots99}_{\text{20 neufs}}, \]
+	nombre très proche de 1.
+	L'ordre de grandeur de $10^{50} - 10^{30}$ est donc $10^{50}$.
+	Plus généralement, seuls les ordres dominants sont pris en compte lors de l'estimation de la grandeur d'un nombre.
 }
 
 \exe{}{
 	Exprimer en écriture scientifique la valeur obtenue après une diminution de 60\% de $10^{60}$.
 	Quel est son ordre de grandeur ?
 }{exe:grandeur-évolution}{
-	TODO
+	Après diminution de 60\%, il reste 40\% de la valeur.
+	La valeur finale est donc $0,4 \times 10^{60} = 4 \times 10^{59}$.
+	Son ordre de grandeur est de $10^{59}$.
+	
+	Les ordres de grandeurs ne changent pas drastiquement même lorsque sujets à une grande évolution.
+	Par exemple, prendre 1\% d'une valeur ne la diminuera que de deux ordres de grandeur (car $1\% = 10^{-2}$).
 }
 
 \exe{, difficulty=2}{
@@ -695,15 +822,39 @@ Dans la suite, $q \in\R_+^*$ est un nombre réel strictement positif qu'on appel
 	
 	\begin{enumerate}
 		\item Implémenter la fonction \texttt{puissance(q,N)} figure \ref{fig:fast-exp} qui renvoie $q^N$.
-		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,4)} termine ? et  \texttt{puissance(q,10)} ? et \texttt{puissance(q,N)} ?
-		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:fast-exp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)},  \texttt{fastexp(q, 3)} ?
+		\item Combien de multiplications sont nécessaires pour que \texttt{puissance(q,4)} termine ? et	\texttt{puissance(q,10)} ? et \texttt{puissance(q,N)} ?
+		\item Considérons l'algorithme \texttt{fastexp} de la figure \ref{fig:fast-exp}. Que retourne l'appel \texttt{fastexp(q, 1)} ? et \texttt{fastexp(q, 2)}, \texttt{fastexp(q, 3)} ?
 		\item Combien de multiplications sont nécessaires pour que \texttt{fastexp(q,4)} termine ?
 		\item Comparer le nombre de multiplications nécessaires au calcul de $q^{1024}$ en utilisant \texttt{puissance(q,1024)} versus \texttt{fastexp(q, 10)}.
-		\item Montrer que si $N=2^n$, alors  \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
-		\item Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
+		\item Montrer que si $N=2^n$, alors \texttt{fastexp(q, n)} retourne $q^N$ en $n$ opérations arithmétiques.
+		%\item Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
 	\end{enumerate}
 }{exe:fast-exp}{
-	TODO
+	\begin{enumerate}
+		\item[]
+		
+		\item
+		Il faut $N$ multiplications pour que \texttt{puissance(q,N)} termine, car il calcule d'abord $1\times q$, puis $q\times q$, $q \times q^2$, $q \times q^3$, etc... jusqu'à $q \times q^{N-1} = q^N$.
+		
+		\item 
+		L'appel \texttt{fastexp(q, 1)} renvoie $q^2$.
+		L'appel \texttt{fastexp(q, 2)} calcule $q^2$ puis renvoie $\left(q^2\right)^2 = q^4$.
+		L'appel \texttt{fastexp(q, 3)} calcule $q^2$ puis $\left(q^2\right)^2 = q^4$ et enfin renvoie $\left(q^4\right)^2 = q^8$.
+		
+		\item 
+		Il faut 4 multiplication pour que \texttt{fastexp(q,4)} et renvoie $q^{16}$, car la mise au carré coûte uniquement une multiplication.
+		
+		\item 
+		Avec \texttt{puissance(q,1024)}, 1024 multiplications sont nécessaires pour renvoyer $q^{1024}$.
+		Avec \texttt{fastexp(q, 10)}, 10 multiplications sont nécessaires, et $q^{2^{10}} = q^{1024}$ est renvoyé.
+		
+		\item
+		\texttt{fastexp(q, n)} met la valeur stockée au carré $n$ fois, en commençant par $q = q^{2^0}$.
+		À chaque étape, l'exposant est doublé, jusqu'à atteindre $2^n = N$.
+		La fonction renvoie donc bien $q^{2^n} = q^N$ en $n$ opérations.
+		
+		%\item Réécrire \texttt{fastexp} sous forme récursive en quatre lignes.
+	\end{enumerate}
 }
 
 \begin{figure}
