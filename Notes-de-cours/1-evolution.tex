@@ -406,15 +406,15 @@ Il sera alors utile de voir la proportion donnant l'évolution entre deux valeur
 }{}
 
 
-\exe{}{
-	En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
-	En $2022$, le prix était de $96$€.
-
-	Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
-}{exe:evol9}{
-	On calcule la proportion $\dfrac{115}{96} \approx 1,20 = 120\%$.
-	Celle-ci correspond à une augmentation de $20\%$.
-}
+%\exe{}{
+%	En $2023$, le prix moyen du gaz naturel facturé aux ménages français s'élève à $115$€ par MWh, toutes taxes comprises (TTC).
+%	En $2022$, le prix était de $96$€.
+%
+%	Calculer le pourcentage d'augmentation du prix entre l'année $2022$ et l'année $2023$.
+%}{exe:evol9}{
+%	On calcule la proportion $\dfrac{115}{96} \approx 1,20 = 120\%$.
+%	Celle-ci correspond à une augmentation de $20\%$.
+%}
 
 \exe{}{
 	En $2022$ en France, la consommation de gaz naturel s'établit à $463$ TWh.
@@ -483,7 +483,7 @@ Il sera alors utile de voir la proportion donnant l'évolution entre deux valeur
 }{}
 
 \exe{}{
-				À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+	À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
 }{exe:evol5}{
 	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
 	Une diminution, elle, multiplie par $0,8$.
@@ -491,6 +491,67 @@ Il sera alors utile de voir la proportion donnant l'évolution entre deux valeur
 	La quantité finale est donné par 
 		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
 	qui correspond à une diminution de $4\%$.
+}
+
+\exe{}{
+	Une livre anglaise équivaut à 0,453 kilogrammes environ.
+	Pour convertir une quantité $x$ de livres anglaises en kilogrammes, la procédure suivante est proposée.
+		\begin{enumerate}[label=\roman*)]
+			\item Prendre d'abord la moitié de $x$ ; puis
+			\item Diminuer le résultat de 10\%.
+		\end{enumerate}
+	\begin{enumerate}
+		\item 
+		Convertir 10 livres anglaises en kilogrammes de deux façon différentes,
+			\begin{enumerate}[label=(\alph*)]
+				\item en utilisant que 1 livre = 0,453 kilogrammes ; et
+				\item en utilisant la procédure proposée.
+			\end{enumerate}
+		\item 
+		Calculer le coefficient multiplicateur qui permet de convertir une quantité de livres anglaises en kilogrammes
+			\begin{enumerate}[label=(\alph*)]
+				\item lorsqu'on utilise que 1 livre = 0,453 kilogrammes ; et
+				\item lorsqu'on utilise la procédure proposée.
+			\end{enumerate}
+		\item
+		Donner les évolutions associées aux deux coefficient multiplicateurs.
+		\item
+		Calculer l'erreur relative de la procédure proposée : quelle évolution permet d'obtenir la valeur de la procédure à partir de la valeur réelle de conversion ?
+		\item
+		Montrer que l'erreur absolue, elle, peut être aussi grande que voulue.
+		L'erreur absolue entre deux valeurs est la différence entre la plus grande et la plus petite valeur.
+	\end{enumerate}
+}{exe:lb-kg}{
+	\begin{enumerate}
+		\item 
+			\begin{enumerate}[label=(\alph*)]
+				\item
+				Par proportionnalité, 10 livres équivalent à 4,53 kilogrammes.
+				\item 
+				En utilisant la procédure proposée, on diviser 10 par 2 pour trouver 5, puis on soustrait 10\%, ce qui donne $5-0,5 = 4,5$ kilogrammes.
+			\end{enumerate}
+		\item 
+		Calculer le coefficient multiplicateur qui permet de convertir une quantité de livres anglaises en kilogrammes
+			\begin{enumerate}[label=(\alph*)]
+				\item 
+				Par proportionnalité, $x$ livres équivaut à $0,453x$ kilogrammes : le coefficient est $0,453$.
+				\item
+				La procédure calcule d'abord $0,5x$ puis $0,9 \times 0,5 x = (0,9 \times 0,5) x = 0,45x$.
+				Le coefficient est donc $0,45$.
+			\end{enumerate}
+		\item
+		Multiplier par $0,453$ équivaut à une diminution de $54,7\%$.
+		Multiplier par $0,45$ équivaut à une diminution de $55\%$.
+		\item
+		On cherche le coefficient $CM$ qui vérifie $CM \times 0,453x = 0,45x \iff CM = \frac{0,45}{0,453} \approx 0,993$
+		Ce coefficient correspond à une diminution de $0,7\%$ environ : c'est l'erreur relative commise par la procédure.
+		\item
+		On calcule ici $0,453x - 0,45x = 0,003x$, qui peut être aussi grand que voulu, pourvu que $x$ soit très grand également.
+		Par exemple, pour obtenir une erreur de $10~000$, il faut prendre $x=\frac{10~000}{0,003} \approx 3~333~334$.
+		
+		L'erreur absolue, quant à elle, sera toujours de $0,7\%$ environ.
+		Cependant, $0,7\%$ d'une très grande valeur est toujours une très grande valeur !
+	\end{enumerate}
 }
 
 \exe{, difficulty=1}{
