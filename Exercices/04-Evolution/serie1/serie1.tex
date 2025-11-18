@@ -10,16 +10,16 @@
 
 
 \exe{}{
-        Une classe de Seconde comprend $25$ filles pour $9$ garçons.
-        Calculer le pourcentage de filles et de garçons dans la classe.
+	En 2024, le lycée Marguerite Yourcenar comptait 341 filles et 277 garçons en voie générale.
+	Calculer le pourcentage de filles et de garçons dans le lycée. Arrondir au centième.
 }{exe:sous-pop1}{
-	Le nombre total d'élèves est de $25+9 = 34$.
+	Le nombre total d'élèves est de $341+277 = 618$.
 	
-	On calcule donc, pour les filles, la proportion $\dfrac{25}{34} \approx 0,73 = 73\%$.
+	On calcule donc, pour les filles, la proportion $\dfrac{341}{618} \approx 0,55 = 55\%$.
 	
-	Idem pour les garçons, $\dfrac{9}{34} \approx 0,27 = 27\%$. 
-	Remarquons que la somme des pourcentages est de $100\%$ car $\dfrac{25}{34} + \dfrac{9}{34} = \dfrac{34}{34} = 1 = 100\%$.
-	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 73 = 27$.
+	Idem pour les garçons, $\dfrac{277}{618} \approx 0,45 = 45\%$. 
+	Remarquons que la somme des pourcentages est de $100\%$ car $\dfrac{341}{618} + \dfrac{277}{618} = \dfrac{618}{618} = 1 = 100\%$.
+	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 55 = 45$.
 }
 
 \exe{}{
@@ -97,7 +97,7 @@
 
 \exe{}{
 	Considérons deux écharpes, l'une à 250€ et l'autre à 360€.
-	Arrondir les coefficients multiplicateurs au dixième avant de donner les évolutions correspondantes.
+	Arrondir les coefficients multiplicateurs au centième avant de donner les évolutions correspondantes.
 	\begin{enumerate}
 		\item Quelle augmentation de prix faut-il appliquer à la première écharpe pour qu'elle ait le prix de la deuxième ?
 		\item Quel rabais faut-il appliquer à la deuxième écharpe pour qu'elle ait le prix de la première ?
@@ -119,8 +119,8 @@
 		\draw[thick] (10,0) ellipse (2cm and .5cm) node {360};
 		
 		% vertices		
-		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times1,44$};
-		\draw[->, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times0,7$ environ};
+		\draw[<-, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times0,7$ environ};
+		\draw[<-, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times1,44$};
 	\end{tikzpicture}
 \end{center}
 }
@@ -138,8 +138,8 @@
 		%\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
 		%\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
 		
-		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times\qquad$};
-		\draw[->, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times\qquad$};
+		\draw[<-, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times\qquad$};
+		\draw[<-, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times\qquad$};
 	\end{tikzpicture}
 \end{center}
 
@@ -376,7 +376,7 @@
 \exe{, difficulty=2}{
 	Considérons un ensemble fini $E$ ainsi que deux sous-ensembles $A \subseteq E$ et $B \subseteq E$.
 	
-	Supposons que la proportion d'éléments de $E$ appartenant à $A$ est de 30\% et que la proportion d'éléments de $E$ appertenant à $B$ est de 20\%.
+	Supposons que la proportion d'éléments de $E$ appartenant à $A$ est de 30\% et que la proportion d'éléments de $E$ appartenant à $B$ est de 20\%.
 	
 	\begin{enumerate}
 		\item
@@ -388,9 +388,9 @@
 }{exe:incl-excl}{
 	\begin{enumerate}
 		\item
-		Comptons le nombre d'éléments de $E$ qui appartienne à $A$ ou à $B$ en énumérant les éléments de $A$ puis les éléments de $B$.
+		Comptons le nombre d'éléments de $E$ qui appartiennent à $A$ ou à $B$ en énumérant les éléments de $A$ puis les éléments de $B$.
 		D'après l'énoncé, nous avons énuméré $0,3 |E|$ et $0,2 |E|$ éléments respectivement.
-		Cependant, les éléments appartenant à la fois à $A$ et à $B$ ont été comptés en double : il faut donc soustraire $0,1 |E|$ au compte pour conclure :
+		Cependant, les éléments appartenant à la fois à $A$ et à $B$ ont été comptés en double : il faut donc soustraire $0,1 |E|$ pour les retirer et obtenir
 			\[ 0,3 |E| + 0,2 |E| - 0,1|E| = 0,4 |E|. \]
 		Il suit que la proportion d'éléments de $E$ appartenant à $A$ ou à $B$ est de 40\%.
 		\item
