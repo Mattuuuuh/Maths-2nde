@@ -5,7 +5,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
-\fancyhead[C]{\textbf{Évolutions}}
+\fancyhead[C]{\textbf{Proportions et évolutions}}
 \fancyhead[R]{\today}
 
 
@@ -21,40 +21,6 @@
 	Remarquons que la somme des pourcentages est de $100\%$ car $\dfrac{25}{34} + \dfrac{9}{34} = \dfrac{34}{34} = 1 = 100\%$.
 	On aurait donc pu déduire le pourcentage de garçons en calculant $100 - 73 = 27$.
 }
-
-\exe{}{
-   En sachant que les $16 600$ espèces de fourmis constituent environ $1{,}3\%$ du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
-}{exe:sous-pop2}{
-	On a $\dfrac{16 600}{\text{nombre d'espèces d'insectes}} = 1,3\% = 0,013$.
-	
-	Par conséquent, 
-		\[ \text{nombre d'espèces d'insectes} = \dfrac{16600}{0,013} \approx 1,3 \times 10^{6}, \]
-	soit environ $1,3$ millions.
-	
-	Remarquons que la fraction $\dfrac{16600}{0,013}$ ne donne pas un nombre entier, car le pourcentage a été approximé (\og \emph{environ} $1,3$\% \fg).
-}
-
-
-\exe{}{
-  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
-  Parmis celles-ci, $23\%$ sont en danger critique.
-  
-  Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
-}{exe:sous-pop3}{
-	Notons $E$ l'ensemble des espèces indigènes à la France, $M$ la sous-population des espèces menacées, et $D$ la sous-population des espèces en danger critique.
-	On a donc la suite d'inclusions
-		\[ D \subset M \subset E. \]
-	
-	Le texte donne les informations
-		\begin{align*}
-			|M| = 0,13 \cdot |E| && \text{et} && |D| = 0,23 \cdot |M|
-		\end{align*}
-	Par conséquent, $|D| = 0,23 \times 0,13 \cdot |E| \approx 0,03 \cdot |E|$.
-	Donc les espèces en danger critique constituent $3\%$ des espèces.
-
-	Les proportions sont ainsi multiplicatives. Attention à ne pas naïvement multiplier les pourcentages, car $13\times 23 \approx 300$.
-}
-
 
 \exe{}{
 	Calculer sans calculatrice les valeurs suivantes.
@@ -81,6 +47,225 @@
 	\end{multicols}
 }
 
+\exe{, difficulty=1}{
+   En sachant que les 16 600 espèces de fourmis constituent environ $1,3\%$ du total des espèces d'insectes répertoriées sur Terre, estimer le nombre total d'espèces d'insectes. 
+}{exe:sous-pop2}{
+	On a $\dfrac{16 600}{\text{nombre d'espèces d'insectes}} = 1,3\% = 0,013$.
+	
+	Par conséquent, 
+		\[ \text{nombre d'espèces d'insectes} = \dfrac{16600}{0,013} \approx 1,3 \times 10^{6}, \]
+	soit environ $1,3$ millions.
+	
+	Remarquons que la fraction $\dfrac{16600}{0,013}$ ne donne pas un nombre entier, car le pourcentage a été approximé (\og \emph{environ} $1,3$\% \fg).
+}
+
+
+\exe{, difficulty=2}{
+  En 2023 en France, $13\%$ des espèces (faune et flore) sont considérées comme menacées à l'échelle mondiale (catégories ``danger critique'' à ``vulnérable'' de l'UICN).
+  Parmis celles-ci, $23\%$ sont en danger critique.
+  
+  Calculer le pourcentage d'espèces en danger critique par rapport au nombre total d'espèces.
+}{exe:sous-pop3}{
+	Notons $E$ l'ensemble des espèces indigènes à la France, $M$ la sous-population des espèces menacées, et $D$ la sous-population des espèces en danger critique.
+	On a donc la suite d'inclusions
+		\[ D \subset M \subset E. \]
+	
+	Le texte donne les informations
+		\begin{align*}
+			|M| = 0,13 \cdot |E| && \text{et} && |D| = 0,23 \cdot |M|
+		\end{align*}
+	Par conséquent, $|D| = 0,23 \times 0,13 \cdot |E| \approx 0,03 \cdot |E|$.
+	Donc les espèces en danger critique constituent $3\%$ des espèces.
+
+	Les proportions sont ainsi multiplicatives. Attention à ne pas naïvement multiplier les pourcentages, car $13\times 23 \approx 300$.
+}
+
+
+\exe{, difficulty=1}{
+	On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
+	Ceci serait égal à $20\%$ de la biomasse humaine.
+	
+	Estimer la biomasse totale des humains sur Terre en tonnes.
+}{exe:3}{
+	On a la relation
+		\[ \text{biomasse des fourmis} = 0,2 \times \text{biomasse humaine}. \]
+	D'où
+		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
+
+}
+
+
+\exe{}{
+	Considérons deux écharpes, l'une à 250€ et l'autre à 360€.
+	Arrondir les coefficients multiplicateurs au dixième avant de donner les évolutions correspondantes.
+	\begin{enumerate}
+		\item Quelle augmentation de prix faut-il appliquer à la première écharpe pour qu'elle ait le prix de la deuxième ?
+		\item Quel rabais faut-il appliquer à la deuxième écharpe pour qu'elle ait le prix de la première ?
+	\end{enumerate}
+}{exe:tailleur}{
+	\begin{enumerate}
+		\item 
+		On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, la deuxième écharpe vaut $144\%$ du prix de la première : une augmentation de $44\%$ est nécessaire.
+		\item 
+		On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. La première écharpe vaut environ $70\%$ du prix de la deuxième : une diminution de $30\%$ est nécessaire.
+	\end{enumerate}
+	
+	
+\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm) node {250};
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm) node {360};
+		
+		% vertices		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times1,44$};
+		\draw[->, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times0,7$ environ};
+	\end{tikzpicture}
+\end{center}
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm);
+		
+		%\draw[thick] (5,0) ellipse (2cm and .5cm);
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm);
+		
+		% vertices
+		%\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		%\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times\qquad$};
+		\draw[->, very thick, RED_E] (8.75cm,.5cm) arc (75:105:15) node[midway, above] {$\times\qquad$};
+	\end{tikzpicture}
+\end{center}
+
+\exe{}{
+        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
+}{exe:augm-dim-20}{
+	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
+	Une diminution, elle, multiplie par $0,8$.
+	
+	La quantité finale est donné par 
+		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
+	qui correspond à une diminution de $4\%$.
+	
+	\begin{center}
+		\begin{tikzpicture}
+			% nodes
+			\draw[thick] (0,0) ellipse (2cm and .5cm) node{100};
+			
+			\draw[thick] (5,0) ellipse (2cm and .5cm) node{120};
+			
+			\draw[thick] (10,0) ellipse (2cm and .5cm) node{96};
+			
+			% vertices
+			\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times1,2$};
+			\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times0,8$};
+			
+			\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times(1,2\times0,8) = \times0,96$};
+		\end{tikzpicture}
+	\end{center}
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm);
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm);
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm);
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times\qquad$};
+	\end{tikzpicture}
+\end{center}
+
+\exe{}{
+	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
+}{exe:reciproque}{
+	Notons $P$ le prix initial de l'objet.
+	Le prix augmenté vaut donc $(1+1,5) \cdot P = 2,5 \cdot P$.
+	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $2,5$, soit $2,5^{-1} = (\frac52)^{-1} = \frac25 = 0,4$.
+	Ceci correspond à une diminution de $60\%$.
+	
+	\begin{center}
+		\begin{tikzpicture}
+			% nodes
+			\draw[thick] (0,0) ellipse (2cm and .5cm) node {100};
+			
+			\draw[thick] (5,0) ellipse (2cm and .5cm) node {250};
+			
+			\draw[thick] (10,0) ellipse (2cm and .5cm) node {100};
+			
+			% vertices
+			\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times2,5$};
+			\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times\frac1{2,5} = 0,4$};
+			
+			\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times1$};
+		\end{tikzpicture}
+	\end{center}
+}
+
+\begin{center}
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm);
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm);
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm);
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times\qquad$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times\qquad$};
+	\end{tikzpicture}
+\end{center}
+
+\exe{, difficulty=1}{
+	Un magasin propose une remise de 15\% sur tous les articles à partir de deux articles achetés.
+	Un client ne souhaite acheter qu'un seul article à 80€.
+	
+	\begin{enumerate}
+		\item
+		Le client peut-il, en ajoutant un deuxième article, obtenir un panier à 75€ ?
+		Si oui, donner le prix du deuxième article au centime près.
+		
+		\item
+		Quel est le prix maximal du deuxième article qu'il peut se permettre d'ajouter à son panier pour que le prix final reste sous les 80€ ?
+		Arrondir au centime près.
+		
+		%sympa mais flemme de formuler
+		%\item L'article le moins cher du magasin coûte 20€.
+		%Quel est le prix minimal du deuxième article tel que le panier coûte autant que ce deuxième article ?
+	\end{enumerate}
+}{exe:linvosges-matthieu}{
+	
+	\begin{enumerate}
+		\item
+		Soit $P$ le prix du deuxième article.
+		On souhaite que $P$ vérifie
+			\[ 0,85 (80+P) = 75. \]
+		En résolvant, on obtient $P \approx 8,23$€.
+		
+		\item
+		L'équation pour $P$ est, cette fois-ci, $0,85 (80+P) = 80$, qui donne $P \approx 14,12$€.
+	\end{enumerate}
+}
+
+\subsection*{Exercices supplémentaires}
+
+
+
 \exe{}{
 	Approximer sans calculatrice les valeurs suivantes.
 	\begin{multicols}{3}
@@ -106,178 +291,69 @@
 	\end{multicols}
 }
 
-\exe{}{
-	On estime la biomasse totale des fourmis sur Terre à $12$ millions de tonnes.
-	Ceci serait égal à $20\%$ de la biomasse humaine.
-	
-	Estimer la biomasse totale des humains sur Terre en tonnes.
-}{exe:3}{
-	On a la relation
-		\[ \text{biomasse des fourmis} = 0,2 \times \text{biomasse humaine}. \]
-	D'où
-		\[ \text{biomasse humaine} = \dfrac{12 \times 10^6}{0,2} \text{T} = 60 \times 10^6 \text{T}.\] 
-
-}
-
-\exe{}{
-	À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
-}{exe:5}{
-	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
-	Une diminution, elle, multiplie par $0,8$.
-	
-	La quantité finale est donné par 
-		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
-	qui correspond à une diminution de $4\%$.
-}
-
 \exe{, difficulty=1}{
-	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
-}{exe:6}{
-	Notons $P$ le prix initial de l'objet.
-	Le prix augmenté vaut donc $1,5 \cdot P$.
-	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
-	Ceci correspond à une diminution de $33,4\%$.
-}
-
-\exe{}{
-	Considérons deux écharpes, l'une à $250$€ et l'autre à $360$€.
-	\begin{enumerate}
-		\item Quelle augmentation de prix faut-il appliquer à la première écharpe pour qu'elle ait le prix de la deuxième ?
-		\item Quel rabais faut-il appliquer à la deuxième écharpe pour qu'elle ait le prix de la première ?
-	\end{enumerate}
-}{exe:tailleur}{
+	Une livre anglaise équivaut à 0,453 kilogrammes environ.
+	Pour convertir une quantité $x$ de livres anglaises en kilogrammes, la procédure suivante est proposée.
+		\begin{enumerate}[label=\roman*)]
+			\item Prendre d'abord la moitié de $x$ ; puis
+			\item Diminuer le résultat de 10\%.
+		\end{enumerate}
 	\begin{enumerate}
 		\item 
-		On calcule l'évolution $\dfrac{360}{250}= 1,44 = 144\%$. Ainsi, la deuxième écharpe vaut $144\%$ du prix de la première : une augmentation de $44\%$ est nécessaire.
+		Convertir 10 livres anglaises en kilogrammes de deux façon différentes,
+			\begin{enumerate}[label=(\alph*)]
+				\item en utilisant que 1 livre = 0,453 kilogrammes ; et
+				\item en utilisant la procédure proposée.
+			\end{enumerate}
 		\item 
-		On calcule l'évolution $\dfrac{250}{360}\approx 0,7 = 70\%$. La première écharpe vaut environ $70\%$ du prix de la deuxième : une diminution de $30\%$ est nécessaire.
-	\end{enumerate}
-}
-
-\exe{}{
-        À quelle évolution correspond une augmentation de $20\%$ suivie d'une diminution de $20\%$ ?
-}{exe:augm-dim-20}{
-	Augmenter une quantité $N$ de $20\%$ correspond à la multiplier par $1,2$.
-	Une diminution, elle, multiplie par $0,8$.
-	
-	La quantité finale est donné par 
-		\[ 0,8 \cdot (1,2 \cdot N) = (0,8 \cdot 1,2) \cdot N = 0,96 \cdot N, \]
-	qui correspond à une diminution de $4\%$.
-}
-
-\exe{}{
-	Si on augmente le prix d'un objet de $150\%$, quel rabais faut-il appliquer pour retrouver le prix initial de l'objet ?
-}{exe:reciproque}{
-	Notons $P$ le prix initial de l'objet.
-	Le prix augmenté vaut donc $1,5 \cdot P$.
-	Pour retrouver $P$, il faut multiplier le prix augmenté par l'inverse de $1,5$, soit $1,5^{-1} = \dfrac23 \approx 0,666 = 66,6\%$.
-	Ceci correspond à une diminution de $33,4\%$.
-}
-
-
-\exe{, difficulty=1}{
-	Lors d'un payement par carte bancaire, une commission valant 1\% du montant de la transaction est versée comme frais bancaire.
-	Ainsi, lorsqu'un débiteur paye 100€, le créditeur reçoit 99€, et 1€ est versé à la banque.
-	\begin{enumerate}
-		\item Pour un payement de 200€, quelle quantité est versée en frais bancaire ? quelle quantité le créditeur reçoit-il ?
-		\item Répondre à la même question pour un payement de 202€.
-		\item Obtient-on la quantité initiale après une augmentation de 1\% suivie d'une diminution de 1\% ?
-		\item Quelle quantité le débiteur doit-il verser pour que le créditeur reçoive exactement 200€ ? Est-ce un nombre réel ? rationnel ? décimal ? entier ?
-	\end{enumerate}
-}{exe:caution-matthieu-payup}{
-	TODO
-}
-
-\exe{, difficulty=1}{
-	Un magasin propose une remise de 15\% sur tous les articles à partir de deux articles achetés.
-	Un client ne souhaite acheter qu'un seul article à 80€.
-	
-	\begin{enumerate}
+		Calculer le coefficient multiplicateur qui permet de convertir une quantité de livres anglaises en kilogrammes
+			\begin{enumerate}[label=(\alph*)]
+				\item lorsqu'on utilise que 1 livre = 0,453 kilogrammes ; et
+				\item lorsqu'on utilise la procédure proposée.
+			\end{enumerate}
 		\item
-		Le client peut-il, en ajoutant un deuxième article, obtenir un panier à 75€ ?
-		Si oui, donner le prix du deuxième article au centime près.
+		Donner les évolutions associées aux deux coefficient multiplicateurs.
+		\item
+		Calculer l'erreur relative de la procédure proposée : quelle évolution permet d'obtenir la valeur de la procédure à partir de la valeur réelle de conversion ?
+		\item
+		Montrer que l'erreur absolue, elle, peut être aussi grande que voulue.
+		L'erreur absolue entre deux valeurs est la différence entre la plus grande et la plus petite valeur.
+	\end{enumerate}
+}{exe:lb-kg}{
+	\begin{enumerate}
+		\item 
+			\begin{enumerate}[label=(\alph*)]
+				\item
+				Par proportionnalité, 10 livres équivalent à 4,53 kilogrammes.
+				\item 
+				En utilisant la procédure proposée, on diviser 10 par 2 pour trouver 5, puis on soustrait 10\%, ce qui donne $5-0,5 = 4,5$ kilogrammes.
+			\end{enumerate}
+		\item 
+		Calculer le coefficient multiplicateur qui permet de convertir une quantité de livres anglaises en kilogrammes
+			\begin{enumerate}[label=(\alph*)]
+				\item 
+				Par proportionnalité, $x$ livres équivaut à $0,453x$ kilogrammes : le coefficient est $0,453$.
+				\item
+				La procédure calcule d'abord $0,5x$ puis $0,9 \times 0,5 x = (0,9 \times 0,5) x = 0,45x$.
+				Le coefficient est donc $0,45$.
+			\end{enumerate}
+		\item
+		Multiplier par $0,453$ équivaut à une diminution de $54,7\%$.
+		Multiplier par $0,45$ équivaut à une diminution de $55\%$.
+		\item
+		On cherche le coefficient $CM$ qui vérifie $CM \times 0,453x = 0,45x \iff CM = \frac{0,45}{0,453} \approx 0,993$
+		Ce coefficient correspond à une diminution de $0,7\%$ environ : c'est l'erreur relative commise par la procédure.
+		\item
+		On calcule ici $0,453x - 0,45x = 0,003x$, qui peut être aussi grand que voulu, pourvu que $x$ soit très grand également.
+		Par exemple, pour obtenir une erreur de $10~000$, il faut prendre $x=\frac{10~000}{0,003} \approx 3~333~334$.
 		
-		\item
-		Quel est le prix maximal du deuxième article qu'il peut se permettre d'ajouter à son panier pour que le prix final reste sous les 80€ ?
-		Arrondir au centime près.
-	\end{enumerate}
-}{exe:linvosges-matthieu}{
-	
-	\begin{enumerate}
-		\item
-		Soit $P$ le prix du deuxième article.
-		On souhaite que $P$ vérifie
-			\[ 0,85 (80+P) = 75. \]
-		En résolvant, on obtient $P \approx 8,23$€.
-		
-		\item
-		L'équation pour $P$ est, cette fois-ci, $0,85 (80+P) = 80$, qui donne $P \approx 14,12$€.
+		L'erreur absolue, quant à elle, sera toujours de $0,7\%$ environ.
+		Cependant, $0,7\%$ d'une très grande valeur est toujours une très grande valeur !
 	\end{enumerate}
 }
 
 
 \exe{, difficulty=1}{
-	Sans calculatrice, exprimer les nombres suivants sous la forme $q^n$, où $q \in \N$ et $n\in\Z$ sont des entiers.
-	\begin{multicols}{3}
-	\begin{enumerate}[label=\roman*)]
-		\item $10^3 \times 10^5$
-		\item $\left(4^5\right)^2$
-		\item $\dfrac{5^3}{5^3}$
-		\item $1$
-		\item $\dfrac{2^4}{2^7}$
-		\item $\left(2^{-1}\right)^3$
-		\item $\left(2^{3}\right)^{-1}$
-		\item $\left(\dfrac{1}{7^2}\right)^6$
-		\item $\dfrac{10^{12}}{10^{-12}}$
-		\item $\dfrac{10^{-5}}{10^{6}}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:puissances}{
-	TODO
-}
-
-\exe{}{
-	On estime que, dans l'univers, il y a au moins
-		\begin{itemize}
-			\item $10^{11}$ galaxies ; que chacune contient
-			\item $10^{11}$ étoiles ; dont la masse moyenne est de
-			\item $10^{32}$ kilogrammes ; et que chaque gramme de matière contient
-			\item $10^{24}$ atomes.
-		\end{itemize}
-	Estimer le nombre d'atomes dans l'univers observable à partir de ces données.
-}{exe:atomes-univers}{
-	TODO
-}
-
-
-\exe{, difficulty=1}{
-	Montrer qu'on a environ $2^{10} \approx 10^3$. 	
-	\begin{enumerate}
-		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
-		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
-	\end{enumerate}
-}{exe:grandeur-binaire}{
-	TODO
-}
-
-\exe{}{
-	Montrer que $10^{50} - 10^{30} = 10^{50} \bigl( 1 - 10^{-20} \bigr)$.
-	Décrire le développement décimal de $1-10^{-20}$. De quel entier est-il très proche ?
-	
-	En déduire l'ordre de grandeur de $10^{50} - 10^{30}$.
-}{exe:grandeur-soustraction}{
-	TODO
-}
-
-\exe{}{
-	Exprimer en écriture scientifique la valeur obtenue après une diminution de 60\% de $10^{60}$.
-	Quel est son ordre de grandeur ?
-}{exe:grandeur-évolution}{
-	TODO
-}
-
-
-\exe{, difficulty=2}{
 	Une jeune femme dépose $10$€ à la banque. Celle-ci lui promet un taux d'intérêt à l'année de $3\%$.
 	Ainsi, après la première année, il y aura $1,03 \times 10 = 10,3$€ sur son compte.
 	La deuxième année, il y aura $1,03 \times 10,35 = 10,609$€, etc...
@@ -298,29 +374,36 @@
 }
 
 \exe{, difficulty=2}{
-    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
-    \begin{enumerate}
-    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $(100p)\%$ suivie d'une diminution de $(100p)\%$ ?
-    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
-    \end{enumerate}
-}{exe:sqrt-evol}{
-    \begin{enumerate}
-    \item Soit $N\geq0$ une quantité. Après une augmentation de $(100p)\%$ puis une diminution de $(100p)\%$,
-    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
-    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
-    		
-    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
-    \item On pose l'égalité suivante
-    		\[ 100p^2 = 16. \]
-    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
-    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
-	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
+	Considérons un ensemble fini $E$ ainsi que deux sous-ensembles $A \subseteq E$ et $B \subseteq E$.
 	
-	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
-    \end{enumerate}
-
+	Supposons que la proportion d'éléments de $E$ appartenant à $A$ est de 30\% et que la proportion d'éléments de $E$ appertenant à $B$ est de 20\%.
+	
+	\begin{enumerate}
+		\item
+		Si la proportion d'éléments de $E$ appartenant à la fois à $A$ et à $B$ est de 10\%, quelle est la proportion d'éléments de $E$ appartenant à $A$ ou à $B$ ?
+		\item
+		Si la proportion d'éléments de $E$ appartenant à $A$ ou à $B$ est de 35\%, quelle est la proportion d'éléments de $E$ appartenant à la fois à $A$ et à $B$ ?
+	\end{enumerate}
+	\emph{Indication : choisir un ensemble $E$ de cardinal 100 puis généraliser.}
+}{exe:incl-excl}{
+	\begin{enumerate}
+		\item
+		Comptons le nombre d'éléments de $E$ qui appartienne à $A$ ou à $B$ en énumérant les éléments de $A$ puis les éléments de $B$.
+		D'après l'énoncé, nous avons énuméré $0,3 |E|$ et $0,2 |E|$ éléments respectivement.
+		Cependant, les éléments appartenant à la fois à $A$ et à $B$ ont été comptés en double : il faut donc soustraire $0,1 |E|$ au compte pour conclure :
+			\[ 0,3 |E| + 0,2 |E| - 0,1|E| = 0,4 |E|. \]
+		Il suit que la proportion d'éléments de $E$ appartenant à $A$ ou à $B$ est de 40\%.
+		\item
+		Procédons de l'exactement manière, en notant $N$ le nombre d'éléments appartenant à la fois à $A$ et à $B$ :
+			\begin{align*}
+				0,3 |E| + 0,2 |E| - N = 0,35 |E| && \iff && N = 0,15 |E|
+			\end{align*}
+		Il suit que la proportion d'éléments appartenant à la fois à $A$ et à $B$ est de 15\%.
+	\end{enumerate}
+	
+	La propriété utilisée est celle de l'\emph{inclusion-exclusion}, étudiée au chapitre de probabilités sous la forme 
+		\[ P(A \cup B) = P(A) + P(B) - P(A \cap B). \]·
 }
-
 
 
 %%%%%%%%%%%
