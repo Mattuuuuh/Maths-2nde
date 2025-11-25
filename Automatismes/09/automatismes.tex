@@ -1,0 +1,133 @@
+\input{../preamble.tex}
+\SetDate[26/11/2025]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Lecture graphique}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, ymin=-1.1, ymax=1.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1.2cm, y=1.2cm, ytick distance = 1]
+			\addplot[RED_E, very thick, samples=500] expression{2*sin(180*x)/(x+3) +x/2.5*.65} node[left, pos=.63] {$\C_f$};
+			\addplot[GREEN_E, very thick, samples=500] expression{(x+2)*(x-2)*(x-3)/10 +.09} node[above, pos=.66] {$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Donner approximativement $f(2,5)$.
+	}{
+		Donner approximativement $g(0,5)$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, ymin=-1.1, ymax=1.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1.2cm, y=1.2cm, ytick distance = 1]
+			\addplot[RED_E, very thick, samples=500] expression{2*sin(180*x)/(x+3) +x/2.5*.65} node[left, pos=.63] {$\C_f$};
+			\addplot[GREEN_E, very thick, samples=500] expression{(x+2)*(x-2)*(x-3)/10 +.09} node[above, pos=.66] {$\C_g$};
+			
+			\draw[-, dashed, thick, PURPLE_E] (axis cs:2.5,0) -- (axis cs:2.5,1) node[pos=0, below]{2,5};
+			\draw[-, dashed, thick, PURPLE_E] (axis cs:.5,0) -- (axis cs:.5,1) node[pos=0, below]{0,5};
+			
+			\addplot[PURPLE_E, only marks, mark size=1.5] coordinates {(.5, 1) (2.5,1)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		$f(2,5) \approx 1$
+	}{
+		$g(0,5) \approx 1$
+	}
+}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -5, xmax=3, ymin=-3.1, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1.2cm, y=.6cm]			
+			\addplot[RED_E, very thick, samples=100] expression{x^2} node[above, pos=.53] {$\C_f$};
+			\addplot[GREEN_E, very thick, samples=100] expression{x^2 - 3} node[right, pos=.6] {$\C_g$};
+			\addplot[BLUE_E, very thick, samples=100] expression{(x+3)^2} node[above, pos=.05] {$\C_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Environ quel $x \in [-5 ; 3]$ vérifie $f(x) = h(x)$ ?
+	}{
+		Environ quel $x \in [-5 ; 3]$ vérifie $g(x) = h(x)$ ?
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -5, xmax=3, ymin=-3.1, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, x=1.2cm, y=.6cm]			
+			\addplot[RED_E, very thick, samples=100] expression{x^2} node[above, pos=.53] {$\C_f$};
+			\addplot[GREEN_E, very thick, samples=100] expression{x^2 - 3} node[right, pos=.6] {$\C_g$};
+			\addplot[BLUE_E, very thick, samples=100] expression{(x+3)^2} node[above, pos=.05] {$\C_h$};
+			
+			\draw[-, dashed, thick, PURPLE_E] (axis cs:-2,0) -- (axis cs:-2,1);
+			\draw[-, dashed, thick, PURPLE_E] (axis cs:-1.5,0) -- (axis cs:-1.5,2.25) node[pos=0, below=-2pt]{\small-1,5};
+			
+			\addplot[PURPLE_E, only marks, mark size=1.5] coordinates {(-1.5,2.25) (-2,1)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		$x\approx-1,5$ car $f(-1,5) \approx h(-1,5)$.
+	}{
+		$x\approx-2$ car $g(-2) \approx h(-2)$.
+	}
+}
+
+\subsection{Équation linéaire}
+
+\framedelayed{
+	Résoudre l'équation suivante pour $x\in\R$.
+	\boxAB{
+		$\dfrac13 x + 1 = 0$
+	}{
+		$\dfrac{x+6}3 = 0$
+	}
+}{
+	\boxAB{
+		$\dfrac13 x + 1 = 0 \iff \dfrac13 x = -1 \iff x = -3$
+	}{
+		$\dfrac{x+6}3 = 0 \iff x+6 = 0 \iff x= -6$
+	}
+}
+
+\subsection{Fractions}
+
+\framedelayed{
+		\[ f(x) = \dfrac13 - \dfrac12 x. \]
+	Donner l'image suivante sous forme de fraction.
+	\boxAB{
+		 $f\left(\dfrac12\right)$
+	}{
+		 $f\left(\dfrac13\right)$
+	}
+}{
+		\[ f(x) = \dfrac13 - \dfrac12 x. \]
+	\boxAB{
+		 $f\left(\dfrac12\right) = \dfrac13 - \dfrac12 \times \dfrac12 = \dfrac13 - \dfrac14 = \dfrac4{12} - \dfrac3{12} = \dfrac1{12}$
+	}{
+		$f\left(\dfrac13\right) = \dfrac13 - \dfrac12 \times \dfrac13 = \dfrac13 - \dfrac16 = \dfrac26 - \dfrac16 = \dfrac16$
+	}
+}
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
