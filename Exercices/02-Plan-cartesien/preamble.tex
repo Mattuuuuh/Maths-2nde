@@ -29,15 +29,11 @@ margin=2cm,
 \newtheorem*{dfn*}{Définition}
 \newtheorem*{remarque}{Remarque}
 
-% counter for points (title of exercices)
-\usepackage{totcount}
-\newtotcounter{points}
-
 % exercices
 \usepackage[answerdelayed, lastexercise]{exercise}
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
@@ -53,7 +49,6 @@ margin=2cm,
 		%\marginpar{[Bonus]}
 		\else
 		\marginpar{\mbox{[\ExerciseTitle]}}
-		\addtocounter{points}{\ExerciseTitle}
 		\fi
 		#2
 	\end{Exercise}
@@ -68,7 +63,6 @@ margin=2cm,
 		%\marginnote{[Bonus]}
 		\else
 		\marginnote{\mbox{[\ExerciseTitle]\qquad}}
-		\addtocounter{points}{\ExerciseTitle}
 		\fi
 		#2
 	\end{Exercise}
