@@ -37,7 +37,7 @@ margin=2cm,
 \usepackage[answerdelayed, lastexercise]{exercise}
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
