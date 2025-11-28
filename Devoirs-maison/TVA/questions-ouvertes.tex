@@ -1,0 +1,90 @@
+\input{../preamble.tex}
+
+\SetDate[02/12/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison --- Évolution \\ Questions d'approfondissement}}
+\fancyhead[R]{\today}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+Un ordinateur ne stocke pas de valeurs exactes : sa précision est finie, et
+il existe donc un plus petit nombre non nul représentable par un ordinateur.
+Nommons ce nombre $\epsilon$, typiquement une très petite puissance de $2$ (par exemple $\epsilon = 2^{-64}$).
+
+On suppose que si deux nombres sont représentables par un ordinateur, alors leur somme et leur produit aussi.
+
+
+\exe{, difficulty=0}{
+	Montrer que les seuls nombres positifs représentables par un ordinateurs sont tous les multiples de $\epsilon$ : $\bigset{ 0 ; \epsilon ; 2\epsilon ; 3\epsilon ; 4\epsilon ; \dots }$.
+	Les représenter sur la droite réelle.
+}{exe:1}{
+	
+}
+
+\exe{, difficulty=1}{
+	À l'aide de l'exercice \ref{exe:1}, montrer que pour n'importe quel nombre $x>0$, l'erreur absolue commise lors de son stockage dans un ordinateur est au plus $\dfrac{\epsilon}2$.
+}{exe:1}{
+	
+}
+
+\exe{, difficulty=1}{
+	Montrer que, lors du calcul de la somme $x+y$, l'erreur absolue commise par l'ordinateur vaut au pire $\epsilon$.
+}{exe:1a}{
+	
+}
+
+\exe{, difficulty=2}{
+	Si $\epsilon = \frac14$, à partir de combien de sommes l'erreur absolue peut-elle atteindre 1 ?
+	Et pour $\epsilon$ en général ?
+}{exe:1b}{
+	
+}
+
+
+\exe{, difficulty=0}{
+	Soient $A, B, C, D$ quatre nombres. Montrer que
+		\[ AB - CD = A(B-D) + D(A-C). \]
+}{exe:2}{
+
+}
+
+\exe{, difficulty=1}{
+	Considérons deux nombres $x, y$ inférieurs à $M$.
+	À l'aide de l'exercice \ref{exe:2}, montrer que l'erreur absolue commise par l'ordinateur lors du calcul du produit $x\times y$ peut au pire être égale à $M\epsilon$.
+}{exe:3}{
+
+}
+
+\exe{, difficulty=0}{
+	Soient $A, B$ deux nombres. Montrer que
+		\[ A^3 - B^3 = (A-B)(A^2 + B^2 + AB). \]
+}{exe:4}{
+
+}
+
+\exe{, difficulty=1}{
+	Considérons un nombre $x$ inférieur à $M$.
+	À l'aide de l'exercice \ref{exe:4}, montrer que l'erreur absolue commise par l'ordinateur lors du calcul du cube $x^3$ peut au pire être $\frac32\epsilon M^2$.
+}{exe:5}{
+
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions -- {\seed} -- Interpolation de Lagrange}}
+%\fakesection{Solution \seed}
+%\shipoutAnswer
+
+\end{document}
+
