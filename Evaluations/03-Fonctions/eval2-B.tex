@@ -1,0 +1,264 @@
+\input{../preamble.tex}
+
+\SetDate[02/12/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation — Fonctions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+%\marginpar{B}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	%\item
+	%Les sujets d'évaluation sont individuels. Écrire son nom avant de rendre son sujet.
+	\item
+	Les exercices \ref{exe:prop-fond} et \ref{exe:graph} peuvent être entièrement faits sur la feuille d'évaluation. Écrire son nom avant de rendre son sujet.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exemulticols{2}{
+	Considérons l'ensemble de points $E$ représenté dans le repère ci-contre.
+	
+	\vspace{20pt}
+	
+	$E$ peut-il être la courbe représentative d'une fonction $f$ ?
+	Justifier rigoureusement.
+	
+	\vfill\null
+}{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = 0, xmax=5, ymin=0, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			extra x ticks = {0},
+			extra y ticks = {0},
+			]
+				\addplot[no marks, BLUE_E, very thick, -, no markers, smooth, tension=2] coordinates{
+					(0,1)
+					(2,1)
+					(1,3)
+					(4,2)
+					(2.5,2.25)
+					(2,3)
+					(5,4)
+					(3.5,1)
+					(5,2)
+				}
+				node[pos=.7, above=20pt]{$\boldsymbol{E}$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}{exe:Cf-not-Cf}{
+	L'ensemble $E$ ne peut pas être courbe représentative d'une fonction $f$, car il existe plusieurs points de même abscisse (par exemple $(3 ; 2), (3 ; 2,6), (3 ; 3,8)$ environ).
+	En effet, la courbe représentative d'une fonction est construite à partir de points $\bigl(x ; f(x)\bigr)$ : chaque abscisse $x$ donne naissance à un unique point, et chaque point correspond à une unique abscisse.
+}
+
+
+
+
+\exe{4, difficulty=1}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = [-3 ; 2,3]$}.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+			\begin{axis}[xmin = -2.3, xmax=3, ymin=-2.1, ymax=5.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=2.1cm,
+			xtick distance=1,
+			y=18pt,
+			clip=true,
+			ytick distance = 1,
+			]
+				\addplot[no marks, BLUE_E, very thick, -] expression[domain=-3:4, samples=200]{(-x)^3 /3 - 2*(-x) +2-2*sin(180*(-x))}node[pos=.48, above=5pt]{$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item
+		Donner approximativement les images de $-0,5$ et de 1,5 par $f$. 
+		\item
+		Énumérer approximativement les antécédents de 5 et de 1 par $f$.
+		\item 
+		Exprimer aproximativement l'ensemble $\bigset{ x \in \D \tq f(x) \geq 1 }$ sous forme d'union d'intervalles.
+	\end{enumerate}
+}{exe:deg3}{
+	\begin{enumerate}
+		\item
+		$f(-0,5) \approx -1$ et $f(1,5) \approx 2$.
+		\item
+		L'antécédent de 5 est environ 0,6.
+		En effet, $f(0,6) \approx 5$
+		
+		Les antécédents de 1 sont environ 2,8 ; -0,1 ; -1,2 ; et -1,9.
+		En effet, $f(2,8) \approx f(-0,1) \approx f(-1,2) \approx f(-1,9) \approx 1$.
+		\item 
+		
+		\[ \bigset{ x \in \D \tq f(x) \geq 1 } \approx [-1,9 ; -1,2] \cup [-0,1 ; 2,8]. \]
+	\end{enumerate}
+}
+
+
+\exe{2, difficulty=0}{
+	Considérons la fonction $f$ définie algébriquement sur $\R$ par
+		\[ f(x) =\dfrac15 -  \dfrac{x}2. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\C_f$ ou non.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(-\dfrac25 ; 0\right)$
+		\item $\left(1 ;-\dfrac3{10}\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	On utilise le théorème \ref{thm:1} qui demande de vérifier si $y=f(x)$.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(-\dfrac25 ; 0\right) \not\in \C_f$
+		\item $\left(-1 ;-\dfrac3{10}\right) \in \C_f$
+	\end{enumerate}
+	\end{multicols}
+
+
+}
+
+\exe{2}{
+	Quelle est la différence entre $\bigset{ 2 ; 3 }$ et $[2 ; 3]$ ? 
+	Décrire avec des mots ce que les deux notations désignent.
+}{exe:diff-notations}{
+	L'ensemble $\bigset{ 2 ; 3 }$ est constitué de seulement deux éléments : 2, et 3.
+	
+	L'intervalle $[2 ;3]$ correspond à l'ensemble de tous les nombres entre 2 et 3 inclus.
+}
+
+\newpage
+
+\begin{thm}[propriété fondamentale]\label{thm:1}
+	Soit $f$ une fonction sur un domaine $\D$ et $(x;y)$ un point du plan avec $x\in\D$.
+	Alors
+		\begin{align*}
+			(x ; y) \in \C_f && \iff && \underline{\qquad} = \underline{\qquad\qquad}.
+		\end{align*}
+\end{thm}
+
+\exe{2}{
+	Compléter le théorème \ref{thm:1} vu en cours.
+}{exe:prop-fond}{
+		\begin{align*}
+			(x ; y) \in \C_f && \iff && y = f(x).
+		\end{align*}
+}
+
+\exe{2, difficulty=1}{
+	Soient $a, b \in \R$ deux nombres réels.
+	
+	Les deux questions suivantes peuvent être traitées séparément.
+	\begin{enumerate}
+		\item
+		Développer et réduire l'expression $(a+b)^2$.
+		\item
+		Montrer que $(a+b)^2$ n'est pas égal à $a^2 + b^2$ en général.
+	\end{enumerate}
+}{exe:freshmans-dream}{
+	\begin{enumerate}
+		\item
+			\begin{align*}
+				(a+b)^2 &= (a+b)(a+b) \\
+						&= a^2 + ab + ba + b^2 \\
+						&= a^2 + b^2 + 2ab
+			\end{align*}
+		où on a utilisé que $ab = ba$ à la dernière égalité car la multiplication est commutative dans $\R$.
+		\item
+		En choisissant des valeurs de $a$ et de $b$ au hasard, on a de grandes chances de tomber sur un contre-exemple.
+		En fait, d'après la question 1,
+			\[ (a+b)^2 = a^2 + b^2 \iff ab = 0, \]
+		si et seulement si $a$ ou $b$ est nul.
+		
+		Prendre $(a ; b) = (1 ; 2)$ donne $(a+b)^2 = 3^2 = 9$ d'une part, et $a^2 + b^2 = 1 + 4 = 5$ d'autre part. 
+	\end{enumerate}
+}
+
+
+\exe{4, difficulty=1}{
+	Soient
+	\begin{align*}
+		f(x) = (x+3)(x+5) && \et && g(x) = (x-3)(x+2)
+	\end{align*}
+	deux fonctions sur $\R$.
+	
+	\begin{enumerate}
+		\item Développer et réduire les expressions algébriques de $f$ et de $g$ pour trouver $f(x) = x^2 + 8x + 15$ et $g(x) = x^2 -x - 6$.
+		\item Montrer que l'équation $f(x) = g(x)$ est équivalente à $9x+21=0$.
+		\item Résoudre $9x+21=0$ pour $x\in\R$.
+		\item À quoi correspond \underline{graphiquement} le réel $x$ qui vérifie l'équation $f(x) = g(x)$ ?
+	\end{enumerate}
+}{exe:image-selon-forme}{
+	\begin{enumerate}
+		\item
+		Par double distributivité.
+		\item
+		Comme $f(x) = g(x) \iff f(x) - g(x) = 0$, on a bien
+			\[ x^2 + 8x + 15 - (x^2 -x - 6) = 0 \iff x^2 - x^2 + 8x + x + 15 + 6 = 0 \iff 9x + 21 = 0. \]
+		\item
+			\[ 9x+21 = 0 \iff 9x = -21 \iff x = -\dfrac{21}9 = -\dfrac73. \]
+		\item
+		Graphiquement, $x = -\frac73$ est l'abscisse du point d'intersection de $\C_f$ et $\C_g$.
+		Notons d'ailleurs qu'il n'existe qu'un seul point d'intersection des courbes.
+	\end{enumerate}
+}
+
+\exe{4, difficulty=1}{
+	Tracer les courbes représentatives des fonctions $f(x) = x^2$ et $g(x) = (x-3)^2$ dans le repère figure \ref{fig:1}.
+	Il n'est pas nécessaire de justifier.
+	
+	Quel est le domaine d'étude $\D$ des fonctions ici ?
+}{exe:graph}{
+	Le domaine $\D$ est $[-5 ; 8]$ ici.
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -5, xmax=8, ymin=-5.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:8, samples=50]{x^2}
+			node[pos=.2, left]{$\mathcal{C}_f$};
+			\addplot[no marks, RED_E, very thick, -] expression[domain=-5:8, samples=50]{(x-3)^2}
+			node[pos=.8, right]{$\mathcal{C}_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -5, xmax=8, ymin=-3.1, ymax=20.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=1cm]
+			\addplot[no marks, BLUE_E, very thick, -, transparent] expression[domain=-5:8, samples=50]{x^2};
+			\addplot[no marks, RED_E, very thick, -, transparent] expression[domain=-5:8, samples=50]{(x-3)^2};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Repère de l'exercice \ref{exe:graph}.}
+	\label{fig:1}
+\end{figure}
+
+
+
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
