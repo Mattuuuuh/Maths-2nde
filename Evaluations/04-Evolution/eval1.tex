@@ -1,0 +1,57 @@
+\input{../preamble.tex}
+
+\SetDate[25/12/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation blanche — Évolutions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Les sujets d'évaluation sont individuels. Écrire son nom avant de rendre son sujet.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{}{
+	L'impôt sur le revenu est une taxe qui s'applique sur les revenus annuels de chaque individu imposable en France.
+	Celui-ci est calculé à partir du tableau suivant, qui distingue différents taux d'imposition pour différentes tranches de revenus.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Tranches de revenus  & Taux d’imposition pour cette tranche \\\hline
+		Jusqu’à 11 497 euros & 0\% \\\hline
+		De 11 498 à 29 315 euros & 11\% \\\hline 
+		De 29 316 à 83 823 euros & 30\% \\\hline 
+		De 83 824 à 180 294 euros & 41\% \\\hline
+		Supérieur à 180 294 euros & 45\% \\\hline
+	\end{tabular}
+	\end{center}
+	
+	Par exemple, une personne gagnant $38~000$€ à l'année sera imposée d'un montant de
+		\[ 0\% \text{ de } 11~497 + 11\% \text{ de } 17~817 + 30\% \text{ de } 8~684 = 4~565,07 \text{€}. \]
+}{exe:IR}{
+	todo
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
