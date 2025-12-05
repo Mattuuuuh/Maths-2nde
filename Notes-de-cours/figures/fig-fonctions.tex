@@ -343,7 +343,7 @@ dot/.default = black % size of the circle diameter
 	% page 16
 	% exe:graph-droite
 	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -5.5, xmax=3.5, ymin=7.5, ymax=-3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+		\begin{axis}[xmin = -5.5, xmax=3.5, ymin=-3.5, ymax=7.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
 			\addplot[no marks, BLUE_E, very thick, -] expression[domain=-5:3, samples=2]{1-x} 
 			node[above, pos=.4] {$\C_f$};
 		\end{axis}
