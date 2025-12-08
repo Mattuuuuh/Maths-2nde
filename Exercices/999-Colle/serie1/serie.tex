@@ -84,6 +84,69 @@
 }
 
 \newpage
+
+\fancyfoot[C]{Source : \href{https://www.insee.fr/fr/statistiques/7750004}{https://www.insee.fr/fr/statistiques/7750004}\\\thepage}
+
+\exe{}{
+	En 2023, le \emph{solde naturel}, différence entre les nombres de naissances et de décès enregistrés sur l’année, est de +47 000, son plus bas niveau depuis la fin de la Seconde Guerre mondiale. En baisse régulière depuis 2007, le solde naturel a chuté en 2020 sous l’effet d’une baisse des naissances, mais surtout d’une forte hausse des décès due à la pandémie de Covid-19. Depuis, il est resté à un niveau bas. Il s’était légèrement redressé en 2021 sous l’effet d’un rebond des naissances, mais il a diminué en 2022, les décès restant à un niveau élevé. Il baisse de nouveau en 2023, les naissances diminuant plus fortement que les décès (figure 2a).
+	
+	\begin{center}
+	\includegraphics[scale=0.75]{fig2.png}
+	\end{center}
+	
+	
+	\begin{enumerate}		
+		\item
+		Approximer les évolutions relatives des naissances et des décès entre $2022$ et $2023$. Comparer.
+		\item 
+		Calculer approximativement l'évolution relative du solde naturel entre les années $1971$ et $1976$.
+		\item 
+		Estimer l'évolution relative du solde naturel entre $2020$ et $2021$, puis entre $2021$ et $2022$.
+		En déduire, par le calcul, l'évolution relative entre $2020$ et $2022$.
+	\end{enumerate}
+}{exe:insee-solde-naturel}{
+	\begin{enumerate}
+		\item 
+		On lit graphiquement (et donc approximativement) les valeurs suivantes.
+		
+		\begin{tabular}{|c|c|c|}\hline
+			Année & 2022 & 2023 \\ \hline
+			Naissances (milliers) & 730 & 680 \\ \hline
+			Décès (milliers) & 675 & 630 \\ \hline
+		\end{tabular}
+
+		On en conclut les évolutions suivantes.
+		\begin{enumerate}
+			\item $1-\dfrac{680}{730} \approx 7\%$ de diminution des naissances.
+			\item $1- \dfrac{630}{675} \approx 6,6\%$ de diminution des décès.
+		\end{enumerate}
+		
+		Ainsi les naissances et les décès diminuent tous deux, mais les naissances diminuent relativement plus en $2022$ à $2023$.
+		
+		\item 
+		En approximant le solde naturel en $1971$ et $1976$, on obtient environ $ \approx 920 - 560 = 360$ mille, et $775 - 570 = 205$ mille.
+		
+		La diminution est donc donnée par $1-\dfrac{205}{306} \approx 43\%$.
+		
+		\item 
+		Les soldes naturels en $2020, 2021,$ et $2022$ sont approximativement égaux à $65$, $85$, $55$.
+		
+		De $2020$ à $2021$, il y a donc eu une augmentation de $\dfrac{85}{65}- 1 \approx 30\%$.
+		De $2021$ à $2022$, il y a eu une diminution de $1-\dfrac{55}{85} \approx 35\%$.
+		
+		Le coefficient multiplicatif pour passer du solde en $2020$ au solde en $2022$ est donc environ $1,3 \cdot 0,65 \approx 0,88$, qui correspond à une diminution de $12\%$.
+		On vérifie avec les valeurs connues : $1-\dfrac{55}{65} \approx 15\%$.
+		
+	\end{enumerate}
+		
+	En conclusion, en approximant deux évolutions locales puis en les multipliant pour trouver une évolution globale, on additionne les erreurs commises et notre résultat n'est pas assez précis.
+	On trouve environ $12\%$, au lieu des $15\%$ par calcul direct.
+	
+	Plus généralement, l'approximation répétée est dangereuse en calcul numérique. 
+	C'est d'ailleurs un champ d'étude important en algorithmique, où tout est approximé, faute de précision infinie.
+}
+
+\newpage
 \fancyfoot[C]{\thepage}
 
 
@@ -99,9 +162,31 @@
 
 
 \exe{}{
+	Tracer un repère et y placer les points suivants.
+	\begin{multicols}{3}
+	\begin{enumerate}[leftmargin=50pt]
+		\item $\point{A}{2}{3}$
+		\item $\point{B}{-1}{3}$
+		\item $\point{C}{0}{-5}$
+		\item $\point{D}{-1}{0}$
+		\item $\point{E}{-2}{-1}$
+		\item $\point{F}{4}{1}$
+	\end{enumerate}
+	\end{multicols}
+	
+	Calculer le carré des longueurs suivantes : $AB^2, CD^2,$ et $EF^2$.
+	
+	\emph{Formule de la longueur : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+}{exe:points-à-placer}{
+}
+
+
+\exe{}{
 	Tracer la courbe de la fonction $f$ sur $\D=[-5;3]$ donnée algébriquement par
 		\[ f(x) = 1-x. \]
 	Que dire de $\C_f$ ?
+	
+	\emph{Rappel : $\C_f$ est l'ensemble des points $\bigl( x ; f(x) \bigr)$ où $x$ parcourt le domaine $\D$.}
 }{exe:graph-droite}{		
 	$\C_f$ est une droite.
 	\begin{center}
@@ -116,6 +201,16 @@
 }
 
 \exemulticols{}{
+	Considérons les graphes de $f$ et $g$ sur $\D = [-2,5 ; 2,3]$ ci-contre.
+
+	Remplir les pointillés avec le signe $<$ (inférieur strict), $>$ (supérieur strict), ou $=$.
+	\begin{align*}
+		f(-2) &\quad\dots\quad g(-2) \\
+		g(-2) &\quad\dots\quad f(-2) \\
+		f(0) &\quad\dots\quad g(0) \\
+		f(1) &\quad\dots\quad g(1) \\
+		g(1) &\quad\dots\quad f(1)
+	\end{align*}
 	Donner l'ensemble des \mbox{$x \in [-2,5 ; 2,3]$} vérifiant $f(x) = g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
 }{
 	\begin{center}
@@ -124,7 +219,7 @@
 			grid style = {opacity=.5},
 			x=1.5cm,
 			xtick={-3, -2, ..., 2},
-			y=15pt,
+			y=25pt,
 			clip=true,
 			]
 			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-2.5:2.3, samples=101]{(x-1)*(x-2)*(x+2)/2}
@@ -165,6 +260,22 @@
 	\end{enumerate}
 }
 
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
+		\end{align*}
+	Tracer le quadrilatère $BACD$ dans un repère puis démontrer que c'est un parallélogramme en comparant le milieu de ses deux diagonales.
+	
+	\emph{Un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu.}
+	
+	\emph{Formule du milieu du segment $[AB]$ : $(\frac{x_A+x_B}2 ; \frac{y_A+y_B}2)$.}
+}{exe:parallélogramme}{
+	TODO
+}
+
+\newpage
 
 \exe{}{
 	Lors d'un payement par carte bancaire, une commission valant 1\% du montant de la transaction est versée comme frais bancaires.
