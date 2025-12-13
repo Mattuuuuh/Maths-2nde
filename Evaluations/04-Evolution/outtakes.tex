@@ -1,0 +1,123 @@
+\input{../preamble.tex}
+
+\SetDate[25/12/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation blanche — Évolutions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+\exe{10}{
+	Le taux de change d'une monnaie est le prix de cette monnaie par rapport à une autre.
+	Un tableau incomplet de taux de change est fourni figure \ref{fig:1}.
+	Chaque valeur est arrondie au centième le plus proche.
+	
+	Ainsi, par exemple, 1EUR (euro) correspond à 0,94CHF (francs suisses).%, et donc $x$ EUR se convertissent en $0,94x$ CHF.
+	%Le coefficient multiplicateur du change EUR vers CHF est 0,94.
+	
+	\begin{enumerate}
+	\item
+	\begin{enumerate}[label=(\alph*)]
+		\item \label{q:1}
+		Convertir 100EUR en CHF.
+		\item
+		Déduire de la question 1.\ref{q:1} le taux d'évolution du change EUR vers CHF (augmentation ou diminution, et pourcentage). 
+		\item
+		À l'aide de la question 1.\ref{q:1}, vérifier que le coefficient multiplicateur du change CHF vers EUR du tableau soit bien correct.
+		\item
+		Quelle est le lien entre les deux coefficients multiplicateurs : celui du change CHF vers EUR ; et celui du change EUR vers CHF ?
+	\end{enumerate}
+	
+	\item
+	Donner le taux d'évolution du change CHF vers USD (augmentation ou diminution, et pourcentage).
+	\end{enumerate}
+	La case EUR-NOK (euro vers couronne norvégienne) est vierge dans le tableau, mais il est cependant possible de la déduire en convertissant des EUR en USD puis des USD en NOK.
+	\begin{enumerate}[resume]
+	\item
+	\begin{enumerate}[label=(\alph*)]
+		\item \label{q:2}
+		Convertir 100EUR en USD puis le résultat en NOK. Deux conversions sont attendues.
+		\item
+		À l'aide de la question 3.\ref{q:2}, montrer que le coefficient multiplicateur du change EUR vers NOK est 12,18.
+		\item
+		Quelle est le lien entre les trois coefficients multiplicateurs : celui du change EUR vers USD ; et USD vers NOK ; et EUR vers NOK ?
+		\item 
+		Donner le taux d'évolution du change EUR vers NOK (augmentation ou diminution, et pourcentage).
+		\item
+		Combien d'euros faut-il pour être millionaire en Norvège ?
+	\end{enumerate}
+	
+	\item
+	Compléter toutes les cases vierges du tableau.
+	\end{enumerate}
+}{exe:Bellman-Ford}{
+	todo
+}
+
+\begin{figure}[h!]
+	\centering
+	%\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		& EUR  & USD & CHF & NOK  \\\hline
+		1 EUR & 1 & 1,16 & 0,94 &   \\\hline
+		1 USD & & 1 & & 10,5 \\\hline
+		1 CHF & 1,06  & 1,23  & 1 &   \\\hline
+		1 NOK &   &  & 0,08 & 1  \\\hline
+	\end{tabular}
+	%\end{center}
+	\caption{Tableau de l'exercice \ref{exe:Bellman-Ford}.  Chaque valeur est arrondie au centième le plus proche. \\ Lecture : 1CHF équivaut à 1,06EUR.}
+	\label{fig:1}
+\end{figure}
+
+\newpage
+
+\exe{}{
+	L'impôt sur le revenu est une taxe qui s'applique sur les revenus annuels de chaque individu imposable en France.
+	Celui-ci est calculé à partir du tableau suivant, qui distingue différents taux d'imposition pour différentes tranches de revenus.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Tranches de revenus  & Taux d’imposition pour cette tranche \\\hline
+		Jusqu’à 11 497 euros & 0\% \\\hline
+		De 11 498 à 29 315 euros & 11\% \\\hline 
+		De 29 316 à 83 823 euros & 30\% \\\hline 
+		De 83 824 à 180 294 euros & 41\% \\\hline
+		Supérieur à 180 294 euros & 45\% \\\hline
+	\end{tabular}
+	\end{center}
+	
+	Par exemple, une personne gagnant $38~000$€ à l'année sera imposée d'un montant de
+		\[ 0\% \text{ de } 11~497 + 11\% \text{ de } 17~817 + 30\% \text{ de } 8~684 = 4~565,07 \text{€}. \]
+}{exe:IR}{
+	todo
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}

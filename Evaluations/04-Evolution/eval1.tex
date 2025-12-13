@@ -14,9 +14,9 @@
 Consignes particulières : 
 \begin{itemize}[label=$\bullet$]
 	\item 
-	La calculatrice est {interdite}.
+	La calculatrice est {autorisée}.
 	\item
-	Les sujets d'évaluation sont individuels. Écrire son nom avant de rendre son sujet.
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
 	%\item
 	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
 	\item
@@ -26,27 +26,117 @@ Consignes particulières :
 \marginpar{[pts]}
 \hrule
 
-\exe{}{
-	L'impôt sur le revenu est une taxe qui s'applique sur les revenus annuels de chaque individu imposable en France.
-	Celui-ci est calculé à partir du tableau suivant, qui distingue différents taux d'imposition pour différentes tranches de revenus.
+\exe{4}{
+	Exprimer les nombre suivants sous la forme $10^x$ pour un entier $x\in\Z$.
 	
-	\begin{center}
-	\begin{tabular}{|c|c|} \hline
-		Tranches de revenus  & Taux d’imposition pour cette tranche \\\hline
-		Jusqu’à 11 497 euros & 0\% \\\hline
-		De 11 498 à 29 315 euros & 11\% \\\hline 
-		De 29 316 à 83 823 euros & 30\% \\\hline 
-		De 83 824 à 180 294 euros & 41\% \\\hline
-		Supérieur à 180 294 euros & 45\% \\\hline
-	\end{tabular}
-	\end{center}
-	
-	Par exemple, une personne gagnant $38~000$€ à l'année sera imposée d'un montant de
-		\[ 0\% \text{ de } 11~497 + 11\% \text{ de } 17~817 + 30\% \text{ de } 8~684 = 4~565,07 \text{€}. \]
-}{exe:IR}{
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $10^2 \times 10^{10}$
+		%\item $10^{-2} \times 10^{-1}$
+		\item $\left(10^7\right)^2$
+		%\item $\dfrac{10^{18}}{10^{18}}$
+		\item $\dfrac{10^{12}}{10^{15}}$
+		\item $\dfrac{10^{-7}}{10^{8}}$
+		\item $\dfrac{10^{0}}{10^{-12}}$
+		\item $\dfrac{1}{10^{-6}}$
+		\item $\dfrac{10^{32}}{10^{-16}}$
+		%\item $\dfrac{1}{10^{8}}$
+		\item $\left(\dfrac1{10^5}\right)^3$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:pow}{
 	todo
 }
 
+\exe{4, difficulty=1}{
+	On estime que tous les milliers d'années après la mort d'un organisme, le nombre d'atomes de carbone 14 diminue de $11\%$.
+	Ajourd'hui, au temps $0$, on mesure $2$ millions d'atomes de carbone 14.
+
+	Répondre aux questions suivantes en arrondissant à $10^{-3}$.
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}[label=\alph*)]
+			\item Donner le  coefficient multiplicateur associé à une diminution de 11\%.
+			\item Combien d'atomes de carbone 14 restera-t-il après 4 000 années ?
+			%\item À partir de combien de milliers d'années ne restera-t-il que 100 000 atomes de carbone 14 ? Une réponse entière est attendue.
+		\end{enumerate}
+		\item 
+		\begin{enumerate}[label=\alph*)]
+			\item Donner le coefficient multiplicateur de l'évolution réciproque d'une diminution de 11\%.
+			\item En déduire l'évolution réciproque d'une diminution de 11\%.
+			\item Combien d'atomes de carbones 14 y avait-il il y a 10 000 ans ?
+		\end{enumerate}
+	\end{enumerate}
+}{exe:C14}{
+	todo
+}
+
+\exe{6, difficulty=1}{
+	En vue des soldes, un magasin augmente frauduleusement ses prix avant d'appliquer une remise de 42\%.
+	On compare les prix initiaux avant augmentation aux prix finaux après application des deux évolutions.
+	
+	Répondre aux questions suivantes en arrondissant les valeurs au centième.
+	Un coefficient multiplicateur est d'abord attendu, puis un taux d'évolution.
+	\begin{enumerate}
+		\item 
+		Quelle augmentation faut-il effectuer pour que les prix ne changent pas, avant et après évolutions ?
+		\item
+		Quelle augmentation faut-il effectuer pour que, au final, les prix aient augmenté de $10\%$ ?
+		\item
+		Quelle augmentation faut-il effectuer pour que, au final, les prix aient diminué de $22\%$ ?
+	\end{enumerate}
+
+}{exe:prix}{
+	todo
+}
+
+\exe{2, difficulty=1}{
+	Dans un lycée, 20\% des élèves de Terminale sont inscrits en filière STMG.
+	En outre, 8\% des élèves de Terminale sont des filles inscrites en STMG.
+	
+	Quelle est la proportion de filles parmis les STMG ?
+}{exe:prop-prop}{
+	todo
+}
+
+\exe{2}{
+	Considérons $E = \bigset{1 ; 2 ; 3 ; \dots ; 35}$ l'ensemble des élèves de la classe.
+	Soit $F \subseteq E$ un sous-ensemble de $E$.
+	\begin{enumerate}
+		\item
+		Donner le cardinal de l'ensemble $E$.
+		\item
+		Est-il possible que la proportion d'éléments de $E$ appartenant à $F$ soit $\frac12$ ?
+		\item ($\star\star$)
+		Quelles sont les proportions $\frac1{d}$ possibles d'éléments de $E$ appartenant à $F$ ? $d\in\N$ est un entier naturel non nul.
+	\end{enumerate}
+}{exe:prop-1d}{
+	todo
+}
+
+\newpage
+
+\exe{3}{
+	Vrai ou faux ? Cocher la case correspondante.
+	\vspace{-30pt}
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		\thead{Une augmentation de 20\% suivie d'une \\ diminution de 20\% n'a aucun d'effet} & $\square$ & $\square$  \\
+		{20\% de 730 est 146} & $\square$ & $\square$  \\
+		\thead{Une multiplication par 1,5 correspond  \\ à une augmentation de 150\%} & $\square$ & $\square$  \\
+		\thead{L'évolution réciproque d'une diminution  \\ de 80\% est une augmentation de 400\%} & $\square$ & $\square$  \\
+		Prendre la moitié de la moitié c'est diminuer de 75\% & $\square$ & $\square$  \\
+		\thead{Une augmentation suivie d'une diminution \\ aboutit toujours à une diminution} & $\square$ & $\square$ 
+	\end{tabular}
+	\end{center}
+	%\vspace{-10pt}
+}{exe:qcm}{
+	todo
+}
 
 %%%%%%%%%%%
 
