@@ -32,26 +32,34 @@ Consignes particulières :
 	\begin{multicols}{4}
 	\begin{enumerate}
 		\item $10^2 \times 10^{10}$
-		%\item $10^{-2} \times 10^{-1}$
 		\item $\left(10^7\right)^2$
-		%\item $\dfrac{10^{18}}{10^{18}}$
 		\item $\dfrac{10^{12}}{10^{15}}$
 		\item $\dfrac{10^{-7}}{10^{8}}$
 		\item $\dfrac{10^{0}}{10^{-12}}$
 		\item $\dfrac{1}{10^{-6}}$
 		\item $\dfrac{10^{32}}{10^{-16}}$
-		%\item $\dfrac{1}{10^{8}}$
 		\item $\left(\dfrac1{10^5}\right)^3$
 	\end{enumerate}
 	\end{multicols}
 
 }{exe:pow}{
-	todo
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $10^{12}$
+		\item $10^{14}$
+		\item $10^{-3}$
+		\item $10^{-15}$
+		\item $10^{12}$
+		\item $10^{6}$
+		\item $10^{48}$
+		\item $10^{-15}$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{4, difficulty=1}{
 	On estime que tous les milliers d'années après la mort d'un organisme, le nombre d'atomes de carbone 14 diminue de $11\%$.
-	Ajourd'hui, au temps $0$, on mesure $2$ millions d'atomes de carbone 14.
+	Ajourd'hui on mesure $2$ millions d'atomes de carbone 14.
 
 	%Répondre aux questions suivantes en arrondissant à $10^{-3}$.
 	\begin{enumerate}
@@ -68,7 +76,27 @@ Consignes particulières :
 		\end{enumerate}
 	\end{enumerate}
 }{exe:C14}{
-	todo
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}[label=\alph*)]
+			\item 
+			$CM = 1 - \frac{11}{100} = 0,89$.
+			\item 
+			On applique quatre diminutions de 11\% à 2 pour trouver
+				\[ 2 \times 0,89^4 \approx 1,25. \]
+			Il ne restera donc que 1,25 millions d'atomes de carbone 14 dans 4 000 ans.
+		\end{enumerate}
+		\item 
+		\begin{enumerate}[label=\alph*)]
+			\item
+			$CM^{-1} = 0,89^{-1} \approx 1,12$.
+			L'évolution réciproque est donc une augmentation de 12\%.
+			\item 
+			On applique 10 évolutions réciproque à 2 pour trouver
+				\[ 2 \times 0,89^{-10} \approx 6,41. \]
+			Il y avait donc 6,41 millions d'atomes de carbone 14 il y a 10 000 ans.
+		\end{enumerate}
+	\end{enumerate}
 }
 
 \exe{3, difficulty=1}{
@@ -87,7 +115,22 @@ Consignes particulières :
 	\end{enumerate}
 
 }{exe:prix}{
-	todo
+	La remise de 42\% est associé au coefficient multiplicateur $CM = 1 - \frac{42}{100} = 0,58$.
+	\begin{enumerate}
+		\item 
+		$CM^{-1} = 0,58^{-1} \approx 1,72$.
+		Il faut donc effectuer une augmentation de 72\%.
+		\item
+		Notons $c$ le coefficient multiplicateur associé à l'augmentation recherchée.
+		Celui-ci vérifie $0,58 \times c = 1,1$, d'après le théorème des évolutions successives.
+		D'où $c = \frac{1,1}{0,58} \approx 1,89$.
+		Il faut donc effectuer une augmentation de 89\%.
+		\item
+		Notons $c$ le coefficient multiplicateur associé à l'augmentation recherchée.
+		Celui-ci vérifie $0,58 \times c = 0,78$, d'après le théorème des évolutions successives.
+		D'où $c = \frac{0,78}{0,58} \approx 1,34$.
+		Il faut donc effectuer une augmentation de 34\%.
+	\end{enumerate}
 }
 
 \exe{2, difficulty=1}{
@@ -96,7 +139,11 @@ Consignes particulières :
 	
 	Quelle est la proportion de filles parmis les STMG ?
 }{exe:prop-prop}{
-	todo
+	Notons $p$ la proportion recherchée.
+	La proportions de filles inscrites en STMG peut être vu comme la proportion d'élèves en STMG multiplié par la proportion $p$ de filles parmis les STMG.
+	En effet, les proportions de sous-populations se multiplient entre elles.
+	
+	D'où $0,08 = 0,2 \times p$, et donc $p = \frac{0,08}{0,2} = 0,4 = 40\%$.
 }
 
 \exe{2}{
@@ -111,7 +158,21 @@ Consignes particulières :
 		Quelles sont les proportions $\frac1{d}$ possibles d'éléments de $E$ appartenant à $F$ ? $d\in\N$ est un entier naturel non nul.
 	\end{enumerate}
 }{exe:prop-1d}{
-	todo
+	\begin{enumerate}
+		\item
+		$|E| = 35$.
+		\item
+		Supposons que $F$ existe vérifiant
+			\[ \dfrac{|F|}{35} = \dfrac12. \]
+		Il suivrait alors que $|F| = \frac{35}2 = 17,5$, ce qui est impossible car un cardinal est toujours un entier naturel.
+		\item
+		Imposons
+			\begin{align*}
+				\dfrac{|F|}{35} = \dfrac1d && \iff && |F| = \dfrac{35}d.
+			\end{align*}
+		Cette égalité n'est possible dans les entiers naturels que si la fraction $\frac{35}{d}$ est un entier, est donc si $d$ divise 35.
+		Les seuls diviseurs de 35 étant 1, 5, 7, et 35, ce sont les seules possibilités pour $d$.
+	\end{enumerate}
 }
 
 \newpage
@@ -128,13 +189,24 @@ Consignes particulières :
 		{20\% de 730 est 146} & $\square$ & $\square$  \\
 		\thead{Une multiplication par 1,5 correspond  \\ à une augmentation de 150\%} & $\square$ & $\square$  \\
 		\thead{L'évolution réciproque d'une diminution  \\ de 80\% est une augmentation de 400\%} & $\square$ & $\square$  \\
-		Prendre la moitié de la moitié c'est diminuer de 75\% & $\square$ & $\square$  \\
+		\thead{Prendre la moitié de la moitié \\ c'est diminuer de 75\%} & $\square$ & $\square$  \\
 		\thead{Une augmentation suivie d'une diminution \\ aboutit toujours à une diminution} & $\square$ & $\square$ 
 	\end{tabular}
 	\end{center}
-	%\vspace{-10pt}
 }{exe:qcm}{
-	todo
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		\thead{Une augmentation de 20\% suivie d'une \\ diminution de 20\% n'a aucun d'effet} & & $\times$  \\
+		{20\% de 730 est 146} & $\times$ &   \\
+		\thead{Une multiplication par 1,5 correspond  \\ à une augmentation de 150\%} &  & $\times$  \\
+		\thead{L'évolution réciproque d'une diminution  \\ de 80\% est une augmentation de 400\%} & $\times$ &  \\
+		\thead{Prendre la moitié de la moitié \\ c'est diminuer de 75\%} & $\times$ &  \\
+		\thead{Une augmentation suivie d'une diminution \\ aboutit toujours à une diminution} & & $\times$ 
+	\end{tabular}
+	\end{center}
 }
 
 
@@ -163,7 +235,24 @@ Consignes particulières :
 	\end{enumerate}
 		
 }{exe:2}{
-	todo
+	\begin{enumerate}
+		\item
+		$CM = 1 - \frac{30}{100} = 0,7$.
+		\item
+		$5 \times 0,7 = 3,5$.
+		\item
+		$10 \times 0,7^2 = 4,9$.
+		\item
+		Faire idem avec trois scans : donner la valeur du panier avant réduction, puis après application des trois diminutions successives.
+		Après 3 scans, le panier vaut $3\times5 = 15$€ avant réduction.
+		Après 3 réductions de 30\%, celui-ci vaut $15 \times 0,7^3 = 5,145$€ (Carrefour arrondit à 5,14€).
+		\item $(\star)$
+		Après $n$ scans, le prix de panier avant réduction est $5n$.
+		Après application des $n$ réductions, le prix final est de $5n \times0,7^n$.
+		En choisissant des valeurs de $n$ jusqu'à obtenir un prix final inférieur à 2,50€, on trouve $n=8$ car après 7 scans, $35 \times 0,7^7 \approx 2,88$, et après 8 scans, $40\times0,7^8 \approx 2,31$.
+		
+		Il semble d'abord que le prix final augmente en scannant l'objet, mais la croissance linéaire ($5n$) se fait dominer rapidement par la décroissance exponentielle ($0,7^n$).
+	\end{enumerate}
 }
 
 %%%%%%%%%%%
