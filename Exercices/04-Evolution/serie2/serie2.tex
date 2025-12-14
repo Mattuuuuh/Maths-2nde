@@ -1,12 +1,53 @@
 \input{../preamble.tex}
 
-\SetDate[04/11/2025]
+\SetDate[16/12/2025]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
 \fancyhead[C]{\textbf{Puissances et ordres de grandeur}}
 \fancyhead[R]{\today}
+
+
+
+\exe{}{
+	Donner le coefficient multiplicateur associé à 3 diminutions successives de 10\% chacune.
+	
+	Comparer l'évolution totale avec une diminution simple de 30\%.
+}{exe:c1}{
+	Une diminution de 10\% est associée au coefficient multiplicateur $1-\frac{10}{100} = 0,9$.
+	Appliqué 3 fois, il devient $0,9 \times 0,9 \times 0,9 = 0,9^{3} = 0,729$.
+	Comme $0,729 -1 = -0,271 = -27,1\%$, ceci correspond à une diminution de 27,1\%.
+	
+	En conclusion, effectuer trois diminutions de 10\% aboutit à une diminution plus petite qu'une unique diminution de 30\%.
+	
+	En général, on ne compare jamais $n$ évolutions de $P\%$ avec une évolution de $nP\%$.
+	Cette comparaison n'a d'ailleurs pas de sens lorsque $nP$ dépasse 100 lors d'une diminution.
+}
+
+\exe{}{
+	Donner le coefficient multiplicateur associé à 20 augmentations successives de 5\% chacune.
+	
+	Comparer l'évolution totale avec une augmentation simple de 100\%.
+}{exe:c2}{
+	Une augmentation de 5\% est associée au coefficient multiplicateur $1+\frac{5}{100} = 1,05$.
+	Appliqué 20 fois, il devient $1,05 \times \cdots \times 1,05 = 1,05^{20} \approx 2,65$.
+	Comme $2,65 -1 = 1,65 = +165\%$, ceci correspond à une augmentation de 165\%.
+	
+	En conclusion, effectuer trois augmentation de 10\% aboutit à une augmentation plus grande qu'une unique augmentation de 100\%.
+	
+	En général, on ne compare jamais $n$ évolutions de $P\%$ avec une évolution de $nP\%$.
+	Cette comparaison n'a d'ailleurs pas de sens lorsque $nP$ dépasse 100 lors d'une diminution.
+}
+
+\exe{}{
+	Une colonie de 10 puces s'installe sur le dos d'un chat. Chaque jour, la taille de la colonie augmente de 2\%.
+	Estimer la taille de la colonie après 1 an (365 jours) sans traitement anti-parasitaire.
+}{exe:5}{
+	Une augmentation de 2\% correspond à multiplier par $1+\frac{2}{100} = 1,02$.
+	Après 365 telles augmentations, on estime la population de puces en calculant
+		\[ 10 \times 1,02^{365} \approx 13~774. \]
+}
 
 
 \exe{}{
@@ -22,11 +63,11 @@
 		\item $\left(2^{3}\right)^{-1}$
 		\item $\left(\dfrac{1}{7^2}\right)^6$
 		\item $\dfrac{10^{12}}{10^{-12}}$
-		\item $\dfrac{10^{-5}}{10^{6}}$
+		\item $\dfrac{25^{-4}}{5^{6}}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:puissances}{
-	\begin{multicols}{3}
+	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*)]
 		\item $10^8$
 		\item $4^{10}$
@@ -37,7 +78,7 @@
 		\item $2^{-3}$
 		\item $7^{-12}$
 		\item $10^{24}$
-		\item $10^{-11}$
+		\item $5^{-8-6} = 5^{-14}$ ou alors $25^{-4 -3} = 25^{-7}$.
 	\end{enumerate}
 	\end{multicols}
 }
@@ -58,7 +99,7 @@
 }
 
 
-\exe{}{
+\exe{, difficulty=1}{
 	Montrer qu'on a environ $2^{10} \approx 10^3$. 	
 	\begin{enumerate}
 		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
@@ -104,9 +145,9 @@
 	Par exemple, prendre 1\% d'une valeur ne la diminuera que de deux ordres de grandeur (car $1\% = 10^{-2}$).
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	En 2022, 776 millions de tonnes de riz ont été produites, chaque grain riz pesant environ 0,04g.
-	Combien de grains de riz ont été produits en 2022 ?
+	Combien de grains de riz ont été produits en 2022 ? Répondre en écriture scientifique.
 	
 	\emph{Indications : 1 million = $10^6$, et 1 tonne = $10^6$ grammes. }
 }{exe:grain-riz}{
@@ -115,46 +156,46 @@
 		\[ \dfrac{776 \times 10^{12}}{0,04} = 19400 \times 10^{12} = 1,94 \times 10^{16}. \]
 }
 
-\subsection*{Exercices supplémentaires}
+%\subsection*{Exercices supplémentaires}
+%
+%\exe{, difficulty=2}{
+%    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
+%    \begin{enumerate}
+%    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $(100p)\%$ suivie d'une diminution de $(100p)\%$ ?
+%    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
+%    \end{enumerate}
+%}{exe:sqrt-evol}{
+%    \begin{enumerate}
+%    \item Soit $N\geq0$ une quantité. Après une augmentation de $(100p)\%$ puis une diminution de $(100p)\%$,
+%    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
+%    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
+%    		
+%    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
+%    \item On pose l'égalité suivante
+%    		\[ 100p^2 = 16. \]
+%    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
+%    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
+%	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
+%	
+%	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
+%    \end{enumerate}
+%
+%}
+%
+%\exe{, difficulty=1}{
+%	Soient $q\in\R$ et $n\in\Z$.
+%	Montrer que $q^n$ est positif si $n$ est pair.
+%	Montrer que $q^n$ est du signe de $q$ si $n$ est impair.
+%}{exe:signe-qn}{
+%	Si $n$ est pair, c'est un multiple de 2 : $n = 2k$ pour un entier $k \in \Z$.
+%	Dans ce cas, $q^n = \left(q^k\right)^2$, qui est un carré et est donc positif.
+%	
+%	Si $n$ est impair, alors l'entier d'avant est pair : $n-1 =2k$ pour un entier $k\in\Z$.
+%	Dans ce cas, $n=2k+1$, et $q^n = \left( q^k \right)^2 \times q$, qui est un nombre positif fois $q$, du signe de $q$.
+%}
 
 \exe{, difficulty=2}{
-    Considérons $p\geq 0$ une proportion et $100p$ le pourcentage associé.
-    \begin{enumerate}
-    \item À quelle évolution, en fonction de $p$, correspond une augmentation de $(100p)\%$ suivie d'une diminution de $(100p)\%$ ?
-    \item Quel $p$ choisir pour trouver une diminution finale de $16\%$ ?
-    \end{enumerate}
-}{exe:sqrt-evol}{
-    \begin{enumerate}
-    \item Soit $N\geq0$ une quantité. Après une augmentation de $(100p)\%$ puis une diminution de $(100p)\%$,
-    		la quantité est donnée par $(1-p) \cdot (1+p) \cdot N = (1-p^2) \cdot N$.
-    		Ceci correspond à une diminution de $100\left(p^2\right) \%$.
-    		
-    		On comparera avec l'exercice 9, où $p=0,2$ et $p^2 = 0,04 = 4\%$.
-    \item On pose l'égalité suivante
-    		\[ 100p^2 = 16. \]
-    	Remarquons que $16$ et $100$ sont tous les deux des carrés parfaits :
-    		\[ p^2 = \dfrac{16}{100} = \left( \dfrac{4}{10} \right)^2, \]
-	et donc $p = \dfrac{4}{10} = 40\%$, car $p\geq 0$.
-	
-	Vérification : au vu de la question 1, on calcule $0,4^2 = 0,16 = 16\%$.
-    \end{enumerate}
-
-}
-
-\exe{, difficulty=1}{
-	Soient $q\in\R$ et $n\in\Z$.
-	Montrer que $q^n$ est positif si $n$ est pair.
-	Montrer que $q^n$ est du signe de $q$ si $n$ est impair.
-}{exe:signe-qn}{
-	Si $n$ est pair, c'est un multiple de 2 : $n = 2k$ pour un entier $k \in \Z$.
-	Dans ce cas, $q^n = \left(q^k\right)^2$, qui est un carré et est donc positif.
-	
-	Si $n$ est impair, alors l'entier d'avant est pair : $n-1 =2k$ pour un entier $k\in\Z$.
-	Dans ce cas, $n=2k+1$, et $q^n = \left( q^k \right)^2 \times q$, qui est un nombre positif fois $q$, du signe de $q$.
-}
-
-\exe{, difficulty=2}{
-	Combien d'opérations arithmétiques (additions ou multiplications) sont nécessaires \emph{a priori} pour calculer $17^{32}$ ?
+	Combien d'opérations arithmétiques élémentaires (additions ou multiplications) sont nécessaires \emph{a priori} pour calculer $17^{32}$ ?
 
 	Montrer qu'on peut calculer $17^{32}$ en seulement 5 multiplications.
 	
