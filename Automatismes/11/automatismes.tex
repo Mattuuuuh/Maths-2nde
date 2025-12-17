@@ -1,0 +1,99 @@
+\input{../preamble.tex}
+\SetDate[16/12/2025]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice autorisée
+
+\end{frame}
+
+\subsection{Coefficient multiplicateur}
+
+\framedelayed{
+	Donner le coefficient multiplicateur associé à
+	\boxAB{
+		une augmentation de 35\%.
+	}{
+		une diminution de 15\%.
+	}
+}{
+	\begin{align*}
+		+P\% &\iff \times \Bigl( 1 + \dfrac{P}{100} \Bigr) \\
+		-P\% &\iff \times \Bigl( 1 - \dfrac{P}{100} \Bigr) 
+	\end{align*}
+	\boxAB{
+		augmenter de 35\% $\iff \times 1,35$.
+	}{
+		diminuer de 15\% $\iff \times 0,85$.
+	}
+}
+
+
+\framedelayed{
+	Donner le coefficient multiplicateur associé à
+	\boxAB{
+		une diminution de 35\%.
+	}{
+		une augmentation de 15\%.
+	}
+}{
+	\begin{align*}
+		+P\% &\iff \times \Bigl( 1 + \dfrac{P}{100} \Bigr) \\
+		-P\% &\iff \times \Bigl( 1 - \dfrac{P}{100} \Bigr) 
+	\end{align*}
+	\boxAB{
+		diminuer de 35\% $\iff \times 0,65$.
+	}{
+		augmenter de 15\% $\iff \times 1,15$.
+	}
+}
+
+\subsection{Taux d'évolution}
+
+\framedelayed{
+	Donner le taux d'évolution (augmentation, diminution, \%) associé à la multiplication par
+	\boxAB{
+		$0,82$
+	}{
+		 $1,31$
+	}
+}{
+	\[ CM-1 = 100 (CM - 1)\% \]
+	\boxAB{
+		$0,82 - 1 = -0,18 = -18\%$ : diminution de 18\%.
+	}{
+		 $1,31 - 1 = 0,31 = 31\%$ : augmentation de 31\%.
+	}
+}
+
+\framedelayed{
+	Donner le taux d'évolution (augmentation, diminution, \%) associé à la multiplication par
+	\boxAB{
+		$1,71$
+	}{
+		 $0,42$
+	}
+}{
+	\[ CM-1 = 100 (CM - 1)\% \]
+	\boxAB{
+		$1,71 - 1 = 0,71 = 71\%$ : augmentation de 71\%.
+	}{
+		 $0,42 - 1 = -0,58 = - 58\%$ : diminution de 58\%.
+	}
+}
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
