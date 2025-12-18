@@ -178,6 +178,12 @@
 	
 	\emph{Formule de la longueur : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
 }{exe:points-à-placer}{
+	D'après la formule de la longueur, on trouve les distances suivantes.
+		\begin{align*}
+			AB^2 &= \bigl(2-(-1)\bigr)^2 + (3-3)^2 = 9 \\
+			CD^2 &= \bigl(0- (-1)\bigr)^2 + (-5-0)^2 = 1 + 25 = 26 \\
+			EF^2 &= (-2-4)^2 + (-1-1)^2 = 36 + 4 = 40
+		\end{align*}
 }
 
 
@@ -211,7 +217,7 @@
 		f(1) &\quad\dots\quad g(1) \\
 		g(1) &\quad\dots\quad f(1)
 	\end{align*}
-	Donner l'ensemble des \mbox{$x \in [-2,5 ; 2,3]$} vérifiant $f(x) = g(x)$ à l'aide des graphes de $f$ et $g$ ci-contre.
+	Donner l'ensemble des \mbox{$x \in [-2,5 ; 2,3]$} vérifiant $f(x) = g(x)$.
 }{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
@@ -230,7 +236,16 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:f-equals-g}{
-	On trouve approximativement $x\approx-2,2$ ; $x\approx0,5$ et $x \approx 2,1$.
+
+	\begin{align*}
+		f(-2) &> g(-2) \\
+		g(-2) &< f(-2) \\
+		f(0) &> g(0) \\
+		f(1) &< g(1) \\
+		g(1) &> f(1)
+	\end{align*}
+
+	Les $x$ vérifiant $f(x)=g(x)$ sont l'abscisse des points d'intersection des courbes, donc approximativement $x\approx-2,2$ ; $x\approx0,5$ et $x \approx 2,1$.
 }
 
 \exe{, difficulty=1}{
@@ -272,7 +287,9 @@
 	
 	\emph{Formule du milieu du segment $[AB]$ : $(\frac{x_A+x_B}2 ; \frac{y_A+y_B}2)$.}
 }{exe:parallélogramme}{
-	TODO
+	Les diagonales sont données par $[BC]$ et $[AD]$.
+	D'après la formule, le milieu de $[BC]$ a pour coordonnées $(-1 ; -1)$, et le milieu de $[AD]$ a pour coordonnées $(-1 ; -1)$.
+	$BACD$ est donc un parallélogramme.
 }
 
 \newpage
