@@ -331,20 +331,42 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \ex{forme canonique : du signe du carré à l'extremum}{
 	Considérons la fonction
 		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
-	Remarquons que la fonction carré est toujours positive : on a donc toujours $\left( x - \dfrac72 \right)^2 \geq 0$.
-	Multiplier par $-1$ rend la quantité négative et on obtient, en ajoutant $\dfrac{265}2$,
+	Remarquons que la fonction carré est toujours positive : on a donc toujours $\left( x - \frac72 \right)^2 \geq 0$.
+	Multiplier par $-1$ rend la quantité négative et on obtient, en ajoutant $\frac{265}2$,
 		\begin{align*}
 			\left( x - \dfrac72 \right)^2 &\geq 0 \\
 			- \left( x - \dfrac72 \right)^2 & \leq 0 \\
 			\dfrac{265}2 - \left( x - \dfrac72 \right)^2 &\leq \dfrac{265}2 \\
 			f(x) &\leq \dfrac{265}2 
 		\end{align*}
-	En outre, $f\left(\dfrac72\right) = \dfrac{265}2 - 0^2 = \dfrac{265}2$. 
-	Il suit donc que $f$ atteint son maximum $\dfrac{265}2$ en $x^\star = \dfrac72$.
+	En outre, $f\left(\frac72\right) = \frac{265}2 - 0^2 = \frac{265}2$. 
+	Il suit donc que $f$ atteint son maximum $\frac{265}2$ en $x^\star = \frac72$.
 }{}
 
 \nt{
 	L'étude des variations et des extrema de fonctions fera l'objet du chapitre \ref{chap:variations}.
+}
+
+
+\exe{, difficulty=1}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	Montrer que $f$ atteint son minimum en $x^\star=\frac13$ et donner sa valeur.
+}{exe:extrema4-99}{
+	Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(3x-1)^2 &\geq 0 \\
+			3(3x-1)^2 &\geq 0 \\
+			-10 + 3(3x-1)^2 &\geq -10 \\
+			f(x) &\geq -10
+		\end{align*}
+	On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+	En conclusion,
+		\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+	et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
 }
 
 \exe{, difficulty=1}{
@@ -368,45 +390,52 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
 }
 
-\exe{, difficulty=1}{
-	Soit $f$ la fonction définie sur $\R$ par
-		\[ f(x) = -10 + 3(3x-1)^2. \]
-	Montrer que $f$ atteint son minimum en $x^\star=\dfrac13$ et donner sa valeur.
-}{exe:extrema4-99}{
-	Lorsqu'on a affaire à une forme canonique, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
-	Pour tout $x\in\R$ réel, on a donc
-		\begin{align*}
-			(3x-1)^2 &\geq 0 \\
-			3(3x-1)^2 &\geq 0 \\
-			-10 + 3(3x-1)^2 &\geq -10 \\
-			f(x) &\geq -10
-		\end{align*}
-	On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
-	
-	Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
-	En conclusion,
-		\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
-	et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
-}
-
 \exe{, difficulty=2}{
 	Considérons la courbe représentative de la fonction $f(x) = x + 1$ et le point $A(2;1)$.
-	Nous cherchons le point de $\C_f$ le plus proche de $A$.
+	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
 	\begin{enumerate}
 		\item
-		Grapher $\C_f$ sur le domaine $[0 ; 4]$, et placer le point $A$ dans le même repère.
+		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
 		Le point $A$ appartient-il à $\C_f$ ?
 		\item
 		Montrer qu'un point de $\C_f$ est de la forme $(x ; x+1)$, avec $x\in\R$.
 		\item
-		Montrer que la distance au carré de ce point à A est égale à
+		Montrer que la distance au carré de ce point à $A$ est égale à
 			\[ 2(x-1)^2 + 2. \]
 		\item
 		Conclure que le point de $\C_f$ le plus proche de $A$ est $B(1 ; 2)$.
 		Placer $B$ dans le repère déjà construit.
 	\end{enumerate}
 }{exe:proj-xp1}{
-	TODO
+	\begin{center}
+	\includegraphics[page=8]{figures/fig-carre.pdf}
+	\end{center}
+	\begin{enumerate}
+		\item
+		D'après la propriété fondamentale, $A \not\in \C_f$ car $f(x_A) = f(2) = 2+1 = 3 \neq y_A$.
+		\item
+		D'après la propriété fondamentale, un point $(x ; y)$ appartient $\C_f$ si et seulement si $y = f(x) = x+1$.
+		Tous les points de $\C_f$ sont donc de la forme $(x ; x+1)$.
+		\item
+		D'après la formule de la distance au carré, celle-ci est donnée par
+			\begin{align*}
+				(x - x_A)^2 + (x+1 - y_A)^2 &= (x-2)^2 + (x+1-1)^2,
+											\\ &= (x-2)(x-2) + x^2,
+											 \\ &= x^2 -2x - 2x + 4 + x^2,
+											  \\ &= 2x^2 - 4x + 4.
+			\end{align*}
+		D'autre part, en développant $2(x-1)^2 + 2$, on obtient
+			\begin{align*}
+				2(x-1)^2 + 2 &= 2(x-1)(x-1) + 2,
+							\\ &= 2[x^2 - x - x + 1] + 2,
+							\\ &= 2x^2 - 4x + 2 + 2,
+							\\ &= 2x^2 - 4x + 4,
+			\end{align*}
+		ce qui montre l'identité recherchée.
+		\item
+		Remarquons qu'un carré est toujours positif : l'expression $2(x-1)^2 + 2$ est donc toujours supérieure ou égale à 2, avec égalité quand $x-1$ est nul, c'est-à-dire quand $x=1$.
+		En $x=1$, le point $(x ; x+1)$ correspond bien au $B(1 ; 2)$ proposé.
+	\end{enumerate}
 }
 
 \nt{
@@ -444,9 +473,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \exe{, difficulty=1}{
 	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
-	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $\alpha = \dfrac{-b}{2a}$, et enfin que $\beta = \dfrac{b^2 - 4ac}{4a}$.
+	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $\alpha = \frac{-b}{2a}$, et enfin que $\beta = \frac{b^2 - 4ac}{4a}$.
 }{exe:déterminant-2nddeg}{
 	TODO
+}
+\nt{
+	On appelle la quantité $b^2 - 4ac$ le \emph{déterminant} du polynôme et on le note $\Delta$ (lu « delta »).
 }
 
 \exe{, difficulty=2}{
@@ -486,7 +518,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 \exe{}{
 	Compléter les expressions.
-	\begin{multicols}{2}
+	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $\sqrt{25} = $
 		\item $\sqrt{81} = $
@@ -501,8 +533,8 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{}{
-	Calculer les racines carrées suivantes.
-	\begin{multicols}{2}
+	Calculer les carrés et racines carrées suivantes.
+	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $\sqrt{7^2}$
 		\item $\sqrt{17}^2$
@@ -563,19 +595,24 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\end{align*}
 }{thm:prop-sqrt}
 
-\exe{}{
-	Calculer les produits suivants.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $\sqrt{169} \cdot \sqrt{81}$
-		\item $\sqrt{169 \cdot 81}$
-		\item $\sqrt{0,16} \cdot \sqrt{900}$
-		\item $\sqrt{0,16 \cdot 900}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:sqrt3}{
-	TODO
-}
+% je vois pas trop l'intérêt de cet exo.
+% Valérie en avait des mieux dans son plan de travail je crois.
+
+%\exe{}{
+%	Calculer les produits suivants.
+%	\begin{multicols}{3}
+%	\begin{enumerate}
+%		\item $\sqrt{9} \cdot \sqrt{100}$
+%		\item 
+%		\item $\sqrt{169} \cdot \sqrt{81}$
+%		\item $\sqrt{169 \cdot 81}$
+%		\item $\sqrt{0,16} \cdot \sqrt{900}$
+%		\item $\sqrt{0,16 \cdot 900}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:sqrt3}{
+%	TODO
+%}
 
 \exe{}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
@@ -597,7 +634,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 
 
 \exe{}{
-	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$.
+	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$ est entier.
 	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $3\sqrt{2}$
@@ -632,6 +669,34 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{}{
 	Montrer, sans calculatrice, que $\sqrt{7^{3782}} =7^{1891}$.
 }{exe:sqrt8}{
+	TODO
+}
+
+\exe{}{
+	Est-ce que l'égalité suivante tient ? $\sqrt{(-2)^{26}} =(-2)^{13}$.
+}{exe:sqrt9}{
+	TODO
+}
+
+\exe{}{
+	Montrer que l'égalité $x^2 = y^2$ n'implique pas $x=y$ pour $x, y\in\R$ généraux.
+}{exe:sqrt-non-bij}{
+	TODO
+}
+
+\nomen{
+	Une condition à un proposition est \emphindex{nécessaire et suffisante} si elle est équivalente à la proposition.
+	C'est-à-dire : si la condition est vraie, alors la proposition est vraie ; et si la condition est fausse, alors la proposition est fausse.
+}
+
+\exe{}{
+	Donner une condition {nécessaire et suffisante} sur les nombres $x, y \in \R$ pour que l'égalité $x^2 = y^2$ implique l'égalité $x=y$.
+	En d'autres termes, il faut que,
+		\begin{enumerate}[label=\roman*)]
+			\item si cette condition tient, alors $x^2 = y^2 \implies x=y$ ; et 
+			\item si cette condition ne tient pas, alors $x^2 = y^2 \centernot\implies x=y$.
+		\end{enumerate}
+}{exe:sqrt-bij-under-condition}{
 	TODO
 }
 
