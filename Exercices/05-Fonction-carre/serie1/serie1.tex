@@ -1,0 +1,395 @@
+\input{../preamble.tex}
+
+\SetDate[06/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Fonctions carré et racine carrée}}
+\fancyhead[R]{\today}
+
+%%% SQ
+
+\exe{}{
+	En supposant que $f$ et $g$ soient paires, continuer leur graphe sur tout le domaine.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-5.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-4:-.001, samples=300]{sin(180*x)/x} node[pos=.92, left]{$\C_f$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=.001:4, samples=300]{1+x*cos(180*x)} node[pos=.92, left]{$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:draw-paire}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	Montrer que les fonctions suivantes sont paires.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = 2x^2$
+		\item $g(x) = 4x^2 + 7$
+		\item $h(x) = \dfrac{1}{4x^2 + 7}$
+		\item $k(x) = x^4$
+	\end{enumerate}
+	\end{multicols}
+}{exe:paires}{
+	Pour tout $x\in\R$ on a bien 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(-x) = 2(-x)^2 = 2x^2 = f(x)$.
+		\item $g(-x) = 4(-x)^2 + 7 = 4x^2 + 7 = g(x)$
+		\item $h(-x) = \dfrac{1}{4(-x)^2 + 7} = \dfrac{1}{4x^2 + 7} = h(x)$
+		\item $k(-x) = (-x)^4 = \bigl( (-x)^2 \bigr)^2 = \bigl( x^2 \bigr)^2 = x^4 = k(x)$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{}{
+	Développer les expressions algébriques suivantes.
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3x-2)(2-3x)$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:développement}{
+	TODO
+}
+
+
+
+\exe{, difficulty=1}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	\begin{enumerate}
+		\item Développer réduire l'expression algébrique de $f$.
+		\item Montrer que $f$ atteint son minimum en $x^\star=\frac13$ et donner sa valeur.
+	\end{enumerate}
+}{exe:extrema4-99}{
+	Développons et réduisons calmement :
+		\begin{align*}
+			f(x) &= -10 + 3(3x-1)^2 \\
+				&= -10 + 3 \bigl[ (3x)^2 + 1^2 - 2\times3x \bigr] \\
+				&= -10 + 3 \bigl[ 9x^2 + 1 - 6x \bigr] \\
+				&= -10 + 27x^2 + 3 - 18x \\
+				&= 27x^2 - 18x - 7
+		\end{align*}
+
+	Lorsqu'on a affaire à une forme avec carré, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(3x-1)^2 &\geq 0 \\
+			3(3x-1)^2 &\geq 0 \\
+			-10 + 3(3x-1)^2 &\geq -10 \\
+			f(x) &\geq -10
+		\end{align*}
+	On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+	En conclusion,
+		\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+	et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
+}
+
+\exe{, difficulty=1}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -3 - (x+1)^2. \]
+	\begin{enumerate}
+		\item Développer réduire l'expression algébrique de $f$.
+		\item Donner le maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise.
+	\end{enumerate}
+}{exe:extrema3-99}{
+	Développons et réduisons en faisant attention au signe moins qui multiplie le carré tout entier :
+		\begin{align*}
+			f(x) &= -3 - (x+1)^2 \\
+				&=-3 - \bigl[ x^2 + 2x + 1 \bigr] \\
+				&= -3 -x^2 - 2x - 1 \\
+				&= -x^2 - 2x - 4
+		\end{align*}
+		
+	Lorsqu'on a affaire à une forme avec carré, on part systématiquement du fait qu'un carré est toujours positif pour enfin construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(x+1)^2 &\geq 0 \\
+			-(x+1)^2 &\leq 0 \\
+			-3 - (x+1)^2 &\leq -3 \\
+			f(x) &\leq -3
+		\end{align*}
+	On en déduit que $f(x)$ est borné supérieurement par $-3$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un maximum atteint en $-1$, on calcule $f(-1) = -3 - (-1+1)^2 = -3 + 0^2 = -3$.
+	En conclusion,
+		\[ f(x) \leq f(-1)=-3, \]
+	et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
+}
+
+
+\exe{, difficulty=2}{
+	Considérons la courbe représentative de la fonction $f(x) = x + 1$ et le point $A(2;1)$.
+	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
+	\begin{enumerate}
+		\item
+		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
+		Le point $A$ appartient-il à $\C_f$ ? Justifier.
+		\item
+		Montrer qu'un point de $\C_f$ est de la forme $B(x ; x+1)$, avec $x\in\R$.
+		\item
+		Montrer que la distance au carré de $B$ à $A$ est égale à
+			\[ AB^2 =  2x^2 - 4x + 4 = 2(x-1)^2 + 2. \]
+		\item
+		Conclure que le point de $\C_f$ le plus proche de $A$ est $B(1 ; 2)$.
+		Placer $B$ dans le repère déjà construit.
+	\end{enumerate}
+	\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+}{exe:proj-xp1}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 0, xmax=4, ymin=0, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=50pt, y=50pt, extra x ticks ={0}, extra y ticks = {0}, ytick distance=1,]
+			\addplot[no marks, BLUE_E, very thick, -] expression[domain=0:4, samples=2]{x+1} 
+			node[above left, pos=.8] {$\C_f$};
+			\addplot[RED_E, mark=*, mark size = 2] (2,1) node[right] {$A$};
+			\addplot[GREEN_E, mark=*, mark size = 2] (1,2) node[left] {$B$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item
+		D'après la propriété fondamentale, $A \not\in \C_f$ car $f(x_A) = f(2) = 2+1 = 3 \neq y_A$.
+		\item
+		D'après la propriété fondamentale, un point $(x ; y)$ appartient $\C_f$ si et seulement si $y = f(x) = x+1$.
+		Tous les points de $\C_f$ sont donc de la forme $(x ; x+1)$.
+		\item
+		D'après la formule de la distance au carré, celle-ci est donnée par
+			\begin{align*}
+				(x - x_A)^2 + (x+1 - y_A)^2 &= (x-2)^2 + (x+1-1)^2,
+											\\ &= x^2 - 4x + 4 + x^2,
+											  \\ &= 2x^2 - 4x + 4.
+			\end{align*}
+		D'autre part, en développant $2(x-1)^2 + 2$, on obtient
+			\begin{align*}
+				2(x-1)^2 + 2 &= 2(x-1)(x-1) + 2,
+							\\ &= 2[x^2 - x - x + 1] + 2,
+							\\ &= 2x^2 - 4x + 2 + 2,
+							\\ &= 2x^2 - 4x + 4,
+			\end{align*}
+		ce qui montre l'identité recherchée.
+		\item
+		Remarquons qu'un carré est toujours positif : l'expression $2(x-1)^2 + 2$ est donc toujours supérieure ou égale à 2, avec égalité quand $x-1$ est nul, c'est-à-dire quand $x=1$.
+		En $x=1$, le point $(x ; x+1)$ correspond bien au $B(1 ; 2)$ proposé.
+	\end{enumerate}
+}
+
+\newpage
+
+%%% SQRT
+
+\exe{}{
+	Compléter les expressions.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{25} = $
+		\item $\sqrt{81} = $
+		\item $\sqrt{121} = $
+		\item $\sqrt{\phantom{xxx}} = 25$
+		\item $\sqrt{\phantom{xxx}} = 12$
+		\item $\sqrt{\phantom{xxx}} = 10^3$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt1}{
+	TODO
+}
+
+\exe{}{
+	Calculer les carrés et racines carrées suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{7^2}$
+		\item $\sqrt{17}^2$
+		\item $\sqrt{(-9)^2}$
+		\item $\sqrt{10^4}$
+		\item $\left(-\sqrt{4}\right)^2$
+		\item $-\sqrt{15^2}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt2}{
+	TODO
+}
+
+
+\exe{}{
+	Est-ce que l'égalité suivante est vraie ? $\sqrt{(-2)^{26}} =(-2)^{13}$
+}{exe:sqrt9}{
+	TODO
+}
+
+\exe{}{
+	Montrer, sans calculatrice, que $\sqrt{7^{3782}} =7^{1891}$.
+}{exe:sqrt8}{
+	TODO
+}
+
+
+% je vois pas trop l'intérêt de cet exo.
+% Valérie en avait des mieux dans son plan de travail je crois.
+
+%\exe{}{
+%	Calculer les produits suivants.
+%	\begin{multicols}{3}
+%	\begin{enumerate}
+%		\item $\sqrt{9} \cdot \sqrt{100}$
+%		\item 
+%		\item $\sqrt{169} \cdot \sqrt{81}$
+%		\item $\sqrt{169 \cdot 81}$
+%		\item $\sqrt{0,16} \cdot \sqrt{900}$
+%		\item $\sqrt{0,16 \cdot 900}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:sqrt3}{
+%	TODO
+%}
+
+\exe{}{
+	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
+
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{12}$
+		\item $\sqrt{150}$
+		\item $5\sqrt{96}$
+		\item $2\sqrt{300}$
+		\item $\dfrac{12}{\sqrt{3}}$
+		\item $\dfrac{18}{\sqrt{6}}$
+		\item $\sqrt{125}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt4}{
+	TODO
+}
+
+
+\exe{}{
+	Écrire les nombres suivants sous la forme $\sqrt{a}$ où $a\in\N$ est entier.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $3\sqrt{2}$
+		\item $50\sqrt{0,5}$
+		\item $\dfrac12 \sqrt{48}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt5}{
+	TODO
+}
+
+\exe{}{
+	Développer les expressions suivantes.
+		\begin{multicols}{3}
+		\begin{enumerate}%[label=\arabic*)]
+			\item $\left(1+\sqrt2\right)\left(1-\sqrt2\right)$
+			\item $\left(1+\sqrt2\right)^2$
+			\item $\left(1-\sqrt2\right)^2$
+			\item $\left(\sqrt{3} - 2\sqrt2\right)^2$
+			\item $\left(\sqrt5 x + 2 \right)^2$
+			\item $\left(\sqrt5 x - \sqrt7\right)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:développement}{
+	TODO
+}
+
+% ça sert pas à grand chose non plus damned
+%\exe{}{
+%	Calculer les fractions suivantes.
+%	\begin{multicols}{4}
+%	\begin{enumerate}
+%		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
+%		\item $\sqrt{\dfrac{64}4}$
+%		\item $\dfrac{\sqrt{0,81}}{\sqrt{0,09}}$
+%		\item $\sqrt{\dfrac{0,81}{0,09}}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:sqrt6}{
+%	TODO
+%}
+
+\subsection*{Exercices supplémentaires}
+
+\exe{, difficulty=1}{
+	Montrer que la fonction $f(x) = x^2 - x^3$ n'est pas paire.
+}{exe:non-paire}{
+	Supposons que $f$ soit paire.
+	Par définition, $f(-x) = f(x)$ pour tout $x\in\R$.
+	
+	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
+	Par conséquent, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
+	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
+	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas paire.
+}
+
+\exe{, difficulty=1}{
+	Montrer que si $k$ est une fonction quelconque sur $\R$, alors la fonction $l(x) = \frac{k(x) + k(-x)}2$ est paire.
+	Donner $l(x)$ à partir de la fonction $k(x) = 4x^4 - 2x^3 + 2x^2 -x + 2$.
+}{exe:symétrisation}{
+	Quitte à doubler $l(x)$, ce qui ne change pas la parité, on étudie $k(x) + k(-x)$.
+		\[ l(-x) = k(-x) + k\bigl(-(-x)\bigr) = k(-x) + k(x) = k(x) + k(-x) = l(x) \]
+	pour tout $x\in\R$, donc $l$ est paire.
+	
+	En prenant $k(x) = 4x^4 - 2x^3 + 2x^2 -x + 2$, on trouve $k(-x) = 4x^4 + 2x^3 + 2x^2 + x + 2$.
+	Remarquons que les puissances paires ignorent le signe alors que les puissances impaires le recrachent !
+	
+	Par suite, 
+		\begin{align*}
+			l(x) = \dfrac{k(x) + k(-x)}2 &= \dfrac{4x^4 - 2x^3 + 2x^2 -x + 2 + 4x^4 + 2x^3 + 2x^2 + x + 2}2 \\
+								&= \dfrac{8x^4 + 4x^2 + 4}2 \\
+								&= 4x^4 + 2x^2 + 2
+		\end{align*}
+	Remarquons que $l$ a pris les puissances paires de $k$ et a jeté les puissances impaires.
+	Il s'avère que la fonction $\frac{k(x) - k(-x)}2$, elle, fait l'inverse.
+	
+	Plus généralement, toute fonction est somme d'une fonction paire et d'une fonction impaire ($f$ est impaire si $f(-x) = -f(x)$).
+	À démontrer !
+}
+
+
+\exe{, difficulty=2}{
+	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
+	Montrer, par identification des coefficients en $x^2, x, 1$ que $a'=a$, puis que $\alpha = \frac{-b}{2a}$, et enfin que $\beta = \frac{b^2 - 4ac}{4a}$.
+	
+	On appelle la quantité $b^2 - 4ac$ le \emph{déterminant} du polynôme et on le note $\Delta$ (lu « delta »).
+}{exe:déterminant-2nddeg}{
+	TODO
+}
+
+
+\exe{}{
+	Montrer que la notation $x = \sqrt{-1}$ n'a pas de sens pour $x\in\R$ réel.
+}{exe:sqrt-undef}{
+	À supposer qu'il existe un tel $x\in\R$, alors il vérifierait $x^2 = -1$.
+	Ce n'est pas possible car la fonction carré est toujours positive. \Large\Lightning
+}
+% clear
+%\exe{}{
+%	Montrer que l'égalité $x^2 = y^2$ n'implique pas $x=y$ pour $x, y\in\R$ généraux.
+%}{exe:sqrt-non-bij}{
+%	TODO
+%}
+
+\exe{,difficulty=1}{
+	Donner la condition la plus faible possible sur les nombres $x, y \in \R$ pour que l'égalité $x^2 = y^2$ implique l'égalité $x=y$.
+}{exe:sqrt-bij-under-condition}{
+	TODO
+}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
