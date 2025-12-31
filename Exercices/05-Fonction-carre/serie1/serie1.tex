@@ -14,14 +14,22 @@
 	En supposant que $f$ et $g$ soient paires, continuer leur graphe sur tout le domaine.
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-5.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-3.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
 			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-4:-.001, samples=300]{sin(180*x)/x} node[pos=.92, left]{$\C_f$};
 			\addplot[no marks,GREEN_E, -, very thick] expression[domain=.001:4, samples=300]{1+x*cos(180*x)} node[pos=.92, left]{$\C_g$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
 }{exe:draw-paire}{
-	TODO
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-3.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-4:4, samples=300]{sin(180*x)/x} node[pos=.46, left]{$\C_f$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=.001:4, samples=300]{1+x*cos(180*x)} node[pos=.92, left]{$\C_g$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=-4:.001, samples=300]{1-x*cos(180*x)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
 }
 
 \exe{, difficulty=1}{
@@ -36,14 +44,14 @@
 	\end{multicols}
 }{exe:paires}{
 	Pour tout $x\in\R$ on a bien 
-	\begin{multicols}{2}
+	%\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f(-x) = 2(-x)^2 = 2x^2 = f(x)$.
 		\item $g(-x) = 4(-x)^2 + 7 = 4x^2 + 7 = g(x)$
 		\item $h(-x) = \dfrac{1}{4(-x)^2 + 7} = \dfrac{1}{4x^2 + 7} = h(x)$
 		\item $k(-x) = (-x)^4 = \bigl( (-x)^2 \bigr)^2 = \bigl( x^2 \bigr)^2 = x^4 = k(x)$
 	\end{enumerate}
-	\end{multicols}
+	%\end{multicols}
 }
 
 
@@ -53,7 +61,7 @@
 		\begin{enumerate}[label=$\bullet$]
 			\item $f(x) = (1+x)^2$
 			\item $g(x) = (x-3)^2$
-			\item $h(x) = (3x-2)(2-3x)$
+			\item $h(x) = (3x+2)(2-3x)$
 			\item $F(x) = (3 + 2x)^2$
 			\item $G(x) = (3x - 7)^2$
 			\item $H(x) = (-7x - 2)^2$
@@ -143,11 +151,11 @@
 		\item
 		Montrer que la distance au carré de $B$ à $A$ est égale à
 			\[ AB^2 =  2x^2 - 4x + 4 = 2(x-1)^2 + 2. \]
+		\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
 		\item
 		Conclure que le point de $\C_f$ le plus proche de $A$ est $B(1 ; 2)$.
 		Placer $B$ dans le repère déjà construit.
 	\end{enumerate}
-	\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
 }{exe:proj-xp1}{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
@@ -224,14 +232,14 @@
 
 
 \exe{}{
-	Est-ce que l'égalité suivante est vraie ? $\sqrt{(-2)^{26}} =(-2)^{13}$
-}{exe:sqrt9}{
+	Montrer que $\sqrt{7^{3782}} =7^{1891}$.
+}{exe:sqrt8}{
 	TODO
 }
 
 \exe{}{
-	Montrer, sans calculatrice, que $\sqrt{7^{3782}} =7^{1891}$.
-}{exe:sqrt8}{
+	Est-ce que l'égalité suivante est vraie ? $\sqrt{(-2)^{26}} \stackrel{?}{=} (-2)^{13}$
+}{exe:sqrt9}{
 	TODO
 }
 
@@ -295,11 +303,11 @@
 			\item $\left(1+\sqrt2\right)^2$
 			\item $\left(1-\sqrt2\right)^2$
 			\item $\left(\sqrt{3} - 2\sqrt2\right)^2$
-			\item $\left(\sqrt5 x + 2 \right)^2$
-			\item $\left(\sqrt5 x - \sqrt7\right)^2$
+			\item $\left(\sqrt5x + 2 \right)^2$
+			\item $\left(\sqrt5x - \sqrt7\right)^2$
 		\end{enumerate}
 		\end{multicols}
-}{exe:développement}{
+}{exe:développement-sqrt}{
 	TODO
 }
 
