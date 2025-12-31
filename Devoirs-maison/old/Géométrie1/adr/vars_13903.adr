@@ -8,7 +8,7 @@
 \newcommand{\Pnormsq}{\dfrac{576}{25}}
 \newcommand{\BPnormsq}{\dfrac{49}{25}}
 \newcommand{\xmax}{7}
-\newcommand{\ALPHA}{\dfrac{7}{2}}
+\newcommand{\ALPHA}{\frac{7}{2}}
 \newcommand{\xfirst}{2}
 \newcommand{\xsecond}{5}
 \newcommand{\prodovertwo}{\dfrac{7}{2}}

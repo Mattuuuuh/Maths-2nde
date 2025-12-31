@@ -75,7 +75,7 @@ def generate(seed):
     root = int(np.random.rand()*4+7)
     CONTENT = newcommand(CONTENT, "\\xmax", root)
     halfroot = int(root/2)
-    CONTENT = newcommand(CONTENT, "\ALPHA", halfroot if root%2 == 0 else "\dfrac{"+str(root)+"}{2}")
+    CONTENT = newcommand(CONTENT, "\ALPHA", halfroot if root%2 == 0 else r"\frac{"+str(root)+"}{2}")
     
     # values of x to draw
     xfirst = np.rint(root/3).astype(int)
@@ -166,7 +166,7 @@ if __name__=="__main__":
     # always the same 40 to recompile if needed
     np.random.seed(1729) # taxicab number
 
-    for _ in range(40):
+    for _ in range(1):
         ## SEED ##
 
         seed = int(np.random.rand() * (2**16 - 1))
