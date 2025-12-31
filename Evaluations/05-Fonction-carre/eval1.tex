@@ -1,0 +1,167 @@
+\input{../preamble.tex}
+
+\SetDate[06/01/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation blanche \\ Fonctions carré, racine carrée, valeur absolue}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait 1 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{2}{
+	Donner la définition d'une fonction paire ainsi qu'un exemple d'une telle fonction.
+}{exe:f-paire}{
+	todo
+}
+
+\exe{3}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -6 - 12(6x-2)^2. \]
+	\begin{enumerate}
+		\item Développer réduire l'expression algébrique de $f$.
+		\item Déterminer l'extremum (minimum ou maximum) de $f$ ainsi que l'antécédent $x^\star$ qui le réalise.
+	\end{enumerate}
+}{exe:canonique}{
+	todo
+}
+
+
+
+\exe{4, difficulty=2}{
+	Considérons la courbe représentative de la fonction $f(x) = 3-2x$ et le point $A(2;1)$.
+	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
+	\begin{enumerate}
+		\item
+		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
+		Le point $A$ appartient-il à $\C_f$ ? Justifier.
+		\item
+		Montrer qu'un point de $\C_f$ est de la forme $B(x ; 3-2x)$, avec $x\in\R$.
+		\item
+		Montrer que la distance au carré de $B$ à $A$ est égale à
+			\[ AB^2 = \dfrac15 (5x-6)^2 + \dfrac45. \]
+		\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+		\item
+		Conclure que le point de $\C_f$ le plus proche de $A$ est $B(\frac65 ; \frac35)$.
+		Placer $B$ dans le repère déjà construit.
+	\end{enumerate}
+}{exe:proj-affine}{
+	fait un peu rapidement, à vérifier.
+}
+
+
+\exe{3}{
+	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
+
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{24}$
+		\item $\sqrt{75}$
+		\item $5\sqrt{48}$
+		\item $2\sqrt{500}$
+		\item $\dfrac{8}{\sqrt{2}}$
+		\item $\dfrac{15}{\sqrt{5}}$
+		\item $\sqrt{50}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt4}{
+	TODO
+}
+
+
+\exe{2}{
+	Est-ce que l'égalité suivante est vraie ?
+	Justifier.
+	\[  \sqrt{(-2)^{56}} \stackrel{?}{=} (-2)^{28} \]
+}{exe:sqrt9}{
+	TODO
+}
+
+
+
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\bigset{ x \in \R \tq #1 }$
+}
+
+\exe{3}{
+	Écrire les ensembles suivants sous forme d'intervalle.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item \xRtq{x + 3 \leq 8}
+		\item \xRtq{x + 2 > 8}
+		\item \xRtq{7x  - 13 \leq 8}
+		\item \xRtq{4 \geq -2x + 6}
+		\item \xRtq{-3 < 13x + 7 < 14}
+		\item \xRtq{8 \geq 3 - x \geq 0}
+	\end{enumerate}
+	\end{multicols}
+}{exe:99}{
+
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\left]-\infty ; 5\right]$
+		\item $\left]6 ; +\infty\right[$
+		\item $\left]-\infty; 3 \right]$
+		\item $\left[1 ; +\infty \right[$
+		\item $\left] -\dfrac{10}{13} ; \dfrac{7}{13} \right[$
+		\item $\left[ -5 ; 3 \right]$\
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{3}{
+	À  quoi ces valeurs absolues sont-elles égales ?
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vabs{3}$
+		\item $\vabs{-11}$
+		\item $\vabs{13 - 8}$
+		\item $\vabs{8-13}$
+		\item $\vabs{\dfrac13 - \dfrac12}$
+		\item $\vabs{-\dfrac27 - \dfrac12}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:999}{
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $3$
+		\item $11$
+		\item $5$
+		\item $5$
+		\item $\dfrac16$
+		\item $\dfrac{11}{14}$
+	\end{enumerate}
+	\end{multicols}
+
+}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
