@@ -1,0 +1,309 @@
+\input{../preamble.tex}
+
+\SetDate[20/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Arithmétique}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	Donner les chiffres pairs dont l'écriture en toutes lettres contient un nombre pair de lettres.
+}{exe:pair-pair}{
+	Il y a 5 chiffres pairs : 0, 2, 4, 6, et 8.
+	Parmis eux, zéro, deux, quatre, et huit s'écrivent avec un nombre pair de lettres.
+}
+
+\exe{}{
+	Donner les chiffres pairs dont l'écriture en toutes lettres respecte l'ordre alphabétique.
+}{exe:pair-alph}{
+	Il y a 5 chiffres pairs : 0, 2, 4, 6, et 8.
+	Seul « deux » respecte l'ordre alphabétique.
+}
+
+
+\exe{}{
+	Lorsqu'on ouvre un livre, on peut identifier deux pages : celle de gauche, et celle de droite.
+	Par exemple, la page 33 d'un livre est toujours une page de droite.
+	
+	Est-il possible que la page 330 soit également une page de droite ?
+	
+	Comment savoir si la page $n$ est de gauche ou de droite ? $n \in\N$ est un entier quelconque.
+}{exe:parité-pages}{
+	todo
+}
+
+% sympa mais osef non ?
+%\exe{, difficulty=1}{
+%	On cherche les solutions entières de l'équation diophantienne $3x - 2y = 1$ où $x, y\in\Z$.
+%	\begin{enumerate}
+%		\item Montrer que $x = 2(y-x) + 1$ et en déduire que $x$ est impair.
+%		\item En écrivant $x = 2k+1$ pour un entier $k\in\Z$, montrer que $y=3k+1$. Est-ce que $y$ est toujours entier ?
+%		\item Prendre $k=35$ puis $k=-40$ et trouver les solution de $3x-2y=1$ associées.
+%	\end{enumerate}
+%}{exe:dioph}{
+%	Soient $x, y\in\Z$ une solution entière de l'équation $3x-2y=1$.
+%	\begin{enumerate}
+%		\item 
+%			\[ 3x - 2y = 1 \iff 3x = 2y + 1 \iff x + 2x = 2y + 1 \iff x = 2y-2x+1 \iff x = 2(y-x)+1. \]
+%		Comme $x$ et $y$ sont entiers, la différence $y-x$ l'est aussi.
+%		$x = 2(y-x)+1$ est donc un nombre impair.
+%		\item 
+%		$x$ étant impair, on peut l'écrire $x = 2k+1$ pour un entier $k\in\Z$. D'où
+%			\[ 3x - 2y = 1 \iff 3(2k+1) - 2y = 1 \iff 6k + 3 - 2y = 1 \iff 6k + 2 = 2y \iff y = 3k+1. \]
+%		$y = 3k+1$ est toujours entier car $k\in\Z$ l'est, et donc son triple aussi.
+%		\item 
+%		Pour $k=35$, $x=2k+1 = 71$ et $y=3k+1 = 106$. On vérifie que $3\times71 - 2\times106 = 1$.
+%		
+%		Pour $k=-40$, $x=2k+1 = -79$ et $y=3k+1 = -119$. On vérifie que $3\times(-79) - 2\times(-119) = 1$.
+%	\end{enumerate}
+%}
+
+\hrule
+
+\exe{}{
+	Une tablette de chocolat classique comprend 12 carrés. Quelles sont les dimensions possibles de la tablette ? On cherche le nombre de carrés en longueur et en largeur.
+}{exe:chocolat0}{
+	TODO
+}
+
+
+\exe{}{
+	Donner $\D_1, \D_2, \D_3, \D_4, \D_5, \D_6, \D_7, \D_8,$ et $\D_9$.
+}{exe:diviseurs}{
+	\begin{multicols}{2}
+	$D_1 = \{ 1 \}$
+	
+	$D_2 = \{ 1 ; 2\}$
+	
+	$D_3 = \{ 1 ; 3\}$
+	
+	$D_4 = \{ 1 ; 4 ; 2 \}$
+	
+	$D_5 = \{ 1 ; 5\}$
+	
+	$D_6 = \{ 1 ; 6 ; 2 ; 3\}$
+	
+	$D_7 = \{ 1 ; 7\}$
+	
+	$D_8 = \{ 1 ; 8 ; 2 ; 4\}$
+	
+	$D_9 = \{ 1 ; 3 ; 9\}$
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Donner $\D_{48}$ et en déduire les entiers naturels $x\in\N$ vérifiant $x^2 - 8x= 48$.
+	
+	\emph{Indication : montrer d'abord que $x^2 - 8x = x(x-8)$.}
+}{exe:2nd-degré-Z}{
+	$\D_{48} = \bigset{1 ; 48 ; 2 ; 24 ; 3 ; 16 ; 4 ; 12 ; 6 ; 8}$.
+
+	Soit $x\in\N$ vérifiant $x^2 - 8x = 48 \iff x(x-8) = 48$.
+	Comme $x\in\N$ est entier, $x-8$ l'est aussi, et les deux nombres divisent 48.
+	
+	On cherche donc deux éléments de $\D_{48}$ dont le produit vaut 48 et qui sont séparés de $8$ unités.
+	Par inspection, seul $4\times12 = 48$ et donc $x=12$ fonctionne, et c'est la seule solution dans $\N$ de l'équation.
+	
+	Par symétrie, il existe une autre solution, $x = -4$, qui appartient à $\Z$ mais pas à $\N$.
+}
+
+\hrule
+
+
+
+\exe{}{
+	Une tablette de chocolat classique comprend 11 carrés. Est-ce possible ?
+}{exe:chocolat}{
+	TODO
+}
+
+
+\exe{}{
+	Donner les 5 plus petits nombres premiers.
+}{exe:premiers}{
+	D'après l'exercice \ref{exe:diviseurs}, on sait que 2, 3, 5, et 7 sont premiers, et que 4, 6, 8 ne le sont pas.
+	On énumère $\D_9 = \bigset{ 1 ; 9 ; 3 }$, $\D_{10} = \bigset{ 1 ; 10 ; 2 ; 5 }$, puis $\D_{11} = \bigset{ 1 ; 11 }$, ce qui nous donne le 5è premiers.
+	
+	\[ \P = \bigset{ 2 ; 3 ; 5 ; 7 ; 11 ; 13 ; 17 ; 19 ; 23 ; 29 ; 31 ; \dots }. \]
+}
+
+
+\exe{}{
+	Parmis les premiers de l'exercice \ref{exe:premiers}, lequels admettent un nombre premier de lettres lorsqu'écrits en toutes lettres ?
+}{exe:premier-premier}{
+	Parmis $\bigset{ 2 ; 3 ; 5 ; 7 ; 11 }$, seul « trois » s'écrit avec 5 lettres, le reste des éléments s'écrivant avec 4 lettres.
+	Les prochains sont dix-sept et dix-neuf, qui contiennent 7 lettres chacun.
+	Question ouverte : en existe-t-il une infinité ?
+}
+
+
+
+\exe{}{
+	Donner la décomposition en facteurs premiers des éléments de $\D_{24}$ excepté 1.
+}{exe:décompositions-primaires}{
+	On a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 , 4 ; 6 }$, qui se décomposent comme suit.
+	\begin{multicols}{2}
+		$2 = 2$ est déjà premier.
+		
+		$3=3$ est déjà premier.
+		
+		$4 = 2 \times 2 = 2^2$.
+		
+		$6 = 2\times3$.
+		
+		$8 = 2\times4 = 2\times2\times2 = 2^3$.
+		
+		$12 = 3 \times 4 = 2^2 \times 3$.
+		
+		$24 = 4 \times 6 = 2^2 \times 2 \times 3 = 2^3 \times 3$.
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Sachant que $12^2 = 144$, est-ce que 7 divise 144 ?
+}{exe:7div144}{
+	Dans le cas où 7 divise 144, on aurait $144 = 7a$ pour un entier $a$.
+	Comme 7 est premier, il s'agit donc de savoir s'il appartient à la décomposition primaire 144, par unicité de la décomposition du théorème \ref{thm:decomposition-primaire-strong}.
+	Or, la décomposition de 12 est $12 = 2^2 \times 3$.
+	Ainsi, la décomposition de $12^2$ est $12^2 = \bigl(2^2 \times 3 \bigr)^2 = 2^4 \times 3^2$.
+	7 ne divise donc pas 144 car il n'appartient pas à sa décomposition.
+}
+
+
+\exe{}{
+	À l'aide de la décomposition $2160 = 2^4 \times 3^3 \times 5$, écrire 2160 sous la forme $a^2 \times b$, où $a, b\in\N$ et $b$ est le plus petit possible.
+}{exe:sq-factor}{
+	On crée $a$ en extrayant le plus de carrés possible pour obtenir le $b$ le plus petit.
+	$2160 = \bigl(2^2 \times 3\bigr)^2 \times 3 \times 5 = 12^2 \times 15$.
+}
+
+\exe{}{
+	Exprimer 6~750 sous la forme $a^2 \times b$, où $a, b\in\N$ et $b$ est le plus petit possible. 
+}{exe:6750-factor}{
+	On décompose d'abord $6~750 = 10 \times 675 = 10 \times 135 \times 5 = 10 \times 27 \times 5^2 = 2 \times 3^3 \times 5^3$.
+	D'où $6~750 = \bigl(3\times5)^2 \times 2 \times3\times5 = 15^2 \times 30$.
+}
+
+% TODO: plus d'exes avec les puissances. Genre décomposer 15^7
+\exe{}{
+	Décomposer les nombres suivants en produit de facteurs premiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item  $64 $
+		\item $25$
+		\item $81$
+		\item  $6 \times 121 \times 64$
+		\item $45 \times 125 \times 9$
+		\item $10^2 \times 15^3$
+	\end{enumerate}
+	\end{multicols}
+}{exe:old-div1}{
+
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item  $64 = 2^6 $
+		\item $25 = 5^2$
+		\item $81 = 9^2$
+		\item  $6 \times 121 \times 64 = 2^7 \times 3 \times 11^2$
+		\item $45 \times 125 \times 9 = 3^4 \times 5^4$
+		\item $10^2 \times 15^3 = 2^2 \times 3^3 \times 5^5$
+	\end{enumerate}
+	\end{multicols}
+
+
+}
+
+
+\exe{}{
+	On considère le nombre $n=2^6 \times 3^2 \times 7^7$.
+	Quelles sont les affirmations exactes ? Justifier.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $2^3 \times 3^3$ divise $n$
+		\item $2^3 \times 7^3$ divise $n$
+		\item $2^3 \times 7$ divise $n$
+		\item $3^2 \times 7^7$ divise $n$
+	\end{enumerate}
+	\end{multicols}
+}{exe:old-div2}{
+
+	\textbf{Remarque importante} : si $a$ divise $n$, on peut écrire 
+		\[ n = a \times k, \]
+	pour $k \in \N$ un entier naturel.
+	
+	En décomposant $a$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice 6iv) par exemple).
+	Ainsi, si un nombre premier apparaît dans la décomposition de $a$, il doit apparaître au moins autant de fois dans la décomposition de $b$.
+	
+
+	\begin{enumerate}[label=\alph*)]
+		\item $2^3 \times 3^3$ ne divise pas $n$ car $3$ n'apparaît que $2$ fois dans la décomposition de $n$.
+		\item $2^3 \times 7^3$ divise $n$ car $n = (2^3 \times 7^3) \times (2^3 \times 3^2 \times 7^4)$.
+		\item $2^3 \times 7$ divise $n$ car $n = (2^3 \times 7) \times ( 2^3 \times 3^2 \times 7^6)$.
+		\item $3^2 \times 7^7$ divise $n$ car $n=(3^2 \times 7^7) \times 2^6 $.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Soit $n \in \N$ un entier naturel.
+	\begin{enumerate}
+		\item Écrire la décomposition en produit de facteurs premiers de $10^n$.
+		\item Démontrer par l'absurde que le rationnel $\dfrac{5}{12} \in \Q$ n'est pas un nombre décimal.
+	\end{enumerate}
+}{exe:old-div3}{
+	\begin{enumerate}
+		\item $10^n = 2^n \times 5^n$.
+		\item On reprend la preuve par l'absurde vue en cours jusqu'à trouver deux entiers $a\in\Z$, $n\in\N$ tels que
+			\[ \dfrac{a}{10^n} = \dfrac{5}{12}. \]
+		En manipulant l'égalité on trouve
+			\[ 3 \times 4 a = 5 \times 10^n = 2^n 5^{n+1}. \]
+		Ainsi le premier $3$ apparaît à gauche mais pas à droite, ce qui contredit l'unicité du théorème de décomposition vu en cours (théorème fondamental de l'arithmétique).
+	\end{enumerate}
+}
+
+\hrule
+
+\exe{}{
+	\begin{enumerate}
+		\item Donner les diviseurs \emph{communs} à $6$ et à $15$.
+		\item Simplifier la fraction $\dfrac{6}{15}$ en \emph{fraction irréductible}.
+	\end{enumerate}
+}{exe:old-div4}{
+
+	\begin{enumerate}
+		\item $\mathcal{D}_6 \cap \mathcal{D}_{15} = \{ 1, 3 \}$.
+		\item $\dfrac{6}{15} = \dfrac{3 \times 2}{3 \times 5} = \dfrac25$, irréductible car $2$ et $5$ sont premiers entre eux. 
+	\end{enumerate}
+	
+}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Donner les multiples \emph{communs}  à $10$ et $35$ inférieurs ou égaux à $100$.
+		\item Écrire la somme $\dfrac{3}{10} + \dfrac{6}{35}$ en \emph{fraction irréductible}.
+	\end{enumerate}
+}{exe:old-div5}{
+	\begin{enumerate}
+		\item $\mathcal{M}_{10} \cap \mathcal{M}_{35} = \{ 0, 70 \}$.
+		\item  $\dfrac{3}{10} + \dfrac{6}{35} = \dfrac{21}{70} + \dfrac{12}{70} = \dfrac{33}{70}$, irréductible car $33$ et $70$ sont premiers entre eux.
+	\end{enumerate}
+	
+	\textbf{Remarque importante} : un diviseur de $33 = 3 \times 11$ admet uniquement $3$ et $11$ dans sa décomposition en produit de nombres premiers, d'après l'exercice $7$.
+	Idem pour $70 = 2 \times 5 \times 7$, un diviseur admet uniquement $2, 5$, et $7$ dans sa décomposition.
+	
+	Donc le seul diviseur commun à $33$ et $70$ est $1$.
+}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
