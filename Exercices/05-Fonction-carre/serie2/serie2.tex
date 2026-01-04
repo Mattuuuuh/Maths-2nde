@@ -35,7 +35,10 @@
 		\item $\sqrt{3}- \sqrt{2}$
 	\end{enumerate}
 	\end{multicols}
-
+	Le dernier point utilise que $\sqrt3 > \sqrt2$, propriété de croissance de la racine carrée qui peut être soit admise, soit démontrée généralement à l'exercice \ref{exe:sqrt-croissante}.
+	Dans ce cas précis, démontrer que
+		\[ \sqrt3 - \sqrt2 = \dfrac{1}{\sqrt3 + \sqrt2} > 0 \]
+	conclut.
 
 }
 
@@ -106,29 +109,104 @@
 \exe{,difficulty=2}{
 	Soit $f(x) = -3 + (2x+1)^2$ définie sur $\R$.
 	
-	\begin{enumerate}[label=\roman*), leftmargin=50pt]
+	\begin{enumerate}
 		\item
 		Développer et réduire l'expression de $f$.
 		\item
 		Donner son extremum (minimum ou maximum) avec l'antécédent qui le réalise.
-		%\item
-		%Faire un croquis de la courbe représentative $\C_f$.
 		\item
 		Répondre aux questions suivantes en donnant le plus grand ensemble dans lequel le nombre réel $x\in\R$ peut appartenir.
 	\end{enumerate}
 	
 	\begin{multicols}{2}
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*), leftmargin=50pt]
 		\item Quels $x$ vérifient $f(x) \leq -3$ ?
 		\item Quels $x$ vérifient $f(x) \leq -4$ ?
-		\item Quels $x$ vérifient $f(x) \leq 5$ ?
+		\item Quels $x$ vérifient $f(x) \leq 6$ ?
 		\item Quels $x$ vérifient $f(x) \leq 10$ ?
-		\item Quels $x$ vérifient $f(x) \leq 0$ ?
-		\item Quels $x$ vérifient $f(x) \geq 0$ ?
+		\item Quels $x$ vérifient $f(x) \leq 22$ ?
+		\item Quels $x$ vérifient $f(x) > 22$ ?
 	\end{enumerate}
 	\end{multicols}
 }{exe:vabs-5}{
 
+	\begin{enumerate}
+		\item
+			\[ f(x) = -3 + (2x+1)^2 = -3 + 4x^2 + 1 + 4x = 4x^2 + 4x - 2. \]
+		\item
+			Partons de la positivité du carré avec égalité lorsque nul.
+				\begin{align*}
+					(2x+1)^2 &\geq 0 && \text{avec égalité lorsque $2x+1=0$} \\
+					-3 + (2x+1)^2 &\geq -3 && \text{avec égalité lorsque $2x = -1$} \\
+					f(x) &\geq -3 && \text{avec égalité lorsque $x = -\dfrac12$}
+				\end{align*}
+			Il suit que $f$ atteint son minimum -3 en $x^\star = -\frac12$.
+	\end{enumerate}
+	
+	\begin{enumerate}
+		\item
+		Comme le minimum de $f$ est $-3$, seul $x^\star = -\frac12$ vérifie $f(x) \leq -3$.
+			\[ \bigset{ x \in\R \tq f(x) \leq -3 } = \bigset{ - \dfrac12 }. \]
+		\item
+		Comme le minimum de $f$ est $-3$, aucun $x \in\R$ ne peut vérifier $f(x) \leq -4$.
+			\[ \bigset{ x \in\R \tq f(x) \leq -4 } = \emptyset \text{ (l'ensemble vide). } \]
+		\item 
+		Posons $f(x) \leq 6$ et résolvons.
+			\begin{align*}
+				-3 + (2x+1)^2 &\leq 6 \\
+				(2x+1)^2 &\leq 9 \\
+				\sqrt{(2x+1)^2} &\leq \sqrt{9} \\
+				|2x+1| &\leq 3
+			\end{align*}
+		où on a utilisé que $0 \leq x < y \implies \sqrt{x} < \sqrt{y}$.
+		Pour poursuivre, il convient d'utiliser la propriété $|E| \leq a \iff -a \leq E \leq a$.
+			\begin{alignat*}{2}
+				-3 &\leq 2x+1 &\leq 3 \\
+				-4 &\leq ~~~2x &\leq 2 \\
+				-2 &\leq \quad x &\leq 1
+			\end{alignat*}
+		Il suit donc que
+			\[ \bigset{ x \in\R \tq f(x) \leq 6 } = [-2 ; 1] \]
+		On peut d'ailleurs vérifier que $f(-2) = -3 + (-3)^2 + 6$ et que $f(1) = -3 + (3)^2 + 6$, et que $f(x) \leq 6$ entre ces deux valeurs.
+		\item
+		Posons $f(x) \leq 10$ et résolvons.
+			\begin{align*}
+				-3 + (2x+1)^2 &\leq 10 \\
+				(2x+1)^2 &\leq 13 \\
+				\sqrt{(2x+1)^2} &\leq \sqrt{13} \\
+				|2x+1| &\leq \sqrt{13}
+			\end{align*}
+		où on a utilisé que $0 \leq x < y \iff \sqrt{x} < \sqrt{y}$.
+		Pour poursuivre, il convient d'utiliser la propriété $|E| \leq a \iff -a \leq E \leq a$.
+			\begin{alignat*}{2}
+				-\sqrt{13} &\leq 2x+1 &\leq& \sqrt{13} \\
+				-\sqrt{13} -1  &\leq ~~~2x &\leq& \sqrt{13}-1 \\
+				\dfrac{-\sqrt{13}-1}2 &\leq \quad x &\leq& \dfrac{\sqrt{13} -1}2
+			\end{alignat*}
+		Il suit donc que
+			\[ \bigset{ x \in\R \tq f(x) \leq 10 } = \left[\dfrac{-\sqrt{13}-1}2 ; \dfrac{\sqrt{13}-1}2\right] \]
+		\item 
+		Posons $f(x) \leq 22$ et résolvons.
+			\begin{align*}
+				-3 + (2x+1)^2 &\leq 22 \\
+				(2x+1)^2 &\leq 25 \\
+				\sqrt{(2x+1)^2} &\leq \sqrt{25} \\
+				|2x+1| &\leq 5
+			\end{align*}
+		où on a utilisé que $0 \leq x < y \iff \sqrt{x} < \sqrt{y}$.
+		Pour poursuivre, il convient d'utiliser la propriété $|E| \leq a \iff -a \leq E \leq a$.
+			\begin{alignat*}{2}
+				-5 &\leq 2x+1 &\leq& 5 \\
+				-6  &\leq ~~~2x &\leq& 4 \\
+				-3 &\leq \quad x &\leq& 2
+			\end{alignat*}
+		Il suit donc que
+			\[ \bigset{ x \in\R \tq f(x) \leq 22 } = \left[-3 ; 2\right] \]
+		\item 
+		Cet ensemble est le complémentaire à $\R$ du dernier ensemble, car on a soit $f(x) \leq 22$, soit $f(x) > 22$.
+		Par conséquent,
+			\[ \bigset{ x \in\R \tq f(x) \geq 22 } = \left[ \minfty ; -3\right[ \cup \left]2 ; \pinfty\right] \]
+	\end{enumerate}
 }
 
 %\subsection*{Exercices supplémentaires}
@@ -202,7 +280,14 @@
 \exe{, difficulty=2}{
 	$x, y\geq0$. Montrer que $\sqrt{x}-\sqrt{y} = \dfrac{x-y}{\sqrt{x}+\sqrt{y}}$ et en déduire que $x < y \iff \sqrt{x} < \sqrt{y}$.
 }{exe:sqrt-croissante}{
-	todo
+	L'identité remarquable $(a+b)(a-b) = a^2 - b^2$ implique que
+		\[ \left(\sqrt{x}+\sqrt{y} \right)\left(\sqrt{x}-\sqrt{y} \right) = x - y. \]
+	En divisant par $\sqrt{x}+\sqrt{y}$, on obtient l'égalité recherchée.
+		\[ \sqrt{x}-\sqrt{y} = \dfrac{x-y}{\sqrt{x}+\sqrt{y}} \]
+	Remarquons désormais que le membre de droite de l'égalité a le même signe que $x-y$, car $\sqrt{x} + \sqrt{y}$ est strictement positif comme somme de positifs stricts.
+	Le signe de $\sqrt{x}-\sqrt{y}$ est donc le même que celui de $x-y$.
+	
+	En particulier, $x-y < 0 \iff \sqrt{x} - \sqrt{y} < 0$, ce qui conclut.
 }
 
 %%%%%%%%%%%
