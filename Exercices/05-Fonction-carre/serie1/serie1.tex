@@ -380,6 +380,20 @@
 	\end{enumerate}
 }
 
+\exe{}{
+	Dans un même repère de domaine $[0 ; 2]$, grapher les courbes $y=x^2, y=x,$ et $y=\sqrt{x}$.
+}{exe:graph-sqrt}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -0.1, xmax=2.1, ymin=-.1, ymax=4.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=0:2, samples=300]{x^2} node[right]{$y=x^2$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=0:2, samples=300]{x} node[right]{$y=x$};
+			\addplot[no marks,RED_E, -, very thick] expression[domain=0:2, samples=300]{sqrt(x)} node[right]{$y=\sqrt{x}$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
 % ça sert pas à grand chose non plus damned
 %\exe{}{
 %	Calculer les fractions suivantes.
@@ -485,7 +499,7 @@
 
 	Montrons donc que la condition « $x$ et $y$ ont le même signe » est équivalente à l'implication $x^2 = y^2 \implies x=y$.
 	Mathématiquement, il faut montrer que
-		\[ \bigl(\text{$x$ et $y$ ont le même signe}\bigr) \iff \Bigl( x^2 = y^2 \implies x=y \Bigr) \]
+		\[ \bigl(\text{$x$ et $y$ ont le même signe}\bigr) \iff \Bigl( x^2 = y^2 \implies x=y \Bigr). \]
 	Il s'agit donc de montrer que
 		\begin{enumerate}[label=\roman*)]
 			\item si $x$ et $y$ ont le même signe, alors $x^2 = y^2 \implies x=y$ ; et
