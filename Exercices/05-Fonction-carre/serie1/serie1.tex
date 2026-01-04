@@ -55,6 +55,19 @@
 }
 
 
+\exe{, difficulty=0}{
+	Montrer que la fonction $f(x) = x^2 - x^3$ n'est pas paire.
+}{exe:non-paire}{
+	Supposons que $f$ soit paire.
+	Par définition, $f(-x) = f(x)$ pour tout $x\in\R$.
+	
+	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
+	Par conséquent, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
+	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
+	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas paire.
+}
+
+
 \exe{}{
 	Développer les expressions algébriques suivantes.
 		\begin{multicols}{3}
@@ -327,18 +340,6 @@
 %}
 
 \subsection*{Exercices supplémentaires}
-
-\exe{, difficulty=1}{
-	Montrer que la fonction $f(x) = x^2 - x^3$ n'est pas paire.
-}{exe:non-paire}{
-	Supposons que $f$ soit paire.
-	Par définition, $f(-x) = f(x)$ pour tout $x\in\R$.
-	
-	Comme $(-x)^3 = (-x)(-x)^2 = -x^3$, on a $f(-x) = x^2 + x^3$.
-	Par conséquent, $f(x) = f(-x) \iff x^2 - x^3 = x^2 + x^3 \iff x^3 = 0$.
-	Or ceci n'est pas vrai pour tout $x\in\R$ : prendre n'importe quel $x$ non nul fournit un contre-exemple.
-	Ainsi pour $x=1$, $f(1) = 0$ et $f(-1) = 2$ et $f$ n'est en effet pas paire.
-}
 
 \exe{, difficulty=1}{
 	Montrer que si $k$ est une fonction quelconque sur $\R$, alors la fonction $l(x) = \frac{k(x) + k(-x)}2$ est paire.
