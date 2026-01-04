@@ -20,52 +20,89 @@ Consignes particulières :
 	%\item
 	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
 	\item
-	L'évaluation fait 1 pages. La somme des points est \total{points}.
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
 \end{itemize}
 
 \marginpar{[pts]}
 \hrule
 
 
-%\exe{2}{
-%	Donner la définition d'une fonction paire ainsi qu'un exemple d'une telle fonction.
-%}{exe:f-paire}{
-%	todo
-%}
 
-\exe{3}{
+
+\exe{6, difficulty=1}{
 	Soit $f$ la fonction définie sur $\R$ par
-		\[ f(x) = -6 - 12(6x-2)^2. \]
+		\[ f(x) = 3 - (x-1)^2. \]
 	\begin{enumerate}
-		\item Développer réduire l'expression algébrique de $f$.
-		\item Déterminer l'extremum (minimum ou maximum) de $f$ ainsi que l'antécédent $x^\star$ qui le réalise.
+		\item 
+		Développer et réduire l'expression algébrique de $f$.
+		\item 
+		Grapher la courbe $\C_f$ dans le repère figure \ref{fig:1}.
+		\item
+		Déterminer maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise de deux manières différentes :
+			\begin{enumerate}[label=\alph*)]
+				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
+				\item algébriquement, en montrant rigoureusement que $f(x) \geq f(x^\star)$ pour tout $x\in\R$.
+			\end{enumerate}
+		\item
+		Déterminer quels $x\in\R$ vérifient $f(x) \geq -6$ de deux manières différentes :
+			\begin{enumerate}[label=\alph*)]
+				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
+				\item algébriquement, en résolvant l'inéquation rigoureusement.
+			\end{enumerate}
+		\item
+		En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ tout entier ?
 	\end{enumerate}
 }{exe:canonique}{
 	todo
 }
 
+\begin{figure}[h!]
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -3, xmax=5, ymin=-15, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, xtick distance = 1, ytick distance=2, x=50pt, y=17pt, minor y tick num = 1]%extra x ticks ={0}, extra y ticks = {0}]
+			\addplot[BLUE_E, very thick, -] expression[domain=-3:5, samples=100]{3-(x-1)^2} node[above right, pos=.6] {$\C_f$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Figure de l'exercice \ref{exe:canonique}.}
+	\label{fig:1}
+\end{figure}
+
+%\exe{4, difficulty=2}{
+%	Considérons la courbe représentative de la fonction $f(x) = 3-2x$ et le point $A(2;1)$.
+%	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
+%	\begin{enumerate}
+%		\item
+%		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
+%		Le point $A$ appartient-il à $\C_f$ ? Justifier.
+%		\item
+%		Montrer qu'un point de $\C_f$ est de la forme $B(x ; 3-2x)$, avec $x\in\R$.
+%		\item
+%		Montrer que la distance au carré de $B$ à $A$ est égale à
+%			\[ AB^2 = \dfrac15 (5x-6)^2 + \dfrac45. \]
+%		\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+%		\item
+%		Donner le point de $\C_f$ le plus proche de $A$ et le placer $B$ dans le repère déjà construit.
+%		%\item
+%		%Pour quels $x\in\R$ le point $B(x ; 3-2x)$ vérifie-t-il $AB^2 \leq \frac{49}5$ ?
+%	\end{enumerate}
+%}{exe:proj-affine}{
+%	fait un peu rapidement, à vérifier.
+%}
+
+\newpage
 
 
-\exe{4, difficulty=2}{
-	Considérons la courbe représentative de la fonction $f(x) = 3-2x$ et le point $A(2;1)$.
-	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
-	\begin{enumerate}
-		\item
-		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
-		Le point $A$ appartient-il à $\C_f$ ? Justifier.
-		\item
-		Montrer qu'un point de $\C_f$ est de la forme $B(x ; 3-2x)$, avec $x\in\R$.
-		\item
-		Montrer que la distance au carré de $B$ à $A$ est égale à
-			\[ AB^2 = \dfrac15 (5x-6)^2 + \dfrac45. \]
-		\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
-		\item
-		Donner le point de $\C_f$ le plus proche de $A$ et le placer $B$ dans le repère déjà construit.
-	\end{enumerate}
-}{exe:proj-affine}{
-	fait un peu rapidement, à vérifier.
+\exe{2}{
+	Montrer que la fonction $f(x) = x^2 + x$ n'est pas paire.
+	Il s'agit ici de 
+		\begin{enumerate}[label=\alph*), leftmargin=60pt]
+			\item donner la définition d'une fonction paire ; et de
+			\item justifier que $f$ ne vérifie pas cette définition.
+		\end{enumerate}
+}{exe:f-non-paire}{
+	todo
 }
-
 
 \exe{3}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
@@ -101,6 +138,7 @@ Consignes particulières :
 	$\bigset{ x \in \R \tq #1 }$
 }
 
+% il y en a trop
 \exe{3}{
 	Écrire les ensembles suivants sous forme d'intervalle.
 	
@@ -130,7 +168,7 @@ Consignes particulières :
 }
 
 
-\exe{3}{
+\exe{3, difficulty=1}{
 	À  quoi ces valeurs absolues sont-elles égales ?
 	\begin{multicols}{2}
 	\begin{enumerate}
