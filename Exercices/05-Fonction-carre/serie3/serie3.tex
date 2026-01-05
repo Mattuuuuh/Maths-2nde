@@ -1,0 +1,98 @@
+\input{../preamble.tex}
+
+\SetDate[06/01/2026]
+
+\usepackage{minted}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Dichotomie et boucle \texttt{while}}}
+\fancyhead[R]{\today}
+
+\subsection*{Boucle \texttt{while} (« tant que »)}
+
+\exe{}{
+	Esquisser la courbe représentative de $f(x) = x^2 - 7$ sur le domaine $\D = [0,4]$ pour s'assurer que $f$ est croissante autour de $\sqrt{7}$.
+}{exe:Cf}{
+	todo
+}
+
+% TODO
+% donner le repère !!
+
+\exe{, difficulty=1}{
+	Trouver un encadrement d'amplitude 1 de $\sqrt7$.
+	
+	Trouver un encadrement d'amplitude $0,5$ de $\sqrt7$.
+	
+	% TODO
+	% pas clair?
+	Créer une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$.
+	Décrire la marche à suivre en utilisant l'expression « tant que » ainsi que la fonction $f(x) = x^2 - 7$.
+}{exe:balayage}{
+	todo
+}
+
+% TODO
+% boucle tant que $f(x) < 0$, $x = x+A$.
+
+\subsection*{Dichotomie à la recherche de $\sqrt7$}
+
+% décrire la dichotomie avec deux exemples : f(m) < 0 et f(m) > 0
+
+\exe{, difficulty=1}{
+	On souhaite approximer la valeur de $\sqrt7$, qu'on sait solution positive de l'équation
+		\[ x^2 - 7= 0. \]
+	Pour cela, on implémente l'algorithme par dichotomie (figure \ref{fig:1}) vu en cours.
+	\begin{enumerate}
+		\item 
+		% TODO check quand ça fonctionne pu
+		Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16},$ et réexecuter le programme.
+		Que remarque-t-on ?
+		 \item 
+		 Justifier que, d'un appel de \texttt{racine} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisée par $2$.
+		 \item 
+		 Donner la longueur de l'intervalle $[0;3]$ de départ. Combien d'opérations arithmétiques sont nécessaires pour obtenir un intervalle de longueur $3 \times 2^{-4}$ ? Et $3\times 2^{-10}$ ? Et $3 \times 2^{-n}$ ?
+		 
+		 \item[($\star$)] 
+		 Combien d'étape faut-il pour obtenir un intervalle de longeur $10^{-10}$ ? On cherche le plus petit $n\in\N$ tel que $3 \times 2^{-n} \leq 10^{-10}$. Résoudre ce problème algorithmiquement et vérifier qu'on obtient bien $n=35$.
+	\end{enumerate}
+}{exe:sqrt2}{
+
+}
+
+%\hrule
+\newpage
+
+\exe{, difficulty=1}{
+	On souhaite approximer la valeur du \emph{nombre d'or} $\phi$, qu'on sait unique solution positive de l'équation
+		\[ x^2 - x - 1 = 0. \]
+	On admet que la fonction $f(x) = x^2 - x- 1$ est croissante autour de $\phi$.
+	\begin{enumerate}
+		\item
+		Donner un encadrement d'amplitude 1 de $\phi$.
+		\item 
+		Créer un algorithme d'approximation de $\phi$ par dichotomie.
+		\item 
+		Montrer que $f(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
+		\item 
+		On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
+			\[ a < \phi < b, \]
+		d'amplitude $b-a = \ell$.
+		
+		En déduire un encadrement de $\sqrt{5}$ en fonction de $a$ et $b$, et son amplitude en fonction de $\ell$.
+		L'encadrement de $\sqrt{5}$ déduit est-il plus ou moins ample que celui de $\phi$ ?
+	\end{enumerate}
+}{exe:phi}{
+
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
