@@ -9,7 +9,7 @@ def tablepdf(index, date):
     Outputs in out/table4_date.pdf.
     """
     
-    CLASS_NAME = "2nde9"
+    CLASS_NAME = "2nde5+9"
     # COMPILE WITH VARS INPUT  
         
     INPUTS = "\\documentclass[14pt]{extarticle} \\newcommand{\datedelta}{"+str(index)+"}  \\input{table4.tex}"
@@ -33,9 +33,9 @@ def datetostring(date):
 
 
 if __name__ == "__main__":
-    N = 100 # 3/7*100 : 43 viable days
+    N = 100 # 4/7*100 : 57 viable days
     date = datetime.date.today()
-    for index in range(1,N):
+    for index in range(1, N):
         date += datetime.timedelta(days=1)
         
         if not isviable(index):

@@ -39,14 +39,15 @@ nomarginpar,% We don't want any margin paragraphs
 \AdvanceDate[\datedelta]
 
 \begin{document}
+\pagenumbering{gobble}
 \pagestyle{fancy}
-\fancyhead[L]{Seconde 9}
+\fancyhead[L]{Seconde 5}
 \fancyhead[C]{\textbf{ Automatismes }}
 \fancyhead[R]{\today}
 
-Nom :
+Prénom et nom :
 \hfill
-A / B
+Groupe : A / B
 
 \begin{center}
 \begin{tabular}{ | P{.25\linewidth} | P{.70\linewidth} |  } 
@@ -63,4 +64,31 @@ A / B
 	 \\ \hline
 \end{tabular}
 \end{center}
+
+\newpage
+\pagenumbering{gobble}
+\fancyhead[L]{Seconde 9}
+\fancyhead[C]{\textbf{ Automatismes }}
+\fancyhead[R]{\today}
+
+Prénom et nom :
+\hfill
+Groupe : A / B
+
+\begin{center}
+\begin{tabular}{ | P{.25\linewidth} | P{.70\linewidth} |  } 
+	\hline\xrowht{15pt}
+	 Question & Réponse
+	 \\ \hline \xrowht{40pt}
+	 1 & 
+	 \\ \hline \xrowht{40pt}
+	 2 &  
+	 \\ \hline \xrowht{40pt}
+	 3 & 
+	 \\ \hline \xrowht{40pt}
+	 4 & 
+	 \\ \hline
+\end{tabular}
+\end{center}
+
 \end{document}
