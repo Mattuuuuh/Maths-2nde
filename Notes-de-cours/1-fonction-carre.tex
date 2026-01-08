@@ -278,7 +278,14 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\end{enumerate}
 		\end{multicols}
 }{exe:développement}{
-	TODO
+	\begin{enumerate}[label=$\bullet$]
+		\item $f(x) = (1+x)^2 = 1 + x^2 + 2x$
+		\item $g(x) = (x-3)^2 = x^2 + 9 - 6x$
+		\item $h(x) = (3x+2)(2-3x) = (2+3x)(2-3x) = 4 - (3x)^2 = 4-9x^2$
+		\item $F(x) = (3 + 2x)^2 = 9 + 4x^2 + 12x$
+		\item $G(x) = (3x - 7)^2 = 9x^2 + 49 - 42x$
+		\item $H(x) = (-7x - 2)^2 = (7x+2)^2 = 49x^2 + 4 + 28x$
+	\end{enumerate}
 }
 
 
@@ -301,7 +308,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ x^2 = x \]
 	ne peut pas être vraie pour tout $x\in\R$.
 }{exe:x-x2-nonmiscibles}{
-	TODO
+	En $x=2$, le membre de gauche vaut 4, et celui de droite vaut 2.
 }
 
 \exe{, difficulty=1}{
@@ -309,7 +316,14 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[ x^m = x^n \]
 	ne peut être vraie pour tout $x\in\R$ que lorsque $m=n$.
 }{exe:xm-xn-nonmiscibles}{
-	TODO
+	Supposons l'identité vraie pour certains $m\neq n$.
+	Sans perte de généralité, nous pouvons supposer $m<n$ et choisir un $x$ non nul.
+	En divisant par $x^m$ (qui est non nul), l'équation devient
+		\begin{align*}
+			\dfrac{x^m}{x^m} = \dfrac{x^n}{x^m} && \iff && 1 = x^{n-m}.
+		\end{align*}
+	Il est clair que cette égalité ne peut pas toujours tenir, le membre de gauche étant constant.
+	Par exemple en $x=10$, $x^{n-m} = 10^{n-m} \neq 1$ car $n-m \geq 1$, ce qui contredit l'identité. 
 }
 
 \nomen{
@@ -328,6 +342,45 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	On écrira l'identité $2(x-9)(x-5) = 2(x-7)^2 - 8$ sans préciser qu'elle est valable pour tout $x\in\R$.
 	Cette égalité n'est pas à résoudre : elle montre l'identité de deux expressions de formes différentes.
 }
+
+\subsection{Extrema}
+
+
+\dfn{minimum, maximum global d'une fonction}{
+	Soit $f$ une fonction réelle sur $\R$.
+	
+	On dit que, pour $x^\star \in \R$, $f(x^\star)$ est le \emphindex{minimum global} de $f$ dès que
+		\[ f(x^\star) \leq f(x), \]
+	pour tout $x\in \R$.
+	$x^\star$ est l'antécédent qui \emph{réalise} le minimum. Il n'est pas nécessairement unique.
+	
+	On dit que, pour $x^\star \in \R$, $f(x^\star)$ est le \emphindex{maximum global} de $f$ dès que
+		\[ f(x^\star) \geq f(x), \]
+	pour tout $x\in \R$.
+	$x^\star$ est l'antécédent qui \emph{réalise} le maximum. Il n'est pas nécessairement unique.
+}{}
+
+\ex{}{
+	La fonction carré $f(x)=x^2$ sur $\R$ n'admet pas de maximum : si $x^\star$ vérifiait $(x^\star)^2 \geq x^2$ pour tout $x\in\R$, alors prendre $x = \pm x^\star+1$ mène à une contradiction.
+	
+	Cependant, $f$ admet son minimum $0$ en $x^\star = 0$, car on a 
+		\[ f(x) = x^2 \geq 0 = f(0), \]
+	pour tout $x\in\R$.
+	C'est d'ailleurs \emph{le} minimum car seul $0$ vérifie $f(x) = 0$.
+}{}
+
+\ex{}{
+	La fonction carré $f(x) = x^2$ sur le domaine $[-9 ; 6]$ admet un minimum, car le minimum global 0 appartient au domaine.
+	
+	Elle admet aussi un maximum en $x^\star = -9$.
+}{}
+
+\nt{
+	Nous pouvons utiliser la propriété de positivité du carré pour trouver l'extremum étant donné une forme canonique.
+	Plus généralement, l'étude des variations et des extrema sur certains intervalles fera l'objet du chapitre \ref{chap:variations}.
+}
+
+
 \ex{forme canonique : du signe du carré à l'extremum}{
 	Considérons la fonction
 		\[ f(x) = \dfrac{265}2 - \left( x - \dfrac72 \right)^2. \]
@@ -342,10 +395,6 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	En outre, $f\left(\frac72\right) = \frac{265}2 - 0^2 = \frac{265}2$. 
 	Il suit donc que $f$ atteint son maximum $\frac{265}2$ en $x^\star = \frac72$.
 }{}
-
-\nt{
-	L'étude des variations et des extrema de fonctions fera l'objet du chapitre \ref{chap:variations}.
-}
 
 
 \exe{, difficulty=1}{
@@ -457,7 +506,15 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	Par exemple, pour $k=4$ et $\ell=2$, on trouve le triplet $(12 ; 16 ; 20)$, qui vérifie bien
 		\[ 12^2 + 16^2 = 20^2. \] 
 }{exe:triplet-pythagoricien}{
-	TODO
+	Il s'agit de montrer que 
+		\[ \left( k^2 - \ell^2 \right)^2 + \left(2k\ell\right)^2 =  \left( k^2 + \ell^2 \right)^2. \]
+	En partant du membre de gauche et en utilisant que $\left(a^2\right)^2 = a^4$,
+		\begin{align*}
+			\left( k^2 - \ell^2 \right)^2 + \left(2k\ell\right)^2,
+			&= k^4 + \ell^4 - 2k^2\ell^2 + 4k^2\ell^2,\\
+			&= k^4 + \ell^4 + 2k^2\ell^2, \\
+			&= \left( k^2 + \ell^2 \right)^2.
+		\end{align*}
 }
 
 \mprop{}{
@@ -465,17 +522,10 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }{prop:eg-poly}
 
 \exe{, difficulty=1}{
-	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\lambda)(x-\gamma)$.
-	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $a = -\lambda - \gamma$, et enfin que $c = \lambda\cdot\gamma$.
-}{exe:déterminant-2nddeg}{
-	TODO
-}
-
-\exe{, difficulty=1}{
 	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
 	Montrer, par identification des coefficients en $x^2, x, 1$ permise par la proposition \ref{prop:eg-poly}, que $a'=a$, puis que $\alpha = \frac{-b}{2a}$, et enfin que $\beta = \frac{b^2 - 4ac}{4a}$.
 }{exe:déterminant-2nddeg}{
-	TODO
+	Laissé en exercice au lecteur.
 }
 \nt{
 	On appelle la quantité $b^2 - 4ac$ le \emph{déterminant} du polynôme et on le note $\Delta$ (lu « delta »).
@@ -516,6 +566,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	C'est donc l'opération inverse de la mise au carré.
 }{}
 
+
 \exe{}{
 	Compléter les expressions.
 	\begin{multicols}{3}
@@ -529,8 +580,18 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt1}{
-	TODO
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{25} = 5$
+		\item $\sqrt{81} = 9$
+		\item $\sqrt{121} = 11$
+		\item $\sqrt{625} = 25$
+		\item $\sqrt{144} = 12$
+		\item $\sqrt{10^6} = 10^3$
+	\end{enumerate}
+	\end{multicols}
 }
+
 
 \exe{}{
 	Calculer les carrés et racines carrées suivantes.
@@ -545,8 +606,18 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt2}{
-	TODO
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\sqrt{7^2} = 7$
+		\item $\sqrt{17}^2 = 17$
+		\item $\sqrt{(-9)^2} = 9$
+		\item $\sqrt{10^4} = 10^2 = 100$
+		\item $\left(-\sqrt{4}\right)^2 = 4$
+		\item $-\sqrt{15^2} = -15$
+	\end{enumerate}
+	\end{multicols}
 }
+
 
 \nt{
 	L'équation du graphe de la fonction racine carrée $y = \sqrt{x}$ implique $x = y^2$ lorsque mise au carré.
@@ -560,7 +631,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{}{
-	Dans un même repère de domaine $[0 ; 2]$, grapher les fonctions $y=x^2, y=x,$ et $y=\sqrt{x}$.
+	Dans un même repère de domaine $[0 ; 2]$, grapher les courbes $y=x^2, y=x,$ et $y=\sqrt{x}$.
 }{exe:graph-sqrt}{
 	\begin{center}
 	\includegraphics[page=7]{figures/fig-carre.pdf}
@@ -615,7 +686,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 %}
 
 \exe{}{
-	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ et $b\in\N$ est le plus petit entier possible.
+	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
 
 	\begin{multicols}{3}
 	\begin{enumerate}
@@ -629,7 +700,17 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt4}{
-	TODO
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\sqrt{12} = \sqrt{4\times3} = 2\sqrt3$
+		\item $\sqrt{150} = \sqrt{25\times6} = 5\sqrt6$
+		\item $5\sqrt{96} = \sqrt{16\times6} = 4\sqrt6$
+		\item $2\sqrt{300} = 2\sqrt{3\times100} = 2\times10\sqrt3 = 20\sqrt3$
+		\item $\dfrac{12}{\sqrt{3}} = \dfrac{12\sqrt3}{\sqrt3^2} = \dfrac{12\sqrt3}{3} = 4\sqrt3$
+		\item $\dfrac{18}{\sqrt{6}} = \dfrac{18\sqrt6}{6} = 3\sqrt6$
+		\item $\sqrt{125} = \sqrt{25\times5} = 5\sqrt5$
+	\end{enumerate}
+	\end{multicols}
 }
 
 
@@ -643,46 +724,62 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt5}{
-	TODO
+	\begin{enumerate}
+		\item $3\sqrt{2} = \sqrt{9\times2} = \sqrt{18}$
+		\item $50\sqrt{0,5} = \sqrt{2500\times0,5} = \sqrt{1250}$
+		\item $\dfrac12 \sqrt{48} = \sqrt{\left(\dfrac12\right)^2 \times 48}= \sqrt{\dfrac14 \times 48} = \sqrt{12}$
+	\end{enumerate}
 }
 
-\exe{}{
-	Calculer les fractions suivantes.
-	\begin{multicols}{4}
-	\begin{enumerate}
-		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
-		\item $\sqrt{\dfrac{64}4}$
-		\item $\dfrac{\sqrt{0,81}}{\sqrt{0,09}}$
-		\item $\sqrt{\dfrac{0,81}{0,09}}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:sqrt6}{
-	TODO
-}
+%\exe{}{
+%	Calculer les fractions suivantes.
+%	\begin{multicols}{4}
+%	\begin{enumerate}
+%		\item $\dfrac{\sqrt{64}}{\sqrt{4}}$
+%		\item $\sqrt{\dfrac{64}4}$
+%		\item $\dfrac{\sqrt{0,81}}{\sqrt{0,09}}$
+%		\item $\sqrt{\dfrac{0,81}{0,09}}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:sqrt6}{
+%	TODO
+%}
 
 \exe{, difficulty=1}{
 	Montrer que, pour $x \in\R_+$ et $n\in\Z$, $\sqrt{x^n} = \bigl(\sqrt{x}\bigr)^n$.
 }{exe:sqrt7}{
-	TODO
+	Mettons $\bigl(\sqrt{x}\bigr)^n$ au carré et utilisons la propriété $\left(q^a\right)^b = q^{a\times b}$.
+	\begin{align*}
+		\left(\bigl(\sqrt{x}\bigr)^n \right)^2 &= \bigl(\sqrt{x}\bigr)^{2n} \\
+											&= \left(\bigl(\sqrt{x}\bigr)^2 \right)^n \\
+											&= x^n
+	\end{align*}
+	Comme $x$ est positif, $\bigl(\sqrt{x}\bigr)^n$ est positif. 
+	L'identité suit donc en appliquant la racine carrée des deux côtés.
 }
 
 \exe{}{
-	Montrer, sans calculatrice, que $\sqrt{7^{3782}} =7^{1891}$.
+	Montrer que $\sqrt{7^{4052}} =7^{2026}$.
 }{exe:sqrt8}{
-	TODO
+	Le carré de $7^{2026}$ est égal à
+		\[ \bigl(7^{2026}\bigr)^2 = 7^{2026 \times 2} = 7^{4052}. \]
+	En outre, par définition, $\sqrt{7^{4052}}$ est l'unique nombre positif donc le carré est $7^{4052}$.
+	C'est bien le cas de $7^{2026}$ : il est positif et son carré vaut $7^{4052}$.
+	Il suit donc que $\sqrt{7^{4052}} =7^{2026}$.
 }
 
 \exe{}{
-	Est-ce que l'égalité suivante tient ? $\sqrt{(-2)^{26}} =(-2)^{13}$.
+	Est-ce que l'égalité suivante est vraie ? $\sqrt{(-2)^{26}} \stackrel{?}{=} (-2)^{13}$
 }{exe:sqrt9}{
-	TODO
+	En outre, par définition, $\sqrt{(-2)^{26}}$ est l'unique nombre positif donc le carré est $(-2)^{26}$.
+	Or, bien que le carré de $(-2)^{13}$ valent $(-2)^{26}$, ce nombre n'est pas positif !
+	En effet, 
+		\[ (-2)^{13} = (-2) \times (-2)^{2\times6} = -2 \times 4^6 < 0. \]
+	Plus généralement, multiplier un nombre impaire de négatifs donne un négatif.
+	
+	L'égalité est donc fausse car le membre de gauche est positif alors que celui de droite est négatif.
 }
 
-\exe{}{
-	Montrer que l'égalité $x^2 = y^2$ n'implique pas $x=y$ pour $x, y\in\R$ généraux.
-}{exe:sqrt-non-bij}{
-	TODO
-}
 
 \nomen{
 	Une condition à un proposition est \emphindex{nécessaire et suffisante} si elle est équivalente à la proposition.
@@ -697,13 +794,28 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 			\item si cette condition ne tient pas, alors $x^2 = y^2 \centernot\implies x=y$.
 		\end{enumerate}
 }{exe:sqrt-bij-under-condition}{
-	TODO
+	Comme $x^2 = y^2 \iff x^2 - y^2 = 0 \iff (x-y)(x+y) = 0$ est équivalente à ce que $x=y$ ou $x=-y$, $x$ et $y$ diffèrent au plus par leur signe.
+
+	Montrons donc que la condition « $x$ et $y$ ont le même signe » est équivalente à l'implication $x^2 = y^2 \implies x=y$.
+	Mathématiquement, il faut montrer que
+		\[ \bigl(\text{$x$ et $y$ ont le même signe}\bigr) \iff \Bigl( x^2 = y^2 \implies x=y \Bigr). \]
+	Il s'agit donc de montrer que
+		\begin{enumerate}[label=\roman*)]
+			\item si $x$ et $y$ ont le même signe, alors $x^2 = y^2 \implies x=y$ ; et
+			\item si $x$ et $y$ sont de signes différents, alors $x^2 = y^2 \centernot\implies x=y$.
+		\end{enumerate}
+	Le premier point découle du fait que $x=y$ ou $x=-y$ : seule la première égalité peut tenir si $x$ et $y$ ont le même signe.
+	
+	Pour le deuxième point, une non implication se montre le plus simplement par un contre-exemple.
+	Ainsi $x = 2$ et $y=-2$ sont bien de signes différents, et $x^2 = y^2$ tient, mais $x=y$ ne tient pas.
+	Il suit alors que $x^2 = y^2 \centernot\implies x=y$.
 }
 
 \exe{, difficulty=1}{
 	Montrer que, pour $x \in\R_+$ et $n\in\Z$ multiple de 2, $\sqrt{x^n} = x^{n/2}$.
 }{exe:sqrt9}{
-	TODO
+	Le carré de $x^{n/2}$ est égal à $x^n$. 
+	Le nombre $x$ étant positif, $x^{n/2}$ aussi, et donc $\sqrt{x^n} = x^{n/2}$.
 }
 
 \exe{, difficulty=2}{
@@ -712,7 +824,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	
 	En déduire que 37, 41, 43, et 47 sont premiers en inspectant leur divisibilité par 2, 3, et 5.
 }{exe:diviseur-sqrt}{
-	TODO
+	Supposons $n\in\N$ non premier : $n = a\times b$ se scinde en produit de deux entiers naturels différents de 1.
+	Si les deux entiers $a$ et $b$ étaient strictement supérieurs à $\sqrt{n}$, alors leur produit serait strictement supérieur à $n$, ce qui est évidemment faux.
+	Ainsi, un des deux facteurs doit être inférieur à $\sqrt{n}$ (l'autre est supérieur à $\sqrt{n}$, d'ailleurs).
+	N'importe quel premier divisant ce facteur est également inférieur à $\sqrt{n}$.
+	
+	Comme $\sqrt{n} < 7$ pour $n\in\bigset{37 ; 41 ; 43 ; 47}$, seuls les premiers inférieurs à $6$ sont à étudier, c'est-à-dire $2, 3,$ et $5$.
 }
 	
 
@@ -777,7 +894,11 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\[  \text{signe}(x) =  \begin{cases*} 1 & si $x > 0$, \\ -1  & si $x < 0$. \end{cases*} \]
 	vérifie $\text{signe}(x) = \frac{x}{|x|} = \frac{|x|}{x}$.
 }{exe:sign-function}{
-	TODO
+	Si $x >0$, alors $|x| = x$ par définition. 
+	Dans ce cas, $\frac{x}{|x|} = \frac{|x|}{x} = \frac{x}{x} = 1$.
+	
+	Si $x<0$, alors $|x| = -x$ par définition.
+	Dans ce cas, $\frac{x}{|x|} = \frac{|x|}{x} = -\frac{x}{x} = -1$.
 }
 
 \exe{}{
@@ -793,7 +914,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }{exe:identités-abs}{
 	\begin{enumerate}
 		\item 
-		TODO
+		$|x|$ étant positif, $\bigl| |x| \bigr| = |x|$.
 		\item 
 		Comme $x^2 = (-x)^2$, appliquer la racine carrée conclut.
 	
@@ -811,7 +932,12 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{, difficulty=2}{
 	Trouver tous les réels $x\in\R$ vérifiant $|x-2| = |2 + 3x|$.
 }{exe:eq-vabs}{
-	TODO
+	Comme $|x| = \pm x$ ($+x$ ou $-x$), quatre cas sont possibles, qui se réduisent en fait à deux cas.
+	\begin{align*}
+		x-2 = 2+3x && \ou && -(x-2) = 2+3x && \ou && x-2 = -(2+3x) && \ou && -(x-2) = -(2+3x)
+	\end{align*}
+	Le premier cas donne $x=-2$, et le deuxième $x=0$, qu'on vérifiera solution de l'équation initiale.
+	En multipliant les équations par $-1$, il apparaît que les deux autres cas sont équivalents au deux premiers.
 }
 
 
@@ -827,7 +953,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{, difficulty=2}{
 	Donner la courbe représentative de la fonction $1_{|\Q}$ de la remarque ci-dessus sur le domaine $\D=[0;1]$.
 }{exe:ind-Q}{
-	TODO
+	Laissé en exercice au lecteur.
 }
 
 \thm{}{
@@ -902,7 +1028,9 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 \exe{, difficulty=1}{
 	Démontrer le corollaire \ref{cor:manipulations-valeurs-absolues}.
 }{exe:manipulations-valeurs-absolues}{
-	TODO
+	Il est facile de se convaincre graphiquement à l'aide du théorème \ref{thm:valeurs-absolue-distance}, celui-ci énonçant que $|E|$ est la distance de $E$ à 0.
+	Les $E\in\R$ vérifiant $|E| \leq a$ sont tous les nombres à distance inférieure à $a$ de 0.
+	Ils constituent donc bien l'ensemble $[-a ; a]$.
 }
 
 \exe{, difficulty=2}{
@@ -922,8 +1050,7 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	On souhaite montrer que $f=g$ afin de pouvoir résoudre $f(x) = 64$.
 	Pour cela, il faut toujours partir de la forme factorisée $g$ qu'on développe pour trouver $f$. 
 	
-	En voyant l'un des $(x-4)$ comme un tout, et l'autre comme un somme de deux quantités, $x$ et $-4$, il
-	en découle que, par distributivité utilisée quatre fois,
+	D'après le théorème \ref{thm:id-rem},
 		\begin{align*}
 			(x-4)^2 &= (x-4) \cdot (x-4), \\
 					&= (x-4) \cdot x + (x-4) \cdot (-4), \\
@@ -961,7 +1088,47 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 		\end{enumerate}
 		\end{multicols}
 }{exe:factorisation}{
-	TODO
+	\begin{enumerate}[label=\alph*)]
+		\item 
+		En utilisant que
+			\begin{align*}
+				x^2 + 2x + 1 = 16 && \iff && (x+1)^2 = 16 && \iff && |x+1| = 4,
+			\end{align*}
+		on trouve $x=-5$ ou $x=3$.
+		Il est possible de vérifier ces réponses en substituant ces valeurs dans $x^2 + 2x+1$.
+		\item 
+		D'abord
+			\begin{align*}
+				4x^2 - 4x + 1 = 9 && \iff && (2x-1)^2 = 9 && \iff && |2x-1| = 3,
+			\end{align*}
+		et donc $x = -1$ ou $x=2$.
+		\item 
+		D'abord
+			\begin{align*}
+				9 - 18x + 9x^2 = 0 && \iff && (3x-3)^2 = 0 && \iff && |3x-3| = 0,
+			\end{align*}
+		et donc $x = 1$.
+		À noter qu'il est d'abord possible de diviser l'équation par 9 pour la simplifier en $1 - 2x + x^2 = 0$.
+		\item 
+		D'abord
+			\begin{align*}
+				3x^2 - 6x + 3 = 0 && \iff && x^2 - 2x + 1 = 0 && \iff && |x-1| = 0,
+			\end{align*}
+		et donc $x = 1$, car l'équation est équivalente à la précédente.
+		
+		\item 
+		D'abord
+			\begin{align*}
+				x^2 +6x + 9 = -1 && \iff && (x+3)^2 = -1,
+			\end{align*}
+		et donc aucune solution n'existe, un carré étant toujours positif.
+		\item 
+		D'abord
+			\begin{align*}
+				-4x^2 + 8x - 1 = 3 && \iff && 4x^2 - 8x + 1 = -3 && \iff && 4x^2 - 8x + 4 = 0 && \iff && (2x-2)^2 = 0,
+			\end{align*}
+		et donc $x=1$.
+	\end{enumerate}
 }
 
 
@@ -993,51 +1160,3 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 	On peut faire de même pour le maximum puis dans le cas $x>y$ (ou se convaincre que le cas $x>y$ n'est pas à faire par symétrie des expressions).
 }
 
-% à mettre dans le chapitre 2 peut-être ?
-% c'est pas intéressant ici
-%\mprop{}{
-%	Soient $a, b \in \R$ deux nombres réels tels que $a < b$.
-%	
-%	Alors le milieu de l'intervalle $[a,b]$ est égal à $\dfrac{a+b}2$.
-%}{prop:milieu-inter}
-%
-%\pf
-%{}{
-%	Notons $x\in\R$ le milieu de l'intervalle.
-%	Celui-ci est à équidistance de $a$ et de $b$ et vérifie donc
-%		\[ |x-a| = |x-b|. \]
-%	Comme $x$ vérifie $a \leq x \leq b$, et par définition de la valeur absolue, on a
-%		\begin{align*}
-%			|x-a| &= x-a, \text{ et} \\
-%			|x-b| &= -(x-b) = b-x.
-%		\end{align*}
-%	On peut alors résoudre pour $x\in\R$ :
-%		\begin{align*}
-%			x-a = b-x && \iff && 2x = a+b && \iff && x = \dfrac{a+b}2
-%		\end{align*}
-%}
-%
-%\nt{
-%	En voyant $\frac{a+b}2$ comme $\frac12 a + \frac12 b$, on peut comprendre le milieu comme une moyenne de deux valeurs ($a$ et $b$).
-%	C'est d'ailleurs comme ça qu'on calcule une moyenne de notes ayant le même coefficient --- leur poids est alors $\frac12$.
-%	Remarquons que la somme des poids vaut toujours $1$ : ils correspondent aux coefficients divisés par la somme de tous les coefficients.
-%	
-%	En changeant les poids, on peut créer d'autres points de l'intervalle. 
-%	Par exemple, si $a$ compte deux fois plus que $b$, les coefficients seront (par exemple) $2$ et $1$, et les poids $\frac23$ et $\frac13$.
-%	 La formule de la moyenne pondérée sera alors
-%		\[ \dfrac23a + \dfrac13b, \]
-%	qui est plus proche de $a$ que de $b$.
-%}
-%
-%\exe{, difficulty=2}{
-%	Considérons l'intervalle $[15;20]$ qui correspond à deux notes : $15$ et $20$.
-%	\begin{enumerate}
-%		\item Si les deux notes ont le même coefficient fixé à $1$, quel est le poids de chaque note et quelle est la moyenne pondérée ? Comparer avec le milieu de l'intervalle.
-%		\item Posons $\lambda \in [0;1]$ le poids de la première note, et $1-\lambda$ celui de la deuxième.
-%			Calculer la moyenne pondérée $15\lambda + 20(1-\lambda)$ pour certaines valeurs de $\lambda$ dans son intervalle $[0;1]$. 
-%			Vérifier que toutes les valeurs obtenues appartiennent bien à l'intervalle $[15;20]$.
-%		\item Quel $\lambda \in [0;1]$ choisir pour avoir une moyenne de $18{,}5$ ?
-%	\end{enumerate}
-%}{exe:milieu-inter}{
-%	TODO
-%}
