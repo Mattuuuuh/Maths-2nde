@@ -532,11 +532,28 @@ Il sera donc utile de connaître quelques identités dites \emphindex{identités
 }
 
 \exe{, difficulty=2}{
-	Montrer la proposition \ref{prop:eg-poly}.
+	Montrer la proposition \ref{prop:eg-poly} dans le cas de polynômes du second degré.
+	Il s'agit donc de démontrer que si l'identité
+			\[ ax^2 + bx + c = a'x^2 + b'x + c' \]
+	tient pour tout $x\in\R$, alors $a=a', b=b',$ et $c=c'$.
 }{exe:eg-poly}{
-	Je me demande quelle est la façon la plus simple.
-	Sans doute identifier les coefficients constants en prenant $x=0$, puis soustraire, diviser par $x$, et continuer.
-	Mais il faut le lemme $xf(x) = xg(x) \forall x \iff f(x) = g(x) \forall x$ qui n'est pas vrai en 0 sans hypothèse hors programme donc ça marche po.
+	Cette égalité tient en $x=0$, ce qui implique immédiatement que $c=c'$.
+	Il suit que
+		\[ ax^2 + bx = a'x^2+ b'x \]
+	tient pour tout $x\in\R$.
+	
+	Il est à présent tentant de diviser par $x$ et de répéter le même raisonnement pour obtenir $b=b'$, mais ce raisonnement est fallacieux.
+	En effet, pour diviser par $x$, il est nécessaire de supposer que $x\neq0$, et choisir $x=0$ sera alors impossible.
+	
+	Raisonnons donc différemment. En posant $\tilde{a} = a-a'$ et $\tilde{b} = b - b'$, l'égalité
+		\[ \tilde{a}x^2 + \tilde{b}x = 0 \]
+	tient pour tout $x\in\R$. 
+	Il s'agit ici de montrer que $\tilde{a} = \tilde{b}=0$ ce qui nous permettra de conclure.
+	
+	En prenant $x=1$, l'égalité devient $\tilde{a} + \tilde{b} = 0 \iff \tilde{a} = -\tilde{b}$.
+	Ainis, $\tilde{a}(x^2 - x) = 0$ pour tout $x\in\R$.
+	En $x=2$, on obtient $2\tilde{a} = 0$, et donc nécessairement $\tilde{a} = 0$ puis $\tilde{b}=0$.
+	\qed	
 }
 
 \exe{, difficulty=2}{
