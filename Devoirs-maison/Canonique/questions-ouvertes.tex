@@ -1,0 +1,170 @@
+\input{../preamble.tex}
+
+\SetDate[07/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison --- Fonction carré \\ Questions d'approfondissement}}
+\fancyhead[R]{\today}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{, difficulty=1}{
+	Construire, en posant des nombres réels $a, b, c\in\R$, une fonction de la forme
+			\[ f(x) = ax^2 + bx + c \]
+	telle que $-3$ soit le maximum de $f$ sur $\R$, atteint en $x^\star = -1$.
+}{exe:1}{
+	On souhaite une fonction $f$ dont le maximum est $-3$.
+	On considère donc une fonction $f(x)$ qui soustrait toujours quelque chose de positif à $-3$, par exemple
+		\[ F(x) = -3 - x^2. \]
+	Le problème est que le maximum est n'est pas atteint en $-1$ mais en $0$ ici, il faut donc mettre au carré une expression qui s'annule en $-1$.
+	Comme vu en cours, $x+1$ est une telle fonction, et 
+		\[ f(x) = -3 - (x+1)^2 = 3 - (x^2 + 2x + 1) = 3 - x^2 - 2x - 1 = -x^2 - 2x + 2 \]
+	fonctionne très bien !
+	Notons qu'on aurait pû aussi choisir
+		\begin{align*}
+			g(x) = -3 -2(x+1)^2,&& \text{ ou }&& h(x) = -3 - 160(x+1)^2.
+		\end{align*}
+	La plus simple étant $f(x) = -x^2 - 2x + 2$, on pose $a=-1, b=-2,$ et $c=2$.
+}
+
+
+\exe{}{
+	Grapher la fonction carré $f(x)=1+x^2$ sur le domaine $\D = [-4 ; 3]$.
+	
+	En déduire que $f$ admet son minimum 1 en $x^\star = 0$ et son maximum 17 en $x^\star=-4$.
+}{exe:10}{
+	 Sur GeoGebra, entrer \texttt{y=x**2} puis \texttt{x=-4} et \texttt{x=3} pour définir les bornes (droites verticales).
+}
+
+\exe{, difficulty=1}{
+	L'exercice  vise à montrer que plusieurs antécédents peuvent réaliser un extremum en général.
+	Étudions la fonction $g$ définie algébriquement sur $\R$ par
+		\[ g(x) =11 + \dfrac{1}{100}\left(\dfrac{x}5+3\right)^2(x-5)^2. \]
+	\begin{enumerate}
+		\item 
+		Montrer que $\left(\dfrac{x}5+3\right)^2(x-5)^2 = \left[\left(\dfrac{x}5+3\right)(x-5)\right]^2$.
+	
+		\item
+		En déduire l'extremum de $g$ ainsi que les antécédents qui le réalisent.
+		
+		\item 
+		Calculer les images des antécédents trouvés pour vérifier qu'ils réalisent bien l'extremum.
+	
+		\item
+		Grapher $\C_g$ à l'aide de Geogebra en lui donnant l'expression \texttt{y=11+1/100*(x/5+3)**2 * (x-5)**2} pour vérifier ses réponses (la double multiplication désigne la puissance en programmation).
+	\end{enumerate}
+}{exe:3}{
+	$g$ est de la forme étudiée en classe avec $\frac1{100} \geq 0$, donc $g$ admet un minimum qui vaut 11.
+	
+	Le produit $\left(\dfrac{x}5+3\right)(x-5)$ est nul si et seulement si un des facteurs est nul.
+	L'équation $\dfrac{x}5+3$ fournit le premier antécédent $x=-15$, et l'équation $x-5 = 0$ donne $x=5$.
+
+	En conclusion, $g(x)$ atteint son minimum 11 pour $x\in \bigset{ -15 ; 5}$.
+}
+
+
+\exe{, difficulty=2}{
+	Justifier qu'un polynôme du second degré
+		\[ ax^2 + bx + c \]
+	avec $a\neq0$ 
+		\begin{enumerate}[label=\roman*)]
+			\item 
+			n'admet pas de maximum si $a > 0$
+			\item
+			n'admet pas de minimum si $a < 0$
+		\end{enumerate}
+	Ce résultat ce généralise pour les polynômes de degré quelconques, toujours selon le signe du terme dominant ($x^d$ avec $d$ le plus grand).
+}{exe:minmax}{
+	Quitte à multiplier l'expression par $-1$, qui transforme un maximum en un minimum (à vérifier !),
+	supposons $a>0$.
+	
+	Si $ax^2 + bx + c \leq M$ pour tout $x\in\R$, alors
+	$ ax^2 \leq M - bx -c$, et donc, pour $x>0$, diviser par $ax$ (qui est positif) donne
+		\[ x \leq \dfrac{M}{ax} - \dfrac{b}{a} - \dfrac{c}{ax}, \]
+	valable pour tout $x>0$.
+	Cependant, par inspection, le membre de gauche, $x$, peut prendre des valeurs aussi grandes que voulues.
+	Cependant, le membre de droite est borné supérieurement : diviser par $x$ de plus en plus grand diminue la valeur.
+	En effet, $\frac{1}{x}$ s'approche de zéro lorsque $x$ grandit.
+}
+
+
+
+\exe{, difficulty=1}{
+	L'exercice vise à montrer que certaines fonctions n'admettent pas de minimum alors qu'elles sont toujours supérieures à une certaine valeur.
+	Considérons la fonction
+		\[ f(x) = \dfrac{1}{1+x^2}. \]
+	Remarquons que le dénominateur varie ; il faut donc faire attention à ce qu'il ne soit jamais nul.
+	\begin{enumerate}
+		\item
+		Justifier que $f(x)$ est bien définie pour tout $x\in\R$.
+		C'est-à-dire montrer que la fonction n'essaye jamais de diviser par zéro.
+		\item
+		Montrer rigoureusement que $f(x) \leq 1$ pour tout $x\in\R$ avec égalité uniquement en $x=0$.
+		\item
+		Montrer que $f(x) \geq c \geq 0$ ne peut être vrai pour tout $x\in\R$ que pour $c=0$.
+		Le seul candidat possible de minimum est donc $0$.
+		\item
+		Montrer que $f$ n'admet pas de minimum sur $\R$.
+	\end{enumerate}
+	La plus grande borne inférieure est appelée l'\emph{infimum}.
+	Il se distingue du minimum par le fait qu'il n'est pas nécessairement atteint.
+}{exe:5}{
+	\begin{enumerate}
+		\item
+		$1+x^2 \geq 1$ pour tout $x\in\R$.
+		Le dénominateur n'est donc jamais nul.
+		\item
+		En divisant $1+x^2 \geq 1$ par $1+x^2$, qui est positif (et donc ne change pas le sens de l'inégalité), on obtient bien $f(x) \leq 1$ pour tout $x\in\R$.
+		L'inégalité est égalité lorsque $1+x^2 = 1$, c'est-à-dire uniquement quand $x=0$.
+		\item
+		Supposons $f(x) \geq c > 0$ pour tout $x\in\R$.
+		En multipliant par $(1+x^2)$ et en divisant par $c$, deux quantités positives (et donc qui ne changent pas le sens de l'inégalité), on obtient
+			\[ \dfrac1c \geq 1+x^2 \]
+		pour tout $x\in\R$.
+		Or le membre de droite explose pour $x$ de plus en plus grand.
+		Il ne peut donc pas être borné supérieurement pas une certaine constante (même très grande si $c$ est très petit).
+		\item
+		$f(x) \geq 0$ pour tout $x\in\R$ est le seul candidat possible de minimum, car n'importe quelle valeur $c$ strictement supérieure ne fonctionne pas.
+		Or, $f(x)$ ne vaut jamais zéro, car $f(x) = 0$ est équivalente à $1=0$, en multipliant par $1+x^2$, quantité non nulle.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=3}{
+	Considérons une fonction réelle $f$ sur $\bigset{0 ; 1 ; 2 ; \dots ; N}$.
+	C'est-à-dire que $f(x)$ est uniquement défini en $x=0 ; 1 ; 2 ; \dots ; N$.
+	
+	On dit que $f$ est \emph{harmonique} dès que
+		\[ f(x) = \dfrac{f(x-1) + f(x+1)}{2} \]
+	pour tout $x \in \bigset{1 ; 2 ; 3 ; \dots ; N-1}$.
+	
+	Les trois questions sont indépendantes.
+	\begin{enumerate}
+		\item 
+		Montrer que la fonction $f(x) = 1$ est harmonique, puis donner son minimum et son maximum.
+		\item 
+		Montrer que la fonction $f(x) = 3x+5$ est harmonique, puis donner son minimum et son maximum.
+		\item	
+		Montrer que si $f$ est harmonique et qu'elle atteint son minimum ou son maximum en un certain $x^\star \in \bigset{1 ; 2 ; 3 ; \dots ; N-1}$, alors $f$ est constante.
+	\end{enumerate}
+}{exe:olympiade}{
+	Exercice d'olympiades !
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
+
