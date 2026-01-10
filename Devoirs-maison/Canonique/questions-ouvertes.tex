@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[07/11/2025]
+\SetDate[10/01/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -133,6 +133,31 @@
 	\end{enumerate}
 }
 
+\exe{}{
+	Montrer que $\min -f(x) = - \max f(x)$.
+}{exe:minismax}{
+	Montrer que l'argument du minimum de $-f(x)$ est égal à l'argument du maximum de $f(x)$ et conclure.
+} 
+
+\exe{, difficulty=2}{
+	Le but de l'exercice est d'exhiber une fonction qui admet à la fois un minimum et un maximum.
+
+	 À l'aide de Geogebra, grapher la fonction
+		\[ f(x) = \dfrac{1}{1+(x+1)^2} - \dfrac1{1+(x-1)^2}. \]
+	\begin{enumerate}
+		\item
+		Montrer que $f(-1) > 0$ et $f(1) < 0$.
+		\item
+		Justifier que $f(x)$ s'approche de 0 lorsque $x$ devient très grand (positif ou négatif).
+		\item
+		En conclure qu'on peut restreindre la recherche d'un maximum et d'un minimum aux antécédents $x$ relativement petits, et donc que $f$ admet à la fois un minimum et un maximum.
+	\end{enumerate}
+	On utilise sans le nommer le \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me\_des\_valeurs\_extr\%C3\%AAmes}{\emph{théorème des valeurs extrêmes}} qui nécessite l'hypothèse que $f$ soit continue, propriété admise au lycée.
+}{exe:minandmax}{
+	Comme $f$ s'évanouit vers l'infini, $f(x)$ est toujours plus petite que $f(-1)$ et toujours plus grande que $f(-1)$ pour $x$ suffisamment grand (positif ou négatif).
+	Les extrema ne sont donc pas atteints en l'infini, comme à l'exercice \ref{exe:5} : ils sont donc bien un maximum et un minimum.
+}
+
 
 \exe{, difficulty=3}{
 	Considérons une fonction réelle $f$ sur $\bigset{0 ; 1 ; 2 ; \dots ; N}$.
@@ -153,6 +178,7 @@
 	\end{enumerate}
 }{exe:olympiade}{
 	Exercice d'olympiades !
+	Pour le point 3 : voir $\frac{f(x-1) + f(x+1)}{2}$ comme une moyenne.
 }
 
 

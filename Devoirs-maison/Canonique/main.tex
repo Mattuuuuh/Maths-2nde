@@ -2,7 +2,7 @@
 %% THEN INPUT .ADR
 %% THEN THIS
 
-\SetDate[03/12/2025]
+\SetDate[14/01/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -20,19 +20,69 @@
 	Considérons la fonction $f$ définie algébriquement sur $\R$ par
 		\[ f(x) = \fa x^2  \fb x \fc. \]
 	\begin{enumerate}
+		\item
+		Tracer la courbe représentative de $f$ dans le repère ci-dessous.
 		\item 
-		Montrer que $f(x) = -\hbeta + (\ha x \hb)^2$ pour tout $x\in\R$.
+		Montrer que $f(x) = \hbeta \hA (\ha x \hb)^2$ pour tout $x\in\R$.
 		\item
 		Donner l'extremum de $f$ en précisant
 			\begin{enumerate}
-				\item s'il s'agit d'un minimum ou d'un maximum
-				\item l'antécédent $x^\star$ qui réalise ce maximum
+				\item s'il s'agit d'un minimum ou d'un maximum ; et
+				\item l'antécédent $x^\star$ qui réalise cet extremum.
 			\end{enumerate}
 	\end{enumerate}
+	
+	% repère général avec transparent du coup?
 
 }{exe:1}{
-	todo
+	2. En développant grâce aux identités remarquables.
+	
+	\begin{enumerate}[start=3]
+		\item
+		On part du carré $E^2$ toujours positif avec égalité $E^2 = 0$ quand l'expression $E$ est nulle.
+			\begin{align*}
+				(\ha x \hb)^2 \geq 0 && \text{avec égalité quand } \ha x \hb = 0
+			\end{align*}
+		En résolvant $\ha x \hb =0 \iff x= \xstarfrac$, on obtient l'argument de l'extremum.
+
+		Puis, en multipliant par $\hA$ en faisant attention au signe et en ajoutant $\hbeta$, on trouve
+		\ifnum\ishApositive=1
+			\begin{align*}
+				\hA(\ha x \hb)^2 &\geq 0 && \text{ parce que } \hA \geq 0 \\
+				\hbeta \hA(\hA x \hb)^2 &\geq \hbeta && \\
+				f(x) &\geq \hbeta && \\
+			\end{align*}
+		Ainsi le minimum de $f(x)$ est $\hbeta$, atteint en $x^\star = \xstarfrac$.
+		\else
+			\begin{align*}
+				\hA(\ha x \hb)^2 &\leq 0 && \text{ parce que } \hA \leq 0 \\
+				\hbeta \hA(\hA x \hb)^2 &\leq \hbeta && \\
+				f(x) &\leq \hbeta && \\
+			\end{align*}
+		Ainsi le maximum de $f(x)$ est $\hbeta$, atteint en $x^\star = \xstarfrac$.
+		\fi
+	\end{enumerate}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.6]
+		\begin{axis}[xmin = \xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=-, clip=false, xtick distance = 1, x=100pt,]
+			\addplot[myb, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.5, right=15pt] {$\mathcal{C}_\mathcal{f}$};
+			
+			\addplot[PURPLE, very thick, mark=|, mark size = 1] (\xstar,0) node[above] {$\color{PURPLE} x^\star$};
+			\addplot[RED_E, very thick, mark=-, mark size = 1] (0,\hbeta) node[below] {$\color{RED_E} f(x^\star)$};
+			\draw[PURPLE, dashed, very thick] (axis cs:\xstar, 0) -- (axis cs:\xstar, \hbeta);
+			\draw[RED_E, dashed, very thick] (axis cs:0, \hbeta) -- (axis cs:\xstar, \hbeta);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
 }
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = \xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=-, clip=true, xtick distance = 1, x=100pt,]
+				\addplot[transparent, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.5, right=15pt] {$\mathcal{C}_f$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -40,7 +90,7 @@
 %%%%%%%%%%%%%%%%%%%
 
 \newpage
-\fancyhead[C]{\textbf{Solutions -- {\seed} -- Évolution}}
+\fancyhead[C]{\textbf{Solutions -- {\seed} -- Fonction carré}}
 \fakesection{Solution \seed}
 \shipoutAnswer
 

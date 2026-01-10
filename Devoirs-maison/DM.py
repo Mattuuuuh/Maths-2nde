@@ -151,6 +151,38 @@ def newcommand_dfrac(command, numerator, denominator=1):
     # else
     return newcommand(command, "\dfrac{"+str(numerator)+"}{"+str(denominator)+"}")
 
+# generic \newcommand with frac
+def newcommand_frac(command, numerator, denominator=1):
+    # turn things integer
+    numerator, denominator = int(numerator), int(denominator)
+
+    # zero case
+    if numerator == 0:
+        return newcommand(command, 0)
+
+    # make coprime
+    gcd = np.gcd(numerator, denominator)
+    assert gcd != 0, "null GCD?"
+    numerator //= gcd
+    denominator //= gcd
+    # sign is always on top
+    if denominator < 0:
+        numerator *= -1
+        denominator *= -1
+
+    # integer case
+    if denominator == 1:
+        return newcommand(command, numerator)
+
+    # else
+    return newcommand(command, r"\frac{"+str(numerator)+"}{"+str(denominator)+"}")
+
+# generic \newcommand with frac
+def newcommand_dfrac(command, numerator, denominator=1):
+    # turn things integer
+    numerator, denominator = int(numerator), int(denominator)
+
+
 def newcommand_mult(command, numerator, denominator=1, sign=False):
     """
     Fonction qui crée un commande \dfrac{numerator}{denominator} irréductible.
@@ -231,13 +263,17 @@ def comma(num):
 
 # gives an int n verifying a <= n <= b.
 # uniform random.
-def int_between(a,b):
+def int_between(a,b, remove=[]):
     assert a <= b, "a,b must verify a <= b."
     n = np.random.rand()
     n *= (b-a+1)
     n = int(n)
     n += a
-
+    while n in remove:
+        n = np.random.rand()
+        n *= (b-a+1)
+        n = int(n)
+        n += a
     return n
 
 
