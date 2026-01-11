@@ -40,6 +40,23 @@
 	 Sur GeoGebra, entrer \texttt{y=x**2} puis \texttt{x=-4} et \texttt{x=3} pour définir les bornes (droites verticales).
 }
 
+\exe{}{
+	Soit $f(x) = 13 + 4(x-3)^2$. 
+	Montrer que $f$ atteint son minimum en $x^\star = 3$.
+	Montrer que si $\frac{a+b}2 = 3$, alors $f(a) = f(b)$.
+	Graphiquement, si $a$ et $b$ sont symétriques l'un de l'autre par rapport à 3, et donc la droite verticale $x=3$ est un axe de symétre de $\C_f$ (à vérifier sur GeoGebra).
+}{exe:11}{
+	Si $\frac{a+b}2 = 3$, alors $a+b = 6$, et donc $b=6-a$.
+	Calculons donc $f(b) = f(6-a)$ et voyons qu'on obtient bien $f(a)$.
+	
+	\begin{align*}
+		f(6-a) &= 13 + 4\left[ (6-a)-3 \right]^2, \\
+				&= 13 + 4 (3-a)^2, \\
+				&= 13 + 4(a-3)^2 = f(a),
+	\end{align*}
+	où l'avant-dernière égalité découle du fait que le carré est pair et donc $(3-a)^2 = (a-3)^2$. 
+}
+
 \exe{, difficulty=1}{
 	L'exercice  vise à montrer que plusieurs antécédents peuvent réaliser un extremum en général.
 	Étudions la fonction $g$ définie algébriquement sur $\R$ par
