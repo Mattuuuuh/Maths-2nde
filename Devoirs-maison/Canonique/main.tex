@@ -35,7 +35,7 @@
 	% repère général avec transparent du coup?
 
 }{exe:1}{
-	2. En développant grâce aux identités remarquables.
+	2. En développant grâce aux identités remarquables (toujours partir de la forme factorisée).
 	
 	\begin{enumerate}[start=3]
 		\item
@@ -63,9 +63,19 @@
 		\fi
 	\end{enumerate}
 	\begin{center}
+	\ifnum\ishApositive=1
 	\begin{tikzpicture}[>=stealth, scale=.6]
-		\begin{axis}[xmin = \xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=-, clip=false, xtick distance = 1, x=100pt,]
-			\addplot[myb, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.5, right=15pt] {$\mathcal{C}_\mathcal{f}$};
+		\begin{axis}[xmin = \xmin,
+			xmax=\xmax, 
+			ymin=\ymin, 
+			ymax=\ymax,
+			axis x line=middle,
+			axis y line=middle,
+			axis line style=-, 
+			clip=false, 
+			xtick distance = 1, 
+			x=\xpt pt,]
+			\addplot[myb, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.6, below] {$\mathcal{C}_f$};
 			
 			\addplot[PURPLE, very thick, mark=|, mark size = 1] (\xstar,0) node[above] {$\color{PURPLE} x^\star$};
 			\addplot[RED_E, very thick, mark=-, mark size = 1] (0,\hbeta) node[below] {$\color{RED_E} f(x^\star)$};
@@ -73,13 +83,43 @@
 			\draw[RED_E, dashed, very thick] (axis cs:0, \hbeta) -- (axis cs:\xstar, \hbeta);
 		\end{axis}
 	\end{tikzpicture}
+	\else
+	\begin{tikzpicture}[>=stealth, scale=.6]
+		\begin{axis}[xmin = \xmin,
+			xmax=\xmax, 
+			ymin=\ymin, 
+			ymax=\ymax,
+			axis x line=middle,
+			axis y line=middle,
+			axis line style=-, 
+			clip=false, 
+			xtick distance = 1, 
+			x=\xpt pt,]
+			\addplot[myb, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.6, above] {$\mathcal{C}_f$};
+			
+			\addplot[PURPLE, very thick, mark=|, mark size = 1] (\xstar,0) node[below] {$\color{PURPLE} x^\star$};
+			\addplot[RED_E, very thick, mark=-, mark size = 1] (0,\hbeta) node[above] {$\color{RED_E} f(x^\star)$};
+			\draw[PURPLE, dashed, very thick] (axis cs:\xstar, 0) -- (axis cs:\xstar, \hbeta);
+			\draw[RED_E, dashed, very thick] (axis cs:0, \hbeta) -- (axis cs:\xstar, \hbeta);
+		\end{axis}
+	\end{tikzpicture}
+	\fi
 	\end{center}
 }
 
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = \xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax, axis x line=middle, axis y line=middle, axis line style=-, clip=true, xtick distance = 1, x=100pt,]
-				\addplot[transparent, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.5, right=15pt] {$\mathcal{C}_f$};
+		\begin{axis}[xmin = \xmin, 
+			xmax=\xmax, 
+			ymin=\ymin,
+			ymax=\ymax, 
+			axis x line=middle, 
+			axis y line=middle, 
+			axis line style=-,
+			clip=true, 
+			xtick distance = 1,
+			x=\xpt pt,]
+				\addplot[transparent, thick, domain =\xmin:\xmax, samples=50] {\faR*x^2+\fbR*x+\fcR}  node[pos=.5, right] {$\mathcal{C}_f$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}

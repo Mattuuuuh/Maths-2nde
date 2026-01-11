@@ -22,13 +22,14 @@ def generate():
     
     hA = int_between(-5, 5, remove=[0,1,-1])
 
-    hbeta = 20*int_between(1,4, remove=[0]) + int_between(5,15)
-    if hA > 0:
-        hbeta*=-1
+    ha = int_between(1, 11)
 
-    ha = int_between(1, 9)
-
-    hb = int_between(-10, 10, remove=[0])
+    # |hb| <= |ha| such that |xstar| <= 1
+    hb = int_between(-ha, ha, remove=[0])
+    
+    # amplitude (distance entre les racines) restreinte qui contraint beta.
+    amplitude = 4
+    hbeta = -amplitude*hA*ha**2
 
     R += newcommand("hbeta", hbeta)
     R += newcommand_mult("hA", hA, sign=True)
@@ -51,16 +52,20 @@ def generate():
     
     f = lambda x: fa*x**2+fb*x+fc
     xstar = -hb/ha
-    xmin = int(xstar)-3
-    xmax = int(xstar)+3
+    # pourquoi xmin xmax entiers en fait? osef
+    #xmin = int(np.floor(xstar))-3
+    #xmax = int(np.floor(xstar))+3
+    xmin=xstar-3
+    xmax=xstar+3
     R+= newcommand("xstar", xstar)
     R+= newcommand_frac("xstarfrac", -hb, ha)
     R+= newcommand("xmin", xmin)
     R+=newcommand("xmax", xmax)
 
-    images = {f(xstar), f(xmin), f(xmax)}
+    images = {f(xstar), f(xmin), f(xmax), 1, -1}
     R+= newcommand("ymin", min(images)-10)
     R+= newcommand("ymax", max(images)+10)
+    R+= newcommand("xpt", (xmax-xmin)*10)
 
     # SOL 1
     R+= newcommand("ishApositive", int(hA>0))
@@ -75,18 +80,18 @@ dm = DM(
         FOLDER="Canonique/",
         generating_function=generate,
         double_compile=True,
-        initial_seed=0,
+        initial_seed=666,
         a5=True,
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#dm.generate_seeds(4)
-#dm.write_adrs()
-#dm.compile_pdfs()
+dm.generate_seeds(80)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 #dm.read_adrs()
