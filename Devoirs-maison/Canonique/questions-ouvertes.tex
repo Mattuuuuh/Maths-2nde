@@ -68,6 +68,8 @@
 
 
 \exe{, difficulty=2}{
+	Le but de l'exercice est de montrer que les fonctions du second degré vues au lycée ne peuvent pas admettre à la fois un maximum et un minimum.
+
 	Justifier qu'un polynôme du second degré
 		\[ ax^2 + bx + c \]
 	avec $a\neq0$ 
@@ -77,7 +79,10 @@
 			\item
 			n'admet pas de minimum si $a < 0$
 		\end{enumerate}
-	Ce résultat ce généralise pour les polynômes de degré quelconques, toujours selon le signe du terme dominant ($x^d$ avec $d$ le plus grand).
+	Ce résultat ce généralise pour les polynômes de degré quelconques ($ax^d + bx^{d-1} + ...$), selon le signe de $a$ et la parité de $d$.
+	Si $d$ est pair, les règle sont les mêmes qu'avec $d=2$.
+	Si $d$ est impair, $x^d$ n'admet ni minimum ni maximum (voir $d=1$ et $d=3$ pour se donner une intuition).
+	En conclusion, \underline{la plus grande puissance de $x$ domine les autres}.
 }{exe:minmax}{
 	Quitte à multiplier l'expression par $-1$, qui transforme un maximum en un minimum (à vérifier !),
 	supposons $a>0$.
@@ -91,6 +96,24 @@
 	En effet, $\frac{1}{x}$ s'approche de zéro lorsque $x$ grandit.
 }
 
+
+
+\exe{}{
+	Montrer que $\min -f(x) = - \max f(x)$.
+}{exe:minismax}{
+	Montrer que l'argument du minimum de $-f(x)$ est égal à l'argument du maximum de $f(x)$ et conclure.
+} 
+
+\exe{}{
+	Montrer que si $x^\star = \arg\max f(x)$, alors $g(x) = f(x+x^\star)$ atteint son maximum en 0.
+	
+	Graphiquement, nous décalons la courbe $\C_f$ vers la gauche ou la droite de sorte à fixer l'extremum en 0.
+	C'est pour ça que les fonctions $2+x^2$ et $2+(x-3)^2$ sont les translatées l'une de l'autre (voir GeoGebra).
+	
+	Cette simple remarque permet par exemple de commencer une démonstration par « sans perte de généralité, $x^\star = 0$ », ce qui peut parfois simplifier les notations.
+}{exe:argmaxtozero}{
+	$g(0) = f(x^\star) \leq f(x + x^\star) = g(x)$ pour tout $x\in\R$.
+} 
 
 
 \exe{, difficulty=1}{
@@ -133,35 +156,35 @@
 	\end{enumerate}
 }
 
-\exe{}{
-	Montrer que $\min -f(x) = - \max f(x)$.
-}{exe:minismax}{
-	Montrer que l'argument du minimum de $-f(x)$ est égal à l'argument du maximum de $f(x)$ et conclure.
-} 
-
 \exe{, difficulty=2}{
 	Le but de l'exercice est d'exhiber une fonction qui admet à la fois un minimum et un maximum.
 
 	 À l'aide de Geogebra, grapher la fonction
 		\[ f(x) = \dfrac{1}{1+(x+1)^2} - \dfrac1{1+(x-1)^2}. \]
+	Changer les numérateurs pour jouer avec la (non) parité de $f$.
 	\begin{enumerate}
 		\item
 		Montrer que $f(-1) > 0$ et $f(1) < 0$.
+		\item
+		Montrer que $f$ est impaire, c'est-à-dire que $f(-x) = -f(x)$ pour tout $x\in\R$.
 		\item
 		Justifier que $f(x)$ s'approche de 0 lorsque $x$ devient très grand (positif ou négatif).
 		\item
 		En conclure qu'on peut restreindre la recherche d'un maximum et d'un minimum aux antécédents $x$ relativement petits, et donc que $f$ admet à la fois un minimum et un maximum.
 	\end{enumerate}
-	On utilise sans le nommer le \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me\_des\_valeurs\_extr\%C3\%AAmes}{\emph{théorème des valeurs extrêmes}} qui nécessite l'hypothèse que $f$ soit continue, propriété admise au lycée.
+	On utilise sans le nommer le \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me\_des\_valeurs\_extr\%C3\%AAmes}{\emph{théorème des valeurs extrêmes}} qui nécessite l'hypothèse que $f$ soit continue (propriété admise au lycée).
 }{exe:minandmax}{
-	Comme $f$ s'évanouit vers l'infini, $f(x)$ est toujours plus petite que $f(-1)$ et toujours plus grande que $f(-1)$ pour $x$ suffisamment grand (positif ou négatif).
+	
+	2. Exercice un peu \emph{boring} qui utilise que $(-x+1)^2 = (x-1)^2$ et que $(-x-1)^2 = (x+1)^2$ par parité de la fonction carré.
+
+	4. Comme $f$ s'évanouit vers l'infini, $f(x)$ est toujours plus petite que $f(-1)$ et toujours plus grande que $f(-1)$ pour $x$ suffisamment grand (positif ou négatif).
 	Les extrema ne sont donc pas atteints en l'infini, comme à l'exercice \ref{exe:5} : ils sont donc bien un maximum et un minimum.
 }
 
 
 \exe{, difficulty=3}{
 	Considérons une fonction réelle $f$ sur $\bigset{0 ; 1 ; 2 ; \dots ; N}$.
-	C'est-à-dire que $f(x)$ est uniquement défini en $x=0 ; 1 ; 2 ; \dots ; N$.
+	C'est-à-dire que $f(x)\in\R$ est uniquement définie en $x=0 ; 1 ; 2 ; \dots ; N$.
 	
 	On dit que $f$ est \emph{harmonique} dès que
 		\[ f(x) = \dfrac{f(x-1) + f(x+1)}{2} \]
@@ -173,12 +196,16 @@
 		Montrer que la fonction $f(x) = 1$ est harmonique, puis donner son minimum et son maximum.
 		\item 
 		Montrer que la fonction $f(x) = 3x+5$ est harmonique, puis donner son minimum et son maximum.
+		\item
+		Montrer que si $f$ et $g$ sont harmoniques, alors $f+g$ est harmonique.
+		L'opération $+$ entre fonctions se définit sans surprise par :
+			\[ (f+g)(x) = f(x) + g(x). \]
 		\item	
 		Montrer que si $f$ est harmonique et qu'elle atteint son minimum ou son maximum en un certain $x^\star \in \bigset{1 ; 2 ; 3 ; \dots ; N-1}$, alors $f$ est constante.
 	\end{enumerate}
 }{exe:olympiade}{
 	Exercice d'olympiades !
-	Pour le point 3 : voir $\frac{f(x-1) + f(x+1)}{2}$ comme une moyenne.
+	Pour le point 4 : voir $\frac{f(x-1) + f(x+1)}{2}$ comme une moyenne.
 }
 
 
