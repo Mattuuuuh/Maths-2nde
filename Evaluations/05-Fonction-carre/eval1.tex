@@ -41,7 +41,7 @@ Consignes particulières :
 		Déterminer maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise de deux manières différentes :
 			\begin{enumerate}[label=\alph*)]
 				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
-				\item algébriquement, en montrant rigoureusement que $f(x) \geq f(x^\star)$ pour tout $x\in\R$.
+				\item algébriquement, en montrant rigoureusement que $f(x) \leq f(x^\star)$ pour tout $x\in\R$.
 			\end{enumerate}
 		\item
 		Déterminer quels $x\in\R$ vérifient $f(x) \geq -6$ de deux manières différentes :
@@ -50,7 +50,7 @@ Consignes particulières :
 				\item algébriquement, en résolvant l'inéquation rigoureusement.
 			\end{enumerate}
 		\item
-		En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ tout entier ?
+		En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ ?
 	\end{enumerate}
 }{exe:canonique}{
 	todo
@@ -93,16 +93,38 @@ Consignes particulières :
 \newpage
 
 
+%\exe{2}{
+%	Montrer que la fonction $f(x) = x^2 + x$ n'est pas paire.
+%	Il s'agit ici de 
+%		\begin{enumerate}[label=\alph*), leftmargin=60pt]
+%			\item donner la définition d'une fonction paire ; et de
+%			\item justifier que $f$ ne vérifie pas cette définition.
+%		\end{enumerate}
+%}{exe:f-non-paire}{
+%	todo
+%}
+
 \exe{2}{
-	Montrer que la fonction $f(x) = x^2 + x$ n'est pas paire.
-	Il s'agit ici de 
-		\begin{enumerate}[label=\alph*), leftmargin=60pt]
-			\item donner la définition d'une fonction paire ; et de
-			\item justifier que $f$ ne vérifie pas cette définition.
-		\end{enumerate}
-}{exe:f-non-paire}{
-	todo
+	Montrer que la fonction $f$ donnée algébriquement sur $\R$ par
+		\[ f(x) = (x+3)^6 + (x-3)^6 \]
+	est paire.
+}{exe:f-paire}{
+	Il s'agit de montrer que $f(-x) = f(x)$ pour tout $x\in\R$.
+	Il est déconseillé de développer $f(x)$, même si c'est bien sûr possible.
+	
+	Pour tout $x\in\R$,
+	\begin{align*}
+		f(-x) &= (-x + 3)^6 + (-x-3)^6 && \text{ en remplaçant $x$ par $-x$} \\ 
+			&= \left[ (-1)\cdot(x - 3) \right]^6 + \left[ (-1)\cdot(x+3) \right]^6 && \text{ en factorisant par $-1$} \\
+			&= (-1)^6 (x-3)^6 + (-1)^6 (x+3)^6 && \text{ en utilisant $(ab)^6 = a^6b^6$ } \\
+			&= (x-3)^6 + (x+3)^6 && \text{ en utilisant $(-1)^6 = +1$} \\
+			&= (x+3)^6 + (x-3)^6 && \text{ en échangeant les termes de la somme }\\
+			&= f(x)
+	\end{align*}
 }
+
+
+
 
 \exe{3}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
