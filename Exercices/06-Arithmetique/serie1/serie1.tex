@@ -8,6 +8,16 @@
 \fancyhead[C]{\textbf{Arithmétique}}
 \fancyhead[R]{\today}
 
+\exe{}{
+	Lorsqu'on ouvre un livre, on peut identifier deux pages : celle de gauche, et celle de droite.
+	Par exemple, la page 33 d'un livre est toujours une page de droite.
+	
+	Est-il possible que la page 330 soit également une page de droite ?
+	
+	Comment savoir si la page $n$ est de gauche ou de droite ? $n \in\N$ est un entier quelconque.
+}{exe:parite-pages}{
+	todo
+}
 
 \exe{}{
 	Donner les chiffres pairs dont l'écriture en toutes lettres contient un nombre pair de lettres.
@@ -23,17 +33,15 @@
 	Seul « deux » respecte l'ordre alphabétique.
 }
 
-
-\exe{}{
-	Lorsqu'on ouvre un livre, on peut identifier deux pages : celle de gauche, et celle de droite.
-	Par exemple, la page 33 d'un livre est toujours une page de droite.
-	
-	Est-il possible que la page 330 soit également une page de droite ?
-	
-	Comment savoir si la page $n$ est de gauche ou de droite ? $n \in\N$ est un entier quelconque.
-}{exe:parité-pages}{
-	todo
+\exe{, difficulty=1}{
+	Soit $n\in\N$ un entier naturel.
+	Montrer que $\dfrac{n(n+1)}2$ est toujours un entier.
+}{exe:nnp1}{
+	Comme $n$ et $n+1$ se suivent, l'un des deux est pair.
+	Leur produit est donc pair, et la division par 2 donne un entier.
 }
+
+
 
 % sympa mais osef non ?
 %\exe{, difficulty=1}{
@@ -298,6 +306,35 @@
 	Idem pour $70 = 2 \times 5 \times 7$, un diviseur admet uniquement $2, 5$, et $7$ dans sa décomposition.
 	
 	Donc le seul diviseur commun à $33$ et $70$ est $1$.
+}
+
+\hrule
+
+\exe{, difficulty=2}{
+	Le but de cet exercice est de trouver une forme close pour la somme des $n$ premiers entiers naturels $1+2+3+4+\cdots + n$, nombre appelé \emph{nombre triangulaire}.
+	\begin{enumerate}
+		%\item
+		%Quelles hypothèses poser sur $n$ ? Dans quel ensemble de nombres appartient-il ?
+		\item
+		Montrer que la différence de deux carrés parfaits consécutifs est un nombre impair.
+		\item
+		Montrer qu'en ajoutant les différences $1^2-0^2$, $2^2 - 1^2, 3^2 - 2^2, \dots, (n+1)^2 - n^2$, on obtient $(n+1)^2$.
+		\item
+		En déduire que
+			\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
+		\item
+		Conclure que 
+			\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
+	\end{enumerate}
+}{exe:star1}{
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	Indication pour la question 4 : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.
+	
+	En considérant les différences successives de cubes, on peut montrer que
+		\[ 1 + 4 + 9 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
+	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple).
 }
 
 %%%%%%%%%%%
