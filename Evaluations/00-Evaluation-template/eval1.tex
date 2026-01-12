@@ -1,0 +1,54 @@
+\input{../preamble.tex}
+
+\SetDate[01/01/0001]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation --- Template}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{5}{
+	Exercice 1
+}{exe:1}{
+	Solution 1
+}
+
+\exe{7}{
+	Exercice 2
+}{exe:2}{
+	Solution 2
+}
+
+\exe{8}{
+	Exercice 3
+}{exe:3}{
+	Solution 3
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
