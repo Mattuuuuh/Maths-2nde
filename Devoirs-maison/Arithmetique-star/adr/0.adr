@@ -1,0 +1,6 @@
+\newcommand{\seed}{0}
+\newcommand{\aI}{9}
+\newcommand{\bI}{20}
+\newcommand{\abI}{180}
+\newcommand{\uI}{-11}
+\newcommand{\vI}{5}

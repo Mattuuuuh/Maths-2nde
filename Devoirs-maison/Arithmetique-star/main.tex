@@ -1,0 +1,105 @@
+%% INPUT PREAMBLE.TEX
+%% THEN INPUT .ADR
+%% THEN THIS
+
+\SetDate[16/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Arithmétique $\star$}}
+\fancyhead[R]{\today}
+
+\fakesection{Devoir \seed}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{, difficulty=2}{
+	Considérons un entier naturel $n\in\N$ qui est à la fois multiple de $\aI$ et multiple de $\bI$.
+	\begin{enumerate}
+		\item
+		Montrer que $\aI$ et $\bI$ sont premiers entre eux en donnant $\D_{\aI}\cap\D_{\bI}$.
+		\item
+		Trouver $u, v\in\Z$ des entiers relatifs vérifiant
+			\[ \aI u + \bI v = 1. \]
+		\item
+		Montrer que $\aI un$ est un multiple de $\abI$.
+		\item
+		Montrer que $\bI vn$ est un multiple de $\abI$.
+		\item
+		Montrer que la somme de deux multiples de $\abI$ est un multiple de $\abI$.
+		\item
+		Conclure que $n$ est un multiple de $\abI$.
+		\item
+		Si $a|n$ et $b|n$, montrer par l'exemple qu'on a pas toujours $(ab)|n$.
+	\end{enumerate}
+}{exe:1}{
+	\begin{enumerate}
+		\item
+		En énumérant les diviseurs communs à $\aI$ et $\bI$, on obtient $\D_{\aI}\cap\D_{\bI} = \{ 1 \}$.
+		Ils sont donc premiers entre eux, par définition.
+		\item
+			En écrivant $\aI u = 1 - \bI v$, on peut tester des valeurs de $v$ (1 ; 2 ; 3 ; ...) jusqu'à obtenir un multiple de $\aI$.
+		On obtient ainsi $v = \vI$, et donc $u = \frac{1-\bI\times\vI}{\aI} = \uI$.
+		\item
+		Comme $n$ est multiple de $\bI$, $n = \bI k$ avec $k$ entier et donc 
+			\[ \aI un = \aI u \times \bI k = \abI uk, \]
+		multiple de $\abI$.
+		\item
+		Comme $n$ est multiple de $\aI$, $n = \aI \ell$ avec $\ell$ entier et donc 
+			\[ \bI vn = \bI v \times \aI \ell = \abI v\ell, \]
+		multiple de $\abI$.
+		\item
+		Pour $r, s \in\Z$ entiers relatifs,
+			\[ \abI r + \abI s = \abI (r+s), \]
+		multiple de $\abI$ comme souhaité.
+		\item
+		En multipliant $\aI u + \bI v = 1$ par $n$, on obtient que
+			\[ \aI un + \bI vn = n, \]
+		égalité d'entiers.
+		L'entier de gauche est un multiple de $\abI$ d'après les trois dernières questions, et il en va donc de même pour $n$.
+		\item
+		Il est suffisant et nécessaire de choisir $a$ et $b$ qui ne sont pas premiers entre eux ici.
+		$a=b=n=2$ semble être l'exemple le plus simple : 2 divise 2 mais 4 ne divise pas 2.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=1}{
+	Considérons $n = 6120$ et $m=8120$.
+	\begin{enumerate}
+		\item 
+		Sans calculatrice, donner la décomposition en facteurs premiers de $n$ en décrivant votre démarche.
+		\item 
+		Faire de même avec $m$.
+		\item
+		En déduire la décomposition en facteurs premiers des trois nombres suivants.
+			\begin{multicols}{3}
+			\begin{enumerate}	
+				\item $6120 \times 8120$
+				\item $6120 \times 8120^2$
+				\item $6120^3$
+			\end{enumerate}
+			\end{multicols}
+		\item
+		Est-ce que $2^2\times3\times5^3$ divise 6120 ?
+		Justifier sans calculs à l'aide de la question 1.
+	\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions -- {\seed} -- Arithmétique $\star$}}
+\fakesection{Solution \seed}
+\shipoutAnswer
+
+\end{document}
+
