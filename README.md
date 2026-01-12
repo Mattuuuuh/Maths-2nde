@@ -16,7 +16,7 @@ Contenu par chapitre :
 1. [x] Nombres rationnels, nombres réels
 2. [x] Plan cartésien
 3. [x] Fonctions
-4. [ ] Évolution chiffrée
+4. [x] Évolution chiffrée
 5. [x] Fonctions carré, racine carrée, valeur absolue
 6. [x] Arithmétique
 7. [x] Problèmes de géométrie
@@ -42,6 +42,7 @@ La repo contient les DM suivants.
 - [x] Diophantes
 - [x] Triangle isocèle
 - [x] Triangle rectangle
+- [x] Forme canonique
 - [ ] Triangle équilatéral affine
 - [ ] Évolution
 - [ ] Statistiques descriptives
@@ -55,10 +56,17 @@ La repo contient les DM suivants.
 Un exemple d'exercice est présent dans le dossier `/Exercices/00-Exercise-Template/`.
 Les exercices et les solutions sont compilés au même moment, dans le même pdf.
 L'avantage est de n'avoir qu'un seul fichier à téléverser sur le moodle (et ça ne me dérange pas de donner les solutions au même moment que les exercices).
+Si nécessaire, `pdftk` permet de scinder les pdfs :
+```
+pdftk serie1.pdf cat 1-2 output set1.pdf
+```
 
 # Évaluations
 
-Les évaluations héritent du même système que les exercices.
+Les évaluations appartiennent au dossier `/Evaluations/`.
+Elles héritent du même système que les exercices.
+Pour afficher le barème, le titre de chaque exercice doit être un nombre entier de points.
+Le barème s'ajoute au compteur `points`.
 
 # Automatismes
 
@@ -88,7 +96,6 @@ https://youtube.com/playlist?list=PLB_8HoiptnmTKHbJjzLUVCFA0TooGBdgm&si=jRlpyESV
 DM à réfléchir :
 - Nombres réels
 - Plan cartésien
-- Fonction carrée
 - Projeté orthogonal
 - Arithmétique
 - Probabilités
@@ -104,6 +111,7 @@ Animations à créer :
 - [ ] Fonctions parentes
 - [ ] Signe affine
 - [x] Signe du produit
+- [x] Résolution graphique d'inégalités
 - [ ] Manipulation d'équation visuellement : évolutions, équations linéaires
 - [ ] Trigonométrie, quart de cercle unité
 - [ ] Inclusion-exclusion
