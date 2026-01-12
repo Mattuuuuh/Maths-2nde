@@ -115,5 +115,15 @@ dot/.default = black % size of the circle diameter
 			\addplot[GREEN_E, mark=*, mark size = 2] (1,2) node[left] {$B$};
 		\end{axis}
 	\end{tikzpicture}
+	
+	% page 9
+	% exe:draw-paire
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -4.1, xmax=4.1, ymin=-3.1, ymax=6.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, x=1.5cm]
+			\addplot[no marks,BLUE_E, -, very thick] expression[domain=-4:4, samples=300]{sin(180*x)/x} node[pos=.46, left]{$\C_f$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=.001:4, samples=300]{1+x*cos(180*x)} node[pos=.92, left]{$\C_g$};
+			\addplot[no marks,GREEN_E, -, very thick] expression[domain=-4:.001, samples=300]{1-x*cos(180*x)};
+		\end{axis}
+	\end{tikzpicture}
 %
 \end{document}
