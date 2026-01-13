@@ -66,13 +66,23 @@
 	\end{enumerate}
 }
 
-
+% énoncé
 \newcommand{\firstdiv}{
-	\ifnum\dIpowtwoII0 \else 2^{\dIpowtwoII} \times \fi
-	\ifnum\dIpowthreeII0 \else 3^{\dIpowthreeII} \times \fi
-	\ifnum\dIpowfiveII0 \else 5^{\dIpowfiveII} \times  \fi
-	\ifnum\dIpowhardprimeII0 \else \nhardprimeII^{\npowhardprimeII} \fi
+	\ifnum\dIpowtwoII=0 \else \ifnum\dIpowtwoII=1 2 \times \else 2^{\dIpowtwoII} \times \fi\fi
+	\ifnum\dIpowthreeII=0 \else \ifnum\dIpowthreeII=1 3 \times \else 3^{\dIpowthreeII} \times \fi\fi
+	\ifnum\dIpowfiveII=0 \else \ifnum\dIpowfiveII=1 5 \times \else 5^{\dIpowfiveII} \times \fi\fi
+	\ifnum\dIpowhardprimeII=0 \else \ifnum\dIpowhardprimeII=1 \nhardprimeII \else \nhardprimeII^{\dIpowhardprimeII} \fi\fi
 }
+
+\newcommand{\seconddiv}{
+	\ifnum\dIIpowtwoII=0 \else \ifnum\dIIpowtwoII=1 2 \times \else 2^{\dIIpowtwoII} \times \fi\fi
+	\ifnum\dIIpowthreeII=0 \else \ifnum\dIIpowthreeII=1 3 \times \else 3^{\dIIpowthreeII} \times \fi\fi
+	\ifnum\dIIpowfiveII=0 \else \ifnum\dIIpowfiveII=1 5 \times \else 5^{\dIIpowfiveII} \times \fi\fi
+	\ifnum\dIIpowhardprimeII=0 \else \ifnum\dIIpowhardprimeII=1 \mhardprimeII \else \mhardprimeII^{\dIIpowhardprimeII} \fi\fi
+}
+
+% solution
+
 
 \exe{, difficulty=1}{
 	\begin{enumerate}
@@ -92,27 +102,73 @@
 			\begin{multicols}{2}
 			\begin{enumerate}
 				\item $\firstdiv$ divise \nII ?
-				\item $2^3 \times 3^2 \times 5$ divise \mII ?
+				\item $\seconddiv$ divise \mII ?
 			\end{enumerate}
 			\end{multicols}
 		
 	\end{enumerate}
 }{exe:2}{
-	$
-	\nII = 
-	\ifnum\npowtwoII0 \else 2^{\npowtwoII} \times \fi
-	\ifnum\npowthreeII0 \else 3^{\npowthreeII} \times \fi
-	\ifnum\npowfiveII0 \else 5^{\npowfiveII} \times  \fi
-	\nhardprimeII
-	$
+	\begin{enumerate}
+		\item 
+		On utilise les règles de divisibilité par 2, 3, 5 et on réduit petit à petit les deux nombres pour trouver
+		\begin{align*}
+		\nII = 
+		\ifnum\npowtwoII0 \else 2^{\npowtwoII} \times \fi
+		\ifnum\npowthreeII0 \else 3^{\npowthreeII} \times \fi
+		\ifnum\npowfiveII0 \else 5^{\npowfiveII} \times  \fi
+		\nhardprimeII
+		&&
+		\et		
+		&&
+		\mII = 
+		\ifnum\mpowtwoII0 \else 2^{\mpowtwoII} \times \fi
+		\ifnum\mpowthreeII0 \else 3^{\mpowthreeII} \times \fi
+		\ifnum\mpowfiveII0 \else 5^{\mpowfiveII} \times  \fi
+		\mhardprimeII
+		\end{align*}
+		\item
+			\begin{enumerate}	
+				\item 
+					\[
+					\nII \times \mII = 
+					\ifnum\sumIpowtwoII0 \else 2^{\sumIpowtwoII} \times \fi
+					\ifnum\sumIpowthreeII0 \else 3^{\sumIpowthreeII} \times \fi
+					\ifnum\sumIpowfiveII0 \else 5^{\sumIpowfiveII} \times  \fi
+					\mhardprimeII \times \nhardprimeII
+					\]
 	
-	$
-	\mII = 
-	\ifnum\mpowtwoII0 \else 2^{\mpowtwoII} \times \fi
-	\ifnum\mpowthreeII0 \else 3^{\mpowthreeII} \times \fi
-	\ifnum\mpowfiveII0 \else 5^{\mpowfiveII} \times  \fi
-	\mhardprimeII
-	$
+				\item 
+					\[
+					\nII \times \mII^2 = 
+					\ifnum\sumIIpowtwoII0 \else 2^{\sumIIpowtwoII} \times \fi
+					\ifnum\sumIIpowthreeII0 \else 3^{\sumIIpowthreeII} \times \fi
+					\ifnum\sumIIpowfiveII0 \else 5^{\sumIIpowfiveII} \times  \fi
+					\mhardprimeII^2 \times \nhardprimeII
+					\]
+					
+				\item 
+					\[
+					\nII^3 =
+					\ifnum\sumIIIpowtwoII0 \else 2^{\sumIIIpowtwoII} \times \fi
+					\ifnum\sumIIIpowthreeII0 \else 3^{\sumIIIpowthreeII} \times \fi
+					\ifnum\sumIIIpowfiveII0 \else 5^{\sumIIIpowfiveII} \times  \fi
+					\nhardprimeII^3
+					\]
+			\end{enumerate}
+		\item
+		Par inspection des puissances et d'après le cours,
+		\ifnum\dividenII=0
+			\begin{enumerate}
+				\item $\firstdiv$ ne divise pas $\nII$ ; et
+				\item $\seconddiv$ divise \mII.
+			\end{enumerate}
+		\else
+			\begin{enumerate}
+				\item $\firstdiv$ divise $\nII$ ; et
+				\item $\seconddiv$ ne divise pas \mII.
+			\end{enumerate}
+		\fi
+	\end{enumerate}
 }
 
 
