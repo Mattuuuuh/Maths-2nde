@@ -32,8 +32,8 @@
 		Montrer que la somme de deux multiples de $\abI$ est un multiple de $\abI$.
 		\item
 		Conclure que $n$ est un multiple de $\abI$.
-		\item
-		Si $a|n$ et $b|n$, montrer par l'exemple qu'on a pas toujours $(ab)|n$.
+		%\item
+		%Si $a|n$ et $b|n$, montrer par l'exemple qu'on a pas toujours $(ab)|n$.
 	\end{enumerate}
 }{exe:1}{
 	\begin{enumerate}
@@ -67,28 +67,52 @@
 }
 
 
+\newcommand{\firstdiv}{
+	\ifnum\dIpowtwoII0 \else 2^{\dIpowtwoII} \times \fi
+	\ifnum\dIpowthreeII0 \else 3^{\dIpowthreeII} \times \fi
+	\ifnum\dIpowfiveII0 \else 5^{\dIpowfiveII} \times  \fi
+	\ifnum\dIpowhardprimeII0 \else \nhardprimeII^{\npowhardprimeII} \fi
+}
+
 \exe{, difficulty=1}{
-	Considérons $n = 6120$ et $m=8120$.
 	\begin{enumerate}
 		\item 
-		Sans calculatrice, donner la décomposition en facteurs premiers de $n$ en décrivant votre démarche.
-		\item 
-		Faire de même avec $m$.
+		Sans calculatrice, donner la décomposition en facteurs premiers de $\nII$ et de $\mII$ en décrivant votre démarche.
 		\item
 		En déduire la décomposition en facteurs premiers des trois nombres suivants.
 			\begin{multicols}{3}
 			\begin{enumerate}	
-				\item $6120 \times 8120$
-				\item $6120 \times 8120^2$
-				\item $6120^3$
+				\item $\nII \times \mII$
+				\item $\nII \times \mII^2$
+				\item $\nII^3$
 			\end{enumerate}
 			\end{multicols}
 		\item
-		Est-ce que $2^2\times3\times5^3$ divise 6120 ?
-		Justifier sans calculs à l'aide de la question 1.
+		À l'aide de la question 1 et sans calculs, est-ce que
+			\begin{multicols}{2}
+			\begin{enumerate}
+				\item $\firstdiv$ divise \nII ?
+				\item $2^3 \times 3^2 \times 5$ divise \mII ?
+			\end{enumerate}
+			\end{multicols}
+		
 	\end{enumerate}
 }{exe:2}{
-	todo
+	$
+	\nII = 
+	\ifnum\npowtwoII0 \else 2^{\npowtwoII} \times \fi
+	\ifnum\npowthreeII0 \else 3^{\npowthreeII} \times \fi
+	\ifnum\npowfiveII0 \else 5^{\npowfiveII} \times  \fi
+	\nhardprimeII
+	$
+	
+	$
+	\mII = 
+	\ifnum\mpowtwoII0 \else 2^{\mpowtwoII} \times \fi
+	\ifnum\mpowthreeII0 \else 3^{\mpowthreeII} \times \fi
+	\ifnum\mpowfiveII0 \else 5^{\mpowfiveII} \times  \fi
+	\mhardprimeII
+	$
 }
 
 

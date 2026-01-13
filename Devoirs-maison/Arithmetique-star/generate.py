@@ -9,6 +9,29 @@ import numpy as  np
 ############# GENERATE FUNCTION ###############
 ###############################################
 
+def construct_number():
+    # create n, m with with
+    # one prime that's more difficult
+    # and primes 2, 3, 5, as many as possible to keep between 2k and 10k.
+    
+    hard_primes = [7, 11, 13, 17, 19, 23]
+    hard_choice = int_between(0,len(hard_primes)-1)
+
+    n = 1
+    prime= hard_primes[hard_choice]
+    # n = primes**powers
+    primes = [2,3,5,prime]
+    powers = [0,0,0,0]
+    choice = 3
+    while n*prime < 1e4:
+        n*= prime
+        powers[choice]+=1
+        choice = int_between(0,2)
+        prime = [2,3,5][choice]
+    
+    return n, primes, powers
+
+
 def generate():
     R = ""
     
@@ -42,8 +65,47 @@ def generate():
     R += newcommand("vI", v)
 
     # EX 2
+    
+    n, n_primes, n_powers = construct_number()
+    # primes should be [2, 3, 5, hardprime]
+    # n_powers should be [*, *, * , 1]
 
-    # SOL 2
+    R += newcommand("nII", n)
+    R += newcommand("npowtwoII", n_powers[0])
+    R += newcommand("npowthreeII", n_powers[1])
+    R += newcommand("npowfiveII", n_powers[2])
+    R += newcommand("nhardprimeII", n_primes[-1])
+    
+    m, m_primes, m_powers = construct_number()
+    
+    R += newcommand("mII", m)
+    R += newcommand("mpowtwoII", m_powers[0])
+    R += newcommand("mpowthreeII", m_powers[1])
+    R += newcommand("mpowfiveII", m_powers[2])
+    R += newcommand("mhardprimeII", m_primes[-1])
+
+    # toss whether divisors divide n and not m XOR divide m and not n
+    if np.random.rand()<.5:
+        # divide n and not m
+        R+= newcommand("dividenII", 1)
+        
+        # first divisor
+        d1_powers = [
+                int_between(0,n_powers[k])
+                if n_powers[k]<=1
+                else
+                int_between(1,n_powers[k])
+                for k in range(4)
+            ]
+        R += newcommand("dIpowtwoII", d1_powers[0])
+        R += newcommand("dIpowthreeII", d1_powers[1])
+        R += newcommand("dIpowfiveII", d1_powers[2])
+        R += newcommand("dIpowhardprimeII", d1_powers[3])
+
+
+    else:
+        # divide m and not n
+        R+= newcommand("dividenII", 0)
 
     return R
 
