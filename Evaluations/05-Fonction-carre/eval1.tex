@@ -47,10 +47,10 @@ Consignes particulières :
 		Déterminer quels $x\in\R$ vérifient $f(x) \geq -6$ de deux manières différentes :
 			\begin{enumerate}[label=\alph*)]
 				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
-				\item algébriquement, en résolvant l'inéquation rigoureusement.
+				\item algébriquement, en résolvant l'inéquation $f(x) \geq -6$ rigoureusement.
 			\end{enumerate}
-		\item
-		En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ ?
+		%\item
+		%En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ ?
 	\end{enumerate}
 }{exe:canonique}{
 	todo
@@ -60,7 +60,7 @@ Consignes particulières :
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -3, xmax=5, ymin=-15, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, xtick distance = 1, ytick distance=2, x=50pt, y=17pt, minor y tick num = 1]%extra x ticks ={0}, extra y ticks = {0}]
-			\addplot[BLUE_E, very thick, -] expression[domain=-3:5, samples=100]{3-(x-1)^2} node[above right, pos=.6] {$\C_f$};
+			\addplot[transparent, very thick, -] expression[domain=-3:5, samples=100]{3-(x-1)^2} node[above right, pos=.6] {$\C_f$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -68,41 +68,9 @@ Consignes particulières :
 	\label{fig:1}
 \end{figure}
 
-%\exe{4, difficulty=2}{
-%	Considérons la courbe représentative de la fonction $f(x) = 3-2x$ et le point $A(2;1)$.
-%	Le but de l'exercice est de trouver le point de $\C_f$ le plus proche de $A$.
-%	\begin{enumerate}
-%		\item
-%		Grapher $\C_f$ sur le domaine $[0 ; 4]$ et placer le point $A$ dans un repère orthonormé.
-%		Le point $A$ appartient-il à $\C_f$ ? Justifier.
-%		\item
-%		Montrer qu'un point de $\C_f$ est de la forme $B(x ; 3-2x)$, avec $x\in\R$.
-%		\item
-%		Montrer que la distance au carré de $B$ à $A$ est égale à
-%			\[ AB^2 = \dfrac15 (5x-6)^2 + \dfrac45. \]
-%		\emph{Formule de la distance au carré : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
-%		\item
-%		Donner le point de $\C_f$ le plus proche de $A$ et le placer $B$ dans le repère déjà construit.
-%		%\item
-%		%Pour quels $x\in\R$ le point $B(x ; 3-2x)$ vérifie-t-il $AB^2 \leq \frac{49}5$ ?
-%	\end{enumerate}
-%}{exe:proj-affine}{
-%	fait un peu rapidement, à vérifier.
-%}
 
 \newpage
 
-
-%\exe{2}{
-%	Montrer que la fonction $f(x) = x^2 + x$ n'est pas paire.
-%	Il s'agit ici de 
-%		\begin{enumerate}[label=\alph*), leftmargin=60pt]
-%			\item donner la définition d'une fonction paire ; et de
-%			\item justifier que $f$ ne vérifie pas cette définition.
-%		\end{enumerate}
-%}{exe:f-non-paire}{
-%	todo
-%}
 
 \exe{2}{
 	Montrer que la fonction $f$ donnée algébriquement sur $\R$ par
@@ -217,15 +185,24 @@ Consignes particulières :
 
 }
 
-\exe{2}{
-	Grapher la fonction valeur absolue $f(x) = |x|$ dans un repère orthonormé de domaine $\D = [-4 ; 4]$.
-}{exe:vabs}{
+%\exe{2}{
+%	Grapher la fonction valeur absolue $f(x) = |x|$ dans un repère orthonormé de domaine $\D = [-4 ; 4]$.
+%}{exe:vabs}{
+%	todo
+%}
+
+\exe{2, difficulty=2}{
+	Soient $x, y > 0$ deux réels strictement positifs.
+	Montrer que
+		\[ \dfrac{x}{y} + \dfrac{y}x \geq 2, \]
+	avec égalité uniquement lorsque $x=y$.
+}{exe:Dreyer}{
 	todo
 }
 
 \exe{1}{
-	Est-ce que $x \leq y$ implique toujours $x^2 \leq y^2$ ?
-	Démontrer que oui ou fournir un contre-exemple.
+	Thibault demande : est-ce que $x \leq y$ implique toujours $x^2 \leq y^2$ ?
+	Démontrer que oui ou lui fournir un contre-exemple.
 }{exe:sq-ineq}{
 	todo
 }
