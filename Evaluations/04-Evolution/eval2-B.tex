@@ -1,0 +1,337 @@
+\input{../preamble.tex}
+\usepackage{minted}
+
+\SetDate[07/01/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation — Évolutions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	\item
+	Écrire son nom avant de rendre son sujet.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+%%%% DM TVA
+%\newcommand{\TVA}{26}
+%\newcommand{\PFIXE}{164}
+%\newcommand{\A}{1135}
+%\newcommand{\B}{904}
+%\newcommand{\REMISE}{69}
+%\newcommand{\FINALaug}{136}
+%\newcommand{\FINALdim}{32}
+%\newcommand{\Asol}{1430,1}
+%\newcommand{\Bsol}{717,46}
+%\newcommand{\rationum}{13}
+%\newcommand{\ratiodenom}{63}
+%\newcommand{\reciproque}{3,23}
+%\newcommand{\recsol}{223}
+%\newcommand{\evoldeux}{7,61}
+%\newcommand{\FINALaugsol}{661}
+%\newcommand{\evoltrois}{2,19}
+%\newcommand{\FINALdimsol}{119}
+%
+%
+%
+%\exe{5, difficulty=1}{
+%	La taxe sur la valeur ajoutée (TVA) est un impôt indirect sur la consommation.
+%	On considère dans cet exercice une TVA fictive fixée à $\TVA\%$.
+%	Tout objet est alors vendu $\TVA\%$ plus cher que son prix initial : c'est la différence entre un prix « hors taxes » (HT) et « toutes taxes comprises » (TTC).
+%	
+%	Un prix TTC comprend donc deux parts : l'une qui revient au vendeur, et l'autre versée à l'État.
+%	
+%	\begin{enumerate}
+%		\item
+%		Quel est le prix TTC d'un objet coûtant $\A$€ HT ?
+%		\item
+%		Quel est le prix HT d'un objet coûtant $\B$€ TTC ?		
+%		\item 
+%		Pour les deux exemples ci-dessus, calculer la proportion arrondie à $10^{-2}$ du prix TTC qui revient à l'État. 
+%		C'est-à-dire, calculer le rapport
+%			\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+%		\item $(\star)$
+%		Montrer que la proportion du prix TTC qui revient à l'État est constante et ne dépend pas du prix (si tant est qu'il soit non nul).
+%		Est-ce un nombre réel ? rationnel ? entier ?
+%	\end{enumerate}
+%}{exe:TVA}{
+%	\begin{enumerate}
+%		\item
+%			En arrondissant au centime près, on augmente le prix de $\TVA\%$ en calculant
+%				\[ \left(1+\dfrac{\TVA}{100} \right) \cdot \A \approx \Asol. \]
+%			Le prix avec TVA comprise est donc de $\Asol$€.
+%		\item
+%			Il s'agit d'appliquer l'évolution réciproque de $+\TVA\%$.
+%			En arrondissant au centime près, on calcule
+%				\[ \left(1+ \dfrac{\TVA}{100}\right)^{-1} \cdot \B \approx \Bsol. \]
+%			Le prix sans TVA est donc de $\Bsol$€.
+%		\item
+%			Il s'agit ici de calculer la proportion 
+%				\[ \dfrac{\text{part qui revient à l'état (TVA)}}{\text{prix total TTC}}. \]
+%			Pour le premier objet, on calcule
+%				\[ \dfrac{\dfrac{\TVA}{100} \cdot \A}{\left(1+\dfrac{\TVA}{100} \right) \cdot \A} = \dfrac{\rationum}{\ratiodenom} \]
+%			Pour le deuxième objet, on calcule
+%				\[ \dfrac{\B - \left(1- \dfrac{\TVA}{100}\right) \cdot \B }{\B} = \dfrac{\rationum}{\ratiodenom}. \]
+%		\item
+%			Soit $P>0$ un prix hors taxe quelconque.
+%			La part de TVA par rapport au prix TTC est égale à
+%				\begin{align*}
+%					& \dfrac{\dfrac{\TVA}{100} \cdot P}{\left(1 + \dfrac{\TVA}{100}\right) \cdot P} \\
+%					=& \dfrac{\dfrac{\TVA}{100}}{\left(1 + \dfrac{\TVA}{100}\right)} \\
+%					&= \dfrac{\TVA}{\left(100 + \TVA\right)} = \dfrac{\rationum}{\ratiodenom},
+%				\end{align*}
+%			qui ne dépend bien pas du prix $P$ choisi.
+%	\end{enumerate}
+%}
+
+
+
+
+\exe{4}{
+	On rappelle que $2^{10} \approx 10^3$. C'est son ordre de grandeur.
+	
+	\begin{enumerate}
+		\item
+		Montrer que $2^{371} = \bigl(2^{10}\bigr)^{37} \times 2$.
+		\item
+		En déduire une approximation de l'ordre de grandeur de $2^{371}$.
+		\item
+		Montrer que $2^{-358} = \bigl(2^{10}\bigr)^{-36} \times 4$.
+		\item
+		En déduire une approximation de l'ordre de grandeur de $2^{-358}$.
+	\end{enumerate}
+}{exe:3}{
+	\begin{enumerate}
+		\item
+			\[ \bigl(2^{10}\bigr)^{37} \times 2 = 2^{10 \times 37} \times 2^1 = 2^{370 + 1} = 2^{371}. \]
+		\item
+			\[ 2^{371} \approx  \bigl(10^3\bigr)^{37} \times 2 = 2\times10^{111}. \]
+		\item
+			\[ \bigl(2^{10}\bigr)^{-36} \times 4 = 2^{10 \times (-36)} \times 2^2 = 2^{-360 + 2} = 2^{-358}. \]
+		\item
+			\[ 2^{-358} \approx \bigl(10^3\bigr)^{-36} \times 4 = 4 \times 10^{-108}. \]
+	\end{enumerate}
+}
+
+
+\exe{4}{
+	Jean de Florette élève une population de lapins de la race Romarin.
+	Il étudie le nombre de lapins pendant plusieurs années avant de remarquer que, d'une année à l'autre, la population augmente systématiquement de $25\%$.
+	Il note les premières valeurs obtenues dans le tableau en commençant à l'année $0$ pour simplifier les choses.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+	Année & 0 & 1 & 2 & 3 & 4 \\ \hline
+	Population & 256 & 320 & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Donner le coefficient multiplicateur correspondant à une augmentation de 25\%.
+		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+		\item Quelle sera la taille de la population de lapins après 20 ans ?
+		Arrondir à l'unité.
+	\end{enumerate}
+}{exe:JeanFlorette}{
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+	Année & 0 & 1 & 2 & 3 & 4 \\ \hline
+	Population & 256 & 320 & \color{red}400  & \color{red} 500 & \color{red}625 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}[start=2]
+		\item 
+		$CM = 1 + \frac{25}{100} = 1,25$.
+		\item
+		On multiplie par $1,25$ pour passer d'une valeur à la suivante.
+		\item 
+		Après 20 augmentations de $25\%$, la valeur finale est
+			\[ 256 \times 1,25^{20} \approx 22~204. \]
+	\end{enumerate}
+}
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante et \textbf{\underline{justifier la réponse}}.
+	%\vspace{-30pt}
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$1 > 90\%$ & $\square$ & $\square$  \\
+		$125\% = \frac14$ & $\square$ & $\square$  \\
+		Multiplier une valeur par $\frac78$ la diminue & $\square$ & $\square$  \\
+		Deux diminutions de 50\% équivalent à une diminution de 75\% & $\square$ & $\square$  \\
+		L'inverse d'un nombre positif inférieur à 1 est supérieur à 1  & $\square$ & $\square$  \\
+		Augmenter une valeur de 10\% équivaut à la multiplier par 0,1 & $\square$ & $\square$
+	\end{tabular}
+	\end{center}
+}{exe:qcm}{
+		\underline{$1 > 90\%$} \\
+		 Vrai car $90\% = 0,9$ qui est strictement inférieur à 1.
+		
+		\underline{$125\% = \frac14$} \\ 
+		Faux car $125\% = 1,25$ et $\frac14 = 0,25$.
+
+		\underline{Multiplier une valeur par $\frac78$ la diminue} \\ 
+		Vrai car $\frac78$ est strictement inférieur à 1.
+		
+		\underline{Deux diminutions de 50\% équivalent à une diminution de 75\%} \\
+		 Vrai car $0,5 \times 0,5 = 0,25 = 1 - \frac{75}{100}$.
+		
+		\underline{L'inverse d'un nombre positif inférieur à 1 est supérieur à 1} \\ 
+		Vrai. Un nombre positif inférieur à 1 peut être vu comme le coefficient multiplicateur associé à une diminution.
+		Son inverse, lui, correspond à l'évolution réciproque qui est nécessairement une augmentation.
+		Son inverse est donc un nombre positif supérieur à 1.
+		
+		\underline{Augmenter une valeur de 10\% équivaut à la multiplier par 0,1} \\
+		 Faux. D'après le cours, il faut multiplier par $1,1$.
+}
+\newpage
+
+
+\exe{7, difficulty=2}{
+	Un client dispose de deux bons de réduction : un bon réduisant le prix du panier de 10€ ; l'autre réduisant le prix du panier de 20\%.
+	Comme les bons ne sont pas cumulables, le client doit décider quand l'un est plus avantageux que l'autre.
+	
+	Pour un prix $x\in\R$ en euros, posons $f(x)$ le prix réduit de 10€ et $g(x)$ le prix réduit de $20\%$.
+	
+	\begin{enumerate}
+		\item
+		Justifier que
+			\begin{align*}
+				f(x) = x-10, && \et && g(x) = 0,8x.
+			\end{align*}
+		\item \label{q:2}
+		Tracer \underline{soigneusement} les courbes représentatives de $f$ et $g$ dans le repère figure \ref{fig:1a}.
+		\item
+		Trouver le $x\in\R$ réel vérifiant $f(x) = g(x)$ de deux façons différentes :
+			\begin{enumerate}[label=\alph*), leftmargin=40pt]
+				\item graphiquement à l'aide des courbes $\C_f$ et $\C_g$ tracées à la question \ref{q:2}.
+				\item algébriquement en posant puis en résolvant l'équation.
+			\end{enumerate}
+		\item \label{q:4}
+		Créer un protocole de décision d'utilisation du premier ou du deuxième bon en fonction du prix du panier avant réduction.
+		Il s'agit de répondre aux questions suivantes : 
+			\begin{enumerate}[label=\roman*), leftmargin=60pt]
+				\item quand est-il plus avantageux de choisir le premier bon ? 
+				\item quand les deux bons sont-ils équivalents ?
+				\item quand est-il plus avantageux de choisir le second bon ? 
+			\end{enumerate}
+		\item
+		Compléter les espaces vides (\_\_\_\_ aux lignes 2 ; 4 ; 6) de la fonction Python figure \ref{fig:1b} résumant le protocole de décision de la question \ref{q:4}.
+	\end{enumerate}
+}{exe:2}{
+	\begin{enumerate}
+		\item
+		Pour $f$, diminuer le prix $x$ de 10 correspond trivialement à faire $x-10$.
+		
+		Pour $g$, diminuer le prix $x$ de 20\% équivaut à le multiplier par $1-\frac{20}{100} = 0,8$.
+		\item 
+		Voir figure \ref{fig:1sol}.
+		\item
+			\begin{enumerate}[label=\alph*), leftmargin=40pt]
+				\item 
+				Graphiquement, on regarde l'abscisse du point d'intersection des courbes $\C_f$ et $\C_g$, qui est environ $x\approx50$.
+				\item 
+				Algébriquement, on résoud $x-10 = 0,80x$ pour $x\in\R$.
+				\begin{align*}
+					x-10 &= 0,8x \\
+					x-0,8x - 10 &= 0 \\
+					0,2x &= 10 \\
+					x &= \dfrac{10}{0,2} = 50
+				\end{align*}
+			\end{enumerate}
+		\item
+		D'après la courbe figure \ref{fig:1asol}, $f(x) < g(x)$ pour $x\in[20;50[$, ce qui signifie que le premier bon est plus avantageux lorsque le prix du panier est strictement inférieur à 50€.
+		
+		Comme $f(50) = g(50)$, les deux bons sont équivalents lorsque le prix est égal à 50€.
+		
+		Finalement, $f(x) > g(x)$ pour $x\in]50;100]$, ce qui signifie que le deuxième bon est plus avantageux pour les paniers strictement supérieurs à 50€.
+		\item
+		Voir figure \ref{fig:1sol}.
+	\end{enumerate}
+	
+	\underline{Discussion} \\
+	La réduction de 20\% soustrait un cinquième du prix.
+	Il est donc cohérent que le deuxième bon soit plus avantageux au bout d'un moment.
+	Pour obtenir la solution plus rapidement, on aurait pû se poser la question : quand est-ce que 20\% du prix vaut 10€ ? $0,2 x = 10 \iff x = 50$.
+}
+
+\begin{figure}%[h!]
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 20, xmax=100, ymin=0, ymax=100, axis x line=middle, axis y line=middle, axis line style=->, grid=both, extra x ticks ={0}, extra y ticks = {0}, extra x ticks = {20},]
+			\addplot[transparent, very thick, -] expression[domain=0:100, samples=2]{x-10} node[above left, pos=.8] {$\C_f$};
+			\addplot[transparent, very thick, -] expression[domain=0:100, samples=2]{.8*x}  node[below right, pos=.8] {$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Courbes représentatives de $f$ et $g$.}
+	\label{fig:1a}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\python{choix}
+	\end{center}
+	\caption{La fonction Python \texttt{choix} renvoie une décision sous forme de chaîne de caractères selon la valeur \texttt{prix\_panier} qui lui est donnée.}
+	\label{fig:1b}
+\end{subfigure}
+	\caption{Figure de l'exercice \ref{exe:2}.}
+	\label{fig:1}
+\end{figure}
+
+
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+
+
+\begin{figure}[h!]
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 20, xmax=100, ymin=0, ymax=100, axis x line=middle, axis y line=middle, axis line style=->, grid=both, extra x ticks ={0}, extra y ticks = {0}, extra x ticks = {20},]
+			\addplot[BLUE_E, very thick, -] expression[domain=20:100, samples=2]{x-10} node[above left, pos=.8] {$\C_f$};
+			\addplot[RED_E, very thick, -] expression[domain=20:100, samples=2]{.8*x}  node[below right, pos=.8] {$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Courbes représentatives de $f$ et $g$.}
+	\label{fig:1asol}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\python{choixsolB}
+	\end{center}
+	\caption{La fonction Python \texttt{choix} renvoie une décision sous forme de chaîne de caractères selon la valeur \texttt{prix\_panier} qui lui est donnée.}
+	\label{fig:1bsol}
+\end{subfigure}
+	\caption{Figure de l'exercice \ref{exe:2}.}
+	\label{fig:1sol}
+\end{figure}
+
+	
+\end{document}

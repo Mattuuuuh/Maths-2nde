@@ -1,0 +1,268 @@
+\input{../preamble.tex}
+\usepackage{minted}
+
+\SetDate[07/01/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation — Évolutions}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	\item
+	Écrire son nom avant de rendre son sujet.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{4}{
+	On rappelle que $2^{10} \approx 10^3$. C'est son ordre de grandeur.
+	
+	\begin{enumerate}
+		\item
+		Montrer que $2^{352} = \bigl(2^{10}\bigr)^{35} \times 4$.
+		\item
+		En déduire une approximation de l'ordre de grandeur de $2^{352}$.
+		\item
+		Montrer que $2^{-389} = \bigl(2^{10}\bigr)^{-39} \times 2$.
+		\item
+		En déduire une approximation de l'ordre de grandeur de $2^{-389}$.
+	\end{enumerate}
+}{exe:3}{
+	\begin{enumerate}
+		\item
+			\[ \bigl(2^{10}\bigr)^{35} \times 4 = 2^{10 \times 35} \times 2^2 = 2^{350 + 2} = 2^{352}. \]
+		\item
+			\[ 2^{352} \approx  \bigl(10^3\bigr)^{35} \times 4 = 4\times10^{105}. \]
+		\item
+			\[ \bigl(2^{10}\bigr)^{-39} \times 2 = 2^{10 \times (-39)} \times 2^1 = 2^{-390 + 1} = 2^{-389}. \]
+		\item
+			\[ 2^{-389} \approx \bigl(10^3\bigr)^{-39} \times 2 = 2 \times 10^{-117}. \]
+	\end{enumerate}
+}
+
+
+\exe{4, difficulty=1}{
+	Après ingestion de 500mg de paracétamol, celui-ci est décomposé dans l'organisme au cours du temps.
+	Chaque heure, $10\%$ de la quantité de médicament encore présente dans l'organisme est absorbée.
+	\begin{center}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Heure & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Quantité de médicament restante (mg) & 500 & 450 & & & \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}
+		\item Donner le coefficient multiplicateur correspondant à une diminution de 10\%.
+		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
+		\item Quelle quantité de médicament sera encore présente dans l'organisme après un jour (24 heures) en milligrammes ?
+		Arrondir à l'unité.
+	\end{enumerate}
+}{exe:paracetamol}{
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+		Heure & 0 & 1 & 2 & 3 & 4 \\ \hline
+		Quantité de médicament restante (mg) & 500 & 450 & 405 & 364,5 & 328,05 \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{enumerate}
+		\item
+		Un objet à 100€ passe à 90€ lors d'une diminution de 10\% : le coefficient multiplicateur est donc égal à $\frac{90}{100} = 0,9$.
+		En général, pour une diminution de $P\%$, il faut multiplier par $1 - \frac{P}{100}$.
+		\item
+		On multiplie par $0,9$ pour passer d'un terme à l'autre du tableau.
+		\item 
+			\[ 500 \times 0,9^{24} \approx 40 \]
+		Il reste donc 40mg de médicament encore présents dans l'organisme après 24 heures.
+	\end{enumerate}
+}
+
+
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante et \textbf{\underline{justifier la réponse}}.
+	%\vspace{-30pt}
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$1 < 90\%$ & $\square$ & $\square$  \\
+		$120\% = \frac65$ & $\square$ & $\square$  \\
+		Multiplier une valeur par $\frac78$ l'augmente & $\square$ & $\square$  \\
+		Deux augmentations de 20\% équivaut à une augmentation de 40\% & $\square$ & $\square$  \\
+		L'inverse d'un nombre supérieur à 1 est inférieur à 1 & $\square$ & $\square$  \\
+		Diminuer une valeur de 30\% équivaut à la multiplier par 0,3 & $\square$ & $\square$
+	\end{tabular}
+	\end{center}
+}{exe:qcm}{
+		\underline{$1 < 90\%$} \\
+		 Faux car $90\% = 0,9$ qui n'est pas strictement supérieur à 1.
+		
+		\underline{$120\% = \frac65$} \\ 
+		Vrai car $\frac65 = 1,2 = \frac{120}{100} = 120\%$.
+
+		\underline{Multiplier une valeur par $\frac78$ l'augmente} \\ 
+		Faux car $\frac78$ est strictement inférieur à 1.
+		
+		\underline{Deux augmentations de 20\% équivaut à une augmentation de 40\%} \\
+		 Faux car $1,2 \times 1,2 = 1,44$, qui correspond à une augmentation de $44\%$.
+		
+		\underline{L'inverse d'un nombre supérieur à 1 est inférieur à 1} \\ 
+		Vrai. Un nombre supérieur à 1 peut être vu comme le coefficient multiplicateur associé à une augmentation.
+		Son inverse, lui, correspond à l'évolution réciproque qui est nécessairement une diminution.
+		Son inverse est donc un nombre positif inférieur à 1.
+		
+		\underline{Diminuer une valeur de 30\% équivaut à la multiplier par 0,3} \\
+		 Faux. D'après le cours, il faut multiplier par $0,7$.
+}
+
+\newpage
+
+
+\exe{7, difficulty=2}{
+	Un client dispose de deux bons de réduction : un bon réduisant le prix du panier de 15€ ; l'autre réduisant le prix du panier de 25\%.
+	Comme les bons ne sont pas cumulables, le client doit décider quand l'un est plus avantageux que l'autre.
+	
+	Pour un prix $x\in\R$ en euros, posons $f(x)$ le prix réduit de 15€ et $g(x)$ le prix réduit de $25\%$.
+	
+	\begin{enumerate}
+		\item
+		Justifier que
+			\begin{align*}
+				f(x) = x-15, && \et && g(x) = 0,75x.
+			\end{align*}
+		\item \label{q:2}
+		Tracer \underline{soigneusement} les courbes représentatives de $f$ et $g$ dans le repère figure \ref{fig:1a}.
+		\item
+		Trouver le $x\in\R$ réel vérifiant $f(x) = g(x)$ de deux façons différentes :
+			\begin{enumerate}[label=\alph*), leftmargin=40pt]
+				\item graphiquement à l'aide des courbes $\C_f$ et $\C_g$ tracées à la question \ref{q:2}.
+				\item algébriquement en posant puis en résolvant l'équation.
+			\end{enumerate}
+		\item \label{q:4}
+		Créer un protocole de décision d'utilisation du premier ou du deuxième bon en fonction du prix du panier avant réduction.
+		Il s'agit de répondre aux questions suivantes : 
+			\begin{enumerate}[label=\roman*), leftmargin=60pt]
+				\item quand est-il plus avantageux de choisir le premier bon ? 
+				\item quand les deux bons sont-ils équivalents ?
+				\item quand est-il plus avantageux de choisir le second bon ? 
+			\end{enumerate}
+		\item
+		Compléter les espaces vides (\_\_\_\_ aux lignes 2 ; 4 ; 6) de la fonction Python figure \ref{fig:1b} résumant le protocole de décision de la question \ref{q:4}.
+	\end{enumerate}
+}{exe:2}{
+	\begin{enumerate}
+		\item
+		Pour $f$, diminuer le prix $x$ de 15 correspond trivialement à faire $x-15$.
+		
+		Pour $g$, diminuer le prix $x$ de 25\% équivaut à le multiplier par $1-\frac{25}{100} = 0,75$.
+		\item 
+		Voir figure \ref{fig:1sol}.
+		\item
+			\begin{enumerate}[label=\alph*), leftmargin=40pt]
+				\item 
+				Graphiquement, on regarde l'abscisse du point d'intersection des courbes $\C_f$ et $\C_g$, qui est environ $x\approx60$.
+				\item 
+				Algébriquement, on résoud $x-15 = 0,75x$ pour $x\in\R$.
+				\begin{align*}
+					x-15 &= 0,75x \\
+					x-0,75x - 15 &= 0 \\
+					0,25x &= 15 \\
+					x &= \dfrac{15}{0,25} = 60
+				\end{align*}
+			\end{enumerate}
+		\item
+		D'après la courbe figure \ref{fig:1asol}, $f(x) < g(x)$ pour $x\in[20;60[$, ce qui signifie que le premier bon est plus avantageux lorsque le prix du panier est strictement inférieur à 60€.
+		
+		Comme $f(60) = g(60)$, les deux bons sont équivalents lorsque le prix est égal à 60€.
+		
+		Finalement, $f(x) > g(x)$ pour $x\in]60;100]$, ce qui signifie que le deuxième bon est plus avantageux pour les paniers strictement supérieurs à 60€.
+		\item
+		Voir figure \ref{fig:1sol}.
+	\end{enumerate}
+	
+	\underline{Discussion} \\
+	La réduction de 25\% soustrait un quart du prix.
+	Il est donc cohérent que le deuxième bon soit plus avantageux au bout d'un moment.
+	Pour obtenir la solution plus rapidement, on aurait pû se poser la question : quand est-ce que 25\% du prix vaut 15€ ? $0,25 x = 15 \iff x = 60$.
+}
+
+\begin{figure}%[h!]
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 20, xmax=100, ymin=0, ymax=100, axis x line=middle, axis y line=middle, axis line style=->, grid=both, extra x ticks ={0}, extra y ticks = {0}, extra x ticks = {20},]
+			\addplot[transparent, very thick, -] expression[domain=0:100, samples=2]{x-15} node[above left, pos=.8] {$\C_f$};
+			\addplot[transparent, very thick, -] expression[domain=0:100, samples=2]{.75*x}  node[below right, pos=.8] {$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Courbes représentatives de $f$ et $g$.}
+	\label{fig:1a}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\python{choix}
+	\end{center}
+	\caption{La fonction Python \texttt{choix} renvoie une décision sous forme de chaîne de caractères selon la valeur \texttt{prix\_panier} qui lui est donnée.}
+	\label{fig:1b}
+\end{subfigure}
+	\caption{Figure de l'exercice \ref{exe:2}.}
+	\label{fig:1}
+\end{figure}
+
+
+
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+
+
+\begin{figure}[h!]
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 20, xmax=100, ymin=0, ymax=100, axis x line=middle, axis y line=middle, axis line style=->, grid=both, extra x ticks ={0}, extra y ticks = {0}, extra x ticks = {20},]
+			\addplot[BLUE_E, very thick, -] expression[domain=20:100, samples=2]{x-15} node[above left, pos=.8] {$\C_f$};
+			\addplot[RED_E, very thick, -] expression[domain=20:100, samples=2]{.75*x}  node[below right, pos=.8] {$\C_g$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\caption{Courbes représentatives de $f$ et $g$.}
+	\label{fig:1asol}
+\end{subfigure}
+\hfill
+\begin{subfigure}{.4\textwidth}
+	\begin{center}
+	\python{choixsol}
+	\end{center}
+	\caption{La fonction Python \texttt{choix} renvoie une décision sous forme de chaîne de caractères selon la valeur \texttt{prix\_panier} qui lui est donnée.}
+	\label{fig:1bsol}
+\end{subfigure}
+	\caption{Figure de l'exercice \ref{exe:2}.}
+	\label{fig:1sol}
+\end{figure}
+
+
+\end{document}
