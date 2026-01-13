@@ -12,7 +12,7 @@
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
 
-Le but de ce document est de démontrer rigoureusement le théorème fondamental de l'arithmétique.
+Le but de ce document est de démontrer rigoureusement le
 
 \begin{thm}[fondamental de l'arithmétique]
 	{La} {décomposition en facteurs premiers} est {unique} à permutation des facteurs près.
@@ -28,14 +28,12 @@ Supposons donc que $a$ s'écrive
 avec les $p, q$ premiers, et les $n, m$ entiers naturels.
 
 Nous allons montrer que $p_1$ apparaît nécessairement parmis les premiers $q$.
-Si ceci est vrai, nous pourrons diviser par $p_1$ puis répéter le processus jusqu'à ce que tous les premiers se simplifient à gauche et à droite, ce qui montrera que les décompositions sont les mêmes (chaque premier apparaît le même nombre de fois).
+Si ceci est vrai, nous pourrons diviser chaque décomposition par $p_1$ puis répéter le processus jusqu'à ce que tous les premiers se simplifient à gauche et à droite, ce qui montrera que les décompositions sont les mêmes (chaque premier apparaît le même nombre de fois).
 
 Il nous faut donc le résultat suivant, attribué à Euclide (puis généralisé par Gauss).
 \begin{lemma}[Euclide]
 	Si $p$ est premier et qu'il divise le produit $ab$, alors $p$ divise $a$ ou $p$ divise $b$.
 \end{lemma}
-
-Sans perte de généralité, supposons que $p$ ne divise pas $b$ et montrons que $p$ divise nécessairement $a$.
 
 \exe{}{
 	Montrer que si 2 divise le produit $ab$, alors 2 divise $a$ ou 2 divise $b$.
@@ -43,8 +41,16 @@ Sans perte de généralité, supposons que $p$ ne divise pas $b$ et montrons que
 	Si $a$ et $b$ étaient impairs, leur produit aussi car $(2n+1)(2m+1) = 2k+1$ pour un certain $k$ entier dépendant de $n$ et $m$.
 }
 
+
+\vspace{.5cm}
+La démonstration du lemme d'Euclide fonctionne en séparant deux cas :
+	\begin{enumerate}[label=\roman*)]
+		\item si $p$ divise $b$, alors il n'y a rien à démontrer ;
+		\item si $p$ ne divise pas $b$, il faut montrer que $p$ divise nécessairement $a$.
+	\end{enumerate}
+
 \exe{}{
-	Cet exercice traite du cas $p=7$ et $b=15$ en guise d'exemple. Nous supposons que 7 divise $15a$ et il faut montrer que 7 divise $a$.
+	Cet exercice traite du cas $p=7$ et $b=15$ en guise d'exemple. Nous supposons que 7 divise $15a$ et montrons que 7 divise $a$.
 	
 	Trouver $u, v\in\Z$ entiers relatifs tels que 
 		\[ 7u + 15v = 1. \]
@@ -62,7 +68,7 @@ Sans perte de généralité, supposons que $p$ ne divise pas $b$ et montrons que
 	todo
 }
 
-\begin{thm}\label{thm:1}
+\begin{thm}[de Bachet-Bézout]\label{thm:1}
 	Il existe $u, v \in \Z$ vérifiant
 		\[ up + vb = 1 \]
 	si et seulement si $p$ et $b$ sont premiers entre eux.
@@ -105,6 +111,12 @@ Nous avons en fait démontré le
 \begin{thm}
 	\[ \text{pgcd}(a, b) = \min\bigset{au + bv \tq u, v\in\Z \et au+bv>0}. \]
 \end{thm}
+ainsi que le
+\begin{cor}
+	Il existe $u, v\in\Z$ tel que
+		\[ au + bv = \text{pgcd}(a, b). \]
+\end{cor}
+L'\emph{algorithme d'Euclide} permet d'obtenir des valeurs pour $u$ et $v$ très rapidement.
 
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%

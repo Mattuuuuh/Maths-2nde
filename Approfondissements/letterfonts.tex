@@ -1,0 +1,58 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage[T1]{fontenc}
+
+% for calligraphic C, D, P (important to import this after the font)
+\usepackage{calrsfs}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\C}{\mathcal{C}}
+\renewcommand{\P}{\mathcal{P}}
+
+% Schwartz
+\renewcommand{\S}{\mathcal{S}} % \S est le signe paragraphe normalement
+
+% corps
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rnn}{\mathbb{R}^{2n}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\DD}{\mathbb{D}}
+
+% order notations
+\DeclareRobustCommand{\O}{%
+  \text{\usefont{OMS}{cmsy}{m}{n}O}%
+}
+
+% japanese bracket
+\newcommand{\japb}[1]{\langle #1 \rangle}
+
+% arrows over partial derivatives
+\newcommand{\lp}{\overleftarrow{\partial}}
+\newcommand{\rp}{\overrightarrow{\partial}}
+
+% quantization
+\newcommand{\h}{\hbar}
+\newcommand{\Opht}{\textrm{Op}_{\h}^{t}}
+\newcommand{\Op}[2][\hbar]{\textrm{Op}_{#1}^{#2}}
+
+% omega functions
+\newcommand{\omegap}[2][\rho_0]{\omega(\partial_{#1},\partial_{#2})}
+\newcommand{\omegar}[2][\rho_0]{\omega(#1,#2)}
+
+% space before semicolon
+\mathcode`\;="303B
+
+% for \Lightning
+\usepackage{marvosym}
+
+% for \warning
+% 66 or 49 idk ; depends on the computer for some reason
+\newcommand{\warning}{{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax}}
+
+% Q(\sqrt(d)) field
+\newcommand{\Qsqrt}[1]{\Q\bigl(\mspace{-3mu}\sqrt{#1}\bigr)}

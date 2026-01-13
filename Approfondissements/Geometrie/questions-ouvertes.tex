@@ -1,0 +1,64 @@
+\input{../preamble.tex}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+\SetDate[10/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Géométrie analytique \\ Questions d'approfondissement}}
+\fancyhead[R]{\today}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -0.1, xmax=1.1, ymin=-.1, ymax=1.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[no marks, BLUE_E, -, very thick, name path=f] expression[domain=0:1, samples=101]{x^2} node[pos=.92, left]{$y=x^2$};
+			\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
+			
+			\addplot[fill=GREY, fill opacity = .1, pattern=north west lines] fill between[of=f and axis];
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Aire sous la courbe $y=x^2$ entre $x=0$ et $x=1$.}
+	\label{fig:1}
+\end{figure}
+
+Le but de ce document est de calculer l'aire $\mathcal{A}$ hachurée figure \ref{fig:1}.
+
+\begin{thm}
+	Pour tout $n\in\N$, 
+		\[ 1 + 4 + 9 + 16 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
+\end{thm}
+
+\begin{align*}
+	A
+	&\leq
+	\sum_{k=1}^n \dfrac1n \dfrac{k^2}{n^2} 
+	\\
+	&=
+	\dfrac1{n^3} \sum_{k=1}^n k^2
+	\\
+	&=
+	\dfrac1{n^3} \dfrac{n(n+1)(2n+1)}6
+	\\
+	&=
+	\dfrac13 + O(1/n)
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
+
