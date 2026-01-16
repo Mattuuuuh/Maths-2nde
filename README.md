@@ -44,8 +44,8 @@ La repo contient les DM suivants.
 - [x] Triangle isocèle
 - [x] Triangle rectangle
 - [x] Forme canonique
+- [x] TVA (Évolutions)
 - [ ] Triangle équilatéral affine
-- [ ] Évolution
 - [ ] Statistiques descriptives
 - [ ] Trigonométrie
 - [ ] Pente affine
