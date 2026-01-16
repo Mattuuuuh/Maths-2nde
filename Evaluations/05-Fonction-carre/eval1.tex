@@ -192,12 +192,25 @@ Consignes particulières :
 %}
 
 \exe{2, difficulty=2}{
-	Soient $x, y > 0$ deux réels strictement positifs.
+	Soient $a, b > 0$ deux réels strictement positifs.
 	Montrer que
-		\[ \dfrac{x}{y} + \dfrac{y}x \geq 2, \]
-	avec égalité uniquement lorsque $x=y$.
+		\[ \dfrac{a}{b} + \dfrac{b}a \geq 2, \]
+	avec égalité uniquement lorsque $a=b$.
 }{exe:Dreyer}{
-	todo
+	Simplifions $\frac{a}{b} + \frac{b}a - 2$ avec les propriétés des fractions.
+	Le dénominateur commun étant $ab$, on calcule
+		\begin{align*}
+			\dfrac{a}{b} + \dfrac{b}a - 2 &= \dfrac{a^2}{ab} + \dfrac{b^2}{ab} - \dfrac{2ab}{ab}, \\
+											&= \dfrac{a^2 + b^2 - 2ab}{ab}, \\
+											&= \dfrac{(a-b)^2}{ab}.
+		\end{align*}
+	Les quantités $a, b,$ et $(a-b)^2$ sont toutes positives ou nulles, donc
+		\begin{align*}
+			\dfrac{a}{b} + \dfrac{b}a - 2 \geq 0 && \iff && \dfrac{a}{b} + \dfrac{b}a \geq 2
+		\end{align*}
+	L'égalité advient lorsque $(a-b)^2 = 0$, uniquement possible lorsque $a=b$.
+	
+	Nous avons donc trouvé l'extremum d'une fonction à deux variables, celui-ci étant atteint en une infinité de valeurs (la diagonale $a=b$).
 }
 
 \exe{1}{
