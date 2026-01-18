@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[06/01/2026]
+\SetDate[18/01/2026]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -30,7 +30,7 @@ Consignes particulières :
 
 
 \exe{5, difficulty=1}{
-	Soit $f$ la fonction définie sur $\R$ par
+	Soit $f$ la fonction définie sur $\D = [-3 ; 5]$ par
 		\[ f(x) = 3 - (x-1)^2. \]
 	\begin{enumerate}
 		\item 
@@ -38,13 +38,13 @@ Consignes particulières :
 		\item 
 		Grapher la courbe $\C_f$ dans le repère figure \ref{fig:1}.
 		\item
-		Déterminer maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise de deux manières différentes :
+		Déterminer maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise de deux manières différentes en décrivant votre démarche :
 			\begin{enumerate}[label=\alph*)]
 				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
-				\item algébriquement, en montrant rigoureusement que $f(x) \leq f(x^\star)$ pour tout $x\in\R$.
+				\item algébriquement, en montrant rigoureusement que $f(x) \leq f(x^\star)$ pour tout $x\in\D$.
 			\end{enumerate}
 		\item
-		Déterminer quels $x\in\R$ vérifient $f(x) \geq -6$ de deux manières différentes :
+		Déterminer quels $x\in\D$ vérifient $f(x) \geq -6$ de deux manières différentes en décrivant votre démarche :
 			\begin{enumerate}[label=\alph*)]
 				\item graphiquement, à l'aide de la courbe tracée figure \ref{fig:1} ; et
 				\item algébriquement, en résolvant l'inéquation $f(x) \geq -6$ rigoureusement.
@@ -53,7 +53,56 @@ Consignes particulières :
 		%En général, suffit-il de grapher une fonction sur un domaine $\D$ bien choisi pour connaître son maximum sur $\R$ ?
 	\end{enumerate}
 }{exe:canonique}{
-	todo
+	\begin{enumerate}
+		\item 
+			\[ f(x) = 3 - (x-1)^2 = 3 - (x^2 + 2x + 1) = -x^2 - 2x + 2. \]
+		\item \,\\
+		\begin{center}
+		\begin{tikzpicture}[scale=.8, >=stealth]
+			\begin{axis}[xmin = -3, xmax=5, ymin=-15, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, xtick distance = 1, ytick distance=2, x=50pt, y=17pt, minor y tick num = 1]%extra x ticks ={0}, extra y ticks = {0}]
+				\addplot[BLUE_E, very thick, -] expression[domain=-3:5, samples=100]{3-(x-1)^2} node[above right, pos=.6] {$\C_f$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\item
+			\begin{enumerate}[label=\alph*)]
+				\item 
+				L'abscisse du point le plus haut de la courbe se situe en $x^\star \approx 1$.
+				\item 
+				$(x-1)^2 \geq 0$ pour tout $x\in\R$ avec égalité lorsque $x = 1$.
+				Il suit que $f(x) \leq 3$ sous les mêmes conditions.
+				Donc $f(x)$ est maximale en $x^\star = 1$.
+			\end{enumerate}
+		\item \,\\
+		\begin{center}
+		\begin{tikzpicture}[scale=.8, >=stealth]
+			\begin{axis}[xmin = -3, xmax=5, ymin=-15, ymax=5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, xtick distance = 1, ytick distance=2, x=50pt, y=17pt, minor y tick num = 1]%extra x ticks ={0}, extra y ticks = {0}]
+				\addplot[BLUE_E, very thick, -] expression[domain=-3:5, samples=100]{3-(x-1)^2} node[above right, pos=.6] {$\C_f$};
+				\addplot[RED_E, very thick, -] expression[domain=-3:5, samples=2]{-6} node[above, pos=.8]{$y=-6$};
+			\end{axis}
+		\end{tikzpicture}
+		\end{center}
+			\begin{enumerate}[label=\alph*)]
+				\item
+				En traçant une courbe à hauteur $y=-6$, on obtient que $f(x)$ est supérieure à $-6$ lorsque $x$ se situe entre $-2$ et $4$, abscisses des points d'intersection de $\C_f$ avec la droite horizontale.
+				En notation mathématiques, 
+					\[ \bigset{ x\in\D \tq f(x) \geq -6} \approx [-2 ; 4]. \]
+				\item 
+				Posons $f(x) \geq -6$ et resolvons pour $x$.
+					\begin{align*}
+						3 - (x-1)^2 &\geq -6 \\
+						- (x-1)^2 &\geq -9 \\
+						(x-1)^2 &\leq 9 \\
+						|x-1| &\leq 3
+					\end{align*}
+				Il suit que $f(x) \geq -6$ si et seulement si $|x-1| \leq 3$, c'est-à-dire quand
+					\[ -3 \leq x -1 \leq 3. \]
+				En ajoutant 1, retrouve bien
+					\[ \bigset{ x\in\D \tq f(x) \geq -6} = [-2 ; 4]. \]
+			\end{enumerate}
+	\end{enumerate}
+
+
 }
 
 \begin{figure}[h!]
@@ -72,7 +121,7 @@ Consignes particulières :
 \newpage
 
 
-\exe{2}{
+\exe{3}{
 	Montrer que la fonction $f$ donnée algébriquement sur $\R$ par
 		\[ f(x) = (x+3)^6 + (x-3)^6 \]
 	est paire.
@@ -97,19 +146,21 @@ Consignes particulières :
 \exe{3}{
 	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
 
-	\begin{multicols}{3}
+	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $\sqrt{24}$
 		\item $\sqrt{75}$
-		\item $5\sqrt{48}$
-		\item $2\sqrt{500}$
 		\item $\dfrac{8}{\sqrt{2}}$
 		\item $\dfrac{15}{\sqrt{5}}$
-		\item $\sqrt{50}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:sqrt4}{
-	TODO
+	\begin{enumerate}
+		\item $\sqrt{24} = \sqrt{4\times6} = 2\sqrt6$
+		\item $\sqrt{75} = \sqrt{25\times3} = 5\sqrt3$
+		\item $\dfrac{8}{\sqrt{2}} = \dfrac{8\sqrt2}2 = 4\sqrt2$
+		\item $\dfrac{15}{\sqrt{5}} = \dfrac{15\sqrt5}5 = 3 \sqrt5$
+	\end{enumerate}
 }
 
 
@@ -118,9 +169,35 @@ Consignes particulières :
 	Justifier.
 	\[  \sqrt{(-2)^{56}} \stackrel{?}{=} (-2)^{28} \]
 }{exe:sqrt9}{
-	TODO
+	En mettant le membre de droite au carré, on trouve
+		\[ \left((-2)^{28}\right)^2 = (-2)^{28\times2} = (-2)^{56}. \]
+	Donc $(-2)^{28}$ est égal à $\sqrt{(-2)^{56}}$ ou $-\sqrt{(-2)^{56}}$.
+	Comme 28 est pair, $(-2)^{28}$ est positif et on a bien
+		\[  \sqrt{(-2)^{56}} = (-2)^{28} \]
 }
 
+
+\exe{2, difficulty=2}{
+	Soient $a, b > 0$ deux réels strictement positifs.
+	Montrer que
+		\[ \dfrac{a}{b} + \dfrac{b}a \geq 2, \]
+	avec égalité uniquement lorsque $a=b$.
+}{exe:Dreyer}{
+	Simplifions $\frac{a}{b} + \frac{b}a - 2$ avec les propriétés des fractions.
+	Le dénominateur commun étant $ab$, on calcule
+		\begin{align*}
+			\dfrac{a}{b} + \dfrac{b}a - 2 &= \dfrac{a^2}{ab} + \dfrac{b^2}{ab} - \dfrac{2ab}{ab}, \\
+											&= \dfrac{a^2 + b^2 - 2ab}{ab}, \\
+											&= \dfrac{(a-b)^2}{ab}.
+		\end{align*}
+	Les quantités $a, b,$ et $(a-b)^2$ sont toutes positives ou nulles, donc
+		\begin{align*}
+			\dfrac{a}{b} + \dfrac{b}a - 2 \geq 0 && \iff && \dfrac{a}{b} + \dfrac{b}a \geq 2
+		\end{align*}
+	L'égalité advient lorsque $(a-b)^2 = 0$, uniquement possible lorsque $a=b$.
+	
+	Nous avons donc trouvé l'extremum d'une fonction à deux variables, celui-ci étant atteint en une infinité de valeurs (la diagonale $a=b$).
+}
 
 
 % ensembles tq. 
@@ -132,29 +209,23 @@ Consignes particulières :
 \exe{3}{
 	Écrire les ensembles suivants sous forme d'intervalle.
 	
-	\begin{multicols}{2}
 	\begin{enumerate}
 		\item \xRtq{x + 3 \leq 8}
-		\item \xRtq{x + 2 > 8}
-		\item \xRtq{7x  - 13 \leq 8}
-		\item \xRtq{4 \geq -2x + 6}
-		\item \xRtq{-3 < 13x + 7 < 14}
+		%\item \xRtq{x + 2 > 8}
+		\item \xRtq{7x  - 13 < 8}
+		%\item \xRtq{4 \geq -2x + 6}
+		%\item \xRtq{-3 < 13x + 7 < 14}
 		\item \xRtq{8 \geq 3 - x \geq 0}
 	\end{enumerate}
-	\end{multicols}
 }{exe:99}{
-
-
-	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $\left]-\infty ; 5\right]$
-		\item $\left]6 ; +\infty\right[$
-		\item $\left]-\infty; 3 \right]$
-		\item $\left[1 ; +\infty \right[$
-		\item $\left] -\dfrac{10}{13} ; \dfrac{7}{13} \right[$
+		%\item $\left]6 ; +\infty\right[$
+		\item $\left]-\infty; 3 \right[$
+		%\item $\left[1 ; +\infty \right[$
+		%\item $\left] -\dfrac{10}{13} ; \dfrac{7}{13} \right[$
 		\item $\left[ -5 ; 3 \right]$\
 	\end{enumerate}
-	\end{multicols}
 }
 
 
@@ -191,33 +262,11 @@ Consignes particulières :
 %	todo
 %}
 
-\exe{2, difficulty=2}{
-	Soient $a, b > 0$ deux réels strictement positifs.
-	Montrer que
-		\[ \dfrac{a}{b} + \dfrac{b}a \geq 2, \]
-	avec égalité uniquement lorsque $a=b$.
-}{exe:Dreyer}{
-	Simplifions $\frac{a}{b} + \frac{b}a - 2$ avec les propriétés des fractions.
-	Le dénominateur commun étant $ab$, on calcule
-		\begin{align*}
-			\dfrac{a}{b} + \dfrac{b}a - 2 &= \dfrac{a^2}{ab} + \dfrac{b^2}{ab} - \dfrac{2ab}{ab}, \\
-											&= \dfrac{a^2 + b^2 - 2ab}{ab}, \\
-											&= \dfrac{(a-b)^2}{ab}.
-		\end{align*}
-	Les quantités $a, b,$ et $(a-b)^2$ sont toutes positives ou nulles, donc
-		\begin{align*}
-			\dfrac{a}{b} + \dfrac{b}a - 2 \geq 0 && \iff && \dfrac{a}{b} + \dfrac{b}a \geq 2
-		\end{align*}
-	L'égalité advient lorsque $(a-b)^2 = 0$, uniquement possible lorsque $a=b$.
-	
-	Nous avons donc trouvé l'extremum d'une fonction à deux variables, celui-ci étant atteint en une infinité de valeurs (la diagonale $a=b$).
-}
-
 \exe{1}{
 	Thibault demande : est-ce que $x \leq y$ implique toujours $x^2 \leq y^2$ ?
 	Démontrer que oui ou lui fournir un contre-exemple.
 }{exe:sq-ineq}{
-	todo
+	Prendre $x=-100$ et $y=0$ fournit un contre-exemple suffisant.
 }
 
 %%%%%%%%%%%
