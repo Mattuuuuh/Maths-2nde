@@ -35,7 +35,7 @@
 
 \exe{, difficulty=1}{
 	Soit $n\in\N$ un entier naturel.
-	Montrer que $\dfrac{n(n+1)}2$ est toujours un entier.
+	Montrer que $\frac{n(n+1)}2$ est toujours un entier.
 }{exe:nnp1}{
 	Comme $n$ et $n+1$ se suivent, l'un des deux est pair.
 	Leur produit est donc pair, et la division par 2 donne un entier.
@@ -184,7 +184,9 @@
 
 
 \exe{}{
-	À l'aide de la décomposition $2160 = 2^4 \times 3^3 \times 5$, écrire 2160 sous la forme $a^2 \times b$, où $a, b\in\N$ et $b$ est le plus petit possible.
+	À l'aide de la décomposition $2160 = 2^4 \times 3^3 \times 5$, écrire 2160 sous la forme $a^2 \times b$, où $a, b\in\N$ entiers et $b$ est le plus petit possible.
+	
+	Écrire $\sqrt{2160}$ sous la forme $a\sqrt{b}$ avec $a, b\in\N$ entier, et $b$ le plus petit possible.
 }{exe:sq-factor}{
 	On crée $a$ en extrayant le plus de carrés possible pour obtenir le $b$ le plus petit.
 	$2160 = \bigl(2^2 \times 3\bigr)^2 \times 3 \times 5 = 12^2 \times 15$.
@@ -244,7 +246,7 @@
 		\[ n = a \times k, \]
 	pour $k \in \N$ un entier naturel.
 	
-	En décomposant $a$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice 6iv) par exemple).
+	En décomposant $a$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice \ref{exe:old-div1} par exemple).
 	Ainsi, si un nombre premier apparaît dans la décomposition de $a$, il doit apparaître au moins autant de fois dans la décomposition de $b$.
 	
 
@@ -261,7 +263,9 @@
 	Soit $n \in \N$ un entier naturel.
 	\begin{enumerate}
 		\item Écrire la décomposition en produit de facteurs premiers de $10^n$.
-		\item Démontrer par l'absurde que le rationnel $\dfrac{5}{12} \in \Q$ n'est pas un nombre décimal.
+		\item Démontrer par l'absurde que le rationnel $\frac{5}{12} \in \Q$ n'est pas un nombre décimal.
+		
+		\emph{Rappel : $\D = \Bigset{ \dfrac{a}{10^n} \tq a\in\Z, n \in\N }$, les nombres décimaux.}
 	\end{enumerate}
 }{exe:old-div3}{
 	\begin{enumerate}
@@ -274,7 +278,7 @@
 	\end{enumerate}
 }
 
-\hrule
+%\hrule
 
 \exe{}{
 	\begin{enumerate}
@@ -320,9 +324,7 @@
 		\item	
 		Donner la décomposition en facteurs premiers de 105.
 		\item
-		En déduire une valeur $x\in\N$ solution de l'équation originale.
-		\item
-		Vérifier la solution en substituant $x$ par la valeur trouvée.
+		En déduire toutes les valeurs $x\in\Z$ solutions de l'équation originale.
 	\end{enumerate}
 }{exe:div105}{
 	todo
@@ -344,16 +346,73 @@
 		\item
 		Conclure que 
 			\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
+		\emph{Indication : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.}
 	\end{enumerate}
 }{exe:star1}{
-	À rendre pour possibilité de points bonus à la prochaine évaluation.
-	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
 	
-	Indication pour la question 4 : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.
+	\begin{enumerate}
+		\item
+			\[ (n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n+1. \]
+		\item
+		En ajoutant les différences l'une après l'autre, on remarque que chaque nouveau terme annule la somme partielle qui devient un carré parfait.
+		En réordonnant les termes, on effectue en fait la somme
+			\[ 1^2 + 2^2 +3^2 + \cdots + (n+1)^2 - 0^2 - 1^2 - 2^2 - \cdots - n^2 = (n+1)^2 - 0^2. \]
+		\item
+		Chaque différence est un nouveau nombre impair d'après la première question : $(k+1)^2 - k^2 = 2k+1$, avec $k$ allant de 0 à $n$.
+		\item
+		En soustrayant 1 à chaque terme de la somme de gauche, nous soustrayons $n+1$ au total (les termes allant de $2\times0+1$ à $2n+1$, il y en a autant que d'éléments de $\bigset{0 ; 1 ; \cdots ; n}$, soit $n+1$).
+		Par conséquent,
+			\[ 0 + 2 + 4 + 6 + \cdots + 2n = (n+1)^2 - (n+1) = (n+1)(n+1-1) = n(n+1). \]
+		Diviser par deux conclut.
+	\end{enumerate}
+
+	\underline{Discussion}
+	
+	La somme de différences successives s'appelle \emph{somme téléscopique}.
 	
 	En considérant les différences successives de cubes, on peut montrer que
 		\[ 1 + 4 + 9 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
-	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple).
+	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple en étudiant la parité et la divisibilité par 3).
+	
+	Plus généralement, la somme des $k^d$ de $k=1$ à $n$ donne une expression commençant par $\frac1{d+1}n^{d+1}$.
+	Sommer fait gagner un ordre ; phrase dont on se rappelera lors de l'étude de l'intégration ! (\emph{cf}. théorème fondamental de l'analyse)
+}
+
+
+\exe{, difficulty=2}{
+	Ce exercice traite du \emph{théorème des deux carrés} de Fermat\footnote{Pierre de Fermat (1607 - 1665), magistrat et mathématicien français.}.
+	On dit que $n\in\N$ est somme de deux carrés si $n=a^2 + b^2$ avec $a, b \in \N$ entiers.
+	\begin{enumerate}
+		\item 
+		Montrer que 2 est somme de deux carrés, mais que 3 ne l'est pas.
+		\item 
+		Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
+		
+		\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
+		\item\label{q:3}
+		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $A$ et $B$ sont somme de deux carrés, alors le produit $AB$ aussi.
+		\item\label{q:4}
+		Décomposer 85 en facteurs premiers, écrire chaque facteur comme somme de deux carrés, et en déduire l'écriture de 85 comme somme de deux carrés à l'aide de la question \ref{q:3}.
+		\item
+		Décomposer $12~240 = a^2 \times b$ avec $a, b$ entiers et $b$ le plus petit possible.
+		L'écrire comme somme de deux carrés à l'aide des questions \ref{q:3} et \ref{q:4}.
+	\end{enumerate}
+}{exe:star2}{
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	\underline{Discussion}
+	
+	La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
+	Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement le reste après division euclidienne par 4. 
+	En particulier, le reste du carré est le carré du reste (propriété à montrer !).
+	Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4 + 0,$ et $3^2 = 9 = 4\times2 + 1$. 
+	On voit donc que les seuls restes 0 et 1 sont possibles.
+	
+	Nous avons montré que si chaque premier $p$ divisant $n$ et apparaissant dans sa décomposition avec une puissance impaire est somme de deux carrés, alors $n$ est somme de deux carrés (les puissances paires étant déjà des carrés).
+	
+	Le théorème des deux carrés de Fermat énonce que la direction inverse est également vraie.
+	De plus, si un premier n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
 }
 
 %%%%%%%%%%%
