@@ -10,32 +10,81 @@
 \fancyhead[C]{\textbf{Dichotomie et boucle \texttt{while}}}
 \fancyhead[R]{\today}
 
-\subsection*{Boucle \texttt{while} (« tant que »)}
+Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement sur $\R$ par
+	\[ f(x) = x^2 - 7. \]
+
+\subsection*{Préliminaires}
+
+\begin{multicols}{2}
 
 \exe{}{
-	Esquisser la courbe représentative de $f(x) = x^2 - 7$ sur le domaine $\D = [0,4]$ pour s'assurer que $f$ est croissante autour de $\sqrt{7}$.
+	Donner les deux $x$ solutions de $f(x) = 0$.
+}{exe:roots}{
+	todo
+}
+
+\exe{}{
+	Esquisser la courbe représentative de $f$ dans le repère ci-contre.
+	
+	Où lire $\sqrt7$ dans ce repère ?
 }{exe:Cf}{
 	todo
 }
 
-% TODO
-% donner le repère !!
-
-\exe{, difficulty=1}{
-	Trouver un encadrement d'amplitude 1 de $\sqrt7$.
-	
-	Trouver un encadrement d'amplitude $0,5$ de $\sqrt7$.
-	
-	% TODO
-	% pas clair?
-	Créer une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$.
-	Décrire la marche à suivre en utilisant l'expression « tant que » ainsi que la fonction $f(x) = x^2 - 7$.
+\exe{, difficulty=0}{
+	Trouver un encadrement d'amplitude 1 de $\sqrt7$ à l'aide de $\C_f$.
 }{exe:balayage}{
 	todo
 }
 
-% TODO
-% boucle tant que $f(x) < 0$, $x = x+A$.
+\exe{, difficulty=0}{
+	Trouver un encadrement d'amplitude $0,2$ de $\sqrt7$ à l'aide de $\C_f$.
+}{exe:balayage2}{
+	todo
+}
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1.2]
+\begin{axis}[xmin = 0, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, ytick distance=5, minor tick num= 4, extra y ticks={0}]
+	\addplot[BLUE_E, thick, domain =0:4, samples=100] {x^2 - 7}  node[above left, pos=.8] {$\C_f$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\exe{, difficulty=1}{
+	Rédiger une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$.
+	Utiliser 
+		\begin{enumerate}[label=\roman*)]
+			\item l'expression « tant que » ; et
+			\item le fait que fonction $f$ devienne positive en $\sqrt7$.
+		\end{enumerate}
+}{exe:balayage3}{
+	todo
+}
+
+\subsection*{Boucle \texttt{while} (« tant que »)}
+
+\begin{multicols}{2}
+\python{while}
+% Commentaires :
+% 1. On initialise x = 0
+% 2. Tant que x est strictement inférieur à 2
+% 3. Remplacer x par sa valeur + 0,1
+% 4. À la fin de la boucle, imprimer la valeur de x
+% valeur attendue : 2
+
+\python{while2}
+% Commentaires :
+% 1. On initialise x = 0
+% 2. Tant que x est positif ou nul à 2
+% 3. Remplacer x par sa valeur + 0,1
+% 4. À la fin de la boucle, imprimer la valeur de x
+% valeur attendue : boucle infinie !
+\end{multicols}
+
+\newpage
+
 
 \subsection*{Dichotomie à la recherche de $\sqrt7$}
 
@@ -62,20 +111,20 @@
 
 }
 
-%\hrule
-\newpage
+
+\subsection*{Application}
 
 \exe{, difficulty=1}{
 	On souhaite approximer la valeur du \emph{nombre d'or} $\phi$, qu'on sait unique solution positive de l'équation
 		\[ x^2 - x - 1 = 0. \]
-	On admet que la fonction $f(x) = x^2 - x- 1$ est croissante autour de $\phi$.
+	On admet que la fonction $g(x) = x^2 - x- 1$ est négative puis positive autour de $\phi$.
 	\begin{enumerate}
 		\item
 		Donner un encadrement d'amplitude 1 de $\phi$.
 		\item 
 		Créer un algorithme d'approximation de $\phi$ par dichotomie.
 		\item 
-		Montrer que $f(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
+		Montrer que $g(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
 		\item 
 		On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
 			\[ a < \phi < b, \]
