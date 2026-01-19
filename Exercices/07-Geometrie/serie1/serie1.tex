@@ -1,0 +1,63 @@
+\input{../preamble.tex}
+
+\SetDate[20/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Arithmétique}}
+\fancyhead[R]{\today}
+
+
+\exe{, difficulty=2}{
+	Posons $\Qsqrt{5} = \bigset{ r + s \sqrt5 \tq r, s \in \Q} \subseteq \R$ et considérons $x = r + s\sqrt5$ et $y=p+q\sqrt5$ avec $r, s, p, q \in\Q$.
+	\begin{enumerate}
+		\item
+		Montrer que $\Q \subseteq \Qsqrt5$ est une inclusion stricte.
+		\item
+		Montrer que $x=y \iff r = p \et s = q$.
+	\end{enumerate}
+	Considérons désormais la fonction « conjugué » $f$ définie par $f\bigl(r + s\sqrt5\bigr) = r - s\sqrt5$.
+	\begin{enumerate}[resume]
+		\item
+		Montrer que $f(xy) = f(x)f(y)$.
+		\item
+		Montrer que si $f(x) = -f(x)$, alors $r=0$ et $x = s\sqrt5$.
+		\item
+		Conclure des deux dernières questions et sans calcul que
+			\[ \dfrac1{2^{256}\sqrt5}\left[ \left({1+\sqrt5}\right)^{256} - \left({1-\sqrt5}\right)^{256}\right] \]
+		est un nombre rationnel.
+		C'est en fait un nombre entier, le terme $256$ de la suite de Fibonacci.
+		\item
+		Montrer que $\Qsqrt{5} \neq \R$ en montrant que $\sqrt2 \not\in \Qsqrt{5}$.
+	\end{enumerate}
+} {exe:Qsqrt2}{
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	Indication pour la question 2 : il est possible de montrer en premier lieu que $x = 0 \iff r=s=0$.
+	On dit alors que $1$ et $\sqrt5$ sont \emph{linéairement indépendants} sur $\Q$.
+	
+	Indication pour la question 5 : appliquer $f$ à la quantité $\left({1+\sqrt5}\right)^{256} - \left({1-\sqrt5}\right)^{256}$ et conclure qu'elle est égale à $s\sqrt5$ pour un $s\in\Q$ rationnel.
+	
+	\underline{Discussion}
+	
+	L'exercice fait l'étude du corps d'extension des nombres rationnels auxquels on a ajouté la racine carrée de 5.
+	Il suit de la question 6 que l'ensemble 
+		\[ \Q\bigl(\sqrt2, \sqrt5\bigr) = \bigset{ r + s \sqrt2 + t\sqrt5 \tq r, s, t \in \Q} \]
+	est un sur-ensemble strict de $\Qsqrt5$ qui n'est toujours pas égal à $\R$.
+	
+	La {théorie de Galois}\footnotemark généralise ces exemples et permet notamment de répondre par la négative aux trois grands problèmes de l'Antiquité : la duplication du cube, la trisection de l'angle, et la quadrature du cercle.
+	\footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
+	Essentiellement, chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
+	La racine carrée de 2 est par exemple constructible grâce au théorème de Pythagore comme distance entre $(1 ; 0)$ et $(0;1)$.
+	En montrant que certains nombres ne peuvent pas appartenir à de telles extensions, on démontre immédiatement qu'ils sont non constructibles.
+}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
