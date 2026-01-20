@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[06/01/2026]
+\SetDate[23/01/2026]
 
 \usepackage{minted}
 
@@ -84,12 +84,12 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 	
 	\begin{enumerate}[label=\underline{Étape \arabic*.}, leftmargin=3cm]
 		\item
-		Initialisons $\ell = 0$.
+		Initialiser $\ell = 0$.
 		\item
 		Tant que $f(\ell) < 0$, ajouter $0,001$ à $\ell$.
 		\item
 		Renvoyer l'encadrement
-			\[ \ell - 0,001 \leq \sqrt7 \leq \ell. \]
+			$ \ell - 0,001 \leq \sqrt7 \leq \ell. $
 	\end{enumerate}
 	
 	Justifions désormais que l'encadrement obtenu est bien un encadrement de $\sqrt7$ en utilisant que $f$ est croissante et donc qu'elle préserve l'ordre.
@@ -115,6 +115,10 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 % 4. À la fin de la boucle, imprimer la valeur de x
 % valeur attendue : 2
 
+Impression finale :
+
+Nombre d'itérations de la boucle \texttt{while} :
+
 \subsubsection*{Exemple 2}
 \python{while2}
 % Commentaires :
@@ -123,6 +127,10 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 % 3. Remplacer x par sa valeur + 0,1
 % 4. À la fin de la boucle, imprimer la valeur de x
 % valeur attendue : boucle infinie !
+
+Impression finale :
+
+Nombre d'itérations de la boucle \texttt{while} :
 
 \newpage
 
