@@ -1,0 +1,171 @@
+\input{../preamble.tex}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+\SetDate[10/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Sommes finies et infinies \\ Questions d'approfondissement}}
+\fancyhead[R]{\today}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\exe{}{
+	On dit d'une somme qu'elle est \emph{téléscopique} si elle est de la forme
+		\[ \bigl[ f(1) - f(0) \bigr] + \bigl[ f(2) - f(1) \bigr] + \bigl[ f(3) - f(2) \bigr] + \cdots + \bigl[ f(n) - f(n-1) \bigr]. \]
+	Montrer que cette somme est égale à $f(n) - f(0)$.
+}{exe:telescope}{
+	En réordonnant les termes, cette somme est égale à
+		\[ f(1) + f(2) + \cdots + f(n) - f(0) - f(1) - f(2) - \cdots - f(n-1) = f(n) - f(0). \]
+}
+
+
+\exe{, difficulty=1}{
+	Le but de cet exercice est de trouver une forme close pour la somme des $n$ premiers entiers naturels $1+2+3+4+\cdots + n$, nombre appelé \emph{nombre triangulaire}.
+	\begin{enumerate}
+		%\item
+		%Quelles hypothèses poser sur $n$ ? Dans quel ensemble de nombres appartient-il ?
+		\item
+		Montrer que la différence de deux carrés parfaits consécutifs est un nombre impair.
+		\item
+		Montrer qu'en ajoutant les différences $1^2-0^2$, $2^2 - 1^2, 3^2 - 2^2, \dots, (n+1)^2 - n^2$, on obtient $(n+1)^2$.
+		\item
+		En déduire que
+			\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
+		\item
+		Conclure que 
+			\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
+		\emph{Indication : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.}
+	\end{enumerate}
+}{exe:star1}{
+	
+	\begin{enumerate}
+		\item
+			\[ (n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n+1. \]
+		\item
+		En ajoutant les différences l'une après l'autre, on remarque que chaque nouveau terme annule la somme partielle qui devient un carré parfait.
+		En réordonnant les termes, on effectue en fait la somme
+			\[ 1^2 + 2^2 +3^2 + \cdots + (n+1)^2 - 0^2 - 1^2 - 2^2 - \cdots - n^2 = (n+1)^2 - 0^2. \]
+		\item
+		Chaque différence est un nouveau nombre impair d'après la première question : $(k+1)^2 - k^2 = 2k+1$, avec $k$ allant de 0 à $n$.
+		\item
+		En soustrayant 1 à chaque terme de la somme de gauche, nous soustrayons $n+1$ au total (les termes allant de $2\times0+1$ à $2n+1$, il y en a autant que d'éléments de $\bigset{0 ; 1 ; \cdots ; n}$, soit $n+1$).
+		Par conséquent,
+			\[ 0 + 2 + 4 + 6 + \cdots + 2n = (n+1)^2 - (n+1) = (n+1)(n+1-1) = n(n+1). \]
+		Diviser par deux conclut.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=2}{
+	Le but de cet exercice est de trouver une forme close pour la somme des $n$ premiers carrés $1+4+9+16+\cdots + n^2$.
+	\begin{enumerate}
+		\item
+		Montrer que $(n+1)^3 - n^3 = 3n^2 + 3n + 1$.
+		\item
+		Montrer qu'en ajoutant les différences $1^3-0^3$, $2^3 - 1^3, 3^3 - 2^3, \dots, (n+1)^3 - n^3$, on obtient $(n+1)^3$.
+		\item
+		En déduire que
+			\[ 3(1^2 + 2^2 + 3^2 + \cdots + n^2) +3(1+2+3+\cdots+ n) + (n+1) = (n+1)^3. \]
+		\item
+		Conclure à l'aide de l'exercice \ref{exe:star1} que 
+			\[ 1^2 + 2^2 + 3^2 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
+	\end{enumerate}
+}{exe:somme-carres}{
+	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple en étudiant la parité et la divisibilité par 3).
+}
+
+\exe{, difficulty=2}{
+	Montrer que
+		\[ 1^3 + 2^3 + 3^3 + \dots + n^3 = \left[ \dfrac{n(n+1)}2 \right]^2 = (1+2+\cdots+n)^2. \]
+}{exe:somme-cubes}{
+	Étudier $(n+1)^4 - n^4 = 4n^3 + 6n^2 + 4n + 1$ et souffrir (bon courage).
+}
+
+
+Plus généralement, la somme des $k^d$ de $k=1$ à $n$ donne une expression commençant par $\frac1{d+1}n^{d+1}$.
+Sommer fait gagner un ordre ; phrase dont on se rappelera lors de l'étude de l'intégration ! (\emph{cf}. théorème fondamental de l'analyse)
+
+\newpage
+
+
+Le but de l'exercice suivant est de montrer que la \emph{série de Bâle}\footnotemark des inverses des carrés
+	\[ 1 + \dfrac14 + \dfrac19 + \dfrac1{16} + \cdots \]
+est bornée supérieurement.
+On démontre qu'une telle somme est \emph{convergente} car elle ne cesse de grandir tout en étant bornée supérieurement : c'est le \emph{théorème de convergence monotone}.
+
+\footnotetext{Notamment étudiée par Jacques Bernoulli (165?-1705), mathématicien et physicien suisse né à Bâle.}
+
+\exe{, difficulty=2}{
+	Soit $k\in\N$ vérifiant $k\geq2$.
+	\begin{enumerate}
+		\item Montrer que $k(k-1) \leq k^2.$
+		\item
+		En déduire que $\dfrac1{k^2} \leq \dfrac1{k-1} - \dfrac1k.$
+		\item
+		Conclure que $1 + \dfrac14 + \dfrac19 + \cdots + \dfrac1{n^2} \leq 2$
+		pour tout $n\in\N$ en identifiant une somme téléscopique.
+	\end{enumerate}
+}{exe:Bale}{
+	Somme téléscopique.
+}
+
+Euler\footnotemark démontra (plus ou moins rigoureusement) en 1735 que
+	\[ \sum_{k=1}^{\infty} \dfrac1k = \dfrac{\pi^2}6. \]
+\footnotetext{Leonhard Euler (1707-1783), mathématicien et physicien suisse également né à Bâle.}
+
+Le but de l'exercice suivant est de montrer que la \emph{série harmonique}
+	\[ H = 1 + \dfrac12 + \dfrac13 + \dfrac14 + \cdots \]
+diverge : elle peut devenir aussi grande que voulu en ajoutant suffisamment de termes.
+
+\exe{}{
+	Soit $k\geq1$ un entier. 
+	Étudions d'abord la somme
+		\[ \dfrac1{2^k} + \dfrac1{2^k+1} + \dfrac1{2^k+2} + \cdots + \dfrac1{2^{k+1}-1}. \]
+	\begin{enumerate}
+		\item
+		Écrire la somme dans les cas $k=1, k=2,$ et $k=3$.
+		\item
+		Montrer que chaque terme est supérieur à $\frac1{2^{k+1}}$.
+		\item
+		Justifier qu'elle contient $2^k$ terme.
+		\item
+		Conclure qu'elle est supérieure ou égale à $\frac12$ pour tout $k\in\N$.
+	\end{enumerate}
+	Conclure que la série harmonique est divergente.
+}{exe:harmonique}{
+	\begin{enumerate}
+		\item
+		Pour $k=1$, la somme commence à $\frac12$ et se termine à $\frac13$, c'est donc $\frac12 + \frac13$.
+		
+		Pour $k=2$, la somme commence à $\frac14$ et se termine à $\frac17$, c'est donc $\frac14 + \frac15 + \frac16+\frac17$.
+		
+		Pour $k=3$, la somme commence à $\frac18$ et se termine à $\frac1{15}$.
+		\item
+		Chaque dénominateur $d$ est borné par $2^{k+1}$ : $d\leq2^{k+1}$.
+		Il suit que $\frac1{2^{k+1}} \leq \frac1d$ pourchaque terme $\frac1d$.
+		\item
+		Il y a $b-a+1$ entiers $k$ vérifiant $a \leq k \leq b$.
+		La somme contient donc $2^{k+1}-1 - 2^k + 1 = 2^{k+1} - 2^k = 2^k(2 - 1) = 2^k$ termes.
+		\item
+		Chaque terme étant supérieur à $\frac1{2^{k+1}}$ et la somme contenant $2^k$ terme, celle-ci est supérieure ou égale à $\frac{2^k}{2^{k+1}} = \frac12$.
+	\end{enumerate}
+	La série harmonique se décompose en sous-sommes toutes supérieures à $\frac12$.
+	Elle devient donc aussi grande que voulue, car équivalente à $\frac12 + \frac12 + \frac12 + \cdots$.
+}
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
+
