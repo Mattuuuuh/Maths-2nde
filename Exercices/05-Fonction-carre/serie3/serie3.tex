@@ -7,7 +7,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
-\fancyhead[C]{\textbf{Dichotomie et boucle \texttt{while}}}
+\fancyhead[C]{\textbf{Balayage et boucle \texttt{while}}}
 \fancyhead[R]{\today}
 
 Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement sur $\R$ par
@@ -20,7 +20,7 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 \exe{}{
 	Donner les deux $x$ solutions de $f(x) = 0$.
 }{exe:roots}{
-	todo
+	$x^2 - 7 = 0$ a pour solutions $\sqrt7$ et $-\sqrt7$ d'après le cours.
 }
 
 \exe{}{
@@ -28,25 +28,36 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 	
 	Où lire $\sqrt7$ dans ce repère ?
 }{exe:Cf}{
-	todo
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = 0, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, ytick distance=5, minor tick num= 4, extra y ticks={0}]
+		\addplot[BLUE_E, thick, domain =0:4, samples=100] {x^2 - 7}  node[above left, pos=.8] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	On lit $\sqrt7$ à l'intersection de $\C_f$ avec l'axe des abscisses, car $f\bigl(\sqrt7\bigr) = 0$.
 }
 
 \exe{, difficulty=0}{
 	Trouver un encadrement d'amplitude 1 de $\sqrt7$ à l'aide de $\C_f$.
 }{exe:balayage}{
-	todo
+	D'après le repère, $2 < \sqrt7 < 3$.
+	En fait, $4 < 7 < 9$ implique cet encadrement car la fonction racine carrée est croissante d'après le cours.
 }
 
 \exe{, difficulty=0}{
 	Trouver un encadrement d'amplitude $0,2$ de $\sqrt7$ à l'aide de $\C_f$.
 }{exe:balayage2}{
-	todo
+	Le pas de graduation en abscisse est de $0,2$ dans le repère.
+	D'après celui-ci, $2,6 < \sqrt7 < 2,8$.
+	On peut vérifier que $2,6^2 = 6,76 < 7 < 7,84 = 2,8^2$, ce qui permet de conclure d'après le cours.
 }
 
 \begin{center}
 \begin{tikzpicture}[>=stealth, scale=1.2]
 \begin{axis}[xmin = 0, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, ytick distance=5, minor tick num= 4, extra y ticks={0}]
-	\addplot[BLUE_E, thick, domain =0:4, samples=100] {x^2 - 7}  node[above left, pos=.8] {$\C_f$};
+	\addplot[transparent, thick, domain =0:4, samples=100] {x^2 - 7}  node[above left, pos=.8] {$\C_f$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -54,18 +65,39 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 
 \exe{, difficulty=1}{
 	Rédiger une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$.
-	Utiliser 
+	Décrire chaque étape
 		\begin{enumerate}[label=\roman*)]
-			\item l'expression « tant que » ; et
-			\item le fait que fonction $f$ devienne positive en $\sqrt7$.
+			\item en utilisant l'expression « tant que » ; et
+			\item en admettant le fait que fonction $f$ soit croissante autour de $\sqrt7$ (elle préserve l'ordre).
 		\end{enumerate}
 }{exe:balayage3}{
-	todo
+	De façon analogue aux exercices précédents, partons de $x=0$ et parcourons les graduations de pas $0,001$ jusqu'à encadrer $\sqrt7$.
+	
+	\begin{enumerate}[label=\underline{Étape \arabic*.}, leftmargin=3cm]
+		\item
+		Initialisons $\ell = 0$.
+		\item
+		Tant que $f(\ell) < 0$, ajouter $0,001$ à $\ell$.
+		\item
+		Renvoyer l'encadrement
+			\[ \ell - 0,001 \leq \sqrt7 \leq \ell. \]
+	\end{enumerate}
+	
+	Justifions désormais que l'encadrement obtenu est bien un encadrement de $\sqrt7$ en utilisant que $f$ est croissante et donc qu'elle préserve l'ordre.
+	
+	Premièrement, si on avait $\ell < \sqrt7$, alors on aurait $f(\ell) < f\bigl(\sqrt7\bigr) = 0$.
+	Cependant la procédure ne s'arrête que lorsque $f(\ell) \geq 0$, donc ce n'est pas possible.
+	Il suit donc que $\ell < \sqrt7$ n'est pas vrai, et que $\sqrt7 \leq \ell$.
+	
+	Similairement, si $\ell - 0,001 > \sqrt7$, alors en appliquant $f$, on obtient que $f(\ell - 0,001) > 0$.
+	Cela n'est pas possible non plus car dans ce cas, la procédure se serait arrêtée une étape avant (elle s'arrête dès que $f(\ell) \geq 0$.
+	
+	En conclusion, l'encadrement $\ell - 0,001 \leq \sqrt7 \leq \ell$ tient bien.
 }
 
 \subsection*{Boucle \texttt{while} (« tant que »)}
 
-\begin{multicols}{2}
+\subsubsection*{Exemple 1}
 \python{while}
 % Commentaires :
 % 1. On initialise x = 0
@@ -74,6 +106,7 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 % 4. À la fin de la boucle, imprimer la valeur de x
 % valeur attendue : 2
 
+\subsubsection*{Exemple 2}
 \python{while2}
 % Commentaires :
 % 1. On initialise x = 0
@@ -81,52 +114,57 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 % 3. Remplacer x par sa valeur + 0,1
 % 4. À la fin de la boucle, imprimer la valeur de x
 % valeur attendue : boucle infinie !
-\end{multicols}
 
 \newpage
 
-
-\subsection*{Dichotomie à la recherche de $\sqrt7$}
-
-% décrire la dichotomie avec deux exemples : f(m) < 0 et f(m) > 0
-
-\exe{, difficulty=1}{
-	On souhaite approximer la valeur de $\sqrt7$, qu'on sait solution positive de l'équation
-		\[ x^2 - 7= 0. \]
-	Pour cela, on implémente l'algorithme par dichotomie (figure \ref{fig:1}) vu en cours.
-	\begin{enumerate}
-		\item 
-		% TODO check quand ça fonctionne pu
-		Remplacer la précision par $10^{-5}, 10^{-10}, 10^{-15}, 10^{-16},$ et réexecuter le programme.
-		Que remarque-t-on ?
-		 \item 
-		 Justifier que, d'un appel de \texttt{racine} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisée par $2$.
-		 \item 
-		 Donner la longueur de l'intervalle $[0;3]$ de départ. Combien d'opérations arithmétiques sont nécessaires pour obtenir un intervalle de longueur $3 \times 2^{-4}$ ? Et $3\times 2^{-10}$ ? Et $3 \times 2^{-n}$ ?
-		 
-		 \item[($\star$)] 
-		 Combien d'étape faut-il pour obtenir un intervalle de longeur $10^{-10}$ ? On cherche le plus petit $n\in\N$ tel que $3 \times 2^{-n} \leq 10^{-10}$. Résoudre ce problème algorithmiquement et vérifier qu'on obtient bien $n=35$.
-	\end{enumerate}
-}{exe:sqrt2}{
-
+\exe{,difficulty=1}{
+	Compléter et implémenter le programme de balayage ci-dessous.
+	Que renvoie-t-il ?
+}{exe:balayage4}{
+	\python{balayage-solution}
 }
 
+\python{balayage}
 
-\subsection*{Application}
+
+\exe{}{
+	Donner la valeur de $\sqrt7$ à $10^{-5}$ près à l'aide d'un programme de balayage.
+}{exe:precision}{
+	En remplaçant la variable \texttt{amplitude} par \texttt{0.00001} ou \texttt{1e-5}, on obtient
+		\[ 2,64575 < \sqrt7 < 2,64576. \]
+	\python{balayage-solution2}
+}
+
+\exe{}{
+	Donner la valeur de $\sqrt{700}$ à $10^{-4}$ près
+		\begin{enumerate}[label=\roman*)]
+			\item
+			à l'aide d'un programme de balayage ; et
+			\item
+			en montrant que $\sqrt{700} = 10\sqrt7$ et en utilisant l'exercice \ref{exe:precision}.
+		\end{enumerate}
+}{exe:precision2}{
+	En remplaçant la fonction $f$ par $f(x) = x^2 - 700$, et l'amplitude par $10^{-4}$, on obtient
+		\[ 26,4575 < \sqrt{700} < 26,4576. \]
+	\python{balayage-solution3}
+	Comme $\sqrt{700} = \sqrt{100\times7} = \sqrt{100}\times\sqrt{7}=10\sqrt7$, on peut multiplier l'encadrement de l'exercice \ref{exe:precision} par 10 pour conclure immédiatement.
+}
+
+\subsection*{Application : le nombre d'or}
 
 \exe{, difficulty=1}{
 	On souhaite approximer la valeur du \emph{nombre d'or} $\phi$, qu'on sait unique solution positive de l'équation
 		\[ x^2 - x - 1 = 0. \]
-	On admet que la fonction $g(x) = x^2 - x- 1$ est négative puis positive autour de $\phi$.
+	On admet que la fonction $g(x) = x^2 - x- 1$ est croissante autour de $\phi$.
 	\begin{enumerate}
 		\item
 		Donner un encadrement d'amplitude 1 de $\phi$.
 		\item 
-		Créer un algorithme d'approximation de $\phi$ par dichotomie.
+		Créer un programme d'approximation de $\phi$ à $10^{-5}$ près par balayage.
 		\item 
 		Montrer que $g(x) = \left(x - \dfrac{1+\sqrt{5}}2\right) \left(x - \dfrac{1-\sqrt{5}}2\right)$ et en déduire que $\phi = \dfrac{1+\sqrt{5}}2$.
 		\item 
-		On suppose qu'on a une approximation de $\phi$ donnée par un encadrement 
+		Supposons que nous ayons une approximation de $\phi$ donnée par un encadrement 
 			\[ a < \phi < b, \]
 		d'amplitude $b-a = \ell$.
 		
@@ -134,7 +172,29 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 		L'encadrement de $\sqrt{5}$ déduit est-il plus ou moins ample que celui de $\phi$ ?
 	\end{enumerate}
 }{exe:phi}{
-
+	\begin{enumerate}
+		\item
+		On calcule $g(0) = -1, g(1) = -1, g(2) = 1$, donc comme $g$ est supposée croissante, elle est négative en $x=1$, positive en $x=2$, et s'annule donc en $x=\phi$ entre ces deux valeurs.
+			\[ 1 < \phi < 2. \]
+		\item 
+		Voir ci-dessous.
+		On obtient
+			\[ 1,61803 < \phi < 1,61804. \]
+		\item 
+		La double distributivité conclut. Comme $g(x) = 0$ est une équation produit nul, les seuls $x\in\R$ vérifiant $g(x) = 0$ sont $\frac{1+\sqrt5}2$ et $\frac{1-\sqrt5}2$. 
+		La deuxième solution étant négative, $\phi$ est égale à la première.
+		\item 
+		Les encadrements suivants sont équivalents.
+			\begin{align*}
+				a < \dfrac{1+\sqrt5}2 < b \\
+				2a  < 1 + \sqrt5 < 2b \\
+				2a - 1 < \sqrt5 < 2b -1
+			\end{align*}
+		L'amplitude de ce dernier est $2b -1 - (2a - 1) = 2b - 1 -2a + 1 = 2(b-a) = 2\ell$, le double de l'amplitude de départ.
+		L'encadrement de $\sqrt{5}$ est donc plus ample !
+	\end{enumerate}
+	
+	\python{phi}
 }
 
 

@@ -1,14 +1,9 @@
-def f(x):
-	return _______
+def g(x):
+    return x*x - x - 1
 
-precision = 1e-10
+amplitude = 1e-5
+x = 1
+while g(x) < 0:
+    x = x+amplitude
 
-def racine(a, b):
-	if b-a < ________:
-		return a, b
-	m = (a+b)/2
-	if _______:
-		return racine(a,m)
-	return racine(m,b)
-	
-a, b = racine(__,__)
+print("Encadrement : ", x-amplitude, "< phi <", x)
