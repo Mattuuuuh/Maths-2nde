@@ -54,6 +54,19 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 	On peut vérifier que $2,6^2 = 6,76 < 7 < 7,84 = 2,8^2$, ce qui permet de conclure d'après le cours.
 }
 
+\exe{}{
+	Admettons que fonction $f$ soit croissante autour de $\sqrt7$ (elle préserve l'ordre).
+
+	Quel est le signe de $f(x)$ pour $x$ proche de $\sqrt7$ et inférieur ?
+	Et pour $x$ proche de $\sqrt7$ et supérieur ?
+}{exe:signesqrt7}{
+	Si $x < \sqrt7$, alors $f(x) < f\bigl(\sqrt7\bigr) = 0$ est négatif.
+	Si $x > \sqrt7$, alors $f(x) > f\bigl(\sqrt7\bigr) = 0$ est positif.
+	
+	$f(x)$ passe donc du positif au négatif en passant par 0 en $x=\sqrt7$.
+	C'est cette propriété qu'on utilisera pour approximer $\sqrt7$ : en augmentant progressivement $x$ jusqu'à ce que $f(x)$ devienne positif.
+}
+
 \begin{center}
 \begin{tikzpicture}[>=stealth, scale=1.2]
 \begin{axis}[xmin = 0, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, ytick distance=5, minor tick num= 4, extra y ticks={0}]
@@ -64,12 +77,8 @@ Dans tout ce document, nous étudions la fonction $f$ donnée algébriquement su
 \end{multicols}
 
 \exe{, difficulty=1}{
-	Rédiger une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$.
-	Décrire chaque étape
-		\begin{enumerate}[label=\roman*)]
-			\item en utilisant l'expression « tant que » ; et
-			\item en admettant le fait que fonction $f$ soit croissante autour de $\sqrt7$ (elle préserve l'ordre).
-		\end{enumerate}
+	Rédiger une procédure pour obtenir un encadrement de $\sqrt7$ d'amplitude $0,001$ en utilisant l'expression « tant que » et l'exercice \ref{exe:signesqrt7}.
+	S'inspirer des encadrements trouvés précédemment.
 }{exe:balayage3}{
 	De façon analogue aux exercices précédents, partons de $x=0$ et parcourons les graduations de pas $0,001$ jusqu'à encadrer $\sqrt7$.
 	
