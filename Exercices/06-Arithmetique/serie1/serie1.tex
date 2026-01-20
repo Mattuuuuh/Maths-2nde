@@ -312,6 +312,12 @@
 	Donc le seul diviseur commun à $33$ et $70$ est $1$.
 }
 
+\exe{}{
+	todo
+}{exe:frac-irr}{
+	todo
+}
+
 \hrule
 
 \exe{, difficulty=1}{
@@ -330,53 +336,53 @@
 	todo
 }
 
-
-\exe{, difficulty=2}{
-	Le but de cet exercice est de trouver une forme close pour la somme des $n$ premiers entiers naturels $1+2+3+4+\cdots + n$, nombre appelé \emph{nombre triangulaire}.
-	\begin{enumerate}
-		%\item
-		%Quelles hypothèses poser sur $n$ ? Dans quel ensemble de nombres appartient-il ?
-		\item
-		Montrer que la différence de deux carrés parfaits consécutifs est un nombre impair.
-		\item
-		Montrer qu'en ajoutant les différences $1^2-0^2$, $2^2 - 1^2, 3^2 - 2^2, \dots, (n+1)^2 - n^2$, on obtient $(n+1)^2$.
-		\item
-		En déduire que
-			\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
-		\item
-		Conclure que 
-			\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
-		\emph{Indication : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.}
-	\end{enumerate}
-}{exe:star1}{
-	
-	\begin{enumerate}
-		\item
-			\[ (n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n+1. \]
-		\item
-		En ajoutant les différences l'une après l'autre, on remarque que chaque nouveau terme annule la somme partielle qui devient un carré parfait.
-		En réordonnant les termes, on effectue en fait la somme
-			\[ 1^2 + 2^2 +3^2 + \cdots + (n+1)^2 - 0^2 - 1^2 - 2^2 - \cdots - n^2 = (n+1)^2 - 0^2. \]
-		\item
-		Chaque différence est un nouveau nombre impair d'après la première question : $(k+1)^2 - k^2 = 2k+1$, avec $k$ allant de 0 à $n$.
-		\item
-		En soustrayant 1 à chaque terme de la somme de gauche, nous soustrayons $n+1$ au total (les termes allant de $2\times0+1$ à $2n+1$, il y en a autant que d'éléments de $\bigset{0 ; 1 ; \cdots ; n}$, soit $n+1$).
-		Par conséquent,
-			\[ 0 + 2 + 4 + 6 + \cdots + 2n = (n+1)^2 - (n+1) = (n+1)(n+1-1) = n(n+1). \]
-		Diviser par deux conclut.
-	\end{enumerate}
-
-	\underline{Discussion}
-	
-	La somme de différences successives s'appelle \emph{somme téléscopique}.
-	
-	En considérant les différences successives de cubes, on peut montrer que
-		\[ 1 + 4 + 9 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
-	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple en étudiant la parité et la divisibilité par 3).
-	
-	Plus généralement, la somme des $k^d$ de $k=1$ à $n$ donne une expression commençant par $\frac1{d+1}n^{d+1}$.
-	Sommer fait gagner un ordre ; phrase dont on se rappelera lors de l'étude de l'intégration ! (\emph{cf}. théorème fondamental de l'analyse)
-}
+%
+%\exe{, difficulty=2}{
+%	Le but de cet exercice est de trouver une forme close pour la somme des $n$ premiers entiers naturels $1+2+3+4+\cdots + n$, nombre appelé \emph{nombre triangulaire}.
+%	\begin{enumerate}
+%		%\item
+%		%Quelles hypothèses poser sur $n$ ? Dans quel ensemble de nombres appartient-il ?
+%		\item
+%		Montrer que la différence de deux carrés parfaits consécutifs est un nombre impair.
+%		\item
+%		Montrer qu'en ajoutant les différences $1^2-0^2$, $2^2 - 1^2, 3^2 - 2^2, \dots, (n+1)^2 - n^2$, on obtient $(n+1)^2$.
+%		\item
+%		En déduire que
+%			\[ 1 + 3 + 5 + \cdots + (2n+1) = (n+1)^2. \]
+%		\item
+%		Conclure que 
+%			\[ 1 + 2 + 3 + \cdots + n = \dfrac{n(n+1)}2. \]
+%		\emph{Indication : soustraire $n+1$ des deux côtés de l'équation obtenue à la question 3.}
+%	\end{enumerate}
+%}{exe:star1}{
+%	
+%	\begin{enumerate}
+%		\item
+%			\[ (n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n+1. \]
+%		\item
+%		En ajoutant les différences l'une après l'autre, on remarque que chaque nouveau terme annule la somme partielle qui devient un carré parfait.
+%		En réordonnant les termes, on effectue en fait la somme
+%			\[ 1^2 + 2^2 +3^2 + \cdots + (n+1)^2 - 0^2 - 1^2 - 2^2 - \cdots - n^2 = (n+1)^2 - 0^2. \]
+%		\item
+%		Chaque différence est un nouveau nombre impair d'après la première question : $(k+1)^2 - k^2 = 2k+1$, avec $k$ allant de 0 à $n$.
+%		\item
+%		En soustrayant 1 à chaque terme de la somme de gauche, nous soustrayons $n+1$ au total (les termes allant de $2\times0+1$ à $2n+1$, il y en a autant que d'éléments de $\bigset{0 ; 1 ; \cdots ; n}$, soit $n+1$).
+%		Par conséquent,
+%			\[ 0 + 2 + 4 + 6 + \cdots + 2n = (n+1)^2 - (n+1) = (n+1)(n+1-1) = n(n+1). \]
+%		Diviser par deux conclut.
+%	\end{enumerate}
+%
+%	\underline{Discussion}
+%	
+%	La somme de différences successives s'appelle \emph{somme téléscopique}.
+%	
+%	En considérant les différences successives de cubes, on peut montrer que
+%		\[ 1 + 4 + 9 + \cdots + n^2 = \dfrac{n(n+1)(2n+1)}6. \]
+%	On obtient d'ailleurs que $n(n+1)(2n+1)$ est toujours un multiple de 6 (résultat qu'on peut démontrer de façon plus simple en étudiant la parité et la divisibilité par 3).
+%	
+%	Plus généralement, la somme des $k^d$ de $k=1$ à $n$ donne une expression commençant par $\frac1{d+1}n^{d+1}$.
+%	Sommer fait gagner un ordre ; phrase dont on se rappelera lors de l'étude de l'intégration ! (\emph{cf}. théorème fondamental de l'analyse)
+%}
 
 
 \exe{, difficulty=2}{
@@ -390,7 +396,7 @@
 		
 		\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
 		\item\label{q:3}
-		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $A$ et $B$ sont somme de deux carrés, alors le produit $AB$ aussi.
+		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $m$ et $n$ sont somme de deux carrés, alors le produit $mn$ aussi.
 		\item\label{q:4}
 		Décomposer 85 en facteurs premiers, écrire chaque facteur comme somme de deux carrés, et en déduire l'écriture de 85 comme somme de deux carrés à l'aide de la question \ref{q:3}.
 		\item
@@ -414,6 +420,8 @@
 	Le théorème des deux carrés de Fermat énonce que la direction inverse est également vraie.
 	De plus, si un premier n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
 }
+
+
 
 %%%%%%%%%%%
 
