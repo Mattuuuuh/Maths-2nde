@@ -69,7 +69,7 @@
 %	\end{enumerate}
 %}
 
-\hrule
+%\hrule
 
 \exe{}{
 	Une tablette de chocolat classique comprend 12 carrés. Quelles sont les dimensions possibles de la tablette ? On cherche le nombre de carrés en longueur et en largeur.
@@ -119,7 +119,7 @@
 	Par symétrie, il existe une autre solution, $x = -4$, qui appartient à $\Z$ mais pas à $\N$.
 }
 
-\hrule
+%\hrule
 
 
 
@@ -141,7 +141,7 @@
 
 
 \exe{}{
-	Parmis les premiers de l'exercice \ref{exe:premiers}, lequels admettent un nombre premier de lettres lorsqu'écrits en toutes lettres ?
+	Parmis les premiers de l'exercice \ref{exe:premiers}, lequels admettent un nombre premier de lettres lorsque écrits en toutes lettres ?
 }{exe:premier-premier}{
 	Parmis $\bigset{ 2 ; 3 ; 5 ; 7 ; 11 }$, seul « trois » s'écrit avec 5 lettres, le reste des éléments s'écrivant avec 4 lettres.
 	Les prochains sont dix-sept et dix-neuf, qui contiennent 7 lettres chacun.
@@ -283,7 +283,7 @@
 \exe{}{
 	\begin{enumerate}
 		\item Donner les diviseurs \emph{communs} à $6$ et à $15$.
-		\item Simplifier la fraction $\dfrac{6}{15}$ en \emph{fraction irréductible}.
+		\item Simplifier la fraction $\frac{6}{15}$ comme {fraction irréductible}.
 	\end{enumerate}
 }{exe:old-div4}{
 
@@ -298,7 +298,7 @@
 \exe{}{
 	\begin{enumerate}
 		\item Donner les multiples \emph{communs}  à $10$ et $35$ inférieurs ou égaux à $100$.
-		\item Écrire la somme $\dfrac{3}{10} + \dfrac{6}{35}$ en \emph{fraction irréductible}.
+		\item Écrire la somme $\frac{3}{10} + \frac{6}{35}$ comme {fraction irréductible}.
 	\end{enumerate}
 }{exe:old-div5}{
 	\begin{enumerate}
@@ -313,28 +313,45 @@
 }
 
 \exe{}{
-	todo
+	Écrire les nombres rationnels suivants comme fraction irréductible.
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\alph*)]
+		\item $\dfrac{3}{44}$
+		\item $\dfrac{14}{27}$
+		\item $\dfrac{26}{1}$
+		\item $\dfrac{27}{25}$
+		\item $\dfrac{6}{32}$
+		\item $\dfrac{22}{20}$
+		\item $\dfrac{10}{44}$
+		\item $\dfrac{25}{3}$
+		\item $\dfrac{48}{39}$
+		\item $\dfrac{32}{18}$
+	\end{enumerate}
+	\end{multicols}
 }{exe:frac-irr}{
 	todo
 }
 
-\hrule
+%\hrule
 
-\exe{, difficulty=1}{
-	On cherche à résoudre l'équation cubique suivante, où $x\in\Z$ est entier :
-		\[ x^3 + 3x^2 - x - 108 = 0. \]
-	\begin{enumerate}
-		\item
-		Montrer que l'équation est équivalente à 
-			\[  (x+1)(x-1)(x+3) = 105. \]
-		\item	
-		Donner la décomposition en facteurs premiers de 105.
-		\item
-		En déduire toutes les valeurs $x\in\Z$ solutions de l'équation originale.
-	\end{enumerate}
-}{exe:div105}{
-	todo
-}
+\subsection*{Exercices d'approfondissement}
+
+% pour l'éval ?
+%\exe{, difficulty=1}{
+%	On cherche à résoudre l'équation cubique suivante, où $x\in\Z$ est entier :
+%		\[ x^3 + 3x^2 - x - 108 = 0. \]
+%	\begin{enumerate}
+%		\item
+%		Montrer que l'équation est équivalente à 
+%			\[  (x+1)(x-1)(x+3) = 105. \]
+%		\item	
+%		Donner la décomposition en facteurs premiers de 105.
+%		\item
+%		En déduire toutes les valeurs $x\in\Z$ solutions de l'équation originale.
+%	\end{enumerate}
+%}{exe:div105}{
+%	todo
+%}
 
 %
 %\exe{, difficulty=2}{
@@ -390,7 +407,7 @@
 	On dit que $n\in\N$ est somme de deux carrés si $n=a^2 + b^2$ avec $a, b \in \N$ entiers.
 	\begin{enumerate}
 		\item 
-		Montrer que 2 est somme de deux carrés, mais que 3 ne l'est pas.
+		Montrer que 2 et 4 sont somme de deux carrés, mais que 3 et 7 ne le sont pas.
 		\item 
 		Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
 		
@@ -410,9 +427,9 @@
 	\underline{Discussion}
 	
 	La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
-	Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement le reste après division euclidienne par 4. 
+	Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement les restes après division euclidienne par 4. 
 	En particulier, le reste du carré est le carré du reste (propriété à montrer !).
-	Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4 + 0,$ et $3^2 = 9 = 4\times2 + 1$. 
+	Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4,$ de reste $0$ et $3^2 = 9$, de reste 1. 
 	On voit donc que les seuls restes 0 et 1 sont possibles.
 	
 	Nous avons montré que si chaque premier $p$ divisant $n$ et apparaissant dans sa décomposition avec une puissance impaire est somme de deux carrés, alors $n$ est somme de deux carrés (les puissances paires étant déjà des carrés).
@@ -426,14 +443,14 @@
 	un nombre prenant la forme $2^n - 1$ avec $n\in\N$.
 	\begin{enumerate}
 		\item
-		Donner les 15 premiers nombres de Mersenne.
+		Donner les 15 plus petits nombres de Mersenne.
 		\item
 		Parmis ces nombres, lesquels sont premiers ?
 		\item
 		Que dire des exposants $n$ lorsque $2^n -1$ est premier ?
 		\item
-		Montrer que pour pour tout $q\in\R$,
-			\[ (q-1)(1+q+q^2 + q^3 + \cdots + q^{n-1}) = q^n - 1. \]
+		Montrer que pour pour tout $q\in\R$ et $d\geq1$ entier,
+			\[ (q-1)(1+q+q^2 + q^3 + \cdots + q^{d-1}) = q^d - 1. \]
 		\item
 		En déduire que si $n$ n'est pas premier, alors $2^n -1$ n'est pas premier non plus. 
 	\end{enumerate}
