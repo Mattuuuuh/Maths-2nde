@@ -1,0 +1,105 @@
+\input{../preamble.tex}
+\SetDate[21/01/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Identités remarquables}
+
+\framedelayed{
+	Développer et réduire la forme factorisée suivante.
+	\boxAB{
+		$2+2(2x+3)^2$
+	}{
+		$4-3(x+1)^2$
+	}
+}{
+	\begin{align*}
+		(a+b)^2 &= a^2 + b^2 + 2·a·b \\
+		(a-b)^2 &= a^2 + b^2 - 2·a·b
+	\end{align*}
+	\boxAB{
+		$2+2(2x+3)^2 = 2 + 2(4x^2 + 9 + 12x) = 8x^2 +24x + 20$
+	}{
+		$4-3(x+1)^2 = 4 - 3(x^2 + 1 + 2x) = -3x^2 -6x + 1$
+	}
+}
+
+
+\framedelayed{
+	Développer et réduire la forme factorisée suivante.
+	\boxAB{
+		$10-3(x+1)^2$
+	}{
+		$7+2(3x+1)^2$
+	}
+}{
+	\begin{align*}
+		(a+b)^2 &= a^2 + b^2 + 2·a·b \\
+		(a-b)^2 &= a^2 + b^2 - 2·a·b
+	\end{align*}
+	\boxAB{
+		$10-3(x+1)^2 = 10 - 3(x^2 + 1 + 2x) = -3x^2 - 6x + 7$
+	}{
+		$7+2(3x+1)^2 = 7 + 2(9x^2 + 1 + 6x) = 18x^2 + 12x + 9$
+	}
+}
+
+\subsection{Racine carrée}
+
+\framedelayed{
+	Donner toutes les solutions $x\in\R$ de l'équation
+	\boxAB{
+		$x^2  = 16$
+	}{
+		$x^2  = 7$
+	}
+}{
+	Si $a > 0$,
+	\begin{align*}
+		x^2 = a && \iff && x = \sqrt{a} \ou x = -\sqrt{a}
+	\end{align*} 
+	\boxAB{
+		$\bigset{x\in\R \tq x^2= 16} = \bigset{ 4 ; -4}$
+	}{
+		$\bigset{x\in\R \tq x^2= 7} = \bigset{ \sqrt7 ; -\sqrt7}$
+	}
+}
+
+\framedelayed{
+	Donner toutes les solutions $x\in\R$ de l'équation
+	\boxAB{
+		$x^2  = 8$
+	}{
+		$x^2  = 25$
+	}
+}{
+	Si $a > 0$,
+	\begin{align*}
+		x^2 = a && \iff && x = \sqrt{a} \ou x = -\sqrt{a}
+	\end{align*} 
+	\boxAB{
+		$\bigset{x\in\R \tq x^2= 8} = \bigset{ \sqrt8 ; -\sqrt8 }$
+	}{
+		$\bigset{x\in\R \tq x^2= 25} = \bigset{ 5 ; -5}$
+	}
+}
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
