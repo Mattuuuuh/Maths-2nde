@@ -45,7 +45,11 @@
 	Leur produit est donc pair, et la division par 2 donne un entier.
 }
 
-
+%\exe{, difficulty=1}{
+%	Montrer que le carré d'un nombre impair prend la forme $4k + 1$ avec $k\in\N$ entier.
+%}{exe:oddsquare}{
+%	$(2n+1)^2 = 4n^2 + 4n + 1 = 4(n^2 + n) + 1 = 4k+1$.
+%}
 
 % sympa mais osef non ?
 %\exe{, difficulty=1}{
@@ -328,7 +332,7 @@
 }
 
 \exe{}{
-	Calculer puis rendre les fractions irréductibles.
+	Exprimer chaque valeur suivante sous forme de fraction irréductible.
 	\begin{multicols}{4}
 	\begin{enumerate}[label=\alph*), itemsep=10pt]
 		\item $1-\dfrac{4}{44}$
@@ -420,15 +424,36 @@
 
 
 \exe{, difficulty=2}{
+	On appelle \emph{nombre de Mersenne}\footnotemark 
+	un nombre prenant la forme $2^n - 1$ avec $n\in\N$.
+	\begin{enumerate}
+		\item
+		Donner les 15 plus petits nombres de Mersenne.
+		\item
+		Parmis ces nombres, lesquels sont premiers ?
+		\item
+		Que dire des exposants $n$ lorsque $2^n -1$ est premier ?
+		\item
+		Montrer que pour pour tout $q\in\R$ et $d\geq1$ entier,
+			\[ (q-1)\left(1+q+q^2 + q^3 + \cdots + q^{d-1}\right) = q^d - 1. \]
+		\item
+		En déduire que si $n$ n'est pas premier, alors $2^n -1$ n'est pas premier non plus. 
+	\end{enumerate}
+}{exe:Mersenne}{
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+}
+
+\exe{, difficulty=2}{
 	Ce exercice traite du \emph{théorème des deux carrés} de Fermat\footnote{Pierre de Fermat (1607 - 1665), magistrat et mathématicien français.}.
 	On dit que $n\in\N$ est somme de deux carrés si $n=a^2 + b^2$ avec $a, b \in \N$ entiers.
 	\begin{enumerate}
 		\item 
 		Montrer que 2 et 4 sont somme de deux carrés, mais que 3 et 7 ne le sont pas.
-		\item 
-		Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
-		
-		\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
+		%\item 
+		%Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
+		%
+		%\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
 		\item\label{q:3}
 		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $m$ et $n$ sont somme de deux carrés, alors le produit $mn$ aussi.
 		\item\label{q:4}
@@ -443,37 +468,16 @@
 	
 	\underline{Discussion}
 	
-	La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
-	Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement les restes après division euclidienne par 4. 
-	En particulier, le reste du carré est le carré du reste (propriété à montrer !).
-	Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4,$ de reste $0$ et $3^2 = 9$, de reste 1. 
-	On voit donc que les seuls restes 0 et 1 sont possibles.
+	%La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
+	%Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement les restes après division euclidienne par 4. 
+	%En particulier, le reste du carré est le carré du reste (propriété à montrer !).
+	%Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4,$ de reste $0$ et $3^2 = 9$, de reste 1. 
+	%On voit donc que les seuls restes 0 et 1 sont possibles.
 	
 	Nous avons montré que si chaque premier $p$ divisant $n$ et apparaissant dans sa décomposition avec une puissance impaire est somme de deux carrés, alors $n$ est somme de deux carrés (les puissances paires étant déjà des carrés).
 	
 	Le théorème des deux carrés de Fermat énonce que la direction inverse est également vraie.
-	De plus, si un premier n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
-}
-
-\exe{, difficulty=2}{
-	On appelle \emph{nombre de Mersenne}\footnotemark 
-	un nombre prenant la forme $2^n - 1$ avec $n\in\N$.
-	\begin{enumerate}
-		\item
-		Donner les 15 plus petits nombres de Mersenne.
-		\item
-		Parmis ces nombres, lesquels sont premiers ?
-		\item
-		Que dire des exposants $n$ lorsque $2^n -1$ est premier ?
-		\item
-		Montrer que pour pour tout $q\in\R$ et $d\geq1$ entier,
-			\[ (q-1)(1+q+q^2 + q^3 + \cdots + q^{d-1}) = q^d - 1. \]
-		\item
-		En déduire que si $n$ n'est pas premier, alors $2^n -1$ n'est pas premier non plus. 
-	\end{enumerate}
-}{exe:Mersenne}{
-	À rendre pour possibilité de points bonus à la prochaine évaluation.
-	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	De plus, il énonce que si un premier $p$ n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
 }
 
 \footnotetext{Marin Mersenne (1588-1648), physicien, mathématicien, musicologue et philosophe français.}
