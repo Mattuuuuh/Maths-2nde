@@ -16,7 +16,11 @@
 	
 	Comment savoir si la page $n$ est de gauche ou de droite ? $n \in\N$ est un entier quelconque.
 }{exe:parite-pages}{
-	todo
+	La page 33 d'un livre est une page droite. La prochaine page, la 34, est donc de gauche, et la suivante, la 35 est de droite.
+	Les nombres pairs et impairs s'alternent : toutes les pages de droites sont donc impaires, et toutes les pages de gauche sont paires.
+	Il suit que la page 330 ne peut pas être une page de droite car 330 est pair.
+	
+	Plus généralement, la page $n$ est de droite si $n$ est impair (non divisible par 2), et de gauche si $n$ est pair (divisible par 2).
 }
 
 \exe{}{
@@ -74,7 +78,13 @@
 \exe{}{
 	Une tablette de chocolat classique comprend 12 carrés. Quelles sont les dimensions possibles de la tablette ? On cherche le nombre de carrés en longueur et en largeur.
 }{exe:chocolat0}{
-	TODO
+	Notons $a$ et $b$ les dimensions de la tablette, entiers naturels.
+	Alors le nombre de carrés est donné par $a \times b = 12$.
+	Par inspection, les seules solutions entières sont $12 = 1\times12 = 2\times6 = 3\times4$.
+	
+	Remarquons que $12 = 2\times6 = 6\times2$, donc les possibilités sont doublées pour les couples $(a ; b)$ car 12 n'est pas un carré parfait :
+		\[ (a ; b) \in \Bigset{ (1 ; 12) ; (12; 1) ; (2 ; 6) ; (6 ; 2) ; (3 ; 4) ; (4 ; 3) }. \]
+	L'ensemble précédent n'est pas un ensemble de nombres mais un ensemble de couples !
 }
 
 
@@ -126,7 +136,7 @@
 \exe{}{
 	Une tablette de chocolat classique comprend 11 carrés. Est-ce possible ?
 }{exe:chocolat}{
-	TODO
+	C'est possible si les dimensions sont $1\times11$ ; c'est un Toblerone !
 }
 
 
@@ -153,7 +163,7 @@
 \exe{}{
 	Donner la décomposition en facteurs premiers des éléments de $\D_{24}$ excepté 1.
 }{exe:décompositions-primaires}{
-	On a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 , 4 ; 6 }$, qui se décomposent comme suit.
+	On a $\D_{24} = \bigset{ 1 ; 24 ; 2 ; 12 ; 3 ; 8 ; 4 ; 6 }$, qui se décomposent comme suit.
 	\begin{multicols}{2}
 		$2 = 2$ est déjà premier.
 		
@@ -175,8 +185,7 @@
 \exe{, difficulty=1}{
 	Sachant que $12^2 = 144$, est-ce que 7 divise 144 ?
 }{exe:7div144}{
-	Dans le cas où 7 divise 144, on aurait $144 = 7a$ pour un entier $a$.
-	Comme 7 est premier, il s'agit donc de savoir s'il appartient à la décomposition primaire 144, par unicité de la décomposition du théorème \ref{thm:decomposition-primaire-strong}.
+	Comme 7 est premier, il s'agit donc de savoir s'il appartient à la décomposition primaire 144 ou non, par unicité de la décomposition.
 	Or, la décomposition de 12 est $12 = 2^2 \times 3$.
 	Ainsi, la décomposition de $12^2$ est $12^2 = \bigl(2^2 \times 3 \bigr)^2 = 2^4 \times 3^2$.
 	7 ne divise donc pas 144 car il n'appartient pas à sa décomposition.
@@ -190,13 +199,19 @@
 }{exe:sq-factor}{
 	On crée $a$ en extrayant le plus de carrés possible pour obtenir le $b$ le plus petit.
 	$2160 = \bigl(2^2 \times 3\bigr)^2 \times 3 \times 5 = 12^2 \times 15$.
+	
+	Par conséquent, $\sqrt{2160} = \sqrt{12^2 \times 15} = 12\sqrt{15}$.
 }
 
 \exe{}{
 	Exprimer 6~750 sous la forme $a^2 \times b$, où $a, b\in\N$ et $b$ est le plus petit possible. 
+	
+	Écrire $\sqrt{6750}$ sous la forme $a\sqrt{b}$ avec $a, b\in\N$ entier, et $b$ le plus petit possible.
 }{exe:6750-factor}{
 	On décompose d'abord $6~750 = 10 \times 675 = 10 \times 135 \times 5 = 10 \times 27 \times 5^2 = 2 \times 3^3 \times 5^3$.
 	D'où $6~750 = \bigl(3\times5)^2 \times 2 \times3\times5 = 15^2 \times 30$.
+	
+	Par conséquent, $\sqrt{6750} = \sqrt{15^2 \times 30} = 15\sqrt{30}$.
 }
 
 % TODO: plus d'exes avec les puissances. Genre décomposer 15^7
@@ -242,12 +257,12 @@
 	\end{multicols}
 }{exe:old-div2}{
 
-	\textbf{Remarque importante} : si $a$ divise $n$, on peut écrire 
-		\[ n = a \times k, \]
+	\textbf{Remarque importante} : si $d$ divise $n$, on peut écrire 
+		\[ n = d \times k, \]
 	pour $k \in \N$ un entier naturel.
 	
-	En décomposant $a$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice \ref{exe:old-div1} par exemple).
-	Ainsi, si un nombre premier apparaît dans la décomposition de $a$, il doit apparaître au moins autant de fois dans la décomposition de $b$.
+	En décomposant $d$ et $k$ en produit de nombres premiers, on trouve la décomposition de $n$ (voir exercice \ref{exe:old-div1} par exemple).
+	Ainsi, si un nombre premier apparaît dans la décomposition de $d$, il doit apparaître au moins autant de fois dans la décomposition de $n$.
 	
 
 	\begin{enumerate}[label=\alph*)]
@@ -258,32 +273,32 @@
 	\end{enumerate}
 }
 
-
-\exe{}{
-	Soit $n \in \N$ un entier naturel.
-	\begin{enumerate}
-		\item Écrire la décomposition en produit de facteurs premiers de $10^n$.
-		\item Démontrer par l'absurde que le rationnel $\frac{5}{12} \in \Q$ n'est pas un nombre décimal.
-		
-		\emph{Rappel : $\D = \Bigset{ \dfrac{a}{10^n} \tq a\in\Z, n \in\N }$, les nombres décimaux.}
-	\end{enumerate}
-}{exe:old-div3}{
-	\begin{enumerate}
-		\item $10^n = 2^n \times 5^n$.
-		\item On reprend la preuve par l'absurde vue en cours jusqu'à trouver deux entiers $a\in\Z$, $n\in\N$ tels que
-			\[ \dfrac{a}{10^n} = \dfrac{5}{12}. \]
-		En manipulant l'égalité on trouve
-			\[ 3 \times 4 a = 5 \times 10^n = 2^n 5^{n+1}. \]
-		Ainsi le premier $3$ apparaît à gauche mais pas à droite, ce qui contredit l'unicité du théorème de décomposition vu en cours (théorème fondamental de l'arithmétique).
-	\end{enumerate}
-}
+% à faire en classe, ils sauront pas (trop nuls)
+%\exe{}{
+%	Soit $n \in \N$ un entier naturel.
+%	\begin{enumerate}
+%		\item Écrire la décomposition en produit de facteurs premiers de $10^n$.
+%		\item Démontrer par l'absurde que le rationnel $\frac{5}{12} \in \Q$ n'est pas un nombre décimal.
+%		
+%		\emph{Rappel : $\D = \Bigset{ \dfrac{a}{10^n} \tq a\in\Z, n \in\N }$, les nombres décimaux.}
+%	\end{enumerate}
+%}{exe:old-div3}{
+%	\begin{enumerate}
+%		\item $10^n = 2^n \times 5^n$.
+%		\item On reprend la preuve par l'absurde vue en cours jusqu'à trouver deux entiers $a\in\Z$, $n\in\N$ tels que
+%			\[ \dfrac{a}{10^n} = \dfrac{5}{12}. \]
+%		En manipulant l'égalité on trouve
+%			\[ 3 \times 4 a = 5 \times 10^n = 2^n 5^{n+1}. \]
+%		Ainsi le premier $3$ apparaît à gauche mais pas à droite, ce qui contredit l'unicité du théorème de décomposition vu en cours (théorème fondamental de l'arithmétique).
+%	\end{enumerate}
+%}
 
 %\hrule
 
 \exe{}{
 	\begin{enumerate}
 		\item Donner les diviseurs \emph{communs} à $6$ et à $15$.
-		\item Simplifier la fraction $\frac{6}{15}$ comme {fraction irréductible}.
+		\item Rendre la fraction $\dfrac{6}{15}$ irréductible.
 	\end{enumerate}
 }{exe:old-div4}{
 
@@ -298,7 +313,7 @@
 \exe{}{
 	\begin{enumerate}
 		\item Donner les multiples \emph{communs}  à $10$ et $35$ inférieurs ou égaux à $100$.
-		\item Écrire la somme $\frac{3}{10} + \frac{6}{35}$ comme {fraction irréductible}.
+		\item Calculer la somme $\dfrac{3}{10} + \dfrac{6}{35}$ puis la rendre irréductible.
 	\end{enumerate}
 }{exe:old-div5}{
 	\begin{enumerate}
@@ -313,19 +328,21 @@
 }
 
 \exe{}{
-	Écrire les nombres rationnels suivants comme fraction irréductible.
+	Calculer puis rendre les fractions irréductibles.
 	\begin{multicols}{4}
-	\begin{enumerate}[label=\alph*)]
-		\item $\dfrac{3}{44}$
-		\item $\dfrac{14}{27}$
-		\item $\dfrac{26}{1}$
-		\item $\dfrac{27}{25}$
-		\item $\dfrac{6}{32}$
-		\item $\dfrac{22}{20}$
-		\item $\dfrac{10}{44}$
-		\item $\dfrac{25}{3}$
-		\item $\dfrac{48}{39}$
-		\item $\dfrac{32}{18}$
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item $1-\dfrac{4}{44}$
+		\item $\dfrac{15}{27}$
+		\item $\dfrac{8}{3} + 6$
+		\item $\dfrac{65}{5^2}$
+		\item $\dfrac{6}{32}\times\dfrac{2}{3}$
+		\item $3-\dfrac{38}{20}$
+		\item $\left(\dfrac{10}{44}\right)^{-1}$
+		\item $\dfrac{6}{18}\times2 + 1$
+		\item $\left(\dfrac{66}{99}\right)^2$
+		\item $\dfrac{23}{18} + \dfrac12$
+		\item $\dfrac{34}{20}$
+		\item $2 - \dfrac{9}{5}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:frac-irr}{
