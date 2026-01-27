@@ -1,0 +1,495 @@
+\input{../preamble.tex}
+
+\SetDate[27/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Vecteurs}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	Placer les points 
+		\begin{align*}
+			A = (-6 ;3), && B = (5 ; 6), && C = (0 ; -7),
+		\end{align*}
+	dans un repère et répondre au questions.
+	
+	\begin{enumerate}
+		\item Quelle translation $\vec{AB}$ effectuer pour envoyer le point $A$ sur le point $B$ ?
+		\item Quelle translation $\vec{BC}$ effectuer pour envoyer le point $B$ sur le point $C$ ?
+		\item Quelle translation $\vec{AC}$ effectuer pour envoyer le point $A$ sur le point $C$ ?
+		\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$ et compléter la phrase suivante.
+			\begin{center}
+				\og Lorsque $A$ est envoyé sur $B$, puis $B$ est envoyé sur $C$, alors $A$ est envoyé sur $\dots$ \fg
+			\end{center}
+		%\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$.
+		
+		%\item Pour $A, B, C$ trois points quelconques, démontrer l'égalité
+		%	\[ \vec{AC} = \vec{AB} + \vec{BC}. \]
+	\end{enumerate}
+
+}{exe:intro1}{
+	
+	\begin{enumerate}
+		\item On calcule
+			\[ \vec{AB} = B - A = \pvec{5 - (-6)}{6 - 3} = \pvec{11}{3}. \]
+		\item On calcule
+			\[ \vec{BC} = C - B = \pvec{0 - 5}{-7 - 6} = \pvec{-5}{-13}. \]
+		\item On calcule
+			\[ \vec{AC} = C - A = \pvec{0 - (-6)}{-7 -3} = \pvec{6}{-10}. \]
+		\item
+			La somme $\vec{AB} + \vec{BC}$ est donnée par
+				\[ \vec{AB} + \vec{BC} = \pvec{11}3 + \pvec{-5}{-13} = \pvec{11 - 5}{3-13} = \pvec{6}{-10} = \vec{AC}. \]
+		%\item
+		%	On a, plus généralement, $\vec{AB} + \vec{BC} = B - A + C - B = C - A = \vec{AC}$.
+	\end{enumerate}
+}
+
+
+\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+	\caption{Repère pour l'exercice \ref{exe:intro1}.}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = -10.5, xmax=10.5, ymin=-10.5, ymax=10.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
+			
+		\end{axis}
+		\end{tikzpicture}
+	\caption{Repère pour l'exercice \ref{exe:intro2}.}
+	\end{subfigure}
+\end{figure}
+
+
+\exe{}{
+	Dessiner les vecteurs
+		\begin{align*}
+			u = \pvec{-2}{4}, && v = 2u, && w = -\dfrac32u, && z = -\dfrac12u,
+		\end{align*}
+	dans un repère, et répondre aux questions suivantes.
+	
+	\begin{enumerate}
+		\item Compléter les phrases suivantes.
+			\begin{center}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, son sens $\dots\dots\dots\dots\dots\dots$ \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, son sens$\dots\dots\dots\dots\dots\dots$ \fg\\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par  $\dots$ pour obtenir $z$, son sens $\dots\dots\dots\dots\dots\dots$ \fg
+			\end{center}
+		\item Calculer les normes de $u, v, w,$ et $z$ et les écrire sous forme $a\sqrt{b}$ où $a, b\in\N$ et $b$ est le plus petit possible.
+		\item Compléter les phrases suivantes.
+			\begin{center}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$  pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg
+			\end{center}
+%		\item Pour $u = \pvec{x}{y}$ et $\kappa\in\R$ quelconques, démontrer l'égalité 
+%			\[\Vert \kappa \cdot u \Vert = | \kappa | \cdot  \Vert u \Vert. \]
+	\end{enumerate}
+
+}{exe:intro2}{
+	\begin{enumerate}
+		\item
+			\begin{center}
+				\og Lorsque le vecteur $u$ est multiplié par {\color{myr} $2$} pour obtenir $v$, son sens {\color{myr} ne change pas} \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par  {\color{myr} $-\dfrac32$} pour obtenir $w$, son sens {\color{myr} change} \fg\\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par  {\color{myr} $-\dfrac12$} pour obtenir $z$, son sens {\color{myr} change} \fg
+			\end{center}
+		\item
+			\begin{align*}
+				\norm{u} &= \sqrt{(-2)^2 + 4^2} = \sqrt{4 + 16} = \sqrt{20} = \sqrt{4 \times 5} = 2 \sqrt{5}. \\
+				\norm{v} &= \sqrt{(-4)^2 + 8^2} = \sqrt{16 + 64} = \sqrt{80} = \sqrt{16 \times 5} = 4\sqrt{5}. \\
+				\norm{w} &= \sqrt{3^2 + (-6)^2} = \sqrt{9 + 36} = \sqrt{45} = \sqrt{9 \times 5} = 3 \sqrt{5}. \\
+				\norm{z} &= \sqrt{1^2 + (-2)^2} = \sqrt{1 + 4} = \sqrt{5}.
+			\end{align*}
+	
+		On remarque qu'on a les relations suivantes.
+			\begin{align*}
+				\norm{v} = 2 \norm{u} && \norm{w} = \dfrac32 \norm{u} && \norm{z} = \dfrac12 \norm{u}
+			\end{align*}
+		\item
+			\begin{center}
+				\og Lorsque le vecteur $u$ est multiplié par {\color{myr} $2$} pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par {\color{myr} $2$} \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par {\color{myr} $-\dfrac32$} pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par {\color{myr} $\dfrac32$} \fg \\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par {\color{myr} $-\dfrac12$} pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par {\color{myr} $\dfrac12$} \fg
+			\end{center}
+%		\item
+%			On vérifie l'égalité calmement en utilisant que $\sqrt{x^2} = |x|$.
+%				\begin{align*}
+%					\norm{\kappa \cdot u} &= \norm{ \pvec{\kappa \cdot x}{\kappa \cdot y}} \\
+%										&= \sqrt{ (\kappa \cdot x)^2 + (\kappa \cdot y)^2} \\
+%										&= \sqrt{ \kappa^2 \cdot x^2 + \kappa^2 \cdot y^2} \\
+%										&= \sqrt{ \kappa^2  (x^2 + y^2) } \\
+%										&= \sqrt{\kappa^2} \sqrt{x^2 + y^2} \\
+%										&= |\kappa| \cdot \norm{u}.
+%				\end{align*}
+	\end{enumerate}
+}
+
+\exe{}{
+	À l'aide de la figure suivante et de la relation de Chasles, déterminer les sommes vectorielles suivantes en complétant les pointillés.
+
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\newcommand\len{.8cm}
+		\begin{axis}[xmin = 0, x=\len, y= \len, xmax=8, ymin=0, ymax=4, axis line style={transparent}, xlabel={}, ylabel={}, ticks = none, grid = both, enlargelimits={abs=0.8}, minor x tick num = 1, minor y tick num = 1]
+			\draw[very thick, -, RED_E] (axis cs:0,0) -- (axis cs: 8,0);
+			\draw[very thick, -, RED_E] (axis cs:0,4) -- (axis cs: 8,4);
+			\draw[very thick, -, RED_E] (axis cs:0,0) -- (axis cs: 0,4);
+			\draw[very thick, -, RED_E] (axis cs:8,0) -- (axis cs: 8,4);
+			\draw[very thick, -, RED_E] (axis cs:4,0) -- (axis cs: 4,4);
+			\draw[very thick, -, RED_E] (axis cs:0,0) -- (axis cs: 4,4);
+			\draw[very thick, -, RED_E] (axis cs:0,4) -- (axis cs: 4,0);
+			\draw[very thick, -, RED_E] (axis cs:4,0) -- (axis cs: 8,4);
+			\draw[very thick, -, RED_E] (axis cs:4,4) -- (axis cs: 8,0);
+			
+			\addplot[black] (0,0) node[below] {$A$};
+			\addplot[black] (4,0) node[below] {$B$};
+			\addplot[black] (8,0) node[below] {$C$};
+			\addplot[black] (8,4) node[above] {$D$};
+			\addplot[black] (4,4) node[above] {$E$};
+			\addplot[black] (0,4) node[above] {$F$};
+			\addplot[black] (2,2) node[below=2pt] {$G$};
+			\addplot[black] (6,2) node[below=2pt] {$H$};
+			
+		\end{axis}
+		\end{tikzpicture}
+		%\vline
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{BC} = \vec{E \dots}$
+		\item $\vec{BE} = \vec{\dots F}$
+		\item $\vec{AB} + \vec{FA} = \vec{F \dots} + \vec{\dots B} = \vec{\vphantom{A} \dots\dots}$
+		\item $\vec{FD} + \vec{EB} = \vec{FD} + \vec{D\dots} = \vec{\vphantom{A}\dots\dots}$
+		\item $\vec{AE} + \vec{GB} + \vec{DH} = \vec{AE} + \vec{E\dots} + \vec{\vphantom{A}\dots\dots} = \vec{\vphantom{A}\dots\dots}$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Chasles}{
+	todo
+}
+
+\exe{}{
+	Construire, dans le plan vierge de droite, les sommes 
+		\[u+v+w \qquad \text{ et } \qquad \dfrac12u - 2v - w,\]
+	où les vecteurs $u, v, w$ sont donnés dans le plan de gauche ci-dessous.
+	
+	%\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, GREEN_E] (axis cs:-3,-4) -- (axis cs: 0,0) node[above] {$u$};
+			\draw[very thick, ->, RED_E] (axis cs:-2,0) -- (axis cs: -5,6) node[above] {$v$};
+			\draw[very thick, ->, BLUE_E] (axis cs:0,3) -- (axis cs: 8,-2) node[above] {$w$};
+		\end{axis}
+		\end{tikzpicture}
+		\vline
+	%\end{center}
+}{exe:rep-graph}{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=20, ymin=-15, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, black, dotted] (axis cs:-3,-4) -- (axis cs: 0,0) node[pos=.5, above left] {$u$};
+			\draw[very thick, ->, black, dotted] (axis cs:-2+2,0) -- (axis cs: -5+2,6) node[pos=.5, left] {$v$};
+			\draw[very thick, ->, black, dotted] (axis cs:0-3,3+3) -- (axis cs: 8-3,-2+3) node[pos=.5, above] {$w$};
+			
+			\draw[very thick, ->, RED_E] (axis cs:-3,-4) -- (axis cs: 8-3,-2+3) node[pos=.5, below right] {$u+v+w$};
+			
+			
+			
+			\draw[very thick, ->, black, dotted] (axis cs:-3+15,-4) -- (axis cs:-1.5+15, -2) node[pos=.5, above left] {$\frac12u$};
+			\draw[very thick, ->, black, dotted] (axis cs:-2+2-1.5+15, 0-2) -- (axis cs: 4+2-1.5+15, -12-2) node[pos=.5, above right] {$-2v$};
+			\draw[very thick, ->, black, dotted] (axis cs:0+4+2-1.5+15,3-3-12-2) -- (axis cs: -8+4+2-1.5+15, 8-3-12-2) node[pos=.5, below left] {$-w$};
+			
+			\draw[very thick, ->, GREEN_E](axis cs:-3+15,-4) -- (axis cs: -8+4+2-1.5+15, 8-3-12-2) node[pos=.8, left] {$\frac12u-2v-w$};
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+	On met les vecteurs bout à bout pour créer la somme.
+	La multiplication par un scalaire ne change pas la direction mais multiplie la norme et peut changer le sens si celui-ci est négatif.
+}
+
+\exe{, difficulty=1}{
+	Soient $A(3;-1), B(-1; -5),$ et $C(3 ; 4)$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $\vec{AB}, \vec{BA}$, et $\vec{CA}$.
+		\item Calculer $\norm{\vec{AB}}, \norm{\vec{BA}}$, $\norm{\vec{AC}}$.
+		\item Calculer $3 \vec{AB} + 3 \vec{CA}$ et $3 \vec{CB}$.
+		\item Calculer $\norm{-4 \vec{AB}}$ et $\norm{-\dfrac1{13} \vec{CA}}$.
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:calcul}{
+
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\vec{AB} = B - A = \pvec{-4}{-4} && \vec{BA} = - \vec{AB} = \pvec44 && \vec{CA} = A - C = \pvec0{-5}.
+			\end{align*}
+		\item
+			\begin{align*}
+				\norm{\vec{AB}} &= \sqrt{(-4)^2 + (-4)^2} = 4\sqrt{2} \\ \norm{\vec{BA}} &= \norm{- \vec{AB}} = \norm{\vec{AB}} = 4\sqrt{2} \\ \norm{\vec{CA}} &= \sqrt{(-5)^2} = |-5| = 5.
+			\end{align*}
+		\item
+			On utilise la relation de Chasles $\vec{CB} = \vec{CA} + \vec{AB}$ pour obtenir immédiatement le résultat.
+			\begin{align*}
+				3 \vec{AB} + 3 \vec{CA} &= 3 \pvec{-4}{-4} + 3 \pvec0{-5} = \pvec{-12}{-27} \\
+				3 \vec{CB} &= 3 \left( \vec{CA} + \vec{AB} \right) =  3 \vec{AB} + 3 \vec{CA} = \pvec{-12}{-27}
+			\end{align*}
+		\item
+			\begin{gather*}
+				\norm{-4 \vec{AB}} = |-4| \cdot \norm{\vec{AB}} = 4\norm{\vec{AB}} = 16\sqrt{2}  \\
+				\norm{-\dfrac1{13} \vec{CA}} = \dfrac1{13} \norm{\vec{CA}} = \dfrac5{13}
+			\end{gather*}
+			
+	\end{enumerate}
+
+}
+
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Les points $A, B, C$ sont-ils alignés ?
+		\item Les point $D, C, B$ sont-ils alignés ?
+		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
+	\end{enumerate}
+}{exe:alignement}{
+	todo
+}
+
+\newpage
+
+\exe{}{
+	Soit $u = \pvec{4}{2}$ et $v = \pvec{1}{3}$ deux vecteurs.
+	Représenter dans un repère les points
+		\begin{align*}
+			A(-3;-1), && B = A+u, && C = A+u+v, && \text{ et } && D=A+v,
+		\end{align*}
+	et répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Que dire du quadrilatère $ABCD$ visuellement ?
+		\item Montrer que $(AB)$ et $(CD)$ sont parallèles puis que $(AD)$ et $(BC)$ sont parallèles.
+	\end{enumerate}
+}{exe:parall}{
+	\begin{enumerate}
+		\item $ABCD$ semble être un parallélogramme car ses cotés opposés sont parallèles deux à deux.
+		\item On calcule $\vec{AB} = B-A = u$ et $\vec{CD} = D-C = A+v - (A+u+v) = -u$ pour voir qu'ils sont colinéaires : les droites $(AB)$ et $(CD)$ sont donc parallèles.
+		
+		Idem avec $\vec{AD} = D - A = v$ et $\vec{BC} = C - B = A + u + v - (A + u) = v$, ce qui conclut similairement. 
+	\end{enumerate}
+	
+}
+
+
+
+\exe{, difficulty=1}{
+	Considérons quatre points $A(-4; 1), B(-3 ; -3), C(4; -4), D(3; 1)$.
+	
+	Le quadralitère $ABCD$ est-il un parallélogramme ?
+	Si non, donner un point $\tilde{D}$ tel que $ABC\tilde{D}$ en soit un.
+}{exe:quad}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires et si $\vec{BC}$ et $\vec{AD}$ le sont aussi.
+	On calcule
+		\[ \vec{AB} = B-A = \pvec{1}{-4}, \qquad \qquad \vec{CD} = D - C = \pvec{-1}{5}. \]
+	Ces deux vecteurs ne sont pas colinéaires car s'ils l'étaient, on aurait un $k \in \R$ tel que
+		\[ \vec{AB} = k \vec{CD}, \]
+	ce qui donnerait $k = -1$ en étudiant la première coordonnée, et $k=-\dfrac45$ en regardant la deuxième.
+	Ça n'est bien sûr pas possible.
+	
+	En faisant un dessin, on remarque que le point $\tilde{D}$ doit nécessairement vérifier
+		\[ \tilde{D} + \vec{AB} = C \qquad \iff \qquad \tilde{D} = C - \vec{AB} = (4 - 1 ; -4 - (-4) ) = (3 ;0). \]
+	Par construction, $\vec{AB} = C- \tilde{D} = \vec{\tilde{D}C}$, qui montre que deux côtés opposés sont parallèles.
+	Le parallélisme des deux autres côtés se fait de la même manière.
+}
+
+% pas ouf
+%\exe{}{
+%	Soient $A, B, C$ trois points tels que $B$ soit le milieu du segment $[AC]$.
+%	Faire un dessin puis montrer que $\vec{AB} = \vec{BC}$.
+%}{exe:milieu}{
+%	La formule du milieu du cours
+%		\[ B = \dfrac{A+C}2 \]
+%	est équivalente à
+%		\[ 2B = A + C \qquad \iff \qquad B-A = C-B \qquad \iff \qquad \vec{AB} = \vec{BC}. \]
+%}
+
+\exe{, difficulty=1}{
+	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(4;-6)$.
+	
+	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
+	
+	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+
+}{exe:parall2}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+	On calcule
+		\[ \vec{AB} = B-A = \pvec{-6}{5}, \qquad \qquad \vec{CD} = D - C = \pvec{6}{-3}. \]
+	Les vecteurs ne sont pas colinéaires : s'il existait un $k\in\R$ tel que $\vec{AB} = k \vec{CD}$, on aurait nécessairement $k=-1$ par la première coordonnée, et $k=-\dfrac53 \neq -1$ par le seconde.
+	Les droites ne sont donc pas parallèles.
+	
+	Pour que $(A\tilde{B})$ et $(CD)$ soient parallèles, elles doivent partager un vecteur directeur.
+	Par exemple, le vecteur $\vec{CD}$ convient.
+	
+	On peut alors choisir $\tilde{B}$ parmis les $A+k \cdot \vec{CD}$ où $k\in\R$ est un scalaire quelconque.
+	En prenant $k=-\dfrac13$ pour montrer qu'on aime les fractions, on peut définir $\tilde{B} = (1 ; 3)$.
+	
+	On vérifiera que $\vec{A\tilde{B}} = \pvec{-2}{1}$, qui est bien colinéaire à $\vec{CD} = \pvec{6}{-3}$.
+}
+
+\exe{, difficulty=1}{
+	Considérons les vecteurs $u = \pvec{2t}{3-t}$ et $v = \pvec{-1}{3+t}$ dépendant d'un paramètre $t\in\R$.
+	\begin{enumerate}
+		\item
+		Montrer que $\det(u, v) = 3 + (t-1)^2$.
+		\item
+		Justifier que $\det(u, v) \geq 3$ pour tout $t\in\R$.
+		\item
+		Conclure que $u$ et $v$ ne sont jamais colinéaires, peu importe la valeur de $t\in\R$.
+	\end{enumerate}
+}{exe:det-canonique}{
+	todo
+}
+
+\exe{, difficulty=1}{
+	Pour chacune des propositions suivantes, montrer qu'elle est toujours vraie ou trouver un contre-exemple.
+	\begin{enumerate}
+		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item Soient $u, v$ deux vecteurs tels que $v = 5u$.
+		Alors $\det(u,v) = 0$.
+		\item Si $\vec{AB}$ et $\vec{CD}$ sont colinéaires, alors les points $A, B, C$, et $D$ sont alignés.
+		\item Pour $u, v$ deux vecteurs, on a $\det(u, v) = -\det(v, u)$.
+		\item Si $\norm{v} = \sqrt{5}$, alors $v = \pvec{2}{1}$.
+	\end{enumerate}
+}{exe:vf}{
+
+	\begin{enumerate}
+		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item 
+		C'est vrai : d'après le cours, si $u$ et $v$ sont colinéaires, alors $\det(u, v) = 0$.
+		On peut aussi le démontrer par le calcul.
+		
+		\item 
+		C'est faux en général : on sait que $(AB)$ et $(CD)$ sont parallèles, mais pas si les droites sont confondues.
+		On pourra donc construire un contre-exemple comme $A(0;0), B(1;0)$ et $C(1;0), D(1;1)$.
+		
+		\item 
+		C'est vrai par le calcul. Soit $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$.
+		Alors $\det(u, v) = ad - bc$ et $\det(v, u) = cb - ad$.
+		
+		\item 
+		C'est faux car la norme d'un vecteur ne peut pas donner ses coordonnées (sauf si la norme est nulle).
+		
+		Par exemple, comme $\norm{v} = \norm{-v}$, on a que $v = \pvec{-2}{-1}$ est un contre-exemple.
+		
+		On pourrait aussi échanger les coordonnées pour avoir $v = \pvec12$ qui donne un autre contre-exemple.
+	\end{enumerate}
+}
+
+
+% si y'a le temps ?
+%\exe{, difficulty=1}{
+%	On étudie le \emph{système homogène} suivant qu'on ne cherche pas à résoudre.
+%		\[ \begin{cases*} 12x - 5y = 0, \\ -7x + 2y = 0.\end{cases*} \]
+%	\begin{enumerate}
+%		\item 
+%		Montrer que le système est équivalent à l'égalité de vecteurs
+%			\[ x \cdot u + y \cdot v = \pvec{0}{0}, \]
+%		pour les deux vecteurs $u = \pvec{12}{-7}$ et $v = \pvec{-5}{2}$.
+%	
+%		\item
+%		Montrer qu'une solution $(x ;y)$ non nulle existe si et seulement si $u$ et $v$ sont colinéaires, et donc si et seulement si $\det(u, v) = 0$.
+%		
+%		\item	
+%		Déduire dans ce cas que l'unique solution du système est la solution nulle $(x ;y) = (0;0)$.
+%	\end{enumerate}
+%}{exe:systemes10}{
+%	TODO
+%}
+%
+%\exe{, difficulty=1}{
+%	\begin{enumerate}
+%		\item
+%		Si $u$ et $v$ sont colinéaires, et $w$ un troisième vecteur quelconque, montrer que le système $x \cdot u + y \cdot v = w$ admet une solution si et seulement si $w$ est colinéaire à $u$ et $v$.
+%
+%		\item
+%		À partir des vecteurs colinéaires $u = \pvec23$ et $v = \pvec{-6}{-9}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ n'ayant aucune solution.
+%		\item
+%		À partir des vecteurs colinéaires $u = \pvec1{-4}$ et $v = \pvec{-2}{8}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ ayant un nombre infini de solutions.
+%	\end{enumerate}
+%}{exe:systemes11}{
+%	TODO
+%}
+
+
+\subsubsection*{Approfondissements}
+
+\exe{, difficulty=3}{
+	On dit de deux vecteurs $u, v$ qu'ils sont orthogonaux dès que les droites $(OU)$ et $(OV)$ où $U = O + u$ et $V = O + v$ sont perpendiculaires.
+	
+	Soient $u = \pvec{a}{b}, v = \pvec{x}{y}$ deux vecteurs orthogonaux.
+	\begin{enumerate}
+		\item
+		Faire un dessin dans lequel doivent figurer : l'origine $O$ d'un repère ; deux points $U$ et $V$ tels que $(OU) \perp (OV)$ ; le point $W$ tel que $OVWU$ est un rectangle.
+		\item
+		Montrer à l'aide de la réciproque de Pythagore dans le triangle $OVU$ que
+			\[ ax+by=0. \]
+		\item
+		Montrer à l'aide de la relation ci-dessus que
+			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
+		\item
+		En conclure que l'aire du rectangle $OVWU$ est donné par $|\det(u, v)|$.
+	\end{enumerate}
+}{exe:det-is-signedvolume}{
+	C'est très dur. Je suis désolé. Bon courage.
+}
+
+
+% à mettre dans le chapitre affine
+%\exe{}{
+%	Considérons $A(x_A ; y_A)$ et $B(x_B;y_B)$ deux points différents de $O(0;0)$, l'origine du plan.
+%	Le théorème de Pythagore énonce que le triangle $OAB$ est rectangle en $O$ si et seulement si
+%		\[ OA^2 + OB^2 = AB^2. \]
+%	Démontrer que cette condition est équivalente à
+%		\[ x_A \cdot x_B + y_A \cdot y_B = 0. \]
+%}{exe:star1}{
+%	todo
+%}
+%
+%\exe{}{
+%	\begin{enumerate}		
+%		\item
+%		Esquisser les courbes des fonctions $F(x) = 2x -3$ et $G(x) = 1 -\dfrac12 x$ sur $[0 ; 4]$.
+%		Que dire de celles-ci ?
+%		\item 
+%		Soit $f(x) = ax+b$ une fonction affine sur $\R$.
+%		Montrer que $\pvec{1}a$ dirige $
+%%		\item
+%%		Montrer que $\C_f$ et $\C_g$ sont perpendiculaires si et seulement si $1 + a a' =0$ 
+%		\item
+%		Conclure que, pour deux fonctions affines $F$ et $G$ quelconques (ne passant pas forcément par l'origine), les droites $\C_F$ et $\C_G$ sont perpendiculaires si et seulement si le produit des coefficients directeurs vaut $-1$ à l'aide de l'exercice \ref{exe:star1}.
+%	\end{enumerate}
+%}{exe:star2}{
+%	todo
+%}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
