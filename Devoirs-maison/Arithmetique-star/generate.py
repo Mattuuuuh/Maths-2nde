@@ -47,7 +47,7 @@ def generate():
     d = np.gcd(a,b)
     while d==a:
         a = int_between(2,15)
-        b = int_between(2,15)
+        b = int_between(a+1,a+15)
         d = np.gcd(a,b)
 
     a //= d
@@ -112,7 +112,7 @@ def generate():
         # second divisor
         d2_powers = [
                 int_between(0,m_powers[k])
-                if n_powers[k]<=1
+                if m_powers[k]<=1
                 else
                 int_between(1,m_powers[k])
                 for k in range(4)
@@ -157,7 +157,7 @@ def generate():
         # second divisor
         d2_powers = [
                 int_between(0,m_powers[k])
-                if n_powers[k]<=1
+                if m_powers[k]<=1
                 else
                 int_between(1,m_powers[k])
                 for k in range(4)
@@ -199,13 +199,13 @@ dm = DM(
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#dm.generate_seeds(80)
-#dm.write_adrs()
-#dm.compile_pdfs()
+dm.generate_seeds(20)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 #dm.read_adrs()

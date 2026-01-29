@@ -2,13 +2,13 @@
 %% THEN INPUT .ADR
 %% THEN THIS
 
-\SetDate[16/01/2026]
+\SetDate[03/02/2026]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
 \fancyhead[C]{\textbf{Devoir Maison -- {\seed} -- Arithmétique $\star$}}
-\fancyhead[R]{\today}
+\fancyhead[R]{} % no date
 
 \fakesection{Devoir \seed}
 
@@ -22,12 +22,12 @@
 		\item
 		Montrer que $\aI$ et $\bI$ sont premiers entre eux en donnant $\D_{\aI}\cap\D_{\bI}$.
 		\item
-		Trouver $u, v\in\Z$ des entiers relatifs vérifiant
+		Trouver $u, v\in\Z$ deux entiers relatifs vérifiant
 			\[ \aI u + \bI v = 1. \]
 		\item
-		Montrer que $\aI un$ est un multiple de $\abI$.
+		Montrer que $\aI un$ est un multiple de $\abI$ en utilisant que $n$ est un multiple de $\bI$.
 		\item
-		Montrer que $\bI vn$ est un multiple de $\abI$.
+		Montrer que $\bI vn$ est un multiple de $\abI$ en utilisant que $n$ est un multiple de $\aI$.
 		\item
 		Montrer que la somme de deux multiples de $\abI$ est un multiple de $\abI$.
 		\item
@@ -44,11 +44,11 @@
 			En écrivant $\aI u = 1 - \bI v$, on peut tester des valeurs de $v$ (1 ; 2 ; 3 ; ...) jusqu'à obtenir un multiple de $\aI$.
 		On obtient ainsi $v = \vI$, et donc $u = \frac{1-\bI\times\vI}{\aI} = \uI$.
 		\item
-		Comme $n$ est multiple de $\bI$, $n = \bI k$ avec $k$ entier et donc 
+		Comme $n$ est un multiple de $\bI$, $n = \bI k$ avec $k$ entier et donc 
 			\[ \aI un = \aI u \times \bI k = \abI uk, \]
 		multiple de $\abI$.
 		\item
-		Comme $n$ est multiple de $\aI$, $n = \aI \ell$ avec $\ell$ entier et donc 
+		Comme $n$ est un multiple de $\aI$, $n = \aI \ell$ avec $\ell$ entier et donc 
 			\[ \bI vn = \bI v \times \aI \ell = \abI v\ell, \]
 		multiple de $\abI$.
 		\item
@@ -60,9 +60,9 @@
 			\[ \aI un + \bI vn = n, \]
 		égalité d'entiers.
 		L'entier de gauche est un multiple de $\abI$ d'après les trois dernières questions, et il en va donc de même pour $n$.
-		\item
-		Il est suffisant et nécessaire de choisir $a$ et $b$ qui ne sont pas premiers entre eux ici.
-		$a=b=n=2$ semble être l'exemple le plus simple : 2 divise 2 mais 4 ne divise pas 2.
+		%\item
+		%Il est suffisant et nécessaire de choisir $a$ et $b$ qui ne sont pas premiers entre eux ici.
+		%$a=b=n=2$ semble être l'exemple le plus simple : 2 divise 2 mais 4 ne divise pas 2.
 	\end{enumerate}
 }
 
