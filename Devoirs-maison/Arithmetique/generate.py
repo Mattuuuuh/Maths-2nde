@@ -47,7 +47,7 @@ def generate():
     d = np.gcd(a,b)
     while d==a:
         a = int_between(2,15)
-        b = int_between(2,15)
+        b = int_between(a+1,a+10)
         d = np.gcd(a,b)
 
     a //= d
@@ -58,19 +58,12 @@ def generate():
     R += newcommand("abI", a*b)
     
     # size of AnB
-    size = 4
-    R += newcommand("bornesup", int((a*b*size)/10)*10)
+    size = 5
+    bornesup = int((a*b*size)/10)*10
+    R += newcommand("bornesup", bornesup)
+    
 
     # SOL 1
-    
-    # finding au + bv = 1
-    v = 1
-    while (1-b*v)%a != 0:
-        v+=1
-    u = (1-b*v)//a
-
-    R += newcommand("uI", u)
-    R += newcommand("vI", v)
 
     # EX 2
     
@@ -116,7 +109,7 @@ def generate():
         # second divisor
         d2_powers = [
                 int_between(0,m_powers[k])
-                if n_powers[k]<=1
+                if m_powers[k]<=1
                 else
                 int_between(1,m_powers[k])
                 for k in range(4)
@@ -161,7 +154,7 @@ def generate():
         # second divisor
         d2_powers = [
                 int_between(0,m_powers[k])
-                if n_powers[k]<=1
+                if m_powers[k]<=1
                 else
                 int_between(1,m_powers[k])
                 for k in range(4)
@@ -203,13 +196,13 @@ dm = DM(
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#dm.generate_seeds(80)
-#dm.write_adrs()
-#dm.compile_pdfs()
+dm.generate_seeds(80)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 #dm.read_adrs()
