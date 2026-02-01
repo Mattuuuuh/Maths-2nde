@@ -1,0 +1,184 @@
+\input{../preamble.tex}
+
+\SetDate[06/02/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 5}
+\fancyhead[C]{\textbf{Exposition « Mathématiques »·}}
+\fancyhead[R]{\today}
+
+
+\subsection*{Manège intertiel}
+
+\begin{center}
+\begin{tikzpicture}[scale=.5]
+	% onion
+	\draw[very thick] (0,0) circle (10);
+	\draw[very thick] (0,0) circle (9);
+	\draw[ thick] (0,0) circle (8);
+	\draw[thick] (0,0) circle (7);
+	\draw[semithick] (0,0) circle (6);
+	\draw[semithick] (0,0) circle (5);
+	\draw[thin] (0,0) circle (4);
+	\draw[very thin] (0,0) circle (3);
+	\draw[ultra thin] (0,0) circle (2);
+	\draw[ultra thin] (0,0) circle (1);
+
+	% center	
+	\draw[thick] (0,0) circle (1pt);
+	
+	% rotation
+	\draw[<-, thick] (8.426,7.070) arc (40:50:11) node[midway, above right]{sens de rotation};
+
+	% straight dashed line
+	\draw[loosely dashed, very thick] (0,0) -- (0,-10);% node[below]{- - - trajectoire de la balle dans le référentiel terrestre};
+\end{tikzpicture}
+\end{center}
+
+Un observateur se place dans une pièce circulaire dont une vue du dessus est donnée ci-dessus.
+La pièce tourne selon son centre dans le sens des aiguilles d'une montre.
+On distingue ici deux référentiels : celui de l'observateur dans la pièce, immobile ; et celui de la Terre, qui voit la pièce et l'observateur tourner ensemble.
+
+\begin{enumerate}
+	\item
+	L'observateur va-t-il a la même vitesse partout dans la pièce ? La réponse dépend du référentiel choisi.
+	\item
+	Justifier que, dans le référentiel terrestre, si une personne est deux fois plus loin du centre de la pièce, elle ira deux fois plus vite.
+\end{enumerate}
+
+	L'observateur se place au centre de la pièce puis lance une balle droit devant soi.
+	Dans le référentiel terrestre, la trajectoire est une ligne droite, décrite par le segment en pointillés sur la figure.
+	Chaque pointillé correspond à la position de la balle à un certain temps.
+	Le but est de tracer la trajectoire de la balle dans le référentiel du lanceur qui se situe au centre de la salle.
+
+\begin{enumerate}[resume]
+	\item	
+	Si la salle tourne de 30°, quelle rotation de la figure faire pour que l'observateur regarde toujours vers le bas ?
+\end{enumerate}
+
+	On suppose qu'à chaque nouveau pointillé, la salle a tourné d'un soixantième de tour.
+	Ainsi, chaque 5 pointillés, la salle a tourné de 30°.
+
+\begin{enumerate}[resume]
+	\item
+	Dans le référentiel du lanceur regardant toujours vers le bas, où se situe la balle
+		\begin{enumerate}
+			\item au moment du 5ème pointillé ?
+			\item au moment du 10ème pointillé ?
+			\item au moment du 15ème pointillé ?
+		\end{enumerate}
+	Tracer la trajectoire de la balle dans le référentiel du lanceur.
+	\item
+	Tracer la trajectoire de la balle dans le référentiel du lanceur lorsque la vitesse de rotation est doublée.
+	\item
+	Si on lance une balle de baseball droit devant soi, la trajectoire est-elle une ligne droite dans le référentiel héliocentrique (du Soleil) ?
+\end{enumerate}
+
+%\subsubsection*{Courbe brachistrochrone}
+%\begin{enumerate}[resume]
+%	\item
+%	Une bille est placée au point A, en hauteur.
+%	Quel chemin une bille doit-elle emprunter pour atteindre un point B le plus rapidement possible ?
+%	On appelle la courbe optimale la \emph{courbe brachistochrone}.
+%\end{enumerate}
+
+\newpage
+
+\subsection*{Processus de Galton}
+\begin{enumerate}
+	\item
+	À chaque étape du processus de Galton, une bille tourne soit à gauche, soit à droite.
+	Combien de chemins différents la bille peut-elle emprunter si le processus contient
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item 2 étapes ? 
+			\item 3 étapes ? 
+			\item 10 étapes ? 
+			\item $n$ étapes ?
+		\end{enumerate}
+		\end{multicols}
+\end{enumerate}
+
+On souhaite compter le nombre de chemins « gauche / droite » aboutissant à la même position finale.
+Pour cela, il suffit de compter les chemins contenant le même nombre de « gauche ».
+Par exemple, si le processus contient 3 étapes, seuls les trois chemins « GDD », « DGD », et « DDG » contiennent une seule fois « gauche ».
+On inscrit donc \underline{3} dans le \emph{triangle de Pascal} ci-dessous.
+
+\begin{enumerate}[resume]
+	\item
+	Compléter le triangle de Pascal ci-dessous.
+\end{enumerate}
+
+	\begin{center}
+	\begin{tabular}{>{$}c<{$}|*{7}{c}}
+		\multicolumn{1}{l}{\thead{Nombre \\ d'étapes}} &&&&&&&\\\cline{1-1} 
+		1 &1&1&&&&&\\
+		2 &1&2&1&&&&\\
+		3 &1&\underline{3}&&1&&&\\
+		4 &1&4&&&1&\\
+		5 &1&&&&&1\\
+		6 &1&&&&&&1\\\hline
+		\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
+		\multicolumn{1}{l}{} &\multicolumn{7}{c}{Nombre de « gauche »}
+	\end{tabular}
+	\end{center}
+
+\subsection*{Application du triangle de Pascal}
+
+	On pose un pion sur la case inférieure gauche d'un échiquier $4\times4$.
+	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
+	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
+	En combien de façons différentes peut-il atteindre la case supérieure droite ?
+	
+	\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		
+		\draw[<-] (.4,.5) arc[start angle=-90, end angle=-155, radius=.75cm] node[left] {Départ};
+		\draw[<-] (3.6,3.5) arc[start angle=90, end angle=25, radius=.75cm] node[right] {Arrivée};
+	\end{tikzpicture}
+	\caption{Échiquier $4\times4$.}
+	\label{fig:1a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		\draw[thick] (.5,.5) -- (2.5, .5) -- (2.5, 1.5) -- (3.5, 1.5) -- (3.5, 3.5);
+		\draw[thick, dashed] (.5,.5) -- (.5, 1.5) -- (1.5, 1.5) -- (2.5, 1.5) -- (2.5, 2.5) -- (2.5 ,3.5) -- (3.5, 3.5);
+	\end{tikzpicture}
+	\caption{Deux façons différentes d'atteindre l'arrivée.}
+	\label{fig:1b}
+	\end{subfigure}
+	\end{figure}
+
+
+%\subsubsection*{Hauteur et temps}
+%
+%\begin{center}
+%\includegraphics[scale=.5]{jauges.png}
+%\end{center}
+%
+%Six récipients ayant tous le même volume et la même hauteur sont remplis d'eau.
+%Le débit d'eau est constant : le volume de liquide dans chaque récipient est proportionnel au temps.
+%Les formes des récipients impliquent qu'un même volume d'eau atteigne une hauteur différente.
+%Les graduations des six jauges (A à F) indiquent les hauteurs de liquide correspondant à 1 litre, 2 litres, etc...
+%
+%Pour chaque récipient, tracer la courbe représentative de la hauteur de l'eau comme fonction du temps.
+
+
+\end{document}
