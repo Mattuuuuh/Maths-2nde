@@ -1,11 +1,11 @@
 \input{../preamble.tex}
 
-\SetDate[10/01/2026]
+\SetDate[03/02/2026]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
-\fancyhead[C]{\textbf{Devoir Maison --- Arithmétique \\ Questions d'approfondissement}}
+\fancyhead[C]{\textbf{Sur le théorème fondamental de l'arithmétique}}
 \fancyhead[R]{\today}
 
 %%%%%%%%%%%%%%%%%%%
@@ -23,7 +23,7 @@ La stratégie est (presque) toujours la même pour montrer une unicité : suppos
 
 Supposons donc que $a$ s'écrive
 \begin{align*}
-	a = p_1^{n_1} \times \cdots \times p_k^{n_k} && \et && n = q_1^{m_1} \times \cdots \times q_l^{n_l},
+	a = p_1^{n_1} \times \cdots \times p_k^{n_k} && \et && a = q_1^{m_1} \times \cdots \times q_l^{n_l},
 \end{align*}
 avec les $p, q$ premiers, et les $n, m$ entiers naturels.
 
@@ -58,14 +58,20 @@ La démonstration du lemme d'Euclide fonctionne en séparant deux cas :
 		\[ a = 7(au) + (15a)v. \]
 	Montrer que le membre de droite est un multiple de 7 et conclure. 
 }{exe:2}{
-	todo
+	$14 - 15 = -1$, donc prendre $u=-2$ et $v=1$ est une solution possible (il en existe d'autres).
+	
+	$7(au)$ est bien sûr un multiple de 7.
+	$(15a)v$ est un multiple de 7 car, par hypothèse, 7 divise $15a$.
+	La somme de deux multiple de 7 est un multiple de 7 et donc $a$ est divisible par 7.
 }
 
 \exe{}{
 	Soit $p$ premier ne divisant pas $b$.
 	Montrer que $p$ et $b$ sont premiers entre eux : leur seul diviseur commun est 1.
 }{exe:3}{
-	todo
+	Notons $d$ un diviseur commun à $p$ et à $b$.
+	$d$ divisant $p$, il est soit égal à 1, soit égal à $p$.
+	Or, $p$ ne divise pas $b$ par hypothèse : donc $d=1$, et $p, b$ sont premiers entre eux.
 }
 
 \begin{thm}[de Bachet-Bézout]\label{thm:1}
@@ -79,7 +85,8 @@ La démonstration du lemme d'Euclide fonctionne en séparant deux cas :
 	
 	En admettant le théorème \ref{thm:1}, montrer que $p$ divise $a$ en multipliant l'équation par $a$ comme à l'exercice \ref{exe:2}.
 }{exe:4}{
-	todo
+	L'égalité $p(ua) + v(ab) = a$ implique que $p$ divise $a$ car $p$ divise $p(ua)$ trivialement, et $v(ab)$ car $p$ divise $ab$ par hypothèse.
+	La somme de deux multiple de $p$ est un multiple de $p$.
 }
 
 
@@ -104,7 +111,24 @@ La démonstration du lemme d'Euclide fonctionne en séparant deux cas :
 		Conclure que $d = 1$ à l'aide de l'exercice \ref{exe:3}.
 	\end{enumerate}
 }{exe:thm1}{
-	todo
+	\begin{enumerate}
+		\item
+		$p = qd + r$, avec $q\in\N$ et $0 \leq r < d$.
+		\item
+		La contrainte $0 \leq r < d$ nous est donnée par la division euclidienne.
+		Ensuite, $r = p-qd$ : il appartient donc à $E$ en choisissant $u=1$ et $v=-d$, entiers relatifs.
+		\item
+		Par construction de $d$, il est le plus petit élément positif non nul de $E$.
+		Or, nous venons d'en trouver un plus petit encore : le reste $r$.
+		Le reste doit donc nécessairement être nul et la division euclidienne s'écrit $p = qd$. 
+		Autrement dit, $d$ divise $p$.
+		\item
+		En échangeant les rôles de $p$ et de $b$, on obtient que $d$ divise $b$.
+		\item
+		Par hypothèse, $p$ et $b$ sont premiers entre eux.
+		$d$ étant un diviseur qui leur est commun, il est égal à 1 d'après l'exercice \ref{exe:3}.
+		Il existe donc $u$ et $v$ entiers relatifs tels que $pu + bv = 1$.
+	\end{enumerate}
 }
 
 Nous avons en fait démontré le
