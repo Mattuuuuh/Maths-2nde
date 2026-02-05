@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[27/01/2026]
+\SetDate[10/02/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -174,7 +174,15 @@
 	\end{multicols}
 
 }{exe:Chasles}{
-	todo
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{BC} = \vec{ED}$
+		\item $\vec{BE} = \vec{AF}$
+		\item $\vec{AB} + \vec{FA} = \vec{FE} + \vec{EB} = \vec{FB}$
+		\item $\vec{FD} + \vec{EB} = \vec{FD} + \vec{DC} = \vec{FC}$
+		\item $\vec{AE} + \vec{GB} + \vec{DH} = \vec{AE} + \vec{EH} + \vec{HB} = \vec{AB}$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{}{
@@ -255,24 +263,6 @@
 
 }
 
-
-\exe{}{
-	Considérons les points
-		\begin{align*}
-			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
-		\end{align*}
-	
-	\begin{enumerate}
-		\item Les points $A, B, C$ sont-ils alignés ?
-		\item Les point $D, C, B$ sont-ils alignés ?
-		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
-	\end{enumerate}
-}{exe:alignement}{
-	todo
-}
-
-\newpage
-
 \exe{}{
 	Soit $u = \pvec{4}{2}$ et $v = \pvec{1}{3}$ deux vecteurs.
 	Représenter dans un repère les points
@@ -294,6 +284,68 @@
 	
 }
 
+\exe{, difficulty=1}{
+	Considérons les points $A(3;2), B(-3 ; 7), C(-2; -3),$ et  $D(4;-6)$.
+	
+	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
+	
+	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+
+}{exe:parall2}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+	Calculons donc
+		\[ \vec{AB} = \pvec{-6}{5}, \qquad \qquad \vec{CD} = \pvec{6}{-3}. \]
+	Les vecteurs ne sont pas colinéaires : s'il existait un $k\in\R$ tel que $\vec{AB} = k \vec{CD}$, on aurait nécessairement $k=-1$ par la première coordonnée, et $k=-\dfrac53 \neq -1$ par le seconde.
+	Un calcul de déterminant permet également de montrer que les vecteurs ne sont pas colinéaires, celui-ci étant non nul.
+	Les droites ne sont donc pas parallèles.
+	
+	Pour que $(A\tilde{B})$ et $(CD)$ soient parallèles, elles doivent partager un vecteur directeur.
+	Par exemple, le vecteur $\vec{CD}$ convient.
+	
+	On peut alors choisir $\tilde{B}$ parmis les $A+k \cdot \vec{CD}$ où $k\in\R$ est un scalaire quelconque.
+	En prenant $k=-\frac13$ pour montrer qu'on aime les fractions, on peut définir $\tilde{B} = (1 ; 3)$.
+	
+	On vérifiera que $\vec{A\tilde{B}} = \pvec{-2}{1}$, qui est bien colinéaire à $\vec{CD} = \pvec{6}{-3}$.
+}
+
+
+\newpage
+
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Les points $A, B, C$ sont-ils alignés ?
+		\item Les point $D, C, B$ sont-ils alignés ?
+		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
+	\end{enumerate}
+}{exe:alignement}{
+	\begin{enumerate}
+		\item
+		Pour déterminer si $A, B, C$ sont alignés, calculons par exemple $\vec{AB}$ et $\vec{BC}$ et regardons s'ils sont colinéaires.
+			\begin{align*}
+				\vec{AB} = \pvec{-3-(-1)}{-12-(-6)} = \pvec{-2}{-6} && \vec{BC} = \pvec{5-(-3)}{12-(-12)} = \pvec{8}{24}
+			\end{align*}
+		Soit on remarque que $-4\vec{AB} = \vec{BC}$, soit on calcule $\det\left(\vec{AB}, \vec{BC}\right) = (-2)(24)-(-6)(8) = -48+48 = 0$ pour voir que les vecteurs sont bien colinéaires.
+		
+		Par conséquent, les droites $(AB)$ et $(BC)$ sont parallèles et partagent le point $B$.
+		Elles sont donc confondues et les points $A, B, C$ sont alignés.
+		\item 
+		Nous avons déjà calculé $\vec{BC}$. Calculons désormais $\vec{DC}$ :
+			\[ \vec{DC} = \pvec{5-7}{12-17} = \pvec{-2}{-5}. \]
+		Ce vecteur n'est pas colinéaire à $\vec{BC}$ car $\det\left(\vec{BC}, \vec{DC}\right) = (8)(-5)-(24)(-2) = -40+48 \neq 0$.
+		\item 
+		La droite $(AB)$ peut être vue comme l'ensemble des translatés de $A$ (ou de $B$) par les multiples du vecteur $\vec{AB} = \pvec{-2}{-6}$.
+		Ainsi, $A + \vec{AB} = B$ donne un point de $(AB)$, mais il nous en faut un nouveau.
+		$A+2\vec{AB} = (-1;-6) + \pvec{-4}{-12} = (-5 ; -18)$ convient.
+		D'autres points (une infinité !) fonctionnent, comme $A - \vec{AB} ; A+12\vec{AB} ; A - \frac{\pi}{\sqrt2} \vec{AB} ; \dots$. 
+	\end{enumerate}
+}
+
 
 
 \exe{, difficulty=1}{
@@ -303,16 +355,17 @@
 	Si non, donner un point $\tilde{D}$ tel que $ABC\tilde{D}$ en soit un.
 }{exe:quad}{
 	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires et si $\vec{BC}$ et $\vec{AD}$ le sont aussi.
-	On calcule
+	Calculons
 		\[ \vec{AB} = B-A = \pvec{1}{-4}, \qquad \qquad \vec{CD} = D - C = \pvec{-1}{5}. \]
 	Ces deux vecteurs ne sont pas colinéaires car s'ils l'étaient, on aurait un $k \in \R$ tel que
 		\[ \vec{AB} = k \vec{CD}, \]
 	ce qui donnerait $k = -1$ en étudiant la première coordonnée, et $k=-\dfrac45$ en regardant la deuxième.
 	Ça n'est bien sûr pas possible.
+	Un calcul de déterminant permet également de montrer que les vecteurs ne sont pas colinéaires, celui-ci étant non nul.
 	
 	En faisant un dessin, on remarque que le point $\tilde{D}$ doit nécessairement vérifier
 		\[ \tilde{D} + \vec{AB} = C \qquad \iff \qquad \tilde{D} = C - \vec{AB} = (4 - 1 ; -4 - (-4) ) = (3 ;0). \]
-	Par construction, $\vec{AB} = C- \tilde{D} = \vec{\tilde{D}C}$, qui montre que deux côtés opposés sont parallèles.
+	Par construction, $\vec{AB} = \vec{\tilde{D}C}$, qui montre que deux côtés opposés sont parallèles.
 	Le parallélisme des deux autres côtés se fait de la même manière.
 }
 
@@ -328,40 +381,34 @@
 %}
 
 \exe{, difficulty=1}{
-	Soient les points $A(3;2), B(-3 ; 7), C(-2; -3), D(4;-6)$.
-	
-	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
-	
-	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
-
-}{exe:parall2}{
-	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
-	On calcule
-		\[ \vec{AB} = B-A = \pvec{-6}{5}, \qquad \qquad \vec{CD} = D - C = \pvec{6}{-3}. \]
-	Les vecteurs ne sont pas colinéaires : s'il existait un $k\in\R$ tel que $\vec{AB} = k \vec{CD}$, on aurait nécessairement $k=-1$ par la première coordonnée, et $k=-\dfrac53 \neq -1$ par le seconde.
-	Les droites ne sont donc pas parallèles.
-	
-	Pour que $(A\tilde{B})$ et $(CD)$ soient parallèles, elles doivent partager un vecteur directeur.
-	Par exemple, le vecteur $\vec{CD}$ convient.
-	
-	On peut alors choisir $\tilde{B}$ parmis les $A+k \cdot \vec{CD}$ où $k\in\R$ est un scalaire quelconque.
-	En prenant $k=-\dfrac13$ pour montrer qu'on aime les fractions, on peut définir $\tilde{B} = (1 ; 3)$.
-	
-	On vérifiera que $\vec{A\tilde{B}} = \pvec{-2}{1}$, qui est bien colinéaire à $\vec{CD} = \pvec{6}{-3}$.
-}
-
-\exe{, difficulty=1}{
-	Considérons les vecteurs $u = \pvec{2t}{3-t}$ et $v = \pvec{-1}{3+t}$ dépendant d'un paramètre $t\in\R$.
+	Considérons les vecteurs $u = \pvec{2t}{5+t}$ et $v = \pvec{t-1}{3+t}$ dépendant d'un paramètre $t\in\R$.
 	\begin{enumerate}
 		\item
-		Montrer que $\det(u, v) = 3 + (t-1)^2$.
+		Montrer que $\det(u, v) = 4 + (t+1)^2$.
 		\item
-		Justifier que $\det(u, v) \geq 3$ pour tout $t\in\R$.
+		Justifier que $\det(u, v) \geq 4$ pour tout $t\in\R$.
 		\item
 		Conclure que $u$ et $v$ ne sont jamais colinéaires, peu importe la valeur de $t\in\R$.
 	\end{enumerate}
 }{exe:det-canonique}{
-	todo
+	\begin{enumerate}
+		\item
+		D'après la formule du déterminant,
+			\[ \det(u, v) = (2t)(3+t)-(5+t)(t-1) = 6t + 2t^2 - 5t + 5 -t^2 + t = t^2 + 2t + 5. \]
+		Développons désormais la forme factorisée proposée pour montrer l'égalité recherchée :
+			\begin{align*}
+				4 + (t-1)^2 &= 4 + (t^2 + 1 + 2t), \\
+							&= t^2 + 2t + 5, \\
+							&= \det(u,v).
+			\end{align*}
+		\item
+		Le carré étant toujours positif, il suit que $(t+1)^2 \geq 0$ pour tout $t\in\R$.
+		En ajoutant 4, $\det(u, v) \geq 4$ pour tout $t\in\R$ comme requis.
+		\item
+		D'après le cours, $u$ et $v$ sont colinéaires si et seulement si $\det(u, v) = 0$.
+		Or cette quantité est toujours supérieure à 4 et ne peut donc pas être nulle.
+		$u$ et $v$ ne peuvent donc pas être colinéaires.
+	\end{enumerate}
 }
 
 \exe{, difficulty=1}{
@@ -369,7 +416,7 @@
 	\begin{enumerate}
 		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
 		\item Soient $u, v$ deux vecteurs tels que $v = 5u$.
-		Alors $\det(u,v) = 0$.
+		Alors $\det(u, v) = 0$.
 		\item Si $\vec{AB}$ et $\vec{CD}$ sont colinéaires, alors les points $A, B, C$, et $D$ sont alignés.
 		\item Pour $u, v$ deux vecteurs, on a $\det(u, v) = -\det(v, u)$.
 		\item Si $\norm{v} = \sqrt{5}$, alors $v = \pvec{2}{1}$.
@@ -435,10 +482,11 @@
 %}
 
 
-\subsubsection*{Approfondissements}
+\subsection*{Approfondissement}
 
 \exe{, difficulty=3}{
-	On dit de deux vecteurs $u, v$ qu'ils sont orthogonaux dès que les droites $(OU)$ et $(OV)$ où $U = O + u$ et $V = O + v$ sont perpendiculaires.
+	Dénotons $O(0;0)$ l'origine du repère.
+	On dit de deux vecteurs $u$ et $v$ qu'ils sont \emph{orthogonaux} dès que les droites $(OU)$ et $(OV)$ où $U = O + u$ et $V = O + v$ sont perpendiculaires.
 	
 	Soient $u = \pvec{a}{b}, v = \pvec{x}{y}$ deux vecteurs orthogonaux.
 	\begin{enumerate}
@@ -451,7 +499,7 @@
 		Montrer à l'aide de la relation ci-dessus que
 			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
 		\item
-		En conclure que l'aire du rectangle $OVWU$ est donné par $|\det(u, v)|$.
+		En conclure que l'aire du rectangle $OVWU$ est donné par $\abs{\det(u, v)}$.
 	\end{enumerate}
 }{exe:det-is-signedvolume}{
 	C'est très dur. Je suis désolé. Bon courage.
