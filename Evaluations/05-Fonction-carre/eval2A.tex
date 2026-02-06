@@ -1,0 +1,210 @@
+\input{../preamble.tex}
+
+\SetDate[04/02/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation \\ Fonctions carré, racine carrée, valeur absolue}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{2}{
+	Est-ce que l'égalité suivante est vraie ?
+	Justifier.
+	\[  \sqrt{(-2)^{56}} \stackrel{?}{=} (-2)^{28} \]
+}{exe:sqrt9}{
+	En mettant le membre de droite au carré, on trouve
+		\[ \left((-2)^{28}\right)^2 = (-2)^{28\times2} = (-2)^{56}. \]
+	Donc $(-2)^{28}$ est égal à $\sqrt{(-2)^{56}}$ ou $-\sqrt{(-2)^{56}}$.
+	Comme 28 est pair, $(-2)^{28}$ est positif et on a bien
+		\[  \sqrt{(-2)^{56}} = (-2)^{28} \]
+}
+
+\exe{2, difficulty=1}{
+	Tracer la courbe représentative de la fonction valeur absolue $f(x) = |x|$ sur le domaine $\D = [-2 ; 2]$.
+}{exe:valabs}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2.5, xmax=2.5, ymin=-.5, ymax=2.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both]%extra x ticks ={0}, extra y ticks = {0}]
+			\addplot[BLUE_E, very thick, -] expression[domain=-2:2, samples=3]{abs(x)} node[above=20pt, pos=.8] {$y=|x|$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+% ils vont pas savoir faire sont trop nuls
+% et les parents me disent que c'est trop dur :)
+%\exe{2, difficulty=1}{
+%	Démontrer que pour $a, b \geq0$ réels positifs, 
+%		\[ \sqrt{ab} = \sqrt{a}\sqrt{b}. \]
+%}{exe:prod}{
+%	todo
+%}
+
+\exe{4, difficulty=1}{
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) =x^4 - 10x^2 + 9. \]
+	\begin{enumerate}
+		\item
+		Montrer que $f(x) = -16 + \left(x^2 - 5\right)^2$ pour tout $x\in\R$.
+		\item
+		En déduire l'extremum (maximum ou minimum) de $f$ ainsi que les antécédents qui le réalisent.
+	\end{enumerate}
+}{exe:quartique1}{
+	\begin{enumerate}
+		\item
+		Pour tout $x\in\R$, et en partant de la droite,
+			\[ -16 + \left(x^2 - 5\right)^2 = -16 + (x^4 + 25 - 10x^2) = x^4 - 10x^2 + 9 = f(x). \]
+		\item
+		Le carré est toujours positif et nul lorsque l'expression dans le carré est nulle.
+		Il suit que $f(x) \geq -16$ pour tout $x\in\R$ avec égalité quand $x^2 - 5 = 0$.
+		Cette dernière équation admet deux solutions, $\sqrt5$ et $-\sqrt5$, qui sont les deux antécédents réalisant le minimum $-16$.
+	\end{enumerate}
+}
+
+
+\exe{4, difficulty=1}{
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) =x^4 - 10x^2 + 9. \]
+	\begin{enumerate}
+		\item
+		Montrer que $f$ est paire.
+		\item
+		Montrer que $f(-3) = 0$.
+		\item
+		En déduire une autre solution $x\neq-3$ de l'équation $f(x) = 0$.
+		\item($\star$)
+		Montrer que le nombre de solutions $x\in\R$ de l'équation $f(x) = 0$ est pair.
+	\end{enumerate}
+}{exe:quartique2}{
+	\begin{enumerate}
+		\item
+		En utilisant que $(-x)^n = x^n$ pour $n$ pair, on trouve
+			\[ f(-x) = (-x)^4 - 10(-x)^2 + 9 = x^4 - 10x^2 + 9 = f(x) \]
+		pour tout $x\in\R$.
+		\item
+		$f(-3) = (-3)^4 - 10\times(-3)^2 + 9 = 9^2 - 10\times9 + 9 = 81 - 90 + 9 = 0$.
+		\item
+		Par parité de $f$, $f(3) = f(-3) = 0$ et donc $x=3$ est une autre solution de $f(x) = 0$.
+		\item($\star$)
+		Par parité de $f$, les solutions se regroupent par paires de signes opposés (comme 3 et $-3$ ci-dessus).
+		La seule solution pouvant potentiellement être seule est 0, mais $f(0) = 9 \neq 0$, donc il y a bien un nombre pair de solutions.
+		
+		D'ailleurs, $f(x) = (x+3)(x-3)(x+1)(x-1)$ (à vérifier !), et les seules solutions de $f(x) = 0$ sont $\pm3$ et $\pm1$ d'après la propriété du produit nul.
+	\end{enumerate}
+}
+
+
+
+% ensembles tq. 
+\newcommand{\xRtq}[1]{
+	$\bigset{ x \in \R \tq #1 }$
+}
+
+% il y en a trop
+\exe{3}{
+	Écrire les ensembles suivants sous forme d'intervalle.
+	
+	\begin{enumerate}
+		\item \xRtq{x + 3 \leq 8}
+		%\item \xRtq{x + 2 > 8}
+		\item \xRtq{5x  - 12 > 8}
+		%\item \xRtq{4 \geq -2x + 6}
+		%\item \xRtq{-3 < 13x + 7 < 14}
+		\item \xRtq{13 \geq 3 - x \geq 1}
+	\end{enumerate}
+}{exe:99}{
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\left]-\infty ; 5\right]$
+		%\item $\left]6 ; +\infty\right[$
+		\item $\left]4 ; \pinfty \right[$
+		%\item $\left[1 ; +\infty \right[$
+		%\item $\left] -\dfrac{10}{13} ; \dfrac{7}{13} \right[$
+		\item $\left[ -10 ; 2 \right]$\
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{3, difficulty=1}{
+	À  quoi ces valeurs absolues sont-elles égales ?
+	\begin{multicols}{3}
+	\begin{enumerate}
+		%\item $\vabs{3}$
+		%\item $\vabs{-11}$
+		%\item $\vabs{13 - 8}$
+		\item $\vabs{\sqrt7-\sqrt8}$
+		\item $\vabs{\dfrac13 - \dfrac12}$
+		\item $\vabs{-\dfrac27 - \dfrac12}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:999}{
+
+	\begin{multicols}{3}
+	\begin{enumerate}
+		%\item $3$
+		%\item $11$
+		%\item $5$
+		\item $\sqrt8-\sqrt7$
+		\item $\dfrac16$
+		\item $\dfrac{11}{14}$
+	\end{enumerate}
+	\end{multicols}
+
+}
+
+
+
+\exe{3}{
+	Écrire les nombres suivants sous la forme $a\sqrt{b}$ où $a\in\N$ est entier et $b\in\N$ est le \underline{plus petit} \underline{entier possible}.
+
+	\begin{multicols}{3}
+	\begin{enumerate}[itemsep=10pt]
+		\item $\sqrt{24}$
+		\item $\sqrt{75}$
+		%\item $\dfrac{8}{\sqrt{2}}$
+		\item $\dfrac{15}{\sqrt{5}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:sqrt4}{
+	\begin{multicols}{3}
+	\begin{enumerate}[itemsep=10pt]
+		\item $\sqrt{24} = \sqrt{4\times6} = 2\sqrt6$
+		\item $\sqrt{75} = \sqrt{25\times3} = 5\sqrt3$
+		%\item $\dfrac{8}{\sqrt{2}} = \dfrac{8\sqrt2}2 = 4\sqrt2$
+		\item $\dfrac{15}{\sqrt{5}} = \dfrac{15\sqrt5}5 = 3 \sqrt5$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
