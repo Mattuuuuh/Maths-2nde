@@ -446,6 +446,38 @@
 	\end{enumerate}
 }
 
+\exe{, difficulty=1}{
+	Considérons le point $A(1;3)$ et les vecteurs $u = \pvec62, v = \pvec1{-3}$.
+	Posons $B=A+u$ et $C = A+v$.
+	Tracer le triangle $ABC$ dans un repère orthonormé et démontrer qu'il est rectangle en $A$. 
+	
+	\emph{Formule de la longueur : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+}{exe:Pyth}{
+	D'abord, $B = A +u = (1+6 ; 3+2) = (7;5)$ et $C = A+v = (1+1 ; 3 - 3) = (2 ; 0)$.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -0.9, xmax=7.9, ymin=-0.9, ymax=5.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, xtick distance=1, ytick distance = 1]
+		
+			\addplot[GREY, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\draw[dashed, PINK, thick] (axis cs:1,3) -- (axis cs:7,5) -- (axis cs:2,0) -- (axis cs:1,3);
+			
+			\addplot[BLUE_E, mark=*, mark size = 1] (1,3) node[above] {$A(1 ; 3)$};
+			\addplot[RED_E, mark=*, mark size = 1] (7,5) node[above left] {$B(7 ; 5)$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (2,0) node[above right] {$C(2; 0)$};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	Ensuite, pour montrer que $ABC$ est rectangle en $A$, la réciproque du théorème de Pythagore énonce qu'il faut montrer l'égalité
+		\[ BC^2 \stackrel{?}{=} AB^2 + AC^2. \]
+	D'après la formule de la longueur, d'une part
+		\[ BC^2 = (7-2)^2 + (0-5)^2 = 25+25=50, \]
+	et d'autre part
+		\[ AB^2 + AC^2 = (7-1)^2 + (5-3)^2 + (2-1)^2 + (0-3)^2 = 36+4+1+9 = 50, \]
+	ce qui conclut.
+}
 
 % si y'a le temps ?
 %\exe{, difficulty=1}{
@@ -485,13 +517,15 @@
 \subsection*{Approfondissement}
 
 \exe{, difficulty=3}{
+	Cet exercice généralise l'exercice \ref{exe:Pyth} et vise à donner une condition simple d'orthogonalité, ainsi que faire le lien entre le déterminant et l'aire d'un parallélogramme appelé \emph{parallélogramme fondamental}.
+
 	Dénotons $O(0;0)$ l'origine du repère.
-	On dit de deux vecteurs $u$ et $v$ qu'ils sont \emph{orthogonaux} dès que les droites $(OU)$ et $(OV)$ où $U = O + u$ et $V = O + v$ sont perpendiculaires.
+	On dit de deux vecteurs $u$ et $v$ qu'ils sont \emph{orthogonaux} dès que les droites $(OU)$ et $(OV)$, où $U = O + u$ et $V = O + v$, sont perpendiculaires.
 	
-	Soient $u = \pvec{a}{b}, v = \pvec{x}{y}$ deux vecteurs orthogonaux.
+	Soient $u = \pvec{a}{b}, v = \pvec{x}{y}$ deux vecteurs orthogonaux. 
 	\begin{enumerate}
 		\item
-		Faire un dessin dans lequel doivent figurer : l'origine $O$ d'un repère ; deux points $U$ et $V$ tels que $(OU) \perp (OV)$ ; le point $W$ tel que $OVWU$ est un rectangle.
+		Tracer un repère générique dans lequel doivent figurer : l'origine $O$ ; les points $U$ et $V$ ; le point $W$ tel que $OVWU$ est un parallélogramme.
 		\item
 		Montrer à l'aide de la réciproque de Pythagore dans le triangle $OVU$ que
 			\[ ax+by=0. \]
@@ -499,10 +533,34 @@
 		Montrer à l'aide de la relation ci-dessus que
 			\[ \norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2. \]
 		\item
-		En conclure que l'aire du rectangle $OVWU$ est donné par $\abs{\det(u, v)}$.
+		En conclure que l'aire du rectangle $OVWU$ est donnée par $\abs{\det(u, v)}$.
 	\end{enumerate}
 }{exe:det-is-signedvolume}{
 	C'est très dur. Je suis désolé. Bon courage.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1.9, xmax=7.9, ymin=-0.9, ymax=5.9, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=none, grid style = {opacity=.5}, ticks = none]
+		
+			
+			\draw[GREY, dashed, thick] (axis cs:4,1) -- (axis cs:3,5) -- (axis cs:-1,4);
+			\draw[GREY, pattern=north west lines] (axis cs:0,0) -- (axis cs:4,1) -- (axis cs:3,5) -- (axis cs:-1,4) -- (axis cs:0,0);
+			
+			\addplot[GREY, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			\addplot[PINK, mark=*, mark size = 1] (-1,4) node[left] {$U(a;b)$};
+			\addplot[ORANGE, mark=*, mark size = 1] (4,1) node[right] {$V(x;y)$};
+			\addplot[BLUE_E, mark=*, mark size = 1] (3,5) node[above right] {$W$};
+			
+			\draw[PINK, ->, thick] (axis cs:0,0) -- (axis cs:-1,4) node[midway, left]{$u$};
+			\draw[ORANGE, ->, thick] (axis cs:0,0) -- (axis cs:4,1) node[midway, below]{$v$};
+			
+			\draw[<-] (axis cs:3,3) arc[start angle=-90, end angle=-30, radius=30pt] node[right] {$\abs{\det(u,v)}$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	Ce résultat se généralise encore davantage : la valeur absolue du déterminant est égale à l'aire du parallélogramme fondamental de sommets $0, u, v, u+v$ même si $u$ et $v$ ne sont pas orthogonaux.
+	Ceci permet d'ailleurs de justifier géométriquement que si $\det(u,v) = 0$, alors $u$ et $v$ sont colinéaires : l'aire nulle n'advient que lorsque $u$ et $v$ ont la même direction (le parallélogramme est plat).
 }
 
 
