@@ -28,7 +28,16 @@
 		\end{axis}
 	\end{tikzpicture}
 }{exe:aut1}{
-	todo
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.875]
+		\begin{axis}[xmin = -3.5, xmax=3.5, ymin=-3.5, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=1, grid=both]
+		\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[right] {$A(2;3)$};
+		\addplot[GREEN_E, mark=*, mark size = 1] (-2,2) node[above] {$B(-2;2)$};
+		\addplot[RED_E, mark=*, mark size = 1] (2,-1) node[right] {$C(2;-1)$};
+		\addplot[PINK, mark=*, mark size = 1] (-2,-1) node[below] {$D(-2;-1)$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
 }
 \vspace{-40pt}
 
@@ -43,7 +52,12 @@
 		\end{enumerate}
 		\end{multicols}
 }{exe:aut2}{
-	todo
+	\begin{enumerate}[itemsep=10pt]
+			\item $10-7 = 3$
+			\item $7-10 = -3$
+			\item $-6-5 = -11$
+			\item $-7-(-11) = -7+11 = 4$
+	\end{enumerate}
 }
 
 %^\vspace{-10pt}
