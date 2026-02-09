@@ -50,7 +50,7 @@
 			\item $x=-6$ et $y = 5$
 			\item $x = -7$ et $y=-11$
 			\item $x=0$ et $y =-4$
-			\item $x =-1,4$ et $y=0,7$
+			\item $x =-1,4$ et $y=-0,7$
 		\end{enumerate}
 		\end{multicols}
 }{exe:aut2}{
@@ -59,6 +59,8 @@
 			\item $7-10 = -3$
 			\item $-6-5 = -11$
 			\item $-7-(-11) = -7+11 = 4$
+			\item $0 - (-4)= 4$
+			\item $-1,4 - (-0,7) = -1,4+0,7 = -0,7$
 	\end{enumerate}
 }
 
@@ -74,7 +76,8 @@
 		\item Quelle translation $\vec{AC}$ effectuer pour envoyer le point $A$ sur le point $C$ ?
 		\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$ et compléter la phrase suivante.
 			\begin{center}
-				\og Envoyer $A$ sur $B$, puis $B$ sur $C$ correspond à envoyer $A$ sur $\dots$ \fg
+				%\og Envoyer $A$ sur $B$, puis $B$ sur $C$ correspond à envoyer $A$ sur $\dots$ \fg
+				\og L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ \\[10pt] est égale à la translation qui envoie $A$ sur $\dots$. \fg
 			\end{center}
 		%\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$.
 		
@@ -95,7 +98,7 @@
 			La somme $\vec{AB} + \vec{BC}$ est donnée par
 				\[ \vec{AB} + \vec{BC} = \pvec{6}{-1} + \pvec{-2}{-4} = \pvec{6 - 2}{-1-4} = \pvec{4}{-5} = \vec{AC}. \]
 			\begin{center}
-				\og Envoyer $A$ sur $B$, puis $B$ sur $C$ correspond à envoyer $A$ sur {\color{RED_E}$C$} \fg
+				\og L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ \\[10pt] est égale à la translation qui envoie $A$ sur {\color{RED_E} $C$}. \fg
 			\end{center}
 		%\item
 		%	On a, plus généralement, $\vec{AB} + \vec{BC} = B - A + C - B = C - A = \vec{AC}$.
@@ -131,27 +134,25 @@
 	\begin{enumerate}
 		\item Compléter les phrases suivantes.
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, son sens $\dots\dots\dots\dots\dots\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, son sens$\dots\dots\dots\dots\dots\dots$ \fg\\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, son sens $\dots\dots\dots\dots\dots\dots$ \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, son sens$\dots\dots\dots\dots\dots\dots$ \fg \\[10pt]
 				\og Lorsque le vecteur $u$ est multiplié par  $\dots$ pour obtenir $z$, son sens $\dots\dots\dots\dots\dots\dots$ \fg
 			\end{center}
 		\item Calculer les normes de $u, v, w,$ et $z$ et les écrire sous forme $a\sqrt{b}$ où $a, b\in\N$ et $b$ est le plus petit possible.
 		\item Compléter les phrases suivantes.
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$  pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ \fg
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par $\dots$. \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$  pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par $\dots$. \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par $\dots$. \fg
 			\end{center}
-%		\item Pour $u = \pvec{x}{y}$ et $\kappa\in\R$ quelconques, démontrer l'égalité 
-%			\[\Vert \kappa \cdot u \Vert = | \kappa | \cdot  \Vert u \Vert. \]
 	\end{enumerate}
 
 }{exe:intro2}{
 	\begin{enumerate}
 		\item
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, son sens {\color{RED_E} ne change pas} \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par  {\color{RED_E} $-\dfrac32$} pour obtenir $w$, son sens {\color{RED_E} change} \fg\\ \vspace{10pt}
+				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, son sens {\color{RED_E} ne change pas} \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par  {\color{RED_E} $-\dfrac32$} pour obtenir $w$, son sens {\color{RED_E} change} \fg \\[10pt]
 				\og Lorsque le vecteur $u$ est multiplié par  {\color{RED_E} $-\dfrac12$} pour obtenir $z$, son sens {\color{RED_E} change} \fg
 			\end{center}
 		\item
@@ -168,20 +169,10 @@
 			\end{align*}
 		\item
 			\begin{center}
-				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $2$} \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac32$} pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac32$} \fg \\ \vspace{10pt}
-				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac12$} pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac12$} \fg
+				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $2$}. \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac32$} pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac32$}. \fg \\[10pt]
+				\og Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac12$} pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac12$}. \fg
 			\end{center}
-%		\item
-%			On vérifie l'égalité calmement en utilisant que $\sqrt{x^2} = |x|$.
-%				\begin{align*}
-%					\norm{\kappa \cdot u} &= \norm{ \pvec{\kappa \cdot x}{\kappa \cdot y}} \\
-%										&= \sqrt{ (\kappa \cdot x)^2 + (\kappa \cdot y)^2} \\
-%										&= \sqrt{ \kappa^2 \cdot x^2 + \kappa^2 \cdot y^2} \\
-%										&= \sqrt{ \kappa^2  (x^2 + y^2) } \\
-%										&= \sqrt{\kappa^2} \sqrt{x^2 + y^2} \\
-%										&= |\kappa| \cdot \norm{u}.
-%				\end{align*}
 	\end{enumerate}
 }
 
