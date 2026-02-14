@@ -1,0 +1,93 @@
+\input{../preamble.tex}
+\SetDate[13/02/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Diviseurs}
+
+\framedelayed{
+	Soit $n = 2^{3} \times 7^{11} \times 5$.
+	\boxAB{
+		Est-ce que $7$ divise $n$ ?
+	}{
+		Est-ce que $11$ divise $n$ ?
+	}
+}{
+	$n = 2^{3} \times 7^{11} \times 5$.
+	\boxAB{
+		$n = 7 \times (2^{3} \times 7^{10} \times 5)$ donc 7 divise $n$.
+	}{
+		11 n'apparaît pas dans la décomposition de $n$, donc 11 ne divise pas $n$.
+	}
+}
+
+\framedelayed{
+	Soit $n = 3^{7} \times 7^{5} \times 5^{110}$.
+
+	\boxAB{
+		Est-ce que $8$ divise $n$ ?
+	}{
+		Est-ce que $15$ divise $n$ ?
+	}
+}{
+	$n = 3^{7} \times 7^{5} \times 5^{110}$.
+	\boxAB{
+		$8 = 2^3$ donc 8 ne divise pas $n$.
+	}{
+		$15 = 3\times5$ donc 15 divise $n$.
+	}
+}
+
+\subsection{Intersection}
+
+\framedelayed{
+	Donner l'intersection $A \cap B$ lorsque
+	\boxAB{
+		$A = \bigset{ 3 ; 8 ; 5 ; -3 ; 12 ; 2}$ et $B = \bigset{ -3 ; -4 ; -5 ; 12 ; 8 }$
+	}{
+		$A = \bigset{ 4 ; 9 ; 6 ; -2 ; 13 ; 3}$ et $B = \bigset{ -2 ; -3 ; -4 ; 13 ; 9 }$
+	}
+}{
+	\boxAB{
+		$\bigset{ 3 ; 8 ; 5 ; -3 ; 12 ; 2} \cap \bigset{ -3 ; -4 ; -5 ; 12 ; 8 }$ $= \bigset{ -3 ; 12 ; 8 }$
+	}{
+		$\bigset{ 4 ; 9 ; 6 ; -2 ; 13 ; 3} \cap \bigset{ -2 ; -3 ; -4 ; 13 ; 9 }$ $= \bigset{ -2 ; 13 ; 9 }$
+	}
+}
+
+\subsection{Fraction irréductible}
+
+\framedelayed{
+	Exprimer la valeur suivante sous forme de fraction irréductible.
+	\boxAB{
+		$\dfrac{6}{18}\times2 + 1$
+	}{
+		$\dfrac{11}{10}\times2 - 1$
+	}
+}{
+	\boxAB{
+		$\dfrac{6}{18}\times2 + 1 = \dfrac69 + 1 = \dfrac23 + 1 = \dfrac53$
+	}{
+		$\dfrac{11}{10}\times2 - 1 = \dfrac{11}5 - 1 = \dfrac65$
+	}
+}
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
