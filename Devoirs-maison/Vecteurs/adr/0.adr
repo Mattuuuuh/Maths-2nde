@@ -1,0 +1,10 @@
+\newcommand{\seed}{0}
+\newcommand{\ux}{1}
+\newcommand{\uy}{2}
+\newcommand{\vx}{1}
+\newcommand{\vy}{0}
+\newcommand{\projx}{-4}
+\newcommand{\projy}{2}
+\newcommand{\projmult}{\dfrac{1}{5}}
+\newcommand{\Ox}{-1}
+\newcommand{\Oy}{-1}

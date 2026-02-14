@@ -17,26 +17,30 @@ Pour fusionner :
 pdftk $(ls out/*.pdf) cat output merged.pdf
 ```
 
-TODO déjà réfléchis
+# Liste 
+
 - [x] Triangle isocèle
 - [x] Triangle rectangle
-- [ ] Évolution
+- [x] Lagrange
+- [x] Arithmétique (-star)
+- [x] Vecteurs (proj orth)
+- [x] Évolution (TVA)
+- [x] Projeté orthogonal 
+- [x] Diophantes
+
+
+TODO déjà réfléchis
 - [ ] Triangle équilatéral affine
 - [ ] Pente affine
-- [x] Diophantes
 - [ ] Statistiques descriptives
 - [ ] Trigonométrie
 - [ ] Signes
-- [x] Lagrange
 - [ ] Systèmes
+- [ ] Projeté orthogonal
 
 TODO à réfléchir 
 - [ ] Nombres réels
-- [ ] Fonction carrée
-- [ ] Projeté orthogonal
-- [ ] Arithmétique
 - [ ] Probabilités
-- [ ] Vecteurs (systèmes ?)
 - [ ] Variations
 - [ ] Échantillonnage
 - [ ]
