@@ -85,8 +85,10 @@ def generate():
     #R += newcommand("xpt", 200/(max(xvalues)-min(xvalues)))
     #R += newcommand("ypt", 100/(max(yvalues)-min(yvalues)))
 
-    xymin = min(min(xvalues),min(yvalues))-1
-    xymax = max(max(xvalues),max(yvalues))+1
+    # ah oui Malak a raison ; il faut ajouter un pourcentage, pas une valeur fixe.
+    # mettons 10%
+    xymin = min(min(xvalues),min(yvalues))*1.1
+    xymax = max(max(xvalues),max(yvalues))*1.1
     R += newcommand("xymin", xymin)
     R += newcommand("xymax", xymax)
     assert xymax != xymin, "All points are regrouped into 1 somehow (should not be possible)."
@@ -139,8 +141,8 @@ dm = DM(
     )
 
 # for testing (seed 0)
-#dm.write_adr(6331)
-#dm.compile_pdf(6331)
+#dm.write_adr(1217)
+#dm.compile_pdf(1217)
 
 # for generating seeds
 dm.generate_seeds(80)

@@ -8,9 +8,9 @@
 \newcommand{\projmult}{\dfrac{1}{10}}
 \newcommand{\Ox}{0}
 \newcommand{\Oy}{\frac{-1}{3}}
-\newcommand{\xymin}{-4.3}
-\newcommand{\xymax}{4.0}
-\newcommand{\xypt}{18.072289156626503}
+\newcommand{\xymin}{-3.63}
+\newcommand{\xymax}{3.3000000000000003}
+\newcommand{\xypt}{21.645021645021647}
 \newcommand{\xA}{0}
 \newcommand{\yA}{\frac{-1}{3}}
 \newcommand{\xAreal}{0.0}

@@ -39,42 +39,41 @@
 			\end{enumerate}
 	\end{enumerate}
 }{exe:1}{
-
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item
 		\begin{align*}
 			A\left(\xA ; \yA\right) && B\left(\xB ; \yB\right) \\\\ C\left(\xC ; \yC\right) && D\left(\xD ; \yD\right)
 		\end{align*}
-		\hfill\,
-		\item
-		\begin{center}
-		\begin{tikzpicture}[>=stealth, scale=1]
-			\begin{axis}[xmin = \xymin, 
-				xmax=\xymax, 
-				ymin=\xymin,
-				ymax=\xymax, 
-				axis x line=middle, 
-				axis y line=middle, 
-				axis line style=-,
-				clip=true, 
-				%xtick distance = 1,
-				%ytick distance = 1,
-				x =\xypt pt,
-				y =\xypt pt,
-				minor tick num = 1,
-				clip=true]
-				% ADC triangle
-				\addplot[dashed, thick, black] (\xAreal, \yAreal) -- (axis cs:\xCreal, \yCreal) -- (axis cs:\xDreal, \yDreal) -- (axis cs:\xAreal, \yAreal);
-				% points
-				\addplot[BLUE_E, mark=*, mark size=1] (\xAreal, \yAreal) node[below]{$A$};
-				\addplot[RED_E, mark=*, mark size=1] (\xBreal, \yBreal) node[below]{$B$};
-				\addplot[GREEN_E, mark=*, mark size=1] (\xCreal, \yCreal) node[below]{$C$};
-				\addplot[GOLD_E, mark=*, mark size=1] (\xDreal, \yDreal) node[left]{$D$};
-			\end{axis}
-		\end{tikzpicture}
-		\end{center}
 	\end{enumerate}
+	\hfill
+	\columnbreak
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = \xymin, 
+			xmax=\xymax, 
+			ymin=\xymin,
+			ymax=\xymax, 
+			axis x line=middle, 
+			axis y line=middle, 
+			axis line style=-,
+			clip=true, 
+			%xtick distance = 1,
+			%ytick distance = 1,
+			x =\xypt pt,
+			y =\xypt pt,
+			minor tick num = 1,
+			clip=true]
+			% ADC triangle
+			\addplot[dashed, thick, black] (\xAreal, \yAreal) -- (axis cs:\xCreal, \yCreal) -- (axis cs:\xDreal, \yDreal) -- (axis cs:\xAreal, \yAreal);
+			% points
+			\addplot[BLUE_E, mark=*, mark size=1] (\xAreal, \yAreal) node[below]{$A$};
+			\addplot[RED_E, mark=*, mark size=1] (\xBreal, \yBreal) node[below]{$B$};
+			\addplot[GREEN_E, mark=*, mark size=1] (\xCreal, \yCreal) node[below]{$C$};
+			\addplot[GOLD_E, mark=*, mark size=1] (\xDreal, \yDreal) node[left]{$D$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
 	\end{multicols}
 	\begin{enumerate}
 		\item[3.]
