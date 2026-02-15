@@ -145,11 +145,11 @@ dm = DM(
 #dm.compile_pdf(1217)
 
 # for generating seeds
-dm.generate_seeds(80)
-dm.write_adrs()
-dm.compile_pdfs()
+#dm.generate_seeds(80)
+#dm.write_adrs()
+#dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
-#dm.read_adrs()
+dm.read_adrs()
 # compile
-#dm.compile_pdfs()
+dm.compile_pdfs()
