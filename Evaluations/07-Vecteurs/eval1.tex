@@ -1,0 +1,222 @@
+\input{../preamble.tex}
+\def\arraystretch{1}
+\setlength\tabcolsep{10pt}
+
+\SetDate[22/02/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation blanche — Vecteurs}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{6}{
+	Considérons un point $A(0 ; -4)$, un vecteur $v = \pvec{1}{2}$, et une fonction $f(x) = 2x - 4$ définie sur $\R$.
+	
+	Posons $(d)$ la droite passant par $A$ et dirigée par $v$ et $\C_f$ la courbe représentative de $f$.
+	
+	\begin{enumerate}
+		\item
+		Donner $3$ points distincts appartenant à $(d)$.
+		\item
+		Donner un point $B$ appartenant à $\C_f$ distinct des points déjà cités
+		\item
+		Montrer que $B$ appartient à $(d)$.
+		\item$(\star)$
+		Montrer que $(d) = \C_f$.
+	\end{enumerate}
+}{exe:v-directeur}{
+	
+	\begin{enumerate}
+		\item
+		D'après le cours, $(d)$ est l'ensemble des translatés de $A$ par un multiple de $v$ :
+			\[ (d) = \bigset{ A + k\cdot v \tq k \in \R}. \]
+		En particulier, les points $A, A+v = (1 ; -2),$ et $A - v = (-1 ; -6)$ appartiennent à $(d)$.
+		
+		Notons que $A + \frac{\pi}{4}v = \left( \frac{\pi}4 ; \frac{-8 + \pi}2 \right)$ appartient aussi à $(d)$.
+		
+		\item
+		Par définition, $\C_f$ est l'ensemble des points $\bigl(x ; f(x)\bigr)$ avec $x \in \R$.
+		Prenons $x=7$ (notre nombre préféré) : le point $B(7 ; 10)$ appartient à $\C_f$.
+		
+		\item
+		Pour montrer que $B$ appartient à $(d)$, il suffit de calculer $\vec{AB}$ et de montrer qu'il est colinéaire à $v$.
+			\[ \vec{AB} = \pvec{7-0}{10-(-4)} = \pvec{7}{14} = 7u \]
+		
+		\item$(\star)$
+		D'une part, la droite $(d)$ est l'ensemble des $A+k\cdot v$ avec $k\in\R$.
+		C'est donc l'ensemble des points de la forme
+			\[ A + k\cdot v = (0 ; -4) + k\pvec{1}{2} = (0 ; -4) + \pvec{k}{2k} = (k ; 2k-4). \]
+		
+		D'autre part, la courbe représentative $\C_f$ est l'ensemble des points de la forme 
+			\[ \bigl(x ; f(x)\bigr) = (x ; 2x - 4) \]
+		avec $x \in \R$.
+		
+		Ces ensembles sont donc égaux ; leur seul différence est la lettre utilisée pour les caractériser !
+	\end{enumerate}
+
+}
+
+\exe{5}{
+	Un élève de Seconde fournit la production écrite suivante.
+	
+	\fbox{\parbox{\textwidth}{
+		\textbf{\oldunderline{Énoncé :}}
+		
+		Considérons les points $A(-1; -6), B(-3; -12)$, et $C(5; 12)$.
+		
+		Le point $C$ appartient-il à la droite $(AB)$ ?
+		
+		
+		\textbf{\underline{Réponse de l'élève :}}
+		
+		D'abord, je calcule le vecteur $\vec{AB}$ qui dirige la droite $(AB)$ :
+			\[ \vec{AB} = \pvec{x_A - x_B}{y_A - y_B} = \pvec{-1 - (-3)}{-6 - (-12)} = \pvec{4}{6}. \]
+		Ensuite, je calcule le vecteur $\vec{AC}$ :
+			\[ \vec{AC} = \pvec{x_C - x_A}{y_C-y_A} = \pvec{5-(-1)}{12-(-6)} = \pvec{4}{-6}. \]
+		Enfin, le déterminant $\det\bigl(\vec{AB}, \vec{AC}\bigr)$ est égal à
+			\[ \det\bigl(\vec{AB}, \vec{AC}\bigr) = (4)(-6) + (6)(4) = -24 + 24 = 0, \]
+		duquel je déduis que les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+		
+		En conclusion, les droites $(AB)$ et $(AC)$ sont parallèles et passent toutes les deux par $A$ : elles sont donc confondues et les points $A, B, C$ sont alignés.		
+	
+	}}
+	
+	\begin{enumerate}
+		\item 
+		Identifier les erreurs de commises. Il y en a au moins 3 différentes.
+		\item
+		Répondre à l'énoncé en justifiant.
+	\end{enumerate}
+}{exe:erreurs}{
+	\begin{enumerate}
+		\item
+		La première ligne de calculs contient deux erreurs : la formule est fausse ($x_B - x_A$ et non $x_A - x_B$) ; et le calcul $-1-(-3)$ vaut $-1+3 = 2$ et non 4.
+		
+		La deuxième ligne de calculs contient également deux erreurs de signe : $5-(-1) = 5+1 = 6$ et $12-(-6) = 18$.
+		
+		La troisième ligne de calculs utilise la formule $ad+bc$ qui n'est pas la bonne formule du déterminant $ad-bc$.
+		
+		\item
+		En corrigeant les erreurs, on trouve $\vec{AB} = \pvec{-2}{-6}$ et $\vec{AC} = \pvec{6}{18}$.
+		Comme $\vec{AC} = -3\vec{AC}$, les vecteurs sont colinéaires et la conclusion de l'élève reste correcte.
+		Un calcul de déterminant permet également de conclure : 
+			\[ \det\bigl(\vec{AB},\vec{AC}\bigr) = (-2)(18)-(-6)(6) = -36+36 = 0. \]	
+	\end{enumerate}
+}
+
+\newpage
+
+\exe{6}{
+	Soit $A(2 ; -3)$ un point et $u = \pvec{-2}{4}, v = \frac17\pvec{6}{3}$ deux vecteurs.
+	
+	\begin{enumerate}
+		\item
+		Calculer les coordonnées \textbf{exactes} des points $B = A+u$ et $C = A+v$.
+		\item
+		Représenter les points $A, B, C$ dans un repère.
+		Il est possible d'estimer les valeurs pour placer approximativement les points.
+		\item
+		Démontrer que le triangle $ABC$ est rectangle en $A$.
+	\end{enumerate}
+}{exe:Pyth}{
+	\begin{enumerate}
+		\item
+		Les coordonnées de $B$ sont données par
+			\[ B = A + u = (2 ; -3) + \pvec{-2}4 = (2-2 ; -3+4) = (0 ; 1). \]
+		Celles de $C$ par
+			\[ C = A + v = (2 ; -3) + \dfrac17\pvec{6}{3} = \left( 2 + \dfrac67 ; -3 + \dfrac37 \right) = \left( \dfrac{20}{7} ; \dfrac{-18}7 \right). \]
+		
+		\item
+		On approxime $C \approx (3 ; -2,5)$ pour placer les points approximativement ci-dessous.
+
+		\item
+		Calculons le carré de la longueur de chaque côté :
+			\begin{align*}
+				AB^2 = \Vert \vec{AB}\Vert^2 = \Vert u \Vert^2 = (2)^2 + (4)^2 = 20, \\
+				AC^2 = \Vert \vec{AC} \Vert^2 = \Vert v \Vert^2 = \left(\dfrac67\right)^2 + \left(\dfrac37\right)^2 = \dfrac{6^2 + 3^2}{7^2} = \dfrac{45}{49}, \\
+				BC^2 = \Vert \vec{BC} \Vert^2 = \left\Vert \dfrac17\pvec{20}{-25} \right\Vert^2 = \dfrac{20^2 + 25^2}{7^2} = \dfrac{1025}{49}.
+			\end{align*}
+		La réciproque du théorème de Pythagore demande de vérifier l'égalité $BC^2 \stackrel{?}{=} AC^2 + AB^2$, ce que l'on fait calmement car on aime les fractions :
+			\[ AC^2 + AB^2 = 13 + \dfrac{45}{49} = \dfrac{20\times49 + 45}{49} = \dfrac{980+45}{49} = \dfrac{1025}{49} = BC^2, \]
+		où on a utilisé que $20\times49 = 20\times50 - 20 = 980$.
+
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.875]
+		\begin{axis}[xmin = -0.5, xmax=3.5, ymin=-3.5, ymax=1.5, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=1, grid=both, x=2cm, y=2cm]
+		\addplot[BLUE_E, mark=*, mark size = 1] (2,-3) node[right] {$A(2 ; -3)$};
+		\addplot[GREEN_E, mark=*, mark size = 1] (0,1) node[above] {$B(0;1)$};
+		\addplot[RED_E, mark=*, mark size = 1] (20/7,-18/7) node[right] {$C\approx(3 ; -2,5)$};
+		\addplot[dashed, thick, GREY] (2,-3) -- (axis cs:0,1) -- (axis cs:20/7, -18/7) -- (axis cs:2,-3);
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{4}{
+	Construire en bas de page les vecteurs 
+		\begin{align*}
+			a = u+v+w, && b = -2u, && \text{ et } && c = 3u - \dfrac12v - \dfrac13w,
+		\end{align*}
+	où les vecteurs $u, v, w$ sont donnés dans le plan ci-dessous.
+	Montrer les constructions.
+	
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, GREEN_E] (axis cs:-1,-1) -- (axis cs: 1,-4) node[right] {$u$};
+			% u = (2, -3)
+			\draw[very thick, ->, RED_E] (axis cs: -2,8) -- (axis cs: -5,-1) node[left] {$v$};
+			% v = (-3, -9)
+			\draw[very thick, ->, BLUE_E] (axis cs:0,1) -- (axis cs: 8,5) node[above] {$w$};
+			% w = (8, 4)
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	\vspace{-1cm}
+	\underline{\textbf{Constructions :}}
+	%\vspace{5cm}
+}{exe:Chasles}{
+	On obtient quelque chose comme ça. 
+	Multiplier par un scalaire $k$ multiplie la norme par $|k|$ et change le sens si $k<0$.
+	Pour ajouter deux vecteurs, on prend un point au hasard, et on le translate par l'un puis par l'autre et on trace la translation qui envoie le point choisi au point d'arrivée (on met donc les vecteurs bout à bout).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none]
+			\draw[very thick, ->, PINK] (axis cs:-5,0) -- (axis cs: 2,-8) node[midway, right] {$u+v+w$};
+			\draw[very thick, ->, GOLD_E] (axis cs:0,0) -- (axis cs: -4,6) node[midway, right] {$-2u$};
+			\draw[very thick, ->, TEAL_E] (axis cs:5,0) -- (axis cs: 9.83,-5.83) node[midway, right] {$3u - \frac12v - \frac13w$};
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
