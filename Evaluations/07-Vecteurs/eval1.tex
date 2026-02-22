@@ -78,6 +78,7 @@ Consignes particulières :
 
 \exe{5}{
 	Un élève de Seconde fournit la production écrite suivante.
+	Celui présente quelques erreurs.
 	
 	\fbox{\parbox{\textwidth}{
 		\textbf{\oldunderline{Énoncé :}}
@@ -90,11 +91,17 @@ Consignes particulières :
 		\textbf{\underline{Réponse de l'élève :}}
 		
 		D'abord, je calcule le vecteur $\vec{AB}$ qui dirige la droite $(AB)$ :
-			\[ \vec{AB} = \pvec{x_A - x_B}{y_A - y_B} = \pvec{-1 - (-3)}{-6 - (-12)} = \pvec{4}{6}. \]
+			\begin{align}\label{eq:1}
+				\vec{AB} = \pvec{x_A - x_B}{y_A - y_B} = \pvec{-1 - (-3)}{-6 - (-12)} = \pvec{4}{6}.
+			\end{align}
 		Ensuite, je calcule le vecteur $\vec{AC}$ :
-			\[ \vec{AC} = \pvec{x_C - x_A}{y_C-y_A} = \pvec{5-(-1)}{12-(-6)} = \pvec{4}{-6}. \]
+			\begin{align}\label{eq:2}
+				\vec{AC} = \pvec{x_C - x_A}{y_C-y_A} = \pvec{5-(-1)}{12-(-6)} = \pvec{4}{-6}.
+			\end{align}
 		Enfin, le déterminant $\det\bigl(\vec{AB}, \vec{AC}\bigr)$ est égal à
-			\[ \det\bigl(\vec{AB}, \vec{AC}\bigr) = (4)(-6) + (6)(4) = -24 + 24 = 0, \]
+			\begin{align}\label{eq:3}
+				\det\bigl(\vec{AB}, \vec{AC}\bigr) = (4)(-6) + (6)(4) = -24 + 24 = 0,
+			\end{align}
 		duquel je déduis que les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
 		
 		En conclusion, les droites $(AB)$ et $(AC)$ sont parallèles et passent toutes les deux par $A$ : elles sont donc confondues et les points $A, B, C$ sont alignés.		
@@ -103,18 +110,18 @@ Consignes particulières :
 	
 	\begin{enumerate}
 		\item 
-		Identifier les erreurs de commises. Il y en a au moins 3 différentes.
+		Identifier les erreurs commises par l'élève. Une erreur par ligne de calcul (dénotées \eqref{eq:1}, \eqref{eq:2} et \eqref{eq:3}) est attendue.
 		\item
-		Répondre à l'énoncé en justifiant.
+		Répondre à l'énoncé.
 	\end{enumerate}
 }{exe:erreurs}{
 	\begin{enumerate}
 		\item
-		La première ligne de calculs contient deux erreurs : la formule est fausse ($x_B - x_A$ et non $x_A - x_B$) ; et le calcul $-1-(-3)$ vaut $-1+3 = 2$ et non 4.
+		La ligne \eqref{eq:1} contient deux erreurs : la formule du vecteur $\vec{AB}$ est fausse ($x_B - x_A$ et non $x_A - x_B$) ; et le calcul $-1-(-3)$ vaut $-1+3 = 2$ et non 4.
 		
-		La deuxième ligne de calculs contient également deux erreurs de signe : $5-(-1) = 5+1 = 6$ et $12-(-6) = 18$.
+		La ligne \eqref{eq:2} contient également deux erreurs de signe : $5-(-1) = 5+1 = 6$ et $12-(-6) = 18$.
 		
-		La troisième ligne de calculs utilise la formule $ad+bc$ qui n'est pas la bonne formule du déterminant $ad-bc$.
+		La ligne \eqref{eq:3} utilise la formule $ad+bc$ qui n'est pas la bonne formule du déterminant $ad-bc$.
 		
 		\item
 		En corrigeant les erreurs, on trouve $\vec{AB} = \pvec{-2}{-6}$ et $\vec{AC} = \pvec{6}{18}$.
