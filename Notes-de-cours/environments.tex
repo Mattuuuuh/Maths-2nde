@@ -165,10 +165,18 @@
 % EXERCISES 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[answerdelayed, lastexercise]{exercise}
+% delays answers and exercices
+% answers are from last exercise is no label is provided
+\usepackage[answerdelayed, exercisedelayed, lastexercise]{exercise}
+
+% reset counter each chapter
+\renewcounter{Exercise}[chapter]
+
+% change head to hyperlink to answer
 \renewcommand{\ExerciseHeader}{
 	\textbf{
-	\theExercise.
+	%\ref{\ExerciseLabel-Answer}.
+	\refAnswer{\ExerciseLabel}.
 	}
 	\ifnum\ExerciseDifficulty=0
 	\else
@@ -176,19 +184,26 @@
 	\fi
 }
 \renewcommand{\DifficultyMarker}{$\star$}
+% old solutions not per chapter
+%\renewcommand{\AnswerHeader}{
+%	% if exercise title is "1" then announce new chapter
+%	\if\ExerciseTitle1
+%		\hrule\vspace{1cm}
+%		{\LARGE
+%		\textbf{Exercices du chapitre \thechapter}\newline\newline
+%		}
+%	\fi
+%	
+%	\centerline{\textbf{
+%	Exercice \ExerciseHeaderNB
+%	}}
+%}
 \renewcommand{\AnswerHeader}{
-	% if exercise title is "1" then announce new chapter
-	\if\ExerciseTitle1
-		\hrule\vspace{1cm}
-		{\LARGE
-		\textbf{Exercices du chapitre \thechapter}\newline\newline
-		}
-	\fi
-	
-	\centerline{\textbf{
-	Exercice \ExerciseHeaderNB
-	}}
+	\textbf{
+	\theExercise.
+	}
 }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MINTED FOR PYTHON ALGORITHMS

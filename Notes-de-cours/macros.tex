@@ -28,7 +28,7 @@
 
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
-		\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		%\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 		#2
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
@@ -37,14 +37,16 @@
 }
 
 \newcommand{\exemulticols}[5]{
-	\begin{multicols}{2}
+	%\begin{multicols}{2}
 	\begin{Exercise}[title=#1, label=#4]
-		\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+	\begin{multicols}{2}
+		%\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 		#2
-	\end{Exercise}
 	\columnbreak
 		#3
 	\end{multicols}
+	\end{Exercise}
+	%\end{multicols}
 	\begin{Answer}[ref=#4]
 		#5
 	\end{Answer}

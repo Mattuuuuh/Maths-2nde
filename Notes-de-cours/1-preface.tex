@@ -34,16 +34,29 @@ C'est par exemple le cas de « ensemble », « couple », « rationnel », « r�
 	Résultat particulier mais important, découlant quasi directement d'un théorème ou d'une proposition.
 \end{corollaire*}
 
-\newcounter{preface}
-\begin{Exercise}[counter=preface]
+%\newcounter{preface}
+\begin{Exercise}[label=1]%[counter=preface]
 	Exemple de problème d'application directe.
 \end{Exercise}
-\begin{Exercise}[difficulty=1, counter=preface]
+\begin{Exercise}[difficulty=1, label=2]%, counter=preface]
 	Exemple de problème plus théorique.
 \end{Exercise}
-\begin{Exercise}[difficulty=2, counter=preface]
+\begin{Exercise}[difficulty=2, label=3]%, counter=preface]
 	Exemple de problème d'approfondissement.
 \end{Exercise}
+\shipoutExercise
+\begin{Answer}[ref=1]
+	Solution 1.
+\end{Answer}
+\begin{Answer}[ref=2]
+	Solution 2.
+\end{Answer}
+\begin{Answer}[ref=3]
+	Solution 3.
+\end{Answer}
+\begin{multicols}{3}
+\shipoutAnswer
+\end{multicols}
 
 \subsection*{Remerciements}
 
