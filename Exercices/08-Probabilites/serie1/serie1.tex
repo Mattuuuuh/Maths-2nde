@@ -82,6 +82,22 @@
 	\end{enumerate}
 }
 
+\exe{}{
+	Donner les ensembles résultant de l'union et de l'intersection.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cap \bigset{  -1; 2 ; -4 ; 1 }$
+		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cup \bigset{  -1; 2 ; -4 ; 1 }$
+	\end{enumerate}
+	\end{multicols}
+}{exe:inter-union}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\bigset{ 1 ; 2 ; -4 }$
+		\item $\bigset{1;2;-2;-4;-1;1}$
+	\end{enumerate}
+	\end{multicols}
+}
 
 %^\vspace{-10pt}
 \subsection*{Exercices}
@@ -126,12 +142,12 @@
 		\item A : « le nombre est pair »
 		\item B : « le nombre est multiple de $3$ »
 		\columnbreak
-		\item C : « le nombre est multiple de $3$ \textbf{ou} pair »
-		\item D : « le nombre est multiple de 3 \textbf{et} pair »
+		\item C : \mbox{« le nombre est multiple de $3$ \textbf{ou} pair »}
+		\item D : \mbox{« le nombre est multiple de 3 \textbf{et} pair »}
 		\end{enumerate}
 		\end{multicols}
 	\end{enumerate}
-}{exe:exe1}{
+}{exe:univers2}{
 	\begin{enumerate}
 		\item $\Omega = \bigset{ 1 ; 2 ; \dots ; 19 ; 20 } = \bigset{ i \in \N \tq 1 \leq i \leq 20 }$ de cardinal $|\Omega| = 20$.
 		\item 
@@ -149,7 +165,7 @@
 
 
 \exe{}{
-	On suppose le D20 de l'exercice \ref{exe:exe1} bien équilibré.
+	On suppose le D20 de l'exercice \ref{exe:univers2} bien équilibré.
 	\begin{enumerate}
 		\item 
 		Calculer la probabilité de chacun des événements de l'exercice \ref{exe:exe1}.
@@ -159,7 +175,7 @@
 		L'égalité suivante est-elle vraie ?
 			\[ P(A \cup B) \stackrel{?}{=} P(A) + P(B) - P(A\cap B). \]
 	\end{enumerate}
-}{exe:exe2}{
+}{exe:D20}{
 	\begin{enumerate}
 		\item 
 		Comme le dé est bien équilibré, chaque issue admet la même probabilité, soit $\frac1{\Omega} = \frac1{20}$.
@@ -203,7 +219,7 @@
 		%\item P(« obtenir $2$ ou $5$ »)  + P(« obtenir ni $2$ ni $5$ ») 
 	\end{enumerate}
 	\end{multicols}
-}{exe:exe3}{
+}{exe:D6-pipé}{
 	On complète d'abord le tableau en sachant que l'univers de l'expérience est $\Omega = \bigset{ 1 ; 2 ;3 ; 4 ; 5 ; 6 }$ et que la somme des probabilités du tableau est donc nécessairement $1$.
 	En effet, $P(\Omega) = 1$, car $\Omega$ correspond à l'événement « obtenir une des issues possibles », qui est un événement sûr.
 	
@@ -248,9 +264,9 @@
 }
 
 \exe{}{
-	On lance un D$300$ bien équilibré, dé à $300$ faces numérotées de $1$ à $300$.
+	On lance un D300 bien équilibré, dé à 300 faces numérotées de 1 à 300.
 	Après le lancer, on note le numéro de la face supérieure.
-	Posons $A$ : « le résultat n'est pas multiple de $10$ », et $B$ : « le résultat n'est pas divisible par $7$ ».
+	Posons $A$ : « le résultat n'est pas multiple de 10 », et $B$ : « le résultat n'est pas divisible par 7 ».
 	
 	\begin{enumerate}
 		\item Décrire avec des mots les événements suivants.
@@ -269,7 +285,7 @@
 		\item Énoncer le principe d'inclusion-exclusion puis l'utiliser pour calculer $P\bigl(\overline{A} \cup \overline{B}\bigr)$.
 		%\item Calculer la probabilité que le résultat obtenu soit supérieur ou égal à $10$.
 	\end{enumerate}
-}{exe:exe8}{
+}{exe:D300}{
 	\begin{enumerate}
 		\item 
 			\begin{enumerate}[label=\roman*)]
@@ -422,7 +438,7 @@
 }
 
 \exe{}{
-	On lance $3$ fois de suite une pièce de monnaie bien équilibrée.
+	On lance 3 fois de suite une pièce de monnaie bien équilibrée.
 	Les lancers sont indépendants.
 	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
 	Donner $\Omega$, l'univers de l'expérience, et $|\Omega|$ son cardinal.
@@ -433,11 +449,11 @@
 			\item Obtenir $3$ fois face.
 			\item Le deuxième lancer donne pile.
 			\columnbreak
-			\item Le troisième lancer est différent du premier.
+			\item \mbox{Le troisième lancer est différent du premier.}
 			\item On obtient au moins une fois pile.
 		\end{enumerate}
 		\end{multicols}
-}{exe:exe10}{
+}{exe:PF3}{
 	Comme les lancers sont distingués, il y a $8$ issues possibles.
 		\[ \Omega = \bigset{ FFF ; FFP ; FPF ; FPP ; PFF ; PFP ; PPF ; PPP } \]
 	Le cardinal de l'univers est $|\Omega| = 8$.
@@ -1076,7 +1092,7 @@
 
 \exe{, difficulty=3}{
 	On lance une pièce lestée dont la probabilité d'obtenir « pile » est $p$ et « face » est $q$.
-	Notons $X$ le numéro de « face » obtenus avant le premier « pile ».
+	Notons $X$ le nombre de « face » obtenus avant le premier « pile ».
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item
