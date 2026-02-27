@@ -19,7 +19,7 @@
 
 \nt{
 	Une translation $T$ déplace tous les points du plan selon la même direction, la même distance, et dans le même sens.
-	On peut donc décomposer $T$ en une translation \og gauche/droite \fg~ selon l'axe des abscisses, et une translation \og haut/bas \fg selon les ordonnées.
+	On peut donc décomposer $T$ en une translation « gauche/droite »~ selon l'axe des abscisses, et une translation « haut/bas » selon les ordonnées.
 	
 	Chaque point $A(x_A ; y_A)$ voit ses coordonées modifiées de la même manière :
 	celui-ci se déplace systématiquement d'une certaine quantité $x_T$ en abscisse, et $y_T$ en ordonnée.
@@ -88,6 +88,46 @@
 	\end{multicols}
 }{}
 
+
+\exe{}{
+	Placer les points $A(-4 ;3), B(2 ; 2), C(0 ; -2)$ dans un repère et répondre au questions.
+	
+	\begin{enumerate}
+		\item Quelle translation $\vec{AB}$ effectuer pour envoyer le point $A$ sur le point $B$ ?
+		\item Quelle translation $\vec{BC}$ effectuer pour envoyer le point $B$ sur le point $C$ ?
+		\item Quelle translation $\vec{AC}$ effectuer pour envoyer le point $A$ sur le point $C$ ?
+		\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$ et compléter la phrase suivante.
+			\begin{center}
+				%« Envoyer $A$ sur $B$, puis $B$ sur $C$ correspond à envoyer $A$ sur $\dots$ »
+				« L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ \\[10pt] est égale à la translation qui envoie $\hdots\hdots\hdots\hdots\hdots$. »
+			\end{center}
+		%\item Comparer $\vec{AC}$ et $\vec{AB} + \vec{BC}$.
+		
+		%\item Pour $A, B, C$ trois points quelconques, démontrer l'égalité
+		%	\[ \vec{AC} = \vec{AB} + \vec{BC}. \]
+	\end{enumerate}
+
+}{exe:intro1}{
+	
+	\begin{enumerate}
+		\item On calcule
+			\[ \vec{AB} = B - A = \pvec{2 - (-4)}{2-3} = \pvec{6}{-1}. \]
+		\item On calcule
+			\[ \vec{BC} = C - B = \pvec{0 - 2}{-2 - 2} = \pvec{-2}{-4}. \]
+		\item On calcule
+			\[ \vec{AC} = C - A = \pvec{0 - (-4)}{-2 -3} = \pvec{4}{-5}. \]
+		\item
+			La somme $\vec{AB} + \vec{BC}$ est donnée par
+				\[ \vec{AB} + \vec{BC} = \pvec{6}{-1} + \pvec{-2}{-4} = \pvec{6 - 2}{-1-4} = \pvec{4}{-5} = \vec{AC}. \]
+			\begin{center}
+				« L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ \\[10pt] est égale à la translation qui envoie {\color{RED_E} $A$ sur $C$}. »
+			\end{center}
+		%\item
+		%	On a, plus généralement, $\vec{AB} + \vec{BC} = B - A + C - B = C - A = \vec{AC}$.
+	\end{enumerate}
+}
+
+
 \subsection{Composition de translations : somme de vecteurs}
 
 \thm{relation de Chasles}{
@@ -95,7 +135,7 @@
 	Alors
 		\[ \vec{AB} + \vec{BC} = \vec{AC}. \]
 		\begin{center}
-		\og L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ est égale à la translation qui envoie $A$ sur $C$ \fg.
+		« L'addition de la translation qui envoie $A$ sur $B$ à celle qui envoie $B$ sur $C$ est égale à la translation qui envoie $A$ sur $C$ ».
 		\end{center}
 }{thm:chasles}
 
@@ -123,6 +163,24 @@
 }{}
 
 \exemulticols{}{
+	Construire, dans le plan vierge de droite, les sommes 
+		\[u+v+w \qquad \text{ et } \qquad \dfrac12u - 2v - w,\]
+	où les vecteurs $u, v, w$ sont donnés dans le plan de gauche ci-dessous.
+}{
+	\begin{center}
+	\includegraphics[page=7]{figures/fig-vecteurs.pdf}
+	\end{center}
+}{exe:rep-graph}{
+	\begin{center}
+	\includegraphics[page=8]{figures/fig-vecteurs.pdf}
+	\end{center}
+	
+	On met les vecteurs bout à bout pour créer la somme.
+	La multiplication par un scalaire ne change pas la direction mais multiplie la norme et peut changer le sens si celui-ci est négatif.
+}
+
+
+\exemulticols{}{
 	À l'aide des vecteurs $u, v, w$ donnés dans le plan ci-contre, construire les sommes
 		\begin{align*}
 			a &= u+v+w, \\
@@ -135,8 +193,11 @@
 	\includegraphics[page=5]{figures/fig-vecteurs.pdf}
 	\end{center}
 }{exe:somme-geom}{
-	TODO
+	\begin{center}
+	\includegraphics[page=11]{figures/fig-vecteurs.pdf}
+	\end{center}
 }
+
 
 \exe{}{
 	À l'aide de la figure suivante et de la relation de Chasles, déterminer les sommes vectorielles suivantes en complétant les pointillés.
@@ -156,7 +217,15 @@
 	\end{multicols}
 
 }{exe:somme-sesamaths}{
-	TODO
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\vec{BC} = \vec{ED}$
+		\item $\vec{BE} = \vec{AF}$
+		\item $\vec{AB} + \vec{FA} = \vec{FE} + \vec{EB} = \vec{FB}$
+		\item $\vec{FD} + \vec{EB} = \vec{FD} + \vec{DC} = \vec{FC}$
+		\item $\vec{AE} + \vec{GB} + \vec{DH} = \vec{AE} + \vec{EH} + \vec{HB} = \vec{AB}$
+	\end{enumerate}
+	\end{multicols}
 }
 
 \subsection{Norme vectorielle}
@@ -187,7 +256,7 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 %	\end{center}
 }{}
 
-\exe{1}{
+\exe{}{
 	Calculer la norme des vecteurs suivants. L'exprimer sous la forme $a \sqrt{b}$, où $a, b \in\N$ sont des entiers naturels et $b$ est le plus petit possible.
 	\begin{multicols}{3}
 	\begin{enumerate}	
@@ -200,7 +269,67 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	\end{enumerate}
 	\end{multicols}
 }{exe:norme-vectorielle}{
-	TODO
+	\begin{multicols}{3}
+	\begin{enumerate}	
+		\item $\norm{u} = 5$
+		\item $\norm{v} = 5$
+		\item $\norm{w} = \sqrt5$
+		\item $\norm{u'} = \sqrt{74}$
+		\item $\norm{v'} = 2$
+		\item $\norm{w'} = 5$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Calculer les coordonnées puis dessiner les vecteurs suivants dans un repère.
+		\begin{align*}
+			u = \pvec{-2}{4}, && v = 2u, && w = -\dfrac32u, && z = -\dfrac12u,
+		\end{align*}	
+	\begin{enumerate}
+		\item Compléter les phrases suivantes.
+			\begin{center}
+				« Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, son sens $\dots\dots\dots\dots\dots\dots$ » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $w$, son sens$\dots\dots\dots\dots\dots\dots$ » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par  $\dots$ pour obtenir $z$, son sens $\dots\dots\dots\dots\dots\dots$ »
+			\end{center}
+		\item Calculer les normes de $u, v, w,$ et $z$ et les écrire sous forme $a\sqrt{b}$ où $a, b\in\N$ et $b$ est le plus petit possible.
+		\item Compléter les phrases suivantes.
+		\vspace{-20pt}
+			\begin{center}
+				\mbox{« Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par $\dots$. »} \\[10pt]
+				\mbox{« Lorsque le vecteur $u$ est multiplié par $\dots$  pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par $\dots$ »} \\[10pt]
+				\mbox{« Lorsque le vecteur $u$ est multiplié par $\dots$ pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par $\dots$. »}
+			\end{center}
+	\end{enumerate}
+
+}{exe:intro2}{
+	\begin{enumerate}
+		\item
+			\begin{center}
+				« Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, son sens {\color{RED_E} ne change pas} » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par  {\color{RED_E} $-\dfrac32$} pour obtenir $w$, son sens {\color{RED_E} change} » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par  {\color{RED_E} $-\dfrac12$} pour obtenir $z$, son sens {\color{RED_E} change} »
+			\end{center}
+		\item
+			\begin{align*}
+				\norm{u} &= \sqrt{(-2)^2 + 4^2} = \sqrt{4 + 16} = \sqrt{20} = \sqrt{4 \times 5} = 2 \sqrt{5}. \\
+				\norm{v} &= \sqrt{(-4)^2 + 8^2} = \sqrt{16 + 64} = \sqrt{80} = \sqrt{16 \times 5} = 4\sqrt{5}. \\
+				\norm{w} &= \sqrt{3^2 + (-6)^2} = \sqrt{9 + 36} = \sqrt{45} = \sqrt{9 \times 5} = 3 \sqrt{5}. \\
+				\norm{z} &= \sqrt{1^2 + (-2)^2} = \sqrt{1 + 4} = \sqrt{5}.
+			\end{align*}
+	
+		On remarque qu'on a les relations suivantes.
+			\begin{align*}
+				\norm{v} = 2 \norm{u} && \norm{w} = \dfrac32 \norm{u} && \norm{z} = \dfrac12 \norm{u}
+			\end{align*}
+		\item
+			\begin{center}
+				« Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $2$} pour obtenir $v$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $2$}. » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac32$} pour obtenir $w$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac32$}. » \\[10pt]
+				« Lorsque le vecteur $u$ est multiplié par {\color{RED_E} $-\frac12$} pour obtenir $z$, sa norme $\Vert u\Vert$ est multipliée par {\color{RED_E} $\frac12$}. »
+			\end{center}
+	\end{enumerate}
 }
 
 \thm{homogénéité\index{homogénéité} de la norme}{
@@ -221,20 +350,76 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 }
 
 
-\exe{}{
-	Calculer la norme des vecteurs suivants. L'exprimer sous la forme $a \sqrt{b}$, où $a, b \in\N$ sont des entiers naturels et $b$ est le plus petit possible.
-	\begin{align*}
-		u = \pvec{-2}{4}, && v = 2u, && w = -\dfrac32u, && z = -\dfrac12u.
-	\end{align*}
-}{exe:norme-homogènre}{
-	TODO
+\exe{, difficulty=1}{
+	Soient $A(3;-1), B(-1; -5),$ et $C(3 ; 4)$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $\vec{AB}, \vec{BA}$, et $\vec{CA}$.
+		\item Calculer $\norm{\vec{AB}}, \norm{\vec{BA}}$, $\norm{\vec{AC}}$.
+		\item Calculer $3 \vec{AB} + 3 \vec{CA}$ et $3 \vec{CB}$.
+		\item Calculer $\norm{-4 \vec{AB}}$ et $\norm{-\dfrac1{13} \vec{CA}}$.
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:calcul}{
+
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\vec{AB} = B - A = \pvec{-4}{-4} && \vec{BA} = - \vec{AB} = \pvec44 && \vec{CA} = A - C = \pvec0{-5}.
+			\end{align*}
+		\item
+			\begin{align*}
+				\norm{\vec{AB}} &= \sqrt{(-4)^2 + (-4)^2} = 4\sqrt{2} \\ \norm{\vec{BA}} &= \norm{- \vec{AB}} = \norm{\vec{AB}} = 4\sqrt{2} \\ \norm{\vec{CA}} &= \sqrt{(-5)^2} = |-5| = 5.
+			\end{align*}
+		\item
+			On utilise la relation de Chasles $\vec{CB} = \vec{CA} + \vec{AB}$ pour obtenir immédiatement le résultat.
+			\begin{align*}
+				3 \vec{AB} + 3 \vec{CA} &= 3 \pvec{-4}{-4} + 3 \pvec0{-5} = \pvec{-12}{-27} \\
+				3 \vec{CB} &= 3 \left( \vec{CA} + \vec{AB} \right) =  3 \vec{AB} + 3 \vec{CA} = \pvec{-12}{-27}
+			\end{align*}
+		\item
+			\begin{gather*}
+				\norm{-4 \vec{AB}} = |-4| \cdot \norm{\vec{AB}} = 4\norm{\vec{AB}} = 16\sqrt{2}  \\
+				\norm{-\dfrac1{13} \vec{CA}} = \dfrac1{13} \norm{\vec{CA}} = \dfrac5{13}
+			\end{gather*}
+			
+	\end{enumerate}
+
 }
 
-\exe{}{
+
+\exe{, difficulty=1}{
+	Considérons le point $A(1;3)$ et les vecteurs $u = \pvec62, v = \pvec1{-3}$.
+	Posons $B=A+u$ et $C = A+v$.
+	Tracer le triangle $ABC$ dans un repère orthonormé et démontrer qu'il est rectangle en $A$. 
+	
+	\emph{Formule de la longueur : $AB^2 = (x_A - x_B)^2 + (y_A - y_B)^2$.}
+}{exe:Pyth}{
+	D'abord, $B = A +u = (1+6 ; 3+2) = (7;5)$ et $C = A+v = (1+1 ; 3 - 3) = (2 ; 0)$.
+	
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-vecteurs.pdf}
+	\end{center}
+	
+	Ensuite, pour montrer que $ABC$ est rectangle en $A$, la réciproque du théorème de Pythagore énonce qu'il faut montrer l'égalité
+		\[ BC^2 \stackrel{?}{=} AB^2 + AC^2. \]
+	D'après la formule de la longueur, d'une part
+		\[ BC^2 = (7-2)^2 + (0-5)^2 = 25+25=50, \]
+	et d'autre part
+		\[ AB^2 + AC^2 = (7-1)^2 + (5-3)^2 + (2-1)^2 + (0-3)^2 = 36+4+1+9 = 50, \]
+	ce qui conclut.
+}
+
+\exe{, difficulty=1}{
 	Pour quels réels $x\in\R$ a-t-on $\norm{x \cdot \pvec12} = 5$ ?
 }{exe:homogénéité}
 {
-	TODO
+	Par homogénéité, l'équatation est équivalente à
+		\begin{align*}
+			|x| \sqrt5 = 5 && \iff && |x| = \sqrt5,
+		\end{align*}
+	dont les deux solutions sont $\pm\sqrt5$.
 }
 
 
@@ -256,13 +441,14 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 \exe{}{
 	Montrer que la relation de colinéarité est réflexive : $u$ est toujours colinéaire à lui-même.
 }{exe:col-reflex}{
-	TODO
+	Comme $u = 1\cdot u$, la définition de la colinéarité est vérifiée avec $\kappa=1$.
 }
 
 \exe{}{
 	Montrer que la relation de colinéarité est symétrique : si $u$ est colinéaire à $v$, alors $v$ est colinéaire à $u$.
 }{exe:col-sym}{
-	TODO
+	Si $v$ ou $u$ est nul, alors tous les vecteurs leur sont colinéaires.
+	Sinon, $u = \kappa v$ avec $\kappa\neq0$, et donc $v=\frac1{\kappa}u$, ce qui montre que $v$ est colinéaire à $u$.
 }
 
 \nomen{
@@ -272,56 +458,12 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 \exe{}{
 	Montrer que la relation de colinéarité est transitive : si $u$ est colinéaire à $v$, et $v$ est colinéaire à $w$, alors $u$ est colinéaire à $w$.
 }{exe:col-trans}{
-	TODO
+	Si un des vecteurs est nul, alors tous les vecteurs leur sont colinéaires.
+	
+	Sinon, $u = \kappa v$ et $v = \kappa' w$, ce qui implique que $u = \kappa (\kappa' w) = (\kappa \kappa') w$, qui conclut.
 }
 
-\lem{}{
-	Soit $(d)$ une droite non verticale et $A, B \in (d)$ deux points distincts de celle-ci.
-	
-	Alors $\vec{AB}$ est colinéaire à un vecteur de la forme $\pvec{1}{a}$ où $a$ est le coefficient directeur de la fonction affine $f$ telle que $\C_f = (d)$.
-}{lem:vecteur-dir-coeff-dir}
-
-%\pf{Preuve du lemme \ref{lem:vecteur-dir-coeff-dir}}{
-\pf{}{
-	En écrivant $A(x_A;y_B)$ et $B(x_B;y_B)$ les coordonnées des points $A$ et $B$, on a $x_A \neq x_B$ car les points sont distincts et la droite est non verticale.
-	
-	Ainsi, $\vec{AB} = B-A$ est égal à
-		\[\vec{AB}= \pvec{x_B - x_A}{y_B-y_A} = \left(x_B - x_A\right) \pvec{1}{\frac{y_B-y_A}{x_B-x_A}}. \]
-	On reconnaît bien ici le coefficient directeur de la fonction affine associée à $(d)$.
-}{}
-
-\section{Alignement et vecteur directeur}
-
-\thm{}{
-	Soit $A, B, C, D$ quatre points quelconques.
-	
-	Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires si et seulement si les droites $(AB)$ et $(CD)$ sont parallèles.
-}{thm:alignement-parallélisme}
-
-\exe{,difficulty=2}{
-	Démontrer le théorème \ref{thm:alignement-parallélisme}.
-}{exe:alignement-parallélisme}{
-	TODO
-}
-
-\cor{}{
-	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
-}{prop:alignement-colinéarité}
-
-\exe{}{
-	Considérons les points
-		\begin{align*}
-			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
-		\end{align*}
-	
-	\begin{enumerate}
-		\item Le point $C$ appartient-il à la droite $(AB)$ ?
-		\item Le point $D$ appartient-il à la droite $(CB)$ ?
-		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
-	\end{enumerate}
-}{exe:alignement}{
-	TODO
-}
+\subsection{Droites}
 
 \dfn{vecteur directeur}{
 	Soit $(d)$ une droite quelconque.
@@ -340,21 +482,197 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	Pour deux points $A \neq B$ quelconques d'une droite $(d)$, le vecteur $\vec{AB}$ dirige $(d)$.
 }
 
+
 \exe{}{
-	On considère un point $A(-4;5)$ et un vecteur $v = \pvec{3}{-2}$.
-	Soit $(d)$ la droite passant par $A$ et dirigée par $v$.
+	Considérons un point $A(0 ; -4)$, un vecteur $v = \pvec{1}{2}$, et une fonction $f(x) = 2x - 4$ définie sur $\R$.
+	
+	Posons $(d)$ la droite passant par $A$ et dirigée par $v$ et $\C_f$ la courbe représentative de $f$.
 	
 	\begin{enumerate}
 		\item
-		Donner $4$ points distincts appartenant à $(d)$.
+		Donner $3$ points distincts appartenant à $(d)$.
 		\item
-		Trouver la fonction affine $f$ telle que $(d) = \C_f$.
+		Donner un point $B$ appartenant à $\C_f$ distinct des points déjà cités
+		\item
+		Montrer que $B$ appartient à $(d)$.
+		\item$(\star)$
+		Montrer que $(d) = \C_f$.
 	\end{enumerate}
-}{exe:vec-dir-to-affine}{
-	TODO
+}{exe:v-directeur}{
+	
+	\begin{enumerate}
+		\item
+		D'après le cours, $(d)$ est l'ensemble des translatés de $A$ par un multiple de $v$ :
+			\[ (d) = \bigset{ A + k\cdot v \tq k \in \R}. \]
+		En particulier, les points $A, A+v = (1 ; -2),$ et $A - v = (-1 ; -6)$ appartiennent à $(d)$.
+		
+		Notons que $A + \frac{\pi}{4}v = \left( \frac{\pi}4 ; \frac{-8 + \pi}2 \right)$ appartient aussi à $(d)$.
+		
+		\item
+		Par définition, $\C_f$ est l'ensemble des points $\bigl(x ; f(x)\bigr)$ avec $x \in \R$.
+		Prenons $x=7$ (notre nombre préféré) : le point $B(7 ; 10)$ appartient à $\C_f$.
+		
+		\item
+		Pour montrer que $B$ appartient à $(d)$, il suffit de calculer $\vec{AB}$ et de montrer qu'il est colinéaire à $v$.
+			\[ \vec{AB} = \pvec{7-0}{10-(-4)} = \pvec{7}{14} = 7u \]
+		
+		\item$(\star)$
+		D'une part, la droite $(d)$ est l'ensemble des $A+k\cdot v$ avec $k\in\R$.
+		C'est donc l'ensemble des points de la forme
+			\[ A + k\cdot v = (0 ; -4) + k\pvec{1}{2} = (0 ; -4) + \pvec{k}{2k} = (k ; 2k-4). \]
+		
+		D'autre part, la courbe représentative $\C_f$ est l'ensemble des points de la forme 
+			\[ \bigl(x ; f(x)\bigr) = (x ; 2x - 4) \]
+		avec $x \in \R$.
+		
+		Ces ensembles sont donc égaux ; leur seul différence est la lettre utilisée pour les caractériser !
+	\end{enumerate}
 }
 
-\section{Déterminant}
+\lem{}{
+	Soit $(d)$ une droite non verticale et $A, B \in (d)$ deux points distincts de celle-ci.
+	
+	Alors $\vec{AB}$ est colinéaire à un vecteur de la forme $\pvec{1}{a}$ où $a$ est le coefficient directeur de la fonction affine $f$ telle que $\C_f = (d)$.
+}{lem:vecteur-dir-coeff-dir}
+
+%\pf{Preuve du lemme \ref{lem:vecteur-dir-coeff-dir}}{
+\pf{}{
+	En écrivant $A(x_A;y_B)$ et $B(x_B;y_B)$ les coordonnées des points $A$ et $B$, on a $x_A \neq x_B$ car les points sont distincts et la droite est non verticale.
+	
+	Ainsi, $\vec{AB} = B-A$ est égal à
+		\[\vec{AB}= \pvec{x_B - x_A}{y_B-y_A} = \left(x_B - x_A\right) \pvec{1}{\frac{y_B-y_A}{x_B-x_A}}. \]
+	On reconnaît bien ici le coefficient directeur de la fonction affine associée à $(d)$.
+}{}
+
+\subsection{Parallélisme et alignement}
+
+\thm{}{
+	Soit $A, B, C, D$ quatre points quelconques.
+	
+	Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires si et seulement si les droites $(AB)$ et $(CD)$ sont parallèles.
+}{thm:alignement-parallélisme}
+
+\exe{,difficulty=2}{
+	Démontrer le théorème \ref{thm:alignement-parallélisme}.
+}{exe:alignement-parallélisme}{
+	Si les droites sont parallèles, alors la direction de deux vecteurs directeurs est la même : ils sont colinéaires.
+	
+	Si les deux vecteurs sont verticaux, il n'y a rien à démontrer.
+	
+	Si deux vecteurs sont colinéaires non verticaux, alors $(AB) = \C_f$ et $(CD) = \C_g$ avec $f, g$ affines de même coefficient directeur d'après le lemme \ref{lem:vecteur-dir-coeff-dir}.
+	D'où $f(x) = ax+b$ et $g(x) = ax+c$, avec $a, b, c\in\R$ trois paramètres.
+	Le calcul de l'abscisse d'un point d'intersection $\bigl(x ; f(x)\bigr) = \bigl(x ; g(x)\bigr)$ revient à poser $f(x) = g(x)$ et donc à résoudre $b = c$.
+	Cette dernière équation, contrainte sur $x\in\R$, est soit contradictoire, si $b\neq c$, soit vide.
+	Ces deux alternatives correspondent au cas où $(AB)$ et $(CD)$ ne se croisent pas et au cas où elles sont confondues.
+	En particulier, elles sont parallèles.
+}
+
+
+\exe{,difficulty=1}{
+	Soit $u = \pvec{4}{2}$ et $v = \pvec{1}{3}$ deux vecteurs.
+	Représenter dans un repère les points
+		\begin{align*}
+			A(-3;-1), && B = A+u, && C = A+u+v, && \text{ et } && D=A+v,
+		\end{align*}
+	et montrer que quadrilatère $ABCD$ est un parallélogramme en montrant que les droites $(AB)$ et $(CD)$ sont parallèles puis que les droites $(AD)$ et $(BC)$ sont parallèles.
+}{exe:parall}{
+	\begin{enumerate}
+		\item $ABCD$ semble être un parallélogramme car ses cotés opposés sont parallèles deux à deux.
+		\item On calcule $\vec{AB} = B-A = u$ et $\vec{CD} = D-C = A+v - (A+u+v) = -u$ pour voir qu'ils sont colinéaires : les droites $(AB)$ et $(CD)$ sont donc parallèles.
+		
+		Idem avec $\vec{AD} = D - A = v$ et $\vec{BC} = C - B = A + u + v - (A + u) = v$, ce qui conclut similairement. 
+	\end{enumerate}
+	
+}
+
+
+\exe{, difficulty=1}{
+	Considérons les points $A(3;2), B(-3 ; 7), C(-2; -3),$ et  $D(4;-6)$.
+	
+	Les droites $(AB)$ et $(CD)$ sont-elles parallèles ?
+	
+	Si non, donner un point $\tilde{B}$ tel que les droites $(A\tilde{B})$ et $(CD)$ soient parallèles.
+
+}{exe:parall2}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+	Calculons donc
+		\[ \vec{AB} = \pvec{-6}{5}, \qquad \qquad \vec{CD} = \pvec{6}{-3}. \]
+	Les vecteurs ne sont pas colinéaires : s'il existait un $k\in\R$ tel que $\vec{AB} = k \vec{CD}$, on aurait nécessairement $k=-1$ par la première coordonnée, et $k=-\dfrac53 \neq -1$ par le seconde.
+	Un calcul de déterminant permet également de montrer que les vecteurs ne sont pas colinéaires, celui-ci étant non nul.
+	Les droites ne sont donc pas parallèles.
+	
+	Pour que $(A\tilde{B})$ et $(CD)$ soient parallèles, elles doivent partager un vecteur directeur.
+	Par exemple, le vecteur $\vec{CD}$ convient.
+	
+	On peut alors choisir $\tilde{B}$ parmis les $A+k \cdot \vec{CD}$ où $k\in\R$ est un scalaire quelconque.
+	En prenant $k=-\frac13$ pour montrer qu'on aime les fractions, on peut définir $\tilde{B} = (1 ; 3)$.
+	
+	On vérifiera que $\vec{A\tilde{B}} = \pvec{-2}{1}$, qui est bien colinéaire à $\vec{CD} = \pvec{6}{-3}$.
+}
+
+
+
+\exe{, difficulty=1}{
+	Considérons quatre points $A(-4; 1), B(-3 ; -3), C(4; -4), D(3; 1)$.
+	
+	Le quadralitère $ABCD$ est-il un parallélogramme ?
+	Si non, donner un point $\tilde{D}$ tel que $ABC\tilde{D}$ en soit un.
+}{exe:quad}{
+	Il s'agit de vérifier si $\vec{AB}$ et $\vec{CD}$ sont colinéaires et si $\vec{BC}$ et $\vec{AD}$ le sont aussi.
+	Calculons
+		\[ \vec{AB} = B-A = \pvec{1}{-4}, \qquad \qquad \vec{CD} = D - C = \pvec{-1}{5}. \]
+	Ces deux vecteurs ne sont pas colinéaires car s'ils l'étaient, on aurait un $k \in \R$ tel que
+		\[ \vec{AB} = k \vec{CD}, \]
+	ce qui donnerait $k = -1$ en étudiant la première coordonnée, et $k=-\dfrac45$ en regardant la deuxième.
+	Ça n'est bien sûr pas possible.
+	Un calcul de déterminant permet également de montrer que les vecteurs ne sont pas colinéaires, celui-ci étant non nul.
+	
+	En faisant un dessin, on remarque que le point $\tilde{D}$ doit nécessairement vérifier
+		\[ \tilde{D} + \vec{AB} = C \qquad \iff \qquad \tilde{D} = C - \vec{AB} = (4 - 1 ; -4 - (-4) ) = (3 ;0). \]
+	Par construction, $\vec{AB} = \vec{\tilde{D}C}$, qui montre que deux côtés opposés sont parallèles.
+	Le parallélisme des deux autres côtés se fait de la même manière.
+}
+
+\cor{}{
+	Trois points $A, B, C$ quelconques sont alignés si et seulement si les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+}{prop:alignement-colinéarité}
+
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			A(-1; -6), && B(-3; -12), && C(5; 12), && D(7 ; 17).
+		\end{align*}
+	
+	\begin{enumerate}
+		\item Les points $A, B, C$ sont-ils alignés ?
+		\item Les point $D, C, B$ sont-ils alignés ?
+		\item Trouver un point $E$ distinct de $A, B, C, D$ et appartenant à $(AB)$.
+	\end{enumerate}
+}{exe:alignement}{
+	\begin{enumerate}
+		\item
+		Pour déterminer si $A, B, C$ sont alignés, calculons par exemple $\vec{AB}$ et $\vec{BC}$ et regardons s'ils sont colinéaires.
+			\begin{align*}
+				\vec{AB} = \pvec{-3-(-1)}{-12-(-6)} = \pvec{-2}{-6} && \vec{BC} = \pvec{5-(-3)}{12-(-12)} = \pvec{8}{24}
+			\end{align*}
+		Soit on remarque que $-4\vec{AB} = \vec{BC}$, soit on calcule $\det\left(\vec{AB}, \vec{BC}\right) = (-2)(24)-(-6)(8) = -48+48 = 0$ pour voir que les vecteurs sont bien colinéaires.
+		
+		Par conséquent, les droites $(AB)$ et $(BC)$ sont parallèles et partagent le point $B$.
+		Elles sont donc confondues et les points $A, B, C$ sont alignés.
+		\item 
+		Nous avons déjà calculé $\vec{BC}$. Calculons désormais $\vec{DC}$ :
+			\[ \vec{DC} = \pvec{5-7}{12-17} = \pvec{-2}{-5}. \]
+		Ce vecteur n'est pas colinéaire à $\vec{BC}$ car $\det\left(\vec{BC}, \vec{DC}\right) = (8)(-5)-(24)(-2) = -40+48 \neq 0$.
+		\item 
+		La droite $(AB)$ peut être vue comme l'ensemble des translatés de $A$ (ou de $B$) par les multiples du vecteur $\vec{AB} = \pvec{-2}{-6}$.
+		Ainsi, $A + \vec{AB} = B$ donne un point de $(AB)$, mais il nous en faut un nouveau.
+		$A+2\vec{AB} = (-1;-6) + \pvec{-4}{-12} = (-5 ; -18)$ convient.
+		D'autres points (une infinité !) fonctionnent, comme $A - \vec{AB} ; A+12\vec{AB} ; A - \frac{\pi}{\sqrt2} \vec{AB} ; \dots$. 
+	\end{enumerate}
+}
+
+\subsection{Déterminant}
 
 \dfn{déterminant de deux vecteurs}{
 	Soient $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$ deux vecteurs.
@@ -393,6 +711,62 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	\end{enumerate}
 }
 
+
+\exe{5}{
+	Un élève de Seconde fournit la production écrite suivante.
+	Celle-ci présente quelques erreurs.
+	
+	\fbox{\parbox{\textwidth}{
+		\textbf{\oldunderline{Énoncé :}}
+		
+		Considérons les points $A(-1; -6), B(-3; -12)$, et $C(5; 12)$.
+		
+		Le point $C$ appartient-il à la droite $(AB)$ ?
+		
+		
+		\textbf{\underline{Réponse de l'élève :}}
+		
+		D'abord, je calcule le vecteur $\vec{AB}$ qui dirige la droite $(AB)$ :
+			\begin{align}\label{eq:vecteurs-1}
+				\vec{AB} = \pvec{x_A - x_B}{y_A - y_B} = \pvec{-1 - (-3)}{-6 - (-12)} = \pvec{4}{6}.
+			\end{align}
+		Ensuite, je calcule le vecteur $\vec{AC}$ :
+			\begin{align}\label{eq:vecteurs-2}
+				\vec{AC} = \pvec{x_C - x_A}{y_C-y_A} = \pvec{5-(-1)}{12-(-6)} = \pvec{4}{-6}.
+			\end{align}
+		Enfin, le déterminant $\det\bigl(\vec{AB}, \vec{AC}\bigr)$ est égal à
+			\begin{align}\label{eq:vecteurs-3}
+				\det\bigl(\vec{AB}, \vec{AC}\bigr) = (4)(-6) + (6)(4) = -24 + 24 = 0,
+			\end{align}
+		duquel je déduis que les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+		
+		En conclusion, les droites $(AB)$ et $(AC)$ sont parallèles et passent toutes les deux par $A$ : elles sont donc confondues et les points $A, B, C$ sont alignés.		
+	
+	}}
+	
+	\begin{enumerate}
+		\item 
+		Identifier les erreurs commises par l'élève. Une erreur par ligne de calcul (dénotées \eqref{eq:vecteurs-1}, \eqref{eq:vecteurs-2} et \eqref{eq:vecteurs-3}) est attendue.
+		\item
+		Répondre à l'énoncé.
+	\end{enumerate}
+}{exe:erreurs}{
+	\begin{enumerate}
+		\item
+		La ligne \eqref{eq:1} contient deux erreurs : la formule du vecteur $\vec{AB}$ est fausse ($x_B - x_A$ et non $x_A - x_B$) ; et le calcul $-1-(-3)$ vaut $-1+3 = 2$ et non 4.
+		
+		La ligne \eqref{eq:2} contient également deux erreurs de signe : $5-(-1) = 5+1 = 6$ et $12-(-6) = 18$.
+		
+		La ligne \eqref{eq:3} utilise la formule $ad+bc$ qui n'est pas la bonne formule du déterminant $ad-bc$.
+		
+		\item
+		En corrigeant les erreurs, on trouve $\vec{AB} = \pvec{-2}{-6}$ et $\vec{AC} = \pvec{6}{18}$.
+		Comme $\vec{AC} = -3\vec{AC}$, les vecteurs sont colinéaires et la conclusion de l'élève reste correcte.
+		Un calcul de déterminant permet également de conclure : 
+			\[ \det\bigl(\vec{AB},\vec{AC}\bigr) = (-2)(18)-(-6)(6) = -36+36 = 0. \]	
+	\end{enumerate}
+}
+
 \exe{}{
 	On considère le point $A(-4; -2)$ et les deux vecteurs $u = \pvec{6}{2}$ et $v = \pvec{1}{-3}$.
 	On pose de plus les trois points
@@ -421,15 +795,86 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		
 	\end{enumerate}
 }{exe:aire-det-particulier}{
-	TODO
+	Les réponses sont données par l'énoncé !
+	Il s'avère que l'aire du rectangle $ABCD$ vaut $AB\cdot AD = \norm{\vec{AB}} \cdot \norm{\vec{AD}} = \sqrt{10} \cdot 2\sqrt{10} = 20$, ce qui est la valeur absolue du déterminant $\det\Bigl(\vec{AB}, \vec{AD}\Bigr)$.
 }
+
+
+\exe{, difficulty=1}{
+	Considérons les vecteurs $u = \pvec{2t}{5+t}$ et $v = \pvec{t-1}{3+t}$ dépendant d'un paramètre $t\in\R$.
+	\begin{enumerate}
+		\item
+		Montrer que $\det(u, v) = 4 + (t+1)^2$.
+		\item
+		Justifier que $\det(u, v) \geq 4$ pour tout $t\in\R$.
+		\item
+		Conclure que $u$ et $v$ ne sont jamais colinéaires, peu importe la valeur de $t\in\R$.
+	\end{enumerate}
+}{exe:det-canonique}{
+	\begin{enumerate}
+		\item
+		D'après la formule du déterminant,
+			\[ \det(u, v) = (2t)(3+t)-(5+t)(t-1) = 6t + 2t^2 - 5t + 5 -t^2 + t = t^2 + 2t + 5. \]
+		Développons désormais la forme factorisée proposée pour montrer l'égalité recherchée :
+			\begin{align*}
+				4 + (t-1)^2 &= 4 + (t^2 + 1 + 2t), \\
+							&= t^2 + 2t + 5, \\
+							&= \det(u,v).
+			\end{align*}
+		\item
+		Le carré étant toujours positif, il suit que $(t+1)^2 \geq 0$ pour tout $t\in\R$.
+		En ajoutant 4, $\det(u, v) \geq 4$ pour tout $t\in\R$ comme requis.
+		\item
+		D'après le cours, $u$ et $v$ sont colinéaires si et seulement si $\det(u, v) = 0$.
+		Or cette quantité est toujours supérieure à 4 et ne peut donc pas être nulle.
+		$u$ et $v$ ne peuvent donc pas être colinéaires.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=1}{
+	Pour chacune des propositions suivantes, montrer qu'elle est toujours vraie ou trouver un contre-exemple.
+	\begin{enumerate}
+		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item Soient $u, v$ deux vecteurs tels que $v = 5u$.
+		Alors $\det(u, v) = 0$.
+		\item Si $\vec{AB}$ et $\vec{CD}$ sont colinéaires, alors les points $A, B, C$, et $D$ sont alignés.
+		\item Pour $u, v$ deux vecteurs, on a $\det(u, v) = -\det(v, u)$.
+		\item Si $\norm{v} = \sqrt{5}$, alors $v = \pvec{2}{1}$.
+	\end{enumerate}
+}{exe:vf}{
+
+	\begin{enumerate}
+		%\item $\vec{AB} = \vec{CD} \iff \vec{AC} = \vec{BD}$.
+		\item 
+		C'est vrai : d'après le cours, si $u$ et $v$ sont colinéaires, alors $\det(u, v) = 0$.
+		On peut aussi le démontrer par le calcul.
+		
+		\item 
+		C'est faux en général : on sait que $(AB)$ et $(CD)$ sont parallèles, mais pas si les droites sont confondues.
+		On pourra donc construire un contre-exemple comme $A(0;0), B(1;0)$ et $C(1;0), D(1;1)$.
+		
+		\item 
+		C'est vrai par le calcul. Soit $u = \pvec{a}{b}$ et $v=\pvec{c}{d}$.
+		Alors $\det(u, v) = ad - bc$ et $\det(v, u) = cb - ad$.
+		
+		\item 
+		C'est faux car la norme d'un vecteur ne peut pas donner ses coordonnées (sauf si la norme est nulle).
+		
+		Par exemple, comme $\norm{v} = \norm{-v}$, on a que $v = \pvec{-2}{-1}$ est un contre-exemple.
+		
+		On pourrait aussi échanger les coordonnées pour avoir $v = \pvec12$ qui donne un autre contre-exemple.
+	\end{enumerate}
+}
+
+
 
 \nomen{
 	On dit de deux vecteurs non nuls qu'ils sont \emphindex{vecteurs perpendiculaires} dès que les droites qu'ils dirigent sont perpendiculaires.
 }
 
 \nt{
-	L'exercice \ref{exe:det-aire} vise à montrer que, lorsque les vecteurs $u$ et $v$ sont perpendiculaires, la valeur absolue du déterminant $|\det(u, v)|$ est égal à l'aire du parallélogramme de sommets $O, O+u, O+u+v, O+v$.
+	L'exercice \ref{exe:det-is-signedvolume} vise à montrer que, lorsque les vecteurs $u$ et $v$ sont perpendiculaires, la valeur absolue du déterminant $|\det(u, v)|$ est égal à l'aire du parallélogramme de sommets $O, O+u, O+u+v, O+v$.
 	
 	Il s'avère que ce résultat est vrai sans l'hypothèse de perpendicularité entre les vecteurs.
 }
@@ -438,10 +883,13 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
 	Que remarque-t-on ?
 }{exe:axbyz2}{
-	TODO
+	La droite passe par l'origine $O(0;0)$ et est dirigée par le vecteur $\pvec14$.
+	Le vecteur $\pvec4{-1}$ est perpendiculaire au vecteur directeur de la droite.
 }
 
-\exe{, difficulty=1}{
+
+
+\exe{, difficulty=2}{
 	Soient $a, b \in\R$ deux nombres.
 	Montrer, à l'aide du théorème de Pythagore, qu'un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
 		\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
@@ -461,20 +909,71 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		\end{align*}
 }
 
-\exe{, difficulty=2}{
-	Soient $u = \pvec{a}{b}, v = \pvec{c}{d}$ deux vecteurs tels que le triangle de sommets $O(0;0), O+u, O+v$ est rectangle en $O$. 
+\exe{, difficulty=3}{
+	Cet exercice généralise les exercices \ref{exe:Pyth} et \ref{exe:aire-det-particulier} et vise à donner une condition simple d'orthogonalité (question \ref{q:vecteurs-1}), ainsi qu'à faire le lien entre le déterminant et l'aire d'un parallélogramme appelé \emph{parallélogramme fondamental} (questions \ref{q:vecteurs-2}-\ref{q:vecteurs-3}).
+
+	Dénotons $O(0;0)$ l'origine du repère.
+	On dit de deux vecteurs $u$ et $v$ qu'ils sont \emph{orthogonaux} dès que les droites $(OU)$ et $(OV)$, où $U = O + u$ et $V = O + v$, sont perpendiculaires.
+	
+	Soient $u = \pvec{a}{b}, v = \pvec{x}{y}$ deux vecteurs orthogonaux. 
 	\begin{enumerate}
-		\item Faire un dessin du triangle rectangle et donner les coordonnées de chacun de ses sommets.
-		\item Utiliser l'exercice \ref{exe:produit-scalaire} pour montrer que
-			\[ ac + bd = 0. \]
 		\item
+		Tracer un repère générique dans lequel doivent figurer : l'origine $O$ ; les points $U$ et $V$ ; le point $W$ tel que $OVWU$ est un parallélogramme.
+		\item\label{q:vecteurs-1}
+		Montrer à l'aide de la réciproque de Pythagore dans le triangle $OVU$ que
+			\[
+				ax+by=0.
+			\]
+		\item\label{q:vecteurs-2}
 		Montrer à l'aide de la relation ci-dessus que
-			\[ \norm{u}^2 \cdot \norm{v}^2 = \bigl( \det(u, v) \bigr)^2. \]
+			\[
+				\norm{u}^2 \cdot \norm{v}^2 = \left( \det(u, v) \right)^2.
+			\]
+		\item\label{q:vecteurs-3}
+		En conclure que l'aire du rectangle $OVWU$ est donnée par $\abs{\det(u, v)}$.
 	\end{enumerate}
-}{exe:det-aire}{
-	TODO
+}{exe:det-is-signedvolume}{
+	\begin{enumerate}
+		\item
+		\begin{center}
+		\includegraphics[page=10]{figures/fig-vecteurs.pdf}
+		\end{center}
+		
+		\item
+		Cette question est traitée par l'exercice \ref{exe:produit-scalaire}.
+		
+		\item
+		En utilisant que $ax+by=0$, il s'agit ici de démontrer que
+			\[ (a^2 + b^2)(x^2+y^2) = (ay-bx)^2, \]
+		ce qui est laissé au lecteur.
+	\end{enumerate}
+	
+	Ce résultat se généralise encore davantage : la valeur absolue du déterminant est égale à l'aire du parallélogramme fondamental de sommets $0, u, v, u+v$ même si $u$ et $v$ ne sont pas orthogonaux.
+	Ceci permet d'ailleurs de justifier géométriquement que si $\det(u,v) = 0$, alors $u$ et $v$ sont colinéaires : l'aire nulle n'advient que lorsque $u$ et $v$ ont la même direction (le parallélogramme est plat).
 }
 
+\exe{, difficulty=2}{
+	Montrer l'\emphindex{inégalité d'Hadamard}\footnotetext{Jacques Hadamard (1865-1963), mathématicien français.} en dimension 2 :
+	pour toute paire de vecteurs $u, v$,
+		\[ \abs{\det(u,v)} \leq \norm{u}\cdot\norm{v}, \]
+	avec égalité quand $u$ et $v$ sont perpendiculaires.
+	
+	Au regard de l'exercice \ref{exe:det-is-signedvolume}, l'interprétation géométrique est la suivante : pour des côtés de longueurs fixées, l'aire d'un parallélogramme est maximale lorsqu'il est carré.
+}{exe:Hadamard}{
+	Posons $u = \pvec{a}{b}$ et $v = \pvec{c}{d}$.
+	
+	Alors, d'une part, 
+		\[\det(u,v)^2 = (ad-bc)^2 = a^2d^2 + b^2c^2 - 2abcd. \]
+	D'autre part, 
+		\[ \norm{u}^2\norm{v}^2 = (a^2 +b^2)(c^2 + d^2) = a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2. \]
+	Il suit donc que
+		\begin{align*}
+		\norm{u}^2\norm{v}^2 &= \det(u,v)^2 - (ac)^2 - (bd)^2 + 2abcd, \\
+								&= \det(u,v)^2 - (ac+bd)^2, \\
+								&\leq \det(u,v)^2,
+		\end{align*}
+	car le carré $(ac+bd)^2$ est toujours positif, et nul si et seulement si $u$ et $v$ sont perpendiculaire, d'après l'exercice \ref{exe:produit-scalaire}.
+}
 
 
 \exe{, difficulty=1}{
@@ -494,13 +993,27 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		Déduire dans ce cas que l'unique solution du système est la solution nulle $(x ;y) = (0;0)$.
 	\end{enumerate}
 }{exe:systemes10}{
-	TODO
+	\begin{enumerate}
+		\item 
+		Il est immédiat que
+			\[ xu + yv = x\pvec{12}{-7} + y\pvec{-5}{2} = \pvec{12x-5y}{-7x+2y}. \]
+		L'égalité avec le vecteur $\pvec00$ est donc bien équivalente au deux équations du système.
+		\item
+		Si une solution $(x;y)$ non nulle existe, alors ni $x$ ni $y$ n'est nul, car si l'un est nul l'autre doit l'être aussi.
+		L'existence de cette solution est équivalente au fait que $xu = -yv \iff u = \frac{-y}x v$, équivalent à la colinéarité des vecteurs $u$ et $v$, équivalente à leur déterminant nul.
+		
+		\item	
+		Comme $\det(u,v) = 24 - 35 = -11 \neq 0$, les vecteurs $u$ et $v$ ne sont pas colinéaires.
+		Une solution $(x;y)$ non nulle du système ne peut donc pas exister, car celle-ci impliquerait que les vecteurs sont colinéaires !
+		La seule solution possible est donc la solution nulle $(0;0)$, qui est trivialement bien une solution.
+	\end{enumerate}
 }
 
 \exe{, difficulty=1}{
+	Considérons $u$ et $v$ deux vecteurs colinéaires, et $w$ un troisième vecteur quelconque.
 	\begin{enumerate}
 		\item
-		Si $u$ et $v$ sont colinéaires, et $w$ un troisième vecteur quelconque, montrer que le système $x \cdot u + y \cdot v = w$ admet une solution si et seulement si $w$ est colinéaire à $u$ et $v$.
+		Montrer que le système $x \cdot u + y \cdot v = w$ admet une solution si et seulement si $w$ est colinéaire à $u$ et $v$.
 
 		\item
 		À partir des vecteurs colinéaires $u = \pvec23$ et $v = \pvec{-6}{-9}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ n'ayant aucune solution.
@@ -508,8 +1021,25 @@ En mathématiques, on parlera alors de \emphindex{norme vectorielle}.
 		À partir des vecteurs colinéaires $u = \pvec1{-4}$ et $v = \pvec{-2}{8}$ et d'un vecteur $w$ à poser, construire un système linéaire $x \cdot u + y \cdot v = w$ ayant un nombre infini de solutions.
 	\end{enumerate}
 }{exe:systemes11}{
-	TODO
+	\begin{enumerate}
+		\item
+		Comme $u = \kappa v$ par colinéarité de $u$ et $v$, le système est équivalent à $(\kappa x + y)v = w$.
+		Si le système admet une solution, alors $v$ et $w$ doivent être colinéaires.
+
+		Réciproquement, si $v$ et $w$ sont colinéaire, alors $w = \kappa'v$, et la solution $(x;y) = (0;\kappa')$ est une solution particulière au système.
+
+		\item
+		Il suffit de trouver un vecteur $w$ non colinéaire à $v$. Par exemple $w = \pvec13$ convient, et le système
+				\[ \systeme{2x - 6y = 1{,}, 3x - 9y = 3.} \]
+		n'admet aucune solution.
+		\item	
+		Il suffit de trouver un vecteur $w$ colinéaire à $v$. Par exemple $w = \pvec3{-12}$ convient, et le système
+				\[ \systeme{x - 2y = 3{,}, -4x + 8y = -12.} \]
+		admet une infinité de solutions, car les deux équations sont équivalentes à $y= \frac12x - \frac32$, équation de droite grâce à laquelle chaque choix de $x\in\R$ donne une valeur de $y$ telle que $(x;y)$ est solution du système.
+	\end{enumerate}
+	
 }
+
 
 
 \section*{Exercices}
