@@ -562,14 +562,18 @@
 	Montrer que $x$ et $y$ sont liés par la relation 
 		$ y = -3x + 5. $
 }{exe:médiatrice}{
-	La contrainte d'équidistance s'exprime et est équivalente aux équations suivantes.
-		\begin{align*}
-			\norm{M-O}^2 &= \norm{M - P}^2 \\
-			x^2 + y^2 &= (x-3)^2 + (y-1)^2 \\
-			x^2 + y^2 &= x^2 - 6x + 9 + y^2 - 2y + 1 \\
-			2y &= -6x + 10 \\
-			y &= -3x + 5
-		\end{align*}
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	
+%	La contrainte d'équidistance s'exprime et est équivalente aux équations suivantes.
+%		\begin{align*}
+%			\norm{M-O}^2 &= \norm{M - P}^2 \\
+%			x^2 + y^2 &= (x-3)^2 + (y-1)^2 \\
+%			x^2 + y^2 &= x^2 - 6x + 9 + y^2 - 2y + 1 \\
+%			2y &= -6x + 10 \\
+%			y &= -3x + 5
+%		\end{align*}
 }
 
 
@@ -577,17 +581,42 @@
 	Considérons une fonction quadratique 
 		$ f(x) = ax^2 + bx + c, $
 	où $a, b, c\in\R$ sont trois paramètres réels.
-	Supposon qu'on connaisse deux zéros distincts de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+	Supposons qu'on connaisse deux \emph{racines} distinctes de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
 		\[ f(\alpha) = f(\beta) = 0. \]
 	\begin{enumerate}
-		\item Montrer que la fonction $g$ est affine, où
-			\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R \]
-		\item Montrer que $g$ admet deux zéros distincts.
+		\item Montrer que la fonction $g(x) = f(x) - a (x-\alpha)(x-\beta)$ est affine.
+			%\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R. \]
+		\item Montrer que $g$ admet deux racines distinctes.
 		\item En déduire que $g$ est constamment nulle et donc que
-			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.  \]
+%			\begin{align*}
+%				\alpha+\beta = -\dfrac{b}a, && \alpha\cdot\beta = \dfrac{c}a, && f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.
+%			\end{align*}
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.\]
+		On dit alors que $f$ se \emph{scinde} en produit affine.
 	\end{enumerate}
 }{exe:thm-fond-alg-2}{
-	TODO
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	\underline{Discussion}
+	
+	Il s'avère qu'un résultat plus général est atteignable : si $\alpha\in\R$ est une racine d'un polynôme\footnote{Une fonction de la forme $f(x) = a_n x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0$ dont les $a_i$ sont des coefficients fixés.} $f$ de n'importe quel degré\footnote{La plus haute puissance de $x$ : le degré de $2x^2 -3x^4 + 12$ est 4.}, alors on a nécessairement $f(x) = (x-\alpha)\cdot g(x)$ pour un polynôme $g$.
+	La démonstration se base sur la division euclidienne dans les polynômes :
+	pour n'importe quels polynômes $f, g$, il existe deux polynômes $q, r$ vérifiants 
+		\[ f = qg + r, \]
+	avec le degré de $r$ strictement inférieur au degré de $g$.
+	
+	Dans notre cas, il doit exister un polynôme $q$ et une constante $r$ tels que $f(x) = q(x)\cdot(x-\alpha) + r$.
+	En évaluant en $x=\alpha$, on obtient que $r=0$.
+	
+	En répétant le processus, tout polynôme de degré $n$ admettant $n$ racines se scinde en produit affine.
+	En revanche, tous les polynômes n'admettent pas de racines réelles !
+	C'est le cas du polynôme $x^2 + 1$ qui, lui, ne peut pas se scinder comme $(x-\alpha)(x-\beta)$ car $\alpha$ et $\beta$ seraient alors deux racines de $x^2 + 1$.
+	 Or $x^2 + 1$ ne s'annule jamais, le carré étant toujours positif !
+	 
+	Supposons désormais qu'on ait un ensemble de nombres contenant $\R$ ainsi qu'un nouveau « nombre », racine hypothétique de $x^2 + 1$ ; est-ce que tous les polynômes se scindent dans cet ensemble\footnote{Il faut aussi qu'on puisse ajouter et multiplier dans cet ensemble tout en restant à l'intérieur ; c'est la \emph{stabilité}.} ? 
+	Le \emph{théorème fondamental de l'algèbre} répond positivement à cette question.
+	Ce nombre hypothétique est nommé $i$, dont la construction formelle utilise, notamment, la division euclidienne des polynômes !
 }
 
 
