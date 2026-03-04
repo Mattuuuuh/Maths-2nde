@@ -264,5 +264,55 @@ cross/.default={1pt}}
 		\draw[very thick, ->, TEAL_E] (axis cs:2,4) -- (axis cs: 2+6+3/2-8/3,4+-6+9/2-4/3) node[midway, above right] {$3u-\frac12v - \frac13w$};
 	\end{axis}
 	\end{tikzpicture}
+	
+	% page 12
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none, clip=false, x=10pt, y=10pt]
+		\addplot[BLUE_E, mark=*, mark size = 1] (4,2) node[above] {$A$};	
+		% v = (2,-1)
+		\addplot[very thick, ->, PINK] (0,0) -- (axis cs:8,-4) node[midway, below] {$v$};
+		% A+v
+		\addplot[dashed, ->, GREY] (4,2) -- (axis cs:12,-2) node[midway, below] {$v$};
+		\addplot[RED_E, mark=*, mark size = 1] (12,-2) node[above right] {$A+v$};	
+	\end{axis}
+	\end{tikzpicture}
+	
+	% page 13
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none, clip=false, x=10pt, y=10pt]
+		\addplot[BLUE_E, mark=*, mark size = 1] (4,2) node[above] {$A$};	
+		% v = (2,-1)
+		\addplot[very thick, ->, PINK] (0,0) -- (axis cs:8,-4) node[midway, below] {$v$};
+		% A+v
+		\addplot[dashed, ->, GREY] (4,2) -- (axis cs:12,-2) node[midway, below] {$v$};
+		\addplot[RED_E, mark=*, mark size = 1] (12,-2) node[above right] {$A+v$};	
+		% A + 2v
+		\addplot[dashed, ->, GREY] (12,-2) -- (axis cs:20,-6) node[midway, below] {$v$};
+		\addplot[GREEN_E, mark=*, mark size = 1] (20,-6) node[right] {$A+2v$};	
+		% A - v
+	\end{axis}
+	\end{tikzpicture}
+	
+	% page 14
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[axis x line=none, axis y line=none, axis line style=<->, xlabel={}, ylabel={}, ticks = none, clip=false, x=10pt, y=10pt]
+		\addplot[BLUE_E, mark=*, mark size = 1] (4,2) node[above] {$A$};	
+		% v = (2,-1)
+		\addplot[very thick, ->, PINK] (0,0) -- (axis cs:8,-4) node[midway, below] {$v$};
+		% A+v
+		\addplot[dashed, ->, GREY] (4,2) -- (axis cs:12,-2) node[midway, below] {$v$};
+		\addplot[RED_E, mark=*, mark size = 1] (12,-2) node[above right] {$A+v$};	
+		% A + 2v
+		\addplot[dashed, ->, GREY] (12,-2) -- (axis cs:20,-6) node[midway, below] {$v$};
+		\addplot[GREEN_E, mark=*, mark size = 1] (20,-6) node[right] {$A+2v$};	
+		% A - v
+		\addplot[dashed, ->, GREY] (4,2) -- (axis cs:-4,6) node[midway, below] {$-v$};
+		\addplot[GOLD_E, mark=*, mark size = 1] (-4,6) node[above right] {$A-v$};	
+		% A + 1.5v
+		\addplot[MAROON, mark=*, mark size = 1] (16,-4) node[above right] {$A+1,5v$};	
+		% A - pi/6v
+		\addplot[ORANGE, mark=*, mark size = 1] (4-3.14/6*8,2+3.14/6*4) node[above right] {$A-\frac{\pi}6v$};	
+	\end{axis}
+	\end{tikzpicture}
 %
 \end{document}
