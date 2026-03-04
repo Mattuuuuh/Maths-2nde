@@ -65,37 +65,37 @@
 	\begin{tikzpicture}[>=stealth, scale=\scale]
 	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
 	
-		\addplot[RED_E, thick, domain =-9:9, samples=2] {-x}  node[pos=.9, above=6pt] {$(\mathcal{C}_f)$};
-		\addplot[RED_E, thick, dotted, domain =-10:-9, samples=2] {-x} ;
-		\addplot[RED_E, thick, dotted, domain =9:10, samples=2] {-x};
+		\addplot[RED_E, very thick, domain =-9:9, samples=2] {-x}  node[pos=.9, above=6pt] {$\mathcal{C}_f$};
+		\addplot[RED_E, very thick, dotted, domain =-10:-9, samples=2] {-x} ;
+		\addplot[RED_E, very thick, dotted, domain =9:10, samples=2] {-x};
 	
 	
-		\addplot[GREEN_E, thick, domain =-9:9, samples=2] {x/2+1}  node[pos=.9, below=6pt] {$(\mathcal{C}_g)$};
-		\addplot[GREEN_E, thick, dotted, domain =-10:-9, samples=2] {x/2+1} ;
-		\addplot[GREEN_E, thick, dotted, domain =9:10, samples=2] {x/2+1};
+		\addplot[GREEN_E, very thick, domain =-9:9, samples=2] {x/2+1}  node[pos=.9, below=6pt] {$\mathcal{C}_g$};
+		\addplot[GREEN_E, very thick, dotted, domain =-10:-9, samples=2] {x/2+1} ;
+		\addplot[GREEN_E, very thick, dotted, domain =9:10, samples=2] {x/2+1};
 	
 	
-		\addplot[BLUE_E, thick, domain =-9:9, samples=2] {7}  node[pos=.7, above] {$(\mathcal{C}_h)$};
-		\addplot[BLUE_E, thick, dotted, domain =-10:-9, samples=2] {7} ;
-		\addplot[BLUE_E, thick, dotted, domain =9:10, samples=2] {7};
+		\addplot[BLUE_E, very thick, domain =-9:9, samples=2] {7}  node[pos=.7, above] {$\mathcal{C}_h$};
+		\addplot[BLUE_E, very thick, dotted, domain =-10:-9, samples=2] {7} ;
+		\addplot[BLUE_E, very thick, dotted, domain =9:10, samples=2] {7};
 	\end{axis}
 	\end{tikzpicture}
 	\begin{tikzpicture}[>=stealth, scale=\scale]
 	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-10, -8, ..., 8, 10}, ytick = {-10, -8, ..., 8, 10}, grid=both]
 	
-		\addplot[RED_E, thick, domain =-9:9, samples=2] {-x/3 + 1}  node[pos=.9, below=5pt] {$(\mathcal{C}_F)$};
-		\addplot[RED_E, thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
-		\addplot[RED_E, thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
+		\addplot[RED_E, very thick, domain =-9:9, samples=2] {-x/3 + 1}  node[pos=.9, below=5pt] {$\mathcal{C}_F$};
+		\addplot[RED_E, very thick, dotted, domain =-10:-9, samples=2] {-x/3 + 1} ;
+		\addplot[RED_E, very thick, dotted, domain =9:10, samples=2] {-x/3 + 1};
 	
 	
-		\addplot[GREEN_E, thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left] {$(\mathcal{C}_G)$};
-		\addplot[GREEN_E, thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
-		\addplot[GREEN_E, thick, dotted, domain =7:8, samples=2] {3*x/2-2};
+		\addplot[GREEN_E, very thick, domain =-5:7, samples=2] {3*x/2-2}  node[pos=.2, left] {$\mathcal{C}_G$};
+		\addplot[GREEN_E, very thick, dotted, domain =-6:-5, samples=2] {3*x/2-2} ;
+		\addplot[GREEN_E, very thick, dotted, domain =7:8, samples=2] {3*x/2-2};
 	
 	
-		\addplot[BLUE_E, thick, domain =-9:9, samples=2] {-x/6 + 5}  node[pos=.2, above] {$(\mathcal{C}_H)$};
-		\addplot[BLUE_E, thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
-		\addplot[BLUE_E, thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
+		\addplot[BLUE_E, very thick, domain =-9:9, samples=2] {-x/6 + 5}  node[pos=.2, above] {$\mathcal{C}_H$};
+		\addplot[BLUE_E, very thick, dotted, domain =-10:-9, samples=2] {-x/6 + 5} ;
+		\addplot[BLUE_E, very thick, dotted, domain =9:10, samples=2] {-x/6 + 5};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -108,35 +108,17 @@
 }{exe:lecture-points}{
 	\begin{enumerate}
 		\item[$f$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;0)$ et $(2;-2)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax + 0 = ax$ pour un certain paramètre $a$ encore indéterminé.
-		\end{enumerate}
+			Les points $A(0;0)$ et $B(2;-2)$ appartiennent à $\C_f$.
 		\item[$g$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;1)$ et $(-2; 0)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax + 1$ pour un certain paramètre $a$ encore indéterminé.
-		\end{enumerate}
+			Les points $A(0;1)$ et $B(-2;0)$ appartiennent à $\C_g$.
 		\item[$h$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;7)$ et $(6;7)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax + 7$ pour un certain paramètre $a$ encore indéterminé. Comme $h$ est constante, on peut deviner que $a=0$...
-		\end{enumerate}
+			Les points $A(0;7)$ et $B(6;7)$ appartiennent à $\C_h$.
 		\item[$F$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;1)$ et $(3;0)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax + 1$ pour un certain paramètre $a$ encore indéterminé.
-		\end{enumerate}
+			Les points $A(0;1)$ et $B(3;0)$ appartiennent à $\C_F$.
 		\item[$G$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;-2)$ et $(-4;-8)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax -2$ pour un certain paramètre $a$ encore indéterminé.
-		\end{enumerate}
+			Les points $A(0;-2)$ et $B(-4;-8)$ appartiennent à $\C_G$.
 		\item[$H$:] 
-		\begin{enumerate}[label=\arabic*.]
-			\item $(0;5)$ et $(6;4)$ appartiennent à $\C_f$.
-			\item On en déduit que $f(x) = ax +5$ pour un certain paramètre $a$ encore indéterminé.
-		\end{enumerate}
+			Les points $A(0;5)$ et $B(6;4)$ appartiennent à $\C_H$.
 	\end{enumerate}
 }
 
@@ -145,41 +127,65 @@
 
 
 \exe{, difficulty=1}{
-		Lire graphiquement un vecteur directeur de chaque droite de l'exercice \ref{exe:lecture-points} et en déduire le coefficient directeur $a$ de la fonction affine associée.
+	Pour chaque droite de l'exercice \ref{exe:lecture-points}, et en utilisant les deux points exhibés,
+	\begin{enumerate}[label=\alph*)]
+		\item donner l'ordonnée à l'origine $b$ de la fonction affine associée ;
+		\item lire graphiquement ou calculer un vecteur directeur ;
+		\item en déduire le coefficient directeur $a$ de la fonction affine associée ; et
+		\item écrire l'expression algébrique de la fonction.
+	\end{enumerate}
 }{exe:coeff-dir}{
-	On calcule le coefficient directeur à l'aide des paires de points qu'on a donné à l'exercice \ref{exe:lecture-points}.
+	À l'aide des paires $(A, B)$ de points données à l'exercice \ref{exe:lecture-points}, on peut déduire
+	\begin{enumerate}[label=\alph*)]
+		\item l'ordonnée à l'origine $b$ comme l'ordonnée du point d'abscisse nulle ;
+		\item un vecteur directeur, comme $\vec{AB}$ ;
+		\item le coefficient directeur $a$ de la fonction affine associée en écrivant $\vec{AB} = k\cdot \pvec1{a}$ ;
+		\item l'expression algébrique de la fonction en écrivant $ax+b$ et en remplaçant $a$ et $b$ par les valeurs trouvées.
+	\end{enumerate}
 
 	\begin{enumerate}
 		\item[$f$:] 
-			Les points $(0;0)$ et $(2;-2)$ appartiennent à $\C_f$.
-			Donc 
-				\[ a = \dfrac{-2 - 0}{2-0} = -1, \]
-			et $f(x) = -x$.
+			Les points $A(0;0)$ et $B(2;-2)$ appartiennent à $\C_f$.
+			Ainsi, $b=0$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec2{-2} = 2 \pvec1{-1} \]
+			dirige la droite, duquel nous pouvons déduire que $a = -1$.
+			Finalement, $f(x) = ax+b = (-1)x + (0) = -x$.
 		\item[$g$:] 
-			Les points $(0;1)$ et $(-2;0)$ appartiennent à $\C_g$.
-			Donc 
-				\[ a = \dfrac{0 - 1}{-2-0} = \dfrac12, \]
-			et $g(x) = \dfrac12 x + 1$.
+			Les points $A(0;1)$ et $B(-2;0)$ appartiennent à $\C_g$.
+			Ainsi, $b=1$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec{-2}{-1} = -2 \pvec1{\frac12} \]
+			dirige la droite, duquel nous pouvons déduire que $a = \frac12$.
+			Finalement, $g(x) = \frac12 x + 1$.
 		\item[$h$:] 
-			Les points $(0;7)$ et $(6;7)$ appartiennent à $\C_h$.
-			Donc 
-				\[ a = \dfrac{7-7}{6-0} = 0, \]
-			et $h(x) = 7$, une fonction constante.
+			Les points $A(0;7)$ et $B(6;7)$ appartiennent à $\C_h$.
+			Ainsi, $b=7$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec{6}{0} = 6 \pvec10 \]
+			dirige la droite, duquel nous pouvons déduire que $a = 0$.
+			Finalement, $h(x) = 0x+7 = 7$, une fonction constante.
 		\item[$F$:] 
-			Les points $(0;1)$ et $(3;0)$ appartiennent à $\C_F$.
-			Donc 
-				\[ a = \dfrac{0-1}{3-0} = -\dfrac13, \]
-			et $F(x) = -\dfrac13 x + 1$, une fonction constante.
+			Les points $A(0;1)$ et $B(3;0)$ appartiennent à $\C_F$.
+			Ainsi, $b=1$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec{3}{-1} = 3 \pvec1{-\frac13} \]
+			dirige la droite, duquel nous pouvons déduire que $a = \frac13$.
+			Finalement, $H(x) = -\frac13 x + 1$.
 		\item[$G$:] 
-			Les points $(0;-2)$ et $(-4;-8)$ appartiennent à $\C_G$.
-			Donc 
-				\[ a = \dfrac{-8-(-2)}{-4-0} = \dfrac{-6}{-4} = \dfrac32, \]
-			et $G(x) = \dfrac32 x - 2$, une fonction constante.
+			Les points $A(0;-2)$ et $B(-4;-8)$ appartiennent à $\C_G$.
+			Ainsi, $b=-2$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec{-4}{-6} = -4 \pvec1{\frac32} \]
+			dirige la droite, duquel nous pouvons déduire que $a = \frac32$.
+			Finalement, $G(x) = \dfrac32 x - 2$.
 		\item[$H$:] 
-			Les points $(0;5)$ et $(6;4)$ appartiennent à $\C_H$.
-			Donc 
-				\[ a = \dfrac{4-5}{6-0} = \dfrac{-1}{6}, \]
-			et $H(x) = -\dfrac16 x + 5$, une fonction constante.
+			Les points $A(0;5)$ et $B(6;4)$ appartiennent à $\C_H$.
+			Ainsi, $b=5$, car c'est l'ordonnée du point d'abscisse nulle ($A$ ici).
+			De plus, 
+				\[ \vec{AB} = \pvec{6}{-1} = 6 \pvec1{-\frac16} \]
+			dirige la droite, duquel nous pouvons déduire que $a = -\frac16$.
+			Finalement, $H(x) = -\dfrac16 x + 5$.
 	\end{enumerate}
 }
 
@@ -266,7 +272,12 @@
 \exemulticols{, difficulty=1}{
 	Soient $f(x) = ax+b$ et $g(x) = a'x+b'$ deux fonctions affines données graphiquement pour $x\in[3,2 ; 3,7]$ ci-contre.
 	
-	Déterminer les paramètres $a, b, a',$ et $b'$.
+	\begin{enumerate}
+		\item
+		Déterminer les paramètres $a, b, a',$ et $b'$.
+		\item
+		Résoudre $f(x) = g(x)$ algébriquement et graphiquement.
+	\end{enumerate}
 	\vfill\,
 }{
 	\begin{center}
@@ -286,16 +297,54 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:extrapolation-graphique1}{
-	Notons $f(x) = ax + b$ la fonction affine.
-	On utilise le lemme du cours qui dit que $(0 ; b) \in \C_f$ pour déduire que $b=-1$ car $(0; -1) \in \C_f$.
+	Cherchons d'abord $a$ et $b$, paramètres de la fonction affine $f$.
 	
-	On utilise enfin le théorème du cours qui implique que, en choisissant $A(-0,5 ; -3,5)$ et $B(0,5;1,5)$,
-		\[ a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{1,5 - (-3,5)}{0,5 - (-0,5)} = \dfrac41 = 4. \]
-	Remarquons que, quand $x$ augmente de $1$, $f(x)$ augmente de $4$, le coefficient directeur.
-	De plus, l'ordre des points n'a en fait pas d'importance : on aurait pû choisir $B(-0,5 ; -3,5)$ et $A(0,5;1,5)$ pour trouver le même coefficient directeur.
+	\underline{Calcul de $a$}
 	
-	On conclut que 
-		\[ f(x) = 4x - 1. \]
+	En connaissant deux points $A$ et $B$ de $\C_f$, on peut immédiatement déduire un vecteur directeur (par exemple $\vec{AB}$) et le coefficient directeur de $f$.
+	D'après le cours, ceci est équivalent à calculer 
+		\[ a = \dfrac{y_B - y_A}{x_B - x_A}, \]
+	mais gardons la méthode vectorielle qui scinde les calculs en plusieurs parties.
+	
+	Graphiquement, on lit $A(3,25 ; 5,5)$ et $B(3,5 ; 6)$, desquel on déduit
+		\[ \vec{AB} = \pvec{3,5-3,25}{6-5,5} = \pvec{0,25}{0,5} = 0,25 \pvec{1}{\frac{0,5}{0,25}} = 0,375 \pvec{1}{2}. \]
+	Par conséquent, $a = 2$.
+	
+	\underline{Calcul de $b$}
+	
+	Nous ne disposons pas de point d'abscisse nulle duquel lire l'ordonnée à l'origine simplement.
+	Cependant, comme $a =2$, nous savons que $f(x) = 2x+b$.
+	De plus, comme $A\in\C_f$, nous pouvons obtenir la relation $y_A = f(x_A)$, qui n'admet qu'une seule inconnue, $b$, et qui permet donc de trouver la valeur de l'ordonnée à l'origine.
+	\begin{align*}
+		y_A = 5,5 &= f(x_A) \\
+					&= f(3,25) \\
+					&= 2\cdot3,25 + b \\
+					&= 6,5 + b
+	\end{align*}
+	Il suit donc que $5,5 = 6,5+b$ et donc que $b = 5,5-6,5 = -1$.
+	
+	Notons, pour nous convaincre que notre choix arbitraire de point n'influe pas le résultat, que le même raisonnement avec $B\in\C_f$ donne le même résultat :
+	\begin{align*}
+		y_B = 6 &= f(x_B), \\
+					&= f(3,5), \\
+					&= 2\cdot3,5 + b, \\
+					&= 7 + b.
+	\end{align*}
+	Par suite, $b = 6-7 = -1$.
+	
+	Nous concluons que $f(x) = 2x - 1$.
+	
+	
+	En procédant similairement, nous obtenons $g(x) = -2x + 13$. (Ou $13-2x$ si on cherche à minimiser l'encre utilisée pour écrire l'expression.)
+	
+	Graphiquement, on lit que $x=3,5$ vérifie $f(x) = g(x)$.
+	Algébriquement, nous posons $f(x) = g(x)$ et nous résolvons comme suit.
+		\begin{align*}
+			f(x) &= g(x) \\
+			2x - 1 &= 13 - 2x \\
+			4x &= 14 \\
+			x &= \frac{14}4 = \frac72 = 3,5
+		\end{align*}
 }
 
 
