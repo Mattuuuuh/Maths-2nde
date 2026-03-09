@@ -3,6 +3,17 @@
 
 \SetDate[10/03/2026]
 
+\newcommand\calculator{\tikz{
+\node (c) [inner sep=0pt, draw, fill=black, anchor=south west]{\phantom{N}};
+\begin{scope}[x=(c.south east),y=(c.north west)]
+   \fill[white] (.1,.7) rectangle (.9,.9);
+   \foreach \x in {.1, .33, .55, .79}{
+   \foreach \y in {.1, .24, .38, .53}{
+   \fill[white] (\x,\y) rectangle +(.11,.07);}}
+\end{scope}
+}}
+
+
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
@@ -362,7 +373,7 @@
 
 
 \exe{, difficulty=1}{
-	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
+	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ et répondre aux questions suivantes. Une fraction irréductible est attendue.
 	\begin{center}
 	\begin{tikzpicture}
 		% depth 1
@@ -439,21 +450,27 @@
 	\begin{enumerate}
 		\item 
 			\begin{align*}
-				P(D) &= 0,3 \times \frac16 \\ &= \frac{0,3}{6} \\ &= \frac{0,1}{2} = 0,05.
+				P(D) &= 0,3 \times \frac16 \\ &= \frac{0,3}{6} \\ &= \frac{3}{60} = \frac1{20}
 			\end{align*}
 		\item 
 			\begin{align*}
-				P(B) &= 0,7 \times \frac29 + 0,3 \times \frac12 \approx 0,31.
+				P(B) &= 0,7 \times \frac29 + 0,3 \times \frac12 \\
+					&= \frac{1,4}9 + \frac{0,3}2 \\
+					&= \frac{14}{90} + \frac3{20} \\
+					&= \frac{28}{180} + \frac{27}{180} \\
+					&= \frac{55}{180} = \frac{11}{36}
 			\end{align*}
 		\item 
 			Comme $D$ et $B$ sont deux issues distinctes de l'univers, on a
 			\begin{align*}
-				P(D \cup B) &= P(D) + P(B) \\ &\approx 0,05 + 0,31 = 0,36.
+				P(D \cup B) &= P(D) + P(B) \\ &= \frac1{20} + \frac{11}{36}, \\
+				&= \frac{18}{360} + \frac{110}{360}, \\
+				&= \frac{128}{360} = \frac{64}{180} = \frac{32}{90} = \frac{16}{45}.
 			\end{align*}
 		\item On peut soit procéder comme ci-dessus, ou alors utiliser le fait que
 			\[ P(A\cup C) = P(A) + P(C) = 1 - \left( P(D) + P(B) \right) = 1 - P(D \cup B), \]
 		et donc
-			\[ P(A\cup C) \approx 0,64. \]
+			\[ P(A\cup C) = 1 - \frac{16}{45} = \frac{29}{45}. \]
 	\end{enumerate}
 }
 
@@ -786,7 +803,7 @@
 	\begin{enumerate}
 		\item Quelle est la probabilité d'obtenir deux boules rouges en deux tirages ?
 		\item Quelle est la probabilité d'obtenir deux boules vertes en trois tirages ?
-		\item$(\star)$ Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
+		\item \calculator{\Large} Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ? 
 	\end{enumerate}
 }{exe:exe15}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau ci-dessous.
@@ -850,7 +867,7 @@
 	\begin{enumerate}
 		\item Quelle est la probabilité d'obtenir un nombre pair ?
 		\item Quelle est la probabilité d'obtenir deux 6 en deux lancers consécutifs ?
-		\item$(\star)$ Quelle est la probabilité d'obtenir au moins un 6 après quatre lancers ?
+		\item\calculator{\Large} Quelle est la probabilité d'obtenir au moins un 6 après quatre lancers ?
 	\end{enumerate}
 }{exe:exe16}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau ci-dessous.
@@ -955,7 +972,7 @@
 			t-\frac12 = 1 && \text{ ou } && t - \frac12 = -1 \\
 			t = \frac32 && \text{ ou } && t = -\frac12.
 		\end{align*}
-	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
+	%Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
 	
 	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
 	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
@@ -981,11 +998,11 @@
 
 
 \exe{, difficulty=1}{
-	On lance deux D$6$ équilibrés, dés à $6$ faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
+	On lance deux D6 équilibrés, dés à 6 faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
 	\begin{enumerate}
 		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
-		\item Quelle est la probabilité d'obtenir un double $6$ ?
-		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+		\item Quelle est la probabilité d'obtenir un double 6 ?
+		\item\calculator{\Large} Quelle est la probabilité qu'après 10 tels lancers, on obtienne au moins une fois un \mbox{double 6 ?}
 	\end{enumerate}
 }{exe:dur5}{
 	\begin{enumerate}
@@ -995,21 +1012,21 @@
 			\[ \Omega = \Bigset{ (a ; b) \text{ où } a, b \in \bigset{ 1 ; 2 ; 3 ; 4 ;5 ; 6 } }, \]
 		de cardinal $|\Omega| = 6 \times 6 = 36$.
 		
-		La situation est bien d'équiprobabilité car il y a $36$ issues et chacune admet comme probabilité $\frac16 \times \frac16 = \frac1{36}$, car les dés sont bien équilibrés.
+		La situation est bien d'équiprobabilité car il y a 36 issues et chacune admet comme probabilité $\frac16 \times \frac16 = \frac1{36}$, car les dés sont bien équilibrés.
 		
 		\item 
 		La probabilité de l'issue $(6;6)$ est $\frac1{36}$ par équiprobabilité.
 		
 		\item
 		Lorsqu'on étudie un événement de la forme « au moins [\dots] », il est toujours utile de passer par le complémentaire.
-		L'événement complémentaire est « obtenir aucun double $6$ », dont la probabilité est
+		L'événement complémentaire est « obtenir aucun double 6 », dont la probabilité est
 			\[ \left( \frac{35}{36} \right)^{10} \approx 0,75. \]
 		En effet, on peut construire un arbre réduit à deux événements  : « double 6 » (probabilité $\frac1{36}$) et « pas double 6 » (probabilité $\frac{35}{36}$), de profondeur $10$.
-		La feuille qui correspond à « obtenir aucun double $6$ » est obtenue en obtenant « pas double 6 » dix fois dans l'arbre.
+		La feuille qui correspond à « obtenir aucun double 6 » est obtenue en tournant vers « pas double 6 » dix fois dans l'arbre.
 		
-		La probabilité de l'événement « on obtient aucun double $6$ » est donc
+		La probabilité de l'événement « on obtient aucun double 6 » est donc
 			\[ \left( \frac{35}{36} \right)^{10} \approx 0,75. \]
-		On conclut en faisant $1-0,75 = 0,25 = \frac14$, probabilité approximative qu'au moins un des $10$ lancers donne un double $6$.
+		On conclut en faisant $1-0,75 = 0,25$, probabilité approximative qu'au moins un des 10 lancers donne un double 6.
 	\end{enumerate}
 
 
