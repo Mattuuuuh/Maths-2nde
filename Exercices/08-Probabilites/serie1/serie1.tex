@@ -13,11 +13,11 @@
 
 % why do the solutions not multicols properly?
 % really annoying.
-\begin{multicols}{2}
+%\begin{multicols}{2}
 \exe{}{
 	On lance une pièce de monnaie bien équilibrée.
 	\begin{enumerate}
-		\item Décrire les issues possibles de l'expérience.
+		\item Décrire les issues de l'expérience.
 		\item Après 10 000 lancers, combien de fois « pile » peut-on s'attendre à avoir eu ?
 		\item Donner la probabilité de chaque issue.
 	\end{enumerate}
@@ -36,14 +36,14 @@
 	
 }
 
-\columnbreak
+%\columnbreak
 
 \exe{}{
 	On lance un D6 équilibré, dé à 6 faces, puis on lit le numéro de la face du dessus.
 	\begin{enumerate}
-		\item Décrire les issues possibles de l'expérience.
+		\item Décrire les issues de l'expérience.
 		\item Après 60 000 lancers, combien de 6 peut-on s'attendre à avoir eu ?
-		\item Donner la probabilité de chaque issue.
+		%\item Donner la probabilité de chaque issue.
 		\item Donner la probabilité d'obtenir un nombre pair.
 		%\item Donner la probabilité d'obtenir un multiple de $3$.
 	\end{enumerate}
@@ -53,32 +53,37 @@
 		Les issues sont « 1 », « 2 », « 3 », « 4 », « 5 », et « 6 ».
 		\item 
 		Comme le dé est bien équilibré, on peut s'attendre à obtenir 10 000 fois 6.
-		\item 
-		Comme le dé est bien équilibré, leur probabilité est $\frac16$.
-		À nouveau, la probabilité est liée à la fréquence dans un sens uniquement : la probabilité est admise, et la fréquence s'approche de celle-ci lorsque le nombre de lancers devient grand.
+%		\item 
+%		Comme le dé est bien équilibré, leur probabilité est $\frac16$.
+%		À nouveau, la probabilité est liée à la fréquence dans un sens uniquement : la probabilité est admise, et la fréquence s'approche de celle-ci lorsque le nombre de lancers devient grand.
 		\item 
 		Trois issues correspondent à l'événement « obtenir un nombre pair » et on ajoute leur probabilité : $\frac16 + \frac16 + \frac16 = \frac12$.
 	\end{enumerate}
 }
-\end{multicols}
+%\end{multicols}
 
-\vspace{-10pt}
+%\vspace{-10pt}
 
 \exe{}{
-	Une urne contient $3$ boules rouges et $2$ boules noires. On tire une boule au hasard et on note sa couleur.
+	Une urne contient 3 boules rouges, 2 boules noires, et 5 boules vertes. On tire une boule au hasard et on note sa couleur.
 	\begin{enumerate}
-		\item Décrire les issues possibles de l'expérience.
+		\item Décrire les issues de l'expérience.
 		\item Après $50~000$ tirages avec remise, combien de boules noires peut-on s'attendre à avoir tiré ?
 		\item Donner la probabilité de chaque issue.
 	\end{enumerate}
 }{exe:aut3}{
 	\begin{enumerate}
 		\item
-		Les deux issues sont « Rouge » et « Noir ».
+		Les troies issues sont « Rouge », « Noir », et « Vert ».
 		\item 
-		On s'attend à avoir tiré 20 000 fois « Noir » et 30 000 fois « Rouge ».
+		Comme 2 dizième des boules sont rouges, on s'attend à avoir tiré 
+			\[ 50~000\times\frac2{10} = 10~000 \]
+		fois « Noir ».
+		De façon similaire, on s'attend à avoir tiré 15 000 fois « Rouge » et 25 000 fois « Vert ».
 		\item 
-		La probabilité d'obtenir « Rouge » est $\frac35$ et la probabilité d'obtenir « Noir » est $\frac25$.
+		La probabilité d'obtenir « Rouge » est $\frac3{10}$, la probabilité d'obtenir « Noir » est $\frac2{10}$, et la probabilité d'obtenir « Vert » est $\frac5{10}$.
+		La fraction peuvent être simplifiées si voulu.
+		Remarquons que leur somme vaut $\frac3{10}+\frac2{10}+\frac5{10} = 1$.
 	\end{enumerate}
 }
 
@@ -99,7 +104,7 @@
 	\end{multicols}
 }
 
-%^\vspace{-10pt}
+%\vspace{-10pt}
 \subsection*{Exercices}
 
 
@@ -135,17 +140,19 @@
 	On lance un D20, dé à 20 faces numérotées de $1$ à $20$.
 	On note le nombre de la face du dessus.
 	\begin{enumerate}
-		\item Donner l'univers des issues $\Omega$ ainsi que son cardinal $|\Omega|$.
+		\item Donner l'univers $\Omega$ ainsi que son cardinal $|\Omega|$.
 		\item Pour chacun des événements suivants, donner l'ensemble des issues associé ainsi que son cardinal.
-		\begin{multicols}{2}
-		\begin{enumerate}[label=\roman*)]
-		\item A : « le nombre est pair »
-		\item B : « le nombre est multiple de $3$ »
-		\columnbreak
-		\item C : \mbox{« le nombre est multiple de $3$ \textbf{ou} pair »}
-		\item D : \mbox{« le nombre est multiple de 3 \textbf{et} pair »}
-		\end{enumerate}
-		\end{multicols}
+			\begin{multicols}{2}
+			\begin{enumerate}[label=\roman*)]
+			\item A : « le nombre est pair »
+			\item B : « le nombre est multiple de $3$ »
+			\columnbreak
+			\item C : \mbox{« le nombre est multiple de $3$ \textbf{ou} pair »}
+			\item D : \mbox{« le nombre est multiple de 3 \textbf{et} pair »}
+			\end{enumerate}
+			\end{multicols}
+		\item
+		Peut-on connaitre la probabilité de chacun de ces événements ?
 	\end{enumerate}
 }{exe:univers2}{
 	\begin{enumerate}
@@ -165,10 +172,10 @@
 
 
 \exe{}{
-	On suppose le D20 de l'exercice \ref{exe:univers2} bien équilibré.
+	On suppose désormais le D20 de l'exercice \ref{exe:univers2} bien équilibré.
 	\begin{enumerate}
 		\item 
-		Calculer la probabilité de chacun des événements de l'exercice \ref{exe:exe1}.
+		Calculer la probabilité de chacun des événements de l'exercice \ref{exe:univers2}.
 		%\item Vérifier que $D = A \cup B$.
 		%\item Vérifier que $E = A \cap B$.
 		\item 
@@ -182,25 +189,27 @@
 		En outre, d'après le cours, pour un événement $V = \{ e_1 ; e_2 ; \dots \} \subset \Omega$, sa probabilité est la somme des probabilités des issues lui appartenant.
 		C'est donc 
 			\[ P(V) = \frac{|V|}{|\Omega|} = \frac{|V|}{20}, \]
-		résultat qu'on applique aux $6$ événements de l'exercice \ref{ex:1} pour trouver
+		résultat qu'on applique aux $6$ événements de l'exercice \ref{exe:univers2} pour trouver
 			\begin{align*}
-				P(A) = \frac{10}{20} = \frac12 && P(B) = \frac{6}{20} = \frac3{10} && P(C) = \frac15 \\
-				P(D) = \frac{13}{20} && P(E) = \frac{3}{20} && P(F) = \frac{3}{20}
+				P(A) &= \frac{10}{20} = \frac12 & P(B) &= \frac{6}{20} = \frac3{10} \\ %&& P(C) = \frac15 \\
+				P(C) &= \frac{13}{20} & P(D) &= \frac{3}{20}  % && P(F) = \frac{3}{20}
 			\end{align*}
 		%\item On vérifie que $D = A \cup B$ en considérant tous les éléments qui appartiennent à $A$ \textbf{ou} à $B$ (ou inclusif : un élément qui appartient aux deux ensembles appartient à l'union) et en vérifiant qu'on trouve bien $D$.
 		%\item On vérifie que $E = A \cap B$ en considérant tous les éléments qui appartiennent à $A$ \textbf{et} à $B$ et en vérifiant qu'on trouve bien $E$.
 		\item 
 		Le membre de gauche de l'identité donne
-			\[ P (A \cup B) = P(D) = \frac{13}{20}, \]
+			\[ P (A \cup B) = P(C) = \frac{13}{20}, \]
 		d'après les questions précédentes.
 		Le membre de droite de l'identité est égal à 
-			\[ P(A) + P(B) - P(A\cap B) = \frac{10}{20} + \frac{6}{20}  - \frac{3}{20} = \frac{13}{20}.\]
+			\[ P(A) + P(B) - P(A\cap B) = P(A) + P(B) - P(D) = \frac{10}{20} + \frac{6}{20}  - \frac{3}{20} = \frac{13}{20}.\]
 		L'identité est donc bien vérifée dans ce cas !
 	\end{enumerate}
 }
 
+\newpage
+
 \exe{}{
-	Compléter le tableau de probabilités suivant, concernant le numéro de la face du dessus obtenue après un lancer d'un D6 pipé, puis 
+	Compléter le tableau de probabilités concernant le numéro de la face du dessus obtenue après un lancer d'un D6 pipé puis 
 	calculer les probabilités suivantes.
 	\begin{center}
 	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
@@ -221,7 +230,7 @@
 	\end{multicols}
 }{exe:D6-pipé}{
 	On complète d'abord le tableau en sachant que l'univers de l'expérience est $\Omega = \bigset{ 1 ; 2 ;3 ; 4 ; 5 ; 6 }$ et que la somme des probabilités du tableau est donc nécessairement $1$.
-	En effet, $P(\Omega) = 1$, car $\Omega$ correspond à l'événement « obtenir une des issues possibles », qui est un événement sûr.
+	En effet, $P(\Omega) = 1$, car $\Omega$ correspond à l'événement « obtenir une des issues », qui est un événement sûr.
 	
 	
 	\begin{center}
@@ -240,7 +249,7 @@
 		%\item P(« obtenir $2$ ou $5$ »)  + P(« obtenir ni $2$ ni $5$ ») $ = 0,45 + 0,55 = 1$
 	\end{enumerate}
 	
-	Le fait que la somme soit $1$ n'est pas suprenant : les événements comptent séparément toutes les issues possibles.
+	Le fait que la somme soit $1$ n'est pas suprenant : les événements comptent séparément toutes les issues.
 	On appelle ces événements \emph{complémentaires} : ils sont disjoints (les deux événements ne peuvent pas arriver en même temps), et ensembles ils forment l'univers tout entier (chaque issue appartient à un événement ou à l'autre).
 	
 	Les derniers événements motivent la relation 
@@ -263,7 +272,7 @@
 	 	\[ P(\text{Premier service raté, deuxième réussi}) = 1 - 0,58 - 0,06 = 0,36. \]
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	On lance un D300 bien équilibré, dé à 300 faces numérotées de 1 à 300.
 	Après le lancer, on note le numéro de la face supérieure.
 	Posons $A$ : « le résultat n'est pas multiple de 10 », et $B$ : « le résultat n'est pas divisible par 7 ».
@@ -281,9 +290,12 @@
 			\end{enumerate}
 			\end{multicols}
 		\item Calculer les probabilités $P\bigl( \overline{A} \bigr)$ et $P\bigl( \overline{B} \bigr)$.
-		\item Calculer $P\bigl(\overline{A} \cap \overline{B}\bigr)$ étant donné qu'un multiple à la fois de 7 et de 10 est un multiple de 70.
+		\item Justifier à l'aide de sa décomposition en facteurs premiers qu'un multiple à la fois de 7 et de 10 est un multiple de 70.
+		\item En déduire $P\bigl(\overline{A} \cap \overline{B}\bigr)$. %étant donné qu'un multiple à la fois de 7 et de 10 est un multiple de 70.
 		\item Énoncer le principe d'inclusion-exclusion puis l'utiliser pour calculer $P\bigl(\overline{A} \cup \overline{B}\bigr)$.
 		%\item Calculer la probabilité que le résultat obtenu soit supérieur ou égal à $10$.
+		\item
+		Combien d'entiers entre 1 et 300 sont multiples de 7 ou de 10 ?
 	\end{enumerate}
 }{exe:D300}{
 	\begin{enumerate}
@@ -313,20 +325,28 @@
 		Pour savoir jusqu'où aller, on calcule $\frac{300}{7} \approx 42,86$, donc la liste s'arrête à $7 \times 42 = 294$.
 		Par conséquent, $|\overline{B}| = 42$, et $P\left( \overline{B} \right) = \frac{42}{300} = \frac{7}{50}$ (pas exactement un septième, donc !).
 		
+		\item
+		Soit $n\in\N$ ($n\neq0$) un multiple à la fois de 7 et de 10.
+		Comme $n$ est divisible par 7, il admet au moins un 7 dans un sa décomposition en facteurs premiers.
+		Comme $n$ est divisble par $10 = 2 \times 5$, il admet au moins un 2 et au moins un 5 dans sa décomposition en facteurs premiers.
+		Ainsi, $n$ doit s'écrire $n = 7\times2\times5\times k$, avec $k\in\N$ le reste de la décomposition.
+		D'où $n = 70\times k$, avec $k$ entier : $n$ est multiple de 70.
+		
 		\item 
-		On calcule d'abord $P\bigl(\overline{A} \cap \overline{B}\bigr)$ en comptant les multiples de 70 supérieurs ou égaux à 1 et inférieurs ou égaux à $300$.
+		Calculons d'abord $P\bigl(\overline{A} \cap \overline{B}\bigr)$ en comptant les multiples de 70 supérieurs ou égaux à 1 et inférieurs ou égaux à $300$.
 		Ceux-ci sont $\bigset{ 70 ; 140 ; 210 ; 280 }$.
 		D'où $P\bigl(\overline{A} \cap \overline{B}\bigr) = \frac{4}{300} = \frac{1}{75}$.
 		
 		\item
-		On utilise l'inclusion-exclusion pour conclure :
+		Utilisons l'inclusion-exclusion pour conclure :
 			\begin{align*}
 				P\bigl(\overline{A} \cup \overline{B}\bigr) &= P\bigl( \overline{A} \bigr) + P\bigl( \overline{B} \bigr) - P\bigl(\overline{A} \cap \overline{B}\bigr) \\
 																&= \frac{30}{300} + \frac{42}{300} -  \frac{4}{300} \\
 																&= \frac{68}{300} = \frac{17}{75}.
 			\end{align*}
-	
-		Remarquons qu'on a ainsi compté le nombre d'entier entre $1$ et $300$ qui sont multiples de $7$ ou de $10$ : il y en a $68$.
+		
+		\item
+		Remarquons qu'on a ainsi compté le nombre d'entier entre 1 et 300 qui sont multiples de 7 ou de 10 : il y en a 68.
 
 %		\item 
 %		L'événement correspond à l'ensemble 
@@ -341,7 +361,7 @@
 
 
 
-\exe{}{
+\exe{, difficulty=1}{
 	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
 	\begin{center}
 	\begin{tikzpicture}
@@ -437,7 +457,7 @@
 	\end{enumerate}
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	On lance 3 fois de suite une pièce de monnaie bien équilibrée.
 	Les lancers sont indépendants.
 	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
@@ -454,7 +474,7 @@
 		\end{enumerate}
 		\end{multicols}
 }{exe:PF3}{
-	Comme les lancers sont distingués, il y a $8$ issues possibles.
+	Comme les lancers sont distingués, il y a $8$ issues.
 		\[ \Omega = \bigset{ FFF ; FFP ; FPF ; FPP ; PFF ; PFP ; PPF ; PPP } \]
 	Le cardinal de l'univers est $|\Omega| = 8$.
 	On aurait pû aussi noter les issues avec des parenthèses, par exemple $(F;P;F)$, mais pas avec des accolades $\{ \cdot \}$ !
@@ -484,11 +504,11 @@
 
 
 
-\exe{}{
+\exe{, difficulty=1}{
 	On lance D6 équilibré puis on regarde le numéro de la face du dessus.
 	\begin{enumerate}[label=$\bullet$]
-		\item Si le numéro obtenu est 1 ou 2, on extrait au hasard une boule dans l'urne 1 qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
-		\item Sinon, on extrait une boule dans l'urne 2 qui contient 3 boules noires et 2 boules blanches.
+		\item Si le numéro obtenu est 1 ou 2, on extrait au hasard une boule dans l'urne A qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
+		\item Sinon, on extrait une boule dans l'urne B qui contient 3 boules noires et 2 boules blanches.
 	\end{enumerate}
 	
 	\begin{enumerate}
@@ -496,20 +516,20 @@
 		Déduire de l'énoncé les probabilités suivantes. Des fractions irréductibles sont attendues.
 		\begin{enumerate}
 			\item
-			La probabilité de tirer dans l'urne 1.
+			La probabilité de tirer dans l'urne I.
 			\item
-			La probabilité de tirer une boule blanche lorsque l'on tire dans l'urne 1.
+			La probabilité de tirer une boule blanche lorsque l'on tire dans l'urne A.
 			\item
-			La probabilité de tirer une boule rouge lorsque l'on tire dans l'urne 1.
+			La probabilité de tirer une boule rouge lorsque l'on tire dans l'urne A.
 			\item
-			La probabilité de tirer une boule noire lorsque l'on tire dans l'urne 2.
+			La probabilité de tirer une boule noire lorsque l'on tire dans l'urne B.
 		\end{enumerate}
 		\item
 		Représenter la situation par un arbre de probabilité.
 		\item
 		\begin{enumerate}
 			\item
-			Déterminer la probabilité qu'on tire dans l'urne 1 et qu'on y tire une boule noire.
+			Déterminer la probabilité qu'on tire dans l'urne A et qu'on y tire une boule noire.
 			\item
 			Vérifier que la probabilité de tirer une boule noire est égale à 50\%.
 		\end{enumerate}
@@ -529,30 +549,30 @@
 		\foreach \i in {-3, 3}
 		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
 		% depth 2
-		\foreach \i in {3} \foreach \j in {-2, 0, 2}
+		\foreach \i in {-3} \foreach \j in {-2, 0, 2}
 			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
 			
-		\foreach \i in {-3} \foreach \j in {-1, 1}
+		\foreach \i in {+3} \foreach \j in {-1, 1}
 			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
 			
 		\draw (0,0) node[above] {Départ};
-		\draw (3,-2) node[right] {1 ou 2};
-		\draw (-3,-2) node[left] {3 ou 4 ou 5 ou 6};
-		\draw (-4,-4) node[below] {B};
-		\draw (-2,-4) node[below] {N};
-		\draw (1,-4) node[below] {B};
-		\draw (3,-4) node[below] {N};
-		\draw (5,-4) node[below] {R};
+		\draw (-3,-2) node[left] {urne A};
+		\draw (3,-2) node[right] {urne B};
+		\draw (4,-4) node[below] {B};
+		\draw (2,-4) node[below] {N};
+		\draw (-1,-4) node[below] {B};
+		\draw (-3,-4) node[below] {N};
+		\draw (-5,-4) node[below] {R};
 		
-		\draw (-1.5, -1) node[above left] {$\dfrac23$};
-		\draw (1.5, -1) node[above right] {$\dfrac13$};
+		\draw (1.5, -1) node[above right] {$\dfrac23$};
+		\draw (-1.5, -1) node[above left] {$\dfrac13$};
 		
-		\draw (-3.5, -3.25) node[above left] {$\frac25$};
-		\draw (-2.5, -3.25) node[above right] {$\frac35$};
+		\draw (3.5, -3.25) node[above right] {$\frac25$};
+		\draw (2.5, -3.25) node[above left] {$\frac35$};
 		
-		\draw (2, -3.25) node[above left] {$\frac25$};
-		\draw (3, -3.25) node[right] {$\frac3{10}$};
-		\draw (4, -3.25) node[above right] {$\frac3{10}$};
+		\draw (-2, -3.25) node[above right] {$\frac25$};
+		\draw (-3, -3.25) node[left] {$\frac3{10}$};
+		\draw (-4, -3.25) node[above left] {$\frac3{10}$};
 	\end{tikzpicture}
 	\end{center}
 	La probabilité d'un chemin racine-feuille est le produit des probabilités rencontrées en le parcourant.
@@ -762,11 +782,11 @@
 	\end{tabular}
 	\end{center}
 	
-	Compléter le tableau en arrondissant à $10^{-2}$ près, modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	Compléter le tableau en arrondissant à $10^{-2}$ près, \underline{modéliser la réalité} en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
 	\begin{enumerate}
 		\item Quelle est la probabilité d'obtenir deux boules rouges en deux tirages ?
 		\item Quelle est la probabilité d'obtenir deux boules vertes en trois tirages ?
-		\item Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
+		\item$(\star)$ Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
 	\end{enumerate}
 }{exe:exe15}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau ci-dessous.
@@ -781,7 +801,7 @@
 	\end{center}
 	
 	
-	On modélise la réalité en assignant les probabilités suivantes.
+	Modélisons la réalité en assignant les probabilités suivantes.
 		\begin{align*}
 			P(\text{Rouge}) = \frac13 && P(\text{Bleu}) = \frac12 && P(\text{Vert}) = \frac16
 		\end{align*}
@@ -800,7 +820,7 @@
 				\begin{center}
 					F : « tirer une boule verte ».
 				\end{center}
-			On lit trois issues possibles pour l'événement : $FF\overline{F}$, $F\overline{F}F$, et $\overline{F}FF$.
+			On lit trois issues pour l'événement : $FF\overline{F}$, $F\overline{F}F$, et $\overline{F}FF$.
 			Chaque issue a probabilité $\frac16 \times \frac16 = \frac1{36}$, donc
 			\[ P(\text{deux boules vertes en trois tirages}) = 3\times \frac1{36} = \frac1{12}. \]
 		\item Quelle est la probabilité d'obtenir au moins une boule bleue en quatre tirages ?
@@ -826,11 +846,11 @@
 	\end{tabular}
 	\end{center}
 	
-	Compléter le tableau, modéliser la réalité en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
+	Compléter le tableau en arrondissant à $10^{-2}$ près, \underline{modéliser la réalité} en définissant un univers et une loi de probabilité, et l'utiliser pour répondre aux questions suivantes.
 	\begin{enumerate}
 		\item Quelle est la probabilité d'obtenir un nombre pair ?
-		\item Quelle est la probabilité d'obtenir deux $6$ en deux lancers consécutifs ?
-		\item Quelle est la probabilité d'obtenir au moins un $6$ après $4$ lancers ?
+		\item Quelle est la probabilité d'obtenir deux 6 en deux lancers consécutifs ?
+		\item$(\star)$ Quelle est la probabilité d'obtenir au moins un 6 après quatre lancers ?
 	\end{enumerate}
 }{exe:exe16}{
 	Les fréquences sont calculées à $10^{-2}$ près dans le tableau ci-dessous.
@@ -843,7 +863,7 @@
 	\end{tabular}
 	\end{center}
 	
-	On modélise la réalité en assignant les probabilités suivantes.
+	Modélisons la réalité en assignant les probabilités suivantes.
 		\begin{align*}
 			P(1) = \frac15 && P(2) = \frac3{10} && P(3) = \frac1{10} && P(4) = \frac3{20} && P(5) = \frac15 && P(6) = \frac1{20}
 		\end{align*}
@@ -954,7 +974,7 @@
 			\overline{A\cup B} = \overline{A} \cap \overline{B}, && \text{et} && \overline{A \cap B} = \overline{A} \cup \overline{B}.
 		\end{align*}
 
-}{exe:dur3}{
+}{exe:Venn-new}{
 	En classe.
 }
 
@@ -1074,14 +1094,16 @@
 	
 	En 1943, pendant la Seconde Guerre Mondiale, Robert Oppenheimer recrute Nicholas Metropolis à Los Alamos afin qu'il aide à développer un modèle pour décrire l'état des matériaux physiques.
 	Metropolis étant, avec ses collègues Richard Feynman et John von Neumann, fatigué de la lenteur des calculettes de l'époque, il dirigea en 1948 le premier super-ordinateur programmable : MANIAC.
-	L'algorithme Metropolis puis Metropolis-Hastings, parent de la méthode de Monte Carlo et publié après la fin de la guerre, donna naissance à la \emph{thermodynamique statistique} permettant d'étudier des systèmes à et hors équilibre.
+	L'algorithme Metropolis puis Metropolis-Hastings, parent de la méthode de Monte Carlo et publié après la fin de la guerre, donna naissance à la \emph{thermodynamique statistique} permettant d'étudier des systèmes à et hors équilibre thermodynamique.
+	Le modèle d'Ising est un exemple classique d'étude ferromagnétique avec comme paramètre la température du matériau.
+	
 	Voir \emph{A History of the Metropolis-Hastings Algorithm} de David B. Hitchcock pour une exposition plus complète.
 
 	
 	\python{MonteCarlo}
 }
 
-\footnotetext{Pas \emph{exactement} aléatoirement... la plupart des nombres ne sont pas représentables par un ordinateur.}
+\footnotetext{Pas \emph{exactement} aléatoirement : la plupart des nombres ne sont pas représentables par un ordinateur.}
 
 
 %\exe{, difficulty=2}{
@@ -1113,9 +1135,9 @@
 	\end{multicols}
 	\begin{enumerate}[start=5]
 		\item
-		En déduire l'égalité suivante, la somme étant infinie
+		En déduire l'égalité suivante, la somme étant infinie.
 			\begin{align*}
-				p\cdot \bigl(1 + q + q^2 + q^3 + \hdots\bigr) = 1 && \iff && 1 + q + q^2 + q^3 + \hdots = \frac1{1-q}.
+				p\cdot \bigl(1 + q + q^2 + q^3 + \hdots\bigr) = 1 && \iff && 1 + q + q^2 + q^3 + \hdots = \frac1{1-q}
 			\end{align*}
 		\item
 		Quelles identités obtient-on si $q = \frac1{10}$ ? Et si $q = \frac12$ ?
