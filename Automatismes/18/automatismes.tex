@@ -1,0 +1,106 @@
+\input{../preamble.tex}
+\SetDate[11/03/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Fractions}
+
+\framedelayed{
+	Calculer. Exprimer sous forme de fraction irréductible.
+	\boxAB{
+		$\dfrac35 + \dfrac64$
+	}{
+		$\dfrac53 + \dfrac24$
+	}
+}{
+	\boxAB{
+		$\dfrac35 + \dfrac64 = \dfrac{3\times4 + 6\times5}{5\times4} = \dfrac{42}{20} = \dfrac{21}{10}$
+	}{
+		$\dfrac53 + \dfrac24 = \dfrac{5\times4+2\times3}{3\times4} = \dfrac{26}{12} = \dfrac{13}{6}$
+	}
+}
+
+\subsection{Différence}
+
+\framedelayed{
+	Calculer la différence $x-y$ lorsque
+	\boxAB{
+		$x = -1$ et $y= -4$.
+	}{
+		$x = -2$ et $y = -7$.
+	}
+}{
+	\boxAB{
+		$-1 - (-4) = -1 + 4 = 3$
+	}{
+		$-2 - (-7) = -2 + 7 = 5$
+	}
+}
+
+\subsection{Coordonnées de vecteur}
+
+
+\framedelayed{
+	\vspace{-12pt}
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.83]
+		\begin{axis}[xmin = -2.1, xmax=3.1, ymin=-2.1, ymax=3.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both]
+			\addplot[RED_E, very thick, ->] (1, 2) -- (axis cs:2,-1) node[midway, right, text=RED_E] {\Large $u$};
+			\addplot[GREEN_E, very thick, ->] (1,1) -- (axis cs:-1,2)  node[midway, below, text=GREEN_E] {\Large $v$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-20pt}
+	\boxAB{
+		Donner approximativement les coordonnées de $u$.
+	}{
+		Donner approximativement les coordonnées de $v$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.83]
+		\begin{axis}[xmin = -2.1, xmax=3.1, ymin=-2.1, ymax=3.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=false]
+			\addplot[RED_E, very thick, ->] (1, 2) -- (axis cs:2,-1) node[pos=.3, right, text=RED_E] {\Large $u = \pvec1{-3}$};
+			\addplot[GREEN_E, very thick, ->] (1,1) -- (axis cs:-1,2)  node[left, text=GREEN_E] {\Large $\pvec{-2}1 = v$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\subsection{Image}
+
+\framedelayed{
+	Soit $f(x) = (x+2)(x-1)$ une fonction sur $\R$.
+	\boxAB{
+		Calculer $f(2)$.
+	}{
+		Calculer $f(3)$.
+	}
+}{
+	$f(x) = (x+2)(x-1)$
+	\boxAB{
+		$f(2) = (2+2)(2-1) = (4)(1) = 4$.
+	}{
+		$f(3) = (3+2)(3-1) = (5)(2) = 10$.
+	}
+}
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
