@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[10/03/2026]
+\SetDate[18/03/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -54,7 +54,18 @@
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-
+	Graphiquement, on lit $x\approx0,3$ vérifiant $f(x) = g(x)$, mais cette solution n'est pas exacte car
+		\begin{align*}
+			f(0,3) = 2\cdot0,3+1 = 1,6 && \et && g(0,3) = 2-0,3 = 1,7.
+		\end{align*}
+	Algébriquement, on obtient la solution exacte suivante.
+		\begin{align*}
+			f(x) &= g(x) \\
+			2x + 1 &= 2 - x \\
+			3x + 1 &= 2 \\
+			3x &= 1 \\
+			x &= \frac13
+		\end{align*}
 }
 
 
