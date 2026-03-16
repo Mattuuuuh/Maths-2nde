@@ -59,7 +59,7 @@
 
 
 \exe{}{
-	Pour chaque droite ci-dessous, donner 2 points lui appartenant dont un d'abscisse nulle.
+	Pour chaque droite ci-dessous, donner deux points lui appartenant dont un d'abscisse nulle.
 	\begin{center}
 	\newcommand{\scale}{1.095}
 	\begin{tikzpicture}[>=stealth, scale=\scale]
@@ -194,13 +194,13 @@
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f(x) = 2x + 1$
-		\item $f(x) = 1 + 2x$
-		\item $f(x) = - x$
-		\item $f(x) = -42$
-		\item $f(x) = \sqrt{3} \cdot x + 2$
-		\item $f(x) = 2 - \dfrac{\pi}{6}x$
-		\item $f(x) = 1 - x$
-		\item $f(x) = 0$
+		\item $g(x) = 1 + 2x$
+		\item $h(x) = - x$
+		\item $i(x) = -42$
+		\item $j(x) = \sqrt{3} \cdot x + 2$
+		\item $k(x) = 2 - \dfrac{\pi}{6}x$
+		\item $l(x) = 1 - x$
+		\item $m(x) = 0$
 	\end{enumerate}
 	\end{multicols}
 }{exe:parametres-affines}{
@@ -268,6 +268,76 @@
 
 
 
+\exe{, difficulty=1}{
+	Pour chacun des couples de point $P$ et fonction affine $f$ sur $\R$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.
+	
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $P=(1;2)$ et $f(x) = 2x+1$.
+		\item $P= (-2; 4)$ et $f(x) = 7-x$.
+		\item $P=(-4^{12};-1,7)$ et $f(x) = 1600$.
+		\item $P=(21;-50,5)$ et $f(x) = -3x + 5$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:affine-parallelisme}{
+	On pose $a, b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
+	\begin{enumerate}
+		\item 
+			L'information de parallélisme donne immédiatement $a=2$.
+			D'où $g(x) = 2x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= 2\cdot1 + b \\
+					b &= 0
+				\end{align*}
+			D'où $g(x) = 2x$ ($x\in\R$) est la fonction affine recherchée.
+		
+		
+		\item 
+			L'information de parallélisme donne immédiatement $a=-1$.
+			D'où $g(x) = -x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -1 + b \\
+					b &= 3
+				\end{align*}
+			D'où $g(x) = -x+3$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=0$.
+			D'où $g(x) =b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &=  b
+				\end{align*}
+			D'où $g(x) = 2$ ($x\in\R$) est la fonction affine recherchée.
+			
+		\item 
+			L'information de parallélisme donne immédiatement $a=-3$.
+			D'où $g(x) = -3x+b$ pour tout $x\in\R$.
+			
+			Reste à trouver $b$ avec l'information d'appartenance.
+			Celle-ci est équivalente à la contrainte
+				\begin{align*}
+					2 &= g(1) \\
+					2 &= -3\cdot1 + b \\
+					b &= 5
+				\end{align*}
+			D'où $g(x) = -3x+5$ ($x\in\R$) est la fonction affine recherchée.
+	\end{enumerate}
+
+}
+
 
 \exemulticols{, difficulty=1}{
 	Soient $f(x) = ax+b$ et $g(x) = a'x+b'$ deux fonctions affines données graphiquement pour $x\in[3,2 ; 3,7]$ ci-contre.
@@ -280,6 +350,7 @@
 	\end{enumerate}
 	\vfill\,
 }{
+	\null\vspace{-50pt}
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=.8]
 	\begin{axis}[xmin = 3.2, xmax=3.7, ymin=5, ymax=7, axis x line=middle, axis y line=middle, axis line style=->, xtick distance=.1, ytick distance = 1,  enlargelimits=.1, grid=both, clip=true, minor x tick num = 1, minor y tick num = 3, x=500pt]
@@ -532,74 +603,50 @@
 }
 
 \exe{, difficulty=1}{
-	Pour chacun des couples de point $P$ et fonction affine $f$ sur $\R$, trouver la fonction affine $g$ telle que $\C_f$ et $\C_g$ soient parallèles et que $P \in \C_g$.
+	La fonction $f(x) = x^2 + 2x + 1$ est-elle affine ? Justifier.
+}{exe:non-affine}{
+	Il y a deux façons de justifier :
+		\begin{enumerate}
+			\item $f$ n'est pas de la forme $ax+b$ pour tout $x\in\R$ ; ou
+			\item $\C_f$ n'est pas une droite.
+		\end{enumerate}
+	Montrons que $\C_f$ n'est pas une droite en exhibant trois points lui appartenant qui ne sont pas alignés.
+		\begin{itemize}
+			\item En $x=0$, $A = \bigl(0, f(0)\bigr) = (0 ; 1)$ appartient à $\C_f$.
+			\item En $x=1$, $B = \bigl(1, f(1)\bigr) = (1 ; 4)$ appartient à $\C_f$.
+			\item En $x=2$, $C = \bigl(2, f(2)\bigr) = (2 ; 9)$ appartient à $\C_f$.
+		\end{itemize}
+	Les vecteurs $\vec{AB}$ et $\vec{AC}$ ne sont pas colinéaires.
+		\begin{align*}
+			\vec{AB} = \pvec{1-0}{4-1} = \pvec13 && \et && \vec{AC} = \pvec{2-0}{9-1}=\pvec28
+		\end{align*}
+	Les vecteurs ne sont pas colinéaires car si $\vec{AC}=k\vec{AB}$ alors, en abscisse, le seul multiple possible est $k=2$, et en ordonnée, leur seul multiple possible est $k=\frac83 \neq 2$.
+	On peut aussi utiliser que leur déterminant n'est pas nul.
 	
+	Ceci conclut : les trois points ne sont pas alignés et donc $\C_f$ n'est pas une droite.
 	
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $P=(1;2)$ et $f(x) = 2x+1$.
-		\item $P= (-2; 4)$ et $f(x) = 7-x$.
-		\item $P=(-4^{12};-1,7)$ et $f(x) = 1600$.
-		\item $P=(21;-50,5)$ et $f(x) = -3x + 5$.
-	\end{enumerate}
-	\end{multicols}
-}{exe:affine-parallelisme}{
-	On pose $a, b\in\R$ les paramètres de la fonction affine $g(x)=ax+b$, $x\in\R$.
-	\begin{enumerate}
-		\item 
-			L'information de parallélisme donne immédiatement $a=2$.
-			D'où $g(x) = 2x+b$ pour tout $x\in\R$.
-			
-			Reste à trouver $b$ avec l'information d'appartenance.
-			Celle-ci est équivalente à la contrainte
-				\begin{align*}
-					2 &= g(1) \\
-					2 &= 2\cdot1 + b \\
-					b &= 0
-				\end{align*}
-			D'où $g(x) = 2x$ ($x\in\R$) est la fonction affine recherchée.
-		
-		
-		\item 
-			L'information de parallélisme donne immédiatement $a=-1$.
-			D'où $g(x) = -x+b$ pour tout $x\in\R$.
-			
-			Reste à trouver $b$ avec l'information d'appartenance.
-			Celle-ci est équivalente à la contrainte
-				\begin{align*}
-					2 &= g(1) \\
-					2 &= -1 + b \\
-					b &= 3
-				\end{align*}
-			D'où $g(x) = -x+3$ ($x\in\R$) est la fonction affine recherchée.
-			
-		\item 
-			L'information de parallélisme donne immédiatement $a=0$.
-			D'où $g(x) =b$ pour tout $x\in\R$.
-			
-			Reste à trouver $b$ avec l'information d'appartenance.
-			Celle-ci est équivalente à la contrainte
-				\begin{align*}
-					2 &= g(1) \\
-					2 &=  b
-				\end{align*}
-			D'où $g(x) = 2$ ($x\in\R$) est la fonction affine recherchée.
-			
-		\item 
-			L'information de parallélisme donne immédiatement $a=-3$.
-			D'où $g(x) = -3x+b$ pour tout $x\in\R$.
-			
-			Reste à trouver $b$ avec l'information d'appartenance.
-			Celle-ci est équivalente à la contrainte
-				\begin{align*}
-					2 &= g(1) \\
-					2 &= -3\cdot1 + b \\
-					b &= 5
-				\end{align*}
-			D'où $g(x) = -3x+5$ ($x\in\R$) est la fonction affine recherchée.
-	\end{enumerate}
-
+	Montrons désormais, plus fondamentalement, que $f$ n'est pas de la forme $ax+b$ pour tout $x\in\R$.
+	Supposons, par l'absurde, le contraire :
+		\begin{align*}
+			x^2 + 2x + 1 = ax + b && \iff && x^2 + (2-a)x + (1-b) = 0
+		\end{align*}
+	pour tout $x\in\R$.
+	Il s'agit désormais de trouver une contradiction à cette assertion,
+	notre seule marche de manœuvre étant de choisir certains $x\in\R$ en particulier et de voir ce que cela nous donne.
+	
+	Cette identité est valable en particulier en $x=0$, de laquelle on déduit que $1-b = 0 \iff b=1$.
+	Par suite, 
+		\[ x^2 + (2-a)x = 0 \]
+	pour tout $x\in\R$.
+	Il est tentant de diviser par $x$ et de rechoisir $x=0$ pour obtenir $a=2$, mais ce n'est pas possible : diviser par $x$ doit nécessairement être conditionné par $x\neq0$.
+	Prenons plutôt $x=1$, duquel on déduit $1 + 2-a = 0 \iff a = 3$.
+	Ainsi,
+		\[ x^2 - x = 0 \]
+	pour tout $x\in\R$.
+	Or cette identité n'est que vraie en $x\in \{0;1\}$ : n'importe quel autre choix aboutira à une contradiction.
+	Par exemple, en $x=10$, on obtient $100 - 10 = 0$, ce qui n'est pas vrai \Lightning.
 }
+
 
 \subsection*{Approfondissements}
 
@@ -663,9 +710,9 @@
 	C'est le cas du polynôme $x^2 + 1$ qui, lui, ne peut pas se scinder comme $(x-\alpha)(x-\beta)$ car $\alpha$ et $\beta$ seraient alors deux racines de $x^2 + 1$.
 	 Or $x^2 + 1$ ne s'annule jamais, le carré étant toujours positif !
 	 
-	Supposons désormais qu'on ait un ensemble de nombres contenant $\R$ ainsi qu'un nouveau « nombre », racine hypothétique de $x^2 + 1$ ; est-ce que tous les polynômes se scindent dans cet ensemble\footnote{Il faut aussi qu'on puisse ajouter et multiplier dans cet ensemble tout en restant à l'intérieur ; c'est la \emph{stabilité}.} ? 
+	Supposons désormais qu'on ait un ensemble de nombres contenant $\R$ ainsi qu'un nouveau « nombre », racine hypothétique de $x^2 + 1$ ; est-ce que tous les polynômes se scindent dans cet ensemble\footnote{Il faut aussi qu'on puisse ajouter et multiplier dans cet ensemble tout en restant à l'intérieur de celui-ci ; c'est la \emph{stabilité}.} ? 
 	Le \emph{théorème fondamental de l'algèbre} répond positivement à cette question.
-	Ce nombre hypothétique est nommé $i$, dont la construction formelle utilise, notamment, la division euclidienne des polynômes !
+	Ce nombre hypothétique est nommé $i$, dont la construction formelle utilise, notamment, la division euclidienne des polynômes.
 }
 
 
