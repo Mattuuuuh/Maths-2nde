@@ -992,7 +992,7 @@ En d'autres termes cette droite est l'ensemble
 		\[ \abs{\det(u,v)} \leq \norm{u}\cdot\norm{v}, \]
 	avec égalité quand $u$ et $v$ sont perpendiculaires.
 	
-	Au regard de l'exercice \ref{exe:det-is-signedvolume}, l'interprétation géométrique est la suivante : pour des côtés de longueurs fixées, l'aire d'un parallélogramme est maximale lorsqu'il est carré.
+	Au regard de l'exercice \ref{exe:det-is-signedvolume}, l'interprétation géométrique est la suivante : pour des côtés de longueurs fixées, l'aire d'un parallélogramme est maximale lorsqu'il est rectangle.
 }{exe:Hadamard}{
 	Posons $u = \pvec{a}{b}$ et $v = \pvec{c}{d}$.
 	
@@ -1002,9 +1002,9 @@ En d'autres termes cette droite est l'ensemble
 		\[ \norm{u}^2\norm{v}^2 = (a^2 +b^2)(c^2 + d^2) = a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2. \]
 	Il suit donc que
 		\begin{align*}
-		\norm{u}^2\norm{v}^2 &= \det(u,v)^2 - (ac)^2 - (bd)^2 + 2abcd, \\
-								&= \det(u,v)^2 - (ac+bd)^2, \\
-								&\leq \det(u,v)^2,
+		\norm{u}^2\norm{v}^2 &= \det(u,v)^2 + (ac)^2 + (bd)^2 + 2abcd, \\
+								&= \det(u,v)^2 + (ac+bd)^2, \\
+								&\geq \det(u,v)^2,
 		\end{align*}
 	car le carré $(ac+bd)^2$ est toujours positif, et nul si et seulement si $u$ et $v$ sont perpendiculaire, d'après l'exercice \ref{exe:produit-scalaire}.
 }
