@@ -1,0 +1,151 @@
+\input{../preamble.tex}
+\SetDate[18/03/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Univers probabilités}
+
+
+
+\framedelayed{
+	On lance un D5 bien équilibré, dé à 5 faces numérotées de 1 à 5.
+	On regarde le numéro de la face du dessus.
+	\boxAB{
+		Donner la probabilité d'obtenir 4.
+	}{
+		Donner l'univers $\Omega$ de l'expérience.
+	}
+}{
+	On lance un D5 bien équilibré, dé à 5 faces numérotées de 1 à 5.
+	On regarde le numéro de la face du dessus.
+	\boxAB{
+		$P(4) = \dfrac15$.
+	}{
+		$\Omega = \bigset{1 ; 2 ; 3 ; 4 ; 5}$.
+	}
+}
+
+
+\framedelayed{
+	\vspace{20pt}
+	On tire au hasard une boule dans une urne qui contient
+	\begin{itemize}	
+		\item 2 boules rouges ;
+		\item 1 boule noire ;
+		\item 3 boules vertes ;
+	\end{itemize}
+	et on regarde sa couleur.
+	\boxAB{
+		Donner l'univers $\Omega$ de l'expérience.
+	}{
+		Donner la probabilité d'obtenir une boule rouge.
+	}
+}{
+	\vspace{20pt}
+	On tire au hasard une boule dans une urne qui contient
+	\begin{itemize}	
+		\item 2 boules rouges ;
+		\item 1 boule noire ;
+		\item 3 boules vertes ;
+	\end{itemize}
+	et on regarde sa couleur.
+	\boxAB{
+		$\Omega = \bigset{ \text{Rouge} ; \text{Noir} ; \text{Vert} }$.
+	}{
+		$P(\text{Rouge}) = \dfrac26 = \dfrac13$.
+	}
+}
+
+\subsection{Union et intersection}
+
+\framedelayed{
+	Considérons les ensembles $A$ et $B$ suivants.
+		\begin{align*}
+			A &= \bigset{ 4 ; 6 ; 41 ; 36 ; 7 } \\
+			B &= \bigset{ 3 ; 7 ; 6 ; 1 ; 36}
+		\end{align*}
+	\boxAB{
+		Donner $A \cap B$.
+	}{
+		Donner $A \cup B$.
+	}
+}{
+	\begin{align*}
+		A &= \bigset{ 4 ; 6 ; 41 ; 36 ; 7 } \\
+		B &= \bigset{ 3 ; 7 ; 6 ; 1 ; 36}
+	\end{align*}
+	\boxAB{
+		$A \cap B = \bigset{ 6 ; 36 ; 7}$
+	}{
+		$A \cup B = \bigset{ 4 ; 6 ; 41 ; 36 ; 7 ; 3 ; 1}$
+	}
+}
+
+\framedelayed{
+	Considérons les ensembles $A$ et $B$ suivants.
+		\begin{align*}
+			A &= \bigset{ 5 ; 8 ; 1 ; 85 ; 2 } \\
+			B &= \bigset{ 5 ; 2 ; 1 ; 9 ; 11}
+		\end{align*}
+	\boxAB{
+		Donner $A \cup B$.
+	}{
+		Donner $A \cap B$.
+	}
+}{
+		\begin{align*}
+			A &= \bigset{ 5 ; 8 ; 1 ; 85 ; 2 } \\
+			B &= \bigset{ 5 ; 2 ; 1 ; 9 ; 11}
+		\end{align*}
+	\boxAB{
+		$A \cup B = \bigset{ 5 ; 8 ; 1 ; 85 ; 2 ; 9 ; 11 }$
+	}{
+		$A \cap B = \bigset{ 5 ; 1 ; 2}$
+	}
+}
+
+%\subsection{Courbe représentative}
+%
+%\framedelayed{
+%	Soient 
+%		\begin{align*}
+%			f(x) = 2x+1 && \et && g(x) = x+2
+%		\end{align*}
+%	deux fonctions sur $\R$.
+%	\boxAB{
+%		Donner un point appartenant à $\C_f$.
+%	}{
+%		Donner un point appartenant à $\C_g$.
+%	}
+%}{
+%	Soient 
+%		\begin{align*}
+%			f(x) = 2x+1 && \et && g(x) = x+2
+%		\end{align*}
+%	deux fonctions sur $\R$.
+%	\boxAB{
+%		$f(0) = 1$ donc $(0 ; 1)$ appartient à $\C_f$.
+%	}{
+%		$g(12) = 14$ donc $(12 ; 14)$ appartient à $\C_g$.
+%	}
+%}
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
