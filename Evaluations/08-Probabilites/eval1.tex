@@ -1,6 +1,7 @@
 \input{../preamble.tex}
+\usepackage{minted}
 
-\SetDate[10/03/2026]
+\SetDate[18/03/2026]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -30,18 +31,20 @@ Consignes particulières :
 
 \exe{6}{
 	On tire un boule dans une urne contenant 3 boules bleues et 4 boules vertes.
-	\begin{enumerate}[label=$\bullet$]
-		\item Si la boule tirée est verte, on jette un dé équilibré à 3 faces (1 à 3).
-		\item Si la boule tirée est bleue, on jette un dé équilibré à 6 faces (1 à 6).
+	\begin{enumerate}[label=$\bullet$, ]
+		\item Si la boule tirée est verte, on jette un dé équilibré à 3 faces (1 à 3) et on regarde la face du dessus.
+		\item Si la boule tirée est bleue, on jette un dé équilibré à 6 faces (1 à 6) et on regarde la face du dessus.
 	\end{enumerate}
 
-	Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes. Donner les probabilités sous forme de fraction irréductible.
+	%Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.  %irréductible. % inutile car calculatrice autorisée ;;
 	\begin{enumerate}
-		\item Quelle est la probabilité d'obtenir un nombre pair ?
-		\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
-		\item Quelle est la probabilité d'obtenir un nombre pair \textbf{ou} un multiple de $3$ ?
-		\item Calculer la probabilité d'obtenir $6$.
-		\item Énoncer le principe d'inclusion-exclusion et le vérifier.
+		\item
+		Créer un arbre de probabilité modélisant l'expérience aléatoire.
+		\item Calculer la probabilité d'obtenir $6$. Une réponse sous forme de fraction est attendue.
+		%\item Quelle est la probabilité d'obtenir un nombre pair ?
+		\item Quelle est la probabilité d'obtenir un multiple de $3$ ? Une réponse sous forme de fraction est attendue.
+		%\item Quelle est la probabilité d'obtenir un nombre pair \textbf{ou} un multiple de $3$ ?
+		%\item Énoncer le principe d'inclusion-exclusion et le vérifier.
 	\end{enumerate}
 
 }{exe:exe14}{
@@ -91,20 +94,26 @@ Consignes particulières :
 	\end{center}
 	
 	\begin{enumerate}
-		\item
+		\item 
 			\begin{align*}
-				P(\text{« nombre pair »}) &= P(2) + P(4) + P(6) \\
-					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \frac37 \times \frac16 \right) \\
-					&= \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
-					&= \frac{17}{42}.
+				P(6) &=\left( \frac37 \times \frac16 \right) \\
+					&= \frac1{14}.
 			\end{align*}
-		\item
-			\begin{align*}
-				P(\text{« multiple de $3$ »}) &= P(3) + P(6) \\
-					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) \\
-					&= \frac4{21} + \frac1{14} + \frac1{14} \\
-					&= \frac13.
-			\end{align*}
+		
+%		\item
+%			\begin{align*}
+%				P(\text{« nombre pair »}) &= P(2) + P(4) + P(6) \\
+%					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \frac37 \times \frac16 \right) \\
+%					&= \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
+%					&= \frac{17}{42}.
+%			\end{align*}
+%		\item
+%			\begin{align*}
+%				P(\text{« multiple de $3$ »}) &= P(3) + P(6) \\
+%					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) \\
+%					&= \frac4{21} + \frac1{14} + \frac1{14} \\
+%					&= \frac13.
+%			\end{align*}
 		\item
 			\begin{align*}
 				P(\text{« multiple de $3$ ou de $2$ »}) &= P(2) + P(3) + P(4) + P(6) \\
@@ -112,26 +121,20 @@ Consignes particulières :
 					&= \frac4{21} + \frac1{14} + \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
 					&= \frac23.
 			\end{align*}
-		\item 
-			\begin{align*}
-				P(6) &=\left( \frac37 \times \frac16 \right) \\
-					&= \frac1{14}.
-			\end{align*}
-		
-		\item
-		On vérifie l'inclusion-exclusion en comparant $P(\text{« multiple de $3$ ou de $2$ »})$ et $P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6)$.
-		D'une part,
-			\[ P(\text{« multiple de $3$ ou de $2$ »}) = \frac23, \]
-		et d'autre part,
-			\begin{align*}
-				P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6) &= \frac13 + \frac{17}{42} - \frac1{14} \\
-				&= \frac{14 + 17 - 3}{42} \\
-				&= \frac{28}{42} = \frac23.
-			\end{align*}
+%		\item
+%		On vérifie l'inclusion-exclusion en comparant $P(\text{« multiple de $3$ ou de $2$ »})$ et $P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6)$.
+%		D'une part,
+%			\[ P(\text{« multiple de $3$ ou de $2$ »}) = \frac23, \]
+%		et d'autre part,
+%			\begin{align*}
+%				P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6) &= \frac13 + \frac{17}{42} - \frac1{14} \\
+%				&= \frac{14 + 17 - 3}{42} \\
+%				&= \frac{28}{42} = \frac23.
+%			\end{align*}
 	\end{enumerate}
 }
 
-\exe{4}{
+\exe{4, difficulty=1}{
 	L'univers associé à une expérience aléatoire est $\{ A, B, C\}$.
 	La loi de probabilité $P$ est donnée par le tableau ci-dessous et dépend d'un réel $t\in\R$ encore inconnu.
 	\begin{multicols}{2}
@@ -142,6 +145,8 @@ Consignes particulières :
 	\end{enumerate}
 	\end{multicols}
 	\begin{center}
+\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
 	\begin{tabular}{|c|c|c|c|} \hline
 		Résultat & $A$ & $B$ & $C$ \\ \hline
 		Probabilité & $\frac9{25}$ & $t^2$ & $-\frac65 t$ \\ \hline
@@ -202,56 +207,107 @@ Consignes particulières :
 	\end{center}
 	
 	\begin{enumerate}
-		\item Compléter le tableau en arrondissant à $10^{-2}$.
-		\item Modéliser la réalité en définissant un univers et une loi de probabilité associés à l'expérience aléatoire du lancer de dé.
-		\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item
+		Donner l'univers $\Omega$ de l'expérience.
+		\item
+		Compléter le tableau en arrondissant à $10^{-2}$.
+		\item
+		Modéliser la réalité en définissant une loi de probabilité $P$ associée à l'expérience aléatoire du lancer de dé.
+	\end{enumerate}
+	À l'aide de la loi $P$ définie, répondre aux questions suivantes.
+	\begin{enumerate}[resume]
+		%\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item Considérons l'événement $A$ : « obtenir au moins un $3$ après dix lancers consécutifs ».
+			\begin{enumerate}
+				\item Décrire $\overline{A}$ avec des mots.
+				\item Calculer $P(A)$.
+			\end{enumerate}
 		\item Quelle est la probabilité d'obtenir exactement trois $1$ en quatre lancers consécutifs ?
-		\item Quelle est la probabilité d'obtenir au moins un $3$ après dix lancers consécutifs ?
 	\end{enumerate}
 }{exe:3}{
 	todo
 }
 
-
-\exe{4}{
-	On considère un univers
-		\[ \Omega = \bigset{ -3 ; -2 ; 1 ; 4; 5; 7 ; 13 }, \]
-	ainsi que deux sous-ensembles 
+\exe{5, difficulty=1}{
+	Combien d'entiers entre 1 et 1 000 sont multiples de 3 {ou} de 5 ?
+}{exe:incl-excl}{
+	Posons $\Omega = \bigset{ 1 ; 2 ; 3 ; \dots ; 1000 }$ l'ensemble des entiers entre 1 et 1 000.
+	Autrement dit (notation Meryam) : 
+		\[ \Omega = \bigset{ n \in \N \tq 1 \leq n \leq 1000 }. \]
+	Soient désormais $A$ et $B$ l'ensemble des multiples de 3 de $\Omega$ et l'ensemble des multiples de 5 de $\Omega$ respectivement.
+	Autrement dit,
 		\begin{align*}
-			A = \bigset{ -3 ; 1 ; 5 } && \et && B = \bigset{ 1 ; 4 ; 5 ; 7 }.
+			A &= \bigset{ a \in \Omega \tq \text{3 divise $a$} }, \\
+			B &= \bigset{ b \in \Omega \tq \text{5 divise $b$} }.
 		\end{align*}
+	Il nous faut calculer le cardinal de $|A \cup B|$.
+	D'après le principe d'inclusion-exclusion, 
+		\[ |A \cup B| = |A| + |B| - |A \cap B|, \]
+	car en comptant les éléments appartenant à $A$ et les éléments appartenant à $B$ en faisant $|A| + |B|$, on compte les éléments appartenant à la fois à $A$ et à $B$ deux fois.
+	
+	L'ensemble $A\cap B$ est l'ensemble des entiers entre 1 et 1 000 qui sont multiples à la fois de 3 et de 5.
+	Ces entiers admettent donc un 3 et un 5 dans leur décomposition en facteurs premiers, il s'écrivent donc $3\times5\times\cdots = 15\times\cdots$.
+	Ce sont donc des multiples de 15.
+	Réciproquement, un multiple de 15 est nécessairement multiple à la fois de 3 et de 5 car $15k = 3(5k) = 5(3k)$.
+	
+	Calculons désormais $|A|, |B|,$ et $|A\cap B|$ pour conclure.
 	\begin{enumerate}
-		\item Donner $\overline{A}$, le complémentaire de $A$ dans l'univers $\Omega$.
-		\item Vérifier l'égalité
-			\[ |A\cup B| = |A| + |B| - |A\cap B| \]
-		en calculant le membre de gauche et le membre de droite puis en comparant les valeurs obtenues.
+		\item[$A$ : ]
+		Les multiples de 3 de $\Omega$ sont $3\times1 ; 3\times2 ; \dots ; 3\times333$, donc $|A| = 333$.
+		\item[$B$ : ]
+		Les multiples de 5 de $\Omega$ sont $5\times1 ; 5\times2 ; \dots ; 5\times200$, donc $|B| = 200$.
+		\item[$A\cap B$ : ]
+		Les multiples de 15 de $\Omega$ sont $15\times1 ; 15\times2 ; \dots ; 15\times66$, donc $|A\cap B| = 66$.
 	\end{enumerate}
-
-}{exe:4}{
-	\begin{enumerate}
-		\item Le complémentaire de $A$ dans $\Omega$ correspond à l'ensemble $\overline{A}$ qui contient tous les éléments de $\Omega$ sauf ceux appartenant à $A$. On note aussi $\Omega \setminus A$ ou $\Omega - A$.
-			\[ \overline{A} = \{ -2 ; 4; 7; 13 \}. \]
-		\item Le cardinal d'un ensemble est égal au nombre d'éléments distincts lui appartenant.
-			À gauche on calcule donc
-				\[ |A \cup B| = | \{ -3 ; 1; 5 ;4 ; 7 \} | = 5. \]
-			À droite on trouve
-				\[ |A| + |B| - |A\cap B| = 3 + 4 - | \{ 1 ; 5 \} | = 3 + 4 - 2 =  5. \]
-	\end{enumerate}
-
+	
+	En conclusion, le nombres de multiples de 3 ou de 5 entre 1 et 1 000 est égal à
+		\[ |A\cup B| = 333+200-66 = 467. \]
+	On se convaincra de la justesse de notre réponse en énumérant les 467 multiples, bien sûr !
+	Ou faisons-le en Python plutôt, il est plus rapide que nous.
+	\python{incl-excl}
+	\texttt{python3 incl-excl.py \\ > > > 467}
 }
 
-\exe{2, difficulty=1}{
-	\begin{enumerate}
-		\item
-		Soit $\Omega = \{1 ; 2 ; 3 \}$.
-		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
-		\item
-		Soit $\Omega = \{1 ; 2 ; 3 ; \dots ; n-1 ; n \}$ dépendant d'un entier naturel $n\in\N$ non nul.
-		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
-	\end{enumerate}´
-}{exe:subset}{
-	todo
-}
+%
+%\exe{4}{
+%	On considère un univers
+%		\[ \Omega = \bigset{ -3 ; -2 ; 1 ; 4; 5; 7 ; 13 }, \]
+%	ainsi que deux sous-ensembles 
+%		\begin{align*}
+%			A = \bigset{ -3 ; 1 ; 5 } && \et && B = \bigset{ 1 ; 4 ; 5 ; 7 }.
+%		\end{align*}
+%	\begin{enumerate}
+%		\item Donner $\overline{A}$, le complémentaire de $A$ dans l'univers $\Omega$.
+%		\item Vérifier l'égalité
+%			\[ |A\cup B| = |A| + |B| - |A\cap B| \]
+%		en calculant le membre de gauche et le membre de droite puis en comparant les valeurs obtenues.
+%	\end{enumerate}
+%
+%}{exe:4}{
+%	\begin{enumerate}
+%		\item Le complémentaire de $A$ dans $\Omega$ correspond à l'ensemble $\overline{A}$ qui contient tous les éléments de $\Omega$ sauf ceux appartenant à $A$. On note aussi $\Omega \setminus A$ ou $\Omega - A$.
+%			\[ \overline{A} = \{ -2 ; 4; 7; 13 \}. \]
+%		\item Le cardinal d'un ensemble est égal au nombre d'éléments distincts lui appartenant.
+%			À gauche on calcule donc
+%				\[ |A \cup B| = | \{ -3 ; 1; 5 ;4 ; 7 \} | = 5. \]
+%			À droite on trouve
+%				\[ |A| + |B| - |A\cap B| = 3 + 4 - | \{ 1 ; 5 \} | = 3 + 4 - 2 =  5. \]
+%	\end{enumerate}
+%
+%}
+
+%\exe{2, difficulty=1}{
+%	\begin{enumerate}
+%		\item
+%		Soit $\Omega = \{1 ; 2 ; 3 \}$.
+%		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
+%		\item
+%		Soit $\Omega = \{1 ; 2 ; 3 ; \dots ; n-1 ; n \}$ dépendant d'un entier naturel $n\in\N$ non nul.
+%		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
+%	\end{enumerate}´
+%}{exe:subset}{
+%	todo
+%}
 
 
 %%%%%%%%%%%
