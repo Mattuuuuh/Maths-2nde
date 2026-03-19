@@ -97,7 +97,7 @@ Consignes particulières :
 		\item 
 			\begin{align*}
 				P(6) &=\left( \frac37 \times \frac16 \right) \\
-					&= \frac1{14}.
+					&= \frac1{14}
 			\end{align*}
 		
 %		\item
@@ -117,9 +117,9 @@ Consignes particulières :
 		\item
 			\begin{align*}
 				P(\text{« multiple de $3$ ou de $2$ »}) &= P(2) + P(3) + P(4) + P(6) \\
-					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \frac37 \times \frac16 \right) \\
+					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \dfrac1{14} \right) \\
 					&= \frac4{21} + \frac1{14} + \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
-					&= \frac23.
+					&= \frac23
 			\end{align*}
 %		\item
 %		On vérifie l'inclusion-exclusion en comparant $P(\text{« multiple de $3$ ou de $2$ »})$ et $P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6)$.
@@ -134,7 +134,7 @@ Consignes particulières :
 	\end{enumerate}
 }
 
-\exe{4, difficulty=1}{
+\exe{4}{
 	L'univers associé à une expérience aléatoire est $\{ A, B, C\}$.
 	La loi de probabilité $P$ est donnée par le tableau ci-dessous et dépend d'un réel $t\in\R$ encore inconnu.
 	\begin{multicols}{2}
@@ -156,10 +156,10 @@ Consignes particulières :
 }{exe:carre}{
 	On développe le carré à l'aide de l'identité remarquable
 		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
-	où, ici, on a $a=t$ et $b=\frac12.$
+	où, ici, on a $a=t$ et $b=\frac35.$
 		\begin{align*}
-			\left(t-\dfrac12\right)^2 &= t^2 + \left(\dfrac12\right)^2 - 2 \cdot t \cdot \dfrac12 \\
-									&= t^2 + \dfrac14 - t
+			\left(t-\dfrac35\right)^2 &= t^2 + \left(\dfrac35\right)^2 - 2 \cdot t \cdot \dfrac25 \\
+									&= t^2 + \dfrac9{25} - \dfrac65 t
 		\end{align*}
 	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
 	Un loi vérifie les deux propriétés suivantes :
@@ -169,39 +169,38 @@ Consignes particulières :
 		\end{itemize}
 	La deuxième identité donne donc
 		\begin{align*}
-			P(a) + P(b) + P(c) = 1 && \iff && t^2 - t + \dfrac14 = 1.
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - \frac65t + \dfrac9{25} = 1.
 		\end{align*}
 	Le carré développé nous permet d'écrire
-		\[ \left(t-\dfrac12\right)^2 = 1, \]
+		\[ \left(t-\dfrac35\right)^2 = 1, \]
 	et donc
-		\[ \left|t-\dfrac12\right| = \sqrt{1} = 1, \]
+		\[ \left|t-\dfrac35\right| = \sqrt{1} = 1, \]
 	en utilisant le fait que $\sqrt{x^2} = |x|.$
 	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
 		\begin{align*}
-			t-\dfrac12 = 1 && \text{ ou } && t - \dfrac12 = -1 \\
-			t = \dfrac32 && \text{ ou } && t = -\dfrac12.
+			t-\dfrac35 = 1 && \text{ ou } && t - \dfrac35 = -1 \\
+			t = \dfrac85 && \text{ ou } && t = -\dfrac25.
 		\end{align*}
-	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
 	
-	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
-	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(A) = t^2$ serait strictement supérieur à $1$, et $P(B) = -t$, serait strictement négatif.
+	Il ne reste donc que $t = -\frac25$, qui donne le tableau de probabilités suivant.
 	\begin{center}
 	\begin{tabular}{|c|c|c|c|} \hline
-		Issue & $a$ & $b$ & $c$ \\ \hline
-		Probabilité & $\frac14$ & $\frac12$ & $\frac14$ \\ \hline
+		Issue & $A$ & $B$ & $C$ \\ \hline
+		Probabilité & $\frac9{25}$ & $\frac4{25}$ & $\frac{12}{25}$ \\ \hline
 	\end{tabular}
 	\end{center}
 }
 
 
 
-\exe{6}{
+\exe{6, difficulty=1}{
 	On lance un grand nombre de fois un D6, dé à 6 faces.
 	Les résultats sont décrits dans le tableau suivant.
 	\begin{center}
 	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
 		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
-		Nombre de tirages & 19699 & 27549 & 9097 & 22999 & 27989 & 6970  \\ \hline
+		Nombre de tirages & 19 699 & 27 549 & 9 097 & 22 999 & 27 989 & 6 970  \\ \hline
 		Fréquence & & & & & & \\ \hline
 	\end{tabular}
 	\end{center}
@@ -214,7 +213,7 @@ Consignes particulières :
 		\item
 		Modéliser la réalité en définissant une loi de probabilité $P$ associée à l'expérience aléatoire du lancer de dé.
 	\end{enumerate}
-	À l'aide de la loi $P$ définie, répondre aux questions suivantes.
+	À l'aide de la loi $P$ définie, répondre aux questions suivantes en arrondissant à $10^{-3}$.
 	\begin{enumerate}[resume]
 		%\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
 		\item Considérons l'événement $A$ : « obtenir au moins un $3$ après dix lancers consécutifs ».
@@ -225,10 +224,63 @@ Consignes particulières :
 		\item Quelle est la probabilité d'obtenir exactement trois $1$ en quatre lancers consécutifs ?
 	\end{enumerate}
 }{exe:3}{
-	todo
+	\begin{enumerate}
+		\item
+		$\Omega = \bigset{1;2;3;4;5;6}$.
+		\item
+		Le nombre de tirages est égal à
+			\[ 19~699 + 27~549 + 9~097 + 22~999 + 27~989 + 6~970 = 114~303. \]
+		La fréquence d'une issue est égale au nombre de tirages favorables divisés par le nombre de tirages au total.
+		Par exemple, la fréquence de 1 est donnée par
+			\[ \frac{19~699}{114~303} \approx 0,17. \]
+		Le reste des fréquences est donné dans le tableau ci-après.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			Nombre de tirages & 19699 & 27549 & 9097 & 22999 & 27989 & 6970  \\ \hline
+			Fréquence & 0,17 & 0,24 & 0,08 & 0,2 & 0,24 &  0,06 \\ \hline
+		\end{tabular}
+		\end{center}
+		\item
+		Remarquons que la somme des fréquences n'est pas 1 ! Ceci est dû aux approximations à $10^{-2}$, inférieures aux valeurs réelles.
+		J'ai personnellement choisi d'augmenter la probabilité d'obtenir 5 à $0,25$ pour poser ma loi de probabilité (car j'aime bien 5).
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			Probabilité & 0,17 & 0,24 & 0,08 & 0,2 & 0,25 &  0,06 \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\end{enumerate}
+	\begin{enumerate}[resume]
+		%\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item 
+			\begin{enumerate}
+				\item 
+				$\overline{A}$ : « ne jamais obtenir un 3 après dix lancers ».
+				\item 
+				Considérons un arbre binaire avec, à chaque épreuve, deux choix : « obtenir 3 » ou « ne pas obtenir 3 ».
+				La probabilité d'obtenir 3 est 0,08 et la probabilité de ne pas obtenir 3 est donc $1-0,08 = 0,92$.
+				
+				Après dix épreuves, l'événement $\overline{A}$ correspond à une unique issue : de la racine, il faut choisir « ne pas obtenir 3 » dix fois.
+				En multipliant les probabilités rencontrées sur le chemin racine-feuille correspondant, on obtient que $P\bigl(\overline{A}\bigr) = 0,92^{10}$.
+				
+				Par conséquent, 
+					\[ P(A) = 1 - P\bigl(\overline{A}\bigr) = 1 - 0,92^{10} \approx 0,565. \]
+			\end{enumerate}
+		\item 
+		Considérons l'événement $E$ : « obtenir 1 ». Sa probabilité est $P(E) = 0,17$.
+		
+		En créant un arbre binaire de quatre épreuves avec choix $E$ ou $\overline{E}$, on voit qu'il existe quatre chemins possibles pour l'événement « obtenir exactement trois 1 en quatre lancers » : $\overline{E}EEE ; E\overline{E}EE ; EE\overline{E}E ; EEE\overline{E}$.
+		
+		Chacune de ces issues a probabilité $(0,17)^3 \times (1-0,17)$.
+		
+		Il suit donc que la probabilité recherchée est égale à
+			\[ 4 \times (0,17)^3 \times (1-0,17) = 0,016. \]
+	\end{enumerate}
 }
 
-\exe{5, difficulty=1}{
+\exe{5, difficulty=2}{
 	Combien d'entiers entre 1 et 1 000 sont multiples de 3 {ou} de 5 ?
 }{exe:incl-excl}{
 	Posons $\Omega = \bigset{ 1 ; 2 ; 3 ; \dots ; 1000 }$ l'ensemble des entiers entre 1 et 1 000.
@@ -243,12 +295,15 @@ Consignes particulières :
 	Il nous faut calculer le cardinal de $|A \cup B|$.
 	D'après le principe d'inclusion-exclusion, 
 		\[ |A \cup B| = |A| + |B| - |A \cap B|, \]
-	car en comptant les éléments appartenant à $A$ et les éléments appartenant à $B$ en faisant $|A| + |B|$, on compte les éléments appartenant à la fois à $A$ et à $B$ deux fois.
+	car en comptant les éléments appartenant à $A$ et les éléments appartenant à $B$ en calculant $|A| + |B|$, on compte les éléments appartenant à la fois à $A$ et à $B$ deux fois.
 	
 	L'ensemble $A\cap B$ est l'ensemble des entiers entre 1 et 1 000 qui sont multiples à la fois de 3 et de 5.
-	Ces entiers admettent donc un 3 et un 5 dans leur décomposition en facteurs premiers, il s'écrivent donc $3\times5\times\cdots = 15\times\cdots$.
-	Ce sont donc des multiples de 15.
+		\[ A\cap B = \bigset{ n \in \Omega \tq \text{3 divise $n$ \textbf{et} 5 divise $n$} }. \]
+	Ces entiers $n$ admettent donc un 3 et un 5 dans leur décomposition en facteurs premiers, il s'écrivent donc $n = 3\times5\times k = 15\times k$ avec $k\in\N$ entier naturel :
+	ce sont donc des multiples de 15.
 	Réciproquement, un multiple de 15 est nécessairement multiple à la fois de 3 et de 5 car $15k = 3(5k) = 5(3k)$.
+	Par conséquent,
+		\[ A\cap B = \bigset{ n \in \Omega \tq \text{15 divise $n$} }. \]
 	
 	Calculons désormais $|A|, |B|,$ et $|A\cap B|$ pour conclure.
 	\begin{enumerate}

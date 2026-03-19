@@ -1,4 +1,5 @@
 # nombre de multiples de 3 ou de 5
+# initialisé à 0
 N = 0
 
 # boucle n = 1, 2, 3, ..., 1000
