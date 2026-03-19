@@ -1,7 +1,7 @@
 \input{../preamble.tex}
 \usepackage{minted}
 
-\SetDate[18/03/2026]
+\SetDate[19/03/2026]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -230,7 +230,7 @@ Consignes particulières :
 		\item
 		Le nombre de tirages est égal à
 			\[ 19~699 + 27~549 + 9~097 + 22~999 + 27~989 + 6~970 = 114~303. \]
-		La fréquence d'une issue est égale au nombre de tirages favorables divisés par le nombre de tirages au total.
+		La fréquence d'une issue est égale au nombre de tirages favorables divisé par le nombre de tirages au total.
 		Par exemple, la fréquence de 1 est donnée par
 			\[ \frac{19~699}{114~303} \approx 0,17. \]
 		Le reste des fréquences est donné dans le tableau ci-après.
@@ -276,7 +276,7 @@ Consignes particulières :
 		Chacune de ces issues a probabilité $(0,17)^3 \times (1-0,17)$.
 		
 		Il suit donc que la probabilité recherchée est égale à
-			\[ 4 \times (0,17)^3 \times (1-0,17) = 0,016. \]
+			\[ 4 \times (0,17)^3 \times (1-0,17) \approx 0,016. \]
 	\end{enumerate}
 }
 
@@ -300,7 +300,7 @@ Consignes particulières :
 	L'ensemble $A\cap B$ est l'ensemble des entiers entre 1 et 1 000 qui sont multiples à la fois de 3 et de 5.
 		\[ A\cap B = \bigset{ n \in \Omega \tq \text{3 divise $n$ \textbf{et} 5 divise $n$} }. \]
 	Ces entiers $n$ admettent donc un 3 et un 5 dans leur décomposition en facteurs premiers, il s'écrivent donc $n = 3\times5\times k = 15\times k$ avec $k\in\N$ entier naturel :
-	ce sont donc des multiples de 15.
+	ce sont des multiples de 15.
 	Réciproquement, un multiple de 15 est nécessairement multiple à la fois de 3 et de 5 car $15k = 3(5k) = 5(3k)$.
 	Par conséquent,
 		\[ A\cap B = \bigset{ n \in \Omega \tq \text{15 divise $n$} }. \]
