@@ -12,14 +12,13 @@
 
 \begin{multicols}{2}
 \begin{thm}
-	Considérons le triangle $ABC$ rectangle en $B$ ci-contre.
+	Considérons le triangle $ABC$ \mbox{rectangle} en $B$ ci-contre.
 	Alors
 		\begin{align*}
 			\sin(\alpha) &= \phantom{côté opposé/hypothénuse} \\[10pt] \cos(\alpha) &= \\[10pt] \tan(\alpha) &=
 		\end{align*}
-	Moyen mnémotechnique : \phantom{SOH CAH TOA}
 \end{thm}
-\vfill\null
+%\vfill\null
 
 \columnbreak
 \centering
@@ -39,75 +38,61 @@
 	\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
 	node[right, xshift=2, yshift=-2] {$\alpha$};
 \end{tikzpicture}
+
+	Moyen mnémotechnique : \phantom{SOH CAH TOA}
 \end{multicols}
 
-		
-
-
-\exemulticols{}{
-	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles ci-contre.
-	
-	
-%	Données : 
-%	\begin{align*}
-%		\sin(30^\circ) &= \cos(60^\circ) = \frac12, \\
-%		\cos(30^\circ) &= \sin(60^\circ) = \frac{\sqrt{3}}2, \\
-%		\tan(30^\circ) &= \frac1{\sqrt{3}}, \quad \tan(60^\circ) =\sqrt{3}.
-%	\end{align*}
-}{
-	\null\vspace{-2cm}
-	\begin{tikzpicture}[scale=.8]
-		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$14$};
-		\draw[-, thick, black] (3,0) -- (3,2);
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, left] at  (0,0) {$A$};
-		\node[black, below] at  (3,0) {$B$};
-		\node[black, above] at  (3,2) {$C$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
-		node[right=5pt] {$30$°};
-	\end{tikzpicture}
-	\hfill
-	\begin{tikzpicture}[scale=.8, rotate=90]
-		\draw[-, thick, black] (0,0) -- (3,0);
-		\draw[-, thick, black] (3,0) -- (3,2)  node[midway, above] {$6\sqrt{15}$} ;
-		\draw[-, thick, black] (3,2) -- (0,0);
-		
-		\node[black, right] at  (0,0) {$D$};
-		\node[black, right] at  (3,0) {$E$};
-		\node[black, left] at  (3,2) {$F$};
-		% angle droit
-		\draw[-, thick, black] (3,.3)-- (2.7,.3);
-		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
-		
-		% angle
-		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
-		node[above=8pt] {$60$°};
-	\end{tikzpicture}
-} {exe:aut1}{}
 
 \exe{}{
-	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide de leurs valeurs exactes.
-}{exe:c2s2-vérif}{
-	TODO
+	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{n}$ avec $q\in\Q$ rationnel et $n\in\N$ le plus petit possible.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $\dfrac{x}3 = \dfrac12.$
+		\item $ \dfrac7x  =\dfrac12$
+		\item $\dfrac6x  =\dfrac{\sqrt{3}}2$
+		\item $\dfrac{x}2 =\dfrac1{\sqrt{3}}$
+		%\item $\dfrac9x  =\dfrac{\sqrt{6}}5$
+		%\item $-\dfrac3x =\sqrt{7}$
+		%\item $-\dfrac7{2x}  =\dfrac{\sqrt{11}}3$
+		%\item $\dfrac3{5x} =-\sqrt{5}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:aut0}{
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\dfrac{x}3 &= \dfrac12 \\
+				x &= 3 \cdot \frac12 \\
+				x &= \frac32
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac7x  &=\dfrac12 \\
+				7 &= x \cdot \frac12 \\
+				x &= 7\cdot2 = 14
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac6x  &= \dfrac{\sqrt{3}}2 \\
+				6 &= x \cdot \dfrac{\sqrt{3}}2 \\
+				x &= 6\cdot\dfrac2{\sqrt{3}} \\
+				x &= \frac{12}3 \sqrt3 = 4\sqrt3
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac{x}2 &= \dfrac1{\sqrt{3}} \\
+				x &= 2 \cdot \dfrac1{\sqrt{3}} \\
+				x &= \frac23 \sqrt3
+			\end{align*}
+	\end{enumerate}
 }
 
-\exe{}{
-	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide de leurs valeurs exactes.
-}{exe:tan-vérif}{
-	TODO
-}
 
 \subsection*{Plan de travail}
 
 \begin{center}
-\def\arraystretch{2}
-\setlength\tabcolsep{8pt}
+\def\arraystretch{1.5}
+\setlength\tabcolsep{7pt}
 \begin{tabular}{|*{13}{c|}}\hline
 	Section & 
 	\multicolumn{3}{c|}{\textbf{I}} &
@@ -122,7 +107,7 @@
 	\marker{$\star$}1 & \marker{$\star$}2 & \marker{$\star$}3 
 	\\\hline
 	Exercices & 
-	\ref{exe:aut2}, \ref{exe:cos36} & \ref{exe:pyth-thalès}, \ref{exe:c2-s2-1}, \ref{exe:opt-area} & \ref{exe:loi-sinus}  &
+	\ref{exe:c2s2-vérif}, \ref{exe:tan-vérif}, \ref{exe:aut2}, \ref{exe:cos36} & \ref{exe:pyth-thalès}, \ref{exe:c2-s2-1}, \ref{exe:opt-area} & \ref{exe:loi-sinus}  &
 	\ref{exe:riviere}, \ref{exe:proj2} & \ref{exe:projpara}, \ref{exe:dist-lift} & \ref{exe:tangente-perp}  &
 	\ref{exe:aire-hauteur}, \ref{exe:aire-to-perp} & \ref{exe:perp-to-aire} & \ref{exe:formule-aire}, \ref{exe:al-kashi} &
 	\ref{exe:conjugue} & \ref{exe:frac-continue-sqrt2} & \ref{exe:temp-egal}, \ref{exe:Qsqrt2}
@@ -132,6 +117,110 @@
 
 \subsection{Trigonométrie}
 
+% to put in exam
+%\exemulticols{}{
+%	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles ci-contre.
+%	
+%	
+%}{
+%	\null\vspace{-2cm}
+%	\begin{tikzpicture}[scale=.8]
+%		\draw[-, thick, black] (0,0) -- (3,0) node[midway, below] {$12$};
+%		\draw[-, thick, black] (3,0) -- (3,2);
+%		\draw[-, thick, black] (3,2) -- (0,0);
+%		
+%		\node[black, left] at  (0,0) {$A$};
+%		\node[black, below] at  (3,0) {$B$};
+%		\node[black, above] at  (3,2) {$C$};
+%		% angle droit
+%		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+%		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+%		
+%		% angle
+%		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+%		node[right=5pt] {$30$°};
+%	\end{tikzpicture}
+%	\hfill
+%	\begin{tikzpicture}[scale=.8, rotate=90]
+%		\draw[-, thick, black] (0,0) -- (3,0);
+%		\draw[-, thick, black] (3,0) -- (3,2)  node[midway, above] {$6\sqrt{15}$} ;
+%		\draw[-, thick, black] (3,2) -- (0,0);
+%		
+%		\node[black, right] at  (0,0) {$D$};
+%		\node[black, right] at  (3,0) {$E$};
+%		\node[black, left] at  (3,2) {$F$};
+%		% angle droit
+%		\draw[-, thick, black] (3,.3)-- (2.7,.3);
+%		\draw[-, thick, black] (2.7,.3)-- (2.7,0);
+%		
+%		% angle
+%		\draw [black,thick,domain=0:35] plot ({.5*cos(\x)}, {.5*sin(\x)})
+%		node[above=8pt] {$60$°};
+%	\end{tikzpicture}
+%} {exe:new1}{
+%	D'après le cours, on a les valeurs exactes suivantes.
+%	\begin{align*}
+%		\sin(30^\circ) &= \cos(60^\circ) = \frac12, \\
+%		\cos(30^\circ) &= \sin(60^\circ) = \frac{\sqrt{3}}2, \\
+%		\tan(30^\circ) &= \frac1{\sqrt{3}}, \quad \tan(60^\circ) =\sqrt{3}.
+%	\end{align*}
+%	
+%	Dans le triangle $ABC$, on connaît le côté adjacent à l'angle.
+%	Pour calculer les autres côtés, ils faut donc utiliser les formules de trigonométrie qui utilisent le côté adjacent.
+%	Premièrement, le cosinus de l'angle donne la valeur suivante pour $AC$.
+%		\begin{align*}
+%			\cos(30^\circ) &= \dfrac{AB}{AC} \\
+%			\frac{\sqrt3}{2} &= \dfrac{12}{AC} \\
+%			AC\cdot\frac{\sqrt3}{2} &= 12 \\
+%			AC &= \frac2{\sqrt3}\cdot12 \\
+%			AC &= \frac{24}{\sqrt3} = \frac{24}3 \sqrt3 = 8\sqrt3
+%		\end{align*}
+%	Deuxièmement, la tangente de l'angle donne la valeur suivante pour $CB$.
+%		\begin{align*}
+%			\tan(30^\circ) &= \dfrac{CB}{AB} \\
+%			\frac{1}{\sqrt3} &= \dfrac{CB}{12} \\
+%			CB &= \frac{1}{\sqrt3} \cdot 12 = \dfrac{12}{3} \sqrt3 = 4\sqrt3
+%		\end{align*}
+%	
+%	Dans le triangle $EFD$, on connaît le côté opposé à l'angle.
+%	Pour calculer les autres côtés, ils faut donc utiliser les formules de trigonométrie qui utilisent le côté opposé.
+%	Premièrement, le sinus de l'angle donne la valeur suivante pour $FD$.
+%		\begin{align*}
+%			\sin(60^\circ) &= \dfrac{FE}{FD} \\
+%			\frac{\sqrt3}{2} &= \dfrac{6\sqrt{15}}{FD} \\
+%			FD\cdot\frac{\sqrt3}{2} &= 6\sqrt{15} \\
+%			FD &= \frac2{\sqrt3}\cdot6\sqrt{15} \\
+%			FD &= 12 \frac{\sqrt{15}}{\sqrt3} = 12 \sqrt{\frac{15}3} = 12 \sqrt5
+%		\end{align*}
+%}
+
+\exe{}{
+	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide de leurs valeurs exactes données dans le cours.
+}{exe:c2s2-vérif}{
+	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2$ et $\sin(30^\circ) = \frac12$.
+	En sommant leur carré, on trouve
+		\begin{align*}
+			\cos^2(30^\circ) + \sin^2(30^\circ) &= \left(\frac{\sqrt3}2\right)^2 + \left(\frac12\right)^2 \\
+			&= \frac34 + \frac14 \\
+			&= 1
+		\end{align*}
+	Un calcul analogue donne $\cos^2(60^\circ) + \sin^2(60^\circ) = 1$ également.
+}
+
+\exe{}{
+	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide de leurs valeurs exactes données dans le cours.
+}{exe:tan-vérif}{
+	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2, \sin(30^\circ) = \frac12,$ et $\tan(30^\circ) = \frac1{\sqrt3}$.
+	
+	Comme diviser équivaut à multiplier par l'inverse, il suit que
+		\begin{align*}
+			\dfrac{\sin(30^\circ)}{\cos(30^\circ)} &= \dfrac{\frac12}{\frac{\sqrt3}2} \\
+			&= \frac12 \cdot \frac2{\sqrt3} \\
+			&= \frac1{\sqrt3} \\
+			&= \tan(30^\circ).
+		\end{align*}
+	Un calcul analogue permet de vérifier l'identité pour $\theta = 60^\circ$.
+}
 
 %\exe{}{
 %	En construisant un triangle équilatéral de côté 1, calculer les valeurs suivantes.
@@ -150,7 +239,7 @@
 
 
 
-\exemulticols{}{
+\exemulticols{, difficulty=0}{
 	Calculer la longueur \textbf{exacte} de chaque côté des deux triangles rectangles ci-contre.
 }{
 	\null\vspace{-30pt}
@@ -188,15 +277,46 @@
 		\draw [black,thick,domain=215:270] plot ({3+.5*cos(\x)}, {2+.5*sin(\x)})
 		node[below=5pt, left=-1pt] {$60$°};
 	\end{tikzpicture}
-} {exe:aut2}{}
+}{exe:aut2}{
+	\underline{Triangle $ABC$}
+	
+	\begin{align*}
+		\sin(30^\circ) &= \frac{AB}{AC} \\
+		\frac12 &= \frac{13}{AC} \\
+		AC \frac12 &= 13 \\
+		AC &= 13\times2=26
+	\end{align*}
+	
+	\begin{align*}
+		\tan(30^\circ) &= \frac{AB}{CB} \\
+		\frac1{\sqrt3} &= \frac{13}{AC} \\
+		AC \frac1{\sqrt3} &= 13 \\
+		AC &= 13\sqrt3
+	\end{align*}
+	
+	\underline{Triangle $DEF$}
+	
+	\begin{align*}
+		\cos(60^\circ) &= \frac{EF}{DF} \\
+		\frac12 &= \frac{2\sqrt6}{DF} \\
+		DF \frac12 &= 2\sqrt6 \\
+		DF &= 4\sqrt6
+	\end{align*}
+	
+	\begin{align*}
+		\tan(60^\circ) &= \frac{DE}{EF} \\
+		\sqrt3 &= \frac{DE}{2\sqrt6} \\
+		DE &= \sqrt3\times2\sqrt6 \\
+		DE &= 2\sqrt{3^2\times2} = 6\sqrt2
+	\end{align*}
+
+}
 
 
 \begin{multicols}{2}
-\exe{, difficulty=1}{
+\begin{Exercise}[difficulty=1, label=exe:pyth-thalès]
 	Dans la figure ci-dessous, calculer $x$ à l'aide du théorème de Pythagore, puis $y$ à l'aide du théorème de Thalès ou de la trigonométrie.
-}{exe:pyth-thalès}{
-	TODO $x = 3\sqrt2 - 1$ et $y=3 - \dfrac{\sqrt2}2$ je crois.
-}
+\end{Exercise}
 	\begin{center}
 	\begin{tikzpicture}[scale=1, rotate=0]
 	\draw[-, thick] 
@@ -232,13 +352,43 @@
 	\end{tikzpicture}
 	\end{center}
 
-\exe{, difficulty=1}{
+\begin{Exercise}[difficulty=1, label=exe:cos36]
 	Dans la figure ci-dessus, calculer $z$ de façon \textbf{exacte} en sachant que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
-}{exe:cos36}{
-	TODO
-}
+\end{Exercise}
 \end{multicols}
 
+\begin{Answer}[ref=exe:pyth-thalès]
+	Le théorème de Pythagore donne
+		\[ (1+x)^2 = 3^2 + 3^2 = 2\times3^2. \]
+	Il suit que $|1+x| = \sqrt{2\times3^2} = 3\sqrt2$, et donc
+		\begin{align*}
+			1+x &= 3\sqrt2 && \ou && 1+x &= -3\sqrt2 \\
+			x &= 3\sqrt2-1 && \ou && x &= -3\sqrt2-1
+		\end{align*}
+	Seule la solution positive $x=3\sqrt2-1$ est à conserver.
+	
+	D'après le théorème de Thalès, ou en considérant le sinus de l'angle commun aux deux triangles, on obtient
+		\begin{align*}
+			\dfrac3{1+x} &= \dfrac{y}{x} \\
+			\dfrac3{3\sqrt2} &= \dfrac{y}{3\sqrt2-1} \\
+			y &= \dfrac1{\sqrt2}\cdot(3\sqrt2-1) \\
+			y &= \dfrac{3\sqrt2-1}{\sqrt2} \\
+			y &= \dfrac{6-\sqrt2}{2} = 3 - \frac12 \sqrt2
+		\end{align*}
+\end{Answer}
+
+\begin{Answer}[ref=exe:cos36]
+	\begin{align*}
+		\cos(36^\circ) &= \dfrac{3}z \\
+		\dfrac{1+\sqrt5}4 &= \dfrac3z \\
+		z \cdot \dfrac{1+\sqrt5}4 &= 3 \\
+		z &= 3 \cdot \dfrac4{1+\sqrt5} \\
+		z &= \dfrac{12}{1+\sqrt5}  \\
+		z &= \dfrac{12(\sqrt5-1)}{(1+\sqrt5)(\sqrt5 - 1)} \\
+		z &=\dfrac{12(\sqrt5-1)}{4} = 3\sqrt5 - 3
+	\end{align*}
+
+\end{Answer}
 
 
 
@@ -259,7 +409,25 @@
 			\sin(15\degree) = \dfrac{\sqrt{6}-\sqrt{2}}4 && \text{ et } && \cos(36\degree) = \dfrac{1+\sqrt{5}}4,
 		\end{align*}
 	vérifier que $\cos(15\degree) = \frac{\sqrt{6}+\sqrt{2}}4$ et donner la valeur \textbf{exacte} de $\sin(36\degree)$.
-}{exe:c2-s2-1}{}
+}{exe:c2-s2-1}{
+	Premièrement, vérifions l'égalité $\sin^2(15^\circ) + \cos^2(15^\circ) = 1$ avec les valeurs fournies.
+	\begin{align*}
+		\left(\frac{\sqrt{6}+\sqrt{2}}4\right)^2 + \left(\dfrac{\sqrt{6}-\sqrt{2}}4\right)^2 
+		&= \frac{6+2+2\sqrt{12}}{16} + \frac{6+2-2\sqrt{12}}{16} \\
+		&= \frac{8+8}{16} = 1
+	\end{align*}
+	Or, pour un $y$ donnée, il y a deux solutions $x$ à l'équation $x^2 + y^2 = 1$ : une positive, et l'autre négative.
+	Comme $\frac{\sqrt{6}+\sqrt{2}}4 > 0$, on a trouvé la solution positive, bien égale à $\cos(15^\circ)$ car celui-ci est positif d'après le cours.
+	
+	Deuxièmement, $\sin(36^\circ)$ est la solution $x\in\R$ positive de
+		\begin{align*}
+			x^2 + \cos^2(36^\circ) &= 1 \\
+			x^2 &= 1 - \left(\dfrac{1+\sqrt{5}}4\right)^2 \\
+			x^2 &= 1 - \dfrac{1+5+2\sqrt5}{16} \\
+			x^2 &= \dfrac{10 - 2 \sqrt5}{16} = \dfrac{5-\sqrt5}8
+		\end{align*}
+	Par conséquent, $\sin(36^\circ) = \sqrt{\frac{5-\sqrt5}8}$.
+}
 
 %\exe{
 %	Sur un terrain, un footballer se trouve à $16,50$ mètres de la ligne de but et à $25$ mètres du poteau de but le plus proche. La largeur des cages est de $7,32$ mètres.
@@ -302,7 +470,31 @@
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-} {exe:opt-area}{}
+} {exe:opt-area}{
+	\begin{enumerate}
+		\item
+		Par trigonométrie, $x = 2\cos(\theta)$ et $y = 2\sin(\theta)$.
+		Le triangle étant rectangle, son aire est la moitié de l'aire du rectangle de côtés $x$ et $y$, égale à
+			\[ \dfrac12 xy = \frac12 2\cos(\theta)2\sin(\theta) = f(\theta), \]
+		comme requis.
+		
+		\item
+		\begin{center}
+		\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = 0, xmax=90, ymin=0, ymax=1, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both]
+		
+			\addplot[BLUE_E, very thick, domain =0:90, samples=100] {2*cos(x)*sin(x)}  node[pos=.8, above right] {$\mathcal{C}_f$};
+			
+			\addplot[dashed, RED_E, thick] (45,0) -- (axis cs:45,1) node[pos=0, below=10pt, RED_E]{$x^\star \approx 45^\circ$};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		On lit $x^\star \approx 45^\circ$ (c'est en fait une égalité) et $f(x^\star) = 1$.
+		Le point $P$ correspondant a pour coordonnées 
+			\[ P\bigl(2\cos(45^\circ) ; 2\sin(45^\circ)\bigr) = \bigl(\sqrt2 ; \sqrt2\bigr). \]
+	\end{enumerate}
+
+}
 
 
 \exe{, difficulty=2}{
@@ -312,7 +504,9 @@
 	En déduire la \emphindex{loi des sinus} :
 		\[ \dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta} = \dfrac{c}{\sin\gamma}. \]
 }{exe:loi-sinus}{
-	TODO
+	La trigonométrie simple donne les égalités $h = a\sin\beta = b\sin\alpha$, desquelles on déduit que 
+		\[ \dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta}. \]
+	En considérant une autre hauteur partageant un autre angle, on obtient la dernière égalité de la loi des sinus.
 }
 
 
@@ -347,7 +541,9 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:riviere}{
-	TODO
+	Il existe plusieurs chemins (une infinité), leur point commun étant que la partie dans l'eau est orthogonale aux rives.
+	En effet et d'après le cours, lorsque l'homme quitte la rive de départ, le point le plus proche sur l'autre rive est son projeté orthogonal.
+	La vitesse constante permet de lier la distance et le temps de façon proportionnelle.
 }
 
 
@@ -357,18 +553,18 @@
 		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
 		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
 	
-		\node[black] at (1, 3/8) {$\bullet$};
-		\node[black, above] at (1, 3/8) {$A$};
+		\node[black] at (1.5, 4.5/8) {$\bullet$};
+		\node[black, below] at (1.5, 4.5/8) {$A$};
 		
 		\node[black] at (1.5, 24/9) {$\bullet$};
 		\node[black, above] at  (1.5, 24/9) {$B$};
 	\end{tikzpicture}
 	\end{center}
-	
-\exe{}{
+\begin{Exercise}[label=exe:proj2]
 	Dans la figure ci-dessous, tracer un point $C$ tel que $A$ soit le projeté orthogonal de $C$ sur $(d)$ et que $B$ soit le projeté orthogonal de $C$ sur $(d')$.
-} {exe:proj2}{}
+\end{Exercise}
 \end{multicols}
+
 
 %\exe{}{
 %	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
@@ -394,7 +590,52 @@
 		\node[black, above] at  (7, 7/8)  {$A$};
 	\end{tikzpicture}
 	\end{center}
-} {exe:projpara}{}
+} {exe:projpara}{
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 1) node[below]{$(d)$};
+		\draw[-, thick, black] (0,1) -- (8, -2) node[below]{$(d')$};
+	
+		\node[black] at (7, 7/8) {$\bullet$};
+		\node[black, above] at  (7, 7/8)  {$A$};
+	
+		\node[black] at (6.25, -1.35) {$\bullet$};
+		\node[black, below] at  (6.25, -1.35)  {$B$};
+		
+		\node[black] at (6,6/8) {$\bullet$};
+		\node[black, above] at  (6,6/8)  {$C$};
+		
+		\node[black] at (5.35, -1) {$\bullet$};
+		\node[black, below] at  (5.35, -1)  {$D$};
+		
+		\draw[black, dashed] (7, 7/8) -- (6.25, -1.35) -- (6,6/8) -- (5.35, -1);
+	\end{tikzpicture}
+	\end{center}
+	
+	Par construction, les droites $(AB)$ et $(CD)$ sont toutes les deux perpendiculaires à la droite $(d')$.
+	Elles sont donc parallèles.
+}
+
+
+\begin{Answer}[ref=exe:proj2]
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
+		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
+	
+		\node[black] at (1.5, 4.5/8) {$\bullet$};
+		\node[black, below] at (1.5, 4.5/8) {$A$};
+		
+		\node[black] at (1.5, 24/9) {$\bullet$};
+		\node[black, above] at  (1.5, 24/9) {$B$};
+		
+		\node[black] at (1.2, 1.27) {$\bullet$};
+		\node[black, left] at  (1.2, 1.27) {$C$};
+		\draw[black, dashed] (1.5, 4.5/8) -- (1.2, 1.27) -- (1.5, 24/9);
+	\end{tikzpicture}
+	\end{center}
+\end{Answer}
 
 %\exemulticols{}{
 %	Un homme est dans une salle pentagonale comme schématisé ci-dessous.
@@ -430,7 +671,9 @@
 	
 	Calculer la longueur $AB$ sachant que $AA' =1, BB' = 5$, et $A'B' = 4$. 
 	Distinguer deux cas selon que les points sont ou non du même côté de $(d)$.
-} {exe:dist-lift}{}
+} {exe:dist-lift}{
+	TODO
+}
 
 \exemulticols{, difficulty=2}{
 	Considérons un cercle quelconque de centre $O$ et un point $P$ sur le cercle.
@@ -440,6 +683,7 @@
 	\vfill\null
 }{
 	\begin{center}
+	%\null\vspace{-50pt}
 	\begin{tikzpicture}
 	\def\r{1.5} % radius
 	\def\q{4} % distance center-external point q = |OQ|
@@ -461,7 +705,10 @@
 	\end{center}
 
 }{exe:tangente-perp}{
-	todo
+	Fixons les objets $O, P, (OP), (d)$ de la figure et faisons varier le rayon du cercle.
+	En partant d'un rayon nul (ou très petit) et en l'augmentant, on remarque que $P$ est le premier moment où le cercle et la droite $(d)$ se croisent. 
+	En d'autres termes, le point $P$ est le point de $(d)$ le plus proche $O$ car un point plus proche appartiendrait à un cercle de rayon inférieur.
+	D'après le cours, $P$ est le projeté orthogonal de $O$ sur $(d)$, et les droites $(d)$ et $(OP)$ sont perpendiculaires.
 }
 
 %\newpage
@@ -611,6 +858,8 @@
 
 \footnotetext{Ghiyath ad-Din Jamshid Mas`ud al-Kashi (1380? - 1429), mathématicien et astronome perse.}
 
+%\vspace{-20pt}
+
 \subsection{Irrationalité}
 
 
@@ -621,14 +870,21 @@
 		\item $\dfrac1{\sqrt5}$
 		\item $\dfrac5{2\sqrt7}$
 		\item $\dfrac1{1+\sqrt2}$
-		\item $\dfrac1{\sqrt2+3}$
-		\item $\dfrac2{6-\sqrt3}$
-		\item $\dfrac6{1+5\sqrt5}$
+		\item $\dfrac{2+\sqrt2}{\sqrt2+3}$
+		\item $\dfrac{2\sqrt3}{6-\sqrt3}$
+		\item $\dfrac{\sqrt2+6}{1+5\sqrt5}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:conjugue}{
 	todo
 }
+
+% can't think of a way of making this interesting.
+%\exe{, difficulty=1}{
+%	Montrer sans calcul qu'un triangle de côtés $2 ; 3,5 ; 4,03$ ne peut pas être rectangle.
+%}{exe:non-rec}{
+%	todo
+%}
 
 \exe{, difficulty=1}{
 	Montrer que $\sqrt2 = 1 + \frac1{1+\sqrt2}$.
@@ -696,7 +952,7 @@
 	Indication pour la question 2 : il est possible de montrer en premier lieu que $x = 0 \iff r=s=0$.
 	On dit alors que $1$ et $\sqrt5$ sont \emph{linéairement indépendants} sur $\Q$.
 	
-	Indication pour la question 5 : appliquer $f$ à la quantité $\left({1+\sqrt5}\right)^{256} - \left({1-\sqrt5}\right)^{256}$ et conclure qu'elle est égale à $s\sqrt5$ pour un $s\in\Q$ rationnel.
+	Indication pour la question 5 : montrer que $f(x^n) = f(x)^n$ et que $f\left(\frac1x\right) = \frac1{f(x)}$ à l'aide de la question 3.
 	
 	\underline{Discussion}
 	
@@ -707,7 +963,7 @@
 	
 	La {théorie de Galois}\footnotemark généralise ces exemples et permet notamment de répondre par la négative aux trois grands problèmes de l'Antiquité : la duplication du cube, la trisection de l'angle, et la quadrature du cercle.
 	\footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
-	Essentiellement, chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
+	La démonstration fonctionne comme suit : chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
 	La racine carrée de 2 est par exemple constructible grâce au théorème de Pythagore comme distance entre $(1 ; 0)$ et $(0;1)$.
 	En montrant que certains nombres ne peuvent pas appartenir à de telles extensions, on démontre immédiatement qu'ils sont non constructibles.
 }
