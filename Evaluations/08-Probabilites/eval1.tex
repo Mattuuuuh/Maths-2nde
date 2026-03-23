@@ -158,7 +158,7 @@ Consignes particulières :
 		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
 	où, ici, on a $a=t$ et $b=\frac35.$
 		\begin{align*}
-			\left(t-\dfrac35\right)^2 &= t^2 + \left(\dfrac35\right)^2 - 2 \cdot t \cdot \dfrac25 \\
+			\left(t-\dfrac35\right)^2 &= t^2 + \left(\dfrac35\right)^2 - 2 \cdot t \cdot \dfrac35 \\
 									&= t^2 + \dfrac9{25} - \dfrac65 t
 		\end{align*}
 	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
@@ -176,7 +176,7 @@ Consignes particulières :
 	et donc
 		\[ \left|t-\dfrac35\right| = \sqrt{1} = 1, \]
 	en utilisant le fait que $\sqrt{x^2} = |x|.$
-	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a deux alternatives :
 		\begin{align*}
 			t-\dfrac35 = 1 && \text{ ou } && t - \dfrac35 = -1 \\
 			t = \dfrac85 && \text{ ou } && t = -\dfrac25.
@@ -319,6 +319,7 @@ Consignes particulières :
 		\[ |A\cup B| = 333+200-66 = 467. \]
 	On se convaincra de la justesse de notre réponse en énumérant les 467 multiples, bien sûr !
 	Ou faisons-le en Python plutôt, il est plus rapide que nous.
+	Les lignes précédées d'un \# sont des commentaires et ne sont pas lues par l'ordinateur.
 	\python{incl-excl}
 	\texttt{python3 incl-excl.py \\ > > > 467}
 }
