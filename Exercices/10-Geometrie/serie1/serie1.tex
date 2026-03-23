@@ -58,6 +58,7 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:aut0}{
+	\begin{multicols}{2}
 	\begin{enumerate}
 		\item 
 			\begin{align*}
@@ -85,6 +86,7 @@
 				x &= \frac23 \sqrt3
 			\end{align*}
 	\end{enumerate}
+	\end{multicols}
 }
 
 
@@ -92,7 +94,7 @@
 
 \begin{center}
 \def\arraystretch{1.5}
-\setlength\tabcolsep{7pt}
+\setlength\tabcolsep{6pt}
 \begin{tabular}{|*{13}{c|}}\hline
 	Section & 
 	\multicolumn{3}{c|}{\textbf{I}} &
@@ -110,7 +112,7 @@
 	\ref{exe:c2s2-vérif}, \ref{exe:tan-vérif}, \ref{exe:aut2}, \ref{exe:cos36} & \ref{exe:pyth-thalès}, \ref{exe:c2-s2-1}, \ref{exe:opt-area} & \ref{exe:loi-sinus}  &
 	\ref{exe:riviere}, \ref{exe:proj2} & \ref{exe:projpara}, \ref{exe:dist-lift} & \ref{exe:tangente-perp}  &
 	\ref{exe:aire-hauteur}, \ref{exe:aire-to-perp} & \ref{exe:perp-to-aire} & \ref{exe:formule-aire}, \ref{exe:al-kashi} &
-	\ref{exe:conjugue} & \ref{exe:frac-continue-sqrt2} & \ref{exe:temp-egal}, \ref{exe:Qsqrt2}
+	\ref{exe:conjugue}, \ref{exe:non-rec} & \ref{exe:frac-continue-sqrt2}, \ref{exe:non-iso-rec}, \ref{exe:temp-egal} & \ref{exe:Qsqrt2}
 	\\\hline
 \end{tabular}
 \end{center}
@@ -194,7 +196,15 @@
 %		\end{align*}
 %}
 
-\exe{}{
+
+%	\begin{align*}
+%		\sin(30^\circ) &= \cos(60^\circ) = \frac12, \\
+%		\cos(30^\circ) &= \sin(60^\circ) = \frac{\sqrt{3}}2, \\
+%		\tan(30^\circ) &= \frac1{\sqrt{3}}, \quad \tan(60^\circ) =\sqrt{3}.
+%	\end{align*}
+
+
+\exe{, difficulty=1}{
 	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:c2s2-vérif}{
 	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2$ et $\sin(30^\circ) = \frac12$.
@@ -207,7 +217,7 @@
 	Un calcul analogue donne $\cos^2(60^\circ) + \sin^2(60^\circ) = 1$ également.
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:tan-vérif}{
 	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2, \sin(30^\circ) = \frac12,$ et $\tan(30^\circ) = \frac1{\sqrt3}$.
@@ -239,8 +249,8 @@
 
 
 
-\exemulticols{, difficulty=0}{
-	Calculer la longueur \textbf{exacte} de chaque côté des deux triangles rectangles ci-contre.
+\exemulticols{, difficulty=1}{
+	Calculer la longueur \textbf{exacte} de chaque côté des deux triangles rectangles ci-contreà l'aide des valeurs exactes données dans le cours.
 }{
 	\null\vspace{-30pt}
 	\centering
@@ -280,6 +290,7 @@
 }{exe:aut2}{
 	\underline{Triangle $ABC$}
 	
+	\begin{multicols}{2}
 	\begin{align*}
 		\sin(30^\circ) &= \frac{AB}{AC} \\
 		\frac12 &= \frac{13}{AC} \\
@@ -293,9 +304,11 @@
 		AC \frac1{\sqrt3} &= 13 \\
 		AC &= 13\sqrt3
 	\end{align*}
+	\end{multicols}
 	
 	\underline{Triangle $DEF$}
 	
+	\begin{multicols}{2}
 	\begin{align*}
 		\cos(60^\circ) &= \frac{EF}{DF} \\
 		\frac12 &= \frac{2\sqrt6}{DF} \\
@@ -309,12 +322,13 @@
 		DE &= \sqrt3\times2\sqrt6 \\
 		DE &= 2\sqrt{3^2\times2} = 6\sqrt2
 	\end{align*}
-
+	\end{multicols}
+	
 }
 
 
 \begin{multicols}{2}
-\begin{Exercise}[difficulty=1, label=exe:pyth-thalès]
+\begin{Exercise}[difficulty=2, label=exe:pyth-thalès]
 	Dans la figure ci-dessous, calculer $x$ à l'aide du théorème de Pythagore, puis $y$ à l'aide du théorème de Thalès ou de la trigonométrie.
 \end{Exercise}
 	\begin{center}
@@ -403,7 +417,7 @@
 %	\end{multicols}
 %} {exe:dunno2}{}
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	En étant donné que 
 		\begin{align*}
 			\sin(15\degree) = \dfrac{\sqrt{6}-\sqrt{2}}4 && \text{ et } && \cos(36\degree) = \dfrac{1+\sqrt{5}}4,
@@ -437,7 +451,7 @@
 %{}
 
 
-\exemulticols{, difficulty=1}{
+\exemulticols{, difficulty=2}{
 	On considère un point $P$ sur un quart de cercle de rayon $2$ et de centre $O$, l'origine d'un repère.
 	On pose $\theta \in [0; 90\degree]$ l'angle entre la droite $(OP)$ et l'axe des abscisses.
 	Chaque choix de $\theta$ correspond donc à un point et aussi à un triangle comme représentés ci-contre.
@@ -497,7 +511,7 @@
 }
 
 
-\exe{, difficulty=2}{
+\exe{, difficulty=3}{
 	Soit un triangle aux angles $\alpha, \beta, \gamma$ opposés au côtés de longueur $a, b, c$ respectivement.
 	En considérant d'abord la hauteur $h$ partageant l'angle $\gamma$, montrer que $h = a\sin\beta = b\sin\alpha$.
 	
@@ -513,11 +527,11 @@
 \subsection{Projeté orthogonal}
 
 
-\exemulticols{}{
+\exemulticols{, difficulty=1}{
 	Un homme souhaite traverser une rivière en passant le moins de temps possible dans l'eau.
 	%Celui-ci part du point vert et dois arriver au point rouge.
 	
-	En supposant qu'il avance à vitesse constante dans l'eau, quel est le chemin qu'il doit prendre ?
+	En supposant qu'il avance à vitesse constante dans l'eau, quel chemin doit-il prendre ?
 	\vfill\null
 }{
 	\null\vspace{-50pt}
@@ -560,7 +574,7 @@
 		\node[black, above] at  (1.5, 24/9) {$B$};
 	\end{tikzpicture}
 	\end{center}
-\begin{Exercise}[label=exe:proj2]
+\begin{Exercise}[difficulty=1, label=exe:proj2]
 	Dans la figure ci-dessous, tracer un point $C$ tel que $A$ soit le projeté orthogonal de $C$ sur $(d)$ et que $B$ soit le projeté orthogonal de $C$ sur $(d')$.
 \end{Exercise}
 \end{multicols}
@@ -571,7 +585,7 @@
 %	À l'aide uniquement d'un compas, tracer le projeté orthogonal du point sur la droite.
 %} {exe:projperp-compas}{}
 
-\exemulticols{}{
+\exemulticols{, difficulty=2}{
 	Dans la figure ci-dessous, tracer
 		\begin{enumerate}
 			\item le point $B$, projeté orthogonal de $A$ sur $(d')$ ;
@@ -665,17 +679,19 @@
 %} {exe:pentaperp}{}
 
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	On considère une droite $(d)$ et les points $A$ et $B$ distincts n'appartenant pas à la droite $(d)$.
 	On note $A'$ et $B'$ les projetés orthogonaux respectifs des points $A$ et $B$ sur la droite $(d)$.
 	
 	Calculer la longueur $AB$ sachant que $AA' =1, BB' = 5$, et $A'B' = 4$. 
 	Distinguer deux cas selon que les points sont ou non du même côté de $(d)$.
 } {exe:dist-lift}{
-	TODO
+	Lorsque $A$ et $B$ sont du même côté de $(d)$ on trouve $AB = 4\sqrt2$.
+	
+	Lorsque $A$ et $B$ sont de part et d'autre de $(d)$, on obtient $AB = 2\sqrt{13}$.
 }
 
-\exemulticols{, difficulty=2}{
+\exemulticols{, difficulty=3}{
 	Considérons un cercle quelconque de centre $O$ et un point $P$ sur le cercle.
 	Posons $(d)$ la droite, dite \emph{tangente au cercle}, touchant le cercle uniquement au point $P$.
 	
@@ -712,19 +728,19 @@
 }
 
 %\newpage
-\null\vspace{-30pt}
+\null\vspace{-40pt}
 \subsection{Hauteurs et aires}
 
 
-\exemulticols{}{
+\exemulticols{, difficulty=1}{
 	Soit $ABC$ le  triangle rectangle ci-contre, avec $BH$ une de ses hauteurs.
-	\begin{enumerate}[label=\alph*.]
+	\begin{enumerate}[label=\alph*)]
 		\item Calculer $AB$.
 		\item Calculer l'aire du triangle $ABC$.
 		\item En déduire $BH$.
 	\end{enumerate}
 }{
-	\null\vspace{-50pt}
+	\null\vspace{-40pt}
 	\begin{center}
 	\usetikzlibrary{calc}
 	\begin{tikzpicture}[scale=1]
@@ -749,11 +765,24 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:aire-hauteur}{
-	TODO
+	\begin{enumerate}[label=\alph*)]
+		\item 
+		Comme $AB^2 + BC^2 = AC^2$, on trouve
+			\[ AB^2 = 104^2 - 96^2 = 1600 = 4\times100 = (2\times10)^2 = 20^2, \]
+		d'où $AB = \pm20$ et donc $AB = 20$ par positivité.
+		\item
+		Le triangle étant rectangle, c'est la moitié d'un rectangle et son aire est donnée par
+			\[ \frac12 AB \cdot BC = \frac12\times20\times96 = 960. \]
+		\item En déduire $BH$.
+		$BH$ est la hauteur du triangle $ABC$ de base $AC$.
+		L'aire du triangle est donc donnée par
+			\[ \frac12 AC \cdot BH = 960. \]
+		Par conséquent, $BH = \frac{1920}{AC} = \frac{1920}{104} = \frac{240}{13} \approx 18,46$.
+	\end{enumerate}
 }
 
 
-\exemulticols{}{
+\exemulticols{, difficulty=1}{
 	Considérons le triangle $ABC$ d'aire $\text{Aire}(ABC) = \frac{3}{10}$ et tel que $AB=\frac34$ et $CD =\frac25$.
 	
 	Est-ce que les droites $(AB)$ et $(CD)$ sont perpendiculaires ?
@@ -777,13 +806,31 @@
 	
 	\end{tikzpicture}
 	\end{center}
-} {exe:aire-to-perp}{}
+} {exe:aire-to-perp}{
+	Supposons que $(AB)$ et $(CD)$ soient perpendiculaires.
+	Alors $D$ est le projeté orthogonal de $C$ sur $(AB)$ et $CD$ est la hauteur du triangle $ABC$ de base $AB$.
+	L'aire du triangle $ABC$ est donc égale à
+		\[ \frac12 CD\cdot AB = \frac12 \frac25 \frac34 = \frac3{20}. \]
+	Comme l'aire est égale à $\frac3{10}$ et non $\frac3{20}$, nous arrivons à une contradiction \Lightning.
+	Les droites ne sont pas perpendiculaires.
+}
 
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 	Considérons le triangle $ABC$ comme à l'exercice \ref{exe:aire-to-perp}, cette fois-ci d'aire $\text{Aire}(ABC) = 8$ et tel que $AB=4$ et $AC =5$.
-	Quelle longueur $AD$ doit-on choisir pour que les droites $(AB)$ et $(DC)$ soient perpendiculaires ?
-} {exe:perp-to-aire}{}
+	Quelle longueur $AD$ doit-on choisir pour que les droites $(AB)$ et $(CD)$ soient perpendiculaires ?
+} {exe:perp-to-aire}{
+	Pour que les droites soient perpendiculaires, il faut et il suffit que $D$ soit le projeté orthogonal de $C$ sur $(AB)$.
+	Ceci est équivalent à dire que la hauteur du triangle $ABC$ de base $AB$ est égale à $CD$.
+	À nouveau, ceci est équivalent au calcul de l'aire
+		\[ \frac12AB \cdot CD = 8 \iff CD = \frac{16}{4} = 4. \]
+	En outre, le triangle $ACD$ est rectangle en $D$ si et seulement si $AC^2 = AD^2 + CD^2$.
+	Ceci est donc équivalent à 
+		\[ AD^2 = AC^2 - CD^2 = 5^2 - 4^2 = 9, \]
+	et donc à $AD = \pm3$.
+	Il faut donc choisir $AD = 3$ pour que $(AB)$ et $(CD)$ soient perpendiculaires.
+
+}
 
 
 \begin{multicols}{2}
@@ -811,19 +858,23 @@
 	\end{tikzpicture}
 	\end{center}
 	
-\exe{, difficulty=1}{
+\exe{, difficulty=3}{
 	Soit un triangle $ABC$ quelconque représenté ci-contre. On pose $a=a_1 + a_2 = BC$.
 	
 	Montrer la \emph{formule de l'aire} 
 		\[ \text{Aire}(ABC) = \dfrac12 ab \sin(\gamma). \]
 	\vfill\,
 }{exe:formule-aire}{
+	L'aire $ABC$ est égale à $\frac12 h \cdot a$.
+	Or, $\sin(\gamma) = \frac{h}{b} \iff h = b\sin(\gamma)$.
+	En substituant l'expression de $h$ dans celle de l'aire, on conclut.
 }
 \end{multicols}
 
 
-\exe{, difficulty=2}{
+\exe{, difficulty=3}{
 	On souhaite démontrer le \emphindex{théorème d'Al-Kashi}\footnotemark, ou \emphindex{loi des cosinus}, généralisant le théorème de Pythagore aux triangles non nécessairement rectangles.
+\footnotetext{Ghiyath ad-Din Jamshid Mas`ud al-Kashi (1380? - 1429), mathématicien et astronome perse.}
 	Reconsidérons donc le triangle $ABC$ de l'exercice \ref{exe:formule-aire}.
 	
 	\begin{enumerate}
@@ -858,7 +909,6 @@
 	\end{enumerate}
 }
 
-\footnotetext{Ghiyath ad-Din Jamshid Mas`ud al-Kashi (1380? - 1429), mathématicien et astronome perse.}
 
 %\vspace{-20pt}
 
@@ -874,28 +924,68 @@
 		\item $\dfrac1{1+\sqrt2}$
 		\item $\dfrac{2+\sqrt2}{\sqrt2+3}$
 		\item $\dfrac{2\sqrt3}{6-\sqrt3}$
-		\item $\dfrac{\sqrt2+6}{1+5\sqrt5}$
+		\item $\dfrac{\sqrt7+6}{1+5\sqrt7}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:conjugue}{
-	todo
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\dfrac1{\sqrt5} = \dfrac{\sqrt5}5 = \frac15 \sqrt5
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac5{2\sqrt7} = \dfrac5{14}\sqrt7
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac1{1+\sqrt2} &= \dfrac{\sqrt2-1}{(1+\sqrt2)(\sqrt2-1)} \\
+				&= \dfrac{\sqrt2-1}{2-1} \\
+				&= \sqrt2 -1
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{2+\sqrt2}{\sqrt2+3} &= \dfrac{(2+\sqrt2)(3-\sqrt2)}{(\sqrt2+3)(3-\sqrt2)} \\
+				&= \dfrac{6+2\sqrt2+3\sqrt2 - 2}{9-2} \\
+				&= \frac{4+5\sqrt2}{7} \\
+				&= \frac47 + \frac57\sqrt2
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{2\sqrt3}{6-\sqrt3} &= \dfrac{2\sqrt3 (6+\sqrt3)}{(6-\sqrt3)(6+\sqrt3)} \\
+				&= \dfrac{12\sqrt3 + 6}{36-3} \\
+				&= \dfrac{12\sqrt3 + 6}{33} \\
+				&= \frac4{11}\sqrt3 + \frac2{11}
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{\sqrt7+6}{1+5\sqrt7} &= \dfrac{(\sqrt7+6)(5\sqrt7-1)}{(1+5\sqrt7)(5\sqrt7-1)} \\
+				&= \dfrac{35-\sqrt7 + 30\sqrt7 - 6}{25\times7-1} \\
+				&= \dfrac{29 + 29\sqrt7}{174} \\
+				&= \frac16 + \frac16\sqrt7
+			\end{align*}
+	\end{enumerate}
+	\end{multicols}
 }
 
 \exe{, difficulty=1}{
 	Soit $q\in\Q$ un rationnel. Montrer qu'un triangle dont les côtés sont de longueur $(4 ; 5 ; q)$ ne peut être rectangle que si $q=3$.
 	
-	Si on autorise $x\in\R$ irrationel, donner un triangle rectangle de côtés $(4 ; 5; q)$ avec $q\neq3$.
+	En autorisant $x\in\R$ irrationel, donner un triangle rectangle de côtés $(4 ; 5; x)$ avec $x\neq3$.
 }{exe:non-rec}{
-	todo
+	Il y a deux cas de figure à étudier : $q$ est la longueur de l'hypothénuse, ou elle ne l'est pas.
+	Dans le premier cas, le théorème de Pythagore énonce que
+		\[ 4^2 + 5^2 = q^2 \iff 41 = q^2. \]
+	Il suit que $q=\sqrt{41}$ qui n'est pas rationnel car 41 n'est pas un carré parfait.
+	Ceci répond à la deuxième question : $(4 ; 5; \sqrt{41})$ est rectangle.
+	
+	Dans le second cas,
+		\[ q^2 + 4^2 = 5^2 \iff q^2 = 9. \]
+	Par conséquent, $q = \pm3$ et seule la solution $q=3$ est positive et donc une longueur valide.
 }
 
 \exe{, difficulty=2}{
-	Montrer qu'un triangle isocèle rectangle dans le plan cartésien ne peut pas avoir des sommets à coordonnées toutes entières.
-}{exe:non-iso-rec}{
-	todo
-}
-
-\exe{, difficulty=1}{
 	Montrer que $\sqrt2 = 1 + \frac1{1+\sqrt2}$.
 	En déduire que $\sqrt2 = 1 + \frac1{2 + \frac1{1+\sqrt2}}$ et que
 		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
@@ -917,6 +1007,17 @@
 			&= 1 + \cfrac1{1+ \dfrac{17}{12}} = \dfrac{41}{29}.
 	\end{align*}
 	Le rationnel $\dfrac{41}{29}$ vérifie $\left| \sqrt2 - \dfrac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
+}
+
+\exe{, difficulty=2}{
+	Montrer qu'un triangle isocèle rectangle dans le plan cartésien ne peut pas avoir des sommets à coordonnées toutes entières.
+}{exe:non-iso-rec}{
+	Supposons qu'il existe un triangle isocèle rectangle de côtés $(a ; a; b)$.
+	Si les coordonnées des sommets sont toutes entières, alors $a^2$ et $b^2$ sont deux entiers, d'après la formule de la longueur (qui est en fait le théorème de Pythagore).
+	
+	Or, comme le triangle est rectangle isocèle,
+		\[ b^2 = a^2 + a^2 = 2a^2 \iff b = \pm\sqrt2 a. \]
+	Par conséquent, $\sqrt2 = \pm\frac{b}{a} \in \Q$, ce qui contredit le théroème d'irrationalité de la racine carrée de 2.
 }
 
 \exe{, difficulty=2}{
