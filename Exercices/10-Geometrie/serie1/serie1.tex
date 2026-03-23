@@ -195,7 +195,7 @@
 %}
 
 \exe{}{
-	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide de leurs valeurs exactes données dans le cours.
+	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:c2s2-vérif}{
 	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2$ et $\sin(30^\circ) = \frac12$.
 	En sommant leur carré, on trouve
@@ -208,7 +208,7 @@
 }
 
 \exe{}{
-	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide de leurs valeurs exactes données dans le cours.
+	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:tan-vérif}{
 	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2, \sin(30^\circ) = \frac12,$ et $\tan(30^\circ) = \frac1{\sqrt3}$.
 	
@@ -683,7 +683,7 @@
 	\vfill\null
 }{
 	\begin{center}
-	%\null\vspace{-50pt}
+	\null\vspace{-30pt}
 	\begin{tikzpicture}
 	\def\r{1.5} % radius
 	\def\q{4} % distance center-external point q = |OQ|
@@ -712,7 +712,7 @@
 }
 
 %\newpage
-
+\null\vspace{-30pt}
 \subsection{Hauteurs et aires}
 
 
@@ -724,6 +724,7 @@
 		\item En déduire $BH$.
 	\end{enumerate}
 }{
+	\null\vspace{-50pt}
 	\begin{center}
 	\usetikzlibrary{calc}
 	\begin{tikzpicture}[scale=1]
@@ -759,6 +760,7 @@
 	Raisonner par contradiction.
 	\vfill\,
 }{
+	\null\vspace{-50pt}
 	\begin{center}
 	\begin{tikzpicture}[scale=.6]
 		\draw[-, thick, black] (0,0) node{$\bullet$} -- (4, 3) node{$\bullet$};
@@ -879,18 +881,25 @@
 	todo
 }
 
-% can't think of a way of making this interesting.
-%\exe{, difficulty=1}{
-%	Montrer sans calcul qu'un triangle de côtés $2 ; 3,5 ; 4,03$ ne peut pas être rectangle.
-%}{exe:non-rec}{
-%	todo
-%}
+\exe{, difficulty=1}{
+	Soit $q\in\Q$ un rationnel. Montrer qu'un triangle dont les côtés sont de longueur $(4 ; 5 ; q)$ ne peut être rectangle que si $q=3$.
+	
+	Si on autorise $x\in\R$ irrationel, donner un triangle rectangle de côtés $(4 ; 5; q)$ avec $q\neq3$.
+}{exe:non-rec}{
+	todo
+}
+
+\exe{, difficulty=2}{
+	Montrer qu'un triangle isocèle rectangle dans le plan cartésien ne peut pas avoir des sommets à coordonnées toutes entières.
+}{exe:non-iso-rec}{
+	todo
+}
 
 \exe{, difficulty=1}{
 	Montrer que $\sqrt2 = 1 + \frac1{1+\sqrt2}$.
 	En déduire que $\sqrt2 = 1 + \frac1{2 + \frac1{1+\sqrt2}}$ et que
 		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
-	Exprimer le rationnel $1 + \frac1{2 + \frac1{2 + \frac12}}$ sous la form $\frac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \frac{p}q \right|$ au millième près.
+	Exprimer le rationnel $1 + \frac1{2 + \frac1{2 + \frac12}}$ sous la form $\frac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \frac{p}q \right|$ à l'aide de la calculatrice.
 	Faire idem avec $1 + \frac1{2 + \frac1{2 + \frac1{2 + \frac12}}}$.
 }{exe:frac-continue-sqrt2}{
 	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \dfrac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
