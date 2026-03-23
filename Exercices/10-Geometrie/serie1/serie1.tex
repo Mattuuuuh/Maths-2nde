@@ -783,14 +783,15 @@
 
 
 \exemulticols{, difficulty=1}{
-	Considérons le triangle $ABC$ d'aire $\text{Aire}(ABC) = \frac{3}{10}$ et tel que $AB=\frac34$ et $CD =\frac25$.
+	Considérons le triangle $ABC$, le point $D$ appartenant au segment $[AB]$.
+	Supposons que $\text{Aire}(ABC) = \frac{3}{10}$ et que $AB=\frac34$ et $CD =\frac25$.
 	
 	Est-ce que les droites $(AB)$ et $(CD)$ sont perpendiculaires ?
 	Raisonner par contradiction.
-	\vfill\,
+	\vfill\null
 }{
-	\null\vspace{-50pt}
 	\begin{center}
+	\null\vspace{-25pt}
 	\begin{tikzpicture}[scale=.6]
 		\draw[-, thick, black] (0,0) node{$\bullet$} -- (4, 3) node{$\bullet$};
 		\draw[-, thick, black] (4, 3) node{$\bullet$} -- (1,4) node{$\bullet$};
@@ -810,32 +811,39 @@
 	Supposons que $(AB)$ et $(CD)$ soient perpendiculaires.
 	Alors $D$ est le projeté orthogonal de $C$ sur $(AB)$ et $CD$ est la hauteur du triangle $ABC$ de base $AB$.
 	L'aire du triangle $ABC$ est donc égale à
-		\[ \frac12 CD\cdot AB = \frac12 \frac25 \frac34 = \frac3{20}. \]
+		\[ \frac12 CD\cdot AB = \frac12 \cdot \frac25\cdot\frac34 = \frac3{20}. \]
 	Comme l'aire est égale à $\frac3{10}$ et non $\frac3{20}$, nous arrivons à une contradiction \Lightning.
 	Les droites ne sont pas perpendiculaires.
 }
 
+\vspace{-20pt}
 
 \exe{, difficulty=2}{
 	Considérons le triangle $ABC$ comme à l'exercice \ref{exe:aire-to-perp}, cette fois-ci d'aire $\text{Aire}(ABC) = 8$ et tel que $AB=4$ et $AC =5$.
-	Quelle longueur $AD$ doit-on choisir pour que les droites $(AB)$ et $(CD)$ soient perpendiculaires ?
+	Quelle longueur $AD$ est nécessaire pour que les droites $(AB)$ et $(CD)$ soient perpendiculaires ?
 } {exe:perp-to-aire}{
-	Pour que les droites soient perpendiculaires, il faut et il suffit que $D$ soit le projeté orthogonal de $C$ sur $(AB)$.
-	Ceci est équivalent à dire que la hauteur du triangle $ABC$ de base $AB$ est égale à $CD$.
-	À nouveau, ceci est équivalent au calcul de l'aire
+	Nous allons étudier ce que l'ajout de l'hypothèse d'orthogonalité des droites $(AB)$ et $(CD)$ implique sur $D$.
+		\begin{align*}
+			(AB) \perp (CD) && \implies && AD = ?
+		\end{align*}
+	L'orthogonalité des droites $(AB)$ et $(CD)$ implique que la hauteur du triangle $ABC$ de base $AB$ est égale à $CD$.
+	Or, connaissant l'aire et la base, une seule hauteur est possible.
+	Dès lors, si $(AB)$ et $(CD)$ sont perpendiculaires, alors
 		\[ \frac12AB \cdot CD = 8 \iff CD = \frac{16}{4} = 4. \]
-	En outre, le triangle $ACD$ est rectangle en $D$ si et seulement si $AC^2 = AD^2 + CD^2$.
-	Ceci est donc équivalent à 
+		
+	En outre, si le triangle $ACD$ est rectangle en $D$, alors $AC^2 = AD^2 + CD^2$.
+	Ceci implique que
 		\[ AD^2 = AC^2 - CD^2 = 5^2 - 4^2 = 9, \]
-	et donc à $AD = \pm3$.
-	Il faut donc choisir $AD = 3$ pour que $(AB)$ et $(CD)$ soient perpendiculaires.
-
+	et donc que $AD = 3$, car la longueur $AD$ est positive.
+	
+	Le seul choix possible est donc $AD = 3$ pour que $(AB)$ et $(CD)$ soient perpendiculaires.
 }
 
 
 \begin{multicols}{2}
 
 	\begin{center}
+	\null\vspace{-20pt}
 	\begin{tikzpicture}[scale=.8]
 		\draw[-, thick, black] (0,0) node{$\bullet$} -- (1.5,0) node[midway, below] {$a_1$};
 		\draw[-, thick, black] (1.5,0) -- (4,0) node[midway, below] {$a_2$};
@@ -863,7 +871,7 @@
 	
 	Montrer la \emph{formule de l'aire} 
 		\[ \text{Aire}(ABC) = \dfrac12 ab \sin(\gamma). \]
-	\vfill\,
+	\vfill\vspace{-60pt}\null
 }{exe:formule-aire}{
 	L'aire $ABC$ est égale à $\frac12 h \cdot a$.
 	Or, $\sin(\gamma) = \frac{h}{b} \iff h = b\sin(\gamma)$.
