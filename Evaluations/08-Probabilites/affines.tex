@@ -1,0 +1,112 @@
+\input{../preamble.tex}
+
+\SetDate[19/03/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+%\pagestyle{fancy}
+%\fancyhead[L]{Seconde}
+%\fancyhead[C]{\textbf{Évaluation blanche — Probabilités}}
+%\fancyhead[R]{\today}
+
+\marginpar{[$\infty$]}
+
+
+\exe{, difficulty=1}{
+	Remplir le tableau suivant de sorte que
+		\begin{itemize}
+			\item
+			$P$ soit une loi de probabilité sur l'univers $\bigset{1 ; 2 ; 3 ; 4}$ ; et
+			\item
+			$P$ soit une fonction affine sur $\R$ non constante (sinon c'est trop facile).
+		\end{itemize}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		$x$ & 1 & 2 & 3 & 4 \\ \hline
+		$P(x)$ & & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	Il existe une infinité de résultats possibles.
+}{exe:3}{
+%	Il s'agit de trouver $a$ et $b$ tels que $P(x) = ax+b$ soit une loi de probabilité sur $\bigset{1 ; 2 ; 3 ;4}$.
+%	On a le tableau de valeurs suivant.
+%	\begin{center}
+%	\begin{tabular}{|c|c|c|c|c|} \hline
+%		$x$ & 1 & 2 & 3 & 4 \\ \hline
+%		$P(x)$ & $a+b$ & $2a+b$ & $3a+b$ & $4a+b$ \\ \hline
+%	\end{tabular}
+%	\end{center}
+%	Il faut que chaque probabilité soit entre 0 et 1 et que la somme soit égale à 1.
+%	
+%	La somme égale à 1 implique que
+%		\begin{align*}
+%			(a+b)+(2a+b)+(3a+b)+(4a+b) &= 1 \\
+%			10a + 4b &= 1 \\
+%			b &= \frac14 - \frac52 a
+%		\end{align*}
+%	Remarquons que $b$ est une fonction affine en $a$ !
+%	Il existe donc une infinité de tels paramètres $(a ; b)$, chacun un point appartenant à la droite $y = -\frac52 x + \frac14$.
+%	
+%	Imposons désormais que chaque probabilité appartient à $[0 ; 1]$.
+%	La première probabilité, $a+b$ contraint $a$ comme suit.
+%		\begin{alignat*}{2}
+%			0 &\leq a+b &\leq 1 \\
+%			0 &\leq a + \frac14 - \frac52 a &\leq 1 \\
+%			0 &\leq \frac14 - \frac32 a &\leq 1 \\
+%			-\frac14 &\leq -\frac32 a &\leq \frac34 \\
+%			\frac16 &\geq a &\geq -\frac12 \\
+%		\end{alignat*}
+%	La deuxième probabilité, $4a+b$ contraint $a$ comme suit.
+%		\begin{alignat*}{2}
+%			0 &\leq 4a+b &\leq 1 \\
+%			0 &\leq 4a + \frac14 - \frac52 a &\leq 1 \\
+%			0 &\leq \frac14 + \frac32 a &\leq 1 \\
+%			-\frac14 &\leq \frac32 a &\leq \frac34 \\
+%			-\frac16 &\leq a &\leq \frac12
+%		\end{alignat*}
+%	Comme pour passer d'une probabilité à l'autre, on ajoute $a$, on peut se convaincre sans problème que si $a+b \in [0 ;1]$ et $4a+b \in [0;1]$, alors chaque probabilité appartient aussi à $[0 ; 1]$.
+%	
+%	En conclusion, il faut donc que 
+%		\[ a \in \left[-\frac12 ; \frac16\right] \cap \left[-\frac16 ; \frac12\right] = \left[-\frac16 ; \frac16\right]. \]
+%	Prenons $a = \frac1{25}$ car on aime les fractions, ce qui implique
+%		\[ b = \frac14 - \frac52 a = \frac14 - \frac1{10} = \frac3{20}. \]
+%	Par conséquent, $P(x) = \frac1{25}x + \frac3{20} = \frac{4x + 15}{100}$ de tableau de valeurs
+%	\begin{center}
+%	\begin{tabular}{|c|c|c|c|c|} \hline
+%		$x$ & 1 & 2 & 3 & 4 \\ \hline
+%		$P(x)$ & $\frac{19}{100}$ & $\frac{23}{100}$ & $\frac{27}{100}$ & $\frac{31}{100}$ \\ \hline
+%	\end{tabular}
+%	\end{center}
+%	Ouf !
+%
+%	\underline{Deuxième version}
+	
+	Avec un tableau de valeurs à valeurs toutes positives, il suffit de diviser par la somme des images pour les normaliser : elles deviendront toutes inférieures à 1, et leur somme vaudra 1.
+	C'est d'ailleurs le principe du calcul de fréquences.
+	
+	On peut donc poser $a=1$ et $b=0$ de telle sorte à avoir uniquement des valeurs positives dans notre tableau, puis diviser par la somme $1+2+3+4 = 10$.
+	Ainsi $P(x) = \frac{x}{10}$ fonctionne !
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		$x$ & 1 & 2 & 3 & 4 \\ \hline
+		$P(x)$ & $\frac{1}{10}$ & $\frac{2}{10}$ & $\frac{3}{10}$ & $\frac{4}{10}$ \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	En prenant $a = 1$ et $b=34$, la somme des images vaut $35+36+37+38=146$.
+	Donc $P(x) = \frac{x+34}{146}$ fonctionne.
+	
+	En général,
+		\[ P(x) = \frac{f(x)}{f(1)+f(2)+f(3)+f(4)} \]
+	fonctionne tant que $f(x) \geq 0$ pour tout $x\in\{1;2;3;4\}$ (et que le dénominateur n'est pas nul).
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
