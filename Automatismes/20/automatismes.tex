@@ -1,0 +1,191 @@
+\input{../preamble.tex}
+\SetDate[25/03/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Images}
+
+\framedelayed{
+	Soient 
+		\begin{align*}
+			f(x) = 4-x && \et && g(x) = 5-x
+		\end{align*}
+	deux fonctions sur $\R$.
+	\boxAB{
+		Calculer $f(-10)$.
+	}{
+		Calculer $g(-5)$.
+	}
+}{
+		\begin{align*}
+			f(x) = 4-x && \et && g(x) = 5-x
+		\end{align*}
+	\boxAB{
+		$f(-10) = 4-(-10) = 4+10 = 14.$
+	}{
+		$g(-5) = 5-(-5) = 5+5 = 10.$
+	}
+}
+
+
+\subsection{Courbe représentative}
+
+\framedelayed{
+	Soient 
+		\begin{align*}
+			f(x) = 2x+1 && \et && g(x) = x+2
+		\end{align*}
+	deux fonctions sur $\R$.
+	\boxAB{
+		Donner un point appartenant à $\C_f$.
+	}{
+		Donner un point appartenant à $\C_g$.
+	}
+}{
+		\begin{align*}
+			f(x) = 2x+1 && \et && g(x) = x+2
+		\end{align*}
+	\boxAB{
+		$f(0) = 1$ donc $(0 ; 1)$ appartient à $\C_f$.
+	}{
+		$g(12) = 14$ donc $(12 ; 14)$ appartient à $\C_g$.
+	}
+}
+
+
+\subsection{Équations}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3, xmax=1, ymin=-6, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=2, grid=both, clip=false, x=50pt, y=10pt]
+		
+			\addplot[RED_E, thick, domain =-3:1, samples=2] {1+2*x}  node[right] {$\mathcal{C}_f$};
+			\addplot[RED_E, thick, domain =-3:1, samples=2] {-3-x}  node[right] {$\mathcal{C}_g$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Approximer le nombre $x\in\R$ vérifiant $f(x) = g(x)$.
+	}{
+		Donner le nombre $x\in\R$ vérifiant $1+2x=-3-x$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -3, xmax=1, ymin=-6, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=2, grid=both, clip=false, x=50pt, y=10pt]
+		
+			\addplot[RED_E, thick, domain =-3:1, samples=2] {1+2*x}  node[right] {$\mathcal{C}_f$};
+			\addplot[RED_E, thick, domain =-3:1, samples=2] {-3-x}  node[right] {$\mathcal{C}_g$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-20pt}
+	\boxAB{
+		$x \approx -1,3$
+	}{
+		$1+2x=-3-x \iff 2x+x = -3 - 1$ \\ $3x = -4 \iff x = -\frac43$
+	}
+}
+
+
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=3, ymin=-6, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=2, grid=both, clip=false, x=50pt, y=10pt]
+		
+			\addplot[GREEN_E, thick, domain =-1:3, samples=2] {1-2*x}  node[right] {$\mathcal{C}_f$};
+			\addplot[GREEN_E, thick, domain =-1:3, samples=2] {-3+x}  node[right] {$\mathcal{C}_g$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Donner le nombre $x\in\R$ vérifiant $1-2x=-3+x$.
+	}{
+		Approximer le nombre $x\in\R$ vérifiant $f(x) = g(x)$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=3, ymin=-6, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick distance=1, ytick distance=2, grid=both, clip=false, x=50pt, y=10pt]
+		
+			\addplot[GREEN_E, thick, domain =-1:3, samples=2] {1-2*x}  node[right] {$\mathcal{C}_f$};
+			\addplot[GREEN_E, thick, domain =-1:3, samples=2] {-3+x}  node[right] {$\mathcal{C}_g$};
+		
+			
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-20pt}
+	\boxAB{
+		$1-2x=-3+x \iff 1+3 = x+2x$ \\ $4 = 3x \iff x = \frac43$
+	}{
+		$x \approx 1,3$
+	}
+}
+
+
+%\subsection{Ordonnée à l'origine}
+%
+%\framedelayed{
+%	\boxAB{
+%		Donner le signe (positif, négatif ou nul) de l'ordonnée à l'origine de $f$.
+%	}{
+%		Donner le signe (positif, négatif ou nul) de l'ordonnée à l'origine de $g$.
+%	}
+%}{
+%		\begin{align*}
+%			f(x) = 4-x && \et && g(x) = 5-x
+%		\end{align*}
+%	\boxAB{
+%		$f(-10) = 4-(-10) = 4+10 = 14.$
+%	}{
+%		$g(-5) = 5-(-5) = 5+5 = 10.$
+%	}
+%}
+%
+%
+%\framedelayed{
+%	\boxAB{
+%		Donner le signe (positif, négatif ou nul) du coefficient directeur de $f$.
+%	}{
+%		Donner le signe (positif, négatif ou nul) du coefficient directeur de $g$.
+%	}
+%}{
+%		\begin{align*}
+%			f(x) = 4-x && \et && g(x) = 5-x
+%		\end{align*}
+%	\boxAB{
+%		$f(-10) = 4-(-10) = 4+10 = 14.$
+%	}{
+%		$g(-5) = 5-(-5) = 5+5 = 10.$
+%	}
+%}
+
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
