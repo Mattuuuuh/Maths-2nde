@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[20/01/2026]
+\SetDate[27/03/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -44,7 +44,8 @@
 
 
 \exe{}{
-	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{n}$ avec $q\in\Q$ rationnel et $n\in\N$ le plus petit possible.
+	Résoudre les équations suivantes pour $x\in\R$ non nul. 
+	%Exprimer $x$ sous la forme $q \sqrt{n}$ avec $q\in\Q$ rationnel et $n\in\N$ le plus petit possible.
 	\begin{multicols}{4}
 	\begin{enumerate}
 		\item $\dfrac{x}3 = \dfrac12.$
@@ -503,7 +504,7 @@
 		\end{axis}
 		\end{tikzpicture}
 		\end{center}
-		On lit $x^\star \approx 45^\circ$ (c'est en fait une égalité) et $f(x^\star) = 1$.
+		On lit $x^\star \approx 45^\circ$ (c'est en fait une égalité) et $f(x^\star) \approx 1$.
 		Le point $P$ correspondant a pour coordonnées 
 			\[ P\bigl(2\cos(45^\circ) ; 2\sin(45^\circ)\bigr) = \bigl(\sqrt2 ; \sqrt2\bigr). \]
 	\end{enumerate}
@@ -555,8 +556,8 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:riviere}{
-	Il existe plusieurs chemins (une infinité), leur point commun étant que la partie dans l'eau est orthogonale aux rives.
-	En effet et d'après le cours, lorsque l'homme quitte la rive de départ, le point le plus proche sur l'autre rive est son projeté orthogonal.
+	Il existe plusieurs chemins (une infinité), leur point commun étant que leur section dans l'eau est orthogonale aux rives.
+	En effet et d'après le cours, lorsque l'homme quitte la rive de départ, le point le plus proche sur l'autre rive est son projeté orthogonal sur celle-ci.
 	La vitesse constante permet de lier la distance et le temps de façon proportionnelle.
 }
 
@@ -865,19 +866,25 @@
 		node[left=5pt, above] {$\gamma$};
 	\end{tikzpicture}
 	\end{center}
-	
-\exe{, difficulty=3}{
+
+\begin{Exercise}[difficulty=3, label=exe:formule-aire]
+%\exe{, difficulty=3}{
 	Soit un triangle $ABC$ quelconque représenté ci-contre. On pose $a=a_1 + a_2 = BC$.
 	
 	Montrer la \emph{formule de l'aire} 
 		\[ \text{Aire}(ABC) = \dfrac12 ab \sin(\gamma). \]
 	\vfill\vspace{-60pt}\null
-}{exe:formule-aire}{
+%}{exe:formule-aire}{
+%}
+\end{Exercise}
+\end{multicols}
+\begin{Answer}[ref=exe:formule-aire]
 	L'aire $ABC$ est égale à $\frac12 h \cdot a$.
 	Or, $\sin(\gamma) = \frac{h}{b} \iff h = b\sin(\gamma)$.
 	En substituant l'expression de $h$ dans celle de l'aire, on conclut.
-}
-\end{multicols}
+
+\end{Answer}
+
 
 
 \exe{, difficulty=3}{
@@ -1000,21 +1007,21 @@
 	Exprimer le rationnel $1 + \frac1{2 + \frac1{2 + \frac12}}$ sous la form $\frac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \frac{p}q \right|$ à l'aide de la calculatrice.
 	Faire idem avec $1 + \frac1{2 + \frac1{2 + \frac1{2 + \frac12}}}$.
 }{exe:frac-continue-sqrt2}{
-	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \dfrac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
+	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \frac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
 	
-	Comme $\sqrt2 = 1 + \dfrac1{1+\sqrt2}$, on peut remplacer le $\sqrt2$ dans l'expression de droite par toute l'expression de droite.
+	Comme $\sqrt2 = 1 + \frac1{1+\sqrt2}$, on peut remplacer le $\sqrt2$ dans l'expression de droite par toute l'expression de droite.
 	On obtient donc $\sqrt2 = 1 + \cfrac1{1 + 1 + \cfrac1{1+\sqrt2}} = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ comme voulu.
 	On obtient l'expression d'après en répétant le même raisonnement.
 	
-	Par simplifications simples, on trouve $\dfrac{p}{q} = \dfrac{17}{12}$.
-	La calculatrice nous donne alors $\left| \sqrt2 - \dfrac{17}{12} \right| \approx 0,002$.
+	Par simplifications simples, on trouve $\frac{p}{q} = \frac{17}{12}$.
+	La calculatrice nous donne alors $\left| \sqrt2 - \frac{17}{12} \right| \approx 0,002$.
 	
 	Finalement, remarquons que 
 	\begin{align*}
 		1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}} &= 1 + \cfrac1{1+ 1 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}}, \\
 			&= 1 + \cfrac1{1+ \dfrac{17}{12}} = \dfrac{41}{29}.
 	\end{align*}
-	Le rationnel $\dfrac{41}{29}$ vérifie $\left| \sqrt2 - \dfrac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
+	Le rationnel $\frac{41}{29}$ vérifie $\left| \sqrt2 - \frac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
 }
 
 \exe{, difficulty=2}{
@@ -1081,7 +1088,7 @@
 	
 	La {théorie de Galois}\footnotemark généralise ces exemples et permet notamment de répondre par la négative aux trois grands problèmes de l'Antiquité : la duplication du cube, la trisection de l'angle, et la quadrature du cercle.
 	\footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
-	La démonstration fonctionne comme suit : chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
+	La démonstration procède ainsi: chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
 	La racine carrée de 2 est par exemple constructible grâce au théorème de Pythagore comme distance entre $(1 ; 0)$ et $(0;1)$.
 	En montrant que certains nombres ne peuvent pas appartenir à de telles extensions, on démontre immédiatement qu'ils sont non constructibles.
 }
