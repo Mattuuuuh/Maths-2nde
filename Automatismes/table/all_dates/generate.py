@@ -12,7 +12,7 @@ def tablepdf(index, date):
     CLASS_NAME = "2nde5+9"
     # COMPILE WITH VARS INPUT  
         
-    INPUTS = "\\documentclass[14pt]{extarticle} \\newcommand{\datedelta}{"+str(index)+"}  \\input{table4.tex}"
+    INPUTS = r"\documentclass[14pt]{extarticle} \newcommand{\datedelta}{"+str(index)+r"}  \input{table4.tex}"
     PARAMETER1 = f"-output-directory=out"
     PARAMETER2 = f"-jobname={CLASS_NAME}_{date}"
     # suppress output
@@ -26,7 +26,7 @@ def tablepdf(index, date):
 # isviable returns True is day is viable, False otherwise.
 # this is made on a Sunday, and Monday, Tuesday, Friday are viable.
 def isviable(index):
-    return index%7 in [0, 1, 2, 3]
+    return index%7 in [4, 1, 2, 3]
 
 def datetostring(date):
     return date.strftime('%Y-%m-%d')
