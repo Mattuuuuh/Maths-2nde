@@ -29,6 +29,10 @@ margin=2cm,
 \newtheorem*{dfn*}{Définition}
 \newtheorem*{remarque}{Remarque}
 
+\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
+\theoremstyle{named}
+\newtheorem*{namedtheorem}{Theorem}
+
 % roman subsections
 \renewcommand{\thesubsection}{\Roman{subsection}} 
 

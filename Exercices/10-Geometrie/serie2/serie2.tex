@@ -1,0 +1,171 @@
+\input{../preamble.tex}
+
+\SetDate[23/01/2026]
+
+\usepackage{minted}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Dichotomie en Python}}
+\fancyhead[R]{\today}
+
+\subsection*{Le Juste Prix}
+
+\begin{namedtheorem}[Règles du jeu]
+	Une explication claire ici.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Oracle]
+	Vincent Lagaf.
+	
+	Il connait le prix exact et nous dit s'il est plus grand ou plus petit que le prix proposé.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Formalisation]
+	On cherche un prix $P \in [a ; b]$.
+	On ne peut que demander si un prix $x$ vérifie $x \leq P$ ou $x \geq P$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Stratégie optimale]
+	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle.
+	Ceci permet d'exclure la moitié des valeurs.
+	
+	La stratégie est optimale car si l'oracle agit comme adversaire, il peut choisir de changer $P$ selon le prix $x$ proposé par le joueur.
+\end{namedtheorem}
+
+\subsection*{À la recherche de racine}
+
+\begin{namedtheorem}[Nomenclature]
+	On appelle \emph{racine} de $f$ un antécédent $x$ qui vérifie $f(x) = 0$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[But]
+	Trouver une racine de $f$ : un $x$ du domaine tel que $f(x) = 0$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Hypothèses]
+	Le tracé de $\C_f$ est continu : on la trace sans lever son stylo.
+	
+	Sans perte de généralité, $f(x)$ passe du négatif au positif autour de sa racine (on peut prendre $-f$ dans le cas contraire).
+\end{namedtheorem}
+
+\begin{namedtheorem}[Oracle]
+	Étant donné un $x$, un appel à l'oracle permet de connaître le signe de $f(x)$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Stratégie optimale]
+	$f(x) = x^2 - 7$
+	$a = 2$
+	$b = 3$
+	$\text{precision} = 10^{-5}$
+	
+	Tant que \\
+	Faire : \\
+		Calcul du milieu $x = \frac{a+b}2$ \\
+		Appel à l'oracle pour connaitre le signe de $f(x)$ \\
+		Si $f(x) > 0$ \\
+		$b = x$ \\
+		Sinon, \\
+		$a = x$ \\
+\end{namedtheorem}
+
+%Différence avec le balayage.
+
+\subsubsection*{Exemple 1}
+%\python{while}
+% Commentaires :
+% 1. On initialise x = 0
+% 2. Tant que x est strictement inférieur à 2
+% 3. Remplacer x par sa valeur + 0,1
+% 4. À la fin de la boucle, imprimer la valeur de x
+% valeur attendue : 2
+
+Impression finale :
+
+Nombre d'itérations de la boucle \texttt{while} :
+
+\subsubsection*{Exemple 2}
+%\python{while2}
+% Commentaires :
+% 1. On initialise x = 0
+% 2. Tant que x est positif ou nul à 2
+% 3. Remplacer x par sa valeur + 0,1
+% 4. À la fin de la boucle, imprimer la valeur de x
+% valeur attendue : boucle infinie !
+
+Impression finale :
+
+Nombre d'itérations de la boucle \texttt{while} :
+
+\newpage
+
+\exe{,difficulty=1}{
+	Compléter et implémenter le programme de balayage ci-dessous.
+	Que renvoie-t-il ?
+}{exe:balayage4}{
+	%\python{balayage-solution}
+}
+
+%\python{balayage}
+
+
+\exe{}{
+	Donner la valeur de $\sqrt7$ à $10^{-5}$ près à l'aide d'un programme de balayage.
+}{exe:precision}{
+	En remplaçant la variable \texttt{amplitude} par \texttt{0.00001} ou \texttt{1e-5}, on obtient
+		\[ 2,64575 < \sqrt7 < 2,64576. \]
+	%\python{balayage-solution2}
+}
+
+\exe{}{
+	Donner la valeur de $\sqrt{700}$ à $10^{-4}$ près
+		\begin{enumerate}[label=\roman*)]
+			\item
+			à l'aide d'un programme de balayage ; et
+			\item
+			en montrant que $\sqrt{700} = 10\sqrt7$ et en utilisant l'exercice \ref{exe:precision}.
+		\end{enumerate}
+}{exe:precision2}{
+	En remplaçant la fonction $f$ par $f(x) = x^2 - 700$, et l'amplitude par $10^{-4}$, on obtient
+		\[ 26,4575 < \sqrt{700} < 26,4576. \]
+	%\python{balayage-solution3}
+	Comme $\sqrt{700} = \sqrt{100\times7} = \sqrt{100}\times\sqrt{7}=10\sqrt7$, on peut multiplier l'encadrement de l'exercice \ref{exe:precision} par 10 pour conclure immédiatement.
+}
+
+\subsection*{Étude de complexité}
+
+\exe{, difficulty=2}{
+	Montrer que l'algorithme par dichotomie est optimal dans le sens suivant : 
+	pour n'importe quel autre algorithme d'approximation de racine, il existe une fonction $f$ et une précision $p$ tel que la dichotomie approxime la racine de $f$ à $p$ près en moins d'appels à l'oracle.
+}{exe:appf0}{
+}
+
+\exe{, difficulty=2}{
+	Montrer que l'algorithme par dichotomie avec fonction $f(x) = x^2 - 7$ et domaine de départ $[2 ; 3]$ n'atteint jamais la racine.
+}{exe:appf1}{
+}
+
+\exe{, difficulty=2}{
+	Justifier que, d'un appel de \texttt{racine} à l'autre, la longueur de l'intervalle $[a ; b]$ est divisée par $2$
+}{exe:appf2}{
+}
+
+\exe{, difficulty=2}{
+	Donner la longueur de l'intervalle $[0;3]$ de départ. Combien d'opérations arithmétiques sont nécessaires pour obtenir un intervalle de longueur $3 \times 2^{-4}$ ? Et $3\times 2^{-10}$ ? Et $3 \times 2^{-n}$ ?
+}{exe:appf3}{
+}
+
+\exe{, difficulty=2}{
+	Combien d'étape faut-il pour obtenir un intervalle de longeur $10^{-10}$ ? On cherche le plus petit $n\in\N$ tel que $2^{-n} \leq 10^{-10}$. Résoudre ce problème algorithmiquement et vérifier qu'on obtient bien $n=34$.
+}{exe:appf4}{
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
