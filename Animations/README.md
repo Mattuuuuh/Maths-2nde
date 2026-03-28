@@ -6,7 +6,7 @@ uv init Animations
 sudo apt install build-essential python3-dev libcairo2-dev libpango1.0-dev
 uv add manim
 cd Animations/
-manim init project dichotomie --default
+uv run manim init project dichotomie --default
 ```
 
 # Compile
