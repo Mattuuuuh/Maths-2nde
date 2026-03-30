@@ -1,0 +1,406 @@
+\input{../preamble.tex}
+
+\SetDate[07/04/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Évaluation — Probabilités}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	%\item
+	%L'exercice \ref{exe:prop-fond} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+
+\exe{4}{
+	On considère le lancer d'un D12, dé à 12 faces numérotées de 1 à 12.
+	On note le nombre de la face du dessus.
+	
+	Soient $A, B$ les deux événements suivants.
+		\begin{align*}
+			A : \text{\og le nombre est pair \fg}, && B : \text{\og le nombre est multiple de $5$ \fg}.
+		\end{align*}
+		
+	\begin{enumerate}
+		\item Donner l'univers de l'expérience. % ainsi que son cardinal $|\Omega|$.
+		\item Donner le cardinal de l'univers.
+		%\item Donner l'ensemble des issues associé à l'événement $B$.
+		\item Décrire avec des mots l'événement $A \cap B$. % puis donner l'ensemble des issues qui lui est associé.
+		\item Décrire avec des mots l'événement $A \cup B$. %puis donner l'ensemble des issues qui lui est associé.
+		%\item Décrire avec des mots l'événement $\overline{A}$. %puis donner l'ensemble des issues qui lui est associé.
+	\end{enumerate}
+}{exe:p1}{
+	\begin{enumerate}
+		\item 
+		$\Omega = \bigset{ 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ;8 ; 9 ; 10 ; 11 ; 12}$.
+		\item 
+		$|\Omega| = 12$.
+		\item 
+		$A\cap B$ : « le nombre est pair \textbf{et} multiple de 5 ».
+		\item 
+		$A\cup B$ : « le nombre est pair \textbf{ou} multiple de 5 ».
+	\end{enumerate}
+}
+
+\exe{6}{
+	On tire un boule dans une urne contenant 3 boules bleues et 4 boules vertes.
+	\begin{enumerate}[label=$\bullet$, ]
+		\item Si la boule tirée est verte, on jette un dé équilibré à 3 faces (1 à 3) et on regarde la face du dessus.
+		\item Si la boule tirée est bleue, on jette un dé équilibré à 6 faces (1 à 6) et on regarde la face du dessus.
+	\end{enumerate}
+
+	%Créer un arbre de probabilité pour cette situation et répondre aux questions suivantes.  %irréductible. % inutile car calculatrice autorisée ;;
+	\begin{enumerate}
+		\item
+		Créer un arbre de probabilité modélisant l'expérience aléatoire.
+		\item Calculer la probabilité d'obtenir $6$. Une réponse sous forme de fraction est attendue.
+		%\item Quelle est la probabilité d'obtenir un nombre pair ?
+		\item Quelle est la probabilité d'obtenir un multiple de $3$ ? Une réponse sous forme de fraction est attendue.
+		%\item Quelle est la probabilité d'obtenir un nombre pair \textbf{ou} un multiple de $3$ ?
+		%\item Énoncer le principe d'inclusion-exclusion et le vérifier.
+	\end{enumerate}
+
+}{exe:exe14}{
+	On a l'arbre suivant.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (4,-2) node[midway, above right] {$\frac37$};
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (-3,-2) node[midway, above left] {$\frac47$};
+		% depth 2
+		% gauche -> droite
+		% verte
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-2,-4) node[midway, above right] {$\frac13$};
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-3,-4) node[pos=.6, left] {$\frac13$};
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-4,-4) node[midway, above left] {$\frac13$};
+		
+		\draw (-4,-4) node {$\bullet$};
+		\draw (-3,-4) node {$\bullet$};
+		\draw (-2,-4) node {$\bullet$};
+		\draw (-4,-4) node[below] {$1$};
+		\draw (-3,-4) node[below] {$2$};
+		\draw (-2,-4) node[below] {$3$};
+		
+		% bleue
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (0,-4) node[midway, above left] {$\frac16$};
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (1.5,-4) node[pos=.6, left] {$\frac16$};
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (3,-4) node[midway, right] {$\frac16$};
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (4.5,-4) node[midway, left] {$\frac16$};
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (6,-4) node[midway, right] {$\frac16$};
+		\draw[-, thick, black] (4,-2) node {$\bullet$} -- (7.5,-4) node[midway, above right] {$\frac16$};
+		
+		\draw (0,-4) node {$\bullet$};
+		\draw (1.5,-4) node {$\bullet$};
+		\draw (3,-4) node {$\bullet$};
+		\draw (4.5,-4) node {$\bullet$};
+		\draw (6,-4) node {$\bullet$};
+		\draw (7.5,-4) node {$\bullet$};
+		\draw (0,-4) node[below] {$1$};
+		\draw (1.5,-4) node[below] {$2$};
+		\draw (3,-4) node[below] {$3$};
+		\draw (4.5,-4) node[below] {$4$};
+		\draw (6,-4) node[below] {$5$};
+		\draw (7.5,-4) node[below] {$6$};
+		
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				P(6) &=\left( \frac37 \times \frac16 \right) \\
+					&= \frac1{14}
+			\end{align*}
+		
+%		\item
+%			\begin{align*}
+%				P(\text{« nombre pair »}) &= P(2) + P(4) + P(6) \\
+%					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \frac37 \times \frac16 \right) \\
+%					&= \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
+%					&= \frac{17}{42}.
+%			\end{align*}
+		\item
+			\begin{align*}
+				P(\text{« multiple de $3$ »}) &= P(3) + P(6) \\
+					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) \\
+					&= \frac4{21} + \frac1{14} + \frac1{14} \\
+					&= \frac13.
+			\end{align*}
+%		\item
+%			\begin{align*}
+%				P(\text{« multiple de $3$ ou de $2$ »}) &= P(2) + P(3) + P(4) + P(6) \\
+%					&= \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac47 \times \frac13 + \frac37\times\frac16 \right) + \left( \frac37 \times \frac16 \right) + \left( \dfrac1{14} \right) \\
+%					&= \frac4{21} + \frac1{14} + \frac4{21} + \frac1{14} + \frac1{14} + \frac1{14} \\
+%					&= \frac23
+%			\end{align*}
+%		\item
+%		On vérifie l'inclusion-exclusion en comparant $P(\text{« multiple de $3$ ou de $2$ »})$ et $P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6)$.
+%		D'une part,
+%			\[ P(\text{« multiple de $3$ ou de $2$ »}) = \frac23, \]
+%		et d'autre part,
+%			\begin{align*}
+%				P(\text{« multiple de $3$ »}) + P(\text{« multiple de $2$ »}) - P(6) &= \frac13 + \frac{17}{42} - \frac1{14} \\
+%				&= \frac{14 + 17 - 3}{42} \\
+%				&= \frac{28}{42} = \frac23.
+%			\end{align*}
+	\end{enumerate}
+}
+
+\newpage
+
+\exe{4}{
+	L'univers associé à une expérience aléatoire est $\{ A, B, C\}$.
+	La loi de probabilité $P$ est donnée par le tableau ci-dessous et dépend d'un réel $t\in\R$ encore inconnu.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Développer le carré $\left(t-\dfrac35\right)^2$.
+		\item Déterminer $t$.
+		\item Compléter la dernière ligne du tableau.
+	\end{enumerate}
+	\end{multicols}
+	\begin{center}
+\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Résultat & $A$ & $B$ & $C$ \\ \hline
+		Probabilité & $\frac9{25}$ & $t^2$ & $-\frac65 t$ \\ \hline
+		Probabilité ($t = \dots\dots$) & $\frac9{25}$ & & \\ \hline
+	\end{tabular}
+	\end{center}
+}{exe:carre}{
+	On développe le carré à l'aide de l'identité remarquable
+		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
+	où, ici, on a $a=t$ et $b=\frac35.$
+		\begin{align*}
+			\left(t-\dfrac35\right)^2 &= t^2 + \left(\dfrac35\right)^2 - 2 \cdot t \cdot \dfrac35 \\
+									&= t^2 + \dfrac9{25} - \dfrac65 t
+		\end{align*}
+	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
+	Un loi vérifie les deux propriétés suivantes :
+		\begin{itemize}
+			\item $P(\omega) \in [0;1]$ pour chaque issue $\omega \in \Omega$ ; et
+			\item $P(\Omega) = 1$.
+		\end{itemize}
+	La deuxième identité donne donc
+		\begin{align*}
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - \frac65t + \dfrac9{25} = 1.
+		\end{align*}
+	Le carré développé nous permet d'écrire
+		\[ \left(t-\dfrac35\right)^2 = 1, \]
+	et donc
+		\[ \left|t-\dfrac35\right| = \sqrt{1} = 1, \]
+	en utilisant le fait que $\sqrt{x^2} = |x|.$
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a deux alternatives :
+		\begin{align*}
+			t-\dfrac35 = 1 && \text{ ou } && t - \dfrac35 = -1 \\
+			t = \dfrac85 && \text{ ou } && t = -\dfrac25.
+		\end{align*}
+	
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(B) = t^2$ serait strictement supérieur à $1$ et $P(C) = -\frac65t$ serait strictement négatif.
+	Il ne reste donc que $t = -\frac25$, qui donne le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue & $A$ & $B$ & $C$ \\ \hline
+		Probabilité & $\frac9{25}$ & $\frac4{25}$ & $\frac{12}{25}$ \\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+\exe{6, difficulty=0}{
+	On lance un grand nombre de fois un D6, dé à 6 faces numérotées de 1 à 6.
+	Les résultats sont décrits dans le tableau suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+		Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		Nombre de tirages & 19 699 & 27 549 & 9 097 & 22 999 & 27 989 & 6 970  \\ \hline
+		Fréquence & & & & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		%\item
+		%Donner l'univers $\Omega$ de l'expérience.
+		\item
+		Compléter le tableau en arrondissant à $10^{-2}$.
+		\item
+		Modéliser la réalité en définissant une loi de probabilité $P$ associée à l'expérience aléatoire du lancer de dé.
+	\end{enumerate}
+	À l'aide de la loi $P$ définie, répondre aux questions suivantes en arrondissant à $10^{-3}$.
+	\begin{enumerate}[resume]
+		%\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item Considérons l'événement $A$ : « obtenir au moins un $3$ après dix lancers consécutifs ».
+			\begin{enumerate}
+				\item Décrire $\overline{A}$ avec des mots.
+				\item Calculer $P(A)$.
+			\end{enumerate}
+		\item Quelle est la probabilité d'obtenir exactement trois $1$ en quatre lancers consécutifs ?
+	\end{enumerate}
+}{exe:3}{
+	\begin{enumerate}
+		%\item
+		%$\Omega = \bigset{1;2;3;4;5;6}$.
+		\item
+		Le nombre de tirages est égal à
+			\[ 19~699 + 27~549 + 9~097 + 22~999 + 27~989 + 6~970 = 114~303. \]
+		La fréquence d'une issue est égale au nombre de tirages favorables divisé par le nombre de tirages au total.
+		Par exemple, la fréquence de 1 est donnée par
+			\[ \frac{19~699}{114~303} \approx 0,17. \]
+		Le reste des fréquences est donné dans le tableau ci-après.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			Nombre de tirages & 19699 & 27549 & 9097 & 22999 & 27989 & 6970  \\ \hline
+			Fréquence & 0,17 & 0,24 & 0,08 & 0,2 & 0,24 &  0,06 \\ \hline
+		\end{tabular}
+		\end{center}
+		\item
+		Remarquons que la somme des fréquences n'est pas 1 ! Ceci est dû aux approximations à $10^{-2}$, inférieures aux valeurs réelles.
+		J'ai personnellement choisi d'augmenter la probabilité d'obtenir 5 à $0,25$ pour poser ma loi de probabilité (car j'aime bien 5).
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			Face & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			Probabilité & 0,17 & 0,24 & 0,08 & 0,2 & 0,25 &  0,06 \\ \hline
+		\end{tabular}
+		\end{center}
+		
+	\end{enumerate}
+	\begin{enumerate}[resume]
+		%\item Quelle est la probabilité d'obtenir un multiple de $3$ ?
+		\item 
+			\begin{enumerate}
+				\item 
+				$\overline{A}$ : « ne jamais obtenir un 3 après dix lancers ».
+				\item 
+				Considérons un arbre binaire avec, à chaque épreuve, deux choix : « obtenir 3 » ou « ne pas obtenir 3 ».
+				La probabilité d'obtenir 3 est 0,08 et la probabilité de ne pas obtenir 3 est donc $1-0,08 = 0,92$.
+				
+				Après dix épreuves, l'événement $\overline{A}$ correspond à une unique issue : de la racine, il faut choisir « ne pas obtenir 3 » dix fois.
+				En multipliant les probabilités rencontrées sur le chemin racine-feuille correspondant, on obtient que $P\bigl(\overline{A}\bigr) = 0,92^{10}$.
+				
+				Par conséquent, 
+					\[ P(A) = 1 - P\bigl(\overline{A}\bigr) = 1 - 0,92^{10} \approx 0,565. \]
+			\end{enumerate}
+		\item 
+		Considérons l'événement $E$ : « obtenir 1 ». Sa probabilité est $P(E) = 0,17$.
+		
+		En créant un arbre binaire de quatre épreuves avec choix $E$ ou $\overline{E}$, on voit qu'il existe quatre chemins possibles pour l'événement « obtenir exactement trois 1 en quatre lancers » : $\overline{E}EEE ; E\overline{E}EE ; EE\overline{E}E ; EEE\overline{E}$.
+		
+		Chacune de ces issues a probabilité $(0,17)^3 \times (1-0,17)$.
+		
+		Il suit donc que la probabilité recherchée est égale à
+			\[ 4 \times (0,17)^3 \times (1-0,17) \approx 0,016. \]
+	\end{enumerate}
+}
+
+%\exe{5, difficulty=2}{
+%	Combien d'entiers entre 1 et 1 000 sont multiples de 3 {ou} de 5 ?
+%}{exe:incl-excl}{
+%	Posons $\Omega = \bigset{ 1 ; 2 ; 3 ; \dots ; 1000 } = [1 ; 1000] \cap \Z$ l'ensemble des entiers entre 1 et 1 000.
+%	Autrement dit (notation Meryam) : 
+%		\[ \Omega = \bigset{ n \in \N \tq 1 \leq n \leq 1000 }. \]
+%	Soient désormais $A$ et $B$ l'ensemble des multiples de 3 de $\Omega$ et l'ensemble des multiples de 5 de $\Omega$ respectivement.
+%	Autrement dit,
+%		\begin{align*}
+%			A &= \bigset{ a \in \Omega \tq \text{3 divise $a$} }, \\
+%			B &= \bigset{ b \in \Omega \tq \text{5 divise $b$} }.
+%		\end{align*}
+%	Il nous faut calculer le cardinal de $|A \cup B|$.
+%	D'après le principe d'inclusion-exclusion, 
+%		\[ |A \cup B| = |A| + |B| - |A \cap B|, \]
+%	car en comptant les éléments appartenant à $A$ et les éléments appartenant à $B$ en calculant $|A| + |B|$, on compte les éléments appartenant à la fois à $A$ et à $B$ deux fois.
+%	
+%	L'ensemble $A\cap B$ est l'ensemble des entiers entre 1 et 1 000 qui sont multiples à la fois de 3 et de 5.
+%		\[ A\cap B = \bigset{ n \in \Omega \tq \text{3 divise $n$ \textbf{et} 5 divise $n$} }. \]
+%	Ces entiers $n$ admettent donc un 3 et un 5 dans leur décomposition en facteurs premiers, il s'écrivent donc $n = 3\times5\times k = 15\times k$ avec $k\in\N$ entier naturel :
+%	ce sont des multiples de 15.
+%	Réciproquement, un multiple de 15 est nécessairement multiple à la fois de 3 et de 5 car $15k = 3(5k) = 5(3k)$.
+%	Par conséquent,
+%		\[ A\cap B = \bigset{ n \in \Omega \tq \text{15 divise $n$} }. \]
+%	
+%	Calculons désormais $|A|, |B|,$ et $|A\cap B|$ pour conclure.
+%	\begin{enumerate}
+%		\item[$A$ : ]
+%		Les multiples de 3 de $\Omega$ sont $3\times1 ; 3\times2 ; \dots ; 3\times333$, donc $|A| = 333$.
+%		\item[$B$ : ]
+%		Les multiples de 5 de $\Omega$ sont $5\times1 ; 5\times2 ; \dots ; 5\times200$, donc $|B| = 200$.
+%		\item[$A\cap B$ : ]
+%		Les multiples de 15 de $\Omega$ sont $15\times1 ; 15\times2 ; \dots ; 15\times66$, donc $|A\cap B| = 66$.
+%	\end{enumerate}
+%	
+%	En conclusion, le nombre de multiples de 3 ou de 5 entre 1 et 1 000 est égal à
+%		\[ |A\cup B| = 333+200-66 = 467. \]
+%	On se convaincra de la justesse de notre réponse en énumérant les 467 multiples, bien sûr !
+%	Ou faisons-le en Python plutôt, il est plus rapide que nous.
+%	Les lignes précédées d'un \# sont des commentaires et ne sont pas lues par l'ordinateur.
+%	\python{incl-excl}
+%	\texttt{python3 incl-excl.py \\ > > > 467}
+%}
+
+%
+%\exe{4}{
+%	On considère un univers
+%		\[ \Omega = \bigset{ -3 ; -2 ; 1 ; 4; 5; 7 ; 13 }, \]
+%	ainsi que deux sous-ensembles 
+%		\begin{align*}
+%			A = \bigset{ -3 ; 1 ; 5 } && \et && B = \bigset{ 1 ; 4 ; 5 ; 7 }.
+%		\end{align*}
+%	\begin{enumerate}
+%		\item Donner $\overline{A}$, le complémentaire de $A$ dans l'univers $\Omega$.
+%		\item Vérifier l'égalité
+%			\[ |A\cup B| = |A| + |B| - |A\cap B| \]
+%		en calculant le membre de gauche et le membre de droite puis en comparant les valeurs obtenues.
+%	\end{enumerate}
+%
+%}{exe:4}{
+%	\begin{enumerate}
+%		\item Le complémentaire de $A$ dans $\Omega$ correspond à l'ensemble $\overline{A}$ qui contient tous les éléments de $\Omega$ sauf ceux appartenant à $A$. On note aussi $\Omega \setminus A$ ou $\Omega - A$.
+%			\[ \overline{A} = \{ -2 ; 4; 7; 13 \}. \]
+%		\item Le cardinal d'un ensemble est égal au nombre d'éléments distincts lui appartenant.
+%			À gauche on calcule donc
+%				\[ |A \cup B| = | \{ -3 ; 1; 5 ;4 ; 7 \} | = 5. \]
+%			À droite on trouve
+%				\[ |A| + |B| - |A\cap B| = 3 + 4 - | \{ 1 ; 5 \} | = 3 + 4 - 2 =  5. \]
+%	\end{enumerate}
+%
+%}
+
+%\exe{2, difficulty=1}{
+%	\begin{enumerate}
+%		\item
+%		Soit $\Omega = \{1 ; 2 ; 3 \}$.
+%		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
+%		\item
+%		Soit $\Omega = \{1 ; 2 ; 3 ; \dots ; n-1 ; n \}$ dépendant d'un entier naturel $n\in\N$ non nul.
+%		Combien de sous-ensembles $E \subseteq \Omega$ existe-t-il ?
+%	\end{enumerate}´
+%}{exe:subset}{
+%	todo
+%}
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
