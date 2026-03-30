@@ -9,7 +9,7 @@ def tablepdf(index, date):
     Outputs in out/table4_date.pdf.
     """
     
-    CLASS_NAME = "2nde5+9"
+    CLASS_NAME = "2nde5"
     # COMPILE WITH VARS INPUT  
         
     INPUTS = r"\documentclass[14pt]{extarticle} \newcommand{\datedelta}{"+str(index)+r"}  \input{table4.tex}"
