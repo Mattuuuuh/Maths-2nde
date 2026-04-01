@@ -195,8 +195,8 @@
 %}
 
 \exe{}{
-	Un élève reçoit $5$ notes listées ainsi : $(4,25 ; 10; 18,5 ; 15,5 ; 11,25)$.
-	À ces notes sont associés $5$ coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
+	Un élève reçoit cinq notes listées ainsi : $(4,25 ; 10; 18,5 ; 15,5 ; 11,25)$.
+	À ces notes sont associés cinq coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
 	\begin{enumerate}
 		\item Calculer la moyenne pondérée des notes.
 		\item Multiplier tous les coefficients par 10 puis recalculer la moyenne pondérée des notes. Que remarque-t-on ?
@@ -215,13 +215,22 @@
 
 
 \exe{}{
-	La moyenne des salaires mensuels d'une entreprise est de $1860$€.
-	L'inflation désigne une augmentation générale des prix. Ainsi, $6\%$ d'inflation signifie que, en moyenne, les prix augmentent de $6\%$.
-	Réciproquement et afin de pouvoir comparer les pouvoirs d'achats, on peut fixer les prix et voir l'inflation comme une diminution du salaire (en l'occurrence de $1-\frac{1}{1,06} \approx 5,6 \%$).
+	En 2024, la moyenne des salaires mensuels d'une entreprise est de 1 860€.
+	L'entreprise, après une année où l'inflation se mesurait à 6\% décide d'ajouter des primes aux salaires : tous les employés recevront 50€ mensuellement en plus. 
+	%Ces $50$€ sont, eux aussi, soumis à l'inflation.
 	
-	L'entreprise, après une année où l'inflation se mesurait à $6\%$ décide d'ajouter des primes aux salaires : tous les employés recevront $50$€ mensuellement en plus. Ces $50$€ sont, eux aussi, soumis à l'inflation.
 	
-	Quelle est la nouvelle moyenne des salaires mensuels de l'entreprise ?
+	L'inflation désigne une augmentation générale des prix. Ainsi, 6\% d'inflation signifie que, en moyenne, les prix augmentent de 6\%.
+	Afin de pouvoir comparer les pouvoirs d'achats, il est possible de fixer les prix et voir l'inflation plutôt comme une diminution du salaire.
+	
+	\begin{enumerate}
+		\item
+		Quel est le coefficient multiplicateur associé à une augmentation de 6\% ?
+		\item
+		Quel est le coeffiicent multiplicateur associé à l'évolution réciproque ?
+		\item
+		Calculer la moyenne des salaires mensuels de l'entreprise en 2025 à prix fixés.
+	\end{enumerate}
 
 }{exe:4}{
 	Notons $X$ la série statistique des salaires avant inflation.
@@ -231,8 +240,8 @@
 	
 	Enfin, afin de corriger l'inflation et d'après le texte, on multiplie tous les nouveaux salaires par $(1,06)^{-1}$.
 	La nouvelle moyenne est donc donnée par 
-		\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801.89. \]
-	À \og euro fixe \fg \, et en moyenne, la prime de permet pas de compenser l'inflation.
+		\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801,89. \]
+	À « euro fixe » et en moyenne, la prime ne permet pas de compenser l'inflation.
 }
 
 %
@@ -314,18 +323,92 @@
 
 
 \exe{}{
+	Chaque jour du mois d'avril, le meilleur ami de Lucile relève la distance qu'il a parcourue lors de son footing.
 	\begin{center}
-%\def\arraystretch{1.3}
-\setlength\tabcolsep{25pt}
-	\begin{tabular}{|*{5}{c|}}\hline
-		Valeur $x$ & & & & 
+\def\arraystretch{1}
+\setlength\tabcolsep{5pt}
+	\begin{tabular}{|*{8}{c|}}\hline
+		Distance (km) & 3 & 4 & 5 & 9 & 10 & 12 & 13
 		\\\hline
-		Effectif & & & &
-		\\\hline
-		$\bigl[\overline{X} - x\bigr]^2$ & & & & 
+		Effectif & 8 & 6 & 2 & 4 & 3 & 5 & 2
 		\\\hline
 	\end{tabular}
 	\end{center}
+	
+	\begin{enumerate}
+		\item
+		Vérifier que la moynene de cette série est égale à 7 km.
+		\item
+		On a représenté ci-contre la série ainsi que les écarts entre les valeurs et la moyenne.
+		
+		\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=14,
+			ymin=0, ymax=8,
+			x=20pt,
+			y=10pt,
+			grid=none,
+			xtick distance=1,
+			axis line style = -,
+			extra x ticks={0},
+			extra y ticks={0},
+			xlabel=Distance (km),
+			xlabel near ticks,
+			ylabel=Effectif,
+			ylabel near ticks,
+		]
+			\addplot[BLUE_E, very thick] (3,0) -- (axis cs:3,8);
+			\addplot[BLUE_E, very thick] (4,0) -- (axis cs:4,6);
+			\addplot[BLUE_E, very thick] (5,0) -- (axis cs:5,2);
+			\addplot[BLUE_E, very thick] (9,0) -- (axis cs:9,4);
+			\addplot[BLUE_E, very thick] (10,0) -- (axis cs:10,3);
+			\addplot[BLUE_E, very thick] (12,0) -- (axis cs:12,5);
+			\addplot[BLUE_E, very thick] (13,0) -- (axis cs:13,2);
+			
+			\addplot[RED_E, very thick, dashed] (7,0) -- (axis cs:7,8);
+			
+			\addplot[GREY_E, <->, dashed] expression[domain=3:7]{8};
+			\addplot[GREY_E, <->, dashed] expression[domain=4:7]{6};
+			\addplot[GREY_E, <->, dashed] expression[domain=5:7]{2};
+			\addplot[GREY_E, <->, dashed] expression[domain=7:9]{4};
+			\addplot[GREY_E, <->, dashed] expression[domain=7:10]{3};
+			\addplot[GREY_E, <->, dashed] expression[domain=7:12]{5};
+			\addplot[GREY_E, <->, dashed] expression[domain=7:13]{2};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\begin{center}
+\def\arraystretch{1.3}
+\setlength\tabcolsep{10pt}
+		\begin{tabular}{|*{8}{c|}}\hline
+			Distance (km) & 3 & 4 & 5 & 9 & 10 & 12 & 13
+			\\\hline
+			Écart & & & &&&&
+			\\\hline
+			Carré de l'écart & & & & &&&
+			\\\hline
+			Effectif & 8 & 6 & 2 & 4 & 3 & 5 & 2
+			\\\hline
+		\end{tabular}
+		\end{center}
+		
+		\begin{enumerate}
+			\item
+			Compléter la ligne « Écart ».
+			\item
+			Pour n'avoir que des nombres positifs, on calcule le carré de chaque écart.
+			Compléter cette ligne du tableau.
+			\item
+			Calculer la moyenne $Var$ des carrés des écarts pondérée par les effectifs.
+			Arrondir à $10^{-1}$ près.
+			Dans quelle unité est exprimée $Var$ ?
+			\item
+			Calculer $\sigma = \sqrt{Var}$ en arrondissant à $10^{-1}$ près.
+			Dans quelle unité est exprimée $\sigma$ ?
+		\end{enumerate}
+	\end{enumerate}
+	
 }{exe:variance}{
 
 }
