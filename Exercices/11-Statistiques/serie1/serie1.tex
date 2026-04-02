@@ -12,8 +12,6 @@
 
 % calcul de moyenne
 
-\subsection*{Exercices}
-
 
 \exe{}{
 	Calculer la moyenne de chaque série statistique suivante.
@@ -49,6 +47,10 @@
 		Vérification : pour $n=10$, on retrouve $10\cdot 21 = 210$ pour la somme des entiers naturels de $0$ à $20$.
 		Vérifiez la formule obtenue pour $n=2; 3; 5$ pour se rassurer encore davantage !
 }
+
+
+
+\subsection*{Exercices}
 
 \exe{}{\label{ex:33}
 	Pour chaque série statistique suivante, calculer la moyenne.
@@ -100,6 +102,56 @@
 
 }
 
+\exe{, difficulty=2}{
+	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 2 & 5 \\ \hline
+		Effectif & 5 & 14 & N & 2  \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:8}{
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\dfrac{5\cdot0 + 14\cdot20 + N\cdot2 + 2\cdot5}{5+14+N+2} &= 10 \\
+			0  + 280 + 2\cdot N + 10 &= 10 \cdot(21 + N) \\
+			290 + 2 \cdot N &= 210 + 10 \cdot N \\
+			80 &= 8 \cdot N \\
+			N &= 10		
+		\end{align*}
+
+	$10$ est bien un entier naturel, donc $N=10$ est l'unique solution.
+}
+
+\exe{, difficulty=2}{
+	Est-il possible que la série suivante ait une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
+	
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 23 & 12 & 2 & 7 \\ \hline
+		Effectif & 5 & 14 & N & 2  \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:}{
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\dfrac{5\cdot23 + 14\cdot12 + N\cdot2 + 2\cdot7}{5+14+N+2} &= 10 \\
+			115  + 168 + 2\cdot N + 14 &= 10 \cdot(21 + N) \\
+			297 + 2 \cdot N &= 210 + 10 \cdot N \\
+			87 &= 8 \cdot N \\
+			N &= \dfrac{87}8		
+		\end{align*}
+
+	L'unique solution candidate est donc $\dfrac{87}{8}$ qui n'est pas un entier naturel.
+	Donc il n'est pas possible que cette série statistique ait une moyenne de $10$, peu importe l'effectif $N\in\N$.
+	
+	En prenant une valeur approchée, par exemple $N=11$, la moyenne est de $9,96$, pas exactement $10$ !
+}
 
 
 %
@@ -213,6 +265,23 @@
 	La première méthode est plus facile à employer mais elle découle en fait de la seconde : une moyenne est toujours une combinaison convexe de valeurs car les poids somment toujours à $1$.
 }
 
+% TODO: fix leur/leurs ça me saoule ça je dois apprendre
+\exe{,difficulty=1}{
+	Un élève reçoit deux notes, 7 et 14, et son méchant professeur souhaite modifier leur coefficient afin que l'élève ait une moyenne inférieure à 10.
+	\begin{enumerate}
+		\item
+		Calculer la moyenne des notes lorsque leurs coefficients sont égaux.
+		\item
+		Que dire sur les coefficients pour que la moyenne pondérée soit inférieure à 10 ?
+		\item
+		Trouver deux coefficients tel que la moyenne soit \emph{exactement} de 10.
+		
+		\emph{Indication : on pourra supposer que la somme des coefficient soit 1.}
+	\end{enumerate}
+}{exe:moyenne-ponderee}{
+	todo
+}
+
 
 \exe{}{
 	En 2024, la moyenne des salaires mensuels d'une entreprise est de 1 860€.
@@ -242,6 +311,25 @@
 	La nouvelle moyenne est donc donnée par 
 		\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801,89. \]
 	À « euro fixe » et en moyenne, la prime ne permet pas de compenser l'inflation.
+}
+
+% Déclic 2nde
+\exe{}{
+	Deux étudiantes ont obtenues les notes suivantes aux trois derniers partiels de mathématiques : $(10 ; 9 ; 11)$ pour la première et $(6 ; 13 ; 11)$ pour la seconde.
+	\begin{enumerate}[label=\roman*)]
+		\item
+		Calculer la moyenne de chaque étudiante.
+		Peut-on dire que leur situation est similaire ?
+		\item
+		Calculer la variance des notes de chaque étudiante.
+		Comment interpréter le résultat ?
+		\item
+		% TODO: rephrasing
+		Une troisième étudiante a pour résultats $(4 ; 12 ; 14)$.
+		Sans calculs, décider si l'écart-type de ses notes se plus grand ou plus petit que celui des notes des autres étudiantes.
+	\end{enumerate}
+}{exe:var-comp}{
+	todo
 }
 
 %
@@ -321,7 +409,7 @@
 %}
 
 
-
+% Hyperbole 2nde + ref à Lucile :)
 \exe{}{
 	Chaque jour du mois d'avril, le meilleur ami de Lucile relève la distance qu'il a parcourue lors de son footing.
 	\begin{center}
@@ -368,13 +456,13 @@
 			
 			\addplot[RED_E, very thick, dashed] (7,0) -- (axis cs:7,8);
 			
-			\addplot[GREY_E, <->, dashed] expression[domain=3:7]{8};
-			\addplot[GREY_E, <->, dashed] expression[domain=4:7]{6};
-			\addplot[GREY_E, <->, dashed] expression[domain=5:7]{2};
-			\addplot[GREY_E, <->, dashed] expression[domain=7:9]{4};
-			\addplot[GREY_E, <->, dashed] expression[domain=7:10]{3};
-			\addplot[GREY_E, <->, dashed] expression[domain=7:12]{5};
-			\addplot[GREY_E, <->, dashed] expression[domain=7:13]{2};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=3:7]{8};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=4:7]{6};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=5:7]{2};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=7:9]{4};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=7:10]{3};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=7:12]{5};
+			\addplot[GREY_E, stealth-stealth, dashed, yshift=-2pt] expression[domain=7:13]{2};
 		\end{axis}
 		\end{tikzpicture}
 		\end{center}
@@ -413,6 +501,9 @@
 
 }
 
+
+
+%\subsection*{Exercices supplémentaires}
 
 \exe{}{
 	Pour chaque histogramme de la figure \ref{fig:hist}, trouver
@@ -463,62 +554,7 @@
 		\end{enumerate}
 }
 
-%\subsection*{Exercices supplémentaires}
-
-\exe{}{
-	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
-	
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 0 & 20 & 2 & 5 \\ \hline
-		Effectif & 5 & 14 & N & 2  \\ \hline
-		\end{tabular}
-		\end{center}
-}{exe:8}{
-	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
-	
-		\begin{align*}
-			\overline{X} &= 10 \\
-			\dfrac{5\cdot0 + 14\cdot20 + N\cdot2 + 2\cdot5}{5+14+N+2} &= 10 \\
-			0  + 280 + 2\cdot N + 10 &= 10 \cdot(21 + N) \\
-			290 + 2 \cdot N &= 210 + 10 \cdot N \\
-			80 &= 8 \cdot N \\
-			N &= 10		
-		\end{align*}
-
-	$10$ est bien un entier naturel, donc $N=10$ est l'unique solution.
-}
-
-\exe{}{
-	Est-il possible que la série suivante ait une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
-	
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 23 & 12 & 2 & 7 \\ \hline
-		Effectif & 5 & 14 & N & 2  \\ \hline
-		\end{tabular}
-		\end{center}
-}{exe:}{
-	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
-	
-		\begin{align*}
-			\overline{X} &= 10 \\
-			\dfrac{5\cdot23 + 14\cdot12 + N\cdot2 + 2\cdot7}{5+14+N+2} &= 10 \\
-			115  + 168 + 2\cdot N + 14 &= 10 \cdot(21 + N) \\
-			297 + 2 \cdot N &= 210 + 10 \cdot N \\
-			87 &= 8 \cdot N \\
-			N &= \dfrac{87}8		
-		\end{align*}
-
-	L'unique solution candidate est donc $\dfrac{87}{8}$ qui n'est pas un entier naturel.
-	Donc il n'est pas possible que cette série statistique ait une moyenne de $10$, peu importe l'effectif $N\in\N$.
-	
-	En prenant une valeur approchée, par exemple $N=11$, la moyenne est de $9,96$, pas exactement $10$ !
-}
-
-
-
-\begin{figure}[t!]
+\begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{.45\textwidth}
     \centering
@@ -655,6 +691,17 @@
 	
 	Donner une équation de droite qui n'admet aucun point à coordonnées entières.
 }{exe:appf}{
+
+}
+
+\exe{,difficulty=2}{
+	Soit $X = (x_1 ; x_2 ; \hdots ; x_N)$ une série statistique dont la valeur minimale est $m$ et la valeur minimale est $M$.
+	Montrer que n'importe quelle moyenne pondérée avec des coefficients positifs prend la forme
+		\[ \overline{X} = f_1 x_1 + f_2 x_2 + \hdots + f_N x_N, \]
+	avec $f_1 + f_2 + \hdots + f_N = 1$ et $0 \leq f_i \leq N$ pour tout $i$, puis en déduire que
+		\[ m \leq \overline{X} \leq M. \]
+	On dit que la moyenne est une \emph{combinaison convexe} des valeurs.
+}{exe:combinaison-convexe}{
 
 }
 
