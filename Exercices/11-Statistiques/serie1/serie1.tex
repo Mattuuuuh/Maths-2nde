@@ -102,9 +102,9 @@
 
 }
 
-\exe{, difficulty=2}{
-	Pour quel(s) $N\in\N$ la moyenne de la série suivante est-elle $10$ ? Comparer avec la série de l'exercice \ref{ex:33}.
-	
+\exemulticols{, difficulty=1}{
+	Pour quel(s) $N\in\N$ la moyenne de la série ci-contre est-elle 10 ? Comparer avec la série de l'exercice \ref{ex:33}.
+}{
 		\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}\hline
 		Valeur   & 0 & 20 & 2 & 5 \\ \hline
@@ -126,32 +126,32 @@
 	$10$ est bien un entier naturel, donc $N=10$ est l'unique solution.
 }
 
-\exe{, difficulty=2}{
-	Est-il possible que la série suivante ait une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
-	
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 23 & 12 & 2 & 7 \\ \hline
-		Effectif & 5 & 14 & N & 2  \\ \hline
-		\end{tabular}
-		\end{center}
-}{exe:}{
-	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
-	
-		\begin{align*}
-			\overline{X} &= 10 \\
-			\dfrac{5\cdot23 + 14\cdot12 + N\cdot2 + 2\cdot7}{5+14+N+2} &= 10 \\
-			115  + 168 + 2\cdot N + 14 &= 10 \cdot(21 + N) \\
-			297 + 2 \cdot N &= 210 + 10 \cdot N \\
-			87 &= 8 \cdot N \\
-			N &= \dfrac{87}8		
-		\end{align*}
-
-	L'unique solution candidate est donc $\dfrac{87}{8}$ qui n'est pas un entier naturel.
-	Donc il n'est pas possible que cette série statistique ait une moyenne de $10$, peu importe l'effectif $N\in\N$.
-	
-	En prenant une valeur approchée, par exemple $N=11$, la moyenne est de $9,96$, pas exactement $10$ !
-}
+%\exe{, difficulty=2}{
+%	Est-il possible que la série suivante ait une moyenne de $10$ pour un certain $N\in\N$ ? Si oui, lequel ?
+%	
+%		\begin{center}
+%		\begin{tabular}{|c|c|c|c|c|}\hline
+%		Valeur   & 23 & 12 & 2 & 7 \\ \hline
+%		Effectif & 5 & 14 & N & 2  \\ \hline
+%		\end{tabular}
+%		\end{center}
+%}{exe:}{
+%	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+%	
+%		\begin{align*}
+%			\overline{X} &= 10 \\
+%			\dfrac{5\cdot23 + 14\cdot12 + N\cdot2 + 2\cdot7}{5+14+N+2} &= 10 \\
+%			115  + 168 + 2\cdot N + 14 &= 10 \cdot(21 + N) \\
+%			297 + 2 \cdot N &= 210 + 10 \cdot N \\
+%			87 &= 8 \cdot N \\
+%			N &= \dfrac{87}8		
+%		\end{align*}
+%
+%	L'unique solution candidate est donc $\dfrac{87}{8}$ qui n'est pas un entier naturel.
+%	Donc il n'est pas possible que cette série statistique ait une moyenne de $10$, peu importe l'effectif $N\in\N$.
+%	
+%	En prenant une valeur approchée, par exemple $N=11$, la moyenne est de $9,96$, pas exactement $10$ !
+%}
 
 
 %
@@ -283,22 +283,24 @@
 }
 
 
-\exe{}{
+\exe{, difficulty=1}{
 	En 2024, la moyenne des salaires mensuels d'une entreprise est de 1 860€.
 	L'entreprise, après une année où l'inflation se mesurait à 6\% décide d'ajouter des primes aux salaires : tous les employés recevront 50€ mensuellement en plus. 
 	%Ces $50$€ sont, eux aussi, soumis à l'inflation.
 	
 	
 	L'inflation désigne une augmentation générale des prix. Ainsi, 6\% d'inflation signifie que, en moyenne, les prix augmentent de 6\%.
-	Afin de pouvoir comparer les pouvoirs d'achats, il est possible de fixer les prix et voir l'inflation plutôt comme une diminution du salaire.
+	Afin de pouvoir comparer les pouvoirs d'achats \emph{en euros constants},
+	il est possible de corriger les salaires de l'inflation en leur appliquant l'évolution réciproque.
+	%il est possible de fixer les prix et voir l'inflation plutôt comme une diminution du salaire.
 	
 	\begin{enumerate}
 		\item
 		Quel est le coefficient multiplicateur associé à une augmentation de 6\% ?
 		\item
-		Quel est le coeffiicent multiplicateur associé à l'évolution réciproque ?
+		Quel est le coefficient multiplicateur associé à l'évolution réciproque ?
 		\item
-		Calculer la moyenne des salaires mensuels de l'entreprise en 2025 à prix fixés.
+		Calculer la moyenne des salaires mensuels de l'entreprise en 2025 en euros constants.
 	\end{enumerate}
 
 }{exe:4}{
@@ -719,14 +721,52 @@
 
 }
 
+% trop dense en notations
+% même si je pense que c'est important de le démontrer pour rassurer son intuition vis-à-vis de la moyenne.
+%\exe{,difficulty=2}{
+%	Soit $X = (x_1 ; x_2 ; \hdots ; x_N)$ une série statistique dont la valeur minimale est $m$ et la valeur minimale est $M$.
+%	Montrer que n'importe quelle moyenne pondérée avec des coefficients positifs prend la forme
+%		\[ \overline{X} = f_1 x_1 + f_2 x_2 + \hdots + f_N x_N, \]
+%	avec $f_1 + f_2 + \hdots + f_N = 1$ et $0 \leq f_i \leq N$ pour tout $i$, puis en déduire que
+%		\[ m \leq \overline{X} \leq M. \]
+%	On dit que la moyenne est une \emph{combinaison convexe} des valeurs.
+%}{exe:combinaison-convexe}{
+%
+%}
+
+%c'est sympa mais bon voilà sans \sum c'est relou non ?
+%\exe{,difficulty=2}{
+%	Soit $X = (x_1 ; x_2 ; \hdots ; x_n)$ une série statistique.
+%	Posons $X^2 = (x_1^2 ; x_2^2 ; \hdots ; x_n^2)$ et $Y = \left((x_1 - \overline{X})^2 ; (x_2 - \overline{X})^2 ; \hdots ; (x_n - \overline{X})^2\right)$.
+%	
+%	En considérant la moyenne $\overline{Y}$, montrer que $\overline{X^2} \geq \overline{X}^2$.
+%	En déduire que $|x|+|y| \leq \sqrt2 \norm{\pvec{x}{y}}$.
+%}{exe:variance}{
+%
+%}
+
 \exe{,difficulty=2}{
-	Soit $X = (x_1 ; x_2 ; \hdots ; x_N)$ une série statistique dont la valeur minimale est $m$ et la valeur minimale est $M$.
-	Montrer que n'importe quelle moyenne pondérée avec des coefficients positifs prend la forme
-		\[ \overline{X} = f_1 x_1 + f_2 x_2 + \hdots + f_N x_N, \]
-	avec $f_1 + f_2 + \hdots + f_N = 1$ et $0 \leq f_i \leq N$ pour tout $i$, puis en déduire que
-		\[ m \leq \overline{X} \leq M. \]
-	On dit que la moyenne est une \emph{combinaison convexe} des valeurs.
-}{exe:combinaison-convexe}{
+	Montrer qu'ajouter une valeur moyenne à une série statistique ne change pas sa moyenne.
+	
+	\begin{multicols}{2}
+	En déduire, sans calcul littéral, la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|}\hline
+	Valeur   & 0 & 20 & 10 \\ \hline
+	Effectif & 17 & 17 & $N$ \\ \hline
+	\end{tabular}
+	\end{center}
+	\end{multicols}
+	
+	Exprimer l'écart-type $\sigma$ de cette série comme fonction de $N$.
+	Comment évolue $\sigma$ lorsque $N$ vaut 10 ; 20 ; 50 ; 100 ? 
+	La série devient-elle plus ou moins concentrée autour de sa moyenne ?
+	
+	Donner le premier entier $N\in\N$ à partir duquel l'écart-type est inférieur à 1.
+	
+	Est-il possible, pour n'importe quel seuil $S>0$, de trouver un $N\in\N$ tel que l'écart-type soit inférieur à $S$ ?
+}{exe:variance-exemple}{
 
 }
 
