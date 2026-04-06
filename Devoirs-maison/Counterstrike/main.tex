@@ -65,38 +65,38 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 }{exe:q1}{
 	$I$ est placé sur $(OA)$ tel que $(BI)$ et $(OA)$ soient perpendiculaires.
 	
-	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		
-		% triangle
-		\node[black, below] at (0,0) {$O$};
-		\node[black, above] at(0,4) {$A$};
-		\node[black, left] at(-3,1) {$B$};
-		
-		\draw[-, thick, black] (0,0) -- (0,4);
-		\draw[-, thick, black] (0,4) -- (-3,1);
-		\draw[-, thick, black] (-3,1) -- (0,0);
-		
-		% arc de cercle centré en O passant par B
-		\draw [black,thick, dashed,domain=120:180] plot ({3.16*cos(\x)}, {3.16*sin(\x)}) ;
-		
-		% angles alpha, theta
-		\draw [black,thick,domain=90:160] plot ({.2*cos(\x)}, {.2*sin(\x)});
-		\node[below] at (-.2,.6) {$\alpha$};
-		\draw [black,thick,domain=-90:-130] plot ({.2*cos(\x)}, {4+.2*sin(\x)});
-		\node[below] at (-.2,3.8) {$\theta$};
-		
-		% length braces
-		\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
-	(-3,1) -- (0,0) node[midway, below = 5pt]{$\l$};
-		\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
-	(0,0) -- (0,4) node[midway, right = 5pt]{$\L$};
-	
-		% projeté orthogonal
-		\draw[-, RED_E, dashed] (-3,1) -- (0,1) node[midway, above]{$h$};
-		\node[RED_E, right] at(0,1) {$I$};
-	\end{tikzpicture}
-	\end{center}
+%	\begin{center}
+%	\begin{tikzpicture}[scale=1]
+%		
+%		% triangle
+%		\node[black, below] at (0,0) {$O$};
+%		\node[black, above] at(0,4) {$A$};
+%		\node[black, left] at(-3,1) {$B$};
+%		
+%		\draw[-, thick, black] (0,0) -- (0,4);
+%		\draw[-, thick, black] (0,4) -- (-3,1);
+%		\draw[-, thick, black] (-3,1) -- (0,0);
+%		
+%		% arc de cercle centré en O passant par B
+%		\draw [black,thick, dashed,domain=120:180] plot ({3.16*cos(\x)}, {3.16*sin(\x)}) ;
+%		
+%		% angles alpha, theta
+%		\draw [black,thick,domain=90:160] plot ({.2*cos(\x)}, {.2*sin(\x)});
+%		\node[below] at (-.2,.6) {$\alpha$};
+%		\draw [black,thick,domain=-90:-130] plot ({.2*cos(\x)}, {4+.2*sin(\x)});
+%		\node[below] at (-.2,3.8) {$\theta$};
+%		
+%		% length braces
+%		\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
+%	(-3,1) -- (0,0) node[midway, below = 5pt]{$\l$};
+%		\draw [decorate,decoration={brace,amplitude=5pt,mirror, raise=2pt}]
+%	(0,0) -- (0,4) node[midway, right = 5pt]{$\L$};
+%	
+%		% projeté orthogonal
+%		\draw[-, RED_E, dashed] (-3,1) -- (0,1) node[midway, above]{$h$};
+%		\node[RED_E, right] at(0,1) {$I$};
+%	\end{tikzpicture}
+%	\end{center}
 }
 
 \exe{}{
@@ -107,12 +107,10 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 		$ OI = \l\cos(\alpha). $
 }{exe:q2}{
 	Dans le triangle $OBI$ rectangle en $I$, la trigonométrique nous donne
-		\[ \sin(\alpha) = \dfrac{BI}{OB} = \dfrac{h}{\l}. \]
-	En multipliant par $\l$, on obtient bien $h = \l\sin(\alpha)$.
-	
-	Dans le triangle $OBI$ rectangle en $I$, la trigonométrique nous donne
-		\[ \cos(\alpha) = \dfrac{OI}{OB} = \dfrac{OI}{\l}. \]
-	En multipliant par $\l$, on obtient bien $OI = \l\cos(\alpha)$.
+		\begin{align*}
+			\sin(\alpha) = \dfrac{BI}{OB} = \dfrac{h}{\l} && \et && \cos(\alpha) = \dfrac{OI}{OB} = \dfrac{OI}{\l}.
+		\end{align*}
+	En multipliant par $\l$, on obtient bien $h = \l\sin(\alpha)$ et $OI = \l\cos(\alpha)$.
 }
 
 %\exe{}{
@@ -149,7 +147,7 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 		\item
 		Exécuter le code introductif et passer le premier test.
 		\item
-		Définir les variables $OA$ et $OB$ ainsi que la fonction $f$.
+		Définir les variables $OA$ et $OB$ ainsi que la fonction $f$ puis passer le deuxième test.
 		\item
 		Tracer la courbe représentative de $f$ en parcourant l'intervalle $[0;90]$ en augmentant successivement le nombre d'antécédents.
 		En déduire, approximativement, l'angle $\alpha$ permettant de maximiser $f(\alpha)$.
@@ -161,10 +159,10 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
 		\begin{axis}[
-			xmin = 0,
+			xmin=0,
 			xmax=90, 
 			ymin=0, 
-			ymax=50,
+			ymax=\ymaxplot,
 			axis x line=middle,
 			axis y line=middle,
 			axis line style=-, 
@@ -231,7 +229,7 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 %	Tracer $\C_f$ dans un repère de domaine $[0; 90]$ et estimer l'angle $\alpha^\star \in [0;90]$ pour lequel $f(\alpha^\star)$ est maximal.
 %}{}
 
-\exe{}{
+\exe{, difficulty=1}{
 	Nous souhaitons nous convaincre que le point d'abscisse $\alpha^\star$ placé à l'exercice \ref{exe:q5} est situé au pic de la fonction, et donc que $f(\alpha^\star)$ est le maximum de $f$ sur $[0;90]$.
 	
 	\begin{enumerate}
@@ -255,7 +253,7 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 		\null\qquad\qquad print(f"ATTENTION : ", x)
 	}
 	
-	Ceci prend un certain temps car il y a $90\times10^4 = 900~000$ antécédents à tester.
+	Ceci prend un certain temps car il y a $91\times10^4 = 910~000$ antécédents à tester.
 	Au final, rien n'est imprimé par l'algorithme : il n'y a aucun \texttt{x} tel que \texttt{f(x) > f(xstar)}.
 	
 }

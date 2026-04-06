@@ -46,13 +46,25 @@ def generate():
     # shown with total probability formula. P(p/q <= t) = int_0^1 P(p <= tq) dq = int_0^1 tq/q dq = t
     # implying that p/q*.1+0.66 ~ unif(.66,.76)
     # then make p, q integer are you're done imo
-    q = np.random.rand()
-    p = np.random.rand()*q
-    p=p*.1 + .66*q
+    #q = np.random.rand()
+    #p = np.random.rand()*q
+    #p=p*.1 + .66*q
+    #
+    #l = int(p*1000)
+    #L = int(q*1000)
 
-    l = int(p*1000)
-    L = int(q*1000)
-    
+    # actually since alphastar = arccos(l/L), i'd rather have alphastar uniformly around [0,90].
+    # so let x~U([10,80]) and set y = cos(x). Then arccos(y) is uniform.
+    # now we have to set y ~ p/q. The error |y-p/q| is at most 1/q, so we can pick q uniformly in like [100, 1000] 
+    # and let p = int(y·q).
+    x = np.random.rand()*70 + 10
+    y = np.cos(np.deg2rad(x))
+    q = int(np.random.rand()*900+100)
+    p = int(q*y)
+
+    l = p
+    L = q
+
     f = lambda x: np.arctan(l*np.sin(x)/(L-l*np.cos(x)))
 
     ratio = l/L
@@ -64,6 +76,7 @@ def generate():
     R += newcommand("ratio", ratio)
     R += newcommand("xmax", xmax)
     R += newcommand("ymax", ymax)
+    R += newcommand("ymaxplot", ymax*1.2)
 
     ###### 20 SAMPLES IN [0,90°] WITH FOCUS AROUND XMAX
 
@@ -85,7 +98,9 @@ def generate():
     
     samples = np.array(samples, dtype=object) # to prevent typecasting ints to float
     samples = np.unique(samples) # remove duplicates before checking size.
-    assert len(samples) == 20, "Not exactly 20 unique samples?"
+
+    # REMOVED because samples are removed for now (p/q was between .66 and .76)
+    #assert len(samples) == 20, "Not exactly 20 unique samples?"
 
     # sort the samples and ship them :)
     samples = np.sort(samples)
@@ -127,13 +142,13 @@ dm = DM(
     )
 
 # for testing (seed 0)
-dm.write_adr()
-dm.compile_pdf()
+#dm.write_adr()
+#dm.compile_pdf()
 
 # for generating seeds
-#dm.generate_seeds(20)
-#dm.write_adrs()
-#dm.compile_pdfs()
+dm.generate_seeds(40)
+dm.write_adrs()
+dm.compile_pdfs()
 
 # for reading adr files in case initial seed is missing or NumPy changes something
 #dm.read_adrs()
