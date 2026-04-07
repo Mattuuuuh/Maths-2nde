@@ -21,7 +21,9 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 	\includegraphics[page=23]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:rivière}{
-	TODO
+	Il existe plusieurs chemins (une infinité), leur point commun étant que leur section dans l'eau est orthogonale aux rives.
+	En effet et d'après le cours, lorsque l'homme quitte la rive de départ, le point le plus proche sur l'autre rive est son projeté orthogonal sur celle-ci.
+	La vitesse constante permet de lier la distance et le temps de façon proportionnelle.
 }
 
 \begin{multicols}{2}
@@ -72,7 +74,12 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 	\includegraphics[page=18, scale=.8]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:proj2}{
-	TODO
+	\begin{center}
+	\includegraphics[page=24, scale=1]{figures/fig-geom.pdf}
+	\end{center}
+	
+	Par construction, les droites $(AB)$ et $(CD)$ sont toutes les deux perpendiculaires à la droite $(d')$.
+	Elles sont donc parallèles.
 }
 
 \thm{distance minimale}{
@@ -104,11 +111,23 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 	$M'$ est donc bien l'unique point de $(d)$ le plus proche de $M$.
 }
 
-\exe{, difficulty=1}{
-	Soit un cercle de centre $O$ et une droite tangente au cercle, c'est-à-dire qui ne le touche qu'en un seul point $P$.
-	Montrer que la droite $(OP)$ est perpendiculaire à la tangente.
+
+\exemulticols{, difficulty=3}{
+	Considérons un cercle quelconque de centre $O$ et un point $P$ sur le cercle.
+	Posons $(d)$ la droite, dite \emph{tangente au cercle}, touchant le cercle uniquement au point $P$.
+	
+	Démontrer que $(d)$ et $(OP)$ sont perpendiculaires.
+	\vfill\null
+}{
+	\begin{center}
+	\includegraphics[page=25, scale=1]{figures/fig-geom.pdf}
+	\end{center}
+
 }{exe:tangente-perp}{
-	TODO
+	Fixons les objets $O, P, (OP), (d)$ de la figure et faisons varier le rayon du cercle.
+	En partant d'un rayon nul (ou très petit) et en l'augmentant, on remarque que $P$ est le premier moment où le cercle et la droite $(d)$ se croisent. 
+	En d'autres termes, le point $P$ est le point de $(d)$ le plus proche $O$ car un point plus proche appartiendrait à un cercle de rayon inférieur.
+	D'après le cours, $P$ est le projeté orthogonal de $O$ sur $(d)$, et les droites $(d)$ et $(OP)$ sont perpendiculaires.
 }
 
 \exemulticols{}{
@@ -131,7 +150,9 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 	Distinguer deux cas selon que les points sont ou non du même côté de $(d)$.
 
 }{exe:proj-d}{
-	TODO
+	Lorsque $A$ et $B$ sont du même côté de $(d)$ on trouve $AB = 4\sqrt2$.
+	
+	Lorsque $A$ et $B$ sont de part et d'autre de $(d)$, on obtient $AB = 2\sqrt{13}$.
 }
 
 \ex{hauteur d'un triangle}{
@@ -161,7 +182,62 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 	\includegraphics[page=16, scale=1.1]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:aire-hauteur}{
-	TODO
+	\begin{enumerate}[label=\alph*)]
+		\item 
+		Comme $AB^2 + BC^2 = AC^2$, on trouve
+			\[ AB^2 = 104^2 - 96^2 = 1600 = 4\times100 = (2\times10)^2 = 20^2, \]
+		d'où $AB = \pm20$ et donc $AB = 20$ par positivité.
+		\item
+		Le triangle étant rectangle, c'est la moitié d'un rectangle et son aire est donnée par
+			\[ \frac12 AB \cdot BC = \frac12\times20\times96 = 960. \]
+		\item En déduire $BH$.
+		$BH$ est la hauteur du triangle $ABC$ de base $AC$.
+		L'aire du triangle est donc donnée par
+			\[ \frac12 AC \cdot BH = 960. \]
+		Par conséquent, $BH = \frac{1920}{AC} = \frac{1920}{104} = \frac{240}{13} \approx 18,46$.
+	\end{enumerate}
+}
+
+
+\exemulticols{, difficulty=1}{
+	Considérons le triangle $ABC$, le point $D$ appartenant au segment $[AB]$.
+	Supposons que $\text{Aire}(ABC) = \frac{3}{10}$ et que $AB=\frac34$ et $CD =\frac25$.
+	
+	Est-ce que les droites $(AB)$ et $(CD)$ sont perpendiculaires ?
+	Raisonner par contradiction.
+	\vfill\null
+}{
+	\begin{center}
+	\includegraphics[page=26, scale=.6]{figures/fig-geom.pdf}
+	\end{center}
+} {exe:aire-to-perp}{
+	Supposons que $(AB)$ et $(CD)$ soient perpendiculaires.
+	Alors $D$ est le projeté orthogonal de $C$ sur $(AB)$ et $CD$ est la hauteur du triangle $ABC$ de base $AB$.
+	L'aire du triangle $ABC$ est donc égale à
+		\[ \frac12 CD\cdot AB = \frac12 \cdot \frac25\cdot\frac34 = \frac3{20}. \]
+	Comme l'aire est égale à $\frac3{10}$ et non $\frac3{20}$, nous arrivons à une contradiction \Lightning.
+	Les droites ne sont pas perpendiculaires.
+}
+
+\exe{, difficulty=2}{
+	Considérons le triangle $ABC$ comme à l'exercice \ref{exe:aire-to-perp}, cette fois-ci d'aire $\text{Aire}(ABC) = 8$ et tel que $AB=4$ et $AC =5$.
+	Quelle longueur $AD$ est nécessaire pour que les droites $(AB)$ et $(CD)$ soient perpendiculaires ?
+} {exe:perp-to-aire}{
+	Nous allons étudier ce que l'ajout de l'hypothèse d'orthogonalité des droites $(AB)$ et $(CD)$ implique sur $D$.
+		\begin{align*}
+			(AB) \perp (CD) && \implies && AD = ?
+		\end{align*}
+	L'orthogonalité des droites $(AB)$ et $(CD)$ implique que la hauteur du triangle $ABC$ de base $AB$ est égale à $CD$.
+	Or, connaissant l'aire et la base, une seule hauteur est possible.
+	Dès lors, si $(AB)$ et $(CD)$ sont perpendiculaires, alors
+		\[ \frac12AB \cdot CD = 8 \iff CD = \frac{16}{4} = 4. \]
+		
+	En outre, si le triangle $ACD$ est rectangle en $D$, alors $AC^2 = AD^2 + CD^2$.
+	Ceci implique que
+		\[ AD^2 = AC^2 - CD^2 = 5^2 - 4^2 = 9, \]
+	et donc que $AD = 3$, car la longueur $AD$ est positive.
+	
+	Le seul choix possible est donc $AD = 3$ pour que $(AB)$ et $(CD)$ soient perpendiculaires.
 }
 
 \section{Trigonométrie}
@@ -239,7 +315,9 @@ Remarquons immédiatement qu'on a la relation
 	\includegraphics[page=20, scale=.7]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:formule-aire}{
-	TODO
+	L'aire $ABC$ est égale à $\frac12 h \cdot a$.
+	Or, $\sin(\gamma) = \frac{h}{b} \iff h = b\sin(\gamma)$.
+	En substituant l'expression de $h$ dans celle de l'aire, on conclut.
 }
 
 \exe{, difficulty=2}{
@@ -287,7 +365,9 @@ Remarquons immédiatement qu'on a la relation
 	En déduire la \emphindex{loi des sinus} :
 		\[ \dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta} = \dfrac{c}{\sin\gamma}. \]
 }{exe:loi-sinus}{
-	TODO
+	La trigonométrie simple donne les égalités $h = a\sin\beta = b\sin\alpha$, desquelles on déduit que 
+		\[ \dfrac{a}{\sin\alpha} = \dfrac{b}{\sin\beta}. \]
+	En considérant une autre hauteur partageant un autre angle, on obtient la dernière égalité de la loi des sinus.
 }
 
 \subsection{Quart de cercle trigonométrique}
@@ -343,31 +423,35 @@ Dans ce contexte, on déduit naturellement le théorème suivant.
 \exemulticols{}{
 	On considère un point $P$ sur un quart de cercle de rayon $2$ et de centre $O$, l'origine d'un repère.
 	On pose $\theta \in [0; 90\degree]$ l'angle entre la droite $(OP)$ et l'axe des abscisses.
-	Chaque choix de $\theta$ correspond donc à un point et aussi à un rectangle comme représentés ci-dessous.
+	Chaque choix de $\theta$ correspond donc à un point et aussi à un triangle comme représentés ci-contre.
 	
-	
+	\begin{enumerate}
+		\item
+		Montrer que l'aire $f(\theta)$ du triangle est donnée par 
+			\[ f(\theta) = 2 \cos(\theta) \sin(\theta). \]
+		\item
+		Grapher $\C_f$ à l'aide de la calculatrice et en déduire l'angle maximisant $f$ ainsi que les coordonnées du point $P$ correspondant.
+	\end{enumerate}
+}{
 	\begin{center}
 	\includegraphics[page=21]{figures/fig-geom.pdf}
 	\end{center}
-}{
+}{exe:opt-area}{
 	\begin{enumerate}
 		\item
-		Montrer que l'aire $f(\theta)$ du rectangle est donnée par 
-			\[ f(\theta) = 4 \cos(\theta) \sin(\theta). \]
-		\item
-		On souhaite choisir un angle $\theta \in [0; 90\degree]$ qui maximise l'aire $f(\theta)$.
-		Justifier qu'on puisse se restreindre à chercher $\theta$ dans $[0 ; 45\degree]$.
+		Par trigonométrie, $x = 2\cos(\theta)$ et $y = 2\sin(\theta)$.
+		Le triangle étant rectangle, son aire est la moitié de l'aire du rectangle de côtés $x$ et $y$, égale à
+			\[ \dfrac12 xy = \frac12 2\cos(\theta)2\sin(\theta) = f(\theta), \]
+		comme requis.
 		
 		\item
-		On admet que, pour tous les angles $\theta \in [0 ; 45\degree]$,
-			\[ \cos(\theta) \sin(\theta) = \dfrac12 \sin(2\theta). \]
-		Utiliser cette identité pour trouver le maximum de $f$ et l'angle $\theta$ qui le réalise.
-		
-		\item
-		En déduire les coordonnées du point $P$ sur l'arc de cercle pour lequel l'aire est maximale.
+		\begin{center}
+		\includegraphics[page=27]{figures/fig-geom.pdf}
+		\end{center}
+		On lit $x^\star \approx 45^\circ$ (c'est en fait une égalité) et $f(x^\star) \approx 1$.
+		Le point $P$ correspondant a pour coordonnées 
+			\[ P\bigl(2\cos(45^\circ) ; 2\sin(45^\circ)\bigr) = \bigl(\sqrt2 ; \sqrt2\bigr). \]
 	\end{enumerate}
-}{exe:cossin}{
-	TODO
 }
 
 \hrule
@@ -418,16 +502,33 @@ On peut donc connaître les valeurs de $\cos(\theta), \sin(\theta), \tan(\theta)
 		\[ \cos(60^\circ) = \dfrac12, \qquad \sin(60^\circ) = \dfrac{\sqrt{3}}2, \qquad \tan(60^\circ) =\sqrt{3}.\]
 }{prop:données}
 
-\exe{}{
-	Vérifier qu'on a bien $\cos^2(\theta) + \sin^2(\theta) = 1$ pour $\theta = 30^\circ, 60^\circ$.
+\exe{, difficulty=1}{
+	Calculer $\cos^2(\theta) + \sin^2(\theta)$ pour $\theta = 30^\circ$ et $\theta =60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:c2s2-vérif}{
-	TODO
+	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2$ et $\sin(30^\circ) = \frac12$.
+	En sommant leur carré, on trouve
+		\begin{align*}
+			\cos^2(30^\circ) + \sin^2(30^\circ) &= \left(\frac{\sqrt3}2\right)^2 + \left(\frac12\right)^2 \\
+			&= \frac34 + \frac14 \\
+			&= 1
+		\end{align*}
+	Un calcul analogue donne $\cos^2(60^\circ) + \sin^2(60^\circ) = 1$ également.
 }
 
-\exe{}{
-	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$.
+
+\exe{, difficulty=1}{
+	Vérifier qu'on a bien $\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}$ pour $\theta = 30^\circ, 60^\circ$ à l'aide des valeurs exactes données dans le cours.
 }{exe:tan-vérif}{
-	TODO
+	Pour $\theta = 30^\circ$, le cours donne $\cos(30^\circ) = \frac{\sqrt3}2, \sin(30^\circ) = \frac12,$ et $\tan(30^\circ) = \frac1{\sqrt3}$.
+	
+	Comme diviser équivaut à multiplier par l'inverse, il suit que
+		\begin{align*}
+			\dfrac{\sin(30^\circ)}{\cos(30^\circ)} &= \dfrac{\frac12}{\frac{\sqrt3}2} \\
+			&= \frac12 \cdot \frac2{\sqrt3} \\
+			&= \frac1{\sqrt3} \\
+			&= \tan(30^\circ).
+		\end{align*}
+	Un calcul analogue permet de vérifier l'identité pour $\theta = 60^\circ$.
 }
 
 \subsection{Calculs exacts de longueurs : manipulation des racines carrées}
@@ -558,6 +659,62 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	On appelle $a - b \sqrt{d}$ l'\emphindex{expression conjuguée} de $a + b \sqrt{d}$ (et vice versa).
 }
 
+
+
+\exe{, difficulty=1}{
+	Exprimer les fractions suivantes sous la forme $p + q\sqrt{d}$ avec $p, q\in\Q$ rationnels et $d \in\N$ entier naturel.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\dfrac1{\sqrt5}$
+		\item $\dfrac5{2\sqrt7}$
+		\item $\dfrac1{1+\sqrt2}$
+		\item $\dfrac{2+\sqrt2}{\sqrt2+3}$
+		\item $\dfrac{2\sqrt3}{6-\sqrt3}$
+		\item $\dfrac{\sqrt7+6}{1+5\sqrt7}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:conjugue}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\dfrac1{\sqrt5} = \dfrac{\sqrt5}5 = \frac15 \sqrt5
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac5{2\sqrt7} = \dfrac5{14}\sqrt7
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac1{1+\sqrt2} &= \dfrac{\sqrt2-1}{(1+\sqrt2)(\sqrt2-1)} \\
+				&= \dfrac{\sqrt2-1}{2-1} \\
+				&= \sqrt2 -1
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{2+\sqrt2}{\sqrt2+3} &= \dfrac{(2+\sqrt2)(3-\sqrt2)}{(\sqrt2+3)(3-\sqrt2)} \\
+				&= \dfrac{6+2\sqrt2+3\sqrt2 - 2}{9-2} \\
+				&= \frac{4+5\sqrt2}{7} \\
+				&= \frac47 + \frac57\sqrt2
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{2\sqrt3}{6-\sqrt3} &= \dfrac{2\sqrt3 (6+\sqrt3)}{(6-\sqrt3)(6+\sqrt3)} \\
+				&= \dfrac{12\sqrt3 + 6}{36-3} \\
+				&= \dfrac{12\sqrt3 + 6}{33} \\
+				&= \frac4{11}\sqrt3 + \frac2{11}
+			\end{align*}
+		\item 
+			\begin{align*}
+				\dfrac{\sqrt7+6}{1+5\sqrt7} &= \dfrac{(\sqrt7+6)(5\sqrt7-1)}{(1+5\sqrt7)(5\sqrt7-1)} \\
+				&= \dfrac{35-\sqrt7 + 30\sqrt7 - 6}{25\times7-1} \\
+				&= \dfrac{29 + 29\sqrt7}{174} \\
+				&= \frac16 + \frac16\sqrt7
+			\end{align*}
+	\end{enumerate}
+	\end{multicols}
+}
+
 \exe{}{
 	Résoudre les équations suivantes pour $x\in\R$, $x\neq0$. Exprimer $x$ sous la forme $q \sqrt{b}$ avec $q\in\Q$ rationnel et $b\in\N$ le plus petit possible à l'aide de la proposition \ref{prop:conjugué}.
 	\begin{multicols}{2}
@@ -576,6 +733,7 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	TODO
 }
 
+
 \exe{}{
 	Calculer la longueur \textbf{exacte} de tous les côtés des triangles rectangles suivants à l'aide des valeurs exactes de la proposition \ref{prop:données}.
 
@@ -589,7 +747,41 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 	\includegraphics[page=7]{figures/fig-geom.pdf}
 	\end{multicols}
 }{exe:trigo}{
-	TODO
+	\underline{Triangle $ABC$}
+	
+	\begin{multicols}{2}
+	\begin{align*}
+		\sin(30^\circ) &= \frac{AB}{AC} \\
+		\frac12 &= \frac{13}{AC} \\
+		AC \frac12 &= 13 \\
+		AC &= 13\times2=26
+	\end{align*}
+	
+	\begin{align*}
+		\tan(30^\circ) &= \frac{AB}{CB} \\
+		\frac1{\sqrt3} &= \frac{13}{AC} \\
+		AC \frac1{\sqrt3} &= 13 \\
+		AC &= 13\sqrt3
+	\end{align*}
+	\end{multicols}
+	
+	\underline{Triangle $DEF$}
+	
+	\begin{multicols}{2}
+	\begin{align*}
+		\cos(60^\circ) &= \frac{EF}{DF} \\
+		\frac12 &= \frac{2\sqrt6}{DF} \\
+		DF \frac12 &= 2\sqrt6 \\
+		DF &= 4\sqrt6
+	\end{align*}
+	
+	\begin{align*}
+		\tan(60^\circ) &= \frac{DE}{EF} \\
+		\sqrt3 &= \frac{DE}{2\sqrt6} \\
+		DE &= \sqrt3\times2\sqrt6 \\
+		DE &= 2\sqrt{3^2\times2} = 6\sqrt2
+	\end{align*}
+	\end{multicols}
 }
 
 
@@ -600,29 +792,68 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 		\includegraphics[page=14]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:pyth-thalès}{
-	TODO $x = 3\sqrt2 - 1$ et $y=3 - \dfrac{\sqrt2}2$ je crois.
+	Le théorème de Pythagore donne
+		\[ (1+x)^2 = 3^2 + 3^2 = 2\times3^2. \]
+	Il suit que $|1+x| = \sqrt{2\times3^2} = 3\sqrt2$, et donc
+		\begin{align*}
+			1+x &= 3\sqrt2 && \ou && & 1+x &= -3\sqrt2 \\
+			x &= 3\sqrt2-1 && \ou && & x &= -3\sqrt2-1
+		\end{align*}
+	Seule la solution positive $x=3\sqrt2-1$ est à conserver.
+	
+	D'après le théorème de Thalès, ou en considérant le sinus de l'angle commun aux deux triangles, on obtient
+		\begin{align*}
+			\dfrac3{1+x} &= \dfrac{y}{x} \\
+			\dfrac3{3\sqrt2} &= \dfrac{y}{3\sqrt2-1} \\
+			y &= \dfrac1{\sqrt2}\cdot(3\sqrt2-1) \\
+			y &= \dfrac{3\sqrt2-1}{\sqrt2} \\
+			y &= \dfrac{6-\sqrt2}{2} = 3 - \frac12 \sqrt2
+		\end{align*}
 }
 
-\exe{}{
-	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\sin(36^\circ) = \frac{\sqrt{10-2\sqrt2}}4$, étant donné que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
-}{exe:sin36}{
-	TODO
-}
 
-\exe{}{
-	À l'aide du théorème \ref{thm:c2-s2}, démontrer que $\cos(15^\circ) = \frac{\sqrt6+\sqrt2}4$, étant donné que $\sin(15^\circ) =  \frac{\sqrt6-\sqrt2}4$.
-}{exe:sin36}{
-	TODO
+\exe{, difficulty=2}{
+	En étant donné que 
+		\begin{align*}
+			\sin(15\degree) = \dfrac{\sqrt{6}-\sqrt{2}}4 && \text{ et } && \cos(36\degree) = \dfrac{1+\sqrt{5}}4,
+		\end{align*}
+	vérifier que $\cos(15\degree) = \frac{\sqrt{6}+\sqrt{2}}4$ et donner la valeur \textbf{exacte} de $\sin(36\degree)$.
+}{exe:c2-s2-1}{
+	Premièrement, vérifions l'égalité $\sin^2(15^\circ) + \cos^2(15^\circ) = 1$ avec les valeurs fournies.
+	\begin{align*}
+		\left(\frac{\sqrt{6}+\sqrt{2}}4\right)^2 + \left(\dfrac{\sqrt{6}-\sqrt{2}}4\right)^2 
+		&= \frac{6+2+2\sqrt{12}}{16} + \frac{6+2-2\sqrt{12}}{16} \\
+		&= \frac{8+8}{16} = 1
+	\end{align*}
+	Or, pour un $y$ donnée, il y a deux solutions $x$ à l'équation $x^2 + y^2 = 1$ : une positive, et l'autre négative.
+	Comme $\frac{\sqrt{6}+\sqrt{2}}4 > 0$, on a trouvé la solution positive, bien égale à $\cos(15^\circ)$ car celui-ci est positif d'après le cours.
+	
+	Deuxièmement, $\sin(36^\circ)$ est la solution $x\in\R$ positive de
+		\begin{align*}
+			x^2 + \cos^2(36^\circ) &= 1 \\
+			x^2 &= 1 - \left(\dfrac{1+\sqrt{5}}4\right)^2 \\
+			x^2 &= 1 - \dfrac{1+5+2\sqrt5}{16} \\
+			x^2 &= \dfrac{10 - 2 \sqrt5}{16} = \dfrac{5-\sqrt5}8
+		\end{align*}
+	Par conséquent, $\sin(36^\circ) = \sqrt{\frac{5-\sqrt5}8}$.
 }
 
 \exemulticols{}{
-	Dans la figure ci-contre, calculer $x$ en sachant que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
+	Dans la figure ci-contre, calculer $z$ en sachant que $\cos(36^\circ) = \frac{1+\sqrt5}4$.
 }{
 	\begin{center}
 		\includegraphics[page=15]{figures/fig-geom.pdf}
 	\end{center}
 }{exe:cos36}{
-	TODO
+	\begin{align*}
+		\cos(36^\circ) &= \dfrac{3}z \\
+		\dfrac{1+\sqrt5}4 &= \dfrac3z \\
+		z \cdot \dfrac{1+\sqrt5}4 &= 3 \\
+		z &= 3 \cdot \dfrac4{1+\sqrt5} \\
+		z &= \dfrac{12}{1+\sqrt5}  \\
+		z &= \dfrac{12(\sqrt5-1)}{(1+\sqrt5)(\sqrt5 - 1)} \\
+		z &=\dfrac{12(\sqrt5-1)}{4} = 3\sqrt5 - 3
+	\end{align*}
 }
 
 
@@ -665,6 +896,18 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 }{exe:qapprox-sqrt2}{
 	TODO
 }
+
+
+\newpage
+
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\shipoutExercise
+
+
+\section*{Approfondissements}
+\addcontentsline{toc}{section}{Approfondissements}
 
 \thm{de Dirichlet\footnotemark}{
 	Pour tout nombre $x \in \R$, il existe une infinité de $p, q\in\Z$ vérifiant
@@ -768,17 +1011,11 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 
 \footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
 
-
-\section*{Exercices}
-\addcontentsline{toc}{section}{Exercices}
-
 \shipoutExercise
 
 \section*{Solutions}
 \addcontentsline{toc}{section}{Solutions}
 
 \shipoutAnswer
-
-
 
 
