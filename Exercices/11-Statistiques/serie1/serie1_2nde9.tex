@@ -286,7 +286,7 @@
 
 
 \exe{, difficulty=1}{
-	En 2024, la moyenne des salaires mensuels d'une entreprise est de 1 860€.
+	En 2025, la moyenne des salaires mensuels d'une entreprise est de 1 860€.
 	L'entreprise, après une année où l'inflation se mesurait à 6\% décide d'ajouter des primes aux salaires : tous les employés recevront 50€ mensuellement en plus. 
 	%Ces $50$€ sont, eux aussi, soumis à l'inflation.
 	
@@ -302,7 +302,8 @@
 		\item
 		Quel est le coefficient multiplicateur associé à l'évolution réciproque ?
 		\item
-		Calculer la moyenne des salaires mensuels de l'entreprise en 2025 en euros constants.
+		Calculer la moyenne des salaires mensuels de l'entreprise en 2026 en euros constants.
+		Les 50€ de prime ont-ils compensé l'inflation ?
 	\end{enumerate}
 
 }{exe:4}{
@@ -317,24 +318,6 @@
 	À « euro fixe » et en moyenne, la prime ne permet pas de compenser l'inflation.
 }
 
-% Déclic 2nde
-\exe{}{
-	Deux étudiantes ont obtenues les notes suivantes aux trois derniers partiels de mathématiques : $(10 ; 9 ; 11)$ pour la première et $(6 ; 13 ; 11)$ pour la seconde.
-	\begin{enumerate}[label=\roman*)]
-		\item
-		Calculer la moyenne de chaque étudiante.
-		Peut-on dire que leur situation est similaire ?
-		\item
-		Calculer la variance des notes de chaque étudiante.
-		Comment interpréter le résultat ?
-		\item
-		% TODO: rephrasing
-		Une troisième étudiante a pour résultats $(4 ; 12 ; 14)$.
-		Sans calculs, décider si l'écart-type de ses notes se plus grand ou plus petit que celui des notes des autres étudiantes.
-	\end{enumerate}
-}{exe:var-comp}{
-	todo
-}
 
 %
 %\exe{}{
@@ -511,10 +494,29 @@
 
 }
 
+% Déclic 2nde
+\exe{}{
+	Deux étudiantes ont obtenues les notes suivantes aux trois derniers partiels de mathématiques : $(10 ; 9 ; 11)$ pour la première et $(6 ; 13 ; 11)$ pour la seconde.
+	\begin{enumerate}[label=\roman*)]
+		\item
+		Calculer la moyenne de chaque étudiante.
+		Peut-on dire que leur situation est similaire ?
+		\item
+		Calculer la variance des notes de chaque étudiante.
+		Comment interpréter le résultat ?
+		\item
+		% TODO: rephrasing
+		Une troisième étudiante a pour résultats $(4 ; 12 ; 14)$.
+		Sans calculs, décider si l'écart-type de ses notes se plus grand ou plus petit que celui des notes des autres étudiantes.
+	\end{enumerate}
+}{exe:var-comp}{
+	todo
+}
+
 \newpage
 
 \exe{}{
-	Pour chaque histogramme de la figure \ref{fig:hist}, trouver
+	Pour chaque histogramme de la figure \ref{fig:hist}, calculer
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
 			\item l'effectif total ;
@@ -526,7 +528,7 @@
 		\end{enumerate}
 		\end{multicols}
 	Sans connaître la valeur exacte de chaque note, on assignera la valeur moyenne à chaque élément d'une classe.
-	Par exemple, de l'histogramme \ref{fig:1a}, on lit 5 notes de valeur 11,5.
+	Par exemple, de l'histogramme \ref{fig:1a}, on lit 6 notes de valeur 12,5.
 }{exe:7}{
 	todo
 }
@@ -543,6 +545,7 @@
         %minor y tick num=1,
         axis line style = -,
         xtick distance=2,
+        ytick distance=1,
         area style,
         xlabel = {Note sur $20$},
         ylabel = {Effectif},
@@ -554,7 +557,7 @@
 		ybar,
 		bar width=8pt,
       ]
-      \addplot+[bar shift=4pt,draw=BLACK, thick, fill=BLUE_E!50] plot coordinates {
+      \addplot+[bar shift=5pt,draw=BLACK, thick, fill=BLUE_E!50] plot coordinates {
         (0,1)
         (3,1)
         (5,1)
@@ -598,7 +601,7 @@
 		ybar,
 		bar width=8pt,
       ]
-      \addplot+[bar shift=4pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
+      \addplot+[bar shift=5pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
         (0,1)
         (1,2)
         (2,2)
@@ -627,12 +630,19 @@
   \caption{Histogrammes de notes. Les classes sont de la forme $[k;k+1[$ avec $k$ un entier. 
   %La colonne entre $12$ et $13$ compte donc toutes les notes appartenant à $[12;13[$.
   \\
-  \underline{Lecture} : 3 notes de l'évaluation ``Vecteurs'' appartiennent à l'intervalle $[12;13[$.
+  \underline{Lecture} : 5 notes de l'évaluation ``Fonction carré'' appartiennent à l'intervalle $[10;11[$.
   }
   \label{fig:hist}
 \end{figure}
 
 
+\exe{}{
+	Pour chaque histogramme de la figure \ref{fig:hist}, faire une phrase décrivant la série statistique en s'appuyant sur les données obtenues à l'exercice \ref{exe:7}. 
+	
+	Faire une phrase de comparaison des deux séries statistiques en identifiant ce qu'elles ont en commun et ce qu'elles ont de différent.
+}{exe:8}{
+	todo
+}
 
 
 
