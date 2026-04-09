@@ -580,6 +580,26 @@
 \end{Exercise}
 \end{multicols}
 
+\begin{Answer}[ref=exe:proj2]
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
+		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
+	
+		\node[black] at (1.5, 4.5/8) {$\bullet$};
+		\node[black, below] at (1.5, 4.5/8) {$A$};
+		
+		\node[black] at (1.5, 24/9) {$\bullet$};
+		\node[black, above] at  (1.5, 24/9) {$B$};
+		
+		\node[black] at (1.2, 1.27) {$\bullet$};
+		\node[black, left] at  (1.2, 1.27) {$C$};
+		\draw[black, dashed] (1.5, 4.5/8) -- (1.2, 1.27) -- (1.5, 24/9);
+	\end{tikzpicture}
+	\end{center}
+\end{Answer}
+
+\vspace{-20pt}
 
 %\exe{}{
 %	Tracer une droite quelconque et un point n'appartenant pas à cette droite.
@@ -593,7 +613,6 @@
 			\item le point $C$, projeté orthogonal de $B$ sur $(d)$ ;% et
 			\item le point $D$, projeté orthogonal de $C$ sur $(d')$.
 		\end{enumerate}
-		
 	Que dire des droites $(AB)$ et $(CD)$ ? Justifier.
 }{
 	\begin{center}
@@ -605,7 +624,7 @@
 		\node[black, above] at  (7, 7/8)  {$A$};
 	\end{tikzpicture}
 	\end{center}
-} {exe:projpara}{
+}{exe:projpara}{
 
 	\begin{center}
 	\begin{tikzpicture}[scale=.8]
@@ -631,26 +650,6 @@
 	Par construction, les droites $(AB)$ et $(CD)$ sont toutes les deux perpendiculaires à la droite $(d')$.
 	Elles sont donc parallèles.
 }
-
-
-\begin{Answer}[ref=exe:proj2]
-	\begin{center}
-	\begin{tikzpicture}[scale=.8]
-		\draw[-, thick, black] (0,0) -- (8, 3) node[below]{$(d)$};
-		\draw[-, thick, black] (0,3) -- (9, 1) node[below]{$(d')$};
-	
-		\node[black] at (1.5, 4.5/8) {$\bullet$};
-		\node[black, below] at (1.5, 4.5/8) {$A$};
-		
-		\node[black] at (1.5, 24/9) {$\bullet$};
-		\node[black, above] at  (1.5, 24/9) {$B$};
-		
-		\node[black] at (1.2, 1.27) {$\bullet$};
-		\node[black, left] at  (1.2, 1.27) {$C$};
-		\draw[black, dashed] (1.5, 4.5/8) -- (1.2, 1.27) -- (1.5, 24/9);
-	\end{tikzpicture}
-	\end{center}
-\end{Answer}
 
 %\exemulticols{}{
 %	Un homme est dans une salle pentagonale comme schématisé ci-dessous.
