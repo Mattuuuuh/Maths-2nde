@@ -1,0 +1,295 @@
+\input{../preamble.tex}
+
+\SetDate[14/04/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 5}
+\fancyhead[C]{\textbf{Évaluation — Probabilités et Fonctions affines}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	\item
+	L'exercice \ref{exe:fa1} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\section*{Probabilités}
+
+
+\exe{4}{
+	On considère le lancer d'un D10, dé à 10 faces numérotées de $1$ à $10$.
+	On note le nombre de la face du dessus.
+	
+	Soient $A, B$ les deux événements suivants.
+		\begin{align*}
+			A : \text{\og le nombre est pair \fg}, && B : \text{\og le nombre est multiple de $5$ \fg}.
+		\end{align*}
+		
+	\begin{enumerate}
+		\item Donner l'univers de l'expérience. % ainsi que son cardinal $|\Omega|$.
+		\item Donner le cardinal de l'univers.
+		%\item Donner l'ensemble des issues associé à l'événement $B$.
+		\item Décrire avec des mots l'événement $A \cap B$. % puis donner l'ensemble des issues qui lui est associé.
+		\item Décrire avec des mots l'événement $A \cup B$. %puis donner l'ensemble des issues qui lui est associé.
+		%\item Décrire avec des mots l'événement $\overline{A}$. %puis donner l'ensemble des issues qui lui est associé.
+	\end{enumerate}
+}{exe:p1}{
+	\begin{enumerate}
+		\item 
+		$\Omega = \bigset{ 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ;8 ; 9 ; 10}$.
+		\item 
+		$|\Omega| = 10$.
+		\item 
+		$A\cap B$ : « le nombre est pair \textbf{et} multiple de 5 ».
+		\item 
+		$A\cup B$ : « le nombre est pair \textbf{ou} multiple de 5 ».
+	\end{enumerate}
+}
+
+
+\exe{6, difficulty=1}{
+	On tire une boule dans une urne contenant $3$ boules rouges et $4$ boules vertes et on regarde sa couleur.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si on tire une boule rouge, on lance un D$3$ bien équilibré, dé à $3$ faces numérotées de $1$ à $3$, et on note la face du dessus.
+		\item Si on tire une boule verte, on lance un D$5$ bien équilibré, dé à $5$ faces numérotées de $1$ à $5$, et on note la face du dessus.
+	\end{enumerate}
+	À la fin de l'expérience, on remet la boule tirée dans l'urne.
+
+	\begin{enumerate}
+		\item 
+		Créer un arbre de probabilité pour cette situation.
+		\item 
+		Quelle est la probabilité \emph{exacte} d'obtenir 4 ? 
+		\item
+		Considérons l'événement $E$ : « obtenir au moins un 4 après dix tirages consécutifs ».
+			\begin{enumerate}
+				\item Décrire $\overline{E}$ avec des mots.
+				\item Calculer $P(E)$ à $10^{-2}$ près.
+			\end{enumerate}
+	\end{enumerate}
+
+}{exe:p2}{
+	\begin{enumerate}
+		\item \,\\
+		\begin{center}
+		\begin{tikzpicture}
+			% depth 1
+			\foreach \i in {-3, 3}
+			\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+			% depth 2
+			% i = -3
+			\foreach \foreach \j in {-1, 0, 1}
+				\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-3+\j,-4) node {$\bullet$};
+			% i = +3
+			\foreach \j in {-2, -1, 0, 1, 2}
+				\draw[-, thick, black] (3,-2) node {$\bullet$} -- (3+\j,-4) node {$\bullet$};
+			
+			\draw (-3,-2) node[above left] {Rouge};
+			\draw (3,-2) node[above right] {Vert};
+				
+			\draw (-4,-4) node[below] {1};
+			\draw (-3,-4) node[below] {2};
+			\draw (-2,-4) node[below] {3};
+			
+			\draw (1,-4) node[below] {1};
+			\draw (2,-4) node[below] {2};
+			\draw (3,-4) node[below] {3};
+			\draw (4,-4) node[below] {4};
+			\draw (5,-4) node[below] {5};
+			
+			% proba
+			\draw (-1.75,-.5) node {$\dfrac37$};
+			\draw (1.75,-.5) node {$\dfrac47$};
+			
+			\draw (-2,-2.5) node {$\frac13$};
+			\draw (-2.75,-3.25) node {$\frac13$};
+			\draw (-4,-2.5) node {$\frac13$};
+			
+			\draw (2,-2.5) node {$\frac15$};
+			\draw (2.25,-3.1) node {$\frac15$};
+			\draw (3.2,-3.25) node {$\frac15$};
+			\draw (3.75,-3.1) node {$\frac15$};
+			\draw (4.25,-2.5) node {$\frac15$};
+			
+			% red path
+			\draw[dashed, thick, PINK, xshift=3pt] (0,0) -- (3,-2) -- (4,-4);
+		\end{tikzpicture}
+		\end{center}
+		\item 
+		Seul le chemin en pointillés roses aboutit à obtenir 4 : sa probabilité est
+			\[ \frac47 \times \frac15 = \frac4{35}. \]
+		\item
+			\begin{enumerate}
+				\item 
+				$\overline{E}$ : « n'obtenir aucun 4 après dix tirages consécutifs ».
+				\item 
+				D'abord, 
+					\begin{align*}
+					P\bigl(\overline{E}\bigr) &= P(\text{« ne pas obtenir 4 »})^{10} \\
+						&= \left(1 - \frac4{35}\right)^{10} \\
+						&= \left(\frac{31}{35}\right)^{10}
+					\end{align*}
+				Par conséquent, 
+					\[ P(E) = 1 - P\bigl(\overline{E}\bigr) = 1 - \left(\frac{31}{35}\right)^{10} \approx 0,70. \]
+			\end{enumerate}
+	\end{enumerate}
+}
+
+\vspace{10pt}
+
+\hrule
+
+\vspace{10pt}
+%Brouillon pour Natalija
+
+\newpage
+
+\section*{Fonctions affines}
+
+
+\begin{thm}\label{thm:1}
+	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
+	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
+	
+	Alors le coefficient directeur $a$ est égal à
+		\[ a = \phantom{\frac{y_B-y_A}{x_B - x_A} \hspace{1cm}} \]
+\end{thm}
+
+\exe{2}{
+	Compléter le théorème \ref{thm:1} vu en classe.
+}{exe:fa1}{
+	\[ a = \dfrac{y_B - y_A}{x_B - y_A} = \dfrac{y_A - y_B}{x_A - y_B}. \]
+}
+
+%\exe{2}{
+%	Soit $F$ la fonction affine sur $\R$ donnée par
+%		\[ F(x) = 6+x. \]
+%	Donner sans justification le coefficient directeur $a$ et l'ordonnée à l'origine $b$ de $F$.
+%}{exe:fa4}{
+%
+%}
+
+\exe{2}{
+	Soit $f$ la fonction affine sur $\R$ donnée par
+		\[ f(x) = x+31. \]
+	Déterminer l'expression algébrique de la fonction affine $g$ telle que $\C_g$ soit parallèle à $\C_f$ et que $\C_g$ passe par $(3;-1)$.
+}{exe:fa2}{
+	Posons $g(x) = ax+b$ avec $a$ et $b$ deux paramètres à trouver à l'aide des informations disponibles.
+	
+	Premièrement, le parallélisme implique que $a$ est égal au coefficient directeur de $f$, qui est 1.
+	Donc $a=1$ et $g(x) = x+b$.
+	
+	Deuxièmement, l'appartenance de $(3;-1)$ à $\C_g$ implique que $g(3) = -1$ et donc que $3+b = -1$, équation de laquelle nous obtenons $b=-4$.
+	
+	En conclusion, $g(x) = x-4$.
+}
+
+\exe{3, difficulty=1}{
+	Pour chaque paire de fonctions affines $f, g$ sur $\R$, donner $\C_f \cap \C_g$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = \dfrac53 x - 4$ et $g(x) = 11$.
+		\item $f(x) = 2x+1$ et $g(x) = 2x-3$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:fa3}{
+
+	\begin{enumerate}
+		\item 
+		En posant $f(x) = g(x)$, nous obtenons l'abscisse du point d'intersection des droites $\C_f$ et $\C_g$.
+			\begin{align*}
+				f(x) &= g(x) \\
+				\dfrac53 x - 4 &= 11 \\
+				\dfrac53 x &= 15 \\
+				x &= 15 \cdot \frac35 \\
+				x &= 9
+			\end{align*}
+		L'ordonnée du point d'intersection est égale à $y = f(9) = g(9) = 11$, donc
+			\[ \C_f \cap \C_g = \bigset{ (9 ; 11) }. \]
+		\item 
+		Les deux fonctions admettent le même coefficient directeur mais deux ordonnées à l'origine différentes : les droites sont donc parallèles non confondues et
+			\[ \C_f \cap \C_g = \emptyset. \]
+	\end{enumerate}
+}
+
+\exe{2}{
+	Considérons une fonction affine $f$ telle que les points $(2;6)$ et $(-1 ; 2)$ appartiennent à $\C_f$.
+	
+	\underline{Sans calculer} l'expression algébrique de $f$, répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Tracer $\C_f$ sur le domaine $[-3; 3]$.
+		\item Estimer \emph{graphiquement} à l'aide de $\C_f$ la valeur de l'ordonnée à l'origine de $f$.
+	\end{enumerate}
+}{exe:fa5}{
+	Il faut utiliser ici que $\C_f$ est une droite passant par les deux points donnés.
+	En plaçant les points et en traçant la droite, l'ordonnée à l'origine $b$ se lit comme l'ordonnée du point d'abscisse nulle, soit $(0 ; b)$.
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmin = -3, xmax=3, ymin=-1, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, ytick distance = 1]
+		\addplot[mark=*, mark size=1pt, PINK] (2,6) node[above]{$(2;6)$};
+		\addplot[mark=*, mark size=1pt, ORANGE] (-1,2) node[below]{$(-1;2)$};
+		
+		\addplot[-, thick, BLUE_E] (2,6) -- (axis cs:-1,2) node[midway,above]{$\C_f$};
+		
+		\addplot[mark=*, mark size=1pt, GREEN_E] (0,3.333) node[below right]{$(0;3,3)$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	Il suit que $b\approx 3,3$.
+}
+
+\exe{2, difficulty=1}{
+	\mbox{Considérons une fonction affine $f$ telle que les points $A(2;6)$ et $B(-1 ; 2)$ appartiennent à $\C_f$.}
+	
+	Trouver $f$ \emph{exactement} en calculant son coefficient directeur puis son ordonnée à l'origine.
+}{exe:fa6}{
+	Posons $f(x) = ax+b$ avec $a$ et $b$ des paramètres à déterminer à l'aide de l'appartenance des points $A$ et $B$ à la courbe $\C_f$.
+	
+	Premièrement, d'après le théorème \ref{thm:1}, nous avons
+		\[ a = \dfrac{y_B - y_A}{x_B-x_A} = \frac{2-6}{-1-2} = \frac{-4}{-3} = \frac43. \]
+	D'où $f(x) = \frac43 x + b$.
+	Ceci est cohérent avec l'exercice \ref{exe:fa5} car lorsque $x$ augmente de 3 pour passer de $B$ à $A$, $y$ augmente de 4.
+	Donc par proportionnalité, quand $x$ augmente de 1, $y$ augmente de $\frac43$, le coefficient directeur.
+	
+	Deuxièmement, l'appartenance de $A$ à $\C_f$ donne
+		\begin{align*}
+			f(x_A) &= y_A \\
+			f(2) &= 6 \\
+			\frac43\times2 + b &= 6 \\
+			b &= 6 - \frac83 = \frac{10}3
+		\end{align*}
+	En conclusion, $f(x) = \frac43x + \frac{10}3$.
+	Ceci est cohérent avec le $b\approx3,3$ trouvé à l'exercice \ref{exe:fa5}, car $\frac{10}3 = 3 + \frac13 = 3,333\hdots$.
+}
+
+\vspace{10pt}
+
+\hrule
+
+\vspace{10pt}
+%Brouillon pour Natalija
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
