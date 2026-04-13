@@ -32,6 +32,20 @@ margin=2cm,
 \newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
 \theoremstyle{named}
 \newtheorem*{namedtheorem}{Theorem}
+\usepackage[framemethod=pgf]{mdframed}
+% def
+\mdfdefinestyle{namedtheorem}{
+	%hidealllines=true,
+	%leftline=true,
+	linecolor=BLUE_E,
+	linewidth=1pt,
+	innertopmargin=-4pt,
+	%innerrightmargin=0,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=namedtheorem,
+]{namedtheorem}
 
 % roman subsections
 \renewcommand{\thesubsection}{\Roman{subsection}} 
