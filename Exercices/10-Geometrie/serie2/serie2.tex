@@ -26,18 +26,35 @@
 \end{namedtheorem}
 
 %\begin{namedtheorem}[Simplification]
-	On suppose que le prix est un nombre entier inférieur ou égal à 1000€.
+	On suppose que le prix est un nombre entier entre 1€ et 1 000€ inclus.
 %\end{namedtheorem}
 
 \subsection*{Premier objet}
 
-\hspace{-40pt}
-\begin{tabular}{|*{11}{c|}}\hline
-	Essai n° & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+%\hspace{-40pt}
+%\begin{tikzpicture}
+%\begin{axis}[
+%	axis y line=none, 
+%	axis x line=middle, 
+%	axis line style=-,
+%	xmin=0, xmax=1000, 
+%	ymin=0, ymax=1,
+%	y=1pt,
+%	x=.51pt,
+%	xtick distance = 250,
+%	minor x tick num = 3,
+%	]
+%\end{axis}
+%\end{tikzpicture}
+
+
+\hspace{-65pt}
+\begin{tabular}{|*{12}{c|}}\hline
+	Essai n° & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11
 	\\\hline
-	Estimation & & & & & & & & & &
+	Estimation & & & & & & & & & & & 
 	\\\hline
-	Comparaison & & & & & & & & & &
+	Comparaison & & & & & & & & & & &
 	\\\hline
 \end{tabular}
 
@@ -49,12 +66,28 @@ Nombre d'estimations :
 \subsection*{Deuxième objet}
 
 \hspace{-40pt}
-\begin{tabular}{|*{11}{c|}}\hline
-	Essai n° & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+\begin{tikzpicture}
+\begin{axis}[
+	axis y line=none, 
+	axis x line=middle, 
+	axis line style=-,
+	xmin=0, xmax=1000, 
+	ymin=0, ymax=1,
+	y=1pt,
+	x=.51pt,
+	xtick distance = 250,
+	minor x tick num = 3,
+	]
+\end{axis}
+\end{tikzpicture}
+
+\hspace{-65pt}
+\begin{tabular}{|*{12}{c|}}\hline
+	Essai n° & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11
 	\\\hline
-	Estimation & & & & & & & & & &
+	Estimation & & & & & & & & & & &
 	\\\hline
-	Comparaison & & & & & & & & & &
+	Comparaison & & & & & & & & & & &
 	\\\hline
 \end{tabular}
 
@@ -63,59 +96,57 @@ Prix final trouvé :
 \hspace{6cm}
 Nombre d'estimations :
 
-%\begin{namedtheorem}[Oracle]
-%	Vincent Lagaf.
-%	
-%	Il connait le prix exact et nous dit s'il est plus grand ou plus petit que le prix proposé.
-%\end{namedtheorem}
-%
-%\begin{namedtheorem}[Formalisation]
-%	On cherche un prix $P \in [a ; b]$.
-%	On ne peut que demander si un prix $x$ vérifie $x \leq P$ ou $x \geq P$.
-%\end{namedtheorem}
-%
-%\begin{namedtheorem}[Stratégie optimale]
-%	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle.
-%	Ceci permet d'exclure la moitié des valeurs.
-%	
-%	La stratégie est optimale car si l'oracle agit comme adversaire, il peut choisir de changer $P$ selon le prix $x$ proposé par le joueur.
-%\end{namedtheorem}
-
-\section*{À la recherche de racine}
-
-\begin{namedtheorem}[Nomenclature]
-	On appelle \emph{racine} de $f$ un antécédent $x$ qui vérifie $f(x) = 0$.
+\begin{namedtheorem}[Stratégie de dichotomie]
+	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle pour exclure la moitié des valeurs candidates.
+	
+	Le nombre d'essais ne dépassera jamais 10 car $2^{10} = 1024 > 1000$.
+	
+	%La stratégie est optimale car si l'oracle agit comme adversaire, il peut choisir de changer $P$ selon le prix $x$ proposé par le joueur.
 \end{namedtheorem}
 
-\begin{namedtheorem}[But]
-	Trouver une racine de $f$ : un $x$ du domaine tel que $f(x) = 0$.
+\section*{À la recherche de zéro}
+
+\begin{namedtheorem}[Problème de recherche de zéro]
+	Toutes les équations peuvent se réécrire comme $f(x) = 0$.
+	On appelle \emph{zéro} de $f$ ou \emph{racine} de $f(x) = 0$ un antécédent $x_0$ qui vérifie $f(x_0) = 0$.
+
+	Le problème est le suivant : étant donné une précision, comment obtenir un encadrement
+		$ a \leq x_0 \leq b $
+	d'amplitude inférieure à la précision fixée ?
 \end{namedtheorem}
 
 \begin{namedtheorem}[Hypothèses]
-	Le tracé de $\C_f$ est continu : on la trace sans lever son stylo.
-	
-	Sans perte de généralité, $f(x)$ passe du négatif au positif autour de sa racine (on peut prendre $-f$ dans le cas contraire).
+	\begin{itemize}
+		\item
+		Le tracé de $\C_f$ est continu : on trace la courbe sans lever son stylo.
+		\item
+		$f(x)$ passe du négatif au positif autour de sa racine.% (on peut prendre $-f$ dans le cas contraire).
+		\item
+		Pour chaque $x$ du domaine, un appel à un oracle permet de connaître le signe de $f(x)$.
+	\end{itemize}
 \end{namedtheorem}
 
-\begin{namedtheorem}[Oracle]
-	Étant donné un $x$, un appel à l'oracle permet de connaître le signe de $f(x)$.
-\end{namedtheorem}
+\begin{multicols}{2}
+	\begin{namedtheorem}[Algorithme]
+		Entrée : fonction $f$ ; premier encadrement $a \leq x_0 \leq b$ ; précision $p$
+		\\
+		Sortie : encadrement final de $x_0$ tel que $b-a \leq p$
+		\\
+		Tant que $b-a > p$ : \\
+			Calcul du milieu $m = \frac{a+b}2$ \\
+			Appel à l'oracle pour connaitre le signe de $f(m)$ \\
+			Si $f(m) > 0$ \\
+			$b = m$ \\
+			Sinon, \\
+			$a = m$ 
+	\end{namedtheorem}
 
-\begin{namedtheorem}[Stratégie optimale]
-	$f(x) = x^2 - 7$
-	$a = 2$
-	$b = 3$
-	$\text{precision} = 10^{-5}$
-	
-	Tant que \\
-	Faire : \\
-		Calcul du milieu $x = \frac{a+b}2$ \\
-		Appel à l'oracle pour connaitre le signe de $f(x)$ \\
-		Si $f(x) > 0$ \\
-		$b = x$ \\
-		Sinon, \\
-		$a = x$ \\
-\end{namedtheorem}
+	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{axis}[xmin = 0, xmax=2, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style = -, ytick distance=2, xtick distance=1, minor tick num=1, extra y ticks={0}, y=15pt, clip=true, ]
+		\addplot[BLUE_E, thick, domain =0:2, samples=100] {x^2 - 2}  node[above left, pos=.8] {$y=x^2 - 2$};
+	\end{axis}
+	\end{tikzpicture}
+\end{multicols}
 
 %Différence avec le balayage.
 
@@ -180,15 +211,17 @@ Nombre d'estimations :
 %	Comme $\sqrt{700} = \sqrt{100\times7} = \sqrt{100}\times\sqrt{7}=10\sqrt7$, on peut multiplier l'encadrement de l'exercice \ref{exe:precision} par 10 pour conclure immédiatement.
 %}
 
-\subsection*{Trouver un polynôme annulateur}
+\section*{Trouver un polynôme annulateur}
 
-
-La fonction $f(x) = x^2 - 3$ 
+\begin{namedtheorem}[Exemples]
+	Considérons la fonction $f(x) = x^2 - 3$. Elle est
 	\begin{enumerate}
-		\item est un \emph{polynôme}, car elle s'exprime comme somme de multiples de $1, x, x^2, x^3, \hdots$ ; 
-		\item est \emph{annulatrice} de $\sqrt3$ car $f\bigl(\sqrt3\bigr) = 0$ ;
-		\item est à \emph{coefficients entiers} car les multiples de $1, x, x^2$ sont $-3 ; 0 ; 1$ respectivement et sont entiers.
+		\item un \emph{polynôme}, car elle s'exprime comme somme de multiples de $1, x, x^2, x^3, \hdots$ ; 
+		\item \emph{annulatrice} de $\sqrt3$ car $f\bigl(\sqrt3\bigr) = 0$ ;
+		\item à \emph{coefficients entiers} car les multiples de $1, x, x^2$ sont $-3 ; 0 ; 1$ respectivement et sont entiers.
 	\end{enumerate}
+	La fonction $g(x) = x-\sqrt2$ est un polynôme annulateur de $\sqrt2$ mais pas à coefficients entiers.
+\end{namedtheorem}
 	
 \exe{, difficulty=0}{
 	Trouver un polynôme à coefficients entiers et annulateur de $\sqrt2$.
@@ -197,13 +230,13 @@ La fonction $f(x) = x^2 - 3$
 }
 	
 \exe{, difficulty=1}{
-	Trouver un polynôme à coefficients entiers et annulateur de $\dfrac{\sqrt3}2$.
+	Trouver un polynôme à coefficients entiers et annulateur de $\frac{\sqrt3}2$.
 }{exe:p-annul-sqrt32}{
 	$g(x) = 4x^2 -3$ fonctionne, car $\frac{\sqrt3}2 = \sqrt{\frac34}$.
 }
 	
 \exe{, difficulty=2}{
-	Trouver un polynôme à coefficients entiers et annulateur à la fois de $\sqrt2$ et de $\dfrac{\sqrt3}2$.
+	Trouver un polynôme à coefficients entiers et annulateur à la fois de $\sqrt2$ et de $\frac{\sqrt3}2$.
 }{exe:p-annul-sqrt2-sqrt32}{
 	$h(x) = f(x)\cdot g(x) = (x^2 - 2)(4x^2 -3) = 4x^4 - 11x^2 + 6$ fonctionne, avec $f$ et $g$ des deux exercices précédents.
 }
@@ -211,7 +244,7 @@ La fonction $f(x) = x^2 - 3$
 
 \exe{, difficulty=3}{
 	Trouver un polynôme à coefficients entiers et annulateur de
-		$ \sin(36\degree) = \sqrt{\dfrac{5-\sqrt5}8}. $
+		$ \sin(36\degree) = \sqrt{\frac{5-\sqrt5}8}. $
 
 }{exe:p-annul}{
 	En nommant $x = \sqrt{\dfrac{5-\sqrt5}8}$, la mise au carré donne
@@ -235,22 +268,41 @@ La fonction $f(x) = x^2 - 3$
 	$\pi$ est un nombre transcendant : il n'existe pas de polynôme à coefficients entiers annulateur de $\pi$.
 \end{namedtheorem}
 
-\subsection*{Étude de complexité}
+\section*{Étude de complexité}
 
-
-\exe{, difficulty=1}{
-	Montrer que l'algorithme par dichotomie avec fonction $f(x) = x^2 - 2$ et domaine de départ $[1 ; 2]$ n'atteint jamais la racine.
-	
-	\emph{Indication : montrer que les bornes stockées sont toujours rationnelles.}
-}{exe:appf1}{
-}
 
 \exe{, difficulty=2}{
 	En partant d'un encadrement à l'unité d'une racine, combien d'étapes faut-il pour calculer ses 10 premières décimales ?
 	
-	Montrer qu'on cherche le plus petit $n\in\N$ tel que $2^{n} \geq 10^{10}$
-	puis résoudre ce problème algorithmiquement et vérifier qu'on obtient bien $n=34$.
+	Montrer qu'on cherche le plus petit $n\in\N$ tel que $2^{n} > 10^{10}$
+	puis concevoir un algorithme permettant de trouver $n$.
+	L'implémenter et vérifier qu'on obtient bien $n=34$.
 }{exe:appf4}{
+	Algorithme Python naïf : tant que $2^n < 10^{10}$, ajouter 1 à $n$.
+	
+	Cependant cet algorithme nécessite de calculer $10^{10}$ et donc de le représenter en base 2. Or, la longueur de cette représentation est exactement $n$.
+	
+	Algorithme sur machine de Turing : écrire $10$ en base 2, calculer $10^{10}$ avec 4 multiplications
+		\[ 10^{10} = \left(\left((10)^2\right)^2\right)^2 \times 10^2 \]
+	puis regarder la longueur de la représentation binaire.
+	
+}
+
+\exe{, difficulty=2}{
+	Montrer que l'algorithme par dichotomie sur la fonction $f(x) = x^2 - 2$ avec encadrement de départ $1 \leq x_0 \leq 2$ et précision $p=0$ ne termine jamais.
+	
+	\emph{Indication : montrer que les bornes calculées sont toujours rationnelles alors que $\sqrt2$ ne l'est pas.}
+}{exe:appf1}{
+	L'encadrement $[1;2]$ de départ est rationnel.
+	De plus, à chaque étape, si l'encadrement est rationnel, le prochain le sera aussi.
+	En effet, le milieu de $\left[\frac{a}b ; \frac{p}q\right]$ est
+		\[ m = \frac12 \left(\frac{a}b + \frac{p}q\right) = \frac{aq + bp}{2bq} \in \Q, \]
+	qui est toujours rationnel.
+	
+	La racine de $f$ située dans $[1;2]$ est bien sûr $\sqrt2$.
+	Dès lors, un encadrement $a \leq \sqrt2 \leq b$ d'amplitude $b-a=0$ correspond à obtenir $a=b=\sqrt2$, car $b-a = 0 \iff a = b$.
+	
+	Or, $\sqrt2$ est irrationnel d'après le cours, et donc l'algorithme ne peut pas aboutir.
 }
 
 

@@ -106,7 +106,9 @@ margin=2cm,
 % plots
 \usepackage{pgfplots}
 \tikzset{
-	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2}
+	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2,},
+	/pgf/number format/set decimal separator={,},
+	/pgf/number format/set thousands separator={~},
 }
 
 %subfigures
