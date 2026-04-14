@@ -1,0 +1,155 @@
+\input{../preamble.tex}
+
+\SetDate[17/04/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 9}
+\fancyhead[C]{\textbf{Évaluation — Fonctions affines}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Sauf mention du contraire, toutes les réponses doivent être justifiées.
+	\item
+	L'exercice \ref{exe:fa1} peut être entièrement fait sur la feuille d'évaluation.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\begin{thm}\label{thm:1}
+	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
+	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
+	
+	Alors le coefficient directeur $a$ est égal à
+		\[ a = \phantom{\frac{y_B-y_A}{x_B - x_A} \hspace{1cm}} \]
+\end{thm}
+
+\exe{2}{
+	Compléter le théorème \ref{thm:1} vu en classe.
+}{exe:fa1}{
+	\[ a = \dfrac{y_B - y_A}{x_B - y_A} = \dfrac{y_A - y_B}{x_A - y_B}. \]
+}
+
+%\exe{2}{
+%	Soit $F$ la fonction affine sur $\R$ donnée par
+%		\[ F(x) = 6+x. \]
+%	Donner sans justification le coefficient directeur $a$ et l'ordonnée à l'origine $b$ de $F$.
+%}{exe:fa4}{
+%
+%}
+
+\exe{4}{
+	Soit $f$ la fonction affine sur $\R$ donnée par
+		\[ f(x) = x+31. \]
+	Déterminer l'expression algébrique de la fonction affine $g$ telle que $\C_g$ soit parallèle à $\C_f$ et que $\C_g$ passe par $(3;-1)$.
+}{exe:fa2}{
+	Posons $g(x) = ax+b$ avec $a$ et $b$ deux paramètres à trouver à l'aide des informations disponibles.
+	
+	Premièrement, le parallélisme implique que $a$ est égal au coefficient directeur de $f$, qui est 1.
+	Donc $a=1$ et $g(x) = x+b$.
+	
+	Deuxièmement, l'appartenance de $(3;-1)$ à $\C_g$ implique que $g(3) = -1$ et donc que $3+b = -1$, équation de laquelle nous obtenons $b=-4$.
+	
+	En conclusion, $g(x) = x-4$.
+}
+
+\exe{6, difficulty=1}{
+	Pour chaque paire de fonctions affines $f, g$ sur $\R$, donner $\C_f \cap \C_g$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = \dfrac53 x - 4$ et $g(x) = 11$.
+		\item $f(x) = 2x+1$ et $g(x) = 2x-3$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:fa3}{
+
+	\begin{enumerate}
+		\item 
+		En posant $f(x) = g(x)$, nous obtenons l'abscisse du point d'intersection des droites $\C_f$ et $\C_g$.
+			\begin{align*}
+				f(x) &= g(x) \\
+				\dfrac53 x - 4 &= 11 \\
+				\dfrac53 x &= 15 \\
+				x &= 15 \cdot \frac35 \\
+				x &= 9
+			\end{align*}
+		L'ordonnée du point d'intersection est égale à $y = f(9) = g(9) = 11$, donc
+			\[ \C_f \cap \C_g = \bigset{ (9 ; 11) }. \]
+		\item 
+		Les deux fonctions admettent le même coefficient directeur mais deux ordonnées à l'origine différentes : les droites sont donc parallèles non confondues et
+			\[ \C_f \cap \C_g = \emptyset. \]
+	\end{enumerate}
+}
+
+\exe{4}{
+	Considérons une fonction affine $f$ telle que les points $(2;6)$ et $(-1 ; 2)$ appartiennent à $\C_f$.
+	
+	\underline{Sans calculer} l'expression algébrique de $f$, répondre aux questions suivantes.
+	\begin{enumerate}
+		\item Tracer $\C_f$ sur le domaine $[-3; 3]$.
+		\item Estimer \emph{graphiquement} à l'aide de $\C_f$ la valeur de l'ordonnée à l'origine de $f$.
+	\end{enumerate}
+}{exe:fa5}{
+	Il faut utiliser ici que $\C_f$ est une droite passant par les deux points donnés.
+	En plaçant les points et en traçant la droite, l'ordonnée à l'origine $b$ se lit comme l'ordonnée du point d'abscisse nulle, soit $(0 ; b)$.
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmin = -3, xmax=3, ymin=-1, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, grid=both, ytick distance = 1]
+		\addplot[mark=*, mark size=1pt, PINK] (2,6) node[above]{$(2;6)$};
+		\addplot[mark=*, mark size=1pt, ORANGE] (-1,2) node[below]{$(-1;2)$};
+		
+		\addplot[-, thick, BLUE_E] (2,6) -- (axis cs:-1,2) node[midway,above]{$\C_f$};
+		
+		\addplot[mark=*, mark size=1pt, GREEN_E] (0,3.333) node[below right]{$(0;3,3)$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	Il suit que $b\approx 3,3$.
+}
+
+\exe{4, difficulty=1}{
+	\mbox{Considérons une fonction affine $f$ telle que les points $A(2;6)$ et $B(-1 ; 2)$ appartiennent à $\C_f$.}
+	
+	Trouver $f$ \emph{exactement} en calculant son coefficient directeur puis son ordonnée à l'origine.
+}{exe:fa6}{
+	Posons $f(x) = ax+b$ avec $a$ et $b$ des paramètres à déterminer à l'aide de l'appartenance des points $A$ et $B$ à la courbe $\C_f$.
+	
+	Premièrement, d'après le théorème \ref{thm:1}, nous avons
+		\[ a = \dfrac{y_B - y_A}{x_B-x_A} = \frac{2-6}{-1-2} = \frac{-4}{-3} = \frac43. \]
+	D'où $f(x) = \frac43 x + b$.
+	Ceci est cohérent avec l'exercice \ref{exe:fa5} car lorsque $x$ augmente de 3 pour passer de $B$ à $A$, $y$ augmente de 4.
+	Donc par proportionnalité, quand $x$ augmente de 1, $y$ augmente de $\frac43$, le coefficient directeur.
+	
+	Deuxièmement, l'appartenance de $A$ à $\C_f$ donne
+		\begin{align*}
+			f(x_A) &= y_A \\
+			f(2) &= 6 \\
+			\frac43\times2 + b &= 6 \\
+			b &= 6 - \frac83 = \frac{10}3
+		\end{align*}
+	En conclusion, $f(x) = \frac43x + \frac{10}3$.
+	Ceci est cohérent avec le $b\approx3,3$ trouvé à l'exercice \ref{exe:fa5}, car $\frac{10}3 = 3 + \frac13 = 3,333\hdots$.
+}
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
