@@ -1,4 +1,3 @@
-
 cd out/
 echo "merging solutions"
 pdftk $(ls *pdf) cat output ../DM_sols.pdf
