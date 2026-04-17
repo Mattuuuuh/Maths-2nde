@@ -250,11 +250,11 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 	\texttt{\\
 	for x in np.arange(0,90,.0001): \\
 	\null\qquad if f(x) > f(xetoile):\\
-		\null\qquad\qquad print(f"ATTENTION : ", x)
+		\null\qquad\qquad print("ATTENTION : ", x)
 	}
 	
 	Ceci prend un certain temps car il y a $90\times10^4+1 = 900~001$ antécédents à tester.
-	Au final, rien n'est imprimé par l'algorithme : il n'y a aucun \texttt{x} tel que \texttt{f(x) > f(xstar)}.
+	Au final, rien n'est imprimé par l'algorithme : il n'y a aucun \texttt{x} tel que \texttt{f(x) > f(xetoile)}.
 	
 }
 
