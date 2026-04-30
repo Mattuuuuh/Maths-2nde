@@ -1,0 +1,15 @@
+DM PAPIER (10pts):
+
+Exercice 1 : 1pt
+Exercice 2 : 4pts ; 2 pour triangle rectangle + sin/cos ; 2 pour résultat
+Exercice 3 : 2pts ; 1 pour triangle rectangle + tan ; 1 pour AI = AO-OI et résultat
+Exercice 5 : 3pts ; 1 pour f(x) <= f(x*) ; 1 pour impossible à vérifier par balayage ; 1 pour 900 000 antécédents 
+
+
+
+CAPYTALE (5pts) :
+
+Définition de f : _/1 pt
+Graphes de f : _/2 pts
+Ajout du point (x* ; f(x*)) au graphe : _/1 pt
+Algorithme de balayage vérifiant f(x) <= f(x*) : _/1 pt
