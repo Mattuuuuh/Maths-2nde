@@ -1,0 +1,336 @@
+\input{../preamble.tex}
+
+\SetDate[20/05/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Variations}}
+\fancyhead[R]{\today}
+
+\subsection*{Automatismes}
+
+
+\subsection*{Exercices}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
+	       		{,,,,}
+	\end{tikzpicture}
+	\end{center}
+}{exe:10}{
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
+	       		{  $-10$ ,,  $\dfrac23$ ,,  $12$ }
+	       	
+		\tkzTabVar
+			{-/$-32$, R/, R/, R/, +/$34$}
+		\tkzTabIma
+			{1}{5}{3}{0}
+		\tkzTabLine
+			{,,-,,z,,+}
+	\end{tikzpicture}
+	\end{center}
+
+}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
+	       		{,,,,}
+	\end{tikzpicture}
+	\end{center}
+}{exe:11}{
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
+	       		{  $-10$ ,,  $-\dfrac13$ ,,  $8$ }
+	       	
+		\tkzTabVar
+			{+/$58$, R/, R/, R/, -/$-50$}
+		\tkzTabIma
+			{1}{5}{3}{0}
+		\tkzTabLine
+			{,,+,,z,,-}
+		
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+\exe{}{
+	\begin{enumerate}
+		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
+		\item Remplir le tableau de variations et de signes ci-dessous.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
+	       		{,,,,}
+	       	
+	\end{tikzpicture}
+	\end{center}
+}{exe:12}{
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
+	       		{  $-12$ ,,,,  $-5$ }
+	       	
+		\tkzTabVar
+			{+/$-3$, R/, R/, R/,+/$-3$}
+		\tkzTabLine
+			{,,,,-,,}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+    every y tick label/.style={
+        anchor=near yticklabel opposite,
+        xshift=0.2em,
+    }]
+    			%f de l'éval f° affines
+			\addplot[no marks, myb, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80} 
+			node[pos=.6, right]{$\mathcal{C}_f$};
+			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2};
+			
+			% g sinus
+			\addplot[no marks, myr, -, very thick] expression[domain=-11:-2.5, samples=500]{2*sin(x*60)}
+			node[pos=.75, above]{$\mathcal{C}_g$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{,,,,,,}
+	\end{tikzpicture}
+	%\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=3,espcl=3]
+	       		{$x$ / 1 , Variation de $g(x)$ / 2}
+	       		{,,,,}
+	\end{tikzpicture}
+	\end{center}
+	
+}{exe:13}{
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+    every y tick label/.style={
+        anchor=near yticklabel opposite,
+        xshift=0.2em,
+    }]
+    			%f de l'éval f° affines
+			\addplot[no marks, myb, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80} 
+			node[pos=.6, right]{$\mathcal{C}_f$};
+			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
+			\addplot[no marks, myb, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2};
+			
+			% g sinus
+			\addplot[no marks, myr, -, very thick] expression[domain=-11:-2.5, samples=500]{2*sin(x*60)}
+			node[pos=.75, above]{$\mathcal{C}_g$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	%\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{ $-11$ , ${-9,1}$ , {$-8$} , {$-6$} ,  {$-5,5$} ,  {$-5$} ,  {$-2,5$} }
+	       	
+		\tkzTabVar
+			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
+		
+	\end{tikzpicture}
+	%\vfill
+	%\vfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=3,espcl=3]
+	       		{$x$ / 1 , Variation de $g(x)$ / 2}
+	       		{ $-11$ , ${-10,5}$ , {$-7,5$} , {$-4,5$} ,  {$-2,5$} }
+	       	
+		\tkzTabVar
+			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
+		
+	\end{tikzpicture}
+	\end{center}
+
+}
+
+
+
+\exe{}{
+	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple.
+	$f, g, h, F$ et $G$ sont des fonctions définies sur $\R$.
+	\begin{enumerate}
+		\item Si $f$ est affine et admet deux racines distinctes, alors $f(x) = 0$ pour tout $x\in\R$.
+		\item Si $g(x) \geq 0$ pour tout $x\in\R$, alors $g$ n'admet aucune racine.
+		\item Si $h(x) > 0$ pour tout $x\in\R$, alors $h$ n'admet aucune racine.
+		\item Si $F$ n'admet aucune racine, alors $F(x) > 0$ pour tout $x\in\R$.
+		\item $G(x) = (x-3)^2 (x-5)^2$ est toujours positive est admet exactement deux racines distinctes.
+	\end{enumerate}
+}{exe:14}{
+
+	\begin{enumerate}
+		\item 
+		C'est vrai. 
+		Si $f$ est affine et admet deux racines distinctes, alors sa courbe représentative est une droite qui intersecte deux fois l'axe des abscisses en deux endroits différents.
+		$\C_f$ et l'axe des abscisses sont donc confondues et on a bien $f(x) = 0$ pour tout $x\in\R$.
+		
+		Algébriquement, on a $(x_A ; 0), (x_B ; 0) \in \C_f$ pour $x_A \neq x_B$.
+		La formule du coefficient directeur donne $a = 0$, et une appartenance donne $b=0$.
+		
+		\item 
+		C'est faux : être positif ou nul n'empêche pas d'être nul.
+		On pourra prend la fonction carré $f(x) = x^2$ comme contre-exemple : $f(x) \geq 0$ pour tout $x\in\R$ et pourtant $f$ admet $0$ pour racine car $f(0) = 0$.
+		
+		\item 
+		C'est vrai : être strictement positif empêche d'être nul. 
+		C'est bien la différence entre la positivité stricte ($>$) et large ($\geq$).
+		
+		\item 
+		C'est faux : si $F$ ne s'annule jamais, elle n'est pas nécessairement toujours strictement positive car elle pourrait aussi être toujours strictement négative !
+		Prenons par exemple $f(x) = -1 -x^2$ qui vérifie $f(x) \leq -1 < 0$ pour tout $x\in\R$ réel.
+		
+		\item 
+		C'est vrai.
+		Un carré est toujours positif, donc $G(x)$ est le produit de deux positifs et est positif.
+		En outre, si $G(x) = 0$, alors $(x-3)^2 = 0$ ou $(x-5)^2 = 0$.
+		Il suit que $x=3$ ou $x=5$, et ce sont les deux seules racines de $G$.
+		
+	\end{enumerate}
+
+}
+
+
+
+\exe{}{
+	Pour chaque proposition suivante, dire si elle est \underline{toujours vraie} ou si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
+	
+	\begin{center}
+\def\arraystretch{1.5}
+\setlength\tabcolsep{6pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2}
+	       		{7,$a$,11,$b$,$c$,28,$d$,31}
+			
+		\tkzTabVar
+			{-/, +/,-/$-45$,R/,R/,+/$20$, R/, -/$-30$}
+		\tkzTabIma
+			{1}{2}{1}{$30$}
+%		\tkzTabIma
+%			{3}{6}{3}{25}
+%		\tkzTabIma
+%			{3}{6}{6}{70}
+			
+	\end{tikzpicture}
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(a) = 35$ & &  \\ \hline
+		$f(a) > 30$ &  & \\ \hline
+		$f(b) \leq 20$ &  & \\ \hline
+		$f(a) > f(b)$ &  & \\ \hline
+	\end{tabular}	
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(b) < f(c)$ &  & \\ \hline
+		$f(c) < f(a)$ &  & \\ \hline
+		$f(c) = 19$ & &  \\ \hline
+		$f(c) < 30$ &  & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(d) = -5$ & &  \\ \hline
+		$f(d) < 0$ & &  \\ \hline
+		$f(c) = f(d)$ & &  \\ \hline
+		$f(d) \geq -30$ &  & \\ \hline
+	\end{tabular}	
+	\end{center}
+
+}{exe:16}{
+
+	\begin{center}
+\def\arraystretch{1.5}
+\setlength\tabcolsep{6pt}
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(a) = 35$ & & \checkmark \\ \hline
+		$f(a) > 30$ & \checkmark & \\ \hline
+		$f(b) \leq 20$ & \checkmark & \\ \hline
+		$f(a) > f(b)$ & \checkmark & \\ \hline
+	\end{tabular}	
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(b) < f(c)$ & \checkmark & \\ \hline
+		$f(c) < f(a)$ & \checkmark & \\ \hline
+		$f(c) = 19$ & & \checkmark \\ \hline
+		$f(c) < 30$ & \checkmark & \\ \hline
+	\end{tabular}
+	\hfill
+	\begin{tabular}{|c|c|c|} \hline
+		Proposition & Vrai & Faux \\ \hline
+		$f(d) = -5$ & & \checkmark \\ \hline
+		$f(d) < 0$ & & \checkmark \\ \hline
+		$f(c) = f(d)$ & & \checkmark \\ \hline
+		$f(d) \geq -30$ & \checkmark & \\ \hline
+	\end{tabular}	
+	\end{center}
+}
+
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
