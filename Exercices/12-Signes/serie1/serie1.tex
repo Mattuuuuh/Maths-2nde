@@ -5,7 +5,7 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Seconde}
-\fancyhead[C]{\textbf{Signes et variations}}
+\fancyhead[C]{\textbf{Étude de signes}}
 \fancyhead[R]{\today}
 
 \subsection*{Automatismes}
@@ -52,8 +52,8 @@
 			]
 			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-2.5:2.3, samples=101]{(x-1)*(x-2)*(x+2)/2}
 			node[pos=.5, above]{$\mathcal{C}_f$};
-			\addplot[no marks, RED_E, -,  very thick] expression[domain=-2.5:2.3, samples=101]{1/(x-2.5) + 1/(x+2.7) + 2*x}
-			node[pos=.75, above]{$\mathcal{C}_g$};
+			\addplot[no marks, RED_E, -,  very thick] expression[domain=-2.5:2.3, samples=101]{1/(x-2.7) + 1/(x+2.7) + 2*x}
+			node[pos=.9, above]{$\mathcal{C}_g$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -88,23 +88,23 @@
 
 \exemulticols{}{
 	Exprimer par lecture graphique les ensembles suivants sous forme d'union d'intervalles.
-		\begin{enumerate}[itemsep=25pt]
+		\begin{enumerate}[itemsep=20pt]
 		% for Natalija :)
 			\item $\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0}$
 			\item $\bigset{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0}$
-			\item $\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0}$
+			%\item $\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0}$
 		\end{enumerate}
 	\vfill\null
 }{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1]
-	\begin{axis}[xmin = -3, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=<->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, clip=true]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
 		
 		% (g)
-		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_g$};
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5+.5}  node[right] {$\C_g$};
 		
 		% (f)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {2.9-1.2*x^2}  node[pos = .41, above=4pt] {$\C_f$};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-3}  node[right] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -120,27 +120,184 @@
 		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
 		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
 		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
-		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
-		Graphiquement, on lit que
-			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0 \text{ et } g(x) \geq 0 \} \approx [-1,2 ; 0,2], \]
-		et que (en faisant à nouveau une hypothèse de continuité)
-			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \leq 0 \text{ et } g(x) \leq 0 \} \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
-		On prend l'union des deux pour obtenir
-			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x)  \geq 0 \} \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+%		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
+%		Graphiquement, on lit que
+%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0 \text{ et } g(x) \geq 0 \} \approx [-1,2 ; 0,2], \]
+%		et que (en faisant à nouveau une hypothèse de continuité)
+%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \leq 0 \text{ et } g(x) \leq 0 \} \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+%		On prend l'union des deux pour obtenir
+%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x)  \geq 0 \} \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
 	\end{enumerate}
 }
 
+\vspace{-50pt}
+
+\subsection*{Exercices}
+
+
 
 \exe{}{
-	Pour chacune des fonctions affines $f$ suivantes, donner l'intervalle 
-		$ \bigset{ x \in \R \text{ tq. } f(x) \geq 0 }. $
+	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $f$ et $g$ sur le domaine $\D = [-3;  3]$.
+	
+
+	\begin{center}
+	\hspace{110pt}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=55pt]
+		
+		% (g)
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5+.5}  node[pos=0,left] {$\C_g$};
+		
+		% (f)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-3}  node[pos=0,left] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=4,espcl=2]
+	       		{$x$ / 1 , Signe de $f(x)$ / 1, Signe de $g(x)$ / 1, Signe du produit $f(x)\cdot g(x)$ / 1}
+	       		{,,,,,,}
+	\end{tikzpicture}
+	\end{center}
+	
+	$\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0} = $
+	
+}{exe:13}{
+
+	todo
+
+}
+
+
+\begin{multicols}{2}
+
+\exe{}{
+	Esquisser la droite $y=3x - 2$ et remplir le tableau de signes ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=20pt,
+			xtick distance=1,
+			ytick distance=2,
+			%y=20pt,
+			clip=true,
+			]
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-4:4, samples=2]{3*x-2}
+			node[left, pos=.9]{$y=3x-2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\hspace{-50pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=2,espcl=2.7]
+			{$x$ / 1 , Signe de $3x-2$ / 1}
+			{,,}
+	\end{tikzpicture}
+	\end{center}
+}{exe:10}{
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $3x-2$ / 1}
+	       		{  $\minfty$ ,,  $\frac23$ ,,  $\pinfty$ }
+		\tkzTabLine
+			{,,-,,z,,+}
+	\end{tikzpicture}
+	\end{center}
+
+}
+
+\columnbreak
+
+\exe{}{
+	Esquisser la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2, xmax=2, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=40pt,
+			xtick distance=1,
+			ytick distance=2,
+			%y=20pt,
+			clip=true,
+			]
+			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-2:2, samples=2]{-6*x-2}
+			node[right, pos=.55]{$y=-6x-2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\hspace{-25pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=2,espcl=3]
+			{$x$ / 1 , Signe de $-6x-2$ / 1}
+			{,,}
+	\end{tikzpicture}
+	\end{center}
+}{exe:11}{
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $-6x-2$ / 1}
+	       		{  $\minfty$ ,,  $-\frac13$ ,,  $\pinfty$ }
+		\tkzTabLine
+			{,,+,,z,,-}
+		
+	\end{tikzpicture}
+	\end{center}
+}
+
+\end{multicols}
+
+%\exe{}{
+%	\begin{enumerate}
+%		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
+%		\item Remplir le tableau de variations et de signes ci-dessous.
+%	\end{enumerate}
+%	
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Signe de $-3$ / 1}
+%	       		{,,,,}
+%	       	
+%	\end{tikzpicture}
+%	\end{center}
+%}{exe:12}{
+%	\begin{center}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%	       		{$x$ / 1 , Signe de $-3$ / 1}
+%	       		{  $-12$ ,,,,  $-5$ }
+%		\tkzTabLine
+%			{,,,,-,,}
+%	\end{tikzpicture}
+%	\end{center}
+%}
+
+
+
+\exe{}{
+	Pour chaque fonction affine $f$ suivante, calculer l'intervalle 
+		$ \bigset{ x \in \R \text{ tq. } f(x) \geq 0 } $ et faire un dessin rapide de $\C_f$.
 	
 	\begin{multicols}{3}
 	\begin{enumerate}
-		\item $f(x) = x+3$
-		\item $f(x) = 3x-10$
+		\item $f(x) = x+4$
+		\item $f(x) = 3x-14$
 		\item $f(x) = x$
-		\item $f(x) = -4x-12$
+		\item $f(x) = -4x-16$
 		\item $f(x) = -10x$
 		\item $f(x) = 1$
 	\end{enumerate}
@@ -150,16 +307,16 @@
 		\item 
 		L'inégalité $x+3 \geq 0$ est équivalente à $x \geq -3$.
 		On obtient donc 
-			\[ \{ x \in \R \text{ tq. } x+ 3 \geq 0 \} = \{ x \in \R \text{ tq. }x \geq -3 \} = [-3 ; \pinfty[. \]
+			\[ \{ x \in \R \text{ tq. } x+ 4 \geq 0 \} = \{ x \in \R \text{ tq. }x \geq -4 \} = [-4 ; \pinfty[. \]
 		\item 
-			\[ \left[ \dfrac{10}3 ; \pinfty \right[ \]
+			\[ \left[ \dfrac{14}3 ; \pinfty \right[ \]
 		\item
 			\[ [0 ; \pinfty[ \]
 		\item
-		L'inégalité $-4x - 12 \geq 0$ est équivalente à $-4x \geq 12$.
-		Pour continuer, on multiplie par $-\dfrac14$ qui est négatif, ce qui change donc le sens de l'inégalité : $x \leq -3$.
+		L'inégalité $-4x - 16 \geq 0$ est équivalente à $-4x \geq 16$.
+		Pour continuer, on multiplie par $-\dfrac14$ qui est négatif, ce qui change donc le sens de l'inégalité : $x \leq -4$.
 		On obtient donc
-			\[ ]\minfty ; -3]. \]
+			\[ ]\minfty ; -4]. \]
 		\item
 			\[ ]\minfty ; 0] \]
 		\item 
@@ -171,87 +328,50 @@
 }
 
 
-\subsection*{Exercices}
-
-
 
 
 \exe{}{
-	À l'aide de l'exercice \ref{exe:1}, donner le domaine de définition de chaque fonction suivante.
-	
-	\begin{multicols}{3}
-	\begin{enumerate}
-		\item $f(x) = \sqrt{x+3}$
-		\item $g(x) = \sqrt{3x-10}$
-		\item $h(x) = \sqrt{-4x-12}$
-	\end{enumerate}
-	\end{multicols}
-
-}{exe:2}{
-	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
-	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
-	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
-	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
-	
-	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
-	\begin{enumerate}
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } x + 3 \geq 0 \} = [-3; \pinfty[, \]
-		d'après l'exercice \ref{ex:1}.
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[, \]
-		d'après l'exercice \ref{ex:1}.
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } -4x-12 \geq 0 \} = ]\minfty; -3], \]
-		d'après l'exercice \ref{ex:1}.
-	\end{enumerate}
-}
-
-
-
-\exe{}{
-	À l'aide de l'exercice \ref{exe:1} remplir les tableaux de signes ci-dessous et donner
+	%À l'aide de l'exercice \ref{exe:1} remplir les tableaux de signes ci-dessous et donner
+	Remplir les tableaux de signes ci-dessous et en déduire
 		\begin{align*}
-			\{ x \in \R \text{ tq. } f(x) \geq 0 \}, && \{ x \in \R \text{ tq. } g(x) \leq 0 \}, && \{ x \in \R \text{ tq. } h(x) \geq 0 \}
+			%\bigset{ x \in \R \text{ tq. } f(x) \geq 0 }, && \bigset{ x \in \R \text{ tq. } g(x) \leq 0 }, && \bigset{ x \in \R \text{ tq. } h(x) \geq 0 }
+			\bigset{ x \in \R \text{ tq. } f(x) \geq 0 }, && \et && \bigset{ x \in \R \text{ tq. } g(x) \leq 0 }
 		\end{align*}
 	sous forme d'union d'intervalles.
 	
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / 1}
-	       		{$\minfty$,,,$\pinfty$}
+		 [lgt=4.5,espcl=4]
+	       		{$x$ / 1 , Signe de $x+3$ / 1, Signe de $3x-10$ / 1 , Signe de \mbox{$f(x) = (x+3)(3x-10)$} / 1}
+	       		{,,,}
 		
 	\end{tikzpicture}
 	
+	\vfill\null
+	
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / 1}
+		 [lgt=4.5,espcl=4]
+	       		{$x$ / 1 , Signe de $x$ / 1, Signe de $-4x-12$ / 1 , Signe de \mbox{$g(x) = x(-4x-12)$} / 1}
 	       		{,,,}
 	       		
 	\end{tikzpicture}
-	
-	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ / 1}
-	       		{,, , ,}
-	   
-	\end{tikzpicture}
+%	
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 [lgt=5.5,espcl=3]
+%	       		{$x$ / 1 , Signe de $x+3$ / 1, Signe de $-10x$ / 1 , Signe de $3x-10$ / 1 , Signe de \mbox{$h(x) = -10x(x+3)(3x-10)$} / 1}
+%	       		{,, , ,}
+%	   
+%	\end{tikzpicture}
 	\end{center}
 }{exe:3}{
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $3x-10$ / 1 , $f(x) = (x+3)(3x-10)$ / 1}
+		 [lgt=4.5,espcl=4]
+	       		{$x$ / 1 , Signe de $x+3$ / 1, Signe de $3x-10$ / 1 , Signe de \mbox{$f(x) = (x+3)(3x-10)$} / 1}
 	       		{$\minfty$,$-3$, $\dfrac{10}3$,$\pinfty$}
 		
 		\tkzTabLine
@@ -264,9 +384,8 @@
 	
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x$ / 1, $-4x-12$ / 1 , $g(x) = x(-4x-12)$ / 1}
+		 [lgt=4.5,espcl=4]
+	       		{$x$ / 1 , Signe de $x$ / 1, Signe de $-4x-12$ / 1 , Signe de \mbox{$g(x) = x(-4x-12)$} / 1}
 	       		{ $\minfty$ , $-3$ , $0$ , $\pinfty$ }
 	       		
 		\tkzTabLine
@@ -278,34 +397,34 @@
 	\end{tikzpicture}
 	
 	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-		 [lgt=5]
-	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ /1}
-	       		{ $\minfty$ , $-3$ ,  $0$ ,  $\dfrac{10}3$ , $\pinfty$ }
-	       		
-		\tkzTabLine
-			{,-,z,+,,+,,+}
-		\tkzTabLine
-			{,+,,+,z,-,,-}
-		\tkzTabLine
-			{,-,,-,, -,z,+}
-		\tkzTabLine
-			{,+,z,-,z, +,z,-}
-	\end{tikzpicture}
+%	\begin{tikzpicture}
+%		\tkzTabInit
+%		 %[lgt=3,espcl=1.5]
+%		 [lgt=5]
+%	       		{$x$ / 1 , $x+3$ / 1, $-10x$ / 1 , $3x-10$ / 1 , $h(x) = -10x(x+3)(3x-10)$ /1}
+%	       		{ $\minfty$ , $-3$ ,  $0$ ,  $\dfrac{10}3$ , $\pinfty$ }
+%	       		
+%		\tkzTabLine
+%			{,-,z,+,,+,,+}
+%		\tkzTabLine
+%			{,+,,+,z,-,,-}
+%		\tkzTabLine
+%			{,-,,-,, -,z,+}
+%		\tkzTabLine
+%			{,+,z,-,z, +,z,-}
+%	\end{tikzpicture}
 	\end{center}
 
 
 	On remplit le tableau de signe en calculant d'abord quand chaque fonction affine s'annule : c'est exactement quand elle change de signe (du positif vers le négatif, ou l'inverse).
 	
-	Par exemple, $x+3$ s'annule en $x=-3$, et l'exercice \ref{ex:1} donne que $x+3$ est positif après $-3$, est donc nécessairement négatif avant.
+	Par exemple, $x+3$ s'annule en $x=-3$, est positif après $-3$, et est négatif avant.
 	On fait idem pour $3x-10$, qui s'annule en $\dfrac{10}3$, et qui est positif après, et négatif avant.
 	
 	Le signe du produit $f(x) = (x+3)(3x-10)$ est déduit du signe des facteurs, à l'aide des règles ``positif $\times$ positif = positif ; négatif $\times$ négatif = positif ; positif $\times$ négatif = négatif''.
 	De plus, lorsqu'un des deux facteurs des nul, le produit est forcément nul, multiplier par zéro donne toujours zéro.
 	
-	Le deuxième tableau est similaire, en faisant attention au fait que le signe de $-4x-12$ est positif puis négatif (cf. exercice \ref{ex:1}).
+	Le deuxième tableau est similaire, en faisant attention au fait que le signe de $-4x-12$ est positif puis négatif.
 	Ceci est en fait dû au fait qu'on ait multiplié par $-\dfrac14$ lors de la résolution de $-4x-12 \geq 0$.
 	Le signe du coefficient directeur $a$ de la fonction affine donne donc l'allure de la droite associée : si $a>0$, la droite monte du négatif vers le positif en passant par $0$, et si $a <0$, la droite descend du positif vers le négatif en passant par $0$.
 	
@@ -314,15 +433,15 @@
 
 
 
-\exe{}{
-	À l'aide de l'exercice \ref{exe:3}, donner le domaine de définition de la fonction
-		\[ f(x) = \sqrt{-10x(x+3)(3x-10)}. \]
-}{exe:4}{
-	La seul contrainte à poser sur $x$ est que l'expression sous la racine soit positive ou nulle.
-		\[ \D_f = \{ x \in \R \text{ tq. } -10x(x+3)(3x-10) \geq 0 \}. \]
-	Or la dernière ligne du dernier tableau de signes de l'exercice \ref{ex:4} nous donne exactement les intervalles où $h(x) = -10x(x+3)(3x-10)$ est positive ou nulle :
-		\[ \D_f = ]\minfty ; -3] \cup \left[0 ; \dfrac{10}3 \right]. \]
-}
+%\exe{}{
+%	À l'aide de l'exercice \ref{exe:3}, donner le domaine de définition de la fonction
+%		\[ f(x) = \sqrt{-10x(x+3)(3x-10)}. \]
+%}{exe:4}{
+%	La seul contrainte à poser sur $x$ est que l'expression sous la racine soit positive ou nulle.
+%		\[ \D_f = \{ x \in \R \text{ tq. } -10x(x+3)(3x-10) \geq 0 \}. \]
+%	Or la dernière ligne du dernier tableau de signes de l'exercice \ref{ex:4} nous donne exactement les intervalles où $h(x) = -10x(x+3)(3x-10)$ est positive ou nulle :
+%		\[ \D_f = ]\minfty ; -3] \cup \left[0 ; \dfrac{10}3 \right]. \]
+%}
 
 
 \exe{}{
@@ -331,17 +450,17 @@
 	
 	\begin{enumerate}
 		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
-		\item En déduire les valeurs interdites à $f$ et donc le domaine de définition $\D_f$.
+		\item En déduire le domaine de définition $\D_f$.
 		\item Remplir le tableau de signes ci-dessous.
-		\item Exprimer $\{ x \in \D_f \text{ tq. } f(x) \geq 0 \}$ sous forme d'union d'intervalles.
+		\item Exprimer $\bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 }$ sous forme d'union d'intervalles.
 	\end{enumerate}
 	
 	
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1, $x-3$ / 1 , $7x+1$ / 1, $2x+1$ / 1 , $f(x)$ / 1}
+		 [lgt=3,espcl=3.5]
+	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
 	       		{,, , ,}
 	       		
 	\end{tikzpicture}
@@ -353,23 +472,24 @@
 			\[ (x-3)(7x+1) = x^2 \cdot (7) + x \cdot (1 - 21) + (-3) = 7x^2 - 20x - 3. \]
 		\item
 		Il n'y a pas de racine carrée dans l'expression de $f$ : la seule opération illégale est la division par zéro.
-		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\dfrac17$.
-		Par conséquent, $\D_f = \R - \left\{ 3 ; -\dfrac17 \right\}$.
+		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\frac17$.
+		Par conséquent, 
+			\[ \D_f = \R - \left\{ 3 ; -\dfrac17 \right\}. \]
 		
 		\item 
 		Dans la dernière ligne, on note par les doubles barres les valeurs interdites à $f$.
 		Lorsque le numérateur $2x+1$ est nul, $f$ est bien nulle, mais $f$ n'est pas définie aux $x$ pour lesquels le dénominateur s'annule.
 		\item 
-			\[ \{ x \in \D_f \text{ tq. } f(x) \geq 0 \} = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
+			\[ \bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
 		Les valeurs interdites $-\frac17$ et $3$ ne sont pas incluses car elles n'appartiennent pas à $\D_f$, ensemble dans lequel on pioche nos $x$.
 	\end{enumerate}
 	
 	\begin{center}
 	\begin{tikzpicture}
 		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1, $x-3$ / 1 , $7x+1$ / 1, $2x+1$ / 1 , $f(x)$ / 1}
-	       		{ $\minfty$ , $-\dfrac12$ ,  $-\dfrac17$ ,  $3$ , $\pinfty$ }
+		 [lgt=3,espcl=3.5]
+	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
+	       		{ $\minfty$ , $-\frac12$ ,  $-\frac17$ ,  $3$ , $\pinfty$ }
 	       		
 		
 		\tkzTabLine
@@ -410,6 +530,35 @@
 
 }
 
+
+\exe{}{
+	%À l'aide de l'exercice \ref{exe:1}, donner le domaine de définition de chaque fonction suivante.
+	Calculer le domaine de définition de chaque fonction suivante.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $f(x) = \sqrt{x+3}$
+		\item $g(x) = \sqrt{3x-10}$
+		\item $h(x) = \sqrt{-4x-12}$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:2}{
+	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
+	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
+	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
+	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
+	
+	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
+	\begin{enumerate}
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } x + 3 \geq 0 \} = [-3; \pinfty[. \]
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[. \]
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } -4x-12 \geq 0 \} = ]\minfty; -3]. \]
+	\end{enumerate}
+}
 
 \exe{}{
 	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
@@ -456,261 +605,42 @@
 }
 
 
-%\exe{}{
-%	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
-%		\begin{align}
-%			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
-%		\end{align}
-%	\begin{enumerate}
-%		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
-%		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
-%	\end{enumerate}
-%}{exe:9}{
-%
-%	\begin{enumerate}
-%		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
-%		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
-%			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
-%		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
-%		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
-%		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
-%	\end{enumerate}
-%
-%}
-
-
 \exe{}{
+	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
+		\end{align}
 	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) =3x - 2$ sur le domaine $\D = [-10 ; 12]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
+		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
 	\end{enumerate}
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
-	       		{,,,,}
-	\end{tikzpicture}
-	\end{center}
-}{exe:10}{
+}{exe:9}{
 
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
-	       		{  $-10$ ,,  $\dfrac23$ ,,  $12$ }
-	       	
-		\tkzTabVar
-			{-/$-32$, R/, R/, R/, +/$34$}
-		\tkzTabIma
-			{1}{5}{3}{0}
-		\tkzTabLine
-			{,,-,,z,,+}
-	\end{tikzpicture}
-	\end{center}
-
-}
-
-
-\exe{}{
 	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) = -6x - 2$ sur le domaine $\D = [-10 ; 8]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
+		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
+		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
+			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
+		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
+		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
 	\end{enumerate}
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
-	       		{,,,,}
-	\end{tikzpicture}
-	\end{center}
-}{exe:11}{
-
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
-	       		{  $-10$ ,,  $-\dfrac13$ ,,  $8$ }
-	       	
-		\tkzTabVar
-			{+/$58$, R/, R/, R/, -/$-50$}
-		\tkzTabIma
-			{1}{5}{3}{0}
-		\tkzTabLine
-			{,,+,,z,,-}
-		
-	\end{tikzpicture}
-	\end{center}
-}
-
-
-\exe{}{
-	\begin{enumerate}
-		\item Esquisser la courbe représentative de la fonction affine $f(x) = -3$ sur le domaine $\D = [-12 ; -5]$.
-		\item Remplir le tableau de variations et de signes ci-dessous.
-	\end{enumerate}
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
-	       		{,,,,}
-	       	
-	\end{tikzpicture}
-	\end{center}
-}{exe:12}{
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $-3$ / 2, Signe de $-3$ / 1}
-	       		{  $-12$ ,,,,  $-5$ }
-	       	
-		\tkzTabVar
-			{+/$-3$, R/, R/, R/,+/$-3$}
-		\tkzTabLine
-			{,,,,-,,}
-	\end{tikzpicture}
-	\end{center}
-}
-
-\exe{}{
-	Remplir approximativement les tableaux ci-dessous à l'aide des graphes de $\C_f$ et $\C_g$ sur le domaine $\D = [-11; -2,5]$.
-	
-	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-    every y tick label/.style={
-        anchor=near yticklabel opposite,
-        xshift=0.2em,
-    }]
-    			%f de l'éval f° affines
-			\addplot[no marks, myb, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80} 
-			node[pos=.6, right]{$\mathcal{C}_f$};
-			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
-			\addplot[no marks, myb, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
-			\addplot[no marks, myb, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2};
-			
-			% g sinus
-			\addplot[no marks, myr, -, very thick] expression[domain=-11:-2.5, samples=500]{2*sin(x*60)}
-			node[pos=.75, above]{$\mathcal{C}_g$};
-		\end{axis}
-	\end{tikzpicture}
-	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Signe de $f(x)$ / 1}
-	       		{,,,,,,}
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{,,,,,,}
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Signe de $g(x)$ / 1}
-	       		{,,,,}
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		[lgt=3,espcl=3]
-	       		{$x$ / 1 , Variation de $g(x)$ / 2}
-	       		{,,,,}
-	\end{tikzpicture}
-	\end{center}
-	
-}{exe:13}{
-	\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[xmin = -11, xmax=-2.5, ymin=-4.3, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-    every y tick label/.style={
-        anchor=near yticklabel opposite,
-        xshift=0.2em,
-    }]
-    			%f de l'éval f° affines
-			\addplot[no marks, myb, -, very thick] expression[domain=-11:-8, samples=50]{5*(x+10)*(x^3 - 300*x - 1920)/80} 
-			node[pos=.6, right]{$\mathcal{C}_f$};
-			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)};
-			\addplot[no marks, myb, -, very thick] expression[domain=-6:-5, samples=50]{5*((x+5.5)^2 - 0.5^2 + 0.2)};
-			\addplot[no marks, myb, -, very thick] expression[domain=-5:-2.5, samples=2]{5*0.2};
-			
-			% g sinus
-			\addplot[no marks, myr, -, very thick] expression[domain=-11:-2.5, samples=500]{2*sin(x*60)}
-			node[pos=.75, above]{$\mathcal{C}_g$};
-		\end{axis}
-	\end{tikzpicture}
-	
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Signe de $f(x)$ / 1}
-	       		{ $-11$ , $-10$ , {$-8,4$} , {$-6,5$} ,  {$-5,8$} ,  {$-5,3$} ,  {$-2,5$} }
-	       	
-		\tkzTabLine
-			{,-,z,+,z,-,z,+,z,-,z,+}
-		
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=2]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{ $-11$ , ${-9,1}$ , {$-8$} , {$-6$} ,  {$-5,5$} ,  {$-5$} ,  {$-2,5$} }
-	       	
-		\tkzTabVar
-			{-/$-3$, +/${3,1}$, -/$-4$, +/$1$, -/${-0,2}$, +/$1$, +/$1$}
-		
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Signe de $g(x)$ / 1}
-	       		{ $-11$ , $-9$ , $-6$ , $-3$ ,  {$-2,5$} }
-	       	
-		\tkzTabLine
-			{,+,z,-,z,+,z,-}
-		
-	\end{tikzpicture}
-	%\vfill
-	\begin{tikzpicture}
-		\tkzTabInit
-		[lgt=3,espcl=3]
-	       		{$x$ / 1 , Variation de $g(x)$ / 2}
-	       		{ $-11$ , ${-10,5}$ , {$-7,5$} , {$-4,5$} ,  {$-2,5$} }
-	       	
-		\tkzTabVar
-			{-/{$1,8$},+/{$2$}, -/{$-2$}, +/{$2$}, -/{$-1$}}
-		
-	\end{tikzpicture}
-	\end{center}
 
 }
+
+
 
 
 
 \exe{}{
 	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple.
+	
 	$f, g, h, F$ et $G$ sont des fonctions définies sur $\R$.
 	\begin{enumerate}
-		\item Si $f$ est affine et admet deux racines distinctes, alors $f(x) = 0$ pour tout $x\in\R$.
-		\item Si $g(x) \geq 0$ pour tout $x\in\R$, alors $g$ n'admet aucune racine.
-		\item Si $h(x) > 0$ pour tout $x\in\R$, alors $h$ n'admet aucune racine.
-		\item Si $F$ n'admet aucune racine, alors $F(x) > 0$ pour tout $x\in\R$.
-		\item $G(x) = (x-3)^2 (x-5)^2$ est toujours positive est admet exactement deux racines distinctes.
+		\item Si $f$ est affine et admet deux zéros distincts, alors $f(x) = 0$ pour tout $x\in\R$.
+		\item Si $g(x) \geq 0$ pour tout $x\in\R$, alors $g$ n'admet aucun zéro.
+		\item Si $h(x) > 0$ pour tout $x\in\R$, alors $h$ n'admet aucun zéro.
+		\item Si $F$ n'admet aucun zéro, alors $F(x) > 0$ pour tout $x\in\R$.
+		\item $G(x) = (x-3)^2 (x-5)^2$ est toujours positive est admet exactement deux zéros distincts.
 	\end{enumerate}
 }{exe:14}{
 
@@ -745,84 +675,81 @@
 
 }
 
+\subsection*{Approfondissements}
 
 
-\exe{}{
-	Pour chaque proposition suivante, dire si elle est \underline{toujours vraie} ou si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
+
+\exe{,difficulty=2}{
+	Soit $f(x) = x^2 - x - 1$ une fonction quadratique sur $\R$.
 	
-	\begin{center}
-\def\arraystretch{1.5}
-\setlength\tabcolsep{6pt}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $f(x)$ / 2}
-	       		{7,$a$,11,$b$,$c$,28,$d$,31}
-			
-		\tkzTabVar
-			{-/, +/,-/$-45$,R/,R/,+/$20$, R/, -/$-30$}
-		\tkzTabIma
-			{1}{2}{1}{$30$}
-%		\tkzTabIma
-%			{3}{6}{3}{25}
-%		\tkzTabIma
-%			{3}{6}{6}{70}
-			
-	\end{tikzpicture}
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(a) = 35$ & &  \\ \hline
-		$f(a) > 30$ &  & \\ \hline
-		$f(b) \leq 20$ &  & \\ \hline
-		$f(a) > f(b)$ &  & \\ \hline
-	\end{tabular}	
-	\hfill
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(b) < f(c)$ &  & \\ \hline
-		$f(c) < f(a)$ &  & \\ \hline
-		$f(c) = 19$ & &  \\ \hline
-		$f(c) < 30$ &  & \\ \hline
-	\end{tabular}
-	\hfill
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(d) = -5$ & &  \\ \hline
-		$f(d) < 0$ & &  \\ \hline
-		$f(c) = f(d)$ & &  \\ \hline
-		$f(d) \geq -30$ &  & \\ \hline
-	\end{tabular}	
-	\end{center}
+	\begin{enumerate}
+		\item
+		Montrer que  $f(x) = \left( x - \frac{1 - \sqrt{5}}2 \right)\cdot \left( x - \frac{1 + \sqrt{5}}2 \right)$ pour tout $x\in\R$.
+		\item 
+		En déduire les zéros de $f$. 
+	\end{enumerate}
+	Le zéro positif $\phi = \frac{1 + \sqrt{5}}2$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
+	\begin{enumerate}[resume]
+		\item
+		Vérifier que les zéros trouvés annulent bien $f$ en calculant leur image par $f$.
+	\end{enumerate}
+}{exe:phi}{
+	etc...
+}
 
-}{exe:16}{
+\exe{, difficulty=2}{
+	Considérons l'équation quadratique $3x^2-7x+4= 0$ pour $x\in\R$.
+	\begin{enumerate}
+		\item
+		Montrer que $1$ est racine de l'équation.
+		\item
+		Quelle fonction $q_1(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x)$ n'ait plus de terme en $x^2$ ?
+		\item
+		Quelle fonction $q_2(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x) - (x-1)q_2(x)$ n'ait plus de terme en $x$ ?
+		\item
+		Montrer que $3x^2 - 7x+4 = (x-1)\bigl[q_1(x) + q_2(x)\bigr]$ et en déduire l'autre racine de l'équation.
+	\end{enumerate}
+}{exe:euclide-poly}{
+	etc...
+}
 
-	\begin{center}
-\def\arraystretch{1.5}
-\setlength\tabcolsep{6pt}
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(a) = 35$ & & \checkmark \\ \hline
-		$f(a) > 30$ & \checkmark & \\ \hline
-		$f(b) \leq 20$ & \checkmark & \\ \hline
-		$f(a) > f(b)$ & \checkmark & \\ \hline
-	\end{tabular}	
-	\hfill
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(b) < f(c)$ & \checkmark & \\ \hline
-		$f(c) < f(a)$ & \checkmark & \\ \hline
-		$f(c) = 19$ & & \checkmark \\ \hline
-		$f(c) < 30$ & \checkmark & \\ \hline
-	\end{tabular}
-	\hfill
-	\begin{tabular}{|c|c|c|} \hline
-		Proposition & Vrai & Faux \\ \hline
-		$f(d) = -5$ & & \checkmark \\ \hline
-		$f(d) < 0$ & & \checkmark \\ \hline
-		$f(c) = f(d)$ & & \checkmark \\ \hline
-		$f(d) \geq -30$ & \checkmark & \\ \hline
-	\end{tabular}	
-	\end{center}
+
+\exe{, difficulty=2}{
+	Montrer que n'importe quel nombre réel de la forme $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$, est zéro d'un polynôme quadratique à coefficients entiers $f(x) = ax^2 + bx + c$, avec $a, b, c \in \Z$.
+}{exe:all-roots}{
+	etc...
+}
+
+\exe{,difficulty=3}{
+	Soit $f(x) = ax^2 + bx + c$ un polynôme à coefficients $a, b, c$ entiers.
+	Soit $d\in\N$ un entier naturel qui n'est pas un carré parfait.
+	\begin{enumerate}
+		\item Montrer que si $f\bigl(\sqrt{d}\bigr)= 0$, alors $b=0$. Raisonner par contradiction.
+		\item En déduire que si $\sqrt{d}$ est racine de $f$, alors $-\sqrt{d}$ est nécessairement l'autre racine de $f$.
+		\item Une racine du polynôme $f(x) = x^2 - x - 1$ peut-elle s'écrire $\sqrt{k}$ avec $k\in\N$ un entier non carré parfait ?
+		%\item Donner des paramètres $a,b,c$ entiers avec $b\neq0$ tels que $f$ admette une racine entière.
+	\end{enumerate}
+}{exe:quadratic-surd}{
+	etc...
+}
+
+\exe{, difficulty=3}{
+	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
+	Montrer que son conjugué $r-s\sqrt{d}$ est également racine.
+}{exe:Galois2}{
+	Voici une stratégie de preuve possible.
+	\begin{enumerate}
+		\item
+		Montrer que $1$ et $\sqrt{d}$ sont \emph{linéairement indépendants} sur $\Q$.
+		C'est-à-dire, montrer que si $u + v\sqrt{d} = 0$ avec $u, v \in\Q$, alors $r=s=0$.
+		Une équation sur les réels devient alors deux équations sur les rationnels !
+		\item
+		En déduire que $a(r+s\sqrt{d})^2 + b(r+s\sqrt{d}) + c=0$ est équivalente aux deux équations $ar^2 + ads^2+br+c=0$ et  $2ars+bs=0$.
+		\item
+		Conclure en calculant $a(r-s\sqrt{d})^2 + b(r-s\sqrt{d}) + c$.
+	\end{enumerate}
+	À l'étape 2, nous utilisons aussi que la somme et le produit de deux rationnels est un rationnel, et c'est à ce moment que nous utilisons que tous les coefficients ($r, s, a, b, c$) sont rationnels.
+	Cette propriété de $\Q$ se démontre assez simplement avec les formules $\frac{a}b+\frac{c}d$ et $\frac{a}b\times\frac{c}d$.
 }
 
 
