@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[14/04/2026]
+\SetDate[05/05/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -9,6 +9,8 @@
 \fancyhead[R]{\today}
 
 \subsection*{Automatismes}
+
+\vspace{-10pt}
 
 % calcul de moyenne
 
@@ -37,20 +39,20 @@
 			\item $\overline{X} = \dfrac{0+ 1+2+3+ \dots+ 18+ 19+ 20}{21} = 10 $. La série est symétrique par rapport à $10$.
 		\end{enumerate}
 		
-		Le dernier exercice se généralise pour donner une formule très utile.
-		La série statistique $X=(0; 1 ; 2; 3 ; \dots; 2n-1 ; 2n)$ est symétrique par rapport à $n$ pour n'importe quel entier naturel $n\in\N$.
-		Sa moyenne est donc de $n$, ce qui est équivalent à dire
-			\begin{align*}
-				\dfrac{0 + 1 + \dots + 2n-1 + 2n}{2n+1} &= n \\
-				0 + 1 + \dots + 2n-1 + 2n &= n\cdot (2n+1)
-			\end{align*}
-		Vérification : pour $n=10$, on retrouve $10\cdot 21 = 210$ pour la somme des entiers naturels de $0$ à $20$.
-		Vérifiez la formule obtenue pour $n=2; 3; 5$ pour se rassurer encore davantage !
+		Cette dernière série se généralise pour donner une formule compacte des \emph{nombres triangulaires}. 
+		C'est l'objet de l'exercice \ref{exe:somme-triangle} d'appronfondissement.
 }
 
-
+\vspace{-20pt}
 
 \subsection*{Exercices}
+
+\exe{}{
+	Assil décide gracieusement de donner un point de sa note à super copine Lina. Est-ce que la moyenne de la classe est toujours la même ?
+}{exe:assil-lina}{
+	Oui car le nombre de notes et la somme des notes restent inchangés !
+}
+
 
 \exe{}{\label{ex:33}
 	Pour chaque série statistique suivante, calculer la moyenne.
@@ -103,7 +105,7 @@
 }
 
 \exemulticols{, difficulty=1}{
-	Pour quel(s) $N\in\N$ la moyenne de la série ci-contre est-elle 10 ?
+	Pour quel $N\in\N$ la moyenne de la série ci-contre est-elle 10 ?
 }{
 		\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}\hline
@@ -111,20 +113,51 @@
 		Effectif & 2 & 5 & N & 7  \\ \hline
 		\end{tabular}
 		\end{center}
-}{exe:8}{
-	TODO
-%	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
-%	
-%		\begin{align*}
-%			\overline{X} &= 10 \\
-%			\dfrac{5\cdot0 + 14\cdot20 + N\cdot2 + 2\cdot5}{5+14+N+2} &= 10 \\
-%			0  + 280 + 2\cdot N + 10 &= 10 \cdot(21 + N) \\
-%			290 + 2 \cdot N &= 210 + 10 \cdot N \\
-%			80 &= 8 \cdot N \\
-%			N &= 10		
-%		\end{align*}
-%
-%	$10$ est bien un entier naturel, donc $N=10$ est l'unique solution.
+}{exe:08}{
+	Il existe deux façons de procéder : la recherche locale ou la résolution d'une équation.
+	
+	\underline{Première méthode}
+	
+	Explorons d'abord la première méthode. Il s'agit de tester une première valeur de $N$, et de décider de la direction (augmenter $N$ ou diminuer $N$) qui permettra de s'approcher de la solution.
+	
+	Si $N = 0$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times0+12\times7}{2+5+0+7} \approx 11,7. \]
+	Comme le but étant d'atteindre 10, il est cohérent d'augmenter le nombre de notes en-dessous de 10 pour baisser la moyenne.
+	En augmentant $N$, au augmente donc l'effectif de la note 8, qui va baisser la moyenne.
+	
+	Si $N=10$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times10+12\times7}{2+5+10+7} \approx 10,2. \]
+	Ceci ne suffit pas mais nous évoluons dans la bonne direction !
+	
+	Si $N=20$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times20+12\times7}{2+5+20+7} \approx 9,5. \]
+	Nous sommes allés trop loin : il faut diminuer $N$ pour augmenter la moyenne.
+	
+	Comme $N \in ]10 ; 20[$, on peut tester $N=15$ et décider d'une direction pour diviser le nombre de valeurs candidates par deux : c'est la dichotomie.
+
+	Si $N=15$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times15+12\times7}{2+5+15+7} \approx 9,79. \]
+	Par conséquent, $N \in ]10 ; 15[$.
+	
+	Si $N=12$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times12+12\times7}{2+5+12+7} = 10, \]
+	et nous avons trouvés notre $N$ !
+
+	\underline{Deuxième méthode}
+
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\frac{0\times2+16\times5+8\times N+12\times7}{2+5+N+7} &= 10 \\
+			0  + 80 + 8\cdot N + 84 &= 10 \cdot(14 + N) \\
+			164 + 8 \cdot N &= 140 + 10 \cdot N \\
+			164-140 &= 2 \cdot N \\
+			N &= 12		
+		\end{align*}
+
+	$12$ est bien un entier naturel, donc $N=12$ est l'unique solution.
+	Remarquons d'ailleurs que nousa vons démontré l'unicité de la solution en plus de l'avoir obtenue.
 }
 
 %\exe{, difficulty=2}{
@@ -255,15 +288,31 @@
 		\item Multiplier tous les coefficients par 10 puis recalculer la moyenne pondérée des notes. Que remarque-t-on ?
 	\end{enumerate}
 }{exe:3}{
-	Il y a deux manières de faire.
-	D'une part, on peux calculer la somme des produits Note $\times$ Coefficient puis diviser par la somme des coefficients.
-		\[ \dfrac{4,25\cdot0,5 + 10\cdot1,4 + 18,5\cdot0,1 + 15,5\cdot 0,5 + 11,25\cdot1,1}{0,5+1,4+0,1+0,5+1,1} = \dfrac{38,1}{3,6}  \approx 10,58. \]
-	D'autre part, on peut calculer le poids de chaque note en normalisant les coefficients, c'est-à-dire en divisant chaque coefficient par leur somme.
+%	Il y a deux manières de faire.
+%	Calculons la somme des produits Note $\times$ Coefficient puis diviser par la somme des coefficients.
+%		\[ \dfrac{4,25\cdot0,5 + 10\cdot1,4 + 18,5\cdot0,1 + 15,5\cdot 0,5 + 11,25\cdot1,1}{0,5+1,4+0,1+0,5+1,1} = \dfrac{38,1}{3,6}  \approx 10,58. \]
+%	D'autre part, on peut calculer le poids de chaque note en normalisant les coefficients, c'est-à-dire en divisant chaque coefficient par leur somme.
+%	
+%	$p_1 = \dfrac{0,5}{3,6}$, $p_2 = \dfrac{1,4}{3,6}$, $p_3 = \dfrac{0,1}{3,6}$, $p_4 = \dfrac{0,5}{3,6}$, et $p_5 = \dfrac{1,1}{3,6}$, puis
+%		\[ 4,25 \cdot p_1 + 10\cdot p_2 + 18,5 \cdot p_3 + 15,5 \cdot p_4 + 11,25\cdot p_5 = 10,58. \]
+%
+%	La première méthode est plus facile à employer mais elle découle en fait de la seconde : une moyenne est toujours une combinaison convexe de valeurs car les poids somment toujours à $1$.
+	\begin{enumerate}
+		\item 
+		Calculons la somme des produits Note $\times$ Coefficient puis diviser par la somme des coefficients.
+			\[ \dfrac{4,25\cdot0,5 + 10\cdot1,4 + 18,5\cdot0,1 + 15,5\cdot 0,5 + 11,25\cdot1,1}{0,5+1,4+0,1+0,5+1,1} = \dfrac{38,1}{3,6}  \approx 10,58. \]
+		\item 
+		Les nouveaux coefficients deviennent $(5 ; 14 ; 1 ; 5; 11)$ et la nouvelle moyenne est
+			\[ \dfrac{4,25\cdot5 + 10\cdot14 + 18,5\cdot1 + 15,5\cdot 5 + 11,25\cdot11}{5+14+1+5+11} = \dfrac{381}{36}  \approx 10,58. \]
+		La même moyenne est obtenue, ce qui n'est pas surprenant car le deuxième calcul est obtenu en multipliant le numérateur et le dénominateur du premier calcul par 10, ce qui ne change pas la valeur de la fraction.
+	\end{enumerate}
 	
-	$p_1 = \dfrac{0,5}{3,6}$, $p_2 = \dfrac{1,4}{3,6}$, $p_3 = \dfrac{0,1}{3,6}$, $p_4 = \dfrac{0,5}{3,6}$, et $p_5 = \dfrac{1,1}{3,6}$, puis
-		\[ 4,25 \cdot p_1 + 10\cdot p_2 + 18,5 \cdot p_3 + 15,5 \cdot p_4 + 11,25\cdot p_5 = 10,58. \]
-
-	La première méthode est plus facile à employer mais elle découle en fait de la seconde : une moyenne est toujours une combinaison convexe de valeurs car les poids somment toujours à $1$.
+	\underline{Conclusion}
+	
+	Les coefficients donnent un poids à chaque note qui est relatif aux autres coefficients.
+	Ainsi, une note coefficient 1 a donc huit fois plus de poids qu'une note coefficient 0,125.
+	De la même manière, une note coefficient 8 aura huit fois plus de poids qu'une note coefficient 1.
+	
 }
 
 % TODO: fix leur/leurs ça me saoule ça je dois apprendre
@@ -277,11 +326,32 @@
 		\item
 		Trouver deux coefficients tels que la moyenne soit \emph{exactement} de 10.
 		
-		%\emph{Indication : on pourra supposer que la somme des coefficient soit 1.}
+		\emph{Indication : supposer que la somme des coefficients est égale à 1.}
 		% est-ce que ça va vraiment aider, ça ?
 	\end{enumerate}
 }{exe:moyenne-ponderee}{
-	todo
+	\begin{enumerate}
+		\item
+		D'après l'exercice \ref{exe:3}, lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
+		On obtient donc une moyenne classique $\frac{7+14}{2} = 10,5$.
+		\item
+		Pour obtenir une moyenne pondérée inférieure à 10, il faut augmenter le poids de la note la plus basse.
+		Le coefficient associé à 7 doit donc être supérieur à celui associé à 14.
+		\item
+		Posons $c>0$ le coefficent associé à 7.
+		D'après l'exerce \ref{exe:3}, nous pouvons diviser les coefficients par leur somme sans changer la moyenne pondérée, et donc supposer que la somme des coefficients vaut 1. 
+		Le coefficient associé à 14 est donc $1-c$, et la moyenne pondérée vaut
+			\[ \frac{7\times c + 14\times(1-c)}{1} = 7c + 14(1-c). \]
+		La contrainte de l'énoncé nous permet donc d'obtenir
+			\begin{align*}
+				7c+14(1-c) &= 10, \\
+				7c + 14 - 14c &= 10, \\
+				-7c &= -4, \\
+				c &= \frac47.
+			\end{align*}
+		Les coefficients sont donc $\frac47$ et $\frac37$.
+		Notons qu'une stratégie de recherche par dichotomie comme à l'exercice \ref{exe:08} n'aurait pas abouti car les nombres $\frac47$ et $\frac37$ ne sont pas décimaux : leur développement décimal est infini.
+	\end{enumerate}
 }
 
 
@@ -306,15 +376,26 @@
 	\end{enumerate}
 
 }{exe:4}{
-	Notons $X$ la série statistique des salaires avant inflation.
-	On utilise ici la linéarité de la moyenne.
+
+	\begin{enumerate}
+		\item
+			\[ CM = 1 + \frac{P}{100} = 1+\frac6{100} = 1,06. \]
+		\item
+		D'après le cours, c'est $1,06^{-1} = \frac1{1,06}$ et non pas $0,94$ (qui correspond à une diminution de $6\%$) !
+		\item
+		Notons $X$ la série statistique des salaires avant inflation.
+		On utilise ici la linéarité de la moyenne.
+		
+		La prime s'ajoute après l'inflation, donc la moyenne après inflation et prime s'élève à $\overline{X+50} = \overline{X} + 50$.
+		
+		Enfin, afin de corriger l'inflation et d'après le texte, on multiplie tous les nouveaux salaires par $(1,06)^{-1}$.
+		La nouvelle moyenne est donc donnée par 
+			\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801,89. \]
+		En euros constants, et en moyenne, la prime ne permet pas de compenser l'inflation.
+	\end{enumerate}
 	
-	La prime s'ajoute après l'inflation, donc la moyenne après inflation et prime s'élève à $\overline{X+50} = \overline{X} + 50$.
 	
-	Enfin, afin de corriger l'inflation et d'après le texte, on multiplie tous les nouveaux salaires par $(1,06)^{-1}$.
-	La nouvelle moyenne est donc donnée par 
-		\[ \overline{\frac{1}{1,06} \cdot \left( X + 50 \right) } = \frac{1}{1,06} \cdot \left( \overline{X} + 50 \right) = \frac{1}{1,06} \cdot (1860 + 50) \approx 1801,89. \]
-	À « euro fixe » et en moyenne, la prime ne permet pas de compenser l'inflation.
+	
 }
 
 
@@ -397,7 +478,7 @@
 
 % Hyperbole 2nde + ref à Lucile :)
 \exe{}{
-	Chaque jour du mois d'avril, le meilleur ami de Lucile relève la distance qu'il a parcourue lors de son footing.
+	Chaque jour du mois d'avril 2026, le meilleur ami de Lucile relève la distance qu'il a parcourue lors de son footing.
 	\begin{center}
 \def\arraystretch{1}
 \setlength\tabcolsep{5pt}
@@ -475,22 +556,53 @@
 		
 		\begin{enumerate}
 			\item
-			Compléter la ligne « Écart ».
+			Compléter la ligne « Écart » avec les écarts de chaque distance à la distance moyenne.
 			\item
-			Pour n'avoir que des nombres positifs, on calcule le carré de chaque écart.
-			Compléter cette ligne du tableau.
+			% en fait les écarts sont des valeurs absolues donc bon ?
+			%Pour n'avoir que des nombres positifs, on calcule le carré de chaque écart.
+			%Compléter cette ligne du tableau.
+			Calculer le carré de chaque écart et compléter la ligne correspondante du tableau.
 			\item
 			Calculer la moyenne $V$ des carrés des écarts pondérée par les effectifs.
 			Arrondir à $10^{-1}$ près.
 			Dans quelle unité est exprimée $V$ ?
 			\item
-			Calculer $\sigma = \sqrt{V}$ en arrondissant à $10^{-1}$ près.
-			Dans quelle unité est exprimée $\sigma$ ?
+			Calculer $\sigma = \sqrt{V}$ (lu « sigma ») en arrondissant à $10^{-1}$ près.
+			Dans quelle unité est \mbox{exprimée $\sigma$ ?}
 		\end{enumerate}
 	\end{enumerate}
 	
 }{exe:variance}{
-
+	\begin{enumerate}
+		\item
+		La moyenne est calculée en faisant
+			\[ \frac{3\times8+4\times6+5\times2+9\times4+10\times3+12\times5+13\times2}{8+6+2+4+3+5+2} = \frac{210}{30} = 7. \]
+		
+		\item\,
+		
+		\begin{center}
+\def\arraystretch{1.5}
+\setlength\tabcolsep{15pt}
+		\begin{tabular}{|*{8}{c|}}\hline
+			Distance (km) & 3 & 4 & 5 & 9 & 10 & 12 & 13
+			\\\hline
+			Écart & 4 & 3 & 2 & 2 & 3 & 5 & 6
+			\\\hline
+			Carré de l'écart & 16 & 9 & 4 & 4 & 9 & 25 & 36
+			\\\hline
+			Effectif & 8 & 6 & 2 & 4 & 3 & 5 & 2
+			\\\hline
+		\end{tabular}
+		\end{center}
+		\begin{enumerate}[start=3]
+			\item
+			La moyenne des carrés des écarts est donnée par
+				\[ V = \frac{16\times8+9\times6+4\times2+2\times4+9\times3+25\times5+36\times2}{8+6+2+4+3+5+2} = \frac{430}{30} \approx 14,3. \]
+			$V$ est exprimée en $\text{km}^2$.
+			\item
+			$\sigma = \sqrt{V} \approx \sqrt{14,3} \approx 3,8$, qui est exprimée en km !
+		\end{enumerate}
+	\end{enumerate}
 }
 
 
@@ -515,11 +627,33 @@
 		Sans calculs, décider si l'écart-type de ses notes se plus grand ou plus petit que celui des notes des autres étudiantes.
 	\end{enumerate}
 }{exe:var-comp}{
-	todo
+	\begin{enumerate}[label=\roman*)]
+		\item
+		Les deux moyennes sont égales à 10.
+		On peut utiliser l'exercice \ref{exe:assil-lina} pour connaître la moyenne sans calcul : ajouter 1 à une note et soustraire 1 à une autre ne change pas la moyenne.
+		Ainsi la moyenne de $(10 ; 9 ; 11)$ est égale à la moyenne de $(10 ; 10 ; 10)$.
+		D'autre part, la moyenne de $(6 ; 13 ; 11)$ est égale à la moyenne de $(7 ; 12 ; 11)$, et de $(8 ; 11 ; 11)$, et de $(9 ; 10 ; 11)$, et enfin de $(10 ; 10 ; 10)$ !
+		
+		Les moyennes sont les mêmes mais les situations ne sont pas similaires : la première étudiante a des valeurs plus concentrées autour de 10 que la deuxième.
+		La deuxième étudiante a à la fois de bonnes et de mauvaises notes qui se compensent.
+		La première n'a que des notes proches de 10.
+		\item
+		Pour la première étudiante, les carrés des écarts à la moyenne sont donnés par $(0 ; 1 ; 1)$, de moyenne $\frac23 \approx 0,6$.
+		
+		Pour la deuxième étudiante, les carrés des écarts à la moyenne sont donnés par $(16 ; 9 ; 1)$, de moyenne $\frac{26}3 \approx 8,6$.
+		
+		La variance est plus grande pour la deuxième étudiante car ses notes sont davantages dispersées autour de la moyenne.
+		La variance quantifie la dispersion. Une variance nulle correspondant à une série entièrement moyenne.
+		\item
+		La moyenne de la troisième étudiante vaut aussi 10.
+		Ses notes sont encore plus dispersées autour de celle-ci, notamment à cause du 4 dont le carré de l'écart à la moyenne vaut 64 !
+		La variance des notes de la troisième étudiante est supérieur. L'écart-type l'est donc aussi car la fonction racine carrée est croissante :
+			\[ V_1 \leq V_2 \implies \sqrt{V_1} \leq \sqrt{V_2}. \]
+	\end{enumerate}
 }
 
 \exe{}{
-	Pour chaque histogramme de la figure \ref{fig:hist} (page 3), calculer
+	Pour chaque histogramme de la figure \ref{fig:hist} (page 3), calculer en arrondissant à $10^{-2}$
 		\begin{multicols}{2}
 		\begin{enumerate}[label=\roman*)]
 			\item l'effectif total ;
@@ -533,7 +667,61 @@
 	Sans connaître la valeur exacte de chaque note, on assignera la valeur moyenne à chaque élément d'une classe.
 	Par exemple, de l'histogramme \ref{fig:1a}, on lit 5 notes de valeur 11,5.
 }{exe:7}{
-	todo
+	Pour l'histogramme \ref{fig:1a},
+	\begin{enumerate}[label=\roman*)]
+		\item l'effectif total est de 35
+		\item la moyenne est de 
+			\[ \frac{
+				\splitfrac{5,5+7,5+2\times9,5+2\times10,5+5\times11,5+4\times12,5+2\times13,5}
+				{+2\times14,5+4\times15,5+3\times16,5+3\times17,5+5\times18,5+1\times19,5}
+				}{35} \approx 14,07. 
+			\]
+			
+		\item 
+		La médiane est la note qui sépare la série statistique rangée par ordre croissant en deux.
+		Ici, $\frac{35}2 = 17,5$, et donc la 18ème note donnera la médiane.
+		En comptant, elle se trouve dans la barre de classe $[14;15[$, et la médiane vaut donc 14,5.
+		\item 
+		Même raisonnement, mais en divisant l'effectif total par 4.
+		$\frac{35}4 = 8,75$, donc la 9è note donne le premier quartile.
+		En comptant, elle se trouve dans la barre de classe $[11;12[$, et le premier quartile vaut donc 11,5.
+		\item 
+		Même raisonnement, mais en prenant les trois quart de l'effectif total.
+		$\frac34\cdot35 = 26,25$, donc la 27è note donne le troisième quartile.
+		En comptant (par la fin !), elle se trouve dans la barre de classe $[17;18[$, et le troisième quartile vaut donc 17,5.
+		\item 
+		L'écart interquartile est donné par
+			\[ Q_3 - Q_1 = 17,5 - 11,5 = 6. \]
+	\end{enumerate}
+	
+	
+	
+	Pour l'histogramme \ref{fig:1b},
+	\begin{enumerate}[label=\roman*)]
+		\item l'effectif total est de 27
+		\item la moyenne est de 
+			\[ \frac{
+				\splitfrac{2,5+3,5+2\times5,5+3\times6,5+7,5+8,5+9,5+2\times10,5+11,5+3\times12,5}
+				{+2\times13,5+2\times14,5+2\times15,5+2\times16,5 + 17,5+18,5+19,5}
+				}{27} \approx 11,39. 
+			\]
+			
+		\item 
+		La médiane est la note qui sépare la série statistique rangée par ordre croissant en deux.
+		Ici, $\frac{27}2 = 13,5$, et donc la 14ème note donnera la médiane.
+		En comptant, elle se trouve dans la barre de classe $[12;13[$, et la médiane vaut donc 12,5.
+		\item 
+		Même raisonnement, mais en divisant l'effectif total par 4.
+		$\frac{27}4 = 6,75$, donc la 7è note donne le premier quartile.
+		En comptant, elle se trouve dans la barre de classe $[6;7[$, et le premier quartile vaut donc 6,5.
+		\item 
+		Même raisonnement, mais en prenant les trois quart de l'effectif total.
+		$\frac27\cdot35 = 20,25$, donc la 21è note donne le troisième quartile.
+		En comptant, elle se trouve dans la barre de classe $[15;16[$, et le troisième quartile vaut donc 15,5.
+		\item 
+		L'écart interquartile est donné par
+			\[ Q_3 - Q_1 = 15,5 - 6,5 = 9. \]
+	\end{enumerate}
 }
 
 \begin{figure}[h!]
@@ -636,23 +824,26 @@
   \label{fig:hist}
 \end{figure}
 
-
+\newpage
 
 \exe{}{
 	Pour chaque histogramme de la figure \ref{fig:hist}, faire une phrase décrivant la série statistique en s'appuyant sur les données obtenues à l'exercice \ref{exe:7}. 
 	
-	Faire une phrase de comparaison des deux séries statistiques en identifiant ce qu'elles ont en commun et ce qu'elles ont de différent.
+	Comparer les deux séries statistiques en identifiant ce qu'elles ont en commun \mbox{et ce qui les distingue.}
 }{exe:8}{
-	todo
+	La série de l'histogramme \ref{fig:1a} est une série de 35 notes entre 0 et 20 ayant pour moyenne 14,07.
+	La médiane est de 14,5 : la moitié des notes sont inférieures à 14,5 et la moitié sont supérieures.
+	Le premier quartile est de 11,5, donc un trois quart des notes sont supérieures à 11,5.
+	
+	La série de l'histogramme \ref{fig:1a} est une série de 27 notes entre 0 et 20 ayant pour moyenne 11,39.
+	Le troisième quartile est de 15,5, donc un quart des notes sont supérieures à 15,5, et trois quart sont inférieures à 11,5.
+	Le premier quartile est de 6,5, donc la moitié des valeurs de la série se situent entre 6,5 et 15,5.
+	
+	La première série a un premier quartile beaucoup plus élevé que celui de la deuxième qui admet donc davantage de petites valeurs.
+	La première série a un écart interquartile plus bas que celui de la deuxième qui a donc des valeurs centrales plus proches les unes des autres.
 }
 
-
-
-% variance avec tableau
-% 
-% lecture de graphe à barres
-% 
-% comparaisons de séries avec graphes à barres ou autre
+\vspace{-10pt}
 
 \subsection*{Approfondissements}
 
@@ -688,13 +879,24 @@
 %	todo
 %\end{Answer}
 
-\exe{, difficulty=2}{
-	Soit $n\in\N$ un entier naturel.
-	Montrer que la série statistique $(0 ; 1 ; 2 ; \hdots ; n-1 ; n)$ a pour moyenne $\frac{n}2$.
-	En déduire que
-		\[ 1 + 2 + 3 + \dots + (n-1) + n = \dfrac{n(n+1)}2 \]
-	puis calculer sans calculatrice la valeur de la somme $1 + 2 + 3 + \hdots+ 9~999 + 10~000$.
+\exe{, difficulty=3}{
+	On dit d'une série qu'elle est symétrique autour de 0 si chaque valeur $x$ de la série peut être associée à une unique valeur $-x$ de la série.
+	Ainsi $(-1 ; 0 ; 2 ; -2 ; 1)$ est symétrique autour de 0 mais $(1 ; 0 ; -1 ; -1)$ ne l'est pas.
+	\begin{enumerate}
+		\item
+		Montrer qu'une série symétrique autour de 0 a une moyenne nulle.
+		\item
+		Soit $n\geq1$ un entier naturel.
+		À l'aide de la linéarité de la moyenne, montrer que la série statistique $(0 ; 1 ; 2 ; \hdots ; n-1 ; n)$ a pour moyenne $\frac{n}2$.
+		\item
+		En déduire que
+			\[ 1 + 2 + 3 + \dots + (n-1) + n = \dfrac{n(n+1)}2 \]
+		\item
+		Calculer sans calculatrice la valeur de la somme $1 + 2 + 3 + \hdots+ 9~999 + 10~000$.
+	\end{enumerate}
 }{exe:somme-triangle}{
+	À rendre pour possibilité de points bonus...
+
 	Indication pour la première partie :
 %	montrer que la série est symétrique par rapport à $\frac{n}2$.
 %	Chaque valeur $\frac{n}2 - k$ a une sœur $\frac{n}2 + k$.
@@ -716,7 +918,7 @@
 %	Soit $X = (x_1 ; x_2 ; \hdots ; x_N)$ une série statistique dont la valeur minimale est $m$ et la valeur minimale est $M$.
 %	Montrer que n'importe quelle moyenne pondérée avec des coefficients positifs prend la forme
 %		\[ \overline{X} = f_1 x_1 + f_2 x_2 + \hdots + f_N x_N, \]
-%	avec $f_1 + f_2 + \hdots + f_N = 1$ et $0 \leq f_i \leq N$ pour tout $i$, puis en déduire que
+%	avec $f_1 + f_2 + \hdots + f_N = 1$ et $0 \leq f_i \leq 1$ pour tout $i$, puis en déduire que
 %		\[ m \leq \overline{X} \leq M. \]
 %	On dit que la moyenne est une \emph{combinaison convexe} des valeurs.
 %}{exe:combinaison-convexe}{
@@ -734,29 +936,37 @@
 %
 %}
 
-\exe{,difficulty=2}{
-	Montrer qu'ajouter une valeur moyenne à une série statistique ne change pas sa moyenne.
+\exe{,difficulty=3}{
+	Le but de cet exercice est d'étudier le comportement de l'écart-type d'une série statistique lorsqu'une valeur moyenne est ajoutée à répétition.
+	\begin{enumerate}
+		\item
+		Montrer qu'ajouter une valeur moyenne à une série statistique ne change pas sa moyenne.
+		\item
+		\begin{multicols}{2}
+		%En déduire, sans calcul littéral, la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
+		Donner la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
+		
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & $N$ \\ \hline
+		\end{tabular}
+		\end{center}
+		\end{multicols}
 	
-	\begin{multicols}{2}
-	En déduire, sans calcul littéral, la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
-	
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|}\hline
-	Valeur   & 0 & 20 & 10 \\ \hline
-	Effectif & 17 & 17 & $N$ \\ \hline
-	\end{tabular}
-	\end{center}
-	\end{multicols}
-	
-	Exprimer l'écart-type $\sigma$ de cette série comme fonction de $N$.
-	Comment évolue $\sigma$ lorsque $N$ vaut 10 ; 20 ; 50 ; 100 ? 
-	La série devient-elle plus ou moins concentrée autour de sa moyenne ?
-	
-	Donner le premier entier $N\in\N$ à partir duquel l'écart-type est inférieur à 1.
-	
-	Est-il possible, pour n'importe quel seuil $S>0$, de trouver un $N\in\N$ tel que l'écart-type soit inférieur à $S$ ?
+		\item
+		Exprimer l'écart-type $\sigma$ de cette série comme fonction de $N$.
+		Calculer $\sigma$ lorsque $N$ vaut 10 ; 20 ; 50 ; 100 à l'aide de la fonction.
+		%La série devient-elle plus ou moins concentrée autour de sa moyenne ?
+		Vers quelle valeur l'écart-type $\sigma$ s'approche-t-il \mbox{lorsque $N$ grandit ?}
+		
+		\item
+		Donner le premier entier $N\in\N$ à partir duquel l'écart-type est inférieur ou égal à 1.
+		\item
+		Est-il possible, pour n'importe quel seuil $S>0$, de trouver un entier $N\in\N$ tel que l'écart-type soit inférieur à $S$ ?
+	\end{enumerate}
 }{exe:variance-exemple}{
-
+	À rendre pour possibilité de points bonus...
 }
 
 %%%%%%%%%%%

@@ -128,12 +128,11 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 		\[ \tan(\theta) = \dfrac{\l \sin(\alpha)}{\L - \l \cos(\alpha)}. \]
 }{exe:q4}{
 	Dans le triangle $ABI$ rectangle en $I$, la trigonométrie nous donne
-		\[ \tan(\theta) = \dfrac{BI}{AI}. \]
+		$ \tan(\theta) = \dfrac{BI}{AI}. $
 	Or, d'après la question \ref{exe:q2},
-		\[ BI = h = \l\sin(\alpha), \]
-	%et d'après la question \ref{exe:q2},
-	et
-		\[ AI = AO - OI = \L - \l\cos(\alpha). \]
+		\begin{align*}
+			BI = h = \l\sin(\alpha), && \et && AI = AO - OI = \L - \l\cos(\alpha).
+		\end{align*}
 	En conclusion,
 		\[ \tan(\theta) = \dfrac{\l\sin(\alpha)}{\L - \l\cos(\alpha)}. \]
 }
@@ -244,17 +243,22 @@ Le joueur souhaite connaître son angle $\alpha = \widehat{AOB}\leq 90$° de dé
 	Il s'agit de vérifier que
 		\[ f(\alpha) \leq f(\alpha^\star) \]
 	pour tout $\alpha \in [0;90]$.
-	Cependant, ce n'est pas possible algorithmiquement : il y a beaucoup trop de nombres entre 0 et 90 !
-	Pour se convaincre du caractère optimal de notre solution, nous pouvons cependant parcourir l'intervalle avec un pas très petit ($10^{-4}$ par exemple) et la vérifier pour chaque antécédent $\alpha$.
+	
+	Attention au domaine $[0;90]$ dans lequel $\alpha$ vit ici : l'angle peut prendre une infinité de valeurs différentes.
+	Par conséquent, un algorithme par balayage ne permet pas de vérifier cette inégalité, car un tel algorithme doit parcourir un nombre fini d'antécédents $\alpha$ pour qu'il termine.
+	Notons cependant qu'un algorithme plus sophistiqué ou dans un langage plus adapté pourrait démontrer notre inégalité :
+	les assistants de preuve \emph{Lean} et \emph{Rocq} ont été créés dans le but faire vérifier par la machine les preuves mathématiques difficiles.
+	
+	Pour se convaincre du caractère optimal de notre solution (sans le démontrer, donc !), nous pouvons alors parcourir l'intervalle avec un pas très petit ($10^{-4}$ par exemple) et vérifier l'inégalité pour chaque antécédent $\alpha$.
 	
 	\texttt{\\
 	for x in np.arange(0,90,.0001): \\
 	\null\qquad if f(x) > f(xetoile):\\
-		\null\qquad\qquad print(f"ATTENTION : ", x)
+		\null\qquad\qquad print("ATTENTION : ", x)
 	}
 	
-	Ceci prend un certain temps car il y a $91\times10^4 = 910~000$ antécédents à tester.
-	Au final, rien n'est imprimé par l'algorithme : il n'y a aucun \texttt{x} tel que \texttt{f(x) > f(xstar)}.
+	Ceci prend un certain temps car il y a $90\times10^4 = 900~000$ antécédents à tester.
+	Au final, rien n'est imprimé par l'algorithme : il n'y a aucun \texttt{x} tel que \texttt{f(x) > f(xetoile)}.
 	
 }
 
