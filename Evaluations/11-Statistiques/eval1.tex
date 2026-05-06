@@ -1,0 +1,374 @@
+\input{../preamble.tex}
+\newgeometry{a4paper, margin=2cm, right=4cm}
+\def\arraystretch{1}
+\setlength\tabcolsep{5pt}
+
+\SetDate[12/05/2026]
+
+\newcommand{\exeframe}[4]{\exe{#1}{#2}{#3}{#4}\marginpar{\framebox(80,30)}}
+\newcommand{\exemulticolsframe}[5]{\exemulticols{#1}{#2}{#3}{#4}{#5}\marginpar{\framebox(80,30)}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde 9}
+\fancyhead[C]{\textbf{Évaluation — Statistiques}}
+\fancyhead[R]{\today}
+
+\null\vspace{-20pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	Arrondir à $10^{-2}$ si nécessaire.
+\end{itemize}
+
+\hrule
+\marginpar{\vspace{-5pt}\bf\underline{Réponses}}
+
+\exeframe{}{
+	Calculer la moyenne de la série statistique
+		$ X = (1 ; 20 ; 17 ; 19 ; -20 ; -1). $ 
+}{exe:1}{
+	%
+}
+
+\exeframe{}{
+	Donner la médiane de la série statistique
+		\[ X = (1 ; 2 ; 4 ; 4 ; 6 ; 6 ; 7 ;7 ; 9 ; 9 ; 61). \]
+}{exe:2}{
+	%
+}
+
+\exemulticolsframe{}{
+	Donner l'effectif total de la série statistique décrite par le diagramme à barres ci-contre.
+}{
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+    \begin{axis}[
+        ymin=0, ymax=3,
+        xmin=0, xmax=20,
+        minor x tick num = 1,
+        %minor y tick num=1,
+        axis line style = -,
+        xtick distance=2,
+        area style,
+        xlabel = {Valeur},
+        ylabel = {Effectif},
+        xlabel near ticks,
+        ylabel near ticks,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=10pt,
+		ybar,
+		bar width=8pt,
+      ]
+      \addplot+[bar shift=4pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
+        (2,1)
+        (3,1)
+        (5,2)
+        (6,3)
+        (7,1)
+        (8,1)
+        (9,1)
+        (10,2)
+        (11,1)
+        (12,3)
+        (13,2)
+        (14,2)
+        (15,2)
+        (16,2)
+        (17,1)
+        (18,1)
+        (19,1)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \end{center}
+\vspace{-40pt}\null
+}{exe:3}{
+	%
+}
+
+\exemulticolsframe{}{
+	Calculer la moyenne de la série statistique ci-contre.
+}{
+	\begin{tabular}{|c|c|c|c|}\hline
+	Valeur   & 0 & 20 & 10 \\ \hline
+	Effectif & 17 & 17 & 1 \\ \hline
+	\end{tabular}
+}{exe:4}{
+	%
+}
+
+\exemulticolsframe{}{
+	Pour quel $N\in\N$ la moyenne de la série ci-contre vaut-elle 10 ?
+}{
+	\begin{tabular}{|c|c|c|c|}\hline
+	Valeur   & 0 & 20 & 10 \\ \hline
+	Effectif & 17 & 17 & 1 \\ \hline
+	\end{tabular}
+}{exe:5}{
+	%
+}
+
+\exeframe{}{
+	Un élève reçoit cinq notes listées ainsi : $(4,25 ; 10; 18,5 ; 15,5 ; 11,25)$.
+	À ces notes sont associés cinq coefficients, donnés dans le même ordre par $(0,5 ; 1,4 ; 0,1 ; 0,5; 1,1)$.
+	
+	Calculer la moyenne pondérée des notes.
+}{exe:6}{
+	%
+}
+
+\exeframe{}{
+	Quels coefficients donner aux valeurs de la série $X=(13 ; 18)$ pour que la moyenne pondérée soit égale à 15 ?
+}{exe:8}{
+
+}
+
+\exeframe{}{
+	Est-il possible de trouver deux coefficients tels que la moyenne pondérée de la série $X = (15 ; 18 ; 21 ; 35)$ soit égale à 40 ?
+}{exe:9}{
+
+}
+
+\exeframe{}{
+	Est-il possible de trouver deux coefficients tels que la moyenne pondérée de la série $X = (15 ; -1 ; 21 ; 35)$ soit égale à 0 ?
+}{exe:10}{
+
+}
+
+\exeframe{}{
+	La moyenne des notes d'une classe est donnée égale à $9,45$.
+	
+	Donner la nouvelle moyenne des notes après avoir ajouté $1,5$ points à chaque note.
+}{exe:11}{
+
+}
+
+\exeframe{}{
+	La moyenne des notes d'une classe est égale à $9,45$.
+	
+	Donner la nouvelle moyenne des notes après avoir ajouté $1,5$ points à chaque note.
+}{exe:12}{
+
+}
+
+\exeframe{}{
+	Est-ce que l'évolution réciproque d'une augmentation de 6\% est une diminution de 6\% ?
+}{exe:13}{
+
+}
+
+\exeframe{}{
+	Quel est le coefficient multiplicateur associé à une augmentation de 12\% ?
+}{exe:14}{
+
+}
+
+\exeframe{}{
+	La moyenne des salaires d'une entreprise est égale à 1930€.
+	
+	Donner la nouvelle moyenne des salaires après que chaque salaire ait été multiplié par $1,3$.
+}{exe:15}{
+
+}
+
+\exeframe{}{
+	À quel taux d'augmentation est associée la multiplication par $1,3$ ?
+}{exe:16}{
+
+}
+
+\exeframe{}{
+	Soient $\sigma_1$ et $\sigma_2$ les écarts-types de chaque série statistique suivante.
+	A-t-on $\sigma_1 > \sigma_2$ ou $\sigma_1 < \sigma_2$ ?
+	
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+    \begin{axis}[
+        ymin=0, ymax=3,
+        xmin=0, xmax=20,
+        minor x tick num = 1,
+        %minor y tick num=1,
+        axis line style = -,
+        xtick distance=2,
+        area style,
+        xlabel = {Valeur},
+        ylabel = {Effectif},
+        xlabel near ticks,
+        ylabel near ticks,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=10pt,
+		ybar,
+		bar width=8pt,
+      ]
+      \addplot+[bar shift=4pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
+        (2,1)
+        (3,1)
+        (5,2)
+        (6,3)
+        (7,1)
+        (8,1)
+        (9,1)
+        (10,2)
+        (11,1)
+        (12,3)
+        (13,2)
+        (14,2)
+        (15,2)
+        (16,2)
+        (17,1)
+        (18,1)
+        (19,1)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+	\begin{tikzpicture}[scale=.8]
+    \begin{axis}[
+        ymin=0, ymax=3,
+        xmin=0, xmax=20,
+        minor x tick num = 1,
+        %minor y tick num=1,
+        axis line style = -,
+        xtick distance=2,
+        area style,
+        xlabel = {Valeur},
+        ylabel = {Effectif},
+        xlabel near ticks,
+        ylabel near ticks,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=10pt,
+		ybar,
+		bar width=8pt,
+      ]
+      \addplot+[bar shift=4pt,draw=BLACK,thick, fill=GREEN_E!50] plot coordinates {
+        (2,1)
+        (3,1)
+        (5,2)
+        (6,3)
+        (7,1)
+        (8,1)
+        (9,1)
+        (10,2)
+        (11,1)
+        (12,3)
+        (13,2)
+        (14,2)
+        (15,2)
+        (16,2)
+        (17,1)
+        (18,1)
+        (19,1)
+      };
+    \end{axis} 
+  \end{tikzpicture}
+  \end{center}
+}{exe:7}{
+	%
+}
+
+
+\exeframe{}{
+	Calculer la moyenne de la série statistique suivante.
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[
+		xmin=0, xmax=14,
+		ymin=0, ymax=8,
+		x=20pt,
+		y=10pt,
+		grid=none,
+		xtick distance=1,
+		axis line style = -,
+		extra x ticks={0},
+		extra y ticks={0},
+		xlabel=Valeur,
+		xlabel near ticks,
+		ylabel=Effectif,
+		ylabel near ticks,
+		ybar,
+		bar width=8pt,
+	]     
+      \addplot+[bar shift=0,draw=BLACK, thick, fill=BLUE_E!50] plot coordinates {
+        (3,8)
+        (4,6)
+        (5,2)
+        (9,4)
+        (10,3)
+        (12,5)
+        (13,2)
+      };
+
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:17}{
+	%
+}
+
+
+\exeframe{}{
+	Donner le premier quartile de la série statistique suivante.
+
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+	\begin{axis}[
+		xmin=0, xmax=14,
+		ymin=0, ymax=8,
+		x=20pt,
+		y=10pt,
+		grid=none,
+		xtick distance=1,
+		axis line style = -,
+		extra x ticks={0},
+		extra y ticks={0},
+		xlabel=Valeur,
+		xlabel near ticks,
+		ylabel=Effectif,
+		ylabel near ticks,
+		ybar,
+		bar width=8pt,
+	]     
+      \addplot+[bar shift=0,draw=BLACK, thick, fill=BLUE_E!50] plot coordinates {
+        (3,8)
+        (4,6)
+        (5,2)
+        (9,4)
+        (10,3)
+        (12,5)
+        (13,2)
+      };
+
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:18}{
+	%
+}
+
+\exeframe{}{
+	Donner le troisième quartile de la série statistique $X = (4 ; 5 ; 3 ; 1 ; 4 ; 2)$.
+}{exe:19}{
+	%
+}
+
+\exeframe{}{
+	Donner l'étendue de la série statistique $X = (-3 ; 2,3 ; 4 ; 5 ; -1 ; 7)$.
+}{exe:20}{
+	%
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+	
+\end{document}
