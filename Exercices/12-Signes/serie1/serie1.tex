@@ -31,11 +31,11 @@
 	\columnbreak
 	
 	\begin{align*}
-		f(1,5)\cdot g(1,5) &\quad\dots\quad 0 \\
+		\frac{f(1,5)}{g(1,5)} &\quad\dots\quad 0 \\
 		f(0)\cdot g(0) &\quad\dots\quad 0 \\
-		f(1)\cdot g(1) &\quad\dots\quad 0 \\
+		%f(1)\cdot g(1) &\quad\dots\quad 0 \\
 		f(-1,5)\cdot g(-1,5) &\quad\dots\quad 0 \\
-		f(2)\cdot g(2) &\quad\dots\quad 0 \\
+		\frac{f(2)}{g(2)} &\quad\dots\quad 0 \\
 		f(-1)\cdot g(-1) &\quad\dots\quad 0
 	\end{align*}
 	\end{multicols}
@@ -75,11 +75,11 @@
 	\columnbreak
 	
 	\begin{align*}
-		f(1,5)\cdot g(1,5) &< 0 \\
+		\frac{f(1,5)}{g(1,5)} &< 0 \\
 		f(0)\cdot g(0) &= 0 \\
-		f(1)\cdot g(1) &< 0 \\
+		%f(1)\cdot g(1) &< 0 \\
 		f(-1,5)\cdot g(-1,5) &< 0 \\
-		f(2)\cdot g(2) &= 0 \\
+		\frac{f(2)}{g(2)} &= 0 \\
 		f(-1)\cdot g(-1) &< 0
 	\end{align*}
 	\end{multicols}
@@ -101,10 +101,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both]
 		
 		% (g)
-		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5+.5}  node[right] {$\C_g$};
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
 		
 		% (f)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-3}  node[right] {$\C_f$};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -114,19 +114,9 @@
 	
 	\begin{enumerate}
 		\item On a environ 
-			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0\} \approx [-1,5 ; 1,5]. \]
+			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0\} \approx [-2 ; 2]. \]
 		\item On a environ 
-			\[ \{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0\} \approx [-3 ; -1,2] \cup [1,9 ; 3]. \]
-		On est en droit de se demander : comment sait-on que $g(-2) \leq 0$ si on ne peut pas lire sa valeur graphiquement ?
-		On suppose en fait ici que $\C_g$ est une courbe continue (tracée sans lever le crayon). 
-		Ainsi, si $g(-2)$ était positif, la courbe devrait nécessairement couper l'axe des abscisses, ce qui n'est visiblement pas le cas.
-%		\item Il y a deux situations dans lesquelles le produit $f(x) \cdot g(x)$ peut être positif : soit $f(x)$ et $g(x)$ sont positifs, soit ils sont tous deux négatifs.
-%		Graphiquement, on lit que
-%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \geq 0 \text{ et } g(x) \geq 0 \} \approx [-1,2 ; 0,2], \]
-%		et que (en faisant à nouveau une hypothèse de continuité)
-%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \leq 0 \text{ et } g(x) \leq 0 \} \approx [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
-%		On prend l'union des deux pour obtenir
-%			\[ \{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x)  \geq 0 \} \approx [-1,2 ; 0,2] \cup [-3 ; -1,6] \cup [1,6 ; 1,9]. \]
+			\[ \{ x \in [-3 ; 3] \text{ tq. } g(x) \leq 0\} \approx [-3 ; -2,5] \cup [0 ; 3]. \]
 	\end{enumerate}
 }
 
@@ -146,10 +136,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=55pt]
 		
 		% (g)
-		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5+.5}  node[pos=0,left] {$\C_g$};
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
 		
 		% (f)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-3}  node[pos=0,left] {$\C_f$};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
 	\end{axis}
 	\end{tikzpicture}
 	
@@ -161,20 +151,112 @@
 	\end{tikzpicture}
 	\end{center}
 	
-	$\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0} = $
+	On en déduit que $\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0} = $
 	
 }{exe:13}{
 
-	todo
+	\begin{center}
+	\hspace{110pt}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=55pt]
+		
+		% (g)
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
+		
+		% (f)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
+	\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=4,espcl=2.2]
+	       		{$x$ / 1 , Signe de $f(x)$ / 1, Signe de $g(x)$ / 1, Signe du produit $f(x)\cdot g(x)$ / 1}
+	       		{$-3$,{$-2,5$},$-2$,0,2,3}
+		\tkzTabLine
+			{,-,,-,z,+,,+,z,-}
+		\tkzTabLine
+			{,-,z,+,,+,z,-,,-,z}
+		\tkzTabLine
+			{,+,z,-,z,+,z,-,z,+,z}
+	\end{tikzpicture}
+	\end{center}
 
+	On en déduit que $\bigset{ x \in [-3 ; 3] \text{ tq. } f(x) \cdot g(x) \geq 0} = [-3;-2,5]\cup[-2;0]\cup[2;3]$.
 }
 
 
 \begin{multicols}{2}
 
-\exe{}{
+\begin{Exercise}[label=exe:10]
 	Esquisser la droite $y=3x - 2$ et remplir le tableau de signes ci-dessous.
 	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -4, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=20pt,
+			xtick distance=1,
+			ytick distance=2,
+			%y=20pt,
+			clip=true,
+			]
+			\addplot[no marks, transparent, -, very thick] expression[domain=-4:4, samples=2]{3*x-2}
+			node[left, pos=.9]{$y=3x-2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\hspace{-50pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=2,espcl=2.7]
+			{$x$ / 1 , Signe de $3x-2$ / 1}
+			{,,}
+	\end{tikzpicture}
+	\end{center}
+\end{Exercise}
+
+\columnbreak
+
+\begin{Exercise}[label=exe:11]
+	Esquisser la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -2, xmax=2, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+			grid style = {opacity=.5},
+			x=40pt,
+			xtick distance=1,
+			ytick distance=2,
+			%y=20pt,
+			clip=true,
+			]
+			\addplot[no marks, transparent, -, very thick] expression[domain=-2:2, samples=2]{-6*x-2}
+			node[right, pos=.55]{$y=-6x-2$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\hspace{-25pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		[lgt=2,espcl=3]
+			{$x$ / 1 , Signe de $-6x-2$ / 1}
+			{,,}
+	\end{tikzpicture}
+	\end{center}
+\end{Exercise}
+
+\end{multicols}
+
+
+\begin{Answer}[ref=exe:10]
+	On résoud $3x-2 = 0$ pour trouver où la fonction s'annule exactement.
+		\begin{align*}
+			3x - 2 &= 0 \\
+			3x &= 2 \\
+			x &= \frac23
+		\end{align*}
+		
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -4, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -190,34 +272,24 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\hspace{-50pt}
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=2,espcl=2.7]
-			{$x$ / 1 , Signe de $3x-2$ / 1}
-			{,,}
-	\end{tikzpicture}
-	\end{center}
-}{exe:10}{
-
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
+		[lgt=2,espcl=1.5]
 	       		{$x$ / 1 , Signe de $3x-2$ / 1}
 	       		{  $\minfty$ ,,  $\frac23$ ,,  $\pinfty$ }
 		\tkzTabLine
 			{,,-,,z,,+}
 	\end{tikzpicture}
 	\end{center}
+\end{Answer}
 
-}
-
-\columnbreak
-
-\exe{}{
-	Esquisser la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
-	
+\begin{Answer}[ref=exe:11]
+	On résoud $-6x-2 = 0$ pour trouver où la fonction s'annule exactement.
+		\begin{align*}
+			-6x - 2 &= 0 \\
+			-6x &= 2 \\
+			x &= \frac{2}{-6} = -\frac26 = -\frac13
+		\end{align*}
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -2, xmax=2, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -233,20 +305,9 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\hspace{-25pt}
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=2,espcl=3]
-			{$x$ / 1 , Signe de $-6x-2$ / 1}
-			{,,}
-	\end{tikzpicture}
-	\end{center}
-}{exe:11}{
-
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 %[lgt=3,espcl=1.5]
+		 [lgt=2,espcl=1.5]
 	       		{$x$ / 1 , Signe de $-6x-2$ / 1}
 	       		{  $\minfty$ ,,  $-\frac13$ ,,  $\pinfty$ }
 		\tkzTabLine
@@ -254,9 +315,9 @@
 		
 	\end{tikzpicture}
 	\end{center}
-}
+\end{Answer}
 
-\end{multicols}
+
 
 %\exe{}{
 %	\begin{enumerate}
@@ -332,12 +393,12 @@
 
 \exe{}{
 	%À l'aide de l'exercice \ref{exe:1} remplir les tableaux de signes ci-dessous et donner
-	Remplir les tableaux de signes ci-dessous et en déduire
+	Remplir les tableaux de signes ci-dessous puis décrire les ensembles suivants.
 		\begin{align*}
-			%\bigset{ x \in \R \text{ tq. } f(x) \geq 0 }, && \bigset{ x \in \R \text{ tq. } g(x) \leq 0 }, && \bigset{ x \in \R \text{ tq. } h(x) \geq 0 }
-			\bigset{ x \in \R \text{ tq. } f(x) \geq 0 }, && \et && \bigset{ x \in \R \text{ tq. } g(x) \leq 0 }
+			\bigset{ x \in \R \text{ tq. } f(x) \geq 0 } &= && && &&
+			\\ 
+			\bigset{ x \in \R \text{ tq. } g(x) \leq 0 } &= && && &&
 		\end{align*}
-	sous forme d'union d'intervalles.
 	
 	\begin{center}
 	\begin{tikzpicture}
@@ -444,6 +505,42 @@
 %}
 
 
+\exemulticols{}{
+	Considérons la fonction $h$ donnée graphiquement ci-contre.
+	Sans davantage d'informations, son domaine de définition est \mbox{$\D_h = [-3;3]$}.
+	
+	\begin{enumerate}
+		\item Donner le domaine de définition de $\frac{2,5}{h(x)}$.
+		\item Donner le domaine de définition de $\frac{h(x)^2}{3}$.
+		\item Donner le domaine de définition de $\frac{h(x)}{x}$.
+	\end{enumerate}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=40pt, y=20pt]
+		% (h)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_h$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{exe:domaine-def-graphique}{
+	\begin{enumerate}
+		\item 
+		Il s'agit de vérifier que le dénominateur ne s'annule pas.
+		Les valeurs $-2$ et 2 sont donc interdites à $\frac{2,5}{h(x)}$ et son domaine de définition est
+			\[ [-3 ; -2 [ \cup ]-2 ; 2[ \cup ]2 ; 3]. \]
+		\item 
+		Rien n'est interdit ici : on ne divise jamais par zéro, et on ne prend aucune racine carrée de nombre négatif.
+		Le domaine de définition est donc $[-3 ; 3]$.
+		\item 
+		Il s'agit de vérifier que le dénominateur ne s'annule pas.
+		La valeur 0 est donc interdite à $\frac{h(x)}{x}$ et son domaine de définition est
+			\[ [-3 ; 0 [ \cup ]0 ; 3]. \]
+		
+	\end{enumerate}
+}
+
 \exe{}{
 	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
 		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
@@ -452,7 +549,7 @@
 		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
 		\item En déduire le domaine de définition $\D_f$.
 		\item Remplir le tableau de signes ci-dessous.
-		\item Exprimer $\bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 }$ sous forme d'union d'intervalles.
+		\item Décrire $\bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = $
 	\end{enumerate}
 	
 	
@@ -632,7 +729,7 @@
 
 
 \exe{}{
-	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple.
+	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple (un dessin peut suffir).
 	
 	$f, g, h, F$ et $G$ sont des fonctions définies sur $\R$.
 	\begin{enumerate}
@@ -686,9 +783,10 @@
 		\item
 		Montrer que  $f(x) = \left( x - \frac{1 - \sqrt{5}}2 \right)\cdot \left( x - \frac{1 + \sqrt{5}}2 \right)$ pour tout $x\in\R$.
 		\item 
-		En déduire les zéros de $f$. 
+		En déduire les zéros de $f$. Lequel est positif et lequel est négatif ? Raisonner sans calculatrice.
 	\end{enumerate}
-	Le zéro positif $\phi = \frac{1 + \sqrt{5}}2$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
+	%Le zéro positif $\phi = \frac{1 + \sqrt{5}}2$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
+	Le zéro positif $\phi$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
 	\begin{enumerate}[resume]
 		\item
 		Vérifier que les zéros trouvés annulent bien $f$ en calculant leur image par $f$.
@@ -702,10 +800,13 @@
 	\begin{enumerate}
 		\item
 		Montrer que $1$ est racine de l'équation.
+	\end{enumerate}
+	Le but des questions suivantes est d'effectuer la division euclidien de $3x^2-7x+4$ par $x-1$ afin de trouver la deuxième racine de l'équation.
+	\begin{enumerate}[resume]
 		\item
-		Quelle fonction $q_1(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x)$ n'ait plus de terme en $x^2$ ?
+		Quelle fonction affine $q_1(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x)$ n'ait plus de terme en $x^2$ ?
 		\item
-		Quelle fonction $q_2(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x) - (x-1)q_2(x)$ n'ait plus de terme en $x$ ?
+		Quelle fonction affine $q_2(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x) - (x-1)q_2(x)$ n'ait plus de terme en $x$ ?
 		\item
 		Montrer que $3x^2 - 7x+4 = (x-1)\bigl[q_1(x) + q_2(x)\bigr]$ et en déduire l'autre racine de l'équation.
 	\end{enumerate}
@@ -713,25 +814,25 @@
 	etc...
 }
 
+% peut-être donner un polynôme explicite fonction de r, s, d peut être mieux ?
+%\exe{, difficulty=2}{
+%	Montrer que n'importe quel nombre réel de la forme $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$, est zéro d'un polynôme quadratique à coefficients entiers $f(x) = ax^2 + bx + c$, avec $a, b, c \in \Z$.
+%}{exe:all-roots}{
+%	etc...
+%}
 
-\exe{, difficulty=2}{
-	Montrer que n'importe quel nombre réel de la forme $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$, est zéro d'un polynôme quadratique à coefficients entiers $f(x) = ax^2 + bx + c$, avec $a, b, c \in \Z$.
-}{exe:all-roots}{
-	etc...
-}
-
-\exe{,difficulty=3}{
-	Soit $f(x) = ax^2 + bx + c$ un polynôme à coefficients $a, b, c$ entiers.
-	Soit $d\in\N$ un entier naturel qui n'est pas un carré parfait.
-	\begin{enumerate}
-		\item Montrer que si $f\bigl(\sqrt{d}\bigr)= 0$, alors $b=0$. Raisonner par contradiction.
-		\item En déduire que si $\sqrt{d}$ est racine de $f$, alors $-\sqrt{d}$ est nécessairement l'autre racine de $f$.
-		\item Une racine du polynôme $f(x) = x^2 - x - 1$ peut-elle s'écrire $\sqrt{k}$ avec $k\in\N$ un entier non carré parfait ?
-		%\item Donner des paramètres $a,b,c$ entiers avec $b\neq0$ tels que $f$ admette une racine entière.
-	\end{enumerate}
-}{exe:quadratic-surd}{
-	etc...
-}
+%\exe{,difficulty=3}{
+%	Soit $f(x) = ax^2 + bx + c$ un polynôme à coefficients $a, b, c$ entiers.
+%	Soit $d\in\N$ un entier naturel qui n'est pas un carré parfait.
+%	\begin{enumerate}
+%		\item Montrer que si $f\bigl(\sqrt{d}\bigr)= 0$, alors $b=0$. Raisonner par contradiction.
+%		\item En déduire que si $\sqrt{d}$ est racine de $f$, alors $-\sqrt{d}$ est nécessairement l'autre racine de $f$.
+%		\item Une racine du polynôme $f(x) = x^2 - x - 1$ peut-elle s'écrire $\sqrt{k}$ avec $k\in\N$ un entier non carré parfait ?
+%		%\item Donner des paramètres $a,b,c$ entiers avec $b\neq0$ tels que $f$ admette une racine entière.
+%	\end{enumerate}
+%}{exe:quadratic-surd}{
+%	etc...
+%}
 
 \exe{, difficulty=3}{
 	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
