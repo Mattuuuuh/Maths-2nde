@@ -55,7 +55,9 @@ On parlera alors de projeté orthogonal d'un point sur une droite lorsque les dr
 			\item $B$ soit le projeté orthogonal de $C$ sur $(d')$.
 		\end{itemize}
 }{exe:proj-inv}{
-	TODO
+	\begin{center}
+	\includegraphics[page=28]{figures/fig-geom.pdf}
+	\end{center}
 }
 	
 	% ça ne marche pas DU TOUT
@@ -894,7 +896,37 @@ La racine et ses propriétés ont été étudiées dans la section \ref{sec:raci
 			$  \left|\sqrt2 -  \frac{p}{q} \right| \geq \frac{1}{4q^2}. $
 	\end{enumerate}
 }{exe:qapprox-sqrt2}{
-	TODO
+	\begin{enumerate}
+		\item 
+		Montrons que $\left|\frac{p}q + \sqrt2 \right| \leq 4$, ce qui permettra de conclure en multipliant l'inéquation par $q>0$.
+		
+		Comme la fraction $\frac{p}q$ est proche de $\sqrt2$ par hypothèse, alors on s'attend à ce que la somme $\frac{p}q + \sqrt2$ soit proche de $2\sqrt2$.
+		Ceci est montré rigoureusement à l'aide de l'\emph{inégalité triangulaire} qui s'écrit
+			\[ |a + b| \leq |a| + |b| \]
+		et qui s'interprète : « la distance à 0 de $a+b$ est inférieur à la distance à 0 de $a$ plus la distance à 0 de $b$ », essentiellement équivalent à « le chemin le plus court est la ligne de droite ».
+		\begin{align*}
+			 \left|\frac{p}q + \sqrt2 \right| &= \left|\frac{p}q - \sqrt2 + 2\sqrt2 \right| \\
+			 &\leq \left|\frac{p}q - \sqrt2\right| + 2\sqrt2 \\
+			 &\leq 1 + 2\sqrt2 \\
+			 &\leq 4.
+		\end{align*}
+		
+		\item 
+		La première égalité est une conséquence de l'identité remarquable $(a-b)(a+b) = a^2-b^2$, qui donne
+			\[ \left|p - q \sqrt2 \right| \cdot \left|p + q \sqrt2 \right| = \left| p^2 - 2q^2 \right|. \]
+		Ensuite, remarquons que $p^2-2q^2$ est un entier relatif, car $p$ et $q$ sont des entiers.
+		
+		Or, cet entier n'est pas 0, car sinon on aurait $p^2 - 2q^2 = 0 \iff \sqrt2 = \frac{p}{q} \in \Q$, ce qui contredit l'irrationalité de $\sqrt2$.
+		
+		Donc $p^2 - 2q^2$ est un entier relatif non nul, et sa valeur absolue est donc nécessairement supérieure ou égale à 1.
+		
+		Notons qu'elle peut être égale à 1 : prendre, par exemple, $p=1393$ et $q=985$.
+		Ces valeurs de $p$ et $q$ on été obtenues en continuant les fractions de l'exercice \ref{exe:frac-continue-sqrt2}.
+		\item
+		Grâce aux deux questions précédentes, nous avons
+			\[ \left|p - q \sqrt2 \right| \geq \frac1{\left|p - q \sqrt2 \right|} \geq \frac{1}{4q}, \]
+		ce qui conclut en divisant par $q$.
+	\end{enumerate}
 }
 
 
