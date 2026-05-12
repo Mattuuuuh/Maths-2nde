@@ -189,7 +189,7 @@
 \begin{multicols}{2}
 
 \begin{Exercise}[label=exe:10]
-	Esquisser la droite $y=3x - 2$ et remplir le tableau de signes ci-dessous.
+	Tracer la droite $y=3x - 2$ et remplir le tableau de signes ci-dessous.
 	
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
@@ -219,7 +219,7 @@
 \columnbreak
 
 \begin{Exercise}[label=exe:11]
-	Esquisser la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
+	Tracer la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
 	
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
@@ -505,103 +505,6 @@
 %}
 
 
-\exemulticols{}{
-	Considérons la fonction $h$ donnée graphiquement ci-contre.
-	Sans davantage d'informations, son domaine de définition est \mbox{$\D_h = [-3;3]$}.
-	
-	\begin{enumerate}
-		\item Donner le domaine de définition de $\frac{2,5}{h(x)}$.
-		\item Donner le domaine de définition de $\frac{h(x)^2}{3}$.
-		\item Donner le domaine de définition de $\frac{h(x)}{x}$.
-	\end{enumerate}
-}{
-	\begin{center}
-	\begin{tikzpicture}[>=stealth, scale=1]
-	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=40pt, y=20pt]
-		% (h)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_h$};
-	\end{axis}
-	\end{tikzpicture}
-	\end{center}
-
-}{exe:domaine-def-graphique}{
-	\begin{enumerate}
-		\item 
-		Il s'agit de vérifier que le dénominateur ne s'annule pas.
-		Les valeurs $-2$ et 2 sont donc interdites à $\frac{2,5}{h(x)}$ et son domaine de définition est
-			\[ [-3 ; -2 [ \cup ]-2 ; 2[ \cup ]2 ; 3]. \]
-		\item 
-		Rien n'est interdit ici : on ne divise jamais par zéro, et on ne prend aucune racine carrée de nombre négatif.
-		Le domaine de définition est donc $[-3 ; 3]$.
-		\item 
-		Il s'agit de vérifier que le dénominateur ne s'annule pas.
-		La valeur 0 est donc interdite à $\frac{h(x)}{x}$ et son domaine de définition est
-			\[ [-3 ; 0 [ \cup ]0 ; 3]. \]
-		
-	\end{enumerate}
-}
-
-\exe{}{
-	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
-		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
-	
-	\begin{enumerate}
-		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
-		\item En déduire le domaine de définition $\D_f$.
-		\item Remplir le tableau de signes ci-dessous.
-		\item Décrire $\bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = $
-	\end{enumerate}
-	
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=3.5]
-	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
-	       		{,, , ,}
-	       		
-	\end{tikzpicture}
-	\end{center}
-}{exe:5}{
-	\begin{enumerate}
-		\item 
-		Par double distributivité,
-			\[ (x-3)(7x+1) = x^2 \cdot (7) + x \cdot (1 - 21) + (-3) = 7x^2 - 20x - 3. \]
-		\item
-		Il n'y a pas de racine carrée dans l'expression de $f$ : la seule opération illégale est la division par zéro.
-		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\frac17$.
-		Par conséquent, 
-			\[ \D_f = \R - \left\{ 3 ; -\dfrac17 \right\}. \]
-		
-		\item 
-		Dans la dernière ligne, on note par les doubles barres les valeurs interdites à $f$.
-		Lorsque le numérateur $2x+1$ est nul, $f$ est bien nulle, mais $f$ n'est pas définie aux $x$ pour lesquels le dénominateur s'annule.
-		\item 
-			\[ \bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
-		Les valeurs interdites $-\frac17$ et $3$ ne sont pas incluses car elles n'appartiennent pas à $\D_f$, ensemble dans lequel on pioche nos $x$.
-	\end{enumerate}
-	
-	\begin{center}
-	\begin{tikzpicture}
-		\tkzTabInit
-		 [lgt=3,espcl=3.5]
-	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
-	       		{ $\minfty$ , $-\frac12$ ,  $-\frac17$ ,  $3$ , $\pinfty$ }
-	       		
-		
-		\tkzTabLine
-			{,-,,-,,-,z,+}
-		\tkzTabLine
-			{,-,,-,z,+,,+}
-		\tkzTabLine
-			{,-,z,+,,+,,+}
-		\tkzTabLine
-			{,-,z,+,d, -,d,+}
-		
-	\end{tikzpicture}
-	\end{center}
-}
-
 
 
 \exe{}{
@@ -627,35 +530,6 @@
 
 }
 
-
-\exe{}{
-	%À l'aide de l'exercice \ref{exe:1}, donner le domaine de définition de chaque fonction suivante.
-	Calculer le domaine de définition de chaque fonction suivante.
-	
-	\begin{multicols}{3}
-	\begin{enumerate}
-		\item $f(x) = \sqrt{x+3}$
-		\item $g(x) = \sqrt{3x-10}$
-		\item $h(x) = \sqrt{-4x-12}$
-	\end{enumerate}
-	\end{multicols}
-
-}{exe:2}{
-	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
-	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
-	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
-	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
-	
-	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
-	\begin{enumerate}
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } x + 3 \geq 0 \} = [-3; \pinfty[. \]
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[. \]
-		\item
-			\[ \D_f = \{ x \in \R \text{ tq. } -4x-12 \geq 0 \} = ]\minfty; -3]. \]
-	\end{enumerate}
-}
 
 \exe{}{
 	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
@@ -772,6 +646,148 @@
 
 }
 
+
+\exe{}{
+	%À l'aide de l'exercice \ref{exe:1}, donner le domaine de définition de chaque fonction suivante.
+	Calculer le domaine de définition de chaque fonction suivante.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $f(x) = \sqrt{x+3}$
+		\item $g(x) = \sqrt{3x-10}$
+		\item $h(x) = \sqrt{-4x-12}$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:2}{
+	Le domaine de définition est le plus grand domaine sur lequel une fonction est bien définie.
+	Ici, la seule chose qui peut se mal passer est qu'on demande à $f$ de calculer une racine carrée d'un nombre négatif.
+	Ceci n'est pas possible car $x^2 \geq 0$ pour tout $x\in\R$, donc si on souhaite calculer $\sqrt{a}$ vérifiant $\sqrt{a}^2 = a$ par définition, on a nécessairement $a\geq0$.
+	Par exemple, $\sqrt{-1}$ ne peut pas être un nombre réel, sinon $\sqrt{-1}^2 = -1$, et un carré serait négatif !
+	
+	On impose donc que l'expression sous une racine carrée soit positive ou nulle, et on prend tous les réels vérifiant cette propriété.
+	\begin{enumerate}
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } x + 3 \geq 0 \} = [-3; \pinfty[. \]
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } 3x- 10 \geq 0 \} = \left[ \dfrac{10}3 ; \pinfty \right[. \]
+		\item
+			\[ \D_f = \{ x \in \R \text{ tq. } -4x-12 \geq 0 \} = ]\minfty; -3]. \]
+	\end{enumerate}
+}
+
+
+\exemulticols{}{
+	Considérons la fonction $h$ donnée graphiquement ci-contre.
+	Sans davantage d'informations, son domaine de définition est \mbox{$\D_h = [-3;3]$}.
+	
+	\begin{enumerate}
+		\item Donner le domaine de définition de $\frac{2,5}{h(x)}$.
+		\item Donner le domaine de définition de $\frac{h(x)^2}{3}$.
+		\item Donner le domaine de définition de $\frac{h(x)}{x}$.
+	\end{enumerate}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=32pt, y=15pt]
+		% (h)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_h$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+}{exe:domaine-def-graphique}{
+	\begin{enumerate}
+		\item 
+		Il s'agit de vérifier que le dénominateur ne s'annule pas.
+		Les valeurs $-2$ et 2 sont donc interdites à $\frac{2,5}{h(x)}$ et son domaine de définition est
+			\[ [-3 ; -2 [ \cup ]-2 ; 2[ \cup ]2 ; 3]. \]
+		\item 
+		Rien n'est interdit ici : on ne divise jamais par zéro, et on ne prend aucune racine carrée de nombre négatif.
+		Le domaine de définition est donc $[-3 ; 3]$.
+		\item 
+		Il s'agit de vérifier que le dénominateur ne s'annule pas.
+		La valeur 0 est donc interdite à $\frac{h(x)}{x}$ et son domaine de définition est
+			\[ [-3 ; 0 [ \cup ]0 ; 3]. \]
+		
+	\end{enumerate}
+}
+
+\exe{}{
+	Quel est le domaine de définition de la fonction $F$ suivante ?
+		\[F(x) = \frac{42}{1+x^2}\]
+}{exe:sqr-p-1}{
+	Il s'agit de vérifier que le dénominateur ne s'annule pas.
+	Or l'égalité $1+x^2 = 0$ est équivalente à $x^2 = -1$ qui n'admet aucune solution réelle car le carré est toujours positif.
+	Par conséquent, $\D_F = \R$.
+}
+
+
+\exe{}{
+	On souhaite connaître pour quels $x\in\D_f$ l'inégalité suivante est vérifée.
+		\[ f(x) = \dfrac{2x+1}{7x^2 - 20x - 3} \geq 0 \]
+	
+	%\begin{multicols}{2}
+	\begin{enumerate}
+		\item Montrer que $7x^2 - 20x - 3 = (x-3)(7x+1)$.
+		\item En déduire le domaine de définition $\D_f$.
+		\item Remplir le tableau de signes ci-dessous.
+		\item Décrire $\bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = $
+	\end{enumerate}
+	%\end{multicols}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=3.5]
+	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
+	       		{,, , ,}
+	       		
+	\end{tikzpicture}
+	\end{center}
+}{exe:5}{
+	\begin{enumerate}
+		\item 
+		Par double distributivité,
+			\[ (x-3)(7x+1) = x^2 \cdot (7) + x \cdot (1 - 21) + (-3) = 7x^2 - 20x - 3. \]
+		\item
+		Il n'y a pas de racine carrée dans l'expression de $f$ : la seule opération illégale est la division par zéro.
+		Le dénominateur $(x-3)(7x+1)$ est nul lorsqu'un des deux facteur est nul, c'est-à-dire lorsque $x=3$ ou $x= -\frac17$.
+		Par conséquent, 
+			\[ \D_f = \R - \left\{ 3 ; -\dfrac17 \right\}. \]
+		
+		\item 
+		Dans la dernière ligne, on note par les doubles barres les valeurs interdites à $f$.
+		Lorsque le numérateur $2x+1$ est nul, $f$ est bien nulle, mais $f$ n'est pas définie aux $x$ pour lesquels le dénominateur s'annule.
+		\item 
+			\[ \bigset{ x \in \D_f \text{ tq. } f(x) \geq 0 } = \left[ -\dfrac12 ; -\dfrac17 \right[ \cup ]3 ; \pinfty[. \]
+		Les valeurs interdites $-\frac17$ et $3$ ne sont pas incluses car elles n'appartiennent pas à $\D_f$, ensemble dans lequel on pioche nos $x$.
+	\end{enumerate}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=3,espcl=3.5]
+	       		{$x$ / 1, Signe de $x-3$ / 1 , Signe de $7x+1$ / 1, Signe de $2x+1$ / 1 , Signe de $f(x)$ / 1}
+	       		{ $\minfty$ , $-\frac12$ ,  $-\frac17$ ,  $3$ , $\pinfty$ }
+	       		
+		
+		\tkzTabLine
+			{,-,,-,,-,z,+}
+		\tkzTabLine
+			{,-,,-,z,+,,+}
+		\tkzTabLine
+			{,-,z,+,,+,,+}
+		\tkzTabLine
+			{,-,z,+,d, -,d,+}
+		
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+
 \subsection*{Approfondissements}
 
 
@@ -801,7 +817,7 @@
 		\item
 		Montrer que $1$ est racine de l'équation.
 	\end{enumerate}
-	Le but des questions suivantes est d'effectuer la division euclidien de $3x^2-7x+4$ par $x-1$ afin de trouver la deuxième racine de l'équation.
+	Le but des questions suivantes est d'effectuer la division euclidienne de $3x^2-7x+4$ par $x-1$ afin de trouver la deuxième racine de l'équation.
 	\begin{enumerate}[resume]
 		\item
 		Quelle fonction affine $q_1(x)$ prendre pour que $3x^2 -7x+4 - (x-1)q_1(x)$ n'ait plus de terme en $x^2$ ?
@@ -814,9 +830,13 @@
 	etc...
 }
 
-% peut-être donner un polynôme explicite fonction de r, s, d peut être mieux ?
-%\exe{, difficulty=2}{
-%	Montrer que n'importe quel nombre réel de la forme $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$, est zéro d'un polynôme quadratique à coefficients entiers $f(x) = ax^2 + bx + c$, avec $a, b, c \in \Z$.
+% c'est dur en vrai
+%\exe{, difficulty=3}{
+%	Soient $m, n, d\in\Z$ trois entiers relatifs.
+%	Donner explicitement une fonction $f(x) = ax^2 + bx+c$ avec $a, b, c$ entiers relatifs
+%	telle que $f\bigl(m+n\sqrt{d}\bigr) = 0$.
+%	
+%	En déduire une fonction à coefficient entiers qui annule $1-\sqrt2$.
 %}{exe:all-roots}{
 %	etc...
 %}
