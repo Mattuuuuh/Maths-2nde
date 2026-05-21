@@ -1,0 +1,152 @@
+\input{../preamble.tex}
+\SetDate[22/05/2026]
+\setbeamertemplate{page number in head/foot}{}
+
+\usecolortheme{crane}
+
+\begin{document}
+
+\section{Automatismes}
+
+\begin{frame}
+
+\centering \huge
+Automatismes
+
+\large
+Calculatrice interdite
+
+\end{frame}
+
+\subsection{Signe d'image}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=15pt, x=40pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, clip=false]
+		
+		% (f)
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
+		
+		% (g)
+		\addplot[GREEN_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Donner le signe de $f(-2)$.
+	}{
+		Donner le signe de $g(1,414)$.
+	}
+	Réponse attendue : strictement positif, négatif, ou nul.
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=15pt, x=40pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, clip=false]
+		
+		% (f)
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
+		
+		% (g)
+		\addplot[GREEN_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		$f(-2) = 0$.
+	}{
+		$g(1,414) < 0$.
+	}
+}
+
+\framedelayed{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -2.5, xmax=2.3, ymin=-3.8, ymax=3.5, y=15pt, x=50pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, clip=false]
+		
+		% (f)
+		\addplot[no marks, RED_E, -,  very thick] expression[domain=-2.5:2.3, samples=101]{1/(x-2.7) + 1/(x+2.7) + 2*x}
+		node[right]{$\mathcal{C}_f$};
+		
+		% (g)
+		\addplot[no marks, GREEN_E, -, very thick] expression[domain=-2.5:2.3, samples=101]{(x-1)*(x-2)*(x+2)/2}
+		node[right]{$\mathcal{C}_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		Donner le signe de $f(1,618)$.
+	}{
+		Donner le signe de $g(1)$.
+	}
+}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -2.5, xmax=2.3, ymin=-3.8, ymax=3.5, y=15pt, x=50pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, clip=false]
+		
+		% (f)
+		\addplot[no marks, RED_E, -,  very thick] expression[domain=-2.5:2.3, samples=101]{1/(x-2.7) + 1/(x+2.7) + 2*x}
+		node[right]{$\mathcal{C}_f$};
+		
+		% (g)
+		\addplot[no marks, GREEN_E, -, very thick] expression[domain=-2.5:2.3, samples=101]{(x-1)*(x-2)*(x+2)/2}
+		node[right]{$\mathcal{C}_g$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\boxAB{
+		$f(1,618) > 0$.
+	}{
+		$g(1) = 0$.
+	}
+}
+
+
+\subsection{Signe de produit}
+
+\framedelayed{
+	Le nombre $x$ est strictement positif et le nombre $y$ est strictement négatif.
+	\boxAB{
+		Donner le signe de $x y^2$.
+	}{
+		Donner le signe de $\dfrac{x^2}{y}$.
+	}
+}{
+	Le nombre $x$ est strictement positif et le nombre $y$ est strictement négatif.
+	\boxAB{
+		$x y^2 > 0$ (positif par positif).
+	}{
+		$\dfrac{x^2}{y} < 0$ (positif par négatif).
+	}
+}
+
+
+\subsection{Inéquation}
+
+\framedelayed{
+	Quels nombres réels $x$ vérifient l'inégalité suivante ? 
+	Un intervalle est attendu.
+	\boxAB{
+		$2x-6 \geq 0$ 
+	}{
+		$3x - 3 \geq 0$ 
+	}
+}{
+	\boxAB{
+		$2x-6 \geq 0 \stackrel{+6}{\iff} 2x \geq 6 \stackrel{\times\frac12}{\iff} x \geq 3$ 
+		\\
+		$x \in [3 ; \pinfty[$
+	}{
+		$3x - 3 \geq 0 \stackrel{+3}{\iff} 3x \geq 3 \stackrel{\times\frac13}{\iff} x \geq 1$
+		\\
+		$x \in [1 ; \pinfty[$.
+	}
+}
+
+
+
+\section{Solutions}
+
+\shipoutAnswer
+
+\end{document}
