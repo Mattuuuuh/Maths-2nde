@@ -544,7 +544,7 @@
 	\begin{enumerate}
 		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
 			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
-		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
 		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
 	\end{enumerate}
 }
@@ -565,7 +565,7 @@
 		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
 		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
 			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
-		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
 		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
 		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
 			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
@@ -591,7 +591,7 @@
 		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
 		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
 			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
-		\item On utilise que le produit est nul si est seulement si un des deux facteurs est nul.
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
 		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
 		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
 	\end{enumerate}
@@ -808,7 +808,8 @@
 		Vérifier que les zéros trouvés annulent bien $f$ en calculant leur image par $f$.
 	\end{enumerate}
 }{exe:phi}{
-	etc...
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
 }
 
 \exe{, difficulty=2}{
@@ -827,7 +828,8 @@
 		Montrer que $3x^2 - 7x+4 = (x-1)\bigl[q_1(x) + q_2(x)\bigr]$ et en déduire l'autre racine de l'équation.
 	\end{enumerate}
 }{exe:euclide-poly}{
-	etc...
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
 }
 
 % c'est dur en vrai
@@ -858,11 +860,14 @@
 	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
 	Montrer que son conjugué $r-s\sqrt{d}$ est également racine.
 }{exe:Galois2}{
-	Voici une stratégie de preuve possible.
+	À rendre pour possibilité de points bonus à la prochaine évaluation.
+	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	Voici une première stratégie de preuve possible.
 	\begin{enumerate}
 		\item
 		Montrer que $1$ et $\sqrt{d}$ sont \emph{linéairement indépendants} sur $\Q$.
-		C'est-à-dire, montrer que si $u + v\sqrt{d} = 0$ avec $u, v \in\Q$, alors $r=s=0$.
+		C'est-à-dire, montrer que si $r + s\sqrt{d} = 0$ avec $r, s \in\Q$, alors $r=s=0$.
 		Une équation sur les réels devient alors deux équations sur les rationnels !
 		\item
 		En déduire que $a(r+s\sqrt{d})^2 + b(r+s\sqrt{d}) + c=0$ est équivalente aux deux équations $ar^2 + ads^2+br+c=0$ et  $2ars+bs=0$.
@@ -871,6 +876,22 @@
 	\end{enumerate}
 	À l'étape 2, nous utilisons aussi que la somme et le produit de deux rationnels est un rationnel, et c'est à ce moment que nous utilisons que tous les coefficients ($r, s, a, b, c$) sont rationnels.
 	Cette propriété de $\Q$ se démontre assez simplement avec les formules $\frac{a}b+\frac{c}d$ et $\frac{a}b\times\frac{c}d$.
+	
+	Voici un deuxième stratégie de preuve possible.
+	\begin{enumerate}
+		\item
+		Montrer que $1$ et $\sqrt{d}$ sont \emph{linéairement indépendants} sur $\Q$.
+		C'est-à-dire, montrer que si $r + s\sqrt{d} = 0$ avec $r, s \in\Q$, alors $r=s=0$.
+		\item
+		Montrer que la fonction « conjugué » $f\bigl(r+s\sqrt{d}\bigr) = r - s\sqrt{d}$ où $r, s \in \Q$ vérifie que
+			\begin{enumerate}[label=(\roman*)]
+				\item $f(x+y) = f(x)+f(y)$
+				\item $f(xy) = f(x)f(y)$
+			\end{enumerate}
+		\item
+		Conclure en appliquant $f$ à l'équation $ax^2 +bx + c = 0$ pour obtenir $af(x)^2 + bf(x) + c = 0$.
+	\end{enumerate}
+	
 }
 
 
