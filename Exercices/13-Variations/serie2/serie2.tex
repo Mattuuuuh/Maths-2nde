@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[17/04/2026]
+\SetDate[29/05/2026]
 
 \usepackage{minted}
 
@@ -15,37 +15,43 @@
 
 \section*{Le Juste Prix}
 
-\begin{namedtheorem}[Règles du jeu]
+\subsubsection*{Règles du jeu}
+%\begin{namedtheorem}[Règles du jeu]
 	Le joueur doit deviner le prix d'un objet pour le gagner.
 	Pour cela, il peut faire plusieurs estimations.
-	
+	%
 	Le présentateur connaît le prix de l'objet. 
 	À chaque estimation, il répond « C'est plus ! » ou \mbox{« C'est moins ! »} selon que le prix de l'objet est plus grand ou plus petit que l'estimation donnée.
 	
 	Le joueur est chronométré et doit trouver le prix exact de l'objet le plus vite possible.
-\end{namedtheorem}
-
-%\begin{namedtheorem}[Simplification]
-	On suppose que le prix est un nombre entier entre 1€ et 1 000€ inclus.
 %\end{namedtheorem}
 
-\subsection*{Premier objet}
+% intéressant à comparer à l'oral ; pas la place pour l'écrit ici
+%\subsection*{Méthode de balayage}
 
-%\hspace{-40pt}
-%\begin{tikzpicture}
-%\begin{axis}[
-%	axis y line=none, 
-%	axis x line=middle, 
-%	axis line style=-,
-%	xmin=0, xmax=1000, 
-%	ymin=0, ymax=1,
-%	y=1pt,
-%	x=.51pt,
-%	xtick distance = 250,
-%	minor x tick num = 3,
-%	]
-%\end{axis}
-%\end{tikzpicture}
+\subsubsection*{Méthode de dichotomie}
+
+%\begin{namedtheorem}[Simplification]
+	On suppose que le prix est un nombre entier entre 0€ et 1 000€ inclus.
+%\end{namedtheorem}
+
+\vspace{10pt}
+
+\hspace{-40pt}
+\begin{tikzpicture}
+\begin{axis}[
+	axis y line=none, 
+	axis x line=middle, 
+	axis line style=-,
+	xmin=0, xmax=1000, 
+	ymin=0, ymax=1,
+	y=1pt,
+	x=.51pt,
+	xtick distance = 200,
+	minor x tick num = 1,
+	]
+\end{axis}
+\end{tikzpicture}
 
 
 \hspace{-65pt}
@@ -63,7 +69,7 @@ Prix final trouvé :
 \hspace{6cm}
 Nombre d'estimations :
 
-\subsection*{Deuxième objet}
+\vspace{10pt}
 
 \hspace{-40pt}
 \begin{tikzpicture}
@@ -75,8 +81,8 @@ Nombre d'estimations :
 	ymin=0, ymax=1,
 	y=1pt,
 	x=.51pt,
-	xtick distance = 250,
-	minor x tick num = 3,
+	xtick distance = 200,
+	minor x tick num = 1,
 	]
 \end{axis}
 \end{tikzpicture}
@@ -96,57 +102,65 @@ Prix final trouvé :
 \hspace{6cm}
 Nombre d'estimations :
 
-\begin{namedtheorem}[Stratégie de dichotomie]
+\subsubsection*{Stratégie de dichotomie}
+%\begin{namedtheorem}[Stratégie de dichotomie]
 	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle pour exclure la moitié des valeurs candidates.
 	
 	Le nombre d'essais ne dépassera jamais 10 car $2^{10} = 1024 > 1000$.
 	
 	%La stratégie est optimale car si l'oracle agit comme adversaire, il peut choisir de changer $P$ selon le prix $x$ proposé par le joueur.
-\end{namedtheorem}
+%\end{namedtheorem}
 
-\section*{À la recherche de zéro}
 
-\begin{namedtheorem}[Problème de recherche de zéro]
+\subsubsection*{Algorithme}
+%\begin{namedtheorem}[Algorithme]\ \\
+	Entrée : fonction $f$ ; premier encadrement $a \leq x_0 \leq b$ ; précision $p$
+	\\
+	Sortie : encadrement final de $x_0$ tel que $b-a \leq p$
+	\\
+	Tant que $b-a > p$ : \\
+		Calcul du milieu $m = \frac{a+b}2$ \\
+		Appel à l'oracle pour connaitre le signe de $f(m)$ \\
+		Si $f(m) > 0$ \\
+		$b = m$ \\
+		Sinon, \\
+		$a = m$ 
+%\end{namedtheorem}
+
+\newpage
+
+\section*{Généralisation}
+
+\subsection*{Problème de recherche de zéro}
+%\begin{namedtheorem}[Problème de recherche de zéro]
 	Toutes les équations peuvent se réécrire comme $f(x) = 0$.
 	On appelle \emph{zéro} de $f$ ou \emph{racine} de $f(x) = 0$ un antécédent $x_0$ qui vérifie $f(x_0) = 0$.
 
 	Le problème est le suivant : étant donné une précision, comment obtenir un encadrement
-		$ a \leq x_0 \leq b $
-	d'amplitude inférieure à la précision fixée ?
-\end{namedtheorem}
-
-\begin{namedtheorem}[Hypothèses]
-	\begin{itemize}
-		\item
-		Le tracé de $\C_f$ est continu : on trace la courbe sans lever son stylo.
-		\item
-		$f(x)$ passe du négatif au positif autour de sa racine.% (on peut prendre $-f$ dans le cas contraire).
-		\item
-		Pour chaque $x$ du domaine, un appel à un oracle permet de connaître le signe de $f(x)$.
-	\end{itemize}
-\end{namedtheorem}
+		\mbox{$ a \leq x_0 \leq b $}
+	d'amplitude $b-a$ inférieure à la précision fixée ?
+%\end{namedtheorem}
 
 \begin{multicols}{2}
-	\begin{namedtheorem}[Algorithme]
-		Entrée : fonction $f$ ; premier encadrement $a \leq x_0 \leq b$ ; précision $p$
-		\\
-		Sortie : encadrement final de $x_0$ tel que $b-a \leq p$
-		\\
-		Tant que $b-a > p$ : \\
-			Calcul du milieu $m = \frac{a+b}2$ \\
-			Appel à l'oracle pour connaitre le signe de $f(m)$ \\
-			Si $f(m) > 0$ \\
-			$b = m$ \\
-			Sinon, \\
-			$a = m$ 
-	\end{namedtheorem}
-
-	\begin{tikzpicture}[>=stealth, scale=1.2]
+	\begin{tikzpicture}[>=stealth, scale=.8]
 	\begin{axis}[xmin = 0, xmax=2, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style = -, ytick distance=2, xtick distance=1, minor tick num=1, extra y ticks={0}, y=15pt, clip=true, ]
 		\addplot[BLUE_E, thick, domain =0:2, samples=100] {x^2 - 2}  node[above left, pos=.8] {$y=x^2 - 2$};
 	\end{axis}
 	\end{tikzpicture}
+	\columnbreak
+	\begin{namedtheorem}[Hypothèses]\
+		\begin{itemize}
+			\item
+			Le tracé de $\C_f$ est continu.% : on trace la courbe sans lever son stylo.
+			\item
+			$f$ est croissante autour de sa racine.% (on peut prendre $-f$ dans le cas contraire).
+			\item
+			%Pour chaque $x$ du domaine, un appel à un oracle permet de connaître le signe de $f(x)$.
+			Il est facile de calculer le signe de $f(x)$.
+		\end{itemize}
+	\end{namedtheorem}
 \end{multicols}
+
 
 %Différence avec le balayage.
 
@@ -211,7 +225,7 @@ Nombre d'estimations :
 %	Comme $\sqrt{700} = \sqrt{100\times7} = \sqrt{100}\times\sqrt{7}=10\sqrt7$, on peut multiplier l'encadrement de l'exercice \ref{exe:precision} par 10 pour conclure immédiatement.
 %}
 
-\section*{Trouver un polynôme annulateur}
+\subsection*{Trouver un polynôme annulateur}
 
 \begin{namedtheorem}[Exemples]
 	Considérons la fonction $f(x) = x^2 - 3$. Elle est
@@ -230,7 +244,7 @@ Nombre d'estimations :
 }
 	
 \exe{, difficulty=1}{
-	Trouver un polynôme à coefficients entiers et annulateur de $\frac{\sqrt3}2$.
+	Trouver un polynôme à coefficients entiers et annulateur de $\cos(30^\circ) = \frac{\sqrt3}2$.
 }{exe:p-annul-sqrt32}{
 	$g(x) = 4x^2 -3$ fonctionne, car $\frac{\sqrt3}2 = \sqrt{\frac34}$.
 }
@@ -265,10 +279,10 @@ Nombre d'estimations :
 }
 
 \begin{namedtheorem}[Théorème]
-	$\pi$ est un nombre transcendant : il n'existe pas de polynôme à coefficients entiers annulateur de $\pi$.
+	Le nombre $\pi$, périmètre d'un cercle de diamètre 1, est un nombre transcendant : il n'existe pas de polynôme à coefficients entiers annulateur de $\pi$.
 \end{namedtheorem}
 
-\section*{Étude de complexité}
+\subsection*{Étude de complexité}
 
 
 \exe{, difficulty=2}{
