@@ -1,0 +1,51 @@
+\input{../preamble.tex}
+
+\SetDate[24/05/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Seconde}
+\fancyhead[C]{\textbf{Étude de signes}}
+\fancyhead[R]{\today}
+
+
+\exe{,difficulty=2}{
+	Soit $f(x) = x^2 - x - 1$ une fonction quadratique sur $\R$.
+	
+	\begin{enumerate}
+		\item
+		Montrer que  $f(x) = \left( x - \frac{1 - \sqrt{5}}2 \right)\cdot \left( x - \frac{1 + \sqrt{5}}2 \right)$ pour tout $x\in\R$.
+		\item 
+		En déduire les zéros de $f$. Lequel est positif et lequel est négatif ? Raisonner sans calculatrice.
+	\end{enumerate}
+	%Le zéro positif $\phi = \frac{1 + \sqrt{5}}2$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
+	Le zéro positif $\phi$ (lu \og phi \fg) s'appelle le \emph{nombre d'or}.
+	\begin{enumerate}[resume]
+		\item
+		Vérifier que les zéros trouvés annulent bien $f$ en calculant leur image par $f$.
+	\end{enumerate}
+}{exe:phi}{
+	\begin{enumerate}
+		\item
+		Utiliser la double distributivité en voyant $\frac{1 - \sqrt{5}}2$ comme un simple nombre :
+			\begin{align*}
+				 \left( x - \frac{1 - \sqrt{5}}2 \right)\cdot \left( x - \frac{1 + \sqrt{5}}2 \right)  &= x^2 -  \frac{1 + \sqrt{5}}2 x - \frac{1 - \sqrt{5}}2 x + \frac{1 - \sqrt{5}}2 \frac{1 + \sqrt{5}}2 \\
+					&= x^2 -\Bigl (\frac{1 - \sqrt{5}}2 + \frac{1 + \sqrt{5}}2\Bigr) x + \frac{(1 - \sqrt{5})(1 + \sqrt{5})}4 \\
+					&= \hdots
+			\end{align*}
+		\item 
+		Utiliser le produit nul : $AB = 0$ si et seulement si $A = 0$ ou $B= 0$.
+		\item
+		On obtient $\phi =  \frac{1 + \sqrt{5}}2$, qu'on vérifie en calculant
+			\[ f(\phi) = f\Bigl( \frac{1 - \sqrt{5}}2\Bigr) = \Bigl(\frac{1 - \sqrt{5}}2\Bigr)^2 - \Bigl( \frac{1 - \sqrt{5}}2\Bigr) - 1 = \hdots \]
+	\end{enumerate}
+}
+
+
+%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
