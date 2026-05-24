@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[20/05/2026]
+\SetDate[27/05/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -48,7 +48,7 @@
 			}]
     			%f de l'éval f° affines
 			\addplot[no marks, myb, -, very thick] expression[domain=-8:-6, samples=2]{5*(x/2 + 3.2)}
-			node[pos=0, above left] {$\C_f$};
+			node[pos=0, left] {$\C_f$};
 			\addplot[no marks, myb, -, very thick] expression[domain=-6:-3, samples=50]{(x+6)*(x+3)+1)};
 			\addplot[no marks, myb, -, very thick] expression[domain=-3:0, samples=2]{5*0.2};
 			
@@ -61,7 +61,7 @@
 	\hspace{-25pt}
 	\begin{tikzpicture}[scale=1]
 		\tkzTabInit
-		 [lgt=3,espcl=2]
+		 [lgt=3,espcl=2.1]
 	       		{$x$ / 1 , Variation de $f(x)$ / 1.5, Variation de $g(x)$ / 1.5}
 	       		{,,,,,,}
 	\end{tikzpicture}
@@ -114,7 +114,7 @@
 
 }
 
-\exe{}{
+\exe{,difficulty=1}{
 	Pour chaque proposition suivante, dire si elle est \underline{toujours vraie} ou si elle \underline{peut être fausse} à l'aide du tableau de variations suivant.
 	
 	\begin{center}
@@ -213,7 +213,7 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		[lgt=2,espcl=3]
-	       		{$x$ / 1, Variation de $3x-2$ / 2}
+	       		{$x$ / 1, Variation de $3x-2$ / 1.5}
 			{,,}
 	\end{tikzpicture}
 	\end{center}
@@ -242,8 +242,8 @@
 	\hspace{-25pt}
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=2,espcl=3]
-	       		{$x$ / 1 , Variation de $-6x-2$ / 2}
+		[lgt=2.1,espcl=3]
+	       		{$x$ / 1 , Variation \mbox{de $-6x-2$} / 1.5}
 			{,,}
 	\end{tikzpicture}
 	\end{center}
@@ -331,6 +331,111 @@
 \end{Answer}
 
 
+\exe{,difficulty=1}{
+	Considérons la courbe $\C_f$ graphiquement ci-dessous. 
+	Esquisser la courbe de chaque fonction suivante puis remplir son tableau de variations.
+		\begin{multicols}{4}
+		\begin{enumerate}[label=]
+			\item $g(x) = f(x) + 1$
+			\item $h(x) = f(x) - 2$
+			\item $k(x) = 2f(x)$
+			\item $\ell(x) = -f(x)$
+		\end{enumerate}
+		\end{multicols}
+	
+%	\begin{enumerate}
+%		\item Esquisser, dans le même repère, la courbe de $g(x) = f(x)+1$.
+%		\item Esquisser, dans le même repère, la courbe de $h(x) = f(x)-2$.
+%		\item Remplir le tableau de variations ci-dessous.
+%	\end{enumerate}
+%	
+	\begin{multicols}{2}
+	\hspace{-50pt}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		x=15pt,
+		y=20pt,
+		ytick distance=1,
+		xtick distance=2,
+		clip=false,
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_f$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 1.5, Variation de $g(x)$ / 1.5, Variation de $h(x)$ / 1.5}
+	       		{$-10$,,,$7$}
+	\end{tikzpicture}
+	\end{multicols}
+
+%	\begin{enumerate}[resume]
+%		\item Esquisser, dans le même repère, la courbe de $k(x) = -f(x)$.
+%		\item Esquisser, dans le même repère, la courbe de $\ell(x) = 2f(x)$.
+%		%\item Remplir le tableau de variations ci-dessous.
+%	\end{enumerate}
+	
+	\begin{multicols}{2}
+	\hspace{-50pt}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		x=15pt,
+		y=20pt,
+		ytick distance=1,
+		xtick distance=2,
+		clip=false,
+	    	]
+		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_f$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 1.5, Variation de $k(x)$ / 1.5, Variation de $\ell(x)$ / 1.5}
+	       		{$-10$,,,$7$}
+	\end{tikzpicture}
+	\end{multicols}
+
+}{exe:parentes1}{
+	\begin{multicols}{2}
+	\begin{tikzpicture}[scale=1.1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		ytick={-4,-3,...,4},
+		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
+	    	%every y tick label/.style={
+	        %anchor=near yticklabel opposite,
+	        %xshift=0.2em,
+	    	%}
+	    	]
+		% g cos
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
+		node[pos=.35, above]{$\mathcal{C}_g$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
+		node[pos=.35,above]{$\mathcal{C}_h$};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $g(x)$ / 2, Variation de $h(x)$ / 2}
+	       		{$-10$,{$-4,6$}, {2},$7$}
+	       	
+		\tkzTabVar
+			{-/{$-4,1$}, +/{$0,2$}, -/{$-1,2$}, +/{$2,5$}}
+		\tkzTabVar
+			{-/{$-3,1$}, +/{$1,2$}, -/{$-0,2$}, +/{$3,5$}}
+		\tkzTabVar
+			{-/{$-6,1$}, +/{$-1,2$}, -/{$-2,2$}, +/{$1,5$}}
+	\end{tikzpicture}
+	\end{multicols}
+}
 
 %%%%%%%%%%%
 
