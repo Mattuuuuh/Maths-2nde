@@ -29,6 +29,23 @@
 	\end{tikzpicture}
 	\end{center}
 }{exe:aut0}{
+		\begin{enumerate}
+			\item
+			$\D = [-3 ; 3]$.
+			\item
+			Le maximum de $f$ est environ 5 et il est atteint en $-3$. $f(-3) \approx 5$.
+			\item 
+			Le minimum de $f$ est environ $-1,2$ et il est atteint en $0,5$. $f(-0,5) \approx -1,2$.
+			\item
+			Les zéros de $f$ sont approximativement $-1$ et $2$ car $f(-1) = f(2) = 0$.
+			\item 
+			Une fonction qui s'annule en $-1$ et en $2$ est, par exemple, $F(x) = (x+1)(x-2)$.
+			Cependant, $F(1) = 2 \times (-1) = -2$, alors que $f(1)$ semble être plutôt égal à $-1$.
+			Dès lors, un meilleur candidat est plutôt $f(x) = \frac12 (x+1)(x-2)$ (et c'est la fonction graphée ici).
+		\end{enumerate}
+	\underline{Discussion}
+
+	Le maximum et le minimum de $f$ sont atteints soit aux bornes du domaine, soit lorsque les variations de la fonction changent : elle passe de décroissante à croissante, ou de croissante à décroissante.
 }
 
 \exe{}{
@@ -192,7 +209,7 @@
 
 \begin{multicols}{2}
 \begin{Exercise}[label=exe:10]
-	Tracer la droite $y=3x - 2$ et remplir le tableau de signes ci-dessous.
+	Tracer la droite $y=3x - 2$ et remplir le tableau de variations ci-dessous.
 	
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
@@ -209,10 +226,10 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\hspace{-50pt}
+	\hspace{-55pt}
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=2,espcl=3]
+		[lgt=2,espcl=2.6]
 	       		{$x$ / 1, Variation de $3x-2$ / 1.5}
 			{,,}
 	\end{tikzpicture}
@@ -222,9 +239,10 @@
 \columnbreak
 
 \begin{Exercise}[label=exe:11]
-	Tracer la droite $y = -6x - 2$ et remplir le tableau de signes ci-dessous.
+	Tracer la droite $y = -6x - 2$ et remplir le tableau de variations ci-dessous.
 	
 	\begin{center}
+	\hspace{55pt}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -2, xmax=2, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
 			grid style = {opacity=.5},
@@ -239,10 +257,9 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\hspace{-25pt}
 	\begin{tikzpicture}
 		\tkzTabInit
-		[lgt=2.1,espcl=3]
+		[lgt=2.2,espcl=2.7]
 	       		{$x$ / 1 , Variation \mbox{de $-6x-2$} / 1.5}
 			{,,}
 	\end{tikzpicture}
@@ -253,13 +270,6 @@
 
 
 \begin{Answer}[ref=exe:10]
-	On résoud $3x-2 = 0$ pour trouver où la fonction s'annule exactement.
-		\begin{align*}
-			3x - 2 &= 0 \\
-			3x &= 2 \\
-			x &= \frac23
-		\end{align*}
-		
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -4, xmax=4, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -278,26 +288,18 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $3x-2$ / 2, Signe de $3x-2$ / 1}
-	       		{  $-10$ ,,  $\dfrac23$ ,,  $12$ }
+	       		{$x$ / 1 , Variation de $3x-2$ / 2}
+	       		{  $-4$ ,,  $\dfrac23$ ,,  $4$ }
 	       	
 		\tkzTabVar
-			{-/$-32$, R/, R/, R/, +/$34$}
+			{-/$-14$, R/, R/, R/, +/$10$}
 		\tkzTabIma
 			{1}{5}{3}{0}
-		\tkzTabLine
-			{,,-,,z,,+}
 	\end{tikzpicture}
 	\end{center}
 \end{Answer}
 
 \begin{Answer}[ref=exe:11]
-	On résoud $-6x-2 = 0$ pour trouver où la fonction s'annule exactement.
-		\begin{align*}
-			-6x - 2 &= 0 \\
-			-6x &= 2 \\
-			x &= \frac{2}{-6} = -\frac26 = -\frac13
-		\end{align*}
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -2, xmax=2, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
@@ -305,7 +307,6 @@
 			x=40pt,
 			xtick distance=1,
 			ytick distance=2,
-			%y=20pt,
 			clip=true,
 			]
 			\addplot[no marks, BLUE_E, -, very thick] expression[domain=-2:2, samples=2]{-6*x-2}
@@ -316,16 +317,13 @@
 	\begin{tikzpicture}
 		\tkzTabInit
 		 %[lgt=3,espcl=1.5]
-	       		{$x$ / 1 , Variation de $-6x-2$ / 2, Signe de $-6x-2$ / 1}
-	       		{  $-10$ ,,  $-\dfrac13$ ,,  $8$ }
+	       		{$x$ / 1 , Variation de $-6x-2$ / 2}
+	       		{  $-2$ ,,  $-\dfrac13$ ,,  $2$ }
 	       	
 		\tkzTabVar
-			{+/$58$, R/, R/, R/, -/$-50$}
+			{+/$10$, R/, R/, R/, -/$-14$}
 		\tkzTabIma
 			{1}{5}{3}{0}
-		\tkzTabLine
-			{,,+,,z,,-}
-		
 	\end{tikzpicture}
 	\end{center}
 \end{Answer}
@@ -333,7 +331,7 @@
 
 \exe{,difficulty=1}{
 	Considérons la courbe $\C_f$ graphiquement ci-dessous. 
-	Esquisser la courbe de chaque fonction suivante puis remplir son tableau de variations.
+	Dans les deux repères, tracer la courbe représentative de chaque fonction suivante puis remplir son tableau de variations.
 		\begin{multicols}{4}
 		\begin{enumerate}[label=]
 			\item $g(x) = f(x) + 1$
@@ -359,7 +357,6 @@
 		xtick distance=2,
 		clip=false,
 	    	]
-		% g cos
 		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=0, left]{$\mathcal{C}_f$};
 		\end{axis}
@@ -373,12 +370,6 @@
 	\end{tikzpicture}
 	\end{multicols}
 
-%	\begin{enumerate}[resume]
-%		\item Esquisser, dans le même repère, la courbe de $k(x) = -f(x)$.
-%		\item Esquisser, dans le même repère, la courbe de $\ell(x) = 2f(x)$.
-%		%\item Remplir le tableau de variations ci-dessous.
-%	\end{enumerate}
-	
 	\begin{multicols}{2}
 	\hspace{-50pt}
 	\begin{tikzpicture}[scale=1]
@@ -389,7 +380,6 @@
 		xtick distance=2,
 		clip=false,
 	    	]
-		% g cos
 		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
 		node[pos=0, left]{$\mathcal{C}_f$};
 		\end{axis}
@@ -405,20 +395,21 @@
 
 }{exe:parentes1}{
 	\begin{multicols}{2}
-	\begin{tikzpicture}[scale=1.1]
-		\begin{axis}[xmin = -10, xmax=7, ymin=-4.25, ymax=3.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
-		ytick={-4,-3,...,4},
-		%ytick={-4,-3,...,2,3}, xtick={-11, -10,...,-4,-3},
-	    	%every y tick label/.style={
-	        %anchor=near yticklabel opposite,
-	        %xshift=0.2em,
-	    	%}
+	\hspace{-60pt}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-6.25, ymax=3.75, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		x=15pt,
+		y=20pt,
+		ytick distance=1,
+		xtick distance=2,
+		clip=false,
 	    	]
-		% g cos
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_f$};
 		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)+1}
-		node[pos=.35, above]{$\mathcal{C}_g$};
+		node[pos=0, left]{$\mathcal{C}_g$};
 		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)-2}
-		node[pos=.35,above]{$\mathcal{C}_h$};
+		node[pos=0, left]{$\mathcal{C}_h$};
 		\end{axis}
 	\end{tikzpicture}
 	\begin{tikzpicture}
@@ -432,7 +423,41 @@
 		\tkzTabVar
 			{-/{$-3,1$}, +/{$1,2$}, -/{$-0,2$}, +/{$3,5$}}
 		\tkzTabVar
-			{-/{$-6,1$}, +/{$-1,2$}, -/{$-2,2$}, +/{$1,5$}}
+			{-/{$-6,1$}, +/{$-1,8$}, -/{$-3,2$}, +/{$0,5$}}
+	\end{tikzpicture}
+	\end{multicols}
+
+
+	\begin{multicols}{2}
+	\hspace{-60pt}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -10, xmax=7, ymin=-8.5, ymax=5.25, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+		x=15pt,
+		y=20pt,
+		ytick distance=1,
+		xtick distance=2,
+		clip=false,
+	    	]
+		\addplot[no marks, myb, -, very thick] expression[domain=-10:7, samples=50]{.01*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_f$};
+		\addplot[no marks, myr, -, very thick] expression[domain=-10:7, samples=50]{.02*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_k$};
+		\addplot[no marks, myg, -, very thick] expression[domain=-10:7, samples=50]{-.01*(x+6)*(x+3)*(x-5)}
+		node[pos=0, left]{$\mathcal{C}_\ell$};
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [espcl=2]
+	       		{$x$ / 1 , Variation de $f(x)$ / 2, Variation de $k(x)$ / 2, Variation de $\ell(x)$ / 2}
+	       		{$-10$,{$-4,6$}, {2},$7$}
+	       	
+		\tkzTabVar
+			{-/{$-4,1$}, +/{$0,2$}, -/{$-1,2$}, +/{$2,5$}}
+		\tkzTabVar
+			{-/{$-8,2$}, +/{$0,4$}, -/{$-2,4$}, +/{$5$}}
+		\tkzTabVar
+			{+/{$4,1$}, -/{$-0,2$}, +/{$1,2$}, -/{$-2,5$}}
 	\end{tikzpicture}
 	\end{multicols}
 }
