@@ -15,7 +15,7 @@
 
 \section*{Le Juste Prix}
 
-\subsubsection*{Règles du jeu}
+\subsection*{Règles du jeu}
 %\begin{namedtheorem}[Règles du jeu]
 	Le joueur doit deviner le prix d'un objet pour le gagner.
 	Pour cela, il peut faire plusieurs estimations.
@@ -29,10 +29,10 @@
 % intéressant à comparer à l'oral ; pas la place pour l'écrit ici
 %\subsection*{Méthode de balayage}
 
-\subsubsection*{Méthode de dichotomie}
+\subsection*{Méthode de dichotomie}
 
 %\begin{namedtheorem}[Simplification]
-	On suppose que le prix est un nombre entier entre 0€ et 1 000€ inclus.
+	Supposons que le prix est un nombre entier entre 0€ et 1 000€ inclus.
 %\end{namedtheorem}
 
 \vspace{10pt}
@@ -102,18 +102,24 @@ Prix final trouvé :
 \hspace{6cm}
 Nombre d'estimations :
 
-\subsubsection*{Stratégie de dichotomie}
+\subsection*{Stratégie de dichotomie}
 %\begin{namedtheorem}[Stratégie de dichotomie]
-	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle pour exclure la moitié des valeurs candidates.
 	
+	\phantom{
+	À chaque étape, on divise l'intervalle en deux et on appelle l'oracle pour exclure la moitié des valeurs candidates.
+	}
+	
+	\phantom{
 	Le nombre d'essais ne dépassera jamais 10 car $2^{10} = 1024 > 1000$.
+	}
 	
 	%La stratégie est optimale car si l'oracle agit comme adversaire, il peut choisir de changer $P$ selon le prix $x$ proposé par le joueur.
 %\end{namedtheorem}
 
 
-\subsubsection*{Algorithme}
+\subsection*{Algorithme}
 %\begin{namedtheorem}[Algorithme]\ \\
+	\phantom{
 	Entrée : fonction $f$ ; premier encadrement $a \leq x_0 \leq b$ ; précision $p$
 	\\
 	Sortie : encadrement final de $x_0$ tel que $b-a \leq p$
@@ -125,6 +131,7 @@ Nombre d'estimations :
 		$b = m$ \\
 		Sinon, \\
 		$a = m$ 
+	}
 %\end{namedtheorem}
 
 \newpage
@@ -134,30 +141,34 @@ Nombre d'estimations :
 \subsection*{Problème de recherche de zéro}
 %\begin{namedtheorem}[Problème de recherche de zéro]
 	Toutes les équations peuvent se réécrire comme $f(x) = 0$.
-	On appelle \emph{zéro} de $f$ ou \emph{racine} de $f(x) = 0$ un antécédent $x_0$ qui vérifie $f(x_0) = 0$.
+	On appelle « \emph{zéro} de $f$ » ou « \emph{racine} de l'équation $f(x) = 0$ » un antécédent $x_0$ qui vérifie $f(x_0) = 0$.
 
-	Le problème est le suivant : étant donné une précision, comment obtenir un encadrement
+	\begin{namedtheorem}[Problème]
+	Étant donné une précision, comment obtenir un encadrement
 		\mbox{$ a \leq x_0 \leq b $}
-	d'amplitude $b-a$ inférieure à la précision fixée ?
+	d'amplitude $b-a$ inférieure à cette précision ?
+	\end{namedtheorem}
 %\end{namedtheorem}
 
 \begin{multicols}{2}
-	\begin{tikzpicture}[>=stealth, scale=.8]
-	\begin{axis}[xmin = 0, xmax=2, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style = -, ytick distance=2, xtick distance=1, minor tick num=1, extra y ticks={0}, y=15pt, clip=true, ]
-		\addplot[BLUE_E, thick, domain =0:2, samples=100] {x^2 - 2}  node[above left, pos=.8] {$y=x^2 - 2$};
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = 0, xmax=3, ymin=-8, ymax=2, axis x line=middle, axis y line=middle, axis line style = -, ytick distance=2, xtick distance=1, minor tick num=1, extra y ticks={0}, y=10pt, clip=false, ]
+		\addplot[transparent, very thick, domain =0:3, samples=100] {x^2 - 7}  node[pos=.5, right] {$y=x^2 - 7$};
 	\end{axis}
 	\end{tikzpicture}
 	\columnbreak
 	\begin{namedtheorem}[Hypothèses]\
-		\begin{itemize}
+		\begin{itemize}[itemsep=5pt]
 			\item
-			Le tracé de $\C_f$ est continu.% : on trace la courbe sans lever son stylo.
+			Le tracé de $\C_f$ est continu : on trace la courbe sans lever son stylo.
 			\item
-			$f$ est croissante autour de sa racine.% (on peut prendre $-f$ dans le cas contraire).
+			$f$ est croissante autour de son zéro : elle passe du négatif au positif autour $x_0$.
+			% (on peut prendre $-f$ dans le cas contraire).
 			\item
 			%Pour chaque $x$ du domaine, un appel à un oracle permet de connaître le signe de $f(x)$.
 			Il est facile de calculer le signe de $f(x)$.
 		\end{itemize}
+		\vfill\,
 	\end{namedtheorem}
 \end{multicols}
 
@@ -225,16 +236,18 @@ Nombre d'estimations :
 %	Comme $\sqrt{700} = \sqrt{100\times7} = \sqrt{100}\times\sqrt{7}=10\sqrt7$, on peut multiplier l'encadrement de l'exercice \ref{exe:precision} par 10 pour conclure immédiatement.
 %}
 
+\vspace{-40pt}
+
 \subsection*{Trouver un polynôme annulateur}
 
 \begin{namedtheorem}[Exemples]
-	Considérons la fonction $f(x) = x^2 - 3$. Elle est
+	Considérons la fonction $f(x) = x^2 - 7$ (tracée ci-dessus). Elle est
 	\begin{enumerate}
 		\item un \emph{polynôme}, car elle s'exprime comme somme de multiples de $1, x, x^2, x^3, \hdots$ ; 
-		\item \emph{annulatrice} de $\sqrt3$ car $f\bigl(\sqrt3\bigr) = 0$ ;
-		\item à \emph{coefficients entiers} car les multiples de $1, x, x^2$ sont $-3 ; 0 ; 1$ respectivement et sont entiers.
+		\item \emph{annulatrice} de $\sqrt7$ car $f\bigl(\sqrt7\bigr) = 0$ ;
+		\item à \emph{coefficients entiers} car les multiples de $1, x, x^2$ sont $-7 ; 0 ; 1$ respectivement et sont entiers.
 	\end{enumerate}
-	La fonction $g(x) = x-\sqrt2$ est un polynôme annulateur de $\sqrt2$ mais pas à coefficients entiers.
+	La fonction $g(x) = x-\sqrt7$ est un polynôme annulateur de $\sqrt7$ mais pas à coefficients entiers.
 \end{namedtheorem}
 	
 \exe{, difficulty=0}{
@@ -278,15 +291,29 @@ Nombre d'estimations :
 	Un polynôme annulateur est donc $p(x) = 16x^4 - 20x^2 + 5$.
 }
 
-\begin{namedtheorem}[Théorème]
+\begin{namedtheorem}[Théorème (très difficile)]
 	Le nombre $\pi$, périmètre d'un cercle de diamètre 1, est un nombre transcendant : il n'existe pas de polynôme à coefficients entiers annulateur de $\pi$.
 \end{namedtheorem}
+
+\exe{, difficulty=4}{
+	En supposant que $\pi$ est transcendant, montrer que $2\pi$ l'est aussi.
+}{exe:2pi-transc}{
+	Supposons, par contradiction, qu'il existe un polynôme à coefficients entiers annulant $2\pi$.
+	Notons-le $a_0 + a_1x + \hdots + a_nx^n$ où les $a_0, a_1, \hdots, a_n \in\Z$ sont des entiers relatifs.
+	
+	Par hypothèse, $a_0 + a_1(2\pi) + a_2(2\pi)^2 + \hdots + a_n(2\pi)^n = 0$.
+	Or, cette équation est équivalent à 
+		\[ a_0 + (2a_1)\pi + (4a_2)\pi^2 + \hdots + (2^n a_n)\pi^n = 0, \]
+	ce qui implique que $\pi$ est annulé par le polynôme $a_0 + 2a_1x + 4a_2x^2 + \hdots + 2^n a_n x^n$ dont les coefficients sont entiers relatifs car les $a_i$ sont des entiers relatifs.
+	
+	Nous obtenons une contradiction car $\pi$ est supposé transcendant : $2\pi$ l'est donc également.
+}
 
 \subsection*{Étude de complexité}
 
 
 \exe{, difficulty=2}{
-	En partant d'un encadrement à l'unité d'une racine, combien d'étapes faut-il pour calculer ses 10 premières décimales ?
+	En partant d'un encadrement à l'unité d'un zéro, combien d'étapes faut-il pour calculer ses 10 premières décimales ?
 	
 	Montrer qu'on cherche le plus petit $n\in\N$ tel que $2^{n} > 10^{10}$
 	puis concevoir un algorithme permettant de trouver $n$.
