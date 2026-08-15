@@ -12,9 +12,8 @@
 *.toc
 *.ods
 *.odt
-Statistiques/__pycache__/
 Statistiques/2nde13.csv
-*/*/*.listing
+**/*.listing
 Notes-de-cours/notes.listing
 Notes-de-cours/_minted-notes/*
 Exercices/Fonctions/serie1/_minted-serie1/*
@@ -25,6 +24,5 @@ Animations/*
 *.svg
 *.idx
 *.ind
-Devoirs-maison/__pycache__/
-*/*/*/_minted
-*/_minted
+**/__pycache__/
+**/_minted
