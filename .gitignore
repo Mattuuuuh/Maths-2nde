@@ -26,3 +26,5 @@ Animations/*
 *.idx
 *.ind
 Devoirs-maison/__pycache__/
+*/*/*/_minted
+*/_minted
